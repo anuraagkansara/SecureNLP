@@ -1,0 +1,291 @@
+T1	Subject 355 373	the Equation Group
+T2	Action 347 351	used
+A1	Capability T2 019:MalwareCapability-spying
+T3	Object 311 346	one of the main espionage platforms
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Action 785 795	represents
+A2	Capability T4 019:MalwareCapability-spying
+T5	Subject 772 784	EquationDrug
+R3	SubjAction Subject:T5 Action:T4	
+T6	Object 796 851	the main espionage platform from the #EquationAPT Group
+R4	ActionObj Action:T4 Object:T6	
+T7	Object 1329 1354	The EquationDrug platform
+T8	Action 1362 1370	extended
+A3	Capability T8 017:MalwareCapability-secondary_operation
+A4	TacticalObjectives T8 119:SecondaryOperation-install_secondary_module
+A5	StrategicObjectives T8 050:SecondaryOperation-install_other_components
+T9	Modifier 1371 1378	through
+T10	Object 1379 1399	plugins (or modules)
+R5	ActionObj Action:T8 Object:T7	
+R6	ModObj Modifier:T9 Object:T10	
+R7	ActionMod Action:T8 Modifier:T9	
+T11	Subject 1422 1431;1442 1456	a default set of plugins
+T12	Action 1457 1467	supporting
+A6	Capability T12 019:MalwareCapability-spying
+T13	Object 1468 1510	a number of basic cyberespionage functions
+R8	SubjAction Subject:T11 Action:T12	
+R9	ActionObj Action:T12 Object:T13	
+T14	Subject 1512 1517	These
+R10	CoRefer Referer:T13 Canonical:T14	
+T15	Action 1518 1525	include
+A7	Capability T15 019:MalwareCapability-spying
+A8	TacticalObjectives T15 146:Spying-capture_system_screenshot
+A9	StrategicObjectives T15 063:Spying-capture_system_output_peripheral_data
+T16	Object 1580 1605	the making of screenshots
+R11	SubjAction Subject:T14 Action:T15	
+R12	ActionObj Action:T15 Object:T16	
+T17	Action 1518 1525	include
+A10	Capability T17 006:MalwareCapability-data_exfiltration
+A11	StrategicObjectives T17 021:DataExfiltration-stage_data_for_exfiltration
+T18	Object 1560 1575	file collection
+R13	SubjAction Subject:T14 Action:T17	
+R14	ActionObj Action:T17 Object:T18	
+T19	Action 1634 1641	storing
+A12	Capability T19 002:MalwareCapability-anti-detection
+A13	TacticalObjectives T19 060:DataExfiltration-hide_data
+T20	Object 1642 1653	stolen data
+R15	ActionObj Action:T19 Object:T20	
+T21	Modifier 1654 1660	inside
+T22	Object 1671 1709	a custom-encrypted virtual file system
+R16	ModObj Modifier:T21 Object:T22	
+R17	ActionMod Action:T19 Modifier:T21	
+T23	Action 1723 1727	sent
+A14	Capability T23 005:MalwareCapability-command_and_control
+A15	StrategicObjectives T23 018:CommandandControl-send_data_to_c2_server
+T24	Modifier 1728 1730	to
+T25	Object 1731 1762	the command and control servers
+T26	Object 1717 1719	it
+R18	CoRefer Referer:T22 Canonical:T26	
+R19	ActionObj Action:T23 Object:T26	
+R20	ActionMod Action:T23 Modifier:T24	
+R21	ModObj Modifier:T24 Object:T25	
+T27	Action 7799 7808	protected
+A16	Capability T27 001:MalwareCapability-anti-code_analysis
+A17	TacticalObjectives T27 010:AntiCodeAnalysis-obfuscate_instructions
+A18	StrategicObjectives T27 004:AntiCodeAnalysis-code_obfuscation
+T28	Object 7761 7785	Most of this information
+R22	ActionObj Action:T27 Object:T28	
+T29	Modifier 7809 7813	with
+T30	Object 7814 7850	obfuscation or encryption algorithms
+R23	ModObj Modifier:T29 Object:T30	
+R24	ActionMod Action:T27 Modifier:T29	
+T31	Subject 19330 19369	Some code paths in EquationDrug modules
+T32	Action 19370 19377	lead to
+A19	Capability T32 015:MalwareCapability-probing
+A20	TacticalObjectives T32 113:Probing-identify_os
+T33	Object 19378 19395	OS version checks
+R25	ActionObj Action:T32 Object:T33	
+R26	SubjAction Subject:T31 Action:T32	
+T34	Subject 22092 22103	This module
+T35	Action 22108 22114	create
+A21	Capability T35 017:MalwareCapability-secondary_operation
+A22	StrategicObjectives T35 052:SecondaryOperation-log_activity
+T36	Object 22115 22124	log files
+R27	SubjAction Subject:T34 Action:T35	
+R28	ActionObj Action:T35 Object:T36	
+T37	Modifier 22125 22127	in
+T38	Object 22128 22157	the following known locations
+R29	ModObj Modifier:T37 Object:T38	
+R30	ActionMod Action:T35 Modifier:T37	
+T39	Action 21271 21278	started
+A23	Capability T39 013:MalwareCapability-persistence
+A24	StrategicObjectives T39 040:Persistence-ensure_compatibility
+T40	Object 21220 21236	a new executable
+R31	ActionObj Action:T39 Object:T40	
+T41	Modifier 21279 21282	via
+T42	Object 21283 21302	the traditional way
+R32	ActionMod Action:T39 Modifier:T41	
+R33	ModObj Modifier:T41 Object:T42	
+T43	Action 25842 25852	generating
+A25	ActionName T43 135:Registry-create_registry_key
+T44	Object 25853 25873	registry value names
+T45	Subject 25803 25813	The module
+R34	SubjAction Subject:T45 Action:T43	
+R35	ActionObj Action:T43 Object:T44	
+T46	Action 23368 23375	protect
+A26	Capability T46 003:MalwareCapability-anti-removal
+A27	TacticalObjectives T46 040:AntiRemoval-prevent_registry_deletion
+A28	StrategicObjectives T46 012:AntiRemoval-prevent_malware_artifact_deletion
+T47	Object 23376 23389	registry keys
+R36	ActionObj Action:T46 Object:T47	
+T48	Action 23360 23364	hide
+A29	Capability T48 002:MalwareCapability-anti-detection
+A30	TacticalObjectives T48 028:AntiDetection-hide_registry_artifacts
+A31	StrategicObjectives T48 007:AntiDetection-hide_malware_artifacts
+R37	ActionObj Action:T48 Object:T47	
+T49	Object 23402 23407	files
+T50	Action 23360 23364	hide
+A32	Capability T50 002:MalwareCapability-anti-detection
+A33	ActionName T50 032:File-hide_file
+R38	ActionObj Action:T50 Object:T49	
+T51	Object 23412 23429	running processes
+T52	Action 23360 23364	hide
+A34	Capability T52 002:MalwareCapability-anti-detection
+A35	TacticalObjectives T52 027:AntiDetection-hide_processes
+A36	StrategicObjectives T52 007:AntiDetection-hide_malware_artifacts
+R39	ActionObj Action:T52 Object:T51	
+T53	Action 23368 23375	protect
+A37	Capability T53 003:MalwareCapability-anti-removal
+A38	TacticalObjectives T53 037:AntiRemoval-prevent_file_deletion
+A39	StrategicObjectives T53 012:AntiRemoval-prevent_malware_artifact_deletion
+R40	ActionObj Action:T53 Object:T49	
+T54	Action 23581 23590	maintains
+A40	Capability T54 013:MalwareCapability-persistence
+A41	ActionName T54 135:Registry-create_registry_key
+T55	Object 23591 23621;23633 23688	a persistent list of protected objects that is stored in the following registry values
+T56	Subject 23565 23575	The driver
+R41	SubjAction Subject:T56 Action:T54	
+R42	ActionObj Action:T54 Object:T55	
+T57	Action 27666 27671	start
+A42	ActionName T57 104:Process-create_process
+T58	Object 27672 27691	the "shell" process
+T59	Modifier 27692 27694	in
+T60	Object 27695 27709	suspended mode
+T61	Subject 27643 27653	The module
+R43	SubjAction Subject:T61 Action:T57	
+R44	ActionObj Action:T57 Object:T58	
+R45	ModObj Modifier:T59 Object:T60	
+R46	ActionMod Action:T57 Modifier:T59	
+T62	Action 28596 28603	injects
+A43	Capability T62 002:MalwareCapability-anti-detection
+A44	ActionName T62 123:ProcessMemory-write_to_process_memory
+A45	TacticalObjectives T62 019:AntiDetection-execute_stealthy_code
+T63	Object 28604 28614	extra code
+T64	Modifier 28615 28619	into
+T65	Object 28620 28650	a newly started target process
+T66	Subject 28585 28595	the module
+R47	SubjAction Subject:T66 Action:T62	
+R48	ActionObj Action:T62 Object:T63	
+R49	ModObj Modifier:T64 Object:T65	
+R50	ActionMod Action:T62 Modifier:T64	
+T67	Subject 28652 28669	The injected code
+T68	Action 28670 28675	loads
+A46	ActionName T68 084:Library-load_library
+T69	Object 28676 28679;28691 28718	the payload DLL ("mscfg32.dll")
+T70	Modifier 28719 28723	into
+T71	Object 28724 28742	the target process
+R51	ModObj Modifier:T70 Object:T71	
+R52	SubjAction Subject:T67 Action:T68	
+R53	ActionObj Action:T68 Object:T69	
+R54	ActionMod Action:T68 Modifier:T70	
+T72	Action 30532 30536	logs
+A47	Capability T72 017:MalwareCapability-secondary_operation
+A48	StrategicObjectives T72 052:SecondaryOperation-log_activity
+T73	Object 30537 30611	the execution of every stage of the orchestrator and the time of execution
+R55	ActionObj Action:T72 Object:T73	
+T74	Subject 30529 30531	it
+R56	SubjAction Subject:T74 Action:T72	
+T75	Subject 31273 31283	The module
+T76	Action 31284 31290	checks
+A49	Capability T76 015:MalwareCapability-probing
+A50	TacticalObjectives T76 113:Probing-identify_os
+T77	Object 31291 31305	the OS version
+R57	SubjAction Subject:T75 Action:T76	
+R58	ActionObj Action:T76 Object:T77	
+T78	Action 31611 31619	executes
+A51	Capability T78 002:MalwareCapability-anti-detection
+A52	ActionName T78 147:Service-create_service
+A53	StrategicObjectives T78 006:AntiDetection-hide_executing_code
+A54	TacticalObjectives T78 019:AntiDetection-execute_stealthy_code
+T79	Object 31620 31666	Win9x-specific function RegisterServiceProcess
+T80	Modifier 31667 31669	to
+T81	Object 31670 31683;31695 31727	hide from the Windows Task Manager application
+T82	Subject 31608 31610	it
+R59	SubjAction Subject:T82 Action:T78	
+R60	ActionObj Action:T78 Object:T79	
+R61	ActionMod Action:T78 Modifier:T80	
+R62	ModObj Modifier:T80 Object:T81	
+T83	Action 46650 46658	provides
+A55	Capability T83 013:MalwareCapability-persistence
+A56	StrategicObjectives T83 040:Persistence-ensure_compatibility
+T84	Object 46659 46680	a compatibility layer
+T85	Subject 46638 46649	This module
+T86	Modifier 46681 46684	for
+T87	Object 46685 46730	accessing system API functions for Windows 9x
+R63	ModObj Modifier:T86 Object:T87	
+R64	ActionObj Action:T83 Object:T84	
+R65	ActionMod Action:T83 Modifier:T86	
+R66	SubjAction Subject:T85 Action:T83	
+T88	Action 49529 49536	Creates
+A57	ActionName T88 024:File-create_file
+T89	Object 49537 49551	a file storage
+R67	ActionObj Action:T88 Object:T89	
+T90	Action 51390 51399	targeting
+A58	Capability T90 011:MalwareCapability-integrity_violation
+A59	TacticalObjectives T90 098:IntegrityViolation-intercept/manipulate_network_traffic
+A60	StrategicObjectives T90 034:IntegrityViolation-compromise_network_operational_integrity
+T91	Object 51400 51416	incoming traffic
+T92	Modifier 51417 51419	on
+T93	Object 51420 51459	Ethernet and VPN (ndiswanip) interfaces
+R68	ModObj Modifier:T92 Object:T93	
+R69	ActionObj Action:T90 Object:T91	
+R70	ActionMod Action:T90 Modifier:T92	
+T94	Action 58048 58053	reads
+A61	ActionName T94 146:Registry-read_registry_key_value
+T95	Subject 58045 58047	it
+T96	Object 58054 58068	registry value
+R71	SubjAction Subject:T95 Action:T94	
+R72	ActionObj Action:T94 Object:T96	
+T97	Subject 58318 58344;58356 58385	The injection of code into winlogon.exe and services.exe
+T98	Action 58386 58393	ensures
+A62	Capability T98 014:MalwareCapability-privilege_escalation
+A63	TacticalObjectives T98 107:PrivilegeEscalation-elevate_cpu_mode
+A64	StrategicObjectives T98 044:PrivilegeEscalation-escalate_user_privilege
+T99	Modifier 58394 58398	that
+T100	Object 58399 58457	the newly started process will have SYSTEM user privileges
+R73	SubjAction Subject:T97 Action:T98	
+R74	ActionMod Action:T98 Modifier:T99	
+R75	ModObj Modifier:T99 Object:T100	
+T101	Action 64291 64293	is
+A65	Capability T101 011:MalwareCapability-integrity_violation
+A66	TacticalObjectives T101 098:IntegrityViolation-intercept/manipulate_network_traffic
+A67	StrategicObjectives T101 034:IntegrityViolation-compromise_network_operational_integrity
+T102	Object 64294 64379	a packet sniffer for incoming-only traffic on Ethernet and VPN (ndiswanip) interfaces
+T103	Subject 64279 64290	This driver
+R76	SubjAction Subject:T103 Action:T101	
+R77	ActionObj Action:T101 Object:T102	
+T104	Action 67399 67401	is
+A68	Capability T104 019:MalwareCapability-spying
+A69	TacticalObjectives T104 140:Spying-capture_keyboard_input
+A70	StrategicObjectives T104 061:Spying-capture_system_input_peripheral_data
+T105	Object 67402 67443	a keylogger and clipboard monitoring tool
+T106	Subject 67394 67398	This
+R78	SubjAction Subject:T106 Action:T104	
+R79	ActionObj Action:T104 Object:T105	
+T107	Action 68465 68472	collect
+A71	Capability T107 019:MalwareCapability-spying
+A72	TacticalObjectives T107 140:Spying-capture_keyboard_input
+A73	StrategicObjectives T107 061:Spying-capture_system_input_peripheral_data
+T108	Object 68473 68489	key press chains
+T109	Subject 68427 68441	These routines
+R80	SubjAction Subject:T109 Action:T107	
+R81	ActionObj Action:T107 Object:T108	
+T110	Action 68674 68681	gathers
+A74	Capability T110 006:MalwareCapability-data_exfiltration
+A75	StrategicObjectives T110 021:DataExfiltration-stage_data_for_exfiltration
+T111	Object 68682 68700	the collected data
+T112	Action 68702 68712	compresses
+A76	Capability T112 006:MalwareCapability-data_exfiltration
+A77	TacticalObjectives T112 062:DataExfiltration-package_data
+A78	StrategicObjectives T112 021:DataExfiltration-stage_data_for_exfiltration
+T113	Object 68713 68724	the results
+T114	Modifier 68725 68729	with
+T115	Object 68730 68733	LZO
+R82	ModObj Modifier:T114 Object:T115	
+R83	ActionObj Action:T112 Object:T113	
+R84	ActionObj Action:T110 Object:T111	
+T116	Subject 68644 68662	A dedicated thread
+R85	SubjAction Subject:T116 Action:T110	
+R86	SubjAction Subject:T116 Action:T112	
+R87	ActionMod Action:T112 Modifier:T114	
+T117	Action 68851 68860	encrypted
+A79	Capability T117 006:MalwareCapability-data_exfiltration
+A80	TacticalObjectives T117 053:DataExfiltration-encrypt_data
+A81	StrategicObjectives T117 019:DataExfiltration-obfuscate_data_for_exfiltration
+T118	Object 68827 68846	Most strings inside
+T119	Modifier 68861 68863	by
+T120	Object 68864 68909	XOR with a pre-seeded random number generator
+R88	ModObj Modifier:T119 Object:T120	
+R89	ActionMod Action:T117 Modifier:T119	
+R90	ActionObj Action:T117 Object:T118	

@@ -1,0 +1,24 @@
+T1	Subject 5818 5829	The malware
+T2	Action 5856 5859	use
+A1	Capability T2 005:MalwareCapability-command_and_control
+T3	Object 5860 5876	good.myftp[.]org
+T4	Modifier 5877 5879	as
+T5	Object 5880 5890	the C2 URL
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ModObj Modifier:T4 Object:T5	
+R4	ActionMod Action:T2 Modifier:T4	
+T6	Action 7878 7883	avoid
+A2	Capability T6 002:MalwareCapability-anti-detection
+T7	Object 7884 7893	detection
+R5	ActionObj Action:T6 Object:T7	
+T8	Subject 8047 8052	Nitro
+T9	Action 8063 8071	re-using
+A3	Capability T9 005:MalwareCapability-command_and_control
+T10	Object 8072 8093	old C2 infrastructure
+T11	Modifier 8094 8098	with
+T12	Object 8099 8116	their new malware
+R6	SubjAction Subject:T8 Action:T9	
+R7	ActionObj Action:T9 Object:T10	
+R8	ActionMod Action:T9 Modifier:T11	
+R9	ModObj Modifier:T11 Object:T12	

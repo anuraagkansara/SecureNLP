@@ -1,0 +1,624 @@
+T1	Action 110084 110090	ensure
+A1	Capability T1 010:MalwareCapability-infection/propagation
+A2	StrategicObjectives T1 032:InfectionPropagation-prevent_duplicate_infection
+T2	Object 110091 110136	only single instance of the module is running
+T3	Subject 110138 110148	the module
+R1	SubjAction Subject:T3 Action:T1	
+R2	ActionObj Action:T1 Object:T2	
+T4	Subject 110334 110336	It
+R3	CoRefer Referer:T3 Canonical:T4	
+T5	Action 110337 110341	gets
+A3	ActionName T5 146:Registry-read_registry_key_value
+R4	SubjAction Subject:T4 Action:T5	
+T6	Object 110342 110365	CPU name and identifier
+R5	ActionObj Action:T5 Object:T6	
+T7	Modifier 110366 110370	from
+T8	Object 110371 110413;110414 110439	the registry at HKLM\HARDWARE\DESCRIPTION\ System\CentralProcessor\0
+R6	ActionMod Action:T5 Modifier:T7	
+R7	ModObj Modifier:T7 Object:T8	
+A4	Capability T5 007:MalwareCapability-data_theft
+A5	StrategicObjectives T5 024:DataTheft-steal_system_information
+A6	TacticalObjectives T5 073:DataTheft-steal_make/model
+T9	Action 110444 110452	collects
+A7	Capability T9 007:MalwareCapability-data_theft
+A8	TacticalObjectives T9 074:DataTheft-steal_network_address
+A9	StrategicObjectives T9 024:DataTheft-steal_system_information
+T10	Object 110453 110499	IP and MAC addresses of local network adapters
+R8	ActionObj Action:T9 Object:T10	
+R9	SubjAction Subject:T4 Action:T9	
+T11	Subject 110261 110271	The module
+T12	Action 110272 110282	implements
+A10	Capability T12 000:MalwareCapability-anti-behavioral_analysis
+A11	TacticalObjectives T12 004:AntiBehavioralAnalysis-prevent_execution_in_vm
+A12	StrategicObjectives T12 001:AntiBehavioralAnalysis-anti-vm
+T13	Object 110283 110291	a method
+T14	Modifier 110292 110294	to
+T15	Object 110295 110332	resist running in virtual environment
+R10	SubjAction Subject:T11 Action:T12	
+R11	ActionObj Action:T12 Object:T13	
+R12	ActionMod Action:T12 Modifier:T14	
+R13	ModObj Modifier:T14 Object:T15	
+T16	Subject 110937 110947	the module
+T17	Action 110960 110966	delete
+A13	Capability T17 017:MalwareCapability-secondary_operation
+A14	ActionName T17 028:File-delete_file
+A15	StrategicObjectives T17 054:SecondaryOperation-remove_traces_of_infection
+A16	TacticalObjectives T17 121:SecondaryOperation-remove_system_artifacts
+T18	Object 110967 110984;110985 111044	some other, prob- ably older, components which might be present on the system
+R14	SubjAction Subject:T16 Action:T17	
+R15	ActionObj Action:T17 Object:T18	
+T19	Action 111342 111347	check
+A17	ActionName T19 030:File-find_file
+T20	Object 111348 111389	if current directory has a file named «U»
+R16	ActionObj Action:T19 Object:T20	
+T21	Subject 111549 111559	the module
+T22	Action 111560 111565	wipes
+A18	Capability T22 008:MalwareCapability-destruction
+A19	ActionName T22 028:File-delete_file
+A20	StrategicObjectives T22 027:Destruction-destroy_virtual_entity
+A21	TacticalObjectives T22 085:Destruction-erase_data
+T23	Object 111779 111787	the file
+R17	SubjAction Subject:T21 Action:T22	
+R18	ActionObj Action:T22 Object:T23	
+T24	Subject 111809 111827	a special variable
+T25	Action 111833 111838	makes
+A22	Capability T25 017:MalwareCapability-secondary_operation
+A23	StrategicObjectives T25 051:SecondaryOperation-lay_dormant
+T26	Object 111839 111845	module
+T27	Object 111846 111853	dormant
+R19	SubjAction Subject:T24 Action:T25	
+R20	ActionObj Action:T25 Object:T26	
+R21	ActionObj Action:T25 Object:T27	
+T28	Subject 112027 112037	The module
+T29	Action 112038 112046	connects
+A24	Capability T29 005:MalwareCapability-command_and_control
+A25	ActionName T29 088:Network-connect_to_url
+T30	Modifier 112047 112049	to
+T31	Object 112050 112095;112100 112115	autolace.twilightparadox.com (or automachine. servequake.com)
+T32	Action 112120 112126	issues
+A26	Capability T32 005:MalwareCapability-command_and_control
+A27	ActionName T32 054:HTTP-send_http_get_request
+A28	StrategicObjectives T32 018:CommandandControl-send_data_to_c2_server
+T33	Object 112127 112145	a HTTP GET request
+T34	Modifier 112146 112150	with
+T35	Object 112151 112171;112176 112182	hardcoded User­Agent string
+R22	SubjAction Subject:T28 Action:T29	
+R23	ActionMod Action:T29 Modifier:T30	
+R24	ModObj Modifier:T30 Object:T31	
+R25	SubjAction Subject:T28 Action:T32	
+R26	ActionObj Action:T32 Object:T33	
+R27	ActionMod Action:T32 Modifier:T34	
+R28	ModObj Modifier:T34 Object:T35	
+T36	Object 112548 112563	«DEXT87» string
+T37	Action 112570 112577	is used
+A29	Capability T37 005:MalwareCapability-command_and_control
+A30	TacticalObjectives T37 052:CommandandControl-validate_data
+T38	Modifier 112578 112580	to
+T39	Object 112581 112585;112590 112611	rec- ognize valid response
+R29	ActionObj Action:T37 Object:T36	
+R30	ActionMod Action:T37 Modifier:T38	
+R31	ModObj Modifier:T38 Object:T39	
+T40	Subject 113021 113031	the module
+T41	Action 113043 113047	send
+A31	Capability T41 005:MalwareCapability-command_and_control
+A32	ActionName T41 096:Network-send_network_packet
+A33	StrategicObjectives T41 018:CommandandControl-send_data_to_c2_server
+T42	Object 113048 113057;113062 113069	identical request
+T43	Modifier 113080 113085	using
+T44	Object 113086 113107	a different HTTP path
+R32	SubjAction Subject:T40 Action:T41	
+R33	ActionObj Action:T41 Object:T42	
+R34	ActionMod Action:T41 Modifier:T43	
+R35	ModObj Modifier:T43 Object:T44	
+T45	Object 113070 113075	again
+R36	ActionObj Action:T41 Object:T45	
+T46	Subject 113181 113191	the module
+T47	Action 113192 113198	issues
+A34	Capability T47 005:MalwareCapability-command_and_control
+A35	StrategicObjectives T47 018:CommandandControl-send_data_to_c2_server
+T48	Object 113199 113219	another HTTP request
+R37	SubjAction Subject:T46 Action:T47	
+R38	ActionObj Action:T47 Object:T48	
+T49	Object 114009 114011	it
+T50	Action 114012 114020	is XORed
+A36	Capability T50 002:MalwareCapability-anti-detection
+A37	TacticalObjectives T50 023:AntiDetection-hide_file_system_artifacts
+A38	StrategicObjectives T50 007:AntiDetection-hide_malware_artifacts
+R39	ActionObj Action:T50 Object:T49	
+T51	Modifier 114021 114025	with
+T52	Object 114026 114030;114036 114046	byte value 0x55
+R40	ActionMod Action:T50 Modifier:T51	
+R41	ModObj Modifier:T51 Object:T52	
+T53	Action 114051 114056	saved
+A39	ActionName T53 043:File-write_to_file
+R42	ActionObj Action:T53 Object:T49	
+T54	Modifier 114057 114059	to
+T55	Object 114060 114066	a disk
+T56	Modifier 114067 114069	in
+T57	Object 114070 114095	a file named «ctfmon.exe»
+R43	ActionMod Action:T53 Modifier:T54	
+R44	ActionMod Action:T53 Modifier:T56	
+R45	ModObj Modifier:T54 Object:T55	
+R46	ModObj Modifier:T56 Object:T57	
+T58	Subject 114567 114582	WinRar SFX file
+T59	Action 114588 114593	drops
+A40	Capability T59 017:MalwareCapability-secondary_operation
+A41	TacticalObjectives T59 118:SecondaryOperation-install_secondary_malware
+A42	StrategicObjectives T59 050:SecondaryOperation-install_other_components
+T60	Action 114598 114604	starts
+A43	ActionName T60 029:File-execute_file
+T61	Object 114605 114615	the module
+T62	Modifier 114616 114620	from
+T63	Object 114621 114656;114657 114660	%APPDATA%\Microsoft\Display\DmaUp3. exe
+R47	SubjAction Subject:T58 Action:T59	
+R48	ActionObj Action:T59 Object:T61	
+R49	SubjAction Subject:T58 Action:T60	
+R50	ActionObj Action:T60 Object:T61	
+R51	ActionMod Action:T60 Modifier:T62	
+R52	ModObj Modifier:T62 Object:T63	
+T64	Subject 114682 114692	the module
+T65	Action 114699 114706	collect
+A44	Capability T65 007:MalwareCapability-data_theft
+T66	Object 114707 114734;114735 114747	various secrets stored on a local system
+R53	SubjAction Subject:T64 Action:T65	
+R54	ActionObj Action:T65 Object:T66	
+T67	Subject 114922 114933	this module
+T68	Action 114934 114940	checks
+A45	ActionName T68 106:Process-enumerate_processes
+T69	Object 114941 114976;114977 114994	if «bdagent.exe» process is running on current system
+R55	SubjAction Subject:T67 Action:T68	
+R56	ActionObj Action:T68 Object:T69	
+T70	Subject 115073 115075	it
+R57	CoRefer Referer:T67 Canonical:T70	
+T71	Action 115076 115080	uses
+A46	Capability T71 002:MalwareCapability-anti-detection
+A47	StrategicObjectives T71 009:AntiDetection-security_software_evasion
+T72	Object 115081 115119	simple AV heuristics evasion technique
+R58	SubjAction Subject:T70 Action:T71	
+R59	ActionObj Action:T71 Object:T72	
+T73	Subject 115121 115129	The code
+T74	Action 115130 115136	starts
+A48	ActionName T74 125:ProcessThread-create_thread
+T75	Object 115137 115138;115139 115215;115216 115233	a thread that simulates keystrokes of ESC keyboard key and then shows a system modal message box
+R60	SubjAction Subject:T73 Action:T74	
+R61	ActionObj Action:T74 Object:T75	
+T76	Object 115298 115325	keystroke generation thread
+T77	Action 115326 115339	is terminated
+A49	ActionName T77 130:ProcessThread-kill_thread
+R62	ActionObj Action:T77 Object:T76	
+T78	Subject 115424 115434	the module
+T79	Action 115435 115445	makes sure
+T80	Object 115446 115490	only one instance of current code is running
+A50	Capability T79 010:MalwareCapability-infection/propagation
+A51	StrategicObjectives T79 032:InfectionPropagation-prevent_duplicate_infection
+R63	SubjAction Subject:T78 Action:T79	
+R64	ActionObj Action:T79 Object:T80	
+T81	Modifier 115491 115493	by
+T82	Object 115494 115550	checking if system mutex object named «920111215» exists
+R65	ActionMod Action:T79 Modifier:T81	
+R66	ModObj Modifier:T81 Object:T82	
+T83	Subject 115564 115572;115573 115576	the mod- ule
+T84	Action 115577 115585	collects
+A52	Capability T84 007:MalwareCapability-data_theft
+A53	StrategicObjectives T84 024:DataTheft-steal_system_information
+T85	Object 115586 115647	information about current system which includes the following
+R67	SubjAction Subject:T83 Action:T84	
+R68	ActionObj Action:T84 Object:T85	
+T86	Subject 117007 117020	the attackers
+T87	Action 117025 117030	steal
+A54	Capability T87 007:MalwareCapability-data_theft
+A55	TacticalObjectives T87 082:DataTheft-steal_web/network_credential
+A56	StrategicObjectives T87 022:DataTheft-steal_authentication_credentials
+T88	Object 117031 117047;117048 117053	logins and pass- words
+R69	SubjAction Subject:T86 Action:T87	
+R70	ActionObj Action:T87 Object:T88	
+T89	Object 117201 117225	IntelliForms information
+T90	Action 117226 117235	is stolen
+A57	Capability T90 007:MalwareCapability-data_theft
+A58	StrategicObjectives T90 023:DataTheft-steal_stored_information
+R71	ActionObj Action:T90 Object:T89	
+T91	Subject 118793 118803	The module
+T92	Action 118804 118808	uses
+A59	Capability T92 002:MalwareCapability-anti-detection
+A60	TacticalObjectives T92 023:AntiDetection-hide_file_system_artifacts
+A61	StrategicObjectives T92 007:AntiDetection-hide_malware_artifacts
+T93	Object 118809 118844	several simple XOR­based algorithms
+T94	Modifier 118845 118847	to
+T95	Object 118848 118864;118865 118876	encrypt embedded string data
+R72	SubjAction Subject:T91 Action:T92	
+R73	ActionObj Action:T92 Object:T93	
+R74	ActionMod Action:T92 Modifier:T94	
+R75	ModObj Modifier:T94 Object:T95	
+T96	Action 119781 119789	stealing
+A62	Capability T96 007:MalwareCapability-data_theft
+A63	StrategicObjectives T96 023:DataTheft-steal_stored_information
+T97	Object 119790 119797	secrets
+T98	Modifier 119798 119802	from
+T99	Object 119803 119821	Firefox and Chrome
+R76	ActionObj Action:T96 Object:T97	
+R77	ActionMod Action:T96 Modifier:T98	
+R78	ModObj Modifier:T98 Object:T99	
+T100	Subject 119822 119824	it
+R79	SubjAction Subject:T100 Action:T96	
+R80	CoRefer Referer:T91 Canonical:T100	
+T101	Action 120018 120026	stealing
+A64	Capability T101 007:MalwareCapability-data_theft
+A65	StrategicObjectives T101 023:DataTheft-steal_stored_information
+T102	Object 120027 120034	secrets
+T103	Modifier 120035 120039	from
+T104	Object 120040 120052	local system
+T105	Subject 120053 120064	the malware
+T106	Action 120065 120073	executes
+A66	ActionName T106 029:File-execute_file
+T107	Object 120074 120086;120087 120102	some kind of embedded script
+R81	SubjAction Subject:T105 Action:T101	
+R82	ActionObj Action:T101 Object:T102	
+R83	ActionMod Action:T101 Modifier:T103	
+R84	ModObj Modifier:T103 Object:T104	
+R85	SubjAction Subject:T105 Action:T106	
+R86	ActionObj Action:T106 Object:T107	
+T108	Subject 120104 120106	It
+T109	Action 120107 120117	is logging
+A67	Capability T109 017:MalwareCapability-secondary_operation
+A68	StrategicObjectives T109 052:SecondaryOperation-log_activity
+T110	Object 120118 120129	all actions
+T111	Modifier 120130 120132	to
+T112	Object 120133 120169;120170 120209	inform the operator what exactly was executed by this variant of the malware
+R87	SubjAction Subject:T108 Action:T109	
+R88	ActionObj Action:T109 Object:T110	
+R89	ActionMod Action:T109 Modifier:T111	
+R90	ModObj Modifier:T111 Object:T112	
+T113	Action 120275 120283	uploaded
+A69	Capability T113 005:MalwareCapability-command_and_control
+A70	ActionName T113 097:Network-upload_file
+A71	StrategicObjectives T113 018:CommandandControl-send_data_to_c2_server
+T114	Modifier 120284 120286	to
+T115	Object 120287 120301	the C&C server
+R91	ActionMod Action:T113 Modifier:T114	
+R92	ModObj Modifier:T114 Object:T115	
+T116	Object 120211 120239	The result of this execution
+R93	ActionObj Action:T113 Object:T116	
+T117	Subject 120303 120313	The module
+T118	Action 120314 120321	uploads
+A72	Capability T118 006:MalwareCapability-data_exfiltration
+A73	ActionName T118 058:HTTP-send_http_post_request
+A74	StrategicObjectives T118 020:DataExfiltration-perform_data_exfiltration
+A75	TacticalObjectives T118 057:DataExfiltration-exfiltrate_via_network
+T119	Object 120322 120347	all collected information
+T120	Modifier 120348 120350	to
+T121	Object 120351 120376	one of the following URLs
+T122	Modifier 120377 120380	via
+T123	Object 120381 120393	POST request
+R94	SubjAction Subject:T117 Action:T118	
+R95	ActionObj Action:T118 Object:T119	
+R96	ActionMod Action:T118 Modifier:T120	
+R97	ModObj Modifier:T120 Object:T121	
+R98	ActionMod Action:T118 Modifier:T122	
+R99	ModObj Modifier:T122 Object:T123	
+T124	Object 121321 121329	The data
+T125	Action 121330 121341	is uploaded
+A76	Capability T125 006:MalwareCapability-data_exfiltration
+A77	ActionName T125 058:HTTP-send_http_post_request
+A78	StrategicObjectives T125 020:DataExfiltration-perform_data_exfiltration
+A79	TacticalObjectives T125 057:DataExfiltration-exfiltrate_via_network
+T126	Modifier 121342 121344	as
+T127	Object 121345 121366	a POST request binary
+T128	Modifier 121367 121369	in
+T129	Object 121370 121390	the following format
+R100	ActionObj Action:T125 Object:T124	
+R101	ActionMod Action:T125 Modifier:T126	
+R102	ModObj Modifier:T126 Object:T127	
+R103	ActionMod Action:T125 Modifier:T128	
+R104	ModObj Modifier:T128 Object:T129	
+T130	Subject 122215 122217	it
+T131	Action 122228 122235	sending
+A80	Capability T131 005:MalwareCapability-command_and_control
+A81	ActionName T131 096:Network-send_network_packet
+A82	StrategicObjectives T131 018:CommandandControl-send_data_to_c2_server
+T132	Object 122236 122250;122251 122260	additional in- formation
+R105	SubjAction Subject:T130 Action:T131	
+R106	ActionObj Action:T131 Object:T132	
+R107	CoRefer Referer:T105 Canonical:T108	
+R108	CoRefer Referer:T117 Canonical:T130	
+T133	Subject 122958 122968	The trojan
+T134	Action 122969 122977	iterates
+A83	ActionName T134 106:Process-enumerate_processes
+T135	Modifier 122978 122985	through
+T136	Object 122986 123003	running processes
+R109	SubjAction Subject:T133 Action:T134	
+R110	ActionMod Action:T134 Modifier:T135	
+R111	ModObj Modifier:T135 Object:T136	
+T137	Action 123008 123013	looks
+A84	Capability T137 018:MalwareCapability-security_degradation
+A85	TacticalObjectives T137 131:SecurityDegradation-gather_security_product_info
+T138	Modifier 123014 123017	for
+T139	Object 123018 123035;123036 123086	security software basing on executable filenames from the list below
+R112	SubjAction Subject:T133 Action:T137	
+R113	ActionMod Action:T137 Modifier:T138	
+R114	ModObj Modifier:T138 Object:T139	
+T140	Subject 124577 124588	The malware
+T141	Action 124605 124610	evade
+A86	Capability T141 000:MalwareCapability-anti-behavioral_analysis
+A87	TacticalObjectives T141 004:AntiBehavioralAnalysis-prevent_execution_in_vm
+A88	StrategicObjectives T141 001:AntiBehavioralAnalysis-anti-vm
+T142	Object 124611 124630	running on a VMware
+R115	SubjAction Subject:T140 Action:T141	
+R116	ActionObj Action:T141 Object:T142	
+T143	Subject 124639 124641	it
+R117	CoRefer Referer:T140 Canonical:T143	
+T144	Action 124642 124648	checks
+A89	Capability T144 000:MalwareCapability-anti-behavioral_analysis
+A90	TacticalObjectives T144 001:AntiBehavioralAnalysis-detect_vm_environment
+A91	StrategicObjectives T144 001:AntiBehavioralAnalysis-anti-vm
+T145	Object 124649 124656;124657 124701	if cur- rent process is running in WOW64 environment
+R118	SubjAction Subject:T143 Action:T144	
+R119	ActionObj Action:T144 Object:T145	
+T146	Action 124902 124907	check
+A92	Capability T146 007:MalwareCapability-data_theft
+A93	TacticalObjectives T146 074:DataTheft-steal_network_address
+A94	StrategicObjectives T146 024:DataTheft-steal_system_information
+T147	Object 124908 124942	local network adapter’s IP address
+R120	ActionObj Action:T146 Object:T147	
+T148	Action 124872 124878	detect
+A95	Capability T148 000:MalwareCapability-anti-behavioral_analysis
+A96	TacticalObjectives T148 001:AntiBehavioralAnalysis-detect_vm_environment
+A97	StrategicObjectives T148 001:AntiBehavioralAnalysis-anti-vm
+T149	Object 124879 124885;124886 124895	VM en- vironment
+R121	ActionObj Action:T148 Object:T149	
+T150	Subject 124854 124868	Another method
+R122	SubjAction Subject:T150 Action:T148	
+T151	Subject 125048 125059	the process
+T152	Action 125070 125080	terminates
+A98	Capability T152 000:MalwareCapability-anti-behavioral_analysis
+A99	TacticalObjectives T152 004:AntiBehavioralAnalysis-prevent_execution_in_vm
+A100	StrategicObjectives T152 001:AntiBehavioralAnalysis-anti-vm
+R123	SubjAction Subject:T151 Action:T152	
+T153	Modifier 125030 125032	If
+T154	Object 125033 125047	VM is detected
+R124	ActionMod Action:T152 Modifier:T153	
+R125	ModObj Modifier:T153 Object:T154	
+A101	ActionName T152 111:Process-kill_process
+T155	Subject 125087 125098	the malware
+T156	Action 125099 125106	submits
+A102	Capability T156 006:MalwareCapability-data_exfiltration
+A103	ActionName T156 054:HTTP-send_http_get_request
+A104	StrategicObjectives T156 020:DataExfiltration-perform_data_exfiltration
+A105	TacticalObjectives T156 057:DataExfiltration-exfiltrate_via_network
+T157	Object 125107 125128	collected information
+T158	Modifier 125129 125131	to
+T159	Object 125132 125146	the C&C server
+T160	Modifier 125147 125152	using
+T161	Object 125153 125157;125158 125232;125365 125424;125425 125471	HTTP GET request and the following URL format: http://<C2DOMAIN>/bin/read_i.php ?a1=%STEPID%&a2=%HOSTID%&a3=%SYSINFO%&a4=% AVSOFTID%, where %C2DOMAIN% is one of the following C&C domains
+R126	SubjAction Subject:T155 Action:T156	
+R127	ActionObj Action:T156 Object:T157	
+R128	ActionMod Action:T156 Modifier:T158	
+R129	ModObj Modifier:T158 Object:T159	
+R130	ActionMod Action:T156 Modifier:T160	
+R131	ModObj Modifier:T160 Object:T161	
+T162	Subject 126769 126780	Igfxext.exe
+T163	Action 126785 126793	download
+A106	Capability T163 017:MalwareCapability-secondary_operation
+A107	ActionName T163 090:Network-download_file
+A108	StrategicObjectives T163 050:SecondaryOperation-install_other_components
+A109	TacticalObjectives T163 118:SecondaryOperation-install_secondary_malware
+T164	Object 126794 126800	a file
+R132	SubjAction Subject:T162 Action:T163	
+R133	ActionObj Action:T163 Object:T164	
+T165	Action 126805 126809	drop
+A110	Capability T165 017:MalwareCapability-secondary_operation
+A111	TacticalObjectives T165 118:SecondaryOperation-install_secondary_malware
+A112	StrategicObjectives T165 050:SecondaryOperation-install_other_components
+T166	Object 126810 126812	it
+T167	Modifier 126813 126815	to
+T168	Object 126816 126840;126841 126896	%APPDATA%\microsoft\dis- play\ctfmon.exe (md5= e8bfb82b0dd5cef46116d61f62c25060)
+R134	SubjAction Subject:T162 Action:T165	
+R135	CoRefer Referer:T164 Canonical:T166	
+R136	ActionObj Action:T165 Object:T166	
+R137	ActionMod Action:T165 Modifier:T167	
+R138	ModObj Modifier:T167 Object:T168	
+T169	Subject 126915 126934	the downloaded file
+T170	Action 126935 126940	drops
+A113	Capability T170 017:MalwareCapability-secondary_operation
+A114	TacticalObjectives T170 118:SecondaryOperation-install_secondary_malware
+A115	StrategicObjectives T170 050:SecondaryOperation-install_other_components
+T171	Object 126941 126967;126968 126993	SMAGENT.EXE (md5 0306f9ae- 7786570139f78e78bc940597)
+T172	Modifier 126994 126996	to
+T173	Object 126997 127024	%APPDATA%\MICROSOFT\DISPLAY
+T174	Action 127029 127032;127033 127039	ex- ecutes
+A116	ActionName T174 029:File-execute_file
+T175	Object 127040 127042	it
+R139	SubjAction Subject:T169 Action:T170	
+R140	ActionObj Action:T170 Object:T171	
+R141	ActionMod Action:T170 Modifier:T172	
+R142	ModObj Modifier:T172 Object:T173	
+R143	SubjAction Subject:T169 Action:T174	
+R144	ActionObj Action:T174 Object:T175	
+R145	CoRefer Referer:T171 Canonical:T175	
+T176	Subject 127044 127058	This component
+T177	Action 127098 127108	infiltrate
+A117	Capability T177 010:MalwareCapability-infection/propagation
+A118	TacticalObjectives T177 091:InfectionPropagation-perform_autonomous_remote_infection
+A119	StrategicObjectives T177 031:InfectionPropagation-infect_remote_machine
+T178	Modifier 127109 127113	into
+T179	Object 127114 127119;127120 127129	other computers
+T180	Modifier 127130 127133	via
+T181	Modifier 127130 127133	via
+T182	Object 127134 127137	USB
+T183	Object 127141 127155	network shares
+R146	SubjAction Subject:T176 Action:T177	
+R147	ActionMod Action:T177 Modifier:T178	
+R148	ModObj Modifier:T178 Object:T179	
+R149	ActionMod Action:T177 Modifier:T180	
+R150	ModObj Modifier:T180 Object:T182	
+T184	Action 127098 127108	infiltrate
+A120	Capability T184 010:MalwareCapability-infection/propagation
+A121	ActionName T184 100:NetworkShare-connect_to_network_share
+A122	StrategicObjectives T184 031:InfectionPropagation-infect_remote_machine
+A123	TacticalObjectives T184 091:InfectionPropagation-perform_autonomous_remote_infection
+R151	SubjAction Subject:T176 Action:T184	
+R152	ActionMod Action:T184 Modifier:T178	
+R153	ActionMod Action:T184 Modifier:T181	
+R154	ModObj Modifier:T181 Object:T183	
+T185	Object 127399 127410	These files
+T186	Action 127446 127459	been infected
+A124	Capability T186 010:MalwareCapability-infection/propagation
+A125	StrategicObjectives T186 030:InfectionPropagation-infect_file
+T187	Subject 127463 127470;127471 127490	another Darkhotel component
+R155	SubjAction Subject:T187 Action:T186	
+R156	ActionObj Action:T186 Object:T185	
+T188	Subject 127492 127519	All of these infected files
+T189	Action 127520 127524	drop
+A126	Capability T189 017:MalwareCapability-secondary_operation
+A127	TacticalObjectives T189 118:SecondaryOperation-install_secondary_malware
+A128	StrategicObjectives T189 050:SecondaryOperation-install_other_components
+T190	Object 127525 127553;127554 127558	a 63kb self injecting compo- nent
+R157	SubjAction Subject:T188 Action:T189	
+R158	ActionObj Action:T189 Object:T190	
+T191	Object 127919 127944	The igfxext.exe component
+T192	Action 127945 127955	is dropped
+A129	Capability T192 017:MalwareCapability-secondary_operation
+A130	TacticalObjectives T192 118:SecondaryOperation-install_secondary_malware
+A131	StrategicObjectives T192 050:SecondaryOperation-install_other_components
+T193	Modifier 127956 127958	to
+T194	Object 127959 127963	disk
+T195	Action 127968 127971	run
+A132	ActionName T195 029:File-execute_file
+R159	ActionObj Action:T192 Object:T191	
+R160	ActionMod Action:T192 Modifier:T193	
+R161	ModObj Modifier:T193 Object:T194	
+R162	ActionObj Action:T195 Object:T191	
+T196	Subject 127973 127975	It
+T197	Action 127976 127982	spawns
+A133	ActionName T197 104:Process-create_process
+T198	Object 127983 127986;127987 128010	an- other suspended process
+T199	Modifier 128011 128015	with
+T200	Object 128016 128041	its own igfxext.exe image
+R163	CoRefer Referer:T191 Canonical:T196	
+R164	SubjAction Subject:T196 Action:T197	
+R165	ActionObj Action:T197 Object:T198	
+R166	ActionMod Action:T197 Modifier:T199	
+R167	ModObj Modifier:T199 Object:T200	
+T201	Subject 128210 128213;128214 128229	The running process
+T202	Action 128230 128240	overwrites
+A134	ActionName T202 034:File-modify_file
+T203	Object 128241 128262	the igfxext.exe image
+T204	Modifier 128263 128265	in
+T205	Object 128266 128287	the suspended process
+T206	Modifier 128288 128292	with
+T207	Object 128293 128319	this smaller chunk of code
+R168	SubjAction Subject:T201 Action:T202	
+R169	ActionObj Action:T202 Object:T203	
+R170	ActionMod Action:T202 Modifier:T204	
+R171	ActionMod Action:T202 Modifier:T206	
+R172	ModObj Modifier:T204 Object:T205	
+R173	ModObj Modifier:T206 Object:T207	
+T208	Subject 128837 128892	Host package files detected as “Virus.Win32.Pioneer.dx”
+T209	Action 128893 128896	are
+A135	Capability T209 010:MalwareCapability-infection/propagation
+A136	StrategicObjectives T209 030:InfectionPropagation-infect_file
+T210	Object 128897 128916;128917 128922	infected legitimate files
+R174	SubjAction Subject:T208 Action:T209	
+R175	ActionObj Action:T209 Object:T210	
+T211	Subject 129414 129416	It
+T212	Action 129417 129422	drops
+A137	Capability T212 017:MalwareCapability-secondary_operation
+A138	TacticalObjectives T212 118:SecondaryOperation-install_secondary_malware
+A139	StrategicObjectives T212 050:SecondaryOperation-install_other_components
+T213	Object 129423 129434	a keylogger
+T214	Object 129342 129353	This sample
+T215	Action 129354 129364	is started
+R176	ActionObj Action:T215 Object:T214	
+A140	ActionName T215 029:File-execute_file
+T216	Subject 129368 129412	code running within svchost.exe on WinXP SP3
+R177	SubjAction Subject:T216 Action:T215	
+R178	SubjAction Subject:T211 Action:T212	
+R179	CoRefer Referer:T214 Canonical:T211	
+R180	ActionObj Action:T212 Object:T213	
+T217	Subject 129558 129575	The dropper above
+T218	Action 129576 129605	maintains, drops and installs
+A141	Capability T218 017:MalwareCapability-secondary_operation
+A142	TacticalObjectives T218 118:SecondaryOperation-install_secondary_malware
+A143	StrategicObjectives T218 050:SecondaryOperation-install_other_components
+T219	Object 129606 129632	this kernel mode keylogger
+R181	SubjAction Subject:T217 Action:T218	
+R182	ActionObj Action:T218 Object:T219	
+T220	Object 130039 130041	It
+R183	CoRefer Referer:T219 Canonical:T220	
+T221	Action 130042 130054	is installed
+A144	ActionName T221 147:Service-create_service
+T222	Modifier 130055 130057	as
+T223	Object 130058 130099	a system kernel driver “Ndiskpro” service
+R184	ActionObj Action:T221 Object:T220	
+R185	ActionMod Action:T221 Modifier:T222	
+R186	ModObj Modifier:T222 Object:T223	
+T224	Subject 130477 130500	the NDISKPRO.SYS driver
+T225	Action 130501 130506	hooks
+A145	ActionName T225 061:Hooking-add_system_call_hook
+T226	Object 130507 130533	both INT 0x01 and INT 0xff
+T227	Action 130469 130475	loaded
+A146	ActionName T227 006:DeviceDriver-load_driver
+T228	Object 130477 130500	the NDISKPRO.SYS driver
+R187	ActionObj Action:T227 Object:T228	
+R188	SubjAction Subject:T224 Action:T225	
+R189	ActionObj Action:T225 Object:T226	
+T229	Action 130539 130548	retrieves
+T230	Object 130549 130563	keystroke data
+T231	Modifier 130564 130577	directly from
+R191	ActionObj Action:T229 Object:T230	
+A147	Capability T229 019:MalwareCapability-spying
+A148	TacticalObjectives T229 140:Spying-capture_keyboard_input
+A149	StrategicObjectives T229 061:Spying-capture_system_input_peripheral_data
+T232	Object 130578 130618;130619 130633	port 0x60, the motherboard keyboard con- troller itself
+R190	SubjAction Subject:T224 Action:T229	
+R192	ActionMod Action:T229 Modifier:T231	
+R193	ModObj Modifier:T231 Object:T232	
+T233	Subject 130908 130922	This component
+T234	Action 130928 130936	encrypts
+A150	Capability T234 002:MalwareCapability-anti-detection
+A151	TacticalObjectives T234 023:AntiDetection-hide_file_system_artifacts
+A152	StrategicObjectives T234 007:AntiDetection-hide_malware_artifacts
+T235	Action 130941 130947	writes
+A153	ActionName T235 043:File-write_to_file
+T236	Object 130948 130975	the retrieved values ondisk
+T237	Modifier 130976 130978	to
+T238	Object 130979 130985;131117 131162	a ran- domly named .tmp, file like ffffz07131101.tmp
+R194	SubjAction Subject:T233 Action:T234	
+R195	SubjAction Subject:T233 Action:T235	
+R196	ActionObj Action:T234 Object:T236	
+R197	ActionObj Action:T235 Object:T236	
+R198	ActionMod Action:T235 Modifier:T237	
+R199	ModObj Modifier:T237 Object:T238	
+T239	Subject 131210 131230	the original dropper
+T240	Action 131238 131247	maintains
+A154	Capability T240 013:MalwareCapability-persistence
+A155	TacticalObjectives T240 104:Persistence-persist_after_system_reboot
+A156	StrategicObjectives T240 042:Persistence-persist_to_continuously_execute_on_system
+T241	Object 131248 131259	persistence
+T242	Modifier 131260 131266	across
+T243	Object 131267 131274	reboots
+R200	SubjAction Subject:T239 Action:T240	
+R201	ActionObj Action:T240 Object:T241	
+A157	ActionName T240 142:Registry-modify_registry_key
+R202	ActionMod Action:T240 Modifier:T242	
+T244	Modifier 131275 131279	with
+T245	Object 131280 131317	a simple addition to the HKCU run key
+R203	ModObj Modifier:T242 Object:T243	
+R204	ActionMod Action:T240 Modifier:T244	
+R205	ModObj Modifier:T244 Object:T245	
+T246	Subject 133147 133168	This keylogger module
+T247	Action 133169 133177	encrypts
+A158	Capability T247 002:MalwareCapability-anti-detection
+A159	TacticalObjectives T247 023:AntiDetection-hide_file_system_artifacts
+A160	StrategicObjectives T247 007:AntiDetection-hide_malware_artifacts
+T248	Action 133182 133188	stores
+A161	ActionName T248 043:File-write_to_file
+T249	Object 133189 133202	gathered data
+T250	Modifier 133203 133205	in
+T251	Object 133206 133216	a log file
+R206	SubjAction Subject:T246 Action:T247	
+R207	SubjAction Subject:T246 Action:T248	
+R208	ActionObj Action:T247 Object:T249	
+R209	ActionObj Action:T248 Object:T249	
+R210	ActionMod Action:T248 Modifier:T250	
+R211	ActionMod Action:T247 Modifier:T250	
+R212	ModObj Modifier:T250 Object:T251	

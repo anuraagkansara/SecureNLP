@@ -1,0 +1,59 @@
+T1	Object 10865 10896	Some of the strings in Duqu 2.0
+T2	Action 10897 10911	are obfuscated
+T3	Modifier 10912 10914	by
+T4	Object 10915 10935	XOR-based encryption
+A1	Capability T2 001:MalwareCapability-anti-code_analysis
+A2	StrategicObjectives T2 004:AntiCodeAnalysis-code_obfuscation
+R1	ActionObj Action:T2 Object:T1	
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ModObj Modifier:T3 Object:T4	
+T5	Subject 19163 19228	The analyzed main module of Duqu 2.0 and also the old Duqu sample
+T6	Action 19229 19234	reads
+A3	ActionName T6 038:File-read_from_file
+T7	Object 19235 19248;19249 19260	configuration information
+T8	Modifier 19261 19265	from
+T9	Object 19266 19280	a special file
+R4	SubjAction Subject:T5 Action:T6	
+R5	ActionObj Action:T6 Object:T7	
+R6	ActionMod Action:T6 Modifier:T8	
+R7	ModObj Modifier:T8 Object:T9	
+T10	Object 42392 42425	a characteristic logging function
+T11	Action 42473 42480	is used
+A4	Capability T11 017:MalwareCapability-secondary_operation
+A5	StrategicObjectives T11 052:SecondaryOperation-log_activity
+T12	Modifier 42493 42495	in
+T13	Object 42496 42550	the networking (mainly HTTP handling) part of the code
+R8	ActionObj Action:T11 Object:T10	
+R9	ActionMod Action:T11 Modifier:T12	
+R10	ModObj Modifier:T12 Object:T13	
+T14	Subject 54080 54091	The malware
+T15	Action 54096 54104	transmit
+A6	Capability T15 006:MalwareCapability-data_exfiltration
+A7	TacticalObjectives T15 057:DataExfiltration-exfiltrate_via_network
+A8	StrategicObjectives T15 020:DataExfiltration-perform_data_exfiltration
+T16	Object 54105 54116	information
+T17	Modifier 54117 54124	through
+T18	Object 54125 54137	HTTP traffic
+R11	SubjAction Subject:T14 Action:T15	
+R12	ActionObj Action:T15 Object:T16	
+R13	ActionMod Action:T15 Modifier:T17	
+R14	ModObj Modifier:T17 Object:T18	
+T19	Subject 54162 54173;54174 54192	one or more infected computers
+T20	Action 54197 54199	be
+A9	Capability T20 005:MalwareCapability-command_and_control
+A10	StrategicObjectives T20 016:CommandandControl-determine_c2_server
+T21	Object 54200 54212	proxy points
+T22	Modifier 54213 54220	towards
+T23	Object 54221 54233	the attacker
+R15	SubjAction Subject:T19 Action:T20	
+R16	ActionObj Action:T20 Object:T21	
+R17	ModObj Modifier:T22 Object:T23	
+R18	ActionMod Action:T20 Modifier:T22	
+T24	Subject 54305 54318	These proxies
+T25	Action 54323 54326	act
+A11	Capability T25 005:MalwareCapability-command_and_control
+T26	Modifier 54327 54329	as
+T27	Object 54330 54351	HTTP or HTTPS servers
+R19	SubjAction Subject:T24 Action:T25	
+R20	ActionMod Action:T25 Modifier:T26	
+R21	ActionObj Action:T25 Object:T27	

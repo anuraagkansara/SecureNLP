@@ -1,0 +1,50 @@
+T1	Action 2978 2988	obfuscated
+A1	Capability T1 001:MalwareCapability-anti-code_analysis
+A2	TacticalObjectives T1 011:AntiCodeAnalysis-obfuscate_runtime_code
+A3	StrategicObjectives T1 004:AntiCodeAnalysis-code_obfuscation
+T2	Object 2972 2974	it
+R1	ActionObj Action:T1 Object:T2	
+T3	Modifier 2989 2991	to
+T4	Object 2992 3013	evade static analysis
+R2	ModObj Modifier:T3 Object:T4	
+R3	ActionMod Action:T1 Modifier:T3	
+T5	Subject 5919 5921	it
+T6	Action 5935 5941	builds
+A4	Capability T6 001:MalwareCapability-anti-code_analysis
+A5	TacticalObjectives T6 009:AntiCodeAnalysis-obfuscate_imports
+A6	StrategicObjectives T6 004:AntiCodeAnalysis-code_obfuscation
+R4	SubjAction Subject:T5 Action:T6	
+T7	Object 5942 5949;5950 5970	its own runtime import table
+T8	Modifier 5971 5973	to
+T9	Object 5974 5993	hinder the analysis
+R5	ModObj Modifier:T8 Object:T9	
+R6	ActionObj Action:T6 Object:T7	
+R7	ActionMod Action:T6 Modifier:T8	
+T10	Action 6071 6081	connecting
+A7	Capability T10 005:MalwareCapability-command_and_control
+T11	Modifier 6082 6084	to
+T12	Object 6085 6103	webdav.cloudme.com
+R8	ModObj Modifier:T11 Object:T12	
+R9	ActionMod Action:T10 Modifier:T11	
+T13	Subject 6066 6068	it
+R10	SubjAction Subject:T13 Action:T10	
+T14	Subject 6156 6163	Malware
+T15	Action 6173 6184	communicate
+A8	Capability T15 005:MalwareCapability-command_and_control
+T16	Modifier 6185 6189	with
+T17	Object 6190 6232	the user account created at the WebDAV C&C
+R11	ModObj Modifier:T16 Object:T17	
+R12	SubjAction Subject:T14 Action:T15	
+R13	ActionMod Action:T15 Modifier:T16	
+T18	Action 6236 6246	exfiltrate
+A9	Capability T18 007:MalwareCapability-data_theft
+A10	StrategicObjectives T18 024:DataTheft-steal_system_information
+T19	Object 6247 6253	system
+R14	ActionObj Action:T18 Object:T19	
+R15	SubjAction Subject:T14 Action:T18	
+T20	Action 6236 6246	exfiltrate
+A11	Capability T20 007:MalwareCapability-data_theft
+A12	StrategicObjectives T20 025:DataTheft-steal_user_data
+T21	Object 6258 6274	user information
+R16	ActionObj Action:T20 Object:T21	
+R17	SubjAction Subject:T14 Action:T20	

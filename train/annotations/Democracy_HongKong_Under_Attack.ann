@@ -1,0 +1,152 @@
+T1	Action 705 710	added
+A1	Capability T1 010:MalwareCapability-infection/propagation
+A2	ActionName T1 043:File-write_to_file
+A3	StrategicObjectives T1 030:InfectionPropagation-infect_file
+A4	TacticalObjectives T1 093:InfectionPropagation-write_code_into_file
+T2	Object 714 729	legitimate code
+T3	Object 670 690	malicious JavaScript
+T4	Action 863 870	install
+A5	Capability T4 017:MalwareCapability-secondary_operation
+A6	ActionName T4 090:Network-download_file
+A7	StrategicObjectives T4 050:SecondaryOperation-install_other_components
+A8	TacticalObjectives T4 118:SecondaryOperation-install_secondary_malware
+T5	Subject 828 850	malicious Java Applets
+T6	Object 871 878	malware
+R3	SubjAction Subject:T5 Action:T4	
+R4	ActionObj Action:T4 Object:T6	
+T7	Action 1462 1471	served up
+A9	Capability T7 017:MalwareCapability-secondary_operation
+A10	TacticalObjectives T7 118:SecondaryOperation-install_secondary_malware
+A11	StrategicObjectives T7 050:SecondaryOperation-install_other_components
+T8	Subject 1441 1455	malicious code
+R5	SubjAction Subject:T8 Action:T7	
+T13	Action 3081 3087	placed
+A13	Capability T13 011:MalwareCapability-integrity_violation
+A14	TacticalObjectives T13 099:IntegrityViolation-subvert_system
+T14	Object 3042 3080	a password protected backdoor webshell
+T15	Object 3091 3093	it
+T16	Action 3984 3990	upload
+A15	Capability T16 013:MalwareCapability-persistence
+A16	StrategicObjectives T16 042:Persistence-persist_to_continuously_execute_on_system
+A17	ActionName T16 097:Network-upload_file
+T17	Subject 3963 3972	Attackers
+T18	Object 3991 4038;4039 4052	new webshells or add simple China Chopper style modifications
+R11	SubjAction Subject:T17 Action:T16	
+R12	ActionObj Action:T16 Object:T18	
+T19	Action 4558 4568	serving up
+A18	Capability T19 011:MalwareCapability-integrity_violation
+A19	TacticalObjectives T19 099:IntegrityViolation-subvert_system
+T20	Subject 4531 4548	the DPHK websites
+T21	Object 4569 4578;4579 4583	malicious code
+R13	SubjAction Subject:T20 Action:T19	
+R14	ActionObj Action:T19 Object:T21	
+T22	Action 5802 5811	been used
+A20	Capability T22 011:MalwareCapability-integrity_violation
+A21	TacticalObjectives T22 099:IntegrityViolation-subvert_system
+A22	StrategicObjectives T22 034:IntegrityViolation-compromise_network_operational_integrity
+T23	Object 5781 5797	the DPHK website
+T24	Action 5896 5915	was being leveraged
+A23	Capability T24 011:MalwareCapability-integrity_violation
+A24	ActionName T24 088:Network-connect_to_url
+A25	StrategicObjectives T24 034:IntegrityViolation-compromise_network_operational_integrity
+A26	TacticalObjectives T24 099:IntegrityViolation-subvert_system
+T25	Object 5884 5895	the website
+T26	Object 5919 5951	target users with Flash Exploits
+T27	Action 6327 6343	been compromised
+A29	StrategicObjectives T27 034:IntegrityViolation-compromise_network_operational_integrity
+A30	TacticalObjectives T27 099:IntegrityViolation-subvert_system
+T28	Object 6205 6223;6224 6322	the website of the political coalition and pan-democratic organization People Power in Hong Kong (www.peoplepower.hk)
+T29	Action 7142 7159	conduct profiling
+A31	Capability T29 015:MalwareCapability-probing
+A32	TacticalObjectives T29 114:Probing-inventory_system_applications
+A33	StrategicObjectives T29 046:Probing-probe_host_configuration
+T30	Subject 7129 7136	scripts
+T31	Object 7163 7234	the system for various software, plugins, and other related information
+R19	SubjAction Subject:T30 Action:T29	
+T32	Action 7124 7128	load
+A34	ActionName T32 036:File-open_file
+T33	Subject 7112 7123	These pages
+R21	SubjAction Subject:T33 Action:T32	
+T34	Object 7129 7136	scripts
+R22	ActionObj Action:T32 Object:T34	
+T35	Action 7278 7285	install
+A35	Capability T35 017:MalwareCapability-secondary_operation
+A36	ActionName T35 090:Network-download_file
+A37	StrategicObjectives T35 050:SecondaryOperation-install_other_components
+A38	TacticalObjectives T35 118:SecondaryOperation-install_secondary_malware
+T36	Subject 7252 7265	Java exploits
+T37	Object 7286 7293	malware
+R23	SubjAction Subject:T36 Action:T35	
+R24	ActionObj Action:T35 Object:T37	
+T38	Modifier 7294 7296	on
+R25	ActionMod Action:T35 Modifier:T38	
+T39	Action 7349 7356	install
+A39	Capability T39 017:MalwareCapability-secondary_operation
+A40	ActionName T39 090:Network-download_file
+A41	StrategicObjectives T39 050:SecondaryOperation-install_other_components
+A42	TacticalObjectives T39 118:SecondaryOperation-install_secondary_malware
+T40	Subject 7331 7343	the exploits
+T41	Object 7357 7382;7383 7405	either a 32-bit or 64-bit version of the malware
+T43	Action 8048 8058	serving up
+A45	Capability T43 010:MalwareCapability-infection/propagation
+A46	TacticalObjectives T43 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A47	StrategicObjectives T43 030:InfectionPropagation-infect_file
+T44	Object 8059 8073	malicious code
+T45	Subject 8014 8038	the People Power website
+R26	SubjAction Subject:T45 Action:T43	
+R27	ActionObj Action:T43 Object:T44	
+T42	Action 11587 11592	loads
+A43	Capability T42 017:MalwareCapability-secondary_operation
+A44	TacticalObjectives T42 118:SecondaryOperation-install_secondary_malware
+A48	StrategicObjectives T42 050:SecondaryOperation-install_other_components
+T46	Subject 11552 11569	a JavaScript file
+T47	Object 11593 11616	a malicious Java Applet
+R28	SubjAction Subject:T46 Action:T42	
+R29	ActionObj Action:T42 Object:T47	
+T48	Action 13992 14000	connects
+A49	Capability T48 005:MalwareCapability-command_and_control
+A50	StrategicObjectives T48 017:CommandandControl-receive_data_from_c2_server
+A51	ActionName T48 088:Network-connect_to_url
+T49	Action 15811 15818	placing
+A52	Capability T49 011:MalwareCapability-integrity_violation
+A53	ActionName T49 034:File-modify_file
+A54	StrategicObjectives T49 030:InfectionPropagation-infect_file
+A55	TacticalObjectives T49 093:InfectionPropagation-write_code_into_file
+T50	Subject 13975 13991	The PlugX sample
+T51	Object 14004 14012	the blog
+R30	SubjAction Subject:T50 Action:T48	
+R1	ActionObj Action:T1 Object:T3	
+T52	Modifier 711 713	to
+R2	ModObj Modifier:T52 Object:T2	
+R32	ActionMod Action:T1 Modifier:T52	
+T9	Modifier 1472 1476	from
+T53	Object 1477 1523;1524 1542	the website of the Alliance for True Democracy (ATD) in Hong Kong
+R6	ModObj Modifier:T9 Object:T53	
+R33	ActionMod Action:T7 Modifier:T9	
+T10	Modifier 3088 3090	on
+R7	ActionObj Action:T13 Object:T14	
+R8	ActionMod Action:T13 Modifier:T10	
+R9	ModObj Modifier:T10 Object:T15	
+R10	ActionObj Action:T22 Object:T23	
+T11	Modifier 5916 5918	to
+R15	ActionMod Action:T24 Modifier:T11	
+R17	ModObj Modifier:T11 Object:T26	
+R16	ActionObj Action:T24 Object:T25	
+R18	ActionObj Action:T27 Object:T28	
+A12	Capability T27 011:MalwareCapability-integrity_violation
+T12	Modifier 7160 7162	of
+R20	ModObj Modifier:T12 Object:T31	
+R34	ActionMod Action:T29 Modifier:T12	
+T54	Object 7297 7314	the target system
+R35	ModObj Modifier:T38 Object:T54	
+R36	SubjAction Subject:T40 Action:T39	
+R37	ActionObj Action:T39 Object:T41	
+T55	Modifier 14001 14003	to
+R31	ActionMod Action:T48 Modifier:T55	
+R38	ModObj Modifier:T55 Object:T51	
+T56	Object 15819 15833	malicious code
+T57	Modifier 15834 15836	on
+T58	Object 15837 15868;15869 15873	Pro-Democratic websites in Hong Kong
+R39	ActionObj Action:T49 Object:T56	
+R40	ModObj Modifier:T57 Object:T58	
+R41	ActionMod Action:T49 Modifier:T57	

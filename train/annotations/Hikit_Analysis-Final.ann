@@ -1,0 +1,774 @@
+T1	Subject 243 278	at least two generations of malware
+T2	Action 284 292	provides
+A1	Capability T2 012:MalwareCapability-machine_access/control
+A2	TacticalObjectives T2 100:MachineAccessControl-control_machine_via_remote_command
+A3	StrategicObjectives T2 038:MachineAccessControl-control_local_machine
+T3	Object 293 316	basic RAT functionality
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 318 327;328 372	The first generation of Hikit (referred to as “Gen 1”)
+T5	Action 373 381	operates
+A4	Capability T5 005:MalwareCapability-command_and_control
+T6	Modifier 382 384	as
+T7	Object 385 393	a server
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionMod Action:T5 Modifier:T6	
+R5	ModObj Modifier:T6 Object:T7	
+T8	Subject 460 471	an attacker
+T9	Action 475 481	access
+A5	Capability T9 012:MalwareCapability-machine_access/control
+A6	TacticalObjectives T9 100:MachineAccessControl-control_machine_via_remote_command
+A7	StrategicObjectives T9 038:MachineAccessControl-control_local_machine
+T10	Object 482 500	the victim machine
+R6	SubjAction Subject:T8 Action:T9	
+R7	ActionObj Action:T9 Object:T10	
+T11	Subject 502 532;533 557	The second generation of Hikit (referred to as “Gen 2”)
+T12	Action 601 608	beacons
+A8	Capability T12 005:MalwareCapability-command_and_control
+T13	Modifier 609 615	out to
+T14	Object 616 632;633 639	an attacker’s C2 server
+R8	SubjAction Subject:T11 Action:T12	
+R9	ActionMod Action:T12 Modifier:T13	
+R10	ModObj Modifier:T13 Object:T14	
+T15	Subject 718 722;723 743	both generations of Hikit
+T16	Action 744 750	retain
+A9	Capability T16 012:MalwareCapability-machine_access/control
+A10	TacticalObjectives T16 100:MachineAccessControl-control_machine_via_remote_command
+A11	StrategicObjectives T16 038:MachineAccessControl-control_local_machine
+T17	Object 751 819;820 865	the same basic RAT function consisting of remote command shell, file management, network proxy and port forwarding
+R11	SubjAction Subject:T15 Action:T16	
+R12	ActionObj Action:T16 Object:T17	
+T18	Subject 922 959	a main DLL (referred to as “the DLL”)
+T19	Action 965 973	contains
+A12	Capability T19 012:MalwareCapability-machine_access/control
+A13	TacticalObjectives T19 100:MachineAccessControl-control_machine_via_remote_command
+A14	StrategicObjectives T19 038:MachineAccessControl-control_local_machine
+T20	Object 974 995	the RAT functionality
+R13	SubjAction Subject:T18 Action:T19	
+R14	ActionObj Action:T19 Object:T20	
+T21	Subject 1407 1423	The Gen 1 Driver
+T22	Action 1424 1431	listens
+A15	Capability T22 019:MalwareCapability-spying
+A16	TacticalObjectives T22 145:Spying-capture_system_network_traffic
+A17	StrategicObjectives T22 064:Spying-capture_system_state_data
+T23	Modifier 1432 1434	to
+T24	Object 1435 1472;1473 1490	network traffic arriving at the local network interface
+R15	SubjAction Subject:T21 Action:T22	
+R16	ActionMod Action:T22 Modifier:T23	
+R17	ModObj Modifier:T23 Object:T24	
+T25	Subject 1584 1600	The Gen 2 Driver
+T26	Action 1654 1658	hide
+A18	Capability T26 002:MalwareCapability-anti-detection
+A19	TacticalObjectives T26 023:AntiDetection-hide_file_system_artifacts
+A20	StrategicObjectives T26 007:AntiDetection-hide_malware_artifacts
+T27	Object 1659 1678;1679 1761	processes, registry keys and network connections associated with Gen 2 activity on the victim’s system
+R18	SubjAction Subject:T25 Action:T26	
+R19	ActionObj Action:T26 Object:T27	
+T28	Object 4155 4218	the communication between the infected machine and the attacker
+T29	Action 4219 4231	is encrypted
+A21	Capability T29 002:MalwareCapability-anti-detection
+A22	TacticalObjectives T29 025:AntiDetection-hide_network_traffic
+A23	StrategicObjectives T29 007:AntiDetection-hide_malware_artifacts
+T30	Modifier 4232 4237	using
+T31	Object 4238 4240;4241 4249	an XOR mask
+R20	ActionObj Action:T29 Object:T28	
+R21	ActionMod Action:T29 Modifier:T30	
+R22	ModObj Modifier:T30 Object:T31	
+T32	Subject 9165 9172	The DLL
+T33	Action 9178 9182	send
+A24	Capability T33 002:MalwareCapability-anti-detection
+A25	TacticalObjectives T33 025:AntiDetection-hide_network_traffic
+A26	StrategicObjectives T33 007:AntiDetection-hide_malware_artifacts
+T34	Object 9183 9211	a legitimate SSL certificate
+T35	Modifier 9212 9214	as
+T36	Object 9215 9247;9248 9287	a means to disrupt heuristic IDS sensors that look for encrypted traffic
+R23	SubjAction Subject:T32 Action:T33	
+R24	ActionObj Action:T33 Object:T34	
+R25	ActionMod Action:T33 Modifier:T35	
+R26	ModObj Modifier:T35 Object:T36	
+T37	Subject 11209 11219	The Driver
+T38	Action 11220 11230	intercepts
+A27	Capability T38 011:MalwareCapability-integrity_violation
+A28	TacticalObjectives T38 098:IntegrityViolation-intercept/manipulate_network_traffic
+A29	StrategicObjectives T38 034:IntegrityViolation-compromise_network_operational_integrity
+T39	Object 11231 11291;11292 11305	any and all network communication that traverses the Windows network stack
+R27	SubjAction Subject:T37 Action:T38	
+R28	ActionObj Action:T38 Object:T39	
+T40	Subject 11576 11583	the DLL
+T41	Action 11587 11595	interact
+A30	Capability T41 002:MalwareCapability-anti-detection
+A31	StrategicObjectives T41 007:AntiDetection-hide_malware_artifacts
+T42	Modifier 11596 11600	with
+T43	Object 11601 11612	the network
+T44	Modifier 11613 11620	without
+T45	Object 11621 11698	utilizes the WinSock API which could potentially reveal the presence of Hikit
+R29	SubjAction Subject:T40 Action:T41	
+R30	ActionMod Action:T41 Modifier:T42	
+R31	ActionMod Action:T41 Modifier:T44	
+R32	ModObj Modifier:T42 Object:T43	
+R33	ModObj Modifier:T44 Object:T45	
+T46	Subject 15542 15591	The Gen 2 sub-family, beginning with Gen 2.0 Beta
+T47	Action 15593 15600	employs
+A32	Capability T47 002:MalwareCapability-anti-detection
+A33	StrategicObjectives T47 007:AntiDetection-hide_malware_artifacts
+T48	Object 15601 15639	a Windows device driver (“the Driver”)
+T49	Modifier 15640 15642	to
+T50	Object 15643 15711	hide aspects of the DLL’s functionality from normal system processes
+R34	SubjAction Subject:T46 Action:T47	
+R35	ActionObj Action:T47 Object:T48	
+R36	ActionMod Action:T47 Modifier:T49	
+R37	ModObj Modifier:T49 Object:T50	
+T51	Subject 15851 15853	it
+T52	Action 15854 15859	hooks
+A34	Capability T52 002:MalwareCapability-anti-detection
+A35	ActionName T52 061:Hooking-add_system_call_hook
+A36	StrategicObjectives T52 007:AntiDetection-hide_malware_artifacts
+T53	Object 15860 15900	a minimum number of kernel API functions
+T54	Modifier 15901 15912	in order to
+T55	Object 15913 15949	hide different pieces of information
+R38	SubjAction Subject:T51 Action:T52	
+R39	ActionObj Action:T52 Object:T53	
+R40	ActionMod Action:T52 Modifier:T54	
+R41	ModObj Modifier:T54 Object:T55	
+R42	CoRefer Referer:T48 Canonical:T51	
+T56	Subject 18993 19003	The Driver
+T57	Action 19018 19024	hiding
+A37	Capability T57 002:MalwareCapability-anti-detection
+A38	ActionName T57 010:Directory-hide_directory
+A39	StrategicObjectives T57 007:AntiDetection-hide_malware_artifacts
+T58	Object 19119 19130	directories
+R43	ActionObj Action:T57 Object:T58	
+T59	Action 19018 19024	hiding
+A40	Capability T59 002:MalwareCapability-anti-detection
+A41	ActionName T59 032:File-hide_file
+A42	StrategicObjectives T59 007:AntiDetection-hide_malware_artifacts
+T60	Object 19150 19155	files
+R44	ActionObj Action:T59 Object:T60	
+T61	Object 19025 19034	processes
+T62	Action 19018 19024	hiding
+A43	Capability T62 002:MalwareCapability-anti-detection
+A44	StrategicObjectives T62 007:AntiDetection-hide_malware_artifacts
+R45	ActionObj Action:T62 Object:T61	
+T63	Object 19169 19193	registry keys and values
+T64	Action 19018 19024	hiding
+A45	Capability T64 002:MalwareCapability-anti-detection
+A46	StrategicObjectives T64 007:AntiDetection-hide_malware_artifacts
+R46	ActionObj Action:T64 Object:T63	
+R47	SubjAction Subject:T56 Action:T64	
+R48	SubjAction Subject:T56 Action:T57	
+R49	SubjAction Subject:T56 Action:T62	
+R50	SubjAction Subject:T56 Action:T59	
+T65	Subject 19225 19235	the Driver
+T66	Action 19236 19241	hooks
+A47	Capability T66 002:MalwareCapability-anti-detection
+A48	ActionName T66 061:Hooking-add_system_call_hook
+A49	StrategicObjectives T66 007:AntiDetection-hide_malware_artifacts
+T67	Object 19242 19274	various Windows Kernel API calls
+T68	Modifier 19195 19197;19198 19206	In order to
+T69	Object 19207 19223	hide these items
+R51	SubjAction Subject:T65 Action:T66	
+R52	ActionObj Action:T66 Object:T67	
+R53	ActionMod Action:T66 Modifier:T68	
+R54	ModObj Modifier:T68 Object:T69	
+T70	Subject 19356 19366	the Driver
+T71	Action 19367 19372	hooks
+A50	ActionName T71 061:Hooking-add_system_call_hook
+T72	Object 19334 19350	the API function
+R55	SubjAction Subject:T70 Action:T71	
+R56	ActionObj Action:T71 Object:T72	
+T73	Object 19302 19310	he items
+T74	Subject 19311 19321	the Driver
+T75	Action 19326 19330	hide
+A51	Capability T75 002:MalwareCapability-anti-detection
+A52	StrategicObjectives T75 007:AntiDetection-hide_malware_artifacts
+R57	ActionObj Action:T75 Object:T73	
+R58	SubjAction Subject:T74 Action:T75	
+A53	TacticalObjectives T62 027:AntiDetection-hide_processes
+A54	TacticalObjectives T64 028:AntiDetection-hide_registry_artifacts
+A55	TacticalObjectives T59 023:AntiDetection-hide_file_system_artifacts
+A56	TacticalObjectives T57 023:AntiDetection-hide_file_system_artifacts
+T76	Object 19055 19069	system modules
+T77	Action 19018 19024	hiding
+A57	Capability T77 002:MalwareCapability-anti-detection
+A58	TacticalObjectives T77 024:AntiDetection-hide_kernel_modules
+A59	StrategicObjectives T77 007:AntiDetection-hide_malware_artifacts
+R59	ActionObj Action:T77 Object:T76	
+T78	Object 19071 19079	services
+T79	Action 19018 19024	hiding
+A60	Capability T79 002:MalwareCapability-anti-detection
+A61	TacticalObjectives T79 029:AntiDetection-hide_services
+A62	StrategicObjectives T79 007:AntiDetection-hide_malware_artifacts
+R60	ActionObj Action:T79 Object:T78	
+T80	Object 19081 19088;19089 19100	network connections
+T81	Action 19018 19024	hiding
+A63	Capability T81 002:MalwareCapability-anti-detection
+A64	StrategicObjectives T81 007:AntiDetection-hide_malware_artifacts
+R61	ActionObj Action:T81 Object:T80	
+T82	Object 19102 19117	listening ports
+T83	Action 19018 19024	hiding
+A65	Capability T83 002:MalwareCapability-anti-detection
+A66	TacticalObjectives T83 026:AntiDetection-hide_open_network_ports
+A67	StrategicObjectives T83 007:AntiDetection-hide_malware_artifacts
+R62	ActionObj Action:T83 Object:T82	
+R63	SubjAction Subject:T56 Action:T83	
+R64	SubjAction Subject:T56 Action:T81	
+R65	SubjAction Subject:T56 Action:T79	
+R66	SubjAction Subject:T56 Action:T77	
+T84	Subject 21512 21522	the Driver
+T85	Action 21528 21534	access
+A68	ActionName T85 121:ProcessMemory-read_from_process_memory
+T86	Object 21535 21573	the memory of the services.exe process
+R67	SubjAction Subject:T84 Action:T85	
+R68	ActionObj Action:T85 Object:T86	
+T87	Action 21497 21501	hide
+A69	Capability T87 002:MalwareCapability-anti-detection
+A70	TacticalObjectives T87 029:AntiDetection-hide_services
+T88	Object 21502 21510	services
+R69	SubjAction Subject:T84 Action:T87	
+R70	ActionObj Action:T87 Object:T88	
+T89	Action 21713 21722	obfuscate
+A71	Capability T89 002:MalwareCapability-anti-detection
+A72	TacticalObjectives T89 027:AntiDetection-hide_processes
+A73	StrategicObjectives T89 007:AntiDetection-hide_malware_artifacts
+T90	Object 21723 21732	a process
+R71	ActionObj Action:T89 Object:T90	
+T91	Action 21614 21620	remove
+A74	Capability T91 002:MalwareCapability-anti-detection
+A75	ActionName T91 123:ProcessMemory-write_to_process_memory
+A76	StrategicObjectives T91 007:AntiDetection-hide_malware_artifacts
+A77	TacticalObjectives T91 029:AntiDetection-hide_services
+T92	Object 21621 21669	the service entry that the Driver wishes to hide
+R72	SubjAction Subject:T84 Action:T91	
+R73	ActionObj Action:T91 Object:T92	
+T93	Action 21791 21798	calling
+A78	ActionName T93 080:Library-call_library_function
+T94	Object 21800 21814	IoCreateDevice
+T95	Modifier 21816 21820	with
+T96	Object 21821 21829;21830 21843;21845 21886;21888 21910;21913 21932;21934 21975;21977 21998	the name \Device\agony (for Gen 2.0 Beta samples), \Device\HTTPS (for Gen 2.1 samples), \Device\advcachemgr (for Gen 2.2 samples) or \Device\diskdump (for Gen 2.3 samples)
+R74	ActionObj Action:T93 Object:T94	
+R75	ActionMod Action:T93 Modifier:T95	
+R76	ModObj Modifier:T95 Object:T96	
+T97	Subject 21751 21761	the Driver
+R77	SubjAction Subject:T97 Action:T93	
+T98	Subject 22000 22003;22004 22010	The Driver
+T99	Action 22016 22023	creates
+A79	ActionName T99 027:File-create_file_symbolic_link
+T100	Object 22024 22039	a symbolic link
+T101	Modifier 22040 22042	to
+T102	Object 22043 22053	the device
+T103	Modifier 22054 22059	using
+T104	Object 22060 22087;22089 22101;22104 22108	the same name but under the \DosDevices\ tree
+R78	SubjAction Subject:T98 Action:T99	
+R79	ActionObj Action:T99 Object:T100	
+R80	ActionMod Action:T99 Modifier:T101	
+R81	ModObj Modifier:T101 Object:T102	
+R82	ActionMod Action:T99 Modifier:T103	
+R83	ModObj Modifier:T103 Object:T104	
+T105	Subject 22386 22402	The Hikit family
+T106	Action 22407 22416	supported
+A80	Capability T106 012:MalwareCapability-machine_access/control
+A81	TacticalObjectives T106 100:MachineAccessControl-control_machine_via_remote_command
+A82	StrategicObjectives T106 038:MachineAccessControl-control_local_machine
+T107	Object 22417 22449	roughly the same set of commands
+T108	Modifier 22450 22455	since
+T109	Object 22456 22482;22483 22490	the first known samples of Gen 1.0
+T110	Subject 22676 22679;22680 22683	The RAT
+T111	Action 22684 22692	supports
+A83	Capability T111 012:MalwareCapability-machine_access/control
+A84	TacticalObjectives T111 100:MachineAccessControl-control_machine_via_remote_command
+A85	StrategicObjectives T111 038:MachineAccessControl-control_local_machine
+T112	Object 22693 22715	the following commands
+R84	SubjAction Subject:T105 Action:T106	
+R85	ActionObj Action:T106 Object:T107	
+R86	ActionMod Action:T106 Modifier:T108	
+R87	ModObj Modifier:T108 Object:T109	
+R88	SubjAction Subject:T110 Action:T111	
+R89	ActionObj Action:T111 Object:T112	
+T113	Subject 23450 23453;23457 23462;23466 23473	The shell command
+T114	Action 23474 23483	activates
+A86	Capability T114 012:MalwareCapability-machine_access/control
+A87	TacticalObjectives T114 100:MachineAccessControl-control_machine_via_remote_command
+A88	StrategicObjectives T114 038:MachineAccessControl-control_local_machine
+T115	Object 23484 23498	a remote shell
+T116	Modifier 23499 23501	on
+T117	Object 23502 23523	the victim’s computer
+R90	SubjAction Subject:T113 Action:T114	
+R91	ActionObj Action:T114 Object:T115	
+R92	ActionMod Action:T114 Modifier:T116	
+R93	ModObj Modifier:T116 Object:T117	
+T118	Subject 23743 23746;23750 23754;23758 23765	The file command
+T119	Action 23833 23840	listing
+A89	Capability T119 019:MalwareCapability-spying
+A90	TacticalObjectives T119 138:Spying-capture_file_system
+A91	StrategicObjectives T119 064:Spying-capture_system_state_data
+T120	Object 23841 23852	directories
+R94	SubjAction Subject:T118 Action:T119	
+R95	ActionObj Action:T119 Object:T120	
+T121	Action 23890 23899	uploading
+A92	ActionName T121 097:Network-upload_file
+T122	Action 23904 23915	downloading
+A93	ActionName T122 090:Network-download_file
+T123	Object 23916 23921	files
+R96	SubjAction Subject:T118 Action:T121	
+R97	SubjAction Subject:T118 Action:T122	
+R98	ActionObj Action:T122 Object:T123	
+R99	ActionObj Action:T121 Object:T123	
+T124	Subject 24881 24892	an attacker
+T125	Action 24896 24903	utilize
+A94	Capability T125 005:MalwareCapability-command_and_control
+T126	Object 24904 24928	a Hikit-infected machine
+T127	Modifier 24929 24931	as
+T128	Object 24932 24939	a proxy
+R100	SubjAction Subject:T124 Action:T125	
+R101	ActionObj Action:T125 Object:T126	
+R102	ActionMod Action:T125 Modifier:T127	
+R103	ModObj Modifier:T127 Object:T128	
+T129	Subject 25004 25017	Gen 2 samples
+T130	Action 25018 25022	rely
+A95	Capability T130 005:MalwareCapability-command_and_control
+A96	StrategicObjectives T130 016:CommandandControl-determine_c2_server
+T131	Modifier 25023 25025	on
+T132	Object 25026 25041	a configuration
+T133	Modifier 25042 25053	in order to
+T134	Object 25054 25085	know where the C2 server exists
+R104	SubjAction Subject:T129 Action:T130	
+R105	ActionMod Action:T130 Modifier:T131	
+R106	ActionMod Action:T130 Modifier:T133	
+R107	ModObj Modifier:T131 Object:T132	
+R108	ModObj Modifier:T133 Object:T134	
+T135	Subject 26408 26419	an attacker
+T136	Action 26420 26430	is install
+A97	ActionName T136 147:Service-create_service
+T137	Object 26431 26438	the DLL
+T138	Modifier 26439 26441	as
+T139	Object 26442 26443;26444 26451	a service
+T140	Modifier 26452 26454	at
+T141	Object 26455 26485	some point prior to activation
+R109	SubjAction Subject:T135 Action:T136	
+R110	ActionObj Action:T136 Object:T137	
+R111	ActionMod Action:T136 Modifier:T138	
+R112	ActionMod Action:T136 Modifier:T140	
+R113	ModObj Modifier:T138 Object:T139	
+R114	ModObj Modifier:T140 Object:T141	
+T142	Subject 26581 26593	both exports
+T143	Action 26594 26602	generate
+A98	ActionName T143 125:ProcessThread-create_thread
+T144	Object 26603 26636;26637 26651	a new thread of the same function (“mainThread”)
+R115	SubjAction Subject:T142 Action:T143	
+R116	ActionObj Action:T143 Object:T144	
+T145	Subject 26802 26817	the main thread
+T146	Action 26821 26830	uninstall
+A99	Capability T146 017:MalwareCapability-secondary_operation
+A100	TacticalObjectives T146 120:SecondaryOperation-remove_self
+A101	StrategicObjectives T146 055:SecondaryOperation-suicide_exit
+T147	Object 26831 26838;26839 26847	the Gen 1 system
+T148	Modifier 26848 26852	from
+T149	Object 26853 26872	a victim’s computer
+R117	SubjAction Subject:T145 Action:T146	
+R118	ActionObj Action:T146 Object:T147	
+R119	ActionMod Action:T146 Modifier:T148	
+R120	ModObj Modifier:T148 Object:T149	
+T150	Subject 26911 26921	mainThread
+T151	Action 26937 26943	remove
+A102	Capability T151 017:MalwareCapability-secondary_operation
+A103	TacticalObjectives T151 120:SecondaryOperation-remove_self
+A104	StrategicObjectives T151 055:SecondaryOperation-suicide_exit
+T152	Object 26944 26947;26948 26954	the Driver
+T153	Modifier 26955 26959	from
+T154	Object 26960 26980	the victim’s machine
+R121	SubjAction Subject:T150 Action:T151	
+R122	ActionObj Action:T151 Object:T152	
+R123	ActionMod Action:T151 Modifier:T153	
+R124	ModObj Modifier:T153 Object:T154	
+T155	Action 27634 27641	calling
+A105	ActionName T155 080:Library-call_library_function
+T156	Object 27643 27660	DllRegisterServer
+T157	Modifier 27663 27670	without
+T158	Object 27671 27686	the u parameter
+R125	ActionObj Action:T155 Object:T156	
+R126	ActionMod Action:T155 Modifier:T157	
+R127	ModObj Modifier:T157 Object:T158	
+T159	Subject 27981 27988	the DLL
+T160	Action 27989 27997	installs
+A106	Capability T160 017:MalwareCapability-secondary_operation
+A107	TacticalObjectives T160 118:SecondaryOperation-install_secondary_malware
+A108	StrategicObjectives T160 050:SecondaryOperation-install_other_components
+T161	Object 27998 28074;28077 28080;28082 28096	the version of the Driver found within the DLL’s resource section (under the BIN resource tree)
+R128	SubjAction Subject:T159 Action:T160	
+R129	ActionObj Action:T160 Object:T161	
+T162	Action 28166 28176	installing
+A109	Capability T162 017:MalwareCapability-secondary_operation
+A110	TacticalObjectives T162 118:SecondaryOperation-install_secondary_malware
+A111	StrategicObjectives T162 050:SecondaryOperation-install_other_components
+T163	Object 28177 28199	the appropriate Driver
+R130	ActionObj Action:T162 Object:T163	
+T164	Subject 29188 29195	the DLL
+T165	Action 29217 29224	install
+A112	Capability T165 017:MalwareCapability-secondary_operation
+A113	TacticalObjectives T165 118:SecondaryOperation-install_secondary_malware
+A114	StrategicObjectives T165 050:SecondaryOperation-install_other_components
+T166	Object 29225 29236;29237 29258	the correct version of the Driver
+T167	Modifier 29259 29267	prior to
+T168	Object 29268 29279	terminating
+R131	SubjAction Subject:T164 Action:T165	
+R132	ActionObj Action:T165 Object:T166	
+R133	ActionMod Action:T165 Modifier:T167	
+R134	ModObj Modifier:T167 Object:T168	
+T169	Subject 29506 29537	the second Driver version check
+T170	Action 29564 29570	ensure
+A115	Capability T170 017:MalwareCapability-secondary_operation
+A116	TacticalObjectives T170 118:SecondaryOperation-install_secondary_malware
+A117	StrategicObjectives T170 050:SecondaryOperation-install_other_components
+T171	Object 29571 29602	the correct Driver is installed
+R135	SubjAction Subject:T169 Action:T170	
+R136	ActionObj Action:T170 Object:T171	
+T172	Action 29998 30008	generating
+A118	ActionName T172 125:ProcessThread-create_thread
+T173	Object 30009 30092;30093 30100	a new thread (“HikitThreadFunc”) which will service any request coming from the new channel
+T174	Subject 29948 29955	the DLL
+R137	SubjAction Subject:T174 Action:T172	
+R138	ActionObj Action:T172 Object:T173	
+T175	Subject 32004 32022;32024 32029	The dwHikitVersion field
+T176	Action 32030 32036	allows
+A119	Capability T176 012:MalwareCapability-machine_access/control
+A120	TacticalObjectives T176 100:MachineAccessControl-control_machine_via_remote_command
+A121	StrategicObjectives T176 038:MachineAccessControl-control_local_machine
+T177	Object 32037 32051;32052 32059	the client and the DLL
+T178	Object 32063 32127	ensure that they have a compatible communication scheme in place
+T179	Modifier 32128 32136	prior to
+T180	Object 32137 32146;32147 32155	executing commands
+R139	SubjAction Subject:T175 Action:T176	
+R140	ActionObj Action:T176 Object:T177	
+T181	Modifier 32060 32062	to
+R141	ActionMod Action:T176 Modifier:T181	
+R142	ModObj Modifier:T181 Object:T178	
+R143	ActionMod Action:T176 Modifier:T179	
+R144	ModObj Modifier:T179 Object:T180	
+T182	Subject 32839 32859	The Gen 2 sub-family
+T183	Action 32875 32879	uses
+A122	Capability T183 012:MalwareCapability-machine_access/control
+A123	TacticalObjectives T183 100:MachineAccessControl-control_machine_via_remote_command
+A124	StrategicObjectives T183 038:MachineAccessControl-control_local_machine
+T184	Object 32880 32885	a DLL
+T185	Modifier 32886 32889	for
+T186	Object 32890 32923	the core of its RAT functionality
+R145	SubjAction Subject:T182 Action:T183	
+R146	ActionObj Action:T183 Object:T184	
+R147	ActionMod Action:T183 Modifier:T185	
+R148	ModObj Modifier:T185 Object:T186	
+T187	Subject 32955 32960	Gen 2
+T188	Action 32985 32989	uses
+A125	ActionName T188 084:Library-load_library
+T189	Object 32990 33010	a loader application
+R149	SubjAction Subject:T187 Action:T188	
+R150	ActionObj Action:T188 Object:T189	
+T190	Modifier 32925 32937	In order for
+T191	Object 32938 32941;32942 32953	the DLL to load
+R151	ActionMod Action:T188 Modifier:T190	
+R152	ModObj Modifier:T190 Object:T191	
+T192	Subject 33155 33182	both variants of the Loader
+T193	Action 33183 33187	load
+A126	ActionName T193 119:ProcessMemory-map_library_into_process
+T194	Object 33188 33204	the embedded DLL
+T195	Modifier 33205 33207	in
+T196	Object 33208 33226	the exact same way
+R153	SubjAction Subject:T192 Action:T193	
+R154	ActionObj Action:T193 Object:T194	
+R155	ActionMod Action:T193 Modifier:T195	
+R156	ModObj Modifier:T195 Object:T196	
+T197	Subject 33770 33797	Both versions of the Loader
+T198	Action 33807 33814	loading
+A127	ActionName T198 084:Library-load_library
+T199	Object 33815 33831	the embedded DLL
+T200	Modifier 33832 33836	from
+T201	Object 33837 33858	the Loader’s resource
+R157	SubjAction Subject:T197 Action:T198	
+R158	ActionObj Action:T198 Object:T199	
+R159	ActionMod Action:T198 Modifier:T200	
+R160	ModObj Modifier:T200 Object:T201	
+T202	Action 33974 33981	loading
+A128	ActionName T202 119:ProcessMemory-map_library_into_process
+T203	Object 33982 33989	the DLL
+T204	Modifier 33990 33994	into
+T205	Modifier 34002 34007	using
+T206	Object 33995 34001	memory
+T207	Object 34008 34032	a custom loading routine
+R161	SubjAction Subject:T197 Action:T202	
+R162	ActionObj Action:T202 Object:T203	
+R163	ActionMod Action:T202 Modifier:T204	
+R164	ActionMod Action:T202 Modifier:T205	
+R165	ModObj Modifier:T204 Object:T206	
+R166	ModObj Modifier:T205 Object:T207	
+T208	Subject 35617 35634	LoadEmbeddedImage
+T209	Action 35638 35644	copies
+A129	ActionName T209 023:File-copy_file
+T210	Object 35645 35672	the compressed embedded DLL
+T211	Modifier 35673 35677	into
+T212	Object 35678 35707	a newly allocated heap buffer
+R167	SubjAction Subject:T208 Action:T209	
+R168	ActionObj Action:T209 Object:T210	
+R169	ActionMod Action:T209 Modifier:T211	
+R170	ModObj Modifier:T211 Object:T212	
+T213	Action 35717 35722	calls
+A130	ActionName T213 080:Library-call_library_function
+R171	SubjAction Subject:T208 Action:T213	
+T214	Object 35723 35735;35739 35751;35755 35765;35769 35780;35784 35790	the function decodeBuffer (using the EncodingKey value)
+T215	Modifier 35791 35793	to
+T216	Object 35794 35818	decrypt the embedded DLL
+R172	ActionObj Action:T213 Object:T214	
+R173	ActionMod Action:T213 Modifier:T215	
+R174	ModObj Modifier:T215 Object:T216	
+T217	Subject 36156 36173	LoadEmbeddedImage
+T218	Action 36177 36182	calls
+A131	ActionName T218 080:Library-call_library_function
+T219	Object 36187 36211	ImageLoaderData::LoadDll
+T220	Action 36227 36231	load
+A132	ActionName T220 119:ProcessMemory-map_library_into_process
+T221	Object 36232 36239	the DLL
+T222	Modifier 36240 36244	into
+T223	Object 36245 36251	memory
+T224	Subject 36187 36211	ImageLoaderData::LoadDll
+R175	SubjAction Subject:T217 Action:T218	
+R176	ActionObj Action:T218 Object:T219	
+R177	SubjAction Subject:T224 Action:T220	
+R178	ActionObj Action:T220 Object:T221	
+R179	ActionMod Action:T220 Modifier:T222	
+R180	ModObj Modifier:T222 Object:T223	
+T225	Subject 36253 36277	ImageLoaderData::LoadDll
+T226	Action 36438 36443	calls
+A133	ActionName T226 080:Library-call_library_function
+T227	Object 36444 36447;36450 36457;36459 36487	the DllMain (DLL’s entry point) function
+R181	SubjAction Subject:T225 Action:T226	
+R182	ActionObj Action:T226 Object:T227	
+T228	Subject 36540 36550	the Loader
+T229	Action 36496 36503	loading
+A134	ActionName T229 119:ProcessMemory-map_library_into_process
+T230	Object 36504 36526	the embedded DLL image
+T231	Action 36329 36334	loads
+A135	ActionName T231 119:ProcessMemory-map_library_into_process
+T232	Object 36335 36344	the image
+T233	Modifier 36345 36349	into
+T234	Object 36350 36386	the appropriate memory configuration
+R183	SubjAction Subject:T225 Action:T231	
+R184	ActionObj Action:T231 Object:T232	
+R185	ActionMod Action:T231 Modifier:T233	
+R186	ModObj Modifier:T233 Object:T234	
+T235	Modifier 36527 36531	into
+T236	Object 36532 36538	memory
+R187	SubjAction Subject:T228 Action:T229	
+R188	ActionObj Action:T229 Object:T230	
+R189	ActionMod Action:T229 Modifier:T235	
+R190	ModObj Modifier:T235 Object:T236	
+T237	Action 36563 36567	call
+A136	ActionName T237 080:Library-call_library_function
+T238	Object 36568 36577;36580 36591;36593 36595;36597 36607;36609 36617	the DLL’s StartServer or MatrixMain function
+R191	SubjAction Subject:T228 Action:T237	
+R192	ActionObj Action:T237 Object:T238	
+T239	Subject 36651 36673	The standalone Loaders
+T240	Action 36674 36677	use
+A137	ActionName T240 080:Library-call_library_function
+T241	Object 36678 36681;36683 36693;36695 36703	the MatrixMain function
+T242	Subject 36710 36725	the DLL Loaders
+T243	Action 36731 36735	call
+A138	ActionName T243 080:Library-call_library_function
+T244	Object 36736 36739;36741 36752;36754 36762	the StartServer function
+R193	SubjAction Subject:T239 Action:T240	
+R194	ActionObj Action:T240 Object:T241	
+R195	SubjAction Subject:T242 Action:T243	
+R196	ActionObj Action:T243 Object:T244	
+T245	Subject 36764 36775	The Loaders
+T246	Action 36798 36802	call
+A139	ActionName T246 080:Library-call_library_function
+T247	Modifier 36777 36781	upon
+T248	Object 36782 36791	unloading
+T249	Object 36803 36826	the StopServer function
+T250	Modifier 36827 36838	in order to
+T251	Object 36839 36865	shut down the embedded DLL
+R197	SubjAction Subject:T245 Action:T246	
+R198	ActionMod Action:T246 Modifier:T247	
+R199	ModObj Modifier:T247 Object:T248	
+R200	ActionObj Action:T246 Object:T249	
+R201	ActionMod Action:T246 Modifier:T250	
+R202	ModObj Modifier:T250 Object:T251	
+T252	Subject 38350 38360;38362 38365;38367 38378	MatrixMain and StartServer
+T253	Action 38396 38404	generate
+A140	ActionName T253 125:ProcessThread-create_thread
+T254	Object 38405 38417	a new thread
+T255	Modifier 38419 38424	using
+T256	Object 38425 38447;38450 38463	the POSIX API function beginthreadex
+T257	Modifier 38465 38475	instead of
+T258	Object 38476 38491;38493 38505	the more common CreateThread
+R203	SubjAction Subject:T252 Action:T253	
+R204	ActionObj Action:T253 Object:T254	
+R205	ActionMod Action:T253 Modifier:T255	
+R206	ModObj Modifier:T255 Object:T256	
+R207	ActionMod Action:T253 Modifier:T257	
+R208	ModObj Modifier:T257 Object:T258	
+T259	Subject 40333 40340	the DLL
+T260	Action 40346 40353	install
+A141	ActionName T260 147:Service-create_service
+T261	Object 40354 40360	itself
+R209	CoRefer Referer:T261 Canonical:T259	
+R210	SubjAction Subject:T259 Action:T260	
+R211	ActionObj Action:T260 Object:T261	
+T262	Modifier 40361 40363	as
+T263	Object 40364 40373	a service
+T264	Modifier 40374 40376	on
+T265	Object 40377 40397	the victim’s machine
+R212	ActionMod Action:T260 Modifier:T262	
+R213	ActionMod Action:T260 Modifier:T264	
+R214	ModObj Modifier:T262 Object:T263	
+R215	ModObj Modifier:T264 Object:T265	
+T266	Subject 40399 40406	The DLL
+T267	Action 40412 40418	create
+A142	ActionName T267 147:Service-create_service
+T268	Object 40419 40432	a new service
+R216	SubjAction Subject:T266 Action:T267	
+R217	ActionObj Action:T267 Object:T268	
+T269	Subject 40515 40542	The DLL’s RAT functionality
+T270	Action 40543 40551	provides
+T271	Object 40630 40650	remote command shell
+A143	Capability T270 012:MalwareCapability-machine_access/control
+A144	TacticalObjectives T270 100:MachineAccessControl-control_machine_via_remote_command
+A145	StrategicObjectives T270 038:MachineAccessControl-control_local_machine
+R218	SubjAction Subject:T269 Action:T270	
+R219	ActionObj Action:T270 Object:T271	
+T272	Subject 40786 40819	individual instances of Gen 2 DLL
+T273	Action 40820 40826	listen
+A146	ActionName T273 091:Network-listen_on_port
+T274	Modifier 40827 40830	for
+T275	Object 40831 40851	incoming connections
+T276	Modifier 40852 40854	on
+T277	Object 40855 40866	local ports
+T278	Action 40897 40903	accept
+A147	Capability T278 005:MalwareCapability-command_and_control
+A148	TacticalObjectives T278 047:CommandandControl-control_malware_via_remote_command
+A149	StrategicObjectives T278 017:CommandandControl-receive_data_from_c2_server
+T279	Object 40904 40912	commands
+T280	Modifier 40913 40917	from
+T281	Object 40918 40940	the inbound connection
+R220	SubjAction Subject:T272 Action:T273	
+R221	ActionMod Action:T273 Modifier:T274	
+R222	ModObj Modifier:T274 Object:T275	
+R223	ActionMod Action:T273 Modifier:T276	
+R224	ModObj Modifier:T276 Object:T277	
+R225	SubjAction Subject:T272 Action:T278	
+R226	ActionObj Action:T278 Object:T279	
+R227	ActionMod Action:T278 Modifier:T280	
+R228	ModObj Modifier:T280 Object:T281	
+T282	Action 41216 41225	providing
+A150	Capability T282 013:MalwareCapability-persistence
+T283	Object 41226 41253	a high level of persistence
+T284	Modifier 41254 41256	to
+T285	Object 41257 41268	the malware
+R229	ActionObj Action:T282 Object:T283	
+R230	ActionMod Action:T282 Modifier:T284	
+R231	ModObj Modifier:T284 Object:T285	
+T286	Subject 41270 41290	Each Gen 2 infection
+T287	Action 41295 41302	support
+A151	ActionName T287 091:Network-listen_on_port
+T288	Modifier 41303 41308	up to
+T289	Object 41309 41327	10 listening ports
+R232	SubjAction Subject:T286 Action:T287	
+R233	ActionMod Action:T287 Modifier:T288	
+R234	ModObj Modifier:T288 Object:T289	
+T290	Subject 41329 41383	The communication between the Gen 2 malware and the C2
+T291	Action 41460 41472	is encrypted
+A152	Capability T291 002:MalwareCapability-anti-detection
+A153	TacticalObjectives T291 025:AntiDetection-hide_network_traffic
+A154	StrategicObjectives T291 007:AntiDetection-hide_malware_artifacts
+T292	Modifier 41473 41478	using
+T293	Object 41479 41504	a simple DWORD XOR scheme
+R235	SubjAction Subject:T290 Action:T291	
+R236	ActionMod Action:T291 Modifier:T292	
+R237	ModObj Modifier:T292 Object:T293	
+T294	Subject 43400 43407	the RAT
+T295	Action 43413 43420	install
+A155	Capability T295 017:MalwareCapability-secondary_operation
+A156	TacticalObjectives T295 118:SecondaryOperation-install_secondary_malware
+A157	StrategicObjectives T295 050:SecondaryOperation-install_other_components
+T296	Object 43421 43430	a rootkit
+T297	Modifier 43431 43433	on
+T298	Object 43434 43460	32-bit versions of Windows
+R238	SubjAction Subject:T294 Action:T295	
+R239	ActionObj Action:T295 Object:T296	
+R240	ActionMod Action:T295 Modifier:T297	
+R241	ModObj Modifier:T297 Object:T298	
+T299	Subject 43671 43697	the RAT functionality code
+T300	Action 43698 43705	creates
+A158	ActionName T300 147:Service-create_service
+T301	Object 43706 43715	a service
+T302	Modifier 43716 43720	with
+T303	Object 43721 43745;43749 43765;43766 43792	the driver in the %TEMP% directory as the executable for the service
+R242	SubjAction Subject:T299 Action:T300	
+R243	ActionObj Action:T300 Object:T301	
+R244	ActionMod Action:T300 Modifier:T302	
+R245	ModObj Modifier:T302 Object:T303	
+T304	Subject 43794 43820	The RAT functionality code
+T305	Action 43826 43835	activates
+A159	ActionName T305 153:Service-start_service
+T306	Object 43836 43847	the service
+R246	SubjAction Subject:T304 Action:T305	
+R247	ActionObj Action:T305 Object:T306	
+T307	Subject 43963 43970;43971 43989	the RAT functionality code
+T308	Action 43990 43997	deletes
+A160	ActionName T308 148:Service-delete_service
+T309	Object 43998 44009	the service
+T310	Modifier 44010 44021	in order to
+T311	Object 44022 44068	reduce the visible footprint of the new driver
+R248	SubjAction Subject:T307 Action:T308	
+R249	ActionObj Action:T308 Object:T309	
+R250	ActionMod Action:T308 Modifier:T310	
+R251	ModObj Modifier:T310 Object:T311	
+T312	Subject 44117 44143	the RAT functionality code
+T313	Action 44199 44203	hide
+A161	Capability T313 002:MalwareCapability-anti-detection
+A162	TacticalObjectives T313 027:AntiDetection-hide_processes
+A163	StrategicObjectives T313 007:AntiDetection-hide_malware_artifacts
+T314	Object 44204 44217	the DLL’s PID
+R252	SubjAction Subject:T312 Action:T313	
+R253	ActionObj Action:T313 Object:T314	
+T315	Object 44287 44363;44364 44385	the DLL’s service names (e.g. “NetDDESrv” and "Network DDE Service") and the service entry as well
+T316	Action 44199 44203	hide
+A164	Capability T316 002:MalwareCapability-anti-detection
+A165	TacticalObjectives T316 029:AntiDetection-hide_services
+A166	StrategicObjectives T316 007:AntiDetection-hide_malware_artifacts
+R254	ActionObj Action:T316 Object:T315	
+R255	SubjAction Subject:T312 Action:T316	
+T317	Subject 44401 44409	the code
+T318	Action 44427 44431	hide
+A167	Capability T318 002:MalwareCapability-anti-detection
+A168	TacticalObjectives T318 029:AntiDetection-hide_services
+A169	StrategicObjectives T318 007:AntiDetection-hide_malware_artifacts
+T319	Object 44432 44454	a service named “Hitx”
+R256	SubjAction Subject:T317 Action:T318	
+R257	ActionObj Action:T318 Object:T319	
+R258	CoRefer Referer:T312 Canonical:T317	
+T320	Subject 44786 44797	The console
+T321	Action 44897 44921	connect and authenticate
+A170	Capability T321 005:MalwareCapability-command_and_control
+T322	Modifier 44922 44926	with
+T323	Object 44927 44946	the infected server
+R259	SubjAction Subject:T320 Action:T321	
+R260	ActionMod Action:T321 Modifier:T322	
+R261	ModObj Modifier:T322 Object:T323	
+T324	Subject 44964 44976	the operator
+T325	Action 44977 44980	has
+A171	Capability T325 012:MalwareCapability-machine_access/control
+A172	TacticalObjectives T325 100:MachineAccessControl-control_machine_via_remote_command
+A173	StrategicObjectives T325 038:MachineAccessControl-control_local_machine
+T326	Object 44981 45030	the basic Hikit functionalities available to them
+T327	Modifier 45031 45034	via
+T328	Object 45035 45066	commands such as file and shell
+R262	SubjAction Subject:T324 Action:T325	
+R263	ActionObj Action:T325 Object:T326	
+R264	ActionMod Action:T325 Modifier:T327	
+R265	ModObj Modifier:T327 Object:T328	
+T329	Subject 46541 46554	Gen 2 samples
+T330	Action 46555 46562	produce
+A174	ActionName T330 168:Synchronization-create_event
+T331	Modifier 46563 46568	up to
+T332	Object 46569 46587	three named events
+R266	SubjAction Subject:T329 Action:T330	
+R267	ActionMod Action:T330 Modifier:T331	
+R268	ModObj Modifier:T331 Object:T332	

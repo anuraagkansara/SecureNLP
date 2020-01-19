@@ -1,0 +1,9 @@
+T1	Subject 12476 12488	This implant
+T2	Action 12502 12511	connected
+T3	Modifier 12512 12514	to
+T4	Object 12515 12560	a C2 node that overlapped with prennera[.]com
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ModObj Modifier:T3 Object:T4	
+A1	Capability T2 005:MalwareCapability-command_and_control
+A2	ActionName T2 088:Network-connect_to_url

@@ -1,0 +1,163 @@
+T1	Action 1646 1658	were dropped
+A1	Capability T1 017:MalwareCapability-secondary_operation
+A2	ActionName T1 090:Network-download_file
+A3	StrategicObjectives T1 050:SecondaryOperation-install_other_components
+A4	TacticalObjectives T1 118:SecondaryOperation-install_secondary_malware
+T2	Action 2390 2402	communicates
+A5	Capability T2 012:MalwareCapability-machine_access/control
+A6	TacticalObjectives T2 100:MachineAccessControl-control_machine_via_remote_command
+A7	StrategicObjectives T2 039:MachineAccessControl-install_backdoor
+T3	Action 3103 3111	decrease
+A8	Capability T3 002:MalwareCapability-anti-detection
+T4	Object 1631 1645	Both backdoors
+R2	ActionObj Action:T1 Object:T4	
+T6	Subject 2376 2384	backdoor
+T7	Object 2415 2459	a hard-coded command and control (C2) server
+R3	SubjAction Subject:T6 Action:T2	
+T8	Object 3112 3121	detection
+T9	Subject 3036 3047	this change
+R5	SubjAction Subject:T9 Action:T3	
+R6	ActionObj Action:T3 Object:T8	
+T10	Action 3422 3426	sent
+A9	Capability T10 010:MalwareCapability-infection/propagation
+A10	ActionName T10 094:Network-send_email_message
+A11	TacticalObjectives T10 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T11	Object 3402 3421	a spear phish email
+T12	Object 3430 3461	a Taiwanese government ministry
+T13	Action 3871 3878	dropped
+A12	TacticalObjectives T13 118:SecondaryOperation-install_secondary_malware
+A13	StrategicObjectives T13 050:SecondaryOperation-install_other_components
+T14	Subject 3850 3870	The exploit document
+T15	Object 3879 3900	the HIGHTIDE backdoor
+R9	SubjAction Subject:T14 Action:T13	
+R10	ActionObj Action:T13 Object:T15	
+T19	Action 4677 4684	deliver
+A15	Capability T19 010:MalwareCapability-infection/propagation
+A16	ActionName T19 094:Network-send_email_message
+A17	TacticalObjectives T19 089:InfectionPropagation-inventory_victims
+T20	Subject 4671 4676	APT12
+T21	Object 4685 4708	these exploit documents
+T22	Modifier 4709 4712	via
+R13	SubjAction Subject:T20 Action:T19	
+R14	ActionObj Action:T19 Object:T21	
+R15	ActionMod Action:T19 Modifier:T22	
+T23	Action 4820 4827	utilize
+A18	Capability T23 010:MalwareCapability-infection/propagation
+A19	TacticalObjectives T23 091:InfectionPropagation-perform_autonomous_remote_infection
+T24	Subject 4788 4804	the threat group
+T25	Object 4828 4836	phishing
+R16	SubjAction Subject:T24 Action:T23	
+R17	ActionObj Action:T23 Object:T25	
+T26	Action 5762 5767	drops
+A20	Capability T26 017:MalwareCapability-secondary_operation
+A21	ActionName T26 090:Network-download_file
+A22	StrategicObjectives T26 050:SecondaryOperation-install_other_components
+A23	TacticalObjectives T26 118:SecondaryOperation-install_secondary_malware
+T27	Subject 5759 5761	it
+T28	Object 5768 5776	HIGHTIDE
+R18	SubjAction Subject:T27 Action:T26	
+R19	ActionObj Action:T26 Object:T28	
+T29	Action 6028 6033	drops
+A24	Capability T29 017:MalwareCapability-secondary_operation
+A25	ActionName T29 090:Network-download_file
+A26	StrategicObjectives T29 050:SecondaryOperation-install_other_components
+A27	TacticalObjectives T29 118:SecondaryOperation-install_secondary_malware
+T30	Subject 5999 6027	The RIPTIDE exploit document
+T31	Object 6034 6037;6038 6053	its executable file
+R20	SubjAction Subject:T30 Action:T29	
+R21	ActionObj Action:T29 Object:T31	
+T32	Action 6165 6170	drops
+A28	Capability T32 017:MalwareCapability-secondary_operation
+A29	ActionName T32 090:Network-download_file
+A30	StrategicObjectives T32 050:SecondaryOperation-install_other_components
+A31	TacticalObjectives T32 118:SecondaryOperation-install_secondary_malware
+T33	Subject 6135 6138;6139 6164	the HIGHTIDE exploit document
+T34	Object 6171 6190	its executable file
+R22	SubjAction Subject:T33 Action:T32	
+R23	ActionObj Action:T32 Object:T34	
+T35	Action 6655 6659	sent
+A32	Capability T35 010:MalwareCapability-infection/propagation
+A33	ActionName T35 094:Network-send_email_message
+A34	TacticalObjectives T35 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T36	Subject 6625 6654	a different spear phish email
+T37	Object 6690 6728	a technology company located in Taiwan
+R24	SubjAction Subject:T36 Action:T35	
+T38	Action 6975 6982	dropped
+A35	Capability T38 012:MalwareCapability-machine_access/control
+A36	ActionName T38 090:Network-download_file
+A37	StrategicObjectives T38 039:MachineAccessControl-install_backdoor
+T39	Subject 6951 6974	this malicious document
+T40	Object 6983 6993	a backdoor
+R26	SubjAction Subject:T39 Action:T38	
+R27	ActionObj Action:T38 Object:T40	
+T44	Action 6747 6756	contained
+A40	Capability T44 017:MalwareCapability-secondary_operation
+A41	ActionName T44 090:Network-download_file
+A42	StrategicObjectives T44 050:SecondaryOperation-install_other_components
+A43	TacticalObjectives T44 118:SecondaryOperation-install_secondary_malware
+T45	Subject 6730 6746	This spear phish
+R30	SubjAction Subject:T45 Action:T44	
+T47	Action 8127 8136	targeting
+A44	Capability T47 010:MalwareCapability-infection/propagation
+A45	ActionName T47 094:Network-send_email_message
+A46	TacticalObjectives T47 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T48	Subject 8105 8126	spear phishing emails
+R32	SubjAction Subject:T48 Action:T47	
+T50	Action 8173 8181	Attached
+A47	Capability T50 017:MalwareCapability-secondary_operation
+A48	ActionName T50 090:Network-download_file
+A49	StrategicObjectives T50 050:SecondaryOperation-install_other_components
+A50	TacticalObjectives T50 118:SecondaryOperation-install_secondary_malware
+T51	Object 8200 8226	another malicious document
+T53	Action 8351 8358	dropped
+A51	Capability T53 017:MalwareCapability-secondary_operation
+A52	ActionName T53 090:Network-download_file
+A53	StrategicObjectives T53 050:SecondaryOperation-install_other_components
+A54	TacticalObjectives T53 118:SecondaryOperation-install_secondary_malware
+T54	Object 8359 8369	a backdoor
+T55	Subject 8271 8299	This malicious Word document
+R36	SubjAction Subject:T55 Action:T53	
+R37	ActionObj Action:T53 Object:T54	
+T56	Subject 8779 8801	an HTTP-based backdoor
+T57	Object 8825 8838	its C2 server
+T58	Action 8807 8819	communicates
+A55	Capability T58 005:MalwareCapability-command_and_control
+A56	TacticalObjectives T58 048:CommandandControl-generate_c2_domain_name(s)
+A57	StrategicObjectives T58 018:CommandandControl-send_data_to_c2_server
+R38	SubjAction Subject:T56 Action:T58	
+T59	Modifier 1659 1663	from
+R1	ActionMod Action:T1 Modifier:T59	
+T5	Object 1664 1689;1690 1731	malicious documents built utilizing the “Tran Duy Linh” exploit kit
+R40	ModObj Modifier:T59 Object:T5	
+T60	Modifier 2412 2414	to
+T61	Modifier 2403 2406	via
+T62	Object 2407 2411	HTTP
+R4	ModObj Modifier:T60 Object:T7	
+R41	ModObj Modifier:T61 Object:T62	
+R42	ActionMod Action:T2 Modifier:T61	
+R43	ActionMod Action:T2 Modifier:T60	
+R7	ActionObj Action:T10 Object:T11	
+T63	Modifier 3427 3429	to
+R8	ActionMod Action:T10 Modifier:T63	
+R44	ModObj Modifier:T63 Object:T12	
+T16	Object 4713 4728	phishing emails
+R11	ModObj Modifier:T22 Object:T16	
+T17	Modifier 6687 6689	to
+R12	ModObj Modifier:T17 Object:T37	
+T18	Modifier 6660 6664	from
+T64	Object 6665 6686	lilywang823@gmail.com
+R25	ModObj Modifier:T18 Object:T64	
+R45	ActionMod Action:T35 Modifier:T18	
+R46	ActionMod Action:T35 Modifier:T17	
+T46	Object 6757 6787;6788 6811	a malicious Word document that exploited CVE-2012-0158
+R31	ActionObj Action:T44 Object:T46	
+T49	Object 8137 8154;8155 8171	a high-technology company in Japan
+R33	ActionObj Action:T47 Object:T49	
+T52	Modifier 8182 8184	to
+T66	Object 8185 8195	this email
+R35	ModObj Modifier:T52 Object:T66	
+R48	ActionMod Action:T50 Modifier:T52	
+R34	ActionObj Action:T50 Object:T51	
+T67	Modifier 8820 8824	with
+R39	ModObj Modifier:T67 Object:T57	
+R49	ActionMod Action:T58 Modifier:T67	

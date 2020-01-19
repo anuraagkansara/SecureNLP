@@ -1,0 +1,496 @@
+T1	Subject 4685 4702	The threat actors
+T2	Action 4703 4711	utilized
+A1	Capability T2 005:MalwareCapability-command_and_control
+T3	Object 4712 4805	a hosting provider that is a Pakistani-based company with subleased VPS space within the U.S.
+T4	Modifier 4806 4809	for
+T5	Object 4814 4838	command and control (C2)
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T6	Subject 4844 4906	The customized malware (BITTERBUG) used by these threat actors
+T7	Action 4930 4936	hosted
+A2	Capability T7 005:MalwareCapability-command_and_control
+T8	Action 4944 4957	communicating
+A3	Capability T8 005:MalwareCapability-command_and_control
+T9	Modifier 4937 4939	on
+T10	Modifier 4958 4962	with
+T11	Object 4967 5029	two IP addresses operated by a Pakistan-based hosting provider
+R3	SubjAction Subject:T6 Action:T7	
+R4	SubjAction Subject:T6 Action:T8	
+R5	ActionMod Action:T7 Modifier:T9	
+R6	ActionMod Action:T8 Modifier:T10	
+R7	ModObj Modifier:T9 Object:T11	
+R8	ModObj Modifier:T10 Object:T11	
+T12	Subject 7702 7725	this customized malware
+T13	Object 7787 7831;7842 7845;7846 7859	two command and control nodes: 199.91.173.43 and 199.91.173.45
+T14	Action 7754 7760	hosted
+A4	Capability T14 005:MalwareCapability-command_and_control
+T15	Action 7768 7781	communicating
+A5	Capability T15 005:MalwareCapability-command_and_control
+T16	Modifier 7761 7763	on
+T17	Modifier 7782 7786	with
+R9	SubjAction Subject:T12 Action:T14	
+R10	SubjAction Subject:T12 Action:T15	
+R11	ActionMod Action:T14 Modifier:T16	
+R12	ActionMod Action:T15 Modifier:T17	
+R13	ModObj Modifier:T16 Object:T13	
+R14	ModObj Modifier:T17 Object:T13	
+T18	Object 19843 19858	VPNSOC IP space
+T19	Action 19859 19867	was used
+A6	Capability T19 005:MalwareCapability-command_and_control
+T20	Object 19871 19896	command and control nodes
+T21	Modifier 19868 19870	as
+T22	Modifier 19897 19900	for
+T23	Object 19901 19955;19960 20038	attackers using variants of the BITTERBUG malware that contained build strings that referenced “Tranchulas” and a Tranchulas employee
+R15	ActionObj Action:T19 Object:T18	
+R16	ActionMod Action:T19 Modifier:T21	
+R17	ActionMod Action:T19 Modifier:T22	
+R18	ModObj Modifier:T21 Object:T20	
+R19	ModObj Modifier:T22 Object:T23	
+T24	Object 22626 22641	decoy documents
+T25	Action 22647 22656	were used
+A7	Capability T25 010:MalwareCapability-infection/propagation
+A8	TacticalObjectives T25 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A9	StrategicObjectives T25 031:InfectionPropagation-infect_remote_machine
+T26	Modifier 22657 22676	in conjunction with
+T27	Object 22677 22706	BITTERBUG targeting campaigns
+R20	ActionObj Action:T25 Object:T24	
+R21	ActionMod Action:T25 Modifier:T26	
+T28	Object 22956 22958	it
+T29	Subject 22884 22891	FireEye
+T30	Action 22945 22955	determined
+A10	Capability T30 012:MalwareCapability-machine_access/control
+A11	TacticalObjectives T30 100:MachineAccessControl-control_machine_via_remote_command
+A12	StrategicObjectives T30 038:MachineAccessControl-control_local_machine
+T31	Modifier 22959 22961	to
+T32	Object 22962 22982	be a custom backdoor
+R22	SubjAction Subject:T29 Action:T30	
+R23	ActionObj Action:T30 Object:T28	
+R24	ActionMod Action:T30 Modifier:T31	
+R25	ModObj Modifier:T31 Object:T32	
+T33	Subject 22984 22996	The backdoor
+T34	Action 22997 23003	relies
+A13	Capability T34 012:MalwareCapability-machine_access/control
+A14	TacticalObjectives T34 100:MachineAccessControl-control_machine_via_remote_command
+A15	StrategicObjectives T34 038:MachineAccessControl-control_local_machine
+T35	Modifier 23004 23006	on
+T36	Object 23007 23092	various support components, including the non-malicious, publically available Libcurl
+T37	Modifier 23104 23107	for
+T38	Object 23108 23148	installation, launch, and communications
+R26	SubjAction Subject:T33 Action:T34	
+R27	ActionMod Action:T34 Modifier:T35	
+R28	ModObj Modifier:T35 Object:T36	
+R29	ActionMod Action:T34 Modifier:T37	
+R30	ModObj Modifier:T37 Object:T38	
+T39	Subject 23168 23177	BITTERBUG
+R31	CoRefer Referer:T39 Canonical:T33	
+R32	CoRefer Referer:T39 Canonical:T28	
+T40	Action 23211 23232	target and exfiltrate
+A16	Capability T40 006:MalwareCapability-data_exfiltration
+A17	StrategicObjectives T40 020:DataExfiltration-perform_data_exfiltration
+T41	Object 23233 23301	files with extensions such as .doc, .xls, .pdf, .ppt, .egm, and .xml
+R33	ActionObj Action:T40 Object:T41	
+R34	SubjAction Subject:T39 Action:T40	
+T42	Action 25014 25019	using
+A18	Capability T42 010:MalwareCapability-infection/propagation
+A19	TacticalObjectives T42 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A20	StrategicObjectives T42 031:InfectionPropagation-infect_remote_machine
+T43	Object 25020 25141	a "leaked report" lure which contained a decoy document related to Pakistan's alleged inability to locate Osama Bin Laden
+T44	Subject 24943 24963	One of these samples
+R35	SubjAction Subject:T44 Action:T42	
+R36	ActionObj Action:T42 Object:T43	
+T45	Subject 25574 25594	a compilation tactic
+T46	Action 25598 25605	conceal
+A21	Capability T46 001:MalwareCapability-anti-code_analysis
+A22	StrategicObjectives T46 004:AntiCodeAnalysis-code_obfuscation
+T47	Object 25606 25641	the C2 address from static analysis
+R37	SubjAction Subject:T45 Action:T46	
+R38	ActionObj Action:T46 Object:T47	
+T48	Object 26635 26652	several new lures
+T49	Action 26653 26657	used
+A23	Capability T49 010:MalwareCapability-infection/propagation
+A24	TacticalObjectives T49 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A25	StrategicObjectives T49 031:InfectionPropagation-infect_remote_machine
+T50	Modifier 26658 26660	in
+T51	Object 26661 26705	BITTERBUG self-extracting RAR (SFXRAR) files
+R39	ActionObj Action:T49 Object:T48	
+R40	ActionMod Action:T49 Modifier:T50	
+R41	ModObj Modifier:T50 Object:T51	
+T52	Subject 26707 26724	One from December
+T53	Action 26766 26770	used
+A26	Capability T53 010:MalwareCapability-infection/propagation
+A27	TacticalObjectives T53 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A28	StrategicObjectives T53 031:InfectionPropagation-infect_remote_machine
+T54	Object 26771 26857;26869 26908	a decoy PDF document (Figure 12) related to the December arrest of Devyani Khobragade, an Indian diplomat in the United States
+R42	ActionObj Action:T53 Object:T54	
+R43	SubjAction Subject:T52 Action:T53	
+T55	Subject 26926 26928	we
+T56	Action 26929 26937	observed
+A29	Capability T56 010:MalwareCapability-infection/propagation
+A30	TacticalObjectives T56 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A31	StrategicObjectives T56 031:InfectionPropagation-infect_remote_machine
+T57	Object 26938 27044;27056 27094	a SFXRAR file with a filename lure related to the March 2014 disappearance of Malaysis Airlines Flight 370 (cast as a Pakistan-related hijacking)
+R44	SubjAction Subject:T55 Action:T56	
+R45	ActionObj Action:T56 Object:T57	
+T58	Subject 27213 27235	this SFXRAR's filename
+T59	Action 27236 27239	was
+A32	Capability T59 010:MalwareCapability-infection/propagation
+A33	TacticalObjectives T59 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A34	StrategicObjectives T59 031:InfectionPropagation-infect_remote_machine
+T60	Object 27240 27288	the only lure element related to the MH370 event
+R46	SubjAction Subject:T58 Action:T59	
+R47	ActionObj Action:T59 Object:T60	
+T61	Subject 27526 27535	BITTERBUG
+T62	Action 27549 27553	rely
+A35	Capability T62 005:MalwareCapability-command_and_control
+T63	Modifier 27554 27556	on
+T64	Modifier 27584 27586	to
+T65	Object 27557 27583	the same network behaviors
+T66	Object 27587 27611	communicate with its C2s
+R48	SubjAction Subject:T61 Action:T62	
+R49	ActionMod Action:T62 Modifier:T63	
+R50	ActionMod Action:T62 Modifier:T64	
+R51	ModObj Modifier:T63 Object:T65	
+R52	ModObj Modifier:T64 Object:T66	
+T67	Subject 27613 27640	Connections to its C2 nodes
+T68	Action 27641 27647	relied
+A36	Capability T68 005:MalwareCapability-command_and_control
+T69	Modifier 27648 27650	on
+T70	Object 27651 27654	PHP
+R53	SubjAction Subject:T67 Action:T68	
+R54	ActionMod Action:T68 Modifier:T69	
+R55	ModObj Modifier:T69 Object:T70	
+T71	Action 27659 27663	used
+A37	Capability T71 005:MalwareCapability-command_and_control
+T72	Object 27664 27769;27770 27782	communications that included “.php?compname=” and “.php?srs=”, as well as direct file/component retrieval from the C2s
+R56	ActionObj Action:T71 Object:T72	
+R57	SubjAction Subject:T67 Action:T71	
+T73	Subject 27791 27832	many of the samples that we have observed
+T74	Action 27833 27836	use
+A38	Capability T74 005:MalwareCapability-command_and_control
+T75	Object 27837 27847	direct IPs
+T76	Modifier 27848 27851	for
+T77	Object 27852 27871	HTTP communications
+R58	SubjAction Subject:T73 Action:T74	
+R59	ActionObj Action:T74 Object:T75	
+R60	ActionMod Action:T74 Modifier:T76	
+R61	ModObj Modifier:T76 Object:T77	
+T78	Subject 27873 27875	we
+T79	Action 27881 27889	observed
+A39	Capability T79 005:MalwareCapability-command_and_control
+T80	Object 27890 27924	more limited use of a No-IP domain
+R62	SubjAction Subject:T78 Action:T79	
+R63	ActionObj Action:T79 Object:T80	
+T81	Subject 28526 28542	The threat actor
+T82	Action 28571 28575	used
+A40	Capability T82 005:MalwareCapability-command_and_control
+T83	Object 28576 28663	VPSNOC, a probable Pakistan-based VPS service provider who leased U.S. hosting services
+T84	Modifier 28665 28668	for
+T85	Object 28669 28677;28678 28710	both the delivery and C2 phases of attack
+R64	SubjAction Subject:T81 Action:T82	
+R65	ActionObj Action:T82 Object:T83	
+R66	ActionMod Action:T82 Modifier:T84	
+R67	ModObj Modifier:T84 Object:T85	
+T86	Subject 29938 29980	a Pakistan-based cyber exploitation effort
+T87	Action 30014 30023	obfuscate
+A41	Capability T87 002:MalwareCapability-anti-detection
+A42	StrategicObjectives T87 007:AntiDetection-hide_malware_artifacts
+T88	Object 30024 30051	its malware characteristics
+R68	SubjAction Subject:T86 Action:T87	
+R69	ActionObj Action:T87 Object:T88	
+T89	Subject 30972 30981	BITTERBUG
+T90	Action 30982 30984	is
+A43	Capability T90 012:MalwareCapability-machine_access/control
+A44	TacticalObjectives T90 100:MachineAccessControl-control_machine_via_remote_command
+A45	StrategicObjectives T90 038:MachineAccessControl-control_local_machine
+T91	Object 30985 31006	a backdoor executable
+R70	SubjAction Subject:T89 Action:T90	
+R71	ActionObj Action:T90 Object:T91	
+T92	Action 31018 31027	uploading
+A46	ActionName T92 097:Network-upload_file
+T93	Action 31032 31043	downloading
+A47	ActionName T93 090:Network-download_file
+R72	SubjAction Subject:T89 Action:T92	
+R73	SubjAction Subject:T89 Action:T93	
+T94	Object 31044 31049	files
+R74	ActionObj Action:T92 Object:T94	
+R75	ActionObj Action:T93 Object:T94	
+T95	Action 31051 31058	listing
+A48	Capability T95 019:MalwareCapability-spying
+A49	ActionName T95 106:Process-enumerate_processes
+A50	StrategicObjectives T95 064:Spying-capture_system_state_data
+A51	TacticalObjectives T95 144:Spying-capture_system_memory
+T96	Object 31059 31076	running processes
+R76	ActionObj Action:T95 Object:T96	
+R77	SubjAction Subject:T89 Action:T95	
+T97	Action 31078 31088	generating
+A52	Capability T97 019:MalwareCapability-spying
+A53	TacticalObjectives T97 138:Spying-capture_file_system
+A54	StrategicObjectives T97 064:Spying-capture_system_state_data
+T98	Object 31089 31102	file listings
+R78	SubjAction Subject:T89 Action:T97	
+R79	ActionObj Action:T97 Object:T98	
+T99	Action 31122 31134	transferring
+A55	Capability T99 006:MalwareCapability-data_exfiltration
+A57	StrategicObjectives T99 020:DataExfiltration-perform_data_exfiltration
+A56	ActionName T99 096:Network-send_network_packet
+T100	Object 31135 31149	selected files
+T101	Modifier 31150 31152	to
+T102	Object 31153 31188	its command and control (C2) server
+R80	SubjAction Subject:T89 Action:T99	
+R81	ActionObj Action:T99 Object:T100	
+R82	ActionMod Action:T99 Modifier:T101	
+R83	ModObj Modifier:T101 Object:T102	
+T103	Subject 31190 31199	BITTERBUG
+T104	Action 31200 31207	appears
+A58	Capability T104 000:MalwareCapability-anti-behavioral_analysis
+A59	TacticalObjectives T104 001:AntiBehavioralAnalysis-detect_vm_environment
+A60	StrategicObjectives T104 001:AntiBehavioralAnalysis-anti-vm
+T105	Modifier 31208 31210	to
+T106	Object 31211 31235	be virtual machine aware
+R84	SubjAction Subject:T103 Action:T104	
+R85	ActionMod Action:T104 Modifier:T105	
+R86	ModObj Modifier:T105 Object:T106	
+T107	Action 31244 31255	not execute
+A61	Capability T107 000:MalwareCapability-anti-behavioral_analysis
+A62	TacticalObjectives T107 004:AntiBehavioralAnalysis-prevent_execution_in_vm
+A63	StrategicObjectives T107 001:AntiBehavioralAnalysis-anti-vm
+T108	Modifier 31256 31258	on
+T109	Object 31259 31284	a VMWare or VirtualBox VM
+R87	SubjAction Subject:T103 Action:T107	
+R88	ActionMod Action:T107 Modifier:T108	
+R89	ModObj Modifier:T108 Object:T109	
+T110	Object 31303 31312	BITTERBUG
+T111	Action 31313 31322	installed
+A64	Capability T111 017:MalwareCapability-secondary_operation
+A65	TacticalObjectives T111 118:SecondaryOperation-install_secondary_malware
+A66	StrategicObjectives T111 050:SecondaryOperation-install_other_components
+R91	ActionObj Action:T111 Object:T110	
+T113	Subject 31400 31431	the self-extracting RAR archive
+T114	Action 31436 31443	extract
+A67	Capability T114 017:MalwareCapability-secondary_operation
+A68	TacticalObjectives T114 118:SecondaryOperation-install_secondary_malware
+A69	StrategicObjectives T114 050:SecondaryOperation-install_other_components
+T115	Object 31444 31485;31486 31510	configuration files, dependency DLLs, and the BITTERBUG executable
+R92	SubjAction Subject:T113 Action:T114	
+R93	ActionObj Action:T114 Object:T115	
+T112	Subject 31326 31355	a self-extracting RAR archive
+R90	SubjAction Subject:T112 Action:T111	
+T116	Action 31356 31365	disguised
+A70	Capability T116 010:MalwareCapability-infection/propagation
+A71	TacticalObjectives T116 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A72	StrategicObjectives T116 031:InfectionPropagation-infect_remote_machine
+T117	Modifier 31366 31368	as
+T118	Object 31369 31382	a screensaver
+R94	SubjAction Subject:T112 Action:T116	
+R95	ActionMod Action:T116 Modifier:T117	
+R96	ModObj Modifier:T117 Object:T118	
+T119	Subject 31832 31855	the self-extracting RAR
+T120	Action 31860 31867	install
+A73	Capability T120 017:MalwareCapability-secondary_operation
+A74	TacticalObjectives T120 118:SecondaryOperation-install_secondary_malware
+A75	StrategicObjectives T120 050:SecondaryOperation-install_other_components
+T121	Object 31868 31906	<BITTERBUG>.exe and the following DLLs
+R97	SubjAction Subject:T119 Action:T120	
+R98	ActionObj Action:T120 Object:T121	
+T122	Subject 32093 32116	The self-extracting RAR
+T123	Action 32121 32128	install
+A76	Capability T123 017:MalwareCapability-secondary_operation
+A77	TacticalObjectives T123 117:SecondaryOperation-install_legitimate_software
+A78	StrategicObjectives T123 050:SecondaryOperation-install_other_components
+T124	Object 32129 32169	the following benign configuration files
+R99	SubjAction Subject:T122 Action:T123	
+R100	ActionObj Action:T123 Object:T124	
+T125	Subject 32416 32425	BITTERBUG
+T126	Action 32436 32443	execute
+A79	Capability T126 000:MalwareCapability-anti-behavioral_analysis
+A80	TacticalObjectives T126 001:AntiBehavioralAnalysis-detect_vm_environment
+A81	StrategicObjectives T126 001:AntiBehavioralAnalysis-anti-vm
+T127	Object 32444 32506	the following Windows Management Instrumentation (WMI) command
+T128	Modifier 32507 32509	to
+T129	Object 32510 32534;32535 32555	detect the presence of a virtual machine (VM)
+R101	SubjAction Subject:T125 Action:T126	
+R102	ActionObj Action:T126 Object:T127	
+R103	ActionMod Action:T126 Modifier:T128	
+R104	ModObj Modifier:T128 Object:T129	
+T130	Subject 32651 32660	BITTERBUG
+T131	Action 32670 32674	open
+A82	ActionName T131 036:File-open_file
+T132	Object 32675 32687	recovery.txt
+R105	SubjAction Subject:T130 Action:T131	
+R106	ActionObj Action:T131 Object:T132	
+T133	Action 32692 32697	check
+A83	Capability T133 000:MalwareCapability-anti-behavioral_analysis
+A84	ActionName T133 038:File-read_from_file
+A85	StrategicObjectives T133 001:AntiBehavioralAnalysis-anti-vm
+A86	TacticalObjectives T133 001:AntiBehavioralAnalysis-detect_vm_environment
+T134	Modifier 32698 32701	for
+T135	Object 32702 32740	the presence of strings VBox or VMware
+R107	SubjAction Subject:T130 Action:T133	
+R108	ActionMod Action:T133 Modifier:T134	
+R109	ModObj Modifier:T134 Object:T135	
+T136	Subject 32742 32754	The backdoor
+T137	Action 32764 32769	enter
+A87	Capability T137 017:MalwareCapability-secondary_operation
+A88	StrategicObjectives T137 051:SecondaryOperation-lay_dormant
+T138	Object 32770 32792	an infinite sleep loop
+T139	Modifier 32793 32795	if
+T140	Object 32796 32881	recovery.txt contains either one of the aforementioned strings (Example in Figure 13)
+R110	SubjAction Subject:T136 Action:T137	
+R111	ActionObj Action:T137 Object:T138	
+R112	ActionMod Action:T137 Modifier:T139	
+R113	ModObj Modifier:T139 Object:T140	
+R114	CoRefer Referer:T130 Canonical:T136	
+T141	Subject 33014 33023	BITTERBUG
+T142	Action 33039 33045	beacon
+A89	Capability T142 005:MalwareCapability-command_and_control
+A90	ActionName T142 096:Network-send_network_packet
+A91	StrategicObjectives T142 018:CommandandControl-send_data_to_c2_server
+A92	TacticalObjectives T142 050:CommandandControl-send_system_information
+T143	Modifier 33046 33048	to
+T144	Object 33049 33062	the C2 server
+T145	Modifier 33063 33065	by
+T146	Object 33066 33123;33124 33130	sending the computer name and username of the compromised system
+R115	SubjAction Subject:T141 Action:T142	
+R116	ActionMod Action:T142 Modifier:T143	
+R117	ModObj Modifier:T143 Object:T144	
+R118	ActionMod Action:T142 Modifier:T145	
+R119	ModObj Modifier:T145 Object:T146	
+T147	Subject 33636 33645	BITTERBUG
+T148	Action 33655 33662	perform
+A93	Capability T148 005:MalwareCapability-command_and_control
+A94	ActionName T148 054:HTTP-send_http_get_request
+A95	StrategicObjectives T148 018:CommandandControl-send_data_to_c2_server
+T149	Object 33663 33704	an HTTP GET request for the following URI
+R120	SubjAction Subject:T147 Action:T148	
+R121	ActionObj Action:T148 Object:T149	
+T150	Object 33837 33858	the filename received
+T151	Action 33859 33869	is deleted
+A97	ActionName T151 028:File-delete_file
+T152	Modifier 33870 33874	from
+T153	Object 33875 33910;33911 33914	%APPDATA%\Microsoft<FILE_NAME_FROM_ C2>
+R122	ActionObj Action:T151 Object:T150	
+R123	ActionMod Action:T151 Modifier:T152	
+R124	ModObj Modifier:T152 Object:T153	
+T154	Subject 33931 33943	this command
+T155	Action 33956 33962	delete
+A96	Capability T155 010:MalwareCapability-infection/propagation
+A98	ActionName T155 028:File-delete_file
+A99	StrategicObjectives T155 032:InfectionPropagation-prevent_duplicate_infection
+T156	Object 33963 33990	older versions of BITTERBUG
+R125	SubjAction Subject:T154 Action:T155	
+R126	ActionObj Action:T155 Object:T156	
+T157	Subject 34059 34068	BITTERBUG
+T158	Action 34089 34097	download
+A100	Capability T158 017:MalwareCapability-secondary_operation
+A101	ActionName T158 090:Network-download_file
+A102	StrategicObjectives T158 050:SecondaryOperation-install_other_components
+A103	TacticalObjectives T158 118:SecondaryOperation-install_secondary_malware
+T159	Object 34098 34125	the files listed in Table 1
+R127	SubjAction Subject:T157 Action:T158	
+R128	ActionObj Action:T158 Object:T159	
+T160	Object 34176 34189;34190 34195	The final two files
+T161	Action 34196 34210	are downloaded
+A104	Capability T161 017:MalwareCapability-secondary_operation
+A105	TacticalObjectives T161 118:SecondaryOperation-install_secondary_malware
+A106	StrategicObjectives T161 050:SecondaryOperation-install_other_components
+A107	ActionName T161 090:Network-download_file
+R129	ActionObj Action:T161 Object:T160	
+T162	Modifier 34211 34213	to
+T163	Object 34214 34242	the user’s Startup directory
+R130	ActionMod Action:T161 Modifier:T162	
+R131	ModObj Modifier:T162 Object:T163	
+T164	Action 34247 34255	executed
+A108	Capability T164 013:MalwareCapability-persistence
+A109	TacticalObjectives T164 104:Persistence-persist_after_system_reboot
+A110	StrategicObjectives T164 042:Persistence-persist_to_continuously_execute_on_system
+T165	Modifier 34256 34258	at
+T166	Object 34259 34266	startup
+T167	Modifier 34267 34278	in order to
+T168	Object 34279 34299	maintain persistence
+R132	ActionMod Action:T164 Modifier:T165	
+R133	ModObj Modifier:T165 Object:T166	
+R134	ActionMod Action:T164 Modifier:T167	
+R135	ModObj Modifier:T167 Object:T168	
+R136	ActionObj Action:T164 Object:T160	
+T169	Subject 35311 35320	BITTERBUG
+T170	Action 35325 35329	scan
+A111	ActionName T170 015:Disk-list_disks
+T171	Modifier 35330 35337	through
+T172	Object 35338 35355	each drive letter
+R137	SubjAction Subject:T169 Action:T170	
+R138	ActionMod Action:T170 Modifier:T171	
+R139	ModObj Modifier:T171 Object:T172	
+A112	Capability T170 019:MalwareCapability-spying
+A113	StrategicObjectives T170 064:Spying-capture_system_state_data
+A114	TacticalObjectives T170 138:Spying-capture_file_system
+T173	Action 35360 35366	search
+A115	ActionName T173 030:File-find_file
+T175	Modifier 35379 35382	for
+T174	Object 35383 35423	files with the following file extensions
+R140	SubjAction Subject:T169 Action:T173	
+R141	ActionMod Action:T173 Modifier:T175	
+R142	ModObj Modifier:T175 Object:T174	
+T176	Subject 35491 35500	BITTERBUG
+T177	Action 35516 35523	creates
+A116	ActionName T177 024:File-create_file
+T178	Object 35524 35613	a file list containing all documents (excluding those whose filename contains MediaUtils)
+T179	Modifier 35614 35616	to
+T180	Object 35617 35640	the following locations
+R143	SubjAction Subject:T176 Action:T177	
+R144	ActionObj Action:T177 Object:T178	
+R145	ActionMod Action:T177 Modifier:T179	
+R146	ModObj Modifier:T179 Object:T180	
+T181	Subject 35729 35738	BITTERBUG
+T182	Action 35748 35753	write
+A117	ActionName T182 043:File-write_to_file
+T183	Object 35754 35785	a list of all running processes
+R147	SubjAction Subject:T181 Action:T182	
+R148	ActionObj Action:T182 Object:T183	
+T184	Subject 35845 35854	BITTERBUG
+T185	Action 35865 35872	uploads
+A118	Capability T185 006:MalwareCapability-data_exfiltration
+A119	ActionName T185 097:Network-upload_file
+A120	StrategicObjectives T185 020:DataExfiltration-perform_data_exfiltration
+A121	TacticalObjectives T185 057:DataExfiltration-exfiltrate_via_network
+T186	Object 35873 35936	the running process list, document file list, and all documents
+T187	Modifier 35937 35939	to
+T188	Object 35940 35957	the following URI
+R149	SubjAction Subject:T184 Action:T185	
+R150	ActionObj Action:T185 Object:T186	
+R151	ActionMod Action:T185 Modifier:T187	
+R152	ModObj Modifier:T187 Object:T188	
+T189	Subject 36693 36704	The malware
+T190	Action 36709 36715	create
+A122	ActionName T190 024:File-create_file
+T191	Object 36716 36735	the following files
+R153	SubjAction Subject:T189 Action:T190	
+R154	ActionObj Action:T190 Object:T191	
+T192	Subject 37179 37190	The malware
+T193	Action 37201 37213	communicates
+A123	Capability T193 005:MalwareCapability-command_and_control
+T194	Modifier 37214 37216	on
+A124	ActionName T193 092:Network-open_port
+T195	Object 37217 37228	TCP port 80
+R155	SubjAction Subject:T192 Action:T193	
+R156	ActionMod Action:T193 Modifier:T194	
+R157	ModObj Modifier:T194 Object:T195	
+T196	Subject 37234 37245	The malware
+T197	Action 37250 37257	perform
+A125	Capability T197 005:MalwareCapability-command_and_control
+T198	Object 37258 37271	HTTP requests
+T199	Modifier 37272 37275	for
+T200	Object 37276 37294	the following URIs
+R158	SubjAction Subject:T196 Action:T197	
+R159	ActionObj Action:T197 Object:T198	
+R160	ActionMod Action:T197 Modifier:T199	
+R161	ModObj Modifier:T199 Object:T200	
+T201	Object 53453 53479	two benign decoy documents
+T202	Action 53485 53505	were originally used
+A126	Capability T202 010:MalwareCapability-infection/propagation
+A127	TacticalObjectives T202 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A128	StrategicObjectives T202 031:InfectionPropagation-infect_remote_machine
+T203	Modifier 53506 53512	within
+T204	Object 53513 53543	July 2013 BITTERBUG operations
+R162	ActionObj Action:T202 Object:T201	
+R163	ActionMod Action:T202 Modifier:T203	
+R164	ModObj Modifier:T203 Object:T204	

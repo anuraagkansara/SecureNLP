@@ -1,0 +1,882 @@
+T1	Subject 4719 4732;4769 4778	Aggressive ad libraries
+T2	Action 4784 4788	leak
+A1	Capability T2 007:MalwareCapability-data_theft
+T3	Object 4789 4819	the user’s private information
+A2	StrategicObjectives T2 025:DataTheft-steal_user_data
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 5185 5196	an attacker
+T5	Action 5201 5218	intercept and use
+A3	Capability T5 010:MalwareCapability-infection/propagation
+A4	TacticalObjectives T5 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A5	StrategicObjectives T5 031:InfectionPropagation-infect_remote_machine
+T6	Object 5219 5226;5261 5299	private information uploaded from ad libraries
+T7	Modifier 5300 5302	to
+T8	Object 5343 5390;5425 5460	precisely locate targeted areas such as a CEO’s office or specific conference rooms
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+R5	ActionMod Action:T5 Modifier:T7	
+R6	ModObj Modifier:T7 Object:T8	
+T9	Subject 4892 4903	an attacker
+T10	Action 4937 4944	conduct
+A6	Capability T10 010:MalwareCapability-infection/propagation
+A7	TacticalObjectives T10 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A8	StrategicObjectives T10 031:InfectionPropagation-infect_remote_machine
+T11	Object 4945 4966	more targeted attacks
+R7	SubjAction Subject:T9 Action:T10	
+R8	ActionObj Action:T10 Object:T11	
+T12	Subject 6149 6158	attackers
+T13	Action 6163 6169	invoke
+A9	Capability T13 019:MalwareCapability-spying
+A10	TacticalObjectives T13 137:Spying-capture_camera_input
+A11	StrategicObjectives T13 061:Spying-capture_system_input_peripheral_data
+T14	Object 6170 6177;6216 6224	Android services
+T15	Modifier 6225 6228	for
+T16	Object 6245 6258	taking photos
+R9	SubjAction Subject:T12 Action:T13	
+R10	ActionObj Action:T13 Object:T14	
+R11	ActionMod Action:T13 Modifier:T15	
+R12	ModObj Modifier:T15 Object:T16	
+T17	Action 6163 6169	invoke
+A12	Capability T17 007:MalwareCapability-data_theft
+A13	TacticalObjectives T17 069:DataTheft-steal_dialed_phone_numbers
+A14	StrategicObjectives T17 023:DataTheft-steal_stored_information
+T18	Object 6260 6267;6298 6311	calling phone numbers
+T19	Modifier 6225 6228	for
+R13	SubjAction Subject:T12 Action:T17	
+R14	ActionObj Action:T17 Object:T14	
+R15	ActionMod Action:T17 Modifier:T19	
+R16	ModObj Modifier:T19 Object:T18	
+T20	Object 6313 6324	sending SMS
+T21	Action 6163 6169	invoke
+A15	Capability T21 007:MalwareCapability-data_theft
+A16	TacticalObjectives T21 081:DataTheft-steal_sms_database
+A17	StrategicObjectives T21 023:DataTheft-steal_stored_information
+R18	SubjAction Subject:T12 Action:T21	
+T22	Modifier 6225 6228	for
+R17	ModObj Modifier:T22 Object:T20	
+R19	ActionObj Action:T21 Object:T14	
+R20	ActionMod Action:T21 Modifier:T22	
+T23	Object 6326 6339;6380 6404	reading from/ writing to the clipboard
+T24	Action 6163 6169	invoke
+A18	Capability T24 019:MalwareCapability-spying
+A19	TacticalObjectives T24 144:Spying-capture_system_memory
+A20	StrategicObjectives T24 064:Spying-capture_system_state_data
+T25	Modifier 6225 6228	for
+R21	SubjAction Subject:T12 Action:T24	
+R22	ActionObj Action:T24 Object:T14	
+R23	ActionMod Action:T24 Modifier:T25	
+R24	ModObj Modifier:T25 Object:T23	
+T26	Subject 6424 6427;6462 6471	the attackers
+T27	Action 6476 6483	exploit
+A21	Capability T27 007:MalwareCapability-data_theft
+A22	StrategicObjectives T27 025:DataTheft-steal_user_data
+T28	Object 6484 6499;6544 6559	several Android vulnerabilities
+T29	Modifier 6560 6562	to
+T30	Object 6563 6595	get valuable private information
+R25	SubjAction Subject:T26 Action:T27	
+R26	ActionObj Action:T27 Object:T28	
+R27	ActionMod Action:T27 Modifier:T29	
+R28	ModObj Modifier:T29 Object:T30	
+T31	Action 6476 6483	exploit
+A23	Capability T31 010:MalwareCapability-infection/propagation
+A24	StrategicObjectives T31 031:InfectionPropagation-infect_remote_machine
+T32	Modifier 6629 6631	to
+T33	Object 6632 6660	launch more advanced attacks
+R29	SubjAction Subject:T26 Action:T31	
+R30	ActionObj Action:T31 Object:T28	
+R31	ActionMod Action:T31 Modifier:T32	
+R32	ModObj Modifier:T32 Object:T33	
+T34	Subject 7292 7295;7296 7304	The attacker
+T35	Action 7309 7315	hijack
+A25	Capability T35 011:MalwareCapability-integrity_violation
+A26	TacticalObjectives T35 098:IntegrityViolation-intercept/manipulate_network_traffic
+A27	StrategicObjectives T35 034:IntegrityViolation-compromise_network_operational_integrity
+T36	Object 7316 7337;7338 7361	the network where the targeted victim resides
+R33	SubjAction Subject:T34 Action:T35	
+R34	ActionObj Action:T35 Object:T36	
+T37	Subject 7616 7628	the attacker
+T38	Action 7633 7639	choose
+A28	Capability T38 010:MalwareCapability-infection/propagation
+A29	TacticalObjectives T38 088:InfectionPropagation-identify_target_machine(s)
+A30	StrategicObjectives T38 031:InfectionPropagation-infect_remote_machine
+T40	Modifier 7640 7642	to
+T41	Object 7643 7680	take action on important targets only
+R35	SubjAction Subject:T37 Action:T38	
+R36	ActionMod Action:T38 Modifier:T40	
+R37	ModObj Modifier:T40 Object:T41	
+T39	Subject 7821 7822;7823 7854	a combination of these components
+T42	Action 7859 7865	launch
+A31	Capability T42 010:MalwareCapability-infection/propagation
+A32	TacticalObjectives T42 088:InfectionPropagation-identify_target_machine(s)
+A33	StrategicObjectives T42 031:InfectionPropagation-infect_remote_machine
+T43	Object 7866 7894	powerful and precise attacks
+T44	Modifier 7895 7897	on
+T45	Object 7898 7912	target devices
+R38	SubjAction Subject:T39 Action:T42	
+R39	ActionObj Action:T42 Object:T43	
+R40	ActionMod Action:T42 Modifier:T44	
+R41	ModObj Modifier:T44 Object:T45	
+T46	Subject 7955 7957;7958 7966	an attacker
+T47	Action 7971 7977	launch
+A34	Capability T47 010:MalwareCapability-infection/propagation
+A35	TacticalObjectives T47 088:InfectionPropagation-identify_target_machine(s)
+A36	StrategicObjectives T47 031:InfectionPropagation-infect_remote_machine
+T48	Object 7932 7949	different attacks
+T49	Object 7978 7986	remotely
+T50	Modifier 7987 7989	on
+T51	Object 7990 8004	target devices
+T52	Modifier 8005 8012	through
+T53	Object 8013 8036	vulnerable ad libraries
+R42	SubjAction Subject:T46 Action:T47	
+R43	ActionObj Action:T47 Object:T49	
+R44	ActionObj Action:T47 Object:T48	
+R45	ActionMod Action:T47 Modifier:T50	
+R46	ModObj Modifier:T50 Object:T51	
+R47	ActionMod Action:T47 Modifier:T52	
+R48	ModObj Modifier:T52 Object:T53	
+T54	Subject 8269 8283	The left panel
+T55	Action 8284 8291	enables
+A37	Capability T55 012:MalwareCapability-machine_access/control
+A38	TacticalObjectives T55 100:MachineAccessControl-control_machine_via_remote_command
+A39	StrategicObjectives T55 038:MachineAccessControl-control_local_machine
+T56	Object 8292 8295;8296 8304	the attacker
+T57	Modifier 8305 8307	to
+T58	Object 8308 8335	command the victim's device
+R49	SubjAction Subject:T54 Action:T55	
+R50	ActionObj Action:T55 Object:T56	
+R51	ActionMod Action:T55 Modifier:T57	
+R52	ModObj Modifier:T57 Object:T58	
+T59	Action 8819 8828	uploading
+A40	ActionName T59 097:Network-upload_file
+T60	Object 8829 8840	local files
+T61	Action 8842 8848	taking
+A41	Capability T61 019:MalwareCapability-spying
+A42	TacticalObjectives T61 137:Spying-capture_camera_input
+A43	StrategicObjectives T61 061:Spying-capture_system_input_peripheral_data
+T62	Object 8849 8857	pictures
+T63	Action 8876 8885	recording
+A44	Capability T63 019:MalwareCapability-spying
+A45	TacticalObjectives T63 141:Spying-capture_microphone_input
+A46	StrategicObjectives T63 061:Spying-capture_system_input_peripheral_data
+T64	Object 8886 8897	audio/video
+T65	Action 8899 8911	manipulating
+A47	Capability T65 019:MalwareCapability-spying
+A48	TacticalObjectives T65 144:Spying-capture_system_memory
+A49	StrategicObjectives T65 064:Spying-capture_system_state_data
+T66	Object 8912 8915;8943 8952	the clipboard
+T67	Action 8954 8961	sending
+A50	Capability T67 007:MalwareCapability-data_theft
+A51	TacticalObjectives T67 081:DataTheft-steal_sms_database
+A52	StrategicObjectives T67 023:DataTheft-steal_stored_information
+T68	Object 8962 8965	SMS
+T69	Action 8967 8974	dialing
+A53	Capability T69 007:MalwareCapability-data_theft
+A54	TacticalObjectives T69 069:DataTheft-steal_dialed_phone_numbers
+A55	StrategicObjectives T69 023:DataTheft-steal_stored_information
+T70	Object 8975 8982	numbers
+T71	Action 9010 9020	implanting
+A56	Capability T71 012:MalwareCapability-machine_access/control
+A57	StrategicObjectives T71 039:MachineAccessControl-install_backdoor
+T72	Object 9021 9028	bootkit
+T73	Action 9033 9043	installing
+A58	Capability T73 017:MalwareCapability-secondary_operation
+A59	TacticalObjectives T73 118:SecondaryOperation-install_secondary_malware
+A60	StrategicObjectives T73 050:SecondaryOperation-install_other_components
+T74	Object 9044 9058;9077 9105	the attacker’s apps uploaded to Google Play
+R53	ActionObj Action:T59 Object:T60	
+R54	ActionObj Action:T61 Object:T62	
+R55	ActionObj Action:T63 Object:T64	
+R56	ActionObj Action:T65 Object:T66	
+A61	Capability T59 006:MalwareCapability-data_exfiltration
+A62	StrategicObjectives T59 020:DataExfiltration-perform_data_exfiltration
+A63	TacticalObjectives T59 057:DataExfiltration-exfiltrate_via_network
+R57	ActionObj Action:T67 Object:T68	
+R58	ActionObj Action:T69 Object:T70	
+R59	ActionObj Action:T71 Object:T72	
+R60	ActionObj Action:T73 Object:T74	
+T75	Subject 8292 8295;8296 8304	the attacker
+R61	SubjAction Subject:T75 Action:T59	
+R62	SubjAction Subject:T75 Action:T61	
+R63	SubjAction Subject:T75 Action:T63	
+R64	SubjAction Subject:T75 Action:T65	
+R65	SubjAction Subject:T75 Action:T67	
+R66	SubjAction Subject:T75 Action:T69	
+R67	SubjAction Subject:T75 Action:T71	
+R68	SubjAction Subject:T75 Action:T73	
+T76	Object 9156 9171	all information
+T77	Action 9172 9178	stolen
+A64	Capability T77 007:MalwareCapability-data_theft
+R69	ActionObj Action:T77 Object:T76	
+T78	Modifier 9179 9183	from
+T79	Object 9184 9187;9211 9226	the victim’s device
+R70	ActionMod Action:T77 Modifier:T78	
+R71	ModObj Modifier:T78 Object:T79	
+T80	Object 9248 9260;9261 9310;9311 9359	the victim’s installed app list, clipboard, a photo taken from the back camera, an audio clip, and a video clip
+T81	Action 9365 9378	been uploaded
+A65	Capability T81 006:MalwareCapability-data_exfiltration
+A66	ActionName T81 097:Network-upload_file
+A67	StrategicObjectives T81 020:DataExfiltration-perform_data_exfiltration
+A68	TacticalObjectives T81 057:DataExfiltration-exfiltrate_via_network
+R72	ActionObj Action:T81 Object:T80	
+T82	Object 9385 9401	the GPS location
+T83	Action 9402 9413	intercepted
+A69	Capability T83 019:MalwareCapability-spying
+A70	TacticalObjectives T83 139:Spying-capture_gps_data
+A71	StrategicObjectives T83 064:Spying-capture_system_state_data
+R73	ActionObj Action:T83 Object:T82	
+T84	Modifier 9414 9418	from
+T85	Object 9419 9433	the ad library
+R74	ActionMod Action:T83 Modifier:T84	
+R75	ModObj Modifier:T84 Object:T85	
+T86	Subject 9435 9444	The panel
+T87	Action 9450 9454	pins
+A72	Capability T87 019:MalwareCapability-spying
+A73	TacticalObjectives T87 139:Spying-capture_gps_data
+A74	StrategicObjectives T87 064:Spying-capture_system_state_data
+T88	Modifier 9455 9459	down
+T89	Modifier 9500 9504	onto
+T90	Object 9460 9492;9493 9499	the GPS location of the victim’s device
+T91	Object 9505 9524	a Google Map widget
+R76	SubjAction Subject:T86 Action:T87	
+R77	ActionMod Action:T87 Modifier:T88	
+R78	ActionMod Action:T87 Modifier:T89	
+R79	ModObj Modifier:T88 Object:T90	
+R80	ModObj Modifier:T89 Object:T91	
+T92	Subject 14122 14133	an attacker
+T93	Action 14137 14147	manipulate
+A75	Capability T93 012:MalwareCapability-machine_access/control
+A76	TacticalObjectives T93 100:MachineAccessControl-control_machine_via_remote_command
+A77	StrategicObjectives T93 038:MachineAccessControl-control_local_machine
+T94	Object 14148 14168	the host application
+T95	Modifier 14169 14171	in
+T96	Object 14172 14182;14183 14187	unintended ways
+T97	Action 14189 14198	executing
+A78	Capability T97 012:MalwareCapability-machine_access/control
+A79	ActionName T97 029:File-execute_file
+A80	StrategicObjectives T97 038:MachineAccessControl-control_local_machine
+A81	TacticalObjectives T97 100:MachineAccessControl-control_machine_via_remote_command
+T98	Object 14199 14208	Java code
+T99	Modifier 14209 14213	with
+T100	Object 14214 14229;14230 14253	the permissions of the host application
+R81	SubjAction Subject:T92 Action:T93	
+R82	ActionObj Action:T93 Object:T94	
+R83	ActionMod Action:T93 Modifier:T95	
+R84	ModObj Modifier:T95 Object:T96	
+R85	SubjAction Subject:T92 Action:T97	
+R86	ActionObj Action:T97 Object:T98	
+R87	ActionMod Action:T97 Modifier:T99	
+R88	ModObj Modifier:T99 Object:T100	
+T101	Subject 14433 14453;14454 14461	an attacker over the network
+T102	Action 14468 14474	hijack
+A82	Capability T102 011:MalwareCapability-integrity_violation
+A83	TacticalObjectives T102 098:IntegrityViolation-intercept/manipulate_network_traffic
+A84	StrategicObjectives T102 034:IntegrityViolation-compromise_network_operational_integrity
+T103	Object 14475 14491	the HTTP traffic
+T104	Modifier 14499 14506	through
+T105	Object 14507 14528	WiFi or DNS hijacking
+T106	Modifier 14530 14532	to
+T107	Object 14533 14539;14540 14574	inject malicious content into the WebView
+T108	Modifier 14579 14581	to
+T109	Object 14582 14610	control the host application
+R89	SubjAction Subject:T101 Action:T102	
+R90	ActionObj Action:T102 Object:T103	
+R91	ActionMod Action:T102 Modifier:T104	
+R92	ModObj Modifier:T104 Object:T105	
+R93	ActionMod Action:T102 Modifier:T106	
+R94	ActionMod Action:T102 Modifier:T108	
+R95	ModObj Modifier:T106 Object:T107	
+R96	ModObj Modifier:T108 Object:T109	
+T110	Subject 14625 14633;14634 14652	a sample Javascript snippet
+T111	Action 14656 14663	execute
+A85	Capability T111 012:MalwareCapability-machine_access/control
+A86	ActionName T111 029:File-execute_file
+A87	StrategicObjectives T111 038:MachineAccessControl-control_local_machine
+A88	TacticalObjectives T111 100:MachineAccessControl-control_machine_via_remote_command
+T112	Object 14664 14677	shell command
+R97	SubjAction Subject:T110 Action:T111	
+R98	ActionObj Action:T111 Object:T112	
+T113	Subject 16269 16286	a remote attacker
+T114	Action 16403 16409	taking
+A89	Capability T114 019:MalwareCapability-spying
+A90	TacticalObjectives T114 137:Spying-capture_camera_input
+A91	StrategicObjectives T114 061:Spying-capture_system_input_peripheral_data
+T115	Action 16420 16429	recording
+A92	Capability T115 019:MalwareCapability-spying
+A93	TacticalObjectives T115 137:Spying-capture_camera_input
+A94	StrategicObjectives T115 061:Spying-capture_system_input_peripheral_data
+T116	Object 16430 16435	video
+T117	Object 16410 16416	photos
+R99	SubjAction Subject:T113 Action:T114	
+R100	SubjAction Subject:T113 Action:T115	
+R101	ActionObj Action:T114 Object:T117	
+R102	ActionObj Action:T115 Object:T116	
+T118	Modifier 16437 16441	over
+T119	Object 16442 16445;16485 16493	the Internet
+T120	Modifier 16495 16502	without
+T121	Object 16503 16510	consent
+R103	ModObj Modifier:T118 Object:T119	
+R104	ModObj Modifier:T120 Object:T121	
+R105	ActionMod Action:T114 Modifier:T120	
+R106	ActionMod Action:T115 Modifier:T120	
+R107	ActionMod Action:T114 Modifier:T118	
+R108	ActionMod Action:T115 Modifier:T118	
+T122	Subject 18098 18126	an attacker over the network
+T123	Action 18133 18139	inject
+A95	Capability T123 010:MalwareCapability-infection/propagation
+A96	StrategicObjectives T123 031:InfectionPropagation-infect_remote_machine
+T124	Object 18140 18157	malicious content
+T125	Modifier 18158 18162	into
+T126	Object 18163 18174	the WebView
+T127	Modifier 18175 18177	to
+T128	Object 18178 18222;18223 18241	misuse the interfaces exposed through the JS binding annotation
+R109	SubjAction Subject:T122 Action:T123	
+R110	ActionObj Action:T123 Object:T124	
+R111	ActionMod Action:T123 Modifier:T125	
+R112	ModObj Modifier:T125 Object:T126	
+R113	ActionMod Action:T123 Modifier:T127	
+R114	ModObj Modifier:T127 Object:T128	
+T129	Subject 19289 19315	attackers over the network
+T130	Action 19429 19438	utilizing
+A97	Capability T130 007:MalwareCapability-data_theft
+A98	TacticalObjectives T130 069:DataTheft-steal_dialed_phone_numbers
+A99	StrategicObjectives T130 023:DataTheft-steal_stored_information
+T131	Object 19439 19461	the makeCall interface
+T132	Modifier 19462 19464	to
+T133	Object 19465 19475;19503 19537	dial phone numbers without the user’s consent
+R115	SubjAction Subject:T129 Action:T130	
+R116	ActionObj Action:T130 Object:T131	
+R117	ActionMod Action:T130 Modifier:T132	
+R118	ModObj Modifier:T132 Object:T133	
+T134	Subject 20085 20098	the attackers
+T135	Action 20103 20109	hijack
+A100	Capability T135 011:MalwareCapability-integrity_violation
+A101	TacticalObjectives T135 098:IntegrityViolation-intercept/manipulate_network_traffic
+A102	StrategicObjectives T135 034:IntegrityViolation-compromise_network_operational_integrity
+T136	Object 20132 20158	the communication channels
+R119	SubjAction Subject:T134 Action:T135	
+R120	ActionObj Action:T135 Object:T136	
+T137	Action 20163 20169	inject
+A103	Capability T137 010:MalwareCapability-infection/propagation
+A104	StrategicObjectives T137 031:InfectionPropagation-infect_remote_machine
+T138	Object 20170 20179;20206 20215	malicious DEX files
+T139	Action 20231 20238	control
+A105	Capability T139 012:MalwareCapability-machine_access/control
+A106	TacticalObjectives T139 100:MachineAccessControl-control_machine_via_remote_command
+A107	StrategicObjectives T139 038:MachineAccessControl-control_local_machine
+T140	Object 20239 20255;20280 20295	the behaviors of the victim apps
+T141	Subject 20217 20221	they
+R121	CoRefer Referer:T134 Canonical:T141	
+R122	SubjAction Subject:T134 Action:T137	
+R123	ActionObj Action:T137 Object:T138	
+R124	SubjAction Subject:T141 Action:T139	
+R125	ActionObj Action:T139 Object:T140	
+T142	Subject 20513 20525	the attacker
+T143	Action 20491 20498	getting
+A108	Capability T143 012:MalwareCapability-machine_access/control
+A109	TacticalObjectives T143 100:MachineAccessControl-control_machine_via_remote_command
+A110	StrategicObjectives T143 038:MachineAccessControl-control_local_machine
+R126	SubjAction Subject:T142 Action:T143	
+T144	Object 20499 20511	local access
+R127	ActionObj Action:T143 Object:T144	
+T145	Action 20530 20536	upload
+A111	Capability T145 006:MalwareCapability-data_exfiltration
+A112	ActionName T145 097:Network-upload_file
+A113	StrategicObjectives T145 020:DataExfiltration-perform_data_exfiltration
+A114	TacticalObjectives T145 057:DataExfiltration-exfiltrate_via_network
+T146	Object 20559 20586	private and sensitive files
+T147	Modifier 20587 20591	from
+T148	Object 20592 20611	the victim’s device
+T149	Action 20636 20642	modify
+A115	ActionName T149 034:File-modify_file
+T150	Object 20643 20679	files that the host app can write to
+R128	SubjAction Subject:T142 Action:T145	
+R129	ActionObj Action:T145 Object:T146	
+R130	ActionMod Action:T145 Modifier:T147	
+R131	ModObj Modifier:T147 Object:T148	
+R132	SubjAction Subject:T142 Action:T149	
+R133	ActionObj Action:T149 Object:T150	
+T151	Action 21010 21016	taking
+A116	Capability T151 019:MalwareCapability-spying
+A117	TacticalObjectives T151 137:Spying-capture_camera_input
+A118	StrategicObjectives T151 061:Spying-capture_system_input_peripheral_data
+T152	Object 21017 21025	pictures
+T153	Action 20971 20978	sending
+A119	Capability T153 007:MalwareCapability-data_theft
+A120	TacticalObjectives T153 081:DataTheft-steal_sms_database
+A121	StrategicObjectives T153 023:DataTheft-steal_stored_information
+T154	Object 21003 21006	SMS
+R134	ActionObj Action:T153 Object:T154	
+R135	ActionObj Action:T151 Object:T152	
+T155	Subject 21027 21040	the attackers
+R136	SubjAction Subject:T155 Action:T153	
+R137	SubjAction Subject:T155 Action:T151	
+T156	Action 21970 21973	use
+T157	Object 21974 21977;21978 21988	the JBOH shell
+A122	Capability T156 017:MalwareCapability-secondary_operation
+A123	ActionName T156 090:Network-download_file
+A124	StrategicObjectives T156 050:SecondaryOperation-install_other_components
+A125	TacticalObjectives T156 118:SecondaryOperation-install_secondary_malware
+R138	ActionObj Action:T156 Object:T157	
+T158	Modifier 22001 22003	to
+T159	Object 22004 22026	download exe- cutables
+R139	ActionMod Action:T156 Modifier:T158	
+R140	ModObj Modifier:T158 Object:T159	
+T160	Action 22031 22034	use
+A126	Capability T160 012:MalwareCapability-machine_access/control
+A127	TacticalObjectives T160 100:MachineAccessControl-control_machine_via_remote_command
+A128	StrategicObjectives T160 038:MachineAccessControl-control_local_machine
+T161	Object 22035 22039	them
+T162	Modifier 22040 22042	to
+T163	Object 22043 22058	root the device
+R141	ActionObj Action:T160 Object:T161	
+R142	ActionMod Action:T160 Modifier:T162	
+R143	ModObj Modifier:T162 Object:T163	
+R144	CoRefer Referer:T159 Canonical:T161	
+T164	Subject 22357 22361	they
+T165	Action 22380 22386	obtain
+A129	Capability T165 012:MalwareCapability-machine_access/control
+A130	TacticalObjectives T165 100:MachineAccessControl-control_machine_via_remote_command
+A131	StrategicObjectives T165 038:MachineAccessControl-control_local_machine
+T166	Object 22387 22391	root
+T167	Modifier 22392 22394	on
+T168	Object 22395 22399;22400 22420	most Android phone models
+R145	SubjAction Subject:T164 Action:T165	
+R146	ActionObj Action:T165 Object:T166	
+R147	ActionMod Action:T165 Modifier:T167	
+R148	ModObj Modifier:T167 Object:T168	
+R149	CoRefer Referer:T155 Canonical:T164	
+T169	Subject 22464 22468	they
+T170	Action 22473 22480	attempt
+A132	Capability T170 012:MalwareCapability-machine_access/control
+A133	TacticalObjectives T170 100:MachineAccessControl-control_machine_via_remote_command
+A134	StrategicObjectives T170 038:MachineAccessControl-control_local_machine
+T171	Object 22481 22487	ptrace
+T172	Modifier 22500 22502	to
+T173	Object 22503 22523	control the host app
+R150	SubjAction Subject:T169 Action:T170	
+R151	ActionObj Action:T170 Object:T171	
+R152	ActionMod Action:T170 Modifier:T172	
+R153	ModObj Modifier:T172 Object:T173	
+R154	CoRefer Referer:T164 Canonical:T169	
+T174	Action 23895 23899	make
+A135	Capability T174 007:MalwareCapability-data_theft
+A136	TacticalObjectives T174 069:DataTheft-steal_dialed_phone_numbers
+A137	StrategicObjectives T174 023:DataTheft-steal_stored_information
+T175	Object 23900 23905	calls
+T176	Modifier 23906 23910	from
+T177	Object 23911 23932	the Javascript bridge
+T178	Modifier 23972 23979	without
+T179	Object 23980 23992	user consent
+R155	ActionObj Action:T174 Object:T175	
+R156	ActionMod Action:T174 Modifier:T176	
+R157	ModObj Modifier:T176 Object:T177	
+R158	ActionMod Action:T174 Modifier:T178	
+R159	ModObj Modifier:T178 Object:T179	
+T180	Subject 23994 23996	we
+R160	SubjAction Subject:T180 Action:T174	
+T181	Action 24001 24007	invoke
+A138	Capability T181 007:MalwareCapability-data_theft
+A139	TacticalObjectives T181 069:DataTheft-steal_dialed_phone_numbers
+A140	StrategicObjectives T181 023:DataTheft-steal_stored_information
+T182	Object 24008 24011;24052 24069	the telephony service
+T183	Modifier 24070 24072	to
+T184	Object 24073 24098;24132 24138	dial numbers directly via binder
+R161	SubjAction Subject:T180 Action:T181	
+R162	ActionObj Action:T181 Object:T182	
+R163	ActionMod Action:T181 Modifier:T183	
+R164	ModObj Modifier:T183 Object:T184	
+T185	Subject 25947 25958	an attacker
+T186	Action 25963 25967	load
+A141	ActionName T186 029:File-execute_file
+T187	Object 25968 26002	executables compiled from JNI code
+R165	SubjAction Subject:T185 Action:T186	
+R166	ActionObj Action:T186 Object:T187	
+T188	Subject 26017 26025	the code
+T189	Action 26075 26079	call
+A142	Capability T189 019:MalwareCapability-spying
+A143	TacticalObjectives T189 137:Spying-capture_camera_input
+A144	StrategicObjectives T189 061:Spying-capture_system_input_peripheral_data
+T190	Object 26080 26098	DexClassLoaderload
+T191	Modifier 26110 26112	to
+T192	Object 26113 26155;26156 26201;26202 26215	inject new classes from the attackers’ DEX files to register callbacks to take pictures/ record videos
+R167	SubjAction Subject:T188 Action:T189	
+R168	ActionObj Action:T189 Object:T190	
+R169	ActionMod Action:T189 Modifier:T191	
+R170	ModObj Modifier:T191 Object:T192	
+T193	Subject 28258 28269	an attacker
+T194	Action 28311 28328	monitor or tamper
+A145	Capability T194 019:MalwareCapability-spying
+A146	TacticalObjectives T194 144:Spying-capture_system_memory
+A147	StrategicObjectives T194 064:Spying-capture_system_state_data
+T195	Modifier 28329 28333	with
+T196	Object 28334 28347	the clipboard
+R171	SubjAction Subject:T193 Action:T194	
+R172	ActionMod Action:T194 Modifier:T195	
+R173	ModObj Modifier:T195 Object:T196	
+T197	Subject 28739 28748;28785 28789	Malicious apps
+T198	Action 28794 28799	steal
+A148	Capability T198 007:MalwareCapability-data_theft
+A149	TacticalObjectives T198 082:DataTheft-steal_web/network_credential
+A150	StrategicObjectives T198 022:DataTheft-steal_authentication_credentials
+T199	Object 28800 28813	the passwords
+T200	Modifier 28814 28816	if
+T201	Object 28817 28830;28864 28889	they can read the contents on clipboard
+R174	SubjAction Subject:T197 Action:T198	
+R175	ActionObj Action:T198 Object:T199	
+R176	ActionMod Action:T198 Modifier:T200	
+R177	ModObj Modifier:T200 Object:T201	
+T202	Subject 29200 29213	the attackers
+T203	Action 29218 29225	monitor
+A151	Capability T203 019:MalwareCapability-spying
+A152	TacticalObjectives T203 144:Spying-capture_system_memory
+A153	StrategicObjectives T203 061:Spying-capture_system_input_peripheral_data
+T204	Object 29226 29248	changes to a clipboard
+R178	SubjAction Subject:T202 Action:T203	
+R179	ActionObj Action:T203 Object:T204	
+T205	Action 29253 29261	transfer
+A154	Capability T205 006:MalwareCapability-data_exfiltration
+A155	StrategicObjectives T205 020:DataExfiltration-perform_data_exfiltration
+T206	Object 29262 29265;29266 29284	the clipboard contents
+T207	Modifier 29285 29287	to
+T208	Object 29288 29306	some remote server
+R180	SubjAction Subject:T202 Action:T205	
+R181	ActionObj Action:T205 Object:T206	
+R182	ActionMod Action:T205 Modifier:T207	
+R183	ModObj Modifier:T207 Object:T208	
+T209	Subject 29308 29312	They
+T210	Action 29322 29327	alter
+A156	Capability T210 010:MalwareCapability-infection/propagation
+A157	TacticalObjectives T210 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A158	StrategicObjectives T210 031:InfectionPropagation-infect_remote_machine
+T211	Object 29328 29349	the clipboard content
+T212	Modifier 29350 29352	to
+T213	Object 29353 29375	achieve phishing goals
+R184	SubjAction Subject:T209 Action:T210	
+R185	ActionObj Action:T210 Object:T211	
+R186	ActionMod Action:T210 Modifier:T212	
+R187	ModObj Modifier:T212 Object:T213	
+T214	Subject 29428 29442;29443 29460	the background malicious service
+T215	Action 29465 29471	change
+A159	Capability T215 010:MalwareCapability-infection/propagation
+A160	TacticalObjectives T215 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A161	StrategicObjectives T215 031:InfectionPropagation-infect_remote_machine
+T216	Object 29472 29481	that link
+T217	Modifier 29482 29484	to
+T218	Object 29485 29486;29487 29500	a phishing site
+R188	SubjAction Subject:T214 Action:T215	
+R189	ActionObj Action:T215 Object:T216	
+R190	ActionMod Action:T215 Modifier:T217	
+R191	ModObj Modifier:T217 Object:T218	
+T219	Subject 32617 32630	the attackers
+T220	Action 32635 32645	manipulate
+A162	Capability T220 012:MalwareCapability-machine_access/control
+A163	TacticalObjectives T220 100:MachineAccessControl-control_machine_via_remote_command
+A164	StrategicObjectives T220 038:MachineAccessControl-control_local_machine
+T221	Object 32646 32658;32696 32708	Android home screen icons
+T222	Modifier 32709 32714	using
+T223	Object 32715 32738;32775 32807;32854 32874	two normal permissions: launcher READ SETTINGS and WRITE SETTINGS permissions
+R192	SubjAction Subject:T219 Action:T220	
+R193	ActionObj Action:T220 Object:T221	
+R194	ActionMod Action:T220 Modifier:T222	
+R195	ModObj Modifier:T222 Object:T223	
+T224	Subject 33236 33247;33276 33306	a malicious app with these two permissions
+T225	Action 33311 33324;33355 33360	query/insert/ alter
+A165	Capability T225 012:MalwareCapability-machine_access/control
+A166	TacticalObjectives T225 100:MachineAccessControl-control_machine_via_remote_command
+A167	StrategicObjectives T225 038:MachineAccessControl-control_local_machine
+T226	Object 33361 33385	the system icon settings
+T227	Action 33390 33396	modify
+A168	Capability T227 010:MalwareCapability-infection/propagation
+A169	TacticalObjectives T227 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A170	StrategicObjectives T227 031:InfectionPropagation-infect_remote_machine
+T228	Object 33435 33484;33513 33533	egitimate icons of some security- sensitive apps, such as banking apps
+T229	Modifier 33535 33537	to
+T230	Object 33538 33556	a phishing website
+R196	SubjAction Subject:T224 Action:T225	
+R197	ActionObj Action:T225 Object:T226	
+R198	SubjAction Subject:T224 Action:T227	
+R199	ActionObj Action:T227 Object:T228	
+R200	ActionMod Action:T227 Modifier:T229	
+R201	ModObj Modifier:T229 Object:T230	
+T231	Object 38626 38634;38663 38670	victims’ devices
+T232	Action 38671 38697	being tracked and targeted
+A171	Capability T232 010:MalwareCapability-infection/propagation
+A172	TacticalObjectives T232 088:InfectionPropagation-identify_target_machine(s)
+A173	StrategicObjectives T232 031:InfectionPropagation-infect_remote_machine
+R202	ActionObj Action:T232 Object:T231	
+T233	Modifier 38698 38705	through
+T234	Object 38741 38751	ad traffic
+R203	ActionMod Action:T232 Modifier:T233	
+R204	ModObj Modifier:T233 Object:T234	
+T235	Subject 38164 38177	the attackers
+T236	Action 38182 38190	redirect
+A174	Capability T236 010:MalwareCapability-infection/propagation
+A175	TacticalObjectives T236 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A176	StrategicObjectives T236 031:InfectionPropagation-infect_remote_machine
+T237	Object 38191 38206;38233 38264	other app icons (e.g., bank or email app icons)
+T238	Modifier 38265 38267	to
+T239	Object 38268 38284	the phishing app
+R205	SubjAction Subject:T235 Action:T236	
+R206	ActionObj Action:T236 Object:T237	
+R207	ActionMod Action:T236 Modifier:T238	
+R208	ModObj Modifier:T238 Object:T239	
+T240	Action 38315 38320	steal
+A177	Capability T240 007:MalwareCapability-data_theft
+A178	TacticalObjectives T240 082:DataTheft-steal_web/network_credential
+A179	StrategicObjectives T240 022:DataTheft-steal_authentication_credentials
+T241	Object 38321 38349	the user’s login credentials
+R209	SubjAction Subject:T235 Action:T240	
+R210	ActionObj Action:T240 Object:T241	
+T242	Subject 37813 37822	attackers
+T243	Action 37827 37834	install
+A180	Capability T243 017:MalwareCapability-secondary_operation
+A181	TacticalObjectives T243 118:SecondaryOperation-install_secondary_malware
+A182	StrategicObjectives T243 050:SecondaryOperation-install_other_components
+T244	Object 37835 37842;37872 37913	apps of choice (e.g., an attacker’s phishing app)
+T245	Modifier 37914 37916	to
+T246	Object 37917 37920;37950 37993;38028 38038	any devices registered in user’s account in the background
+T247	Modifier 38039 38046	without
+T248	Object 38047 38059	user consent
+R211	SubjAction Subject:T242 Action:T243	
+R212	ActionObj Action:T243 Object:T244	
+R213	ActionMod Action:T243 Modifier:T245	
+R214	ActionMod Action:T243 Modifier:T247	
+R215	ModObj Modifier:T245 Object:T246	
+R216	ModObj Modifier:T247 Object:T248	
+T249	Subject 37487 37526	Android apps with these two permissions
+T250	Action 37560 37572	authenticate
+A183	ActionName T250 209:User-logon_as_user
+T251	Object 37573 37583	themselves
+T252	Modifier 37584 37588	with
+T253	Object 37589 37606;37638 37645	the user’s Google account
+R217	SubjAction Subject:T249 Action:T250	
+R218	ActionObj Action:T250 Object:T251	
+R219	ActionMod Action:T250 Modifier:T252	
+R220	ModObj Modifier:T252 Object:T253	
+T254	Subject 37186 37205	Android pro- cesses
+T255	Action 37243 37246	get
+A184	Capability T255 007:MalwareCapability-data_theft
+A185	TacticalObjectives T255 082:DataTheft-steal_web/network_credential
+A186	StrategicObjectives T255 022:DataTheft-steal_authentication_credentials
+T256	Object 37247 37286;37317 37326	secret tokens of services (e.g., Google services)
+T257	Modifier 37327 37331	from
+T258	Object 37332 37350	the AccountManager
+T259	Modifier 37083 37087	With
+T260	Object 37088 37121;37161 37184	both the GET ACCOUNTS and the USE CREDENTIALS permissions
+T261	Action 37355 37358	use
+A187	ActionName T261 209:User-logon_as_user
+T262	Object 37359 37363	them
+T263	Modifier 37395 37397	to
+T264	Object 37398 37428	authenticate to these services
+R221	ModObj Modifier:T259 Object:T260	
+R222	SubjAction Subject:T254 Action:T255	
+R223	ActionObj Action:T255 Object:T256	
+R224	ActionMod Action:T255 Modifier:T259	
+R225	ActionMod Action:T255 Modifier:T257	
+R226	ModObj Modifier:T257 Object:T258	
+R227	SubjAction Subject:T254 Action:T261	
+R228	CoRefer Referer:T256 Canonical:T262	
+R229	ActionObj Action:T261 Object:T262	
+R230	ActionMod Action:T261 Modifier:T263	
+R231	ModObj Modifier:T263 Object:T264	
+R232	CoRefer Referer:T249 Canonical:T251	
+T265	Subject 39301 39314	the attackers
+T266	Action 39315 39341	eavesdropping or hijacking
+A188	Capability T266 011:MalwareCapability-integrity_violation
+A189	TacticalObjectives T266 098:IntegrityViolation-intercept/manipulate_network_traffic
+A190	StrategicObjectives T266 034:IntegrityViolation-compromise_network_operational_integrity
+T267	Object 39342 39358	the HTTP traffic
+R233	SubjAction Subject:T265 Action:T266	
+R234	ActionObj Action:T266 Object:T267	
+T268	Subject 39706 39708	We
+T269	Action 39722 39730	launched
+A191	Capability T269 011:MalwareCapability-integrity_violation
+A192	TacticalObjectives T269 098:IntegrityViolation-intercept/manipulate_network_traffic
+A193	StrategicObjectives T269 034:IntegrityViolation-compromise_network_operational_integrity
+T270	Object 39731 39742;39743 39764	Man-in-the- Middle (MITM) attacks
+T271	Action 39769 39780	intercepted
+A194	Capability T271 011:MalwareCapability-integrity_violation
+A195	TacticalObjectives T271 098:IntegrityViolation-intercept/manipulate_network_traffic
+A196	StrategicObjectives T271 034:IntegrityViolation-compromise_network_operational_integrity
+T272	Object 39781 39789;39790 39819	the data uploaded to the remote server
+R235	SubjAction Subject:T268 Action:T269	
+R236	ActionObj Action:T269 Object:T270	
+R237	SubjAction Subject:T268 Action:T271	
+R238	ActionObj Action:T271 Object:T272	
+T273	Subject 43074 43076;43108 43116	an attacker
+T274	Action 43131 43137	locate
+A197	Capability T274 010:MalwareCapability-infection/propagation
+A198	TacticalObjectives T274 088:InfectionPropagation-identify_target_machine(s)
+A199	StrategicObjectives T274 031:InfectionPropagation-infect_remote_machine
+T275	Object 43138 43148	the victim
+R239	SubjAction Subject:T273 Action:T274	
+R240	ActionObj Action:T274 Object:T275	
+T276	Action 43186 43193	acquire
+A200	Capability T276 007:MalwareCapability-data_theft
+A201	StrategicObjectives T276 024:DataTheft-steal_system_information
+T277	Object 43194 43221	the device’s specifications
+R241	SubjAction Subject:T273 Action:T276	
+R242	ActionObj Action:T276 Object:T277	
+T278	Subject 43580 43587;43617 43635	several well-known attacks
+T279	Action 43651 43658	achieve
+A202	Capability T279 019:MalwareCapability-spying
+T280	Object 43695 43717	large-scale monitoring
+R243	SubjAction Subject:T278 Action:T279	
+R244	ActionObj Action:T279 Object:T280	
+T281	Subject 43946 43959	DNS hijacking
+T282	Action 43971 43978	subvert
+A203	Capability T282 011:MalwareCapability-integrity_violation
+A204	TacticalObjectives T282 099:IntegrityViolation-subvert_system
+A205	StrategicObjectives T282 036:IntegrityViolation-compromise_system_operational_integrity
+T283	Object 43979 44021;44057 44064	the resolution of Domain Name System (DNS) queries
+R245	SubjAction Subject:T281 Action:T282	
+R246	ActionObj Action:T282 Object:T283	
+T284	Modifier 44065 44072	through
+T285	Object 44073 44102;44135 44182	modifying the behavior of DNS servers so that they serve fake DNS information
+R247	ActionMod Action:T282 Modifier:T284	
+R248	ModObj Modifier:T284 Object:T285	
+T286	Subject 44307 44316	Attackers
+T287	Action 44330 44341	compromised
+A206	Capability T287 011:MalwareCapability-integrity_violation
+A207	TacticalObjectives T287 099:IntegrityViolation-subvert_system
+A208	StrategicObjectives T287 036:IntegrityViolation-compromise_system_operational_integrity
+T288	Object 44342 44373;44374 44402	many DNS servers, including the ones from Google and Godaddy
+R249	ActionObj Action:T287 Object:T288	
+R250	SubjAction Subject:T286 Action:T287	
+T289	Subject 44433 44442	attackers
+T290	Action 44459 44465	access
+A209	Capability T290 011:MalwareCapability-integrity_violation
+A210	TacticalObjectives T290 098:IntegrityViolation-intercept/manipulate_network_traffic
+A211	StrategicObjectives T290 034:IntegrityViolation-compromise_network_operational_integrity
+T291	Object 44466 44473;44474 44495	all the traffic to ad servers
+T292	Modifier 44415 44417	By
+T293	Object 44418 44421;44422 44431	DNS hijacking
+R251	ModObj Modifier:T292 Object:T293	
+R252	SubjAction Subject:T289 Action:T290	
+R253	ActionObj Action:T290 Object:T291	
+R254	ActionMod Action:T290 Modifier:T292	
+T294	Subject 44498 44511	BGP hijacking
+T295	Action 44512 44522	takes over
+A212	Capability T295 011:MalwareCapability-integrity_violation
+A213	TacticalObjectives T295 098:IntegrityViolation-intercept/manipulate_network_traffic
+A214	StrategicObjectives T295 034:IntegrityViolation-compromise_network_operational_integrity
+T296	Object 44523 44545	groups of IP addresses
+T297	Action 44547 44557	corrupting
+A215	Capability T297 011:MalwareCapability-integrity_violation
+A216	TacticalObjectives T297 098:IntegrityViolation-intercept/manipulate_network_traffic
+A217	StrategicObjectives T297 034:IntegrityViolation-compromise_network_operational_integrity
+R255	SubjAction Subject:T294 Action:T295	
+T299	Object 44558 44581	Internet routing tables
+T300	Modifier 44582 44584	by
+T301	Object 44585 44593;44594 44640	breaking BGP sessions or injecting fake BGP information
+R258	ActionObj Action:T297 Object:T299	
+R259	ActionMod Action:T297 Modifier:T300	
+R260	ModObj Modifier:T300 Object:T301	
+R261	SubjAction Subject:T294 Action:T297	
+R256	ActionObj Action:T295 Object:T296	
+T298	Subject 44655 44664	attackers
+T302	Action 44668 44675	monitor
+A218	Capability T302 011:MalwareCapability-integrity_violation
+A219	TacticalObjectives T302 098:IntegrityViolation-intercept/manipulate_network_traffic
+A220	StrategicObjectives T302 034:IntegrityViolation-compromise_network_operational_integrity
+T303	Object 44676 44690;44691 44703	all traffic to specific IPs
+R257	SubjAction Subject:T298 Action:T302	
+R262	ActionObj Action:T302 Object:T303	
+T304	Subject 44861 44895	ARP hijacking (or spoofing) in IDC
+T305	Action 44918 44924	hijack
+A221	Capability T305 011:MalwareCapability-integrity_violation
+A222	TacticalObjectives T305 098:IntegrityViolation-intercept/manipulate_network_traffic
+A223	StrategicObjectives T305 034:IntegrityViolation-compromise_network_operational_integrity
+T306	Object 44925 44970;44971 45017	the traffic to the ad server in the IDC where the ad server locates through fake ARP packets
+R263	SubjAction Subject:T304 Action:T305	
+R264	ActionObj Action:T305 Object:T306	
+T307	Subject 45019 45028	Attackers
+T308	Action 45079 45082	use
+A224	Capability T308 011:MalwareCapability-integrity_violation
+A225	TacticalObjectives T308 098:IntegrityViolation-intercept/manipulate_network_traffic
+A226	StrategicObjectives T308 034:IntegrityViolation-compromise_network_operational_integrity
+T309	Object 45083 45099	fake ARP packets
+T310	Modifier 45100 45102	to
+T311	Object 45103 45117;45118 45171;45172 45196	direct all the traffic to go through the hijacking servers first for monitoring and hijacking
+T312	Subject 45198 45211	ARP hijacking
+T313	Action 45212 45214	is
+A227	Capability T313 011:MalwareCapability-integrity_violation
+A228	TacticalObjectives T313 098:IntegrityViolation-intercept/manipulate_network_traffic
+A229	StrategicObjectives T313 034:IntegrityViolation-compromise_network_operational_integrity
+R265	SubjAction Subject:T307 Action:T308	
+R266	ActionObj Action:T308 Object:T309	
+R267	ActionMod Action:T308 Modifier:T310	
+R268	ModObj Modifier:T310 Object:T311	
+R269	SubjAction Subject:T312 Action:T313	
+T314	Object 45215 45216;45217 45260	a well-known approach used in network attacks
+R270	ActionObj Action:T313 Object:T314	
+T315	Subject 45329 45338	attackers
+T316	Action 45343 45353	iden- tify
+A230	Capability T316 010:MalwareCapability-infection/propagation
+A231	TacticalObjectives T316 088:InfectionPropagation-identify_target_machine(s)
+A232	StrategicObjectives T316 031:InfectionPropagation-infect_remote_machine
+T317	Object 45354 45363;45364 45371	potential victims
+T318	Modifier 45372 45380	based on
+T319	Object 45381 45412;47067 47102	information leakage such as GPS location described in Sec- tion 4.2
+R271	SubjAction Subject:T315 Action:T316	
+R272	ActionObj Action:T316 Object:T317	
+R273	ActionMod Action:T316 Modifier:T318	
+T320	Modifier 45263 45268	Using
+T321	Object 45269 45313;45314 45327	the large-scale traffic intercepted from the above methods
+R274	ModObj Modifier:T320 Object:T321	
+R275	ActionMod Action:T316 Modifier:T320	
+R276	ModObj Modifier:T318 Object:T319	
+T322	Subject 47124 47128	they
+T323	Subject 47216 47225	Attackers
+T324	Action 47226 47230	keep
+A233	Capability T324 002:MalwareCapability-anti-detection
+A234	TacticalObjectives T324 025:AntiDetection-hide_network_traffic
+A235	StrategicObjectives T324 007:AntiDetection-hide_malware_artifacts
+T325	Object 47231 47232;47238 47249	a low profile
+T326	Modifier 47250 47252	by
+T327	Object 47253 47282;47295 47341	allowing all other irrelevant network traffic to pass without being modified
+R277	SubjAction Subject:T323 Action:T324	
+R278	ActionObj Action:T324 Object:T325	
+R279	ActionMod Action:T324 Modifier:T326	
+R280	ModObj Modifier:T326 Object:T327	
+T328	Action 47133 47139	inject
+A236	Capability T328 010:MalwareCapability-infection/propagation
+A237	TacticalObjectives T328 088:InfectionPropagation-identify_target_machine(s)
+A238	StrategicObjectives T328 031:InfectionPropagation-infect_remote_machine
+T329	Object 47140 47148	exploits
+T330	Modifier 47149 47158	only into
+T331	Object 47159 47171;47181 47188	the targeted traffic
+T332	Modifier 47189 47191	to
+T333	Object 47192 47214	launch further attacks
+R281	SubjAction Subject:T322 Action:T328	
+R282	ActionObj Action:T328 Object:T329	
+R283	ActionMod Action:T328 Modifier:T330	
+R284	ModObj Modifier:T330 Object:T331	
+R285	ActionMod Action:T328 Modifier:T332	
+R286	ModObj Modifier:T332 Object:T333	
+R287	CoRefer Referer:T323 Canonical:T322	
+T334	Subject 53499 53526	Sidewinder Targeted Attacks
+T335	Action 53542 53548	target
+A239	Capability T335 010:MalwareCapability-infection/propagation
+A240	TacticalObjectives T335 088:InfectionPropagation-identify_target_machine(s)
+A241	StrategicObjectives T335 031:InfectionPropagation-infect_remote_machine
+T336	Object 53549 53556	victims
+T337	Modifier 53557 53562	using
+T338	Object 53563 53585;53596 53627	info leakage and other vulnerabilities of ad libraries
+T339	Modifier 53628 53630	to
+T340	Object 53631 53644;53650 53671	get valuable, sensitive information
+R288	SubjAction Subject:T334 Action:T335	
+R289	ActionObj Action:T335 Object:T336	
+R290	ActionMod Action:T335 Modifier:T337	
+R291	ModObj Modifier:T337 Object:T338	
+R292	ActionMod Action:T335 Modifier:T339	
+R293	ModObj Modifier:T339 Object:T340	
+T341	Subject 54158 54174;54187 54196	malicious ads or attackers
+T342	Action 54197 54206	hijacking
+A242	Capability T342 011:MalwareCapability-integrity_violation
+A243	TacticalObjectives T342 098:IntegrityViolation-intercept/manipulate_network_traffic
+A244	StrategicObjectives T342 034:IntegrityViolation-compromise_network_operational_integrity
+T343	Object 54207 54233	the communication channels
+R294	SubjAction Subject:T341 Action:T342	
+R295	ActionObj Action:T342 Object:T343	

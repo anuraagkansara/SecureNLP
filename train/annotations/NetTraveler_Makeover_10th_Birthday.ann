@@ -1,0 +1,90 @@
+T1	Object 323 355	a targeted spear-phishing e-mail
+T2	Action 356 364	directed
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+R1	ActionObj Action:T2 Object:T1	
+T3	Modifier 365 367	at
+T4	Object 368 384	Uyghur activists
+T5	Modifier 385 387	in
+T6	Object 388 398	March 2014
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ActionMod Action:T2 Modifier:T5	
+R4	ModObj Modifier:T3 Object:T4	
+R5	ModObj Modifier:T5 Object:T6	
+T7	Subject 421 431	The e-mail
+T8	Action 432 435	has
+A4	Capability T8 010:MalwareCapability-infection/propagation
+A5	TacticalObjectives T8 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A6	StrategicObjectives T8 031:InfectionPropagation-infect_remote_machine
+T9	Object 436 515	two attachments, a non-malicious JPG file and a 373 KB Microsoft Word .DOC file
+R6	SubjAction Subject:T7 Action:T8	
+R7	ActionObj Action:T8 Object:T9	
+T10	Subject 1213 1215	it
+T11	Action 1216 1221	drops
+A7	Capability T11 017:MalwareCapability-secondary_operation
+A8	TacticalObjectives T11 118:SecondaryOperation-install_secondary_malware
+A9	StrategicObjectives T11 050:SecondaryOperation-install_other_components
+R8	SubjAction Subject:T10 Action:T11	
+T12	Object 1222 1237	the main module
+T13	Object 1241 1250	"net.exe"
+T14	Modifier 1238 1240	as
+R9	ActionObj Action:T11 Object:T12	
+R10	ActionMod Action:T11 Modifier:T14	
+R11	ModObj Modifier:T14 Object:T13	
+T15	Action 1338 1346	installs
+A10	Capability T15 017:MalwareCapability-secondary_operation
+A11	TacticalObjectives T15 118:SecondaryOperation-install_secondary_malware
+A12	StrategicObjectives T15 050:SecondaryOperation-install_other_components
+T16	Subject 1222 1237	the main module
+R12	SubjAction Subject:T16 Action:T15	
+T17	Object 1347 1358;1359 1370	a number of other files
+R13	ActionObj Action:T15 Object:T17	
+T18	Object 1372 1391	The main C&C module
+T19	Action 1392 1401	is dumped
+A13	Capability T19 005:MalwareCapability-command_and_control
+T20	Modifier 1402 1406	into
+T21	Object 1407 1451	"%SystemRoot%\system32\Windowsupdataney.dll"
+R14	ModObj Modifier:T20 Object:T21	
+R15	ActionObj Action:T19 Object:T18	
+R16	ActionMod Action:T19 Modifier:T20	
+T22	Object 1706 1708	It
+T23	Action 1709 1722	is registered
+A14	ActionName T23 147:Service-create_service
+R17	ActionObj Action:T23 Object:T22	
+T24	Modifier 1723 1725	as
+T25	Object 1726 1759	a service (named "Windowsupdata")
+T26	Object 1768 1804	a Windows Batch file named "DOT.BAT"
+T27	Modifier 1760 1767	through
+R18	ActionMod Action:T23 Modifier:T24	
+R19	ModObj Modifier:T24 Object:T25	
+R20	ActionMod Action:T23 Modifier:T27	
+R21	ModObj Modifier:T27 Object:T26	
+T28	Action 2896 2900	make
+T29	Object 2901 2905	sure
+T30	Object 2906 2946	the malware isn't running multiple times
+A15	Capability T28 010:MalwareCapability-infection/propagation
+A16	StrategicObjectives T28 032:InfectionPropagation-prevent_duplicate_infection
+R22	ActionObj Action:T28 Object:T29	
+R23	ActionObj Action:T28 Object:T30	
+T31	Object 3338 3368	The malware configuration file
+T32	Action 3369 3379	is written
+A17	ActionName T32 043:File-write_to_file
+R24	ActionObj Action:T32 Object:T31	
+T33	Modifier 3380 3382	to
+T34	Object 3383 3427	the "SYSTEM" folder (as opposed to SYSTEM32)
+R25	ActionMod Action:T32 Modifier:T33	
+R26	ModObj Modifier:T33 Object:T34	
+T35	Subject 3625 3658	the developers behind NetTraveler
+T36	Action 3686 3690	hide
+A18	Capability T36 002:MalwareCapability-anti-detection
+T37	Object 3691 3718	the malware's configuration
+A19	StrategicObjectives T36 007:AntiDetection-hide_malware_artifacts
+R27	SubjAction Subject:T35 Action:T36	
+R28	ActionObj Action:T36 Object:T37	
+T38	Subject 3974 4010	the command-and-control (C&C) server
+T39	Action 4042 4044	is
+A20	Capability T39 005:MalwareCapability-command_and_control
+T40	Object 4045 4063	"uyghurinfo[.]com"
+R29	SubjAction Subject:T38 Action:T39	
+R30	ActionObj Action:T39 Object:T40	

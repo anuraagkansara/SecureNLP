@@ -1,0 +1,84 @@
+T2	Action 3305 3311	adding
+T5	Modifier 3334 3336	to
+T6	Object 3337 3354	Internet Explorer
+R3	ModObj Modifier:T5 Object:T6	
+R4	ActionMod Action:T2 Modifier:T5	
+A1	ActionName T2 135:Registry-create_registry_key
+T7	Subject 3356 3358	It
+T8	Action 3373 3381	retrieve
+A2	Capability T8 018:MalwareCapability-security_degradation
+A3	TacticalObjectives T8 131:SecurityDegradation-gather_security_product_info
+R6	SubjAction Subject:T7 Action:T8	
+T10	Modifier 3413 3415	by
+R8	ActionMod Action:T8 Modifier:T10	
+T12	Subject 3543 3545	it
+T13	Action 3570 3576	launch
+A4	ActionName T13 104:Process-create_process
+R11	SubjAction Subject:T12 Action:T13	
+T15	Action 3680 3687	contact
+R13	SubjAction Subject:T12 Action:T15	
+A5	Capability T15 005:MalwareCapability-command_and_control
+T17	Subject 3948 3950	it
+T18	Action 3951 3960	downloads
+R17	SubjAction Subject:T17 Action:T18	
+A9	Capability T18 017:MalwareCapability-secondary_operation
+A10	ActionName T18 090:Network-download_file
+A11	StrategicObjectives T18 050:SecondaryOperation-install_other_components
+A12	TacticalObjectives T18 118:SecondaryOperation-install_secondary_malware
+T20	Subject 6573 6575	it
+T22	Action 6576 6583	creates
+T24	Action 6652 6659	creates
+R20	SubjAction Subject:T20 Action:T24	
+A13	ActionName T22 135:Registry-create_registry_key
+R21	SubjAction Subject:T20 Action:T22	
+A14	ActionName T24 104:Process-create_process
+T27	Action 7056 7062	encode
+T29	Modifier 7075 7079	from
+T31	Object 7083 7089	Base64
+R25	ModObj Modifier:T29 Object:T31	
+T32	Object 7070 7074	data
+R27	ActionObj Action:T27 Object:T32	
+R28	ActionMod Action:T27 Modifier:T29	
+A15	Capability T27 006:MalwareCapability-data_exfiltration
+A16	TacticalObjectives T27 053:DataExfiltration-encrypt_data
+A17	StrategicObjectives T27 019:DataExfiltration-obfuscate_data_for_exfiltration
+T34	Action 7138 7147	contacted
+T3	Object 3312 3333	several registry keys
+R2	ActionObj Action:T2 Object:T3	
+T1	Subject 3253 3265	this malware
+R1	SubjAction Subject:T1 Action:T2	
+T4	Object 3382 3412	possible AntiVirus information
+R5	ActionObj Action:T8 Object:T4	
+A25	StrategicObjectives T8 056:SecurityDegradation-degrade_security_programs
+T9	Object 3416 3439	using the COM interface
+R7	ModObj Modifier:T10 Object:T9	
+T11	Object 3577 3600;3601 3609	an instance of Internet Explorer
+R9	ActionObj Action:T13 Object:T11	
+T14	Object 3688 3695;3696 3702	its C&C server
+R10	ActionObj Action:T15 Object:T14	
+T16	Object 3961 3978	some kind of data
+R12	ActionObj Action:T18 Object:T16	
+T19	Object 6584 6608	several registry entries
+R14	ActionObj Action:T22 Object:T19	
+T21	Modifier 6609 6613	with
+T23	Object 6614 6647	the help of the command line tool
+R15	ActionMod Action:T22 Modifier:T21	
+R16	ModObj Modifier:T21 Object:T23	
+T25	Object 6660 6696	an instance of the Internet Explorer
+R18	ActionObj Action:T24 Object:T25	
+T36	Action 6763 6773	contacting
+A6	Capability T36 005:MalwareCapability-command_and_control
+T37	Object 6774 6788	the C&C server
+R19	SubjAction Subject:T20 Action:T36	
+R22	ActionObj Action:T36 Object:T37	
+T28	Subject 7119 7137	the malware sample
+R23	SubjAction Subject:T28 Action:T34	
+A7	Capability T34 005:MalwareCapability-command_and_control
+T30	Object 7148 7162	the C&C server
+R24	ActionObj Action:T34 Object:T30	
+T26	Subject 7021 7031	the sample
+R26	SubjAction Subject:T26 Action:T27	
+R29	CoRefer Referer:T26 Canonical:T28	
+R30	CoRefer Referer:T1 Canonical:T7	
+R31	CoRefer Referer:T1 Canonical:T12	
+R32	CoRefer Referer:T1 Canonical:T17	

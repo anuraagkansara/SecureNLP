@@ -1,0 +1,244 @@
+T1	Subject 4094 4106	the attacker
+T2	Action 4081 4090	harvested
+A1	Capability T2 006:MalwareCapability-data_exfiltration
+T3	Object 3964 4035	Among other items, staff training documents and more than 40,000 emails
+R1	ActionObj Action:T2 Object:T3	
+R2	SubjAction Subject:T1 Action:T2	
+T4	Subject 4290 4292	it
+T5	Action 4293 4299	act as
+A2	Capability T5 010:MalwareCapability-infection/propagation
+T6	Object 4300 4317	a ‘watering hole’
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+A3	TacticalObjectives T5 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A4	StrategicObjectives T5 031:InfectionPropagation-infect_remote_machine
+T7	Subject 4215 4228	the attackers
+T8	Action 4236 4247	compromised
+T9	Object 4248 4251;4252 4278	the ‘GOM Player’ update server
+A5	Capability T8 010:MalwareCapability-infection/propagation
+R5	SubjAction Subject:T7 Action:T8	
+R6	ActionObj Action:T8 Object:T9	
+T10	Action 4363 4376	are delivered
+A6	Capability T10 010:MalwareCapability-infection/propagation
+A7	TacticalObjectives T10 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A8	StrategicObjectives T10 031:InfectionPropagation-infect_remote_machine
+T11	Object 4377 4384	malware
+R7	ActionObj Action:T10 Object:T11	
+T12	Object 4332 4362	machines which access the site
+R8	ActionObj Action:T10 Object:T12	
+R9	CoRefer Referer:T9 Canonical:T4	
+T13	Subject 4732 4734	it
+T14	Action 4738 4740	be
+T15	Object 4741 4742;4743 4762	a variant of a Trojan
+A11	Capability T14 012:MalwareCapability-machine_access/control
+A12	StrategicObjectives T14 039:MachineAccessControl-install_backdoor
+R10	SubjAction Subject:T13 Action:T14	
+R11	ActionObj Action:T14 Object:T15	
+T16	Action 6099 6109	compromise
+A9	Capability T16 010:MalwareCapability-infection/propagation
+T17	Object 6113 6158	the GOM Player update server (app.gomlab.com)
+R12	ActionObj Action:T16 Object:T17	
+T18	Subject 6166 6175	attackers
+R13	SubjAction Subject:T18 Action:T16	
+T19	Action 6185 6191	gained
+A10	Capability T19 010:MalwareCapability-infection/propagation
+T20	Object 6192 6197	entry
+R14	ActionObj Action:T19 Object:T20	
+T21	Modifier 6198 6201	via
+R15	ActionMod Action:T19 Modifier:T21	
+T22	Object 6202 6222	a PHP-based webshell
+R16	ModObj Modifier:T21 Object:T22	
+R17	SubjAction Subject:T18 Action:T19	
+T23	Subject 6488 6505	these alterations
+T24	Action 6532 6542	manifested
+A13	TacticalObjectives T24 088:InfectionPropagation-identify_target_machine(s)
+A14	StrategicObjectives T24 031:InfectionPropagation-infect_remote_machine
+R18	SubjAction Subject:T23 Action:T24	
+T25	Object 6543 6553	themselves
+R19	CoRefer Referer:T23 Canonical:T25	
+T26	Modifier 6554 6557	for
+T27	Object 6558 6587	visitors on certain IP ranges
+R20	ActionObj Action:T24 Object:T25	
+R21	ActionMod Action:T24 Modifier:T26	
+R22	ModObj Modifier:T26 Object:T27	
+T28	Action 7113 7124	was deliver
+A15	Capability T28 010:MalwareCapability-infection/propagation
+A16	StrategicObjectives T28 031:InfectionPropagation-infect_remote_machine
+T29	Modifier 7125 7127	to
+R23	ActionMod Action:T28 Modifier:T29	
+T30	Object 7128 7138	the victim
+R24	ModObj Modifier:T29 Object:T30	
+T31	Object 7052 7078;7079 7112	a file containing both the legitimate update and the malware
+R25	ActionObj Action:T28 Object:T31	
+T32	Object 9012 9015;9016 9023	the malware
+T33	Action 8851 8859	Deployed
+A17	Capability T33 010:MalwareCapability-infection/propagation
+A18	StrategicObjectives T33 031:InfectionPropagation-infect_remote_machine
+R26	ActionObj Action:T33 Object:T32	
+T34	Modifier 8860 8862	to
+T35	Object 8863 8873	the system
+R27	ModObj Modifier:T34 Object:T35	
+T36	Modifier 8874 8877	via
+R28	ActionMod Action:T33 Modifier:T36	
+R29	ActionMod Action:T33 Modifier:T34	
+T37	Object 8878 8932;8933 9010	a compressed bundle containing the official GOM Player setup binary and a self-extracting RAR archive containing the malicious files
+R30	ModObj Modifier:T36 Object:T37	
+T38	Object 9105 9163	the installer component (0ae82fd94836815a1e8d284ccb75109d)
+T39	Action 9164 9166;9167 9189	is automatically launched
+A19	Capability T39 010:MalwareCapability-infection/propagation
+A20	ActionName T39 029:File-execute_file
+A21	StrategicObjectives T39 031:InfectionPropagation-infect_remote_machine
+R31	ActionObj Action:T39 Object:T38	
+T40	Modifier 9190 9199	alongside
+T41	Object 9200 9221	the GOM Player update
+R32	ModObj Modifier:T40 Object:T41	
+R33	ActionMod Action:T39 Modifier:T40	
+T42	Subject 9447 9455;9456 9513	a phrase commonly used by People’s Republic of China (PRC) hackers
+T43	Subject 9433 9445	Miǎnshā (免杀)
+T44	Action 9517 9521	mean
+A22	Capability T44 002:MalwareCapability-anti-detection
+T45	Object 9522 9537;9538 9573	‘anti Antivirus detection’ or ‘Antivirus avoidance’
+R34	ActionObj Action:T44 Object:T45	
+R35	SubjAction Subject:T42 Action:T44	
+R36	CoRefer Referer:T43 Canonical:T42	
+T46	Subject 9661 9699	Miǎnchá (免查, likely shorthand for 免杀查)
+T47	Action 9700 9709;9710 9715	similarly means
+A23	Capability T47 002:MalwareCapability-anti-detection
+T48	Object 9716 9737	‘Antivirus avoidance’
+A24	StrategicObjectives T44 009:AntiDetection-security_software_evasion
+A25	StrategicObjectives T47 009:AntiDetection-security_software_evasion
+R37	SubjAction Subject:T46 Action:T47	
+R38	ActionObj Action:T47 Object:T48	
+T49	Subject 9739 9752	The installer
+T50	Action 9753 9755	is
+A26	Capability T50 013:MalwareCapability-persistence
+T51	Object 9756 9795;9796 9805	responsible for the malware persistence mechanism
+R39	ActionObj Action:T50 Object:T51	
+R40	SubjAction Subject:T49 Action:T50	
+T52	Action 9807 9813	adding
+A27	ActionName T52 135:Registry-create_registry_key
+T53	Object 9814 9821	entries
+R41	SubjAction Subject:T49 Action:T52	
+R42	ActionObj Action:T52 Object:T53	
+T54	Modifier 9822 9824	to
+R43	ActionMod Action:T52 Modifier:T54	
+T55	Object 9825 9837	the registry
+T56	Modifier 9838 9840	in
+T57	Object 9841 9864	the following locations
+R44	ModObj Modifier:T56 Object:T57	
+R45	ActionMod Action:T52 Modifier:T56	
+R46	ModObj Modifier:T54 Object:T55	
+T58	Subject 10489 10502	The installer
+T59	Action 10513 10522	determine
+A28	Capability T59 015:MalwareCapability-probing
+A29	TacticalObjectives T59 113:Probing-identify_os
+A30	StrategicObjectives T59 046:Probing-probe_host_configuration
+R47	SubjAction Subject:T58 Action:T59	
+T60	Object 10523 10562	the system architecture (32- or 64-bit)
+R48	ActionObj Action:T59 Object:T60	
+T61	Action 10572 10583	deobfuscate
+A31	ActionName T61 034:File-modify_file
+R49	SubjAction Subject:T58 Action:T61	
+T62	Object 10584 10649	the relevant loader DLL to the path ‘C:\Windows\temp\install.ocx’
+R50	ActionObj Action:T61 Object:T62	
+T63	Action 10651 10659	ensuring
+A32	Capability T63 013:MalwareCapability-persistence
+A33	TacticalObjectives T63 104:Persistence-persist_after_system_reboot
+A34	StrategicObjectives T63 042:Persistence-persist_to_continuously_execute_on_system
+T64	Object 10660 10702	the malware is launched on system start-up
+R51	ActionObj Action:T63 Object:T64	
+R52	SubjAction Subject:T58 Action:T63	
+T65	Action 12520 12530	obfuscated
+A35	Capability T65 002:MalwareCapability-anti-detection
+A36	TacticalObjectives T65 016:AntiDetection-encrypt_self
+A37	StrategicObjectives T65 006:AntiDetection-hide_executing_code
+T66	Object 12515 12519	DLLs
+R53	ActionObj Action:T65 Object:T66	
+T67	Modifier 12531 12535	with
+T68	Object 12536 12560	a one-byte XOR with 0x14
+R54	ModObj Modifier:T67 Object:T68	
+R55	ActionMod Action:T65 Modifier:T67	
+T69	Subject 12598 12608	The loader
+T70	Action 12658 12663	reads
+A38	ActionName T70 038:File-read_from_file
+T71	Action 12668 12680	deobfuscates
+A39	ActionName T71 034:File-modify_file
+T72	Object 12681 12702	the main implant code
+R56	SubjAction Subject:T69 Action:T70	
+R57	SubjAction Subject:T69 Action:T71	
+R58	ActionObj Action:T71 Object:T72	
+R59	ActionObj Action:T70 Object:T72	
+T73	Subject 12681 12702	the main implant code
+T74	Action 12714 12726	communicates
+A40	Capability T74 005:MalwareCapability-command_and_control
+A41	ActionName T74 092:Network-open_port
+R60	SubjAction Subject:T73 Action:T74	
+T75	Modifier 12727 12731	with
+R61	ActionMod Action:T74 Modifier:T75	
+T76	Object 12732 12735;12736 12795	the attacker-controlled server at testqweasd.tk (211.43.220.89)
+T77	Modifier 12796 12798	on
+T78	Object 12799 12811	TCP port 443
+R62	ModObj Modifier:T77 Object:T78	
+R63	ActionMod Action:T74 Modifier:T77	
+R64	ModObj Modifier:T75 Object:T76	
+T79	Subject 12877 12907;12908 12917	a term used in the PRC hacking community
+T80	Action 12921 12927	denote
+A42	Capability T80 002:MalwareCapability-anti-detection
+A43	StrategicObjectives T80 009:AntiDetection-security_software_evasion
+R65	SubjAction Subject:T79 Action:T80	
+T81	Object 12928 12991;12992 13046	the act of Antivirus avoidance through the loading of malicious ‘black’ code via non-malicious or trusted ‘white‘ code
+T82	Subject 12853 12875	白加黑 (‘Black on White’)
+R66	CoRefer Referer:T82 Canonical:T79	
+R67	ActionObj Action:T80 Object:T81	
+T83	Subject 13142 13156	DLL load order
+T84	Action 13157 13166	hijacking
+A44	Capability T84 010:MalwareCapability-infection/propagation
+T85	Modifier 13167 13176	alongside
+T86	Object 13177 13206	a signed (trusted) executable
+R68	ModObj Modifier:T85 Object:T86	
+R69	ActionMod Action:T84 Modifier:T85	
+R70	SubjAction Subject:T83 Action:T84	
+T87	Subject 13478 13487	Gh0st RAT
+T88	Action 13488 13498	was spread
+A45	Capability T88 010:MalwareCapability-infection/propagation
+A46	TacticalObjectives T88 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A47	StrategicObjectives T88 031:InfectionPropagation-infect_remote_machine
+R71	SubjAction Subject:T87 Action:T88	
+T89	Modifier 13499 13502	via
+R72	ActionMod Action:T88 Modifier:T89	
+T90	Object 13503 13564;13565 13611	watering hole attacks utilising vulnerable websites belonging to financial services and technology companies
+R73	ModObj Modifier:T89 Object:T90	
+T91	Subject 13897 13906	Gh0st RAT
+T92	Action 13840 13850	delivering
+A48	Capability T92 006:MalwareCapability-data_exfiltration
+A49	ActionName T92 096:Network-send_network_packet
+A50	StrategicObjectives T92 020:DataExfiltration-perform_data_exfiltration
+A51	TacticalObjectives T92 057:DataExfiltration-exfiltrate_via_network
+T93	Object 13851 13874	system-specific details
+T94	Modifier 13875 13882	back to
+T95	Object 13883 13895	the attacker
+R74	ModObj Modifier:T94 Object:T95	
+R75	ActionObj Action:T92 Object:T93	
+R76	SubjAction Subject:T91 Action:T92	
+R77	ActionMod Action:T92 Modifier:T94	
+T96	Action 13934 13940	deploy
+A52	Capability T96 017:MalwareCapability-secondary_operation
+A53	TacticalObjectives T96 118:SecondaryOperation-install_secondary_malware
+A54	StrategicObjectives T96 050:SecondaryOperation-install_other_components
+T97	Object 13941 13959	additional malware
+R78	ActionObj Action:T96 Object:T97	
+R79	SubjAction Subject:T91 Action:T96	
+T98	Action 13974 13984	harvesting
+A55	Capability T98 006:MalwareCapability-data_exfiltration
+T99	Object 13988 14002	sensitive data
+R80	ActionObj Action:T98 Object:T99	
+T100	Subject 13941 13959	additional malware
+R81	SubjAction Subject:T100 Action:T98	
+T101	Action 14007 14015	enabling
+A56	Capability T101 010:MalwareCapability-infection/propagation
+A57	TacticalObjectives T101 091:InfectionPropagation-perform_autonomous_remote_infection
+A58	StrategicObjectives T101 031:InfectionPropagation-infect_remote_machine
+T102	Object 14016 14071	the further propagation throughout the infected network
+R82	ActionObj Action:T101 Object:T102	
+R83	SubjAction Subject:T100 Action:T101	
+A59	Capability T24 010:MalwareCapability-infection/propagation

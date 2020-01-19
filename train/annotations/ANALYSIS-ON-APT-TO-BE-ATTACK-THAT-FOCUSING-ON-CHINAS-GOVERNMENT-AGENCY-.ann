@@ -1,0 +1,217 @@
+T1	Subject 3713 3740	This kind of attack pattern
+T2	Action 3741 3751	disguising
+T3	Modifier 3752 3754	as
+T4	Object 3755 3778	non-malicious real file
+R1	ActionMod Action:T2 Modifier:T3	
+R2	ModObj Modifier:T3 Object:T4	
+R3	SubjAction Subject:T1 Action:T2	
+A1	Capability T2 002:MalwareCapability-anti-detection
+T5	Subject 3806 3808	it
+R4	CoRefer Referer:T1 Canonical:T5	
+T6	Action 3809 3816	sending
+T7	Object 3817 3844	a network heartbeat package
+R5	SubjAction Subject:T5 Action:T6	
+R6	ActionObj Action:T6 Object:T7	
+A2	Capability T6 005:MalwareCapability-command_and_control
+A3	ActionName T6 096:Network-send_network_packet
+A4	StrategicObjectives T6 018:CommandandControl-send_data_to_c2_server
+A5	TacticalObjectives T6 049:CommandandControl-send_heartbeat_data
+T8	Subject 3867 3869	it
+R7	CoRefer Referer:T5 Canonical:T8	
+T9	Action 3875 3879	send
+R8	SubjAction Subject:T8 Action:T9	
+T10	Object 3880 3896	data information
+R9	ActionObj Action:T9 Object:T10	
+T11	Modifier 3897 3900	via
+T12	Object 3901 3911;3912 3917	the Cookie field
+R10	ActionMod Action:T9 Modifier:T11	
+R11	ModObj Modifier:T11 Object:T12	
+A6	Capability T9 006:MalwareCapability-data_exfiltration
+A7	TacticalObjectives T9 057:DataExfiltration-exfiltrate_via_network
+A8	StrategicObjectives T9 020:DataExfiltration-perform_data_exfiltration
+T13	Subject 3919 3960	all these features of this attack pattern
+T14	Action 3977 3982	evade
+T15	Object 3983 4017	the detection of security software
+T16	Object 4022 4025;4026 4050	the interception of firewall
+T17	Action 3977 3982	evade
+R14	ActionObj Action:T17 Object:T16	
+R15	ActionObj Action:T14 Object:T15	
+A9	Capability T14 002:MalwareCapability-anti-detection
+A10	StrategicObjectives T14 009:AntiDetection-security_software_evasion
+A11	Capability T17 018:MalwareCapability-security_degradation
+A12	TacticalObjectives T17 123:SecurityDegradation-disable_firewall
+R16	SubjAction Subject:T1 Action:T2	
+R17	ActionMod Action:T2 Modifier:T3	
+R12	SubjAction Subject:T13 Action:T14	
+R13	SubjAction Subject:T13 Action:T17	
+T18	Subject 4242 4250	APT-TOCS
+T19	Action 4251 4265	is downloading
+T20	Object 4266 4305	the script functionalities of Shellcode
+R18	SubjAction Subject:T18 Action:T19	
+R19	ActionObj Action:T19 Object:T20	
+T21	Action 4313 4322	downloads
+T22	Object 4323 4338	a field of data
+T23	Modifier 4339 4343	into
+T24	Object 4344 4350	memory
+R21	ActionObj Action:T21 Object:T22	
+R22	ActionMod Action:T21 Modifier:T23	
+R23	ModObj Modifier:T23 Object:T24	
+A13	Capability T19 017:MalwareCapability-secondary_operation
+A14	ActionName T19 090:Network-download_file
+A15	StrategicObjectives T19 050:SecondaryOperation-install_other_components
+A16	TacticalObjectives T19 119:SecondaryOperation-install_secondary_module
+A17	ActionName T21 090:Network-download_file
+T26	Action 5949 5956	realize
+T27	Object 5957 5971	remote control
+T28	Modifier 5972 5974	on
+T29	Object 5975 5990	targeted system
+R25	ActionMod Action:T26 Modifier:T28	
+R26	ActionObj Action:T26 Object:T27	
+R27	ModObj Modifier:T28 Object:T29	
+A18	Capability T26 012:MalwareCapability-machine_access/control
+A19	TacticalObjectives T26 100:MachineAccessControl-control_machine_via_remote_command
+A20	StrategicObjectives T26 039:MachineAccessControl-install_backdoor
+T30	Subject 9640 9649	this part
+T33	Action 9720 9727	writing
+T34	Modifier 9728 9730	to
+T35	Object 9731 9753	process powershell.exe
+R30	ActionMod Action:T33 Modifier:T34	
+R31	ModObj Modifier:T34 Object:T35	
+R32	SubjAction Subject:T30 Action:T33	
+A21	ActionName T33 123:ProcessMemory-write_to_process_memory
+T31	Subject 11885 11901	backdoor program
+T32	Action 11911 11915	send
+T36	Object 11916 11927	GET request
+T37	Modifier 11928 11930	to
+T38	Object 11931 11951	designated addresses
+T39	Object 11956 11974	heartbeat packages
+R28	ModObj Modifier:T37 Object:T38	
+R33	SubjAction Subject:T31 Action:T32	
+R34	ActionObj Action:T32 Object:T36	
+R35	ActionMod Action:T32 Modifier:T37	
+A22	Capability T32 005:MalwareCapability-command_and_control
+A23	ActionName T32 054:HTTP-send_http_get_request
+A24	TacticalObjectives T32 049:CommandandControl-send_heartbeat_data
+R29	ActionObj Action:T32 Object:T39	
+T40	Modifier 11975 11977	by
+T41	Object 11984 11997	Cookie fields
+R36	ActionMod Action:T32 Modifier:T40	
+R37	ModObj Modifier:T40 Object:T41	
+T42	Subject 16752 16764	both of them
+T43	Action 16765 16768	use
+T44	Object 16769 16775	Cookie
+T45	Modifier 16776 16778	to
+T46	Object 16779 16799	transmit information
+R38	SubjAction Subject:T42 Action:T43	
+R39	ActionObj Action:T43 Object:T44	
+R40	ActionMod Action:T43 Modifier:T45	
+R41	ModObj Modifier:T45 Object:T46	
+T47	Action 16829 16833	send
+T48	Object 16834 16842	requests
+R42	ActionObj Action:T47 Object:T48	
+R43	SubjAction Subject:T42 Action:T47	
+T49	Action 16814 16823	encrypted
+T50	Object 16788 16799	information
+R44	ActionObj Action:T49 Object:T50	
+R45	SubjAction Subject:T42 Action:T49	
+A25	Capability T49 006:MalwareCapability-data_exfiltration
+A26	TacticalObjectives T49 053:DataExfiltration-encrypt_data
+A27	StrategicObjectives T49 019:DataExfiltration-obfuscate_data_for_exfiltration
+A28	Capability T43 006:MalwareCapability-data_exfiltration
+A29	TacticalObjectives T43 057:DataExfiltration-exfiltrate_via_network
+A30	StrategicObjectives T43 020:DataExfiltration-perform_data_exfiltration
+A31	Capability T47 005:MalwareCapability-command_and_control
+A32	TacticalObjectives T47 049:CommandandControl-send_heartbeat_data
+A33	StrategicObjectives T47 018:CommandandControl-send_data_to_c2_server
+T51	Object 16890 16899	heartbeat
+R46	CoRefer Referer:T51 Canonical:T48	
+T52	Subject 18938 18940	it
+T53	Action 18941 18944	has
+T54	Object 18945 18969	anti-detection functions
+T55	Action 18986 18993	conceal
+T56	Object 18994 19000	itself
+R47	SubjAction Subject:T52 Action:T53	
+R48	ActionObj Action:T53 Object:T54	
+R49	SubjAction Subject:T52 Action:T55	
+R50	ActionObj Action:T55 Object:T56	
+A34	Capability T53 002:MalwareCapability-anti-detection
+A35	Capability T55 002:MalwareCapability-anti-detection
+T57	Subject 17991 18013	the attack penetration
+T58	Action 18018 18027	penetrate
+T59	Object 18028 18036	firewall
+R51	SubjAction Subject:T57 Action:T58	
+R52	ActionObj Action:T58 Object:T59	
+A36	Capability T58 018:MalwareCapability-security_degradation
+A37	TacticalObjectives T58 123:SecurityDegradation-disable_firewall
+A38	Capability T21 002:MalwareCapability-anti-detection
+A39	StrategicObjectives T21 006:AntiDetection-hide_executing_code
+A40	TacticalObjectives T21 019:AntiDetection-execute_stealthy_code
+T61	Action 17406 17417	downloading
+T60	Object 17432 17437	files
+T62	Action 17422 17431	uploading
+T63	Subject 17335 17341	attack
+R53	ActionObj Action:T61 Object:T60	
+R54	ActionObj Action:T62 Object:T60	
+R55	SubjAction Subject:T63 Action:T61	
+R56	SubjAction Subject:T63 Action:T62	
+A41	ActionName T61 090:Network-download_file
+A42	ActionName T62 097:Network-upload_file
+A43	Capability T62 006:MalwareCapability-data_exfiltration
+A44	StrategicObjectives T62 020:DataExfiltration-perform_data_exfiltration
+A45	TacticalObjectives T62 057:DataExfiltration-exfiltrate_via_network
+T64	Action 17439 17448	executing
+T65	Object 17449 17468	designated programs
+R57	ActionObj Action:T64 Object:T65	
+R58	SubjAction Subject:T63 Action:T64	
+A46	ActionName T64 029:File-execute_file
+T66	Action 17470 17479	injecting
+T67	Object 17480 17497	keyboard recorder
+R59	SubjAction Subject:T63 Action:T66	
+R60	ActionObj Action:T66 Object:T67	
+A47	Capability T66 019:MalwareCapability-spying
+A48	TacticalObjectives T66 140:Spying-capture_keyboard_input
+A49	StrategicObjectives T66 061:Spying-capture_system_input_peripheral_data
+T68	Action 17591 17600	accessing
+T69	Object 17601 17617	system passwords
+R61	ActionObj Action:T68 Object:T69	
+R62	SubjAction Subject:T63 Action:T68	
+A50	Capability T68 007:MalwareCapability-data_theft
+A51	TacticalObjectives T68 076:DataTheft-steal_password_hash
+A52	StrategicObjectives T68 022:DataTheft-steal_authentication_credentials
+T70	Action 17346 17353	execute
+T71	Object 17354 17372	various operations
+R63	SubjAction Subject:T63 Action:T70	
+R64	ActionObj Action:T70 Object:T71	
+A53	Capability T70 005:MalwareCapability-command_and_control
+A54	TacticalObjectives T70 047:CommandandControl-control_malware_via_remote_command
+T72	Action 17534 17543	importing
+T73	Object 17544 17561	PowerShell script
+R65	ActionObj Action:T72 Object:T73	
+R66	SubjAction Subject:T63 Action:T72	
+A55	Capability T72 017:MalwareCapability-secondary_operation
+A56	TacticalObjectives T72 119:SecondaryOperation-install_secondary_module
+A57	StrategicObjectives T72 050:SecondaryOperation-install_other_components
+T74	Action 17499 17508	executing
+T75	Object 17509 17517	commands
+T76	Modifier 17518 17521	via
+T77	Object 17522 17532	PowerShell
+R67	ActionObj Action:T74 Object:T75	
+R68	ActionMod Action:T74 Modifier:T76	
+R69	ModObj Modifier:T76 Object:T77	
+R70	SubjAction Subject:T63 Action:T74	
+A58	Capability T74 012:MalwareCapability-machine_access/control
+A59	TacticalObjectives T74 100:MachineAccessControl-control_machine_via_remote_command
+T78	Action 17563 17572	executing
+T79	Object 17573 17581	commands
+T80	Modifier 17582 17585	via
+T81	Object 17586 17589	CMD
+R71	ModObj Modifier:T80 Object:T81	
+R72	ActionMod Action:T78 Modifier:T80	
+R73	ActionObj Action:T78 Object:T79	
+R74	SubjAction Subject:T63 Action:T78	
+A60	Capability T78 012:MalwareCapability-machine_access/control
+A61	TacticalObjectives T78 100:MachineAccessControl-control_machine_via_remote_command
+T25	Subject 5886 5894	APT-TOCS
+R24	SubjAction Subject:T25 Action:T26	
+T82	Subject 4266 4305	the script functionalities of Shellcode
+R20	SubjAction Subject:T82 Action:T21	

@@ -1,0 +1,144 @@
+T1	Action 522 529	Creates
+A1	Capability T1 017:MalwareCapability-secondary_operation
+A2	ActionName T1 024:File-create_file
+A3	StrategicObjectives T1 052:SecondaryOperation-log_activity
+T2	Object 530 562	the log file: %TEMP%\~DFD3O8.tmp
+R1	ActionObj Action:T1 Object:T2	
+T3	Action 966 975	registers
+A4	Capability T3 019:MalwareCapability-spying
+A5	ActionName T3 061:Hooking-add_system_call_hook
+A6	StrategicObjectives T3 061:Spying-capture_system_input_peripheral_data
+A7	TacticalObjectives T3 140:Spying-capture_keyboard_input
+T4	Object 976 1016	its only export _LowLevelKeyboardProc@12
+T5	Modifier 1017 1019	as
+T6	Object 1020 1094	a hook procedure for low-level keyboard input events (WH_KEYBOARD_LL hook)
+R2	ActionObj Action:T3 Object:T4	
+R3	ModObj Modifier:T5 Object:T6	
+R4	ActionMod Action:T3 Modifier:T5	
+T7	Subject 922 924	It
+R5	SubjAction Subject:T7 Action:T3	
+T8	Action 1546 1552	writes
+A8	Capability T8 019:MalwareCapability-spying
+A9	TacticalObjectives T8 140:Spying-capture_keyboard_input
+A10	StrategicObjectives T8 061:Spying-capture_system_input_peripheral_data
+T9	Object 1553 1585	information about each keystroke
+T10	Modifier 1586 1588	to
+T11	Object 1589 1601	the log file
+R6	ActionObj Action:T8 Object:T9	
+R7	ModObj Modifier:T10 Object:T11	
+R8	ActionMod Action:T8 Modifier:T10	
+T12	Subject 1437 1474	The low-level keyboard hook procedure
+R9	SubjAction Subject:T12 Action:T8	
+T13	Subject 2861 2863	It
+T14	Action 2864 2872	collects
+A11	Capability T14 015:MalwareCapability-probing
+T15	Object 2873 2916;2917 2923	most of the available information about the system
+R10	SubjAction Subject:T13 Action:T14	
+R11	ActionObj Action:T14 Object:T15	
+T16	Action 2925 2934	transmits
+A12	Capability T16 005:MalwareCapability-command_and_control
+A13	TacticalObjectives T16 050:CommandandControl-send_system_information
+A14	StrategicObjectives T16 018:CommandandControl-send_data_to_c2_server
+T17	Object 2935 2937	it
+R12	CoRefer Referer:T15 Canonical:T17	
+T18	Modifier 2938 2940	to
+T19	Object 2941 2955	the C&C server
+R13	ActionObj Action:T16 Object:T17	
+R14	ModObj Modifier:T18 Object:T19	
+R15	ActionMod Action:T16 Modifier:T18	
+R16	SubjAction Subject:T13 Action:T16	
+T20	Action 2960 2968	executes
+A15	Capability T20 005:MalwareCapability-command_and_control
+A16	TacticalObjectives T20 047:CommandandControl-control_malware_via_remote_command
+A17	StrategicObjectives T20 017:CommandandControl-receive_data_from_c2_server
+T21	Object 2969 2998	the commands it receives back
+R17	ActionObj Action:T20 Object:T21	
+R18	SubjAction Subject:T13 Action:T20	
+T22	Action 5062 5072	compressed
+A18	Capability T22 006:MalwareCapability-data_exfiltration
+A19	TacticalObjectives T22 062:DataExfiltration-package_data
+A20	StrategicObjectives T22 021:DataExfiltration-stage_data_for_exfiltration
+T23	Object 5033 5058	The retrieved information
+R19	ActionObj Action:T22 Object:T23	
+T24	Modifier 5073 5078	using
+T25	Object 5079 5084	bzip2
+R20	ActionMod Action:T22 Modifier:T24	
+R21	ModObj Modifier:T24 Object:T25	
+T26	Action 5086 5095	encrypted
+A21	Capability T26 006:MalwareCapability-data_exfiltration
+A22	TacticalObjectives T26 053:DataExfiltration-encrypt_data
+A23	StrategicObjectives T26 019:DataExfiltration-obfuscate_data_for_exfiltration
+T27	Modifier 5096 5100	with
+T28	Object 5101 5104	AES
+R22	ActionObj Action:T26 Object:T23	
+R23	ModObj Modifier:T27 Object:T28	
+R24	ActionMod Action:T26 Modifier:T27	
+T29	Action 5148 5159	transmitted
+A24	Capability T29 005:MalwareCapability-command_and_control
+A25	TacticalObjectives T29 057:DataExfiltration-exfiltrate_via_network
+A26	StrategicObjectives T29 018:CommandandControl-send_data_to_c2_server
+T30	Modifier 5160 5162	to
+T31	Object 5163 5177	the C&C server
+R25	ModObj Modifier:T30 Object:T31	
+R26	ActionObj Action:T29 Object:T23	
+R27	ActionMod Action:T29 Modifier:T30	
+T32	Action 5324 5328	read
+A27	ActionName T32 038:File-read_from_file
+T33	Object 5318 5320	it
+R28	ActionObj Action:T32 Object:T33	
+T34	Modifier 5329 5333	from
+T35	Object 5334 5338	disk
+R29	ModObj Modifier:T34 Object:T35	
+R30	ActionMod Action:T32 Modifier:T34	
+T36	Action 5343 5351	uploaded
+A28	Capability T36 006:MalwareCapability-data_exfiltration
+A29	TacticalObjectives T36 057:DataExfiltration-exfiltrate_via_network
+A30	StrategicObjectives T36 020:DataExfiltration-perform_data_exfiltration
+T37	Modifier 5352 5354	to
+T38	Object 5355 5365	the server
+R31	ActionObj Action:T36 Object:T33	
+R32	ActionMod Action:T36 Modifier:T37	
+R33	ModObj Modifier:T37 Object:T38	
+T39	Action 5984 5991	issuing
+A31	Capability T39 005:MalwareCapability-command_and_control
+A32	ActionName T39 058:HTTP-send_http_post_request
+A33	StrategicObjectives T39 018:CommandandControl-send_data_to_c2_server
+T40	Object 5992 6010	HTTP POST requests
+T41	Subject 5942 5952	The module
+R34	SubjAction Subject:T41 Action:T39	
+T42	Modifier 6011 6013	to
+T43	Object 6014 6024	the server
+R35	ActionObj Action:T39 Object:T40	
+R36	ModObj Modifier:T42 Object:T43	
+R37	ActionMod Action:T39 Modifier:T42	
+T44	Subject 6026 6036	The module
+T45	Action 6037 6046	transmits
+A34	Capability T45 006:MalwareCapability-data_exfiltration
+A35	TacticalObjectives T45 057:DataExfiltration-exfiltrate_via_network
+A36	StrategicObjectives T45 020:DataExfiltration-perform_data_exfiltration
+T46	Object 6047 6072	the collected information
+T47	Modifier 6073 6075	in
+T48	Object 6076 6104	the body of the POST request
+R38	ModObj Modifier:T47 Object:T48	
+R39	ActionObj Action:T45 Object:T46	
+R40	SubjAction Subject:T44 Action:T45	
+R41	ActionMod Action:T45 Modifier:T47	
+T49	Action 6109 6113	gets
+A37	Capability T49 005:MalwareCapability-command_and_control
+A38	TacticalObjectives T49 047:CommandandControl-control_malware_via_remote_command
+A39	StrategicObjectives T49 017:CommandandControl-receive_data_from_c2_server
+T50	Object 6114 6126	new commands
+T51	Modifier 6127 6131	from
+T52	Object 6132 6135;6136 6153	the server’s response
+R42	ActionObj Action:T49 Object:T50	
+R43	ModObj Modifier:T51 Object:T52	
+R44	ActionMod Action:T49 Modifier:T51	
+R45	SubjAction Subject:T44 Action:T49	
+T53	Subject 6530 6547	The configuration
+T54	Action 6568 6576	controls
+A40	Capability T54 005:MalwareCapability-command_and_control
+A41	TacticalObjectives T54 051:CommandandControl-update_configuration
+T55	Object 6577 6611	the further behavior of the module
+A42	StrategicObjectives T54 017:CommandandControl-receive_data_from_c2_server
+R46	SubjAction Subject:T53 Action:T54	
+R47	ActionObj Action:T54 Object:T55	

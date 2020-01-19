@@ -1,0 +1,416 @@
+T3	Action 134293 134304	exfiltrated
+T4	Object 134305 134309	data
+A1	Capability T3 006:MalwareCapability-data_exfiltration
+A2	ActionName T3 096:Network-send_network_packet
+A3	StrategicObjectives T3 020:DataExfiltration-perform_data_exfiltration
+A4	TacticalObjectives T3 057:DataExfiltration-exfiltrate_via_network
+R3	ActionObj Action:T3 Object:T4	
+T5	Subject 134344 134355	the malware
+T6	Action 134395 134405	exfiltrate
+A5	Capability T6 006:MalwareCapability-data_exfiltration
+A6	ActionName T6 096:Network-send_network_packet
+A7	StrategicObjectives T6 020:DataExfiltration-perform_data_exfiltration
+A8	TacticalObjectives T6 057:DataExfiltration-exfiltrate_via_network
+R4	SubjAction Subject:T5 Action:T6	
+T10	Action 135115 135123	included
+T12	Object 135176 135189	data deletion
+T14	Action 136997 137004	disable
+T15	Object 137005 137043	AhnLab and Hauri AV antivirus products
+A9	Capability T14 018:MalwareCapability-security_degradation
+A10	ActionName T14 111:Process-kill_process
+A11	StrategicObjectives T14 056:SecurityDegradation-degrade_security_programs
+A12	TacticalObjectives T14 136:SecurityDegradation-stop_execution_of_security_program
+R11	ActionObj Action:T14 Object:T15	
+T16	Action 137062 137071	overwrite
+A15	StrategicObjectives T16 027:Destruction-destroy_virtual_entity
+A16	TacticalObjectives T16 083:Destruction-destroy_firmware
+T18	Object 151745 151767	targeted email attacks
+T22	Object 151805 151819	policy servers
+T23	Subject 152141 152144;152145 152150	The wiper
+T24	Action 152190 152194	kill
+A23	Capability T24 018:MalwareCapability-security_degradation
+A24	ActionName T24 111:Process-kill_process
+A25	StrategicObjectives T24 056:SecurityDegradation-degrade_security_programs
+A26	TacticalObjectives T24 136:SecurityDegradation-stop_execution_of_security_program
+T25	Object 152195 152233	the processes pasvc.exe and clisvc.exe
+R18	SubjAction Subject:T23 Action:T24	
+R19	ActionObj Action:T24 Object:T25	
+T26	Subject 152338 152347	The wiper
+T27	Action 152353 152362	performed
+A27	Capability T27 015:MalwareCapability-probing
+A28	StrategicObjectives T27 046:Probing-probe_host_configuration
+T28	Object 152363 152384	system reconnaissance
+R20	SubjAction Subject:T26 Action:T27	
+R21	ActionObj Action:T27 Object:T28	
+T29	Action 152386 152395	gathering
+A29	Capability T29 015:MalwareCapability-probing
+A30	TacticalObjectives T29 113:Probing-identify_os
+A31	StrategicObjectives T29 046:Probing-probe_host_configuration
+R22	SubjAction Subject:T26 Action:T29	
+T30	Object 152396 152442	drive information and operating system version
+R23	ActionObj Action:T29 Object:T30	
+T31	Subject 152470 152479	the wiper
+T32	Action 152492 152499	deleted
+A32	Capability T32 008:MalwareCapability-destruction
+A33	ActionName T32 028:File-delete_file
+A34	StrategicObjectives T32 027:Destruction-destroy_virtual_entity
+A35	TacticalObjectives T32 085:Destruction-erase_data
+R24	SubjAction Subject:T31 Action:T32	
+T34	Action 152526 152534	deleting
+A36	Capability T34 008:MalwareCapability-destruction
+A37	ActionName T34 028:File-delete_file
+A38	StrategicObjectives T34 027:Destruction-destroy_virtual_entity
+A39	TacticalObjectives T34 085:Destruction-erase_data
+T35	Object 152535 152538;152539 152553	the Windows folder
+R26	SubjAction Subject:T31 Action:T34	
+R27	ActionObj Action:T34 Object:T35	
+T36	Subject 152560 152562	It
+T37	Action 152568 152577	overwrote
+A40	Capability T37 008:MalwareCapability-destruction
+A41	ActionName T37 034:File-modify_file
+A42	StrategicObjectives T37 027:Destruction-destroy_virtual_entity
+A43	TacticalObjectives T37 083:Destruction-destroy_firmware
+R28	SubjAction Subject:T36 Action:T37	
+T38	Object 152578 152585	the MBR
+R29	ActionObj Action:T37 Object:T38	
+T39	Modifier 152586 152590	with
+R30	ActionMod Action:T37 Modifier:T39	
+T40	Object 152591 152625;152626 152652	the strings "HASTATI", "PRINCPES", "PRINCIPES", or "PR!NCPES”
+R31	ModObj Modifier:T39 Object:T40	
+T41	Subject 153259 153284	a third malware component
+T42	Action 153285 153295	downloaded
+A44	Capability T42 012:MalwareCapability-machine_access/control
+A45	ActionName T42 090:Network-download_file
+A46	StrategicObjectives T42 039:MachineAccessControl-install_backdoor
+T43	Object 153296 153306	an IRC RAT
+R32	SubjAction Subject:T41 Action:T42	
+R33	ActionObj Action:T42 Object:T43	
+T44	Subject 182457 182468	the malware
+T45	Action 182469 182477	searches
+A47	Capability T45 015:MalwareCapability-probing
+A48	ActionName T45 030:File-find_file
+A49	StrategicObjectives T45 046:Probing-probe_host_configuration
+A50	TacticalObjectives T45 114:Probing-inventory_system_applications
+T46	Object 182478 182495	these directories
+R34	SubjAction Subject:T44 Action:T45	
+R35	ActionObj Action:T45 Object:T46	
+T47	Subject 182917 182928	the dropper
+T48	Action 182929 182934	reads
+A51	Capability T48 015:MalwareCapability-probing
+A52	ActionName T48 038:File-read_from_file
+A53	StrategicObjectives T48 046:Probing-probe_host_configuration
+R36	SubjAction Subject:T47 Action:T48	
+T49	Object 182935 182957	the configuration file
+R37	ActionObj Action:T48 Object:T49	
+T50	Subject 183110 183112	it
+T51	Action 183113 183121	extracts
+A54	Capability T51 007:MalwareCapability-data_theft
+A55	ActionName T51 038:File-read_from_file
+A56	StrategicObjectives T51 023:DataTheft-steal_stored_information
+R38	SubjAction Subject:T50 Action:T51	
+T52	Object 183122 183137	the information
+R39	ActionObj Action:T51 Object:T52	
+T53	Subject 183231 183242	the dropper
+T54	Action 183243 183251	extracts
+A57	Capability T54 007:MalwareCapability-data_theft
+A58	ActionName T54 038:File-read_from_file
+A59	StrategicObjectives T54 023:DataTheft-steal_stored_information
+R40	SubjAction Subject:T53 Action:T54	
+T55	Object 183252 183263	information
+R41	ActionObj Action:T54 Object:T55	
+T56	Subject 183520 183531	the dropper
+R42	CoRefer Referer:T47 Canonical:T50	
+T57	Action 183598 183605	connect
+A60	Capability T57 005:MalwareCapability-command_and_control
+A61	ActionName T57 086:Network-connect_to_ip
+A62	StrategicObjectives T57 018:CommandandControl-send_data_to_c2_server
+A63	TacticalObjectives T57 050:CommandandControl-send_system_information
+R43	SubjAction Subject:T56 Action:T57	
+T58	Action 183622 183628	upload
+A64	ActionName T58 097:Network-upload_file
+T59	Action 183633 183636	run
+A65	ActionName T59 029:File-execute_file
+R44	SubjAction Subject:T56 Action:T58	
+R45	SubjAction Subject:T56 Action:T59	
+T60	Object 183606 183620	remote servers
+T61	Object 183637 183652;183653 183661	the bash script ~pr1.tmp
+R46	ActionObj Action:T59 Object:T61	
+R47	ActionObj Action:T58 Object:T61	
+R48	ActionObj Action:T57 Object:T60	
+T62	Subject 183666 183681	The bash script
+T63	Action 183692 183698	checks
+A66	Capability T63 015:MalwareCapability-probing
+A67	TacticalObjectives T63 113:Probing-identify_os
+A68	StrategicObjectives T63 046:Probing-probe_host_configuration
+T64	Object 183705 183709	UNIX
+R49	SubjAction Subject:T62 Action:T63	
+R50	ActionObj Action:T63 Object:T64	
+T65	Action 183781 183785	wipe
+A69	Capability T65 008:MalwareCapability-destruction
+A70	ActionName T65 009:Directory-delete_directory
+A71	StrategicObjectives T65 027:Destruction-destroy_virtual_entity
+A72	TacticalObjectives T65 085:Destruction-erase_data
+R51	SubjAction Subject:T62 Action:T65	
+T66	Object 183786 183830	the /kernel, /usr /etc and /home directories
+R52	ActionObj Action:T65 Object:T66	
+T67	Action 183837 183846	rendering
+A73	Capability T67 011:MalwareCapability-integrity_violation
+A74	TacticalObjectives T67 096:IntegrityViolation-corrupt_system_data
+A75	StrategicObjectives T67 036:IntegrityViolation-compromise_system_operational_integrity
+T68	Object 183847 183858;183859 183870	the machine inoperative
+R53	SubjAction Subject:T62 Action:T67	
+R54	ActionObj Action:T67 Object:T68	
+T70	Action 184002 184006	stop
+A76	Capability T70 018:MalwareCapability-security_degradation
+A77	ActionName T70 111:Process-kill_process
+A78	StrategicObjectives T70 056:SecurityDegradation-degrade_security_programs
+A79	TacticalObjectives T70 136:SecurityDegradation-stop_execution_of_security_program
+T71	Object 184007 184030	the following processes
+R56	ActionObj Action:T70 Object:T71	
+T72	Action 184055 184060	evade
+A80	Capability T72 002:MalwareCapability-anti-detection
+A81	StrategicObjectives T72 009:AntiDetection-security_software_evasion
+T73	Object 184061 184070	detection
+R58	ActionObj Action:T72 Object:T73	
+T74	Object 184081 184090	pasvc.exe
+T75	Object 184120 184130	clisvc.exe
+T76	Object 184093 184117	policy agent from AhnLab
+T77	Object 184133 184156	ViRobot ISMS from Hauri
+R59	CoRefer Referer:T74 Canonical:T76	
+R60	CoRefer Referer:T75 Canonical:T77	
+R61	CoRefer Referer:T71 Canonical:T74	
+R62	CoRefer Referer:T71 Canonical:T75	
+T78	Subject 184165 184167	It
+T79	Action 184173 184183	enumerates
+A82	Capability T79 015:MalwareCapability-probing
+A83	ActionName T79 011:Directory-monitor_directory
+A84	StrategicObjectives T79 046:Probing-probe_host_configuration
+R63	SubjAction Subject:T78 Action:T79	
+T80	Object 184184 184203	all physical drives
+R64	ActionObj Action:T79 Object:T80	
+T81	Action 184208 184218	overwrites
+A85	Capability T81 008:MalwareCapability-destruction
+A86	ActionName T81 034:File-modify_file
+A87	StrategicObjectives T81 027:Destruction-destroy_virtual_entity
+A88	TacticalObjectives T81 085:Destruction-erase_data
+T82	Object 184219 184238	the first 512 bytes
+T83	Modifier 184239 184243	with
+T84	Object 184244 184255;184256 184266	the string: “princpes”
+R65	ModObj Modifier:T83 Object:T84	
+R66	ActionMod Action:T81 Modifier:T83	
+R67	SubjAction Subject:T78 Action:T81	
+R68	ActionObj Action:T81 Object:T82	
+T85	Action 184280 184290	destroying
+A89	Capability T85 008:MalwareCapability-destruction
+A90	TacticalObjectives T85 085:Destruction-erase_data
+A91	StrategicObjectives T85 027:Destruction-destroy_virtual_entity
+R69	SubjAction Subject:T78 Action:T85	
+T87	Subject 184344 184346	It
+T89	Object 184369 184395	removable and fixed drives
+T90	Action 184397 184404	locates
+A95	Capability T90 015:MalwareCapability-probing
+A96	ActionName T90 011:Directory-monitor_directory
+A97	StrategicObjectives T90 046:Probing-probe_host_configuration
+R74	SubjAction Subject:T87 Action:T90	
+T92	Action 184462 184468	delete
+A98	Capability T92 008:MalwareCapability-destruction
+A99	ActionName T92 028:File-delete_file
+A100	StrategicObjectives T92 027:Destruction-destroy_virtual_entity
+A101	TacticalObjectives T92 085:Destruction-erase_data
+R76	SubjAction Subject:T87 Action:T92	
+T94	Action 184542 184567	is shut down and rebooted
+A102	Capability T94 012:MalwareCapability-machine_access/control
+A103	ActionName T94 200:System-shutdown_system
+A104	StrategicObjectives T94 038:MachineAccessControl-control_local_machine
+A105	TacticalObjectives T94 100:MachineAccessControl-control_machine_via_remote_command
+T95	Object 184520 184541	the affected computer
+R79	ActionObj Action:T94 Object:T95	
+R80	SubjAction Subject:T87 Action:T94	
+T96	Object 130830 130852	DarkSeoul DDoS attacks
+T97	Action 130853 130866	were launched
+A106	Capability T97 004:MalwareCapability-availability_violation
+A107	TacticalObjectives T97 044:AvailabilityViolation-denial_of_service
+A108	StrategicObjectives T97 014:AvailabilityViolation-compromise_system_availability
+R81	ActionObj Action:T97 Object:T96	
+T98	Modifier 130867 130874	against
+T99	Object 130875 130908;130909 130915	the South Korean government’s DNS server
+R82	ActionMod Action:T97 Modifier:T98	
+R83	ModObj Modifier:T98 Object:T99	
+T1	Action 134278 134288	sought out
+A109	Capability T1 007:MalwareCapability-data_theft
+T2	Subject 134244 134277	The malware used in these attacks
+R1	SubjAction Subject:T2 Action:T1	
+R2	SubjAction Subject:T2 Action:T3	
+R84	ActionObj Action:T1 Object:T4	
+T100	Action 134380 134386	search
+A110	Capability T100 007:MalwareCapability-data_theft
+T101	Modifier 134387 134390	for
+R85	SubjAction Subject:T5 Action:T100	
+R86	ActionMod Action:T100 Modifier:T101	
+T7	Object 134406 134413;134414 134427	certain types of data
+R5	ModObj Modifier:T101 Object:T7	
+R87	ActionObj Action:T6 Object:T7	
+T8	Subject 135094 135114	the March 20 attacks
+R6	SubjAction Subject:T8 Action:T10	
+A111	Capability T10 004:MalwareCapability-availability_violation
+A112	TacticalObjectives T10 044:AvailabilityViolation-denial_of_service
+A113	StrategicObjectives T10 014:AvailabilityViolation-compromise_system_availability
+T9	Object 135124 135171	disruption of service at financial institutions
+R7	ActionObj Action:T10 Object:T9	
+T11	Action 135115 135123	included
+A114	Capability T11 008:MalwareCapability-destruction
+A115	TacticalObjectives T11 085:Destruction-erase_data
+A116	StrategicObjectives T11 027:Destruction-destroy_virtual_entity
+R8	SubjAction Subject:T8 Action:T11	
+R9	ActionObj Action:T11 Object:T12	
+T102	Subject 136905 136951	The malware used in the March 20, 2013 attacks
+T103	Action 136952 136956	were
+A117	Capability T103 008:MalwareCapability-destruction
+A118	TacticalObjectives T103 085:Destruction-erase_data
+A119	StrategicObjectives T103 027:Destruction-destroy_virtual_entity
+T104	Object 136957 136962;136963 136970	wiper malware
+R88	SubjAction Subject:T102 Action:T103	
+R89	ActionObj Action:T103 Object:T104	
+T13	Subject 136972 136983	The malware
+R10	SubjAction Subject:T13 Action:T14	
+T17	Object 137072 137100	the master boot record (MBR)
+R12	SubjAction Subject:T13 Action:T16	
+R13	ActionObj Action:T16 Object:T17	
+T105	Subject 137102 137112	The attack
+T106	Action 137128 137134	wiping
+A13	Capability T106 008:MalwareCapability-destruction
+A14	TacticalObjectives T106 085:Destruction-erase_data
+A120	StrategicObjectives T106 027:Destruction-destroy_virtual_entity
+T107	Object 137135 137139;137140 137166	both Linux and Windows machines
+R90	SubjAction Subject:T105 Action:T106	
+R91	ActionObj Action:T106 Object:T107	
+T108	Subject 137467 137479	these actors
+T109	Action 137493 137497	used
+A121	Capability T109 006:MalwareCapability-data_exfiltration
+A122	TacticalObjectives T109 062:DataExfiltration-package_data
+A123	StrategicObjectives T109 021:DataExfiltration-stage_data_for_exfiltration
+T110	Object 137498 137524	the same 16-digit password
+T111	Modifier 137525 137528	for
+T112	Object 137529 137545	file compression
+R92	ActionObj Action:T109 Object:T110	
+R93	ActionMod Action:T109 Modifier:T111	
+R94	ModObj Modifier:T111 Object:T112	
+R95	SubjAction Subject:T108 Action:T109	
+T113	Action 137493 137497	used
+A124	Capability T113 005:MalwareCapability-command_and_control
+T114	Object 137547 137575	the same stage 1 C2 protocol
+R96	ActionObj Action:T113 Object:T114	
+R97	SubjAction Subject:T108 Action:T113	
+T115	Object 137577 137585;137586 137625	the same collection keywords and encryption keys
+T116	Action 137493 137497	used
+A125	Capability T116 006:MalwareCapability-data_exfiltration
+A126	TacticalObjectives T116 053:DataExfiltration-encrypt_data
+A127	StrategicObjectives T116 019:DataExfiltration-obfuscate_data_for_exfiltration
+R98	ActionObj Action:T116 Object:T115	
+R99	SubjAction Subject:T108 Action:T116	
+T117	Subject 137733 137774	the North Korean IP address 175.45.178.xx
+T118	Action 137785 137793	scanning
+A128	Capability T118 010:MalwareCapability-infection/propagation
+A129	TacticalObjectives T118 088:InfectionPropagation-identify_target_machine(s)
+A130	StrategicObjectives T118 031:InfectionPropagation-infect_remote_machine
+T119	Object 137794 137813	South Korean routes
+R100	SubjAction Subject:T117 Action:T118	
+R101	ActionObj Action:T118 Object:T119	
+T120	Subject 138039 138069	the Chinese exploit kit GonDad
+T121	Action 138082 138088	spread
+A131	Capability T121 010:MalwareCapability-infection/propagation
+T122	Object 138089 138100	the malware
+R102	SubjAction Subject:T120 Action:T121	
+R103	ActionObj Action:T121 Object:T122	
+T19	Action 151820 151829;151830 151841	were then compromised
+A17	Capability T19 004:MalwareCapability-availability_violation
+A18	TacticalObjectives T19 041:AvailabilityViolation-compromise_access_to_information_assets
+A19	StrategicObjectives T19 014:AvailabilityViolation-compromise_system_availability
+R14	ActionObj Action:T19 Object:T22	
+T21	Action 151768 151777	were used
+A20	Capability T21 010:MalwareCapability-infection/propagation
+A21	TacticalObjectives T21 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A22	StrategicObjectives T21 031:InfectionPropagation-infect_remote_machine
+R15	ActionObj Action:T21 Object:T18	
+T20	Modifier 151778 151780	to
+T123	Object 151781 151799	gain initial entry
+R16	ActionMod Action:T21 Modifier:T20	
+R17	ModObj Modifier:T20 Object:T123	
+T124	Subject 151914 151923	the wiper
+T125	Action 151927 151933	target
+A132	Capability T125 014:MalwareCapability-privilege_escalation
+T126	Object 151934 151959	a large number of systems
+T127	Modifier 151961 151963	on
+T128	Modifier 151985 151989	with
+T129	Object 151964 151983	a set time and date
+T130	Object 151990 152020;152021 152037	full permissions on all of the targeted systems
+R104	SubjAction Subject:T124 Action:T125	
+R105	ActionObj Action:T125 Object:T126	
+R106	ActionMod Action:T125 Modifier:T127	
+R107	ActionMod Action:T125 Modifier:T128	
+R108	ModObj Modifier:T127 Object:T129	
+R109	ModObj Modifier:T128 Object:T130	
+T131	Object 152078 152095	the wiper malware
+T132	Action 152096 152107	was dropped
+A133	Capability T132 017:MalwareCapability-secondary_operation
+A134	TacticalObjectives T132 118:SecondaryOperation-install_secondary_malware
+A135	StrategicObjectives T132 050:SecondaryOperation-install_other_components
+T133	Modifier 152108 152110	on
+T134	Object 152111 152122	the systems
+T135	Modifier 152123 152125	as
+T136	Object 152126 152139	AgentBase.exe
+R110	ActionObj Action:T132 Object:T131	
+R111	ActionMod Action:T132 Modifier:T133	
+R112	ModObj Modifier:T133 Object:T134	
+R113	ActionMod Action:T132 Modifier:T135	
+R114	ModObj Modifier:T135 Object:T136	
+T33	Object 152500 152524	files on the file system
+R25	ActionObj Action:T32 Object:T33	
+R115	CoRefer Referer:T31 Canonical:T36	
+T137	Modifier 153307 153311	from
+T138	Object 153312 153319;153320 153340	various compromised websites
+T139	Object 153342 153350	This RAT
+T140	Action 153351 153362	is detected
+A136	Capability T140 012:MalwareCapability-machine_access/control
+A137	StrategicObjectives T140 039:MachineAccessControl-install_backdoor
+T141	Subject 153366 153374	Symantec
+T142	Modifier 153375 153377	as
+T143	Object 153378 153394	Backdoor.Prioxer
+R116	ActionMod Action:T42 Modifier:T137	
+R117	ModObj Modifier:T137 Object:T138	
+R118	SubjAction Subject:T141 Action:T140	
+R119	ActionObj Action:T140 Object:T139	
+R120	ActionMod Action:T140 Modifier:T142	
+R121	ModObj Modifier:T142 Object:T143	
+T144	Modifier 182496 182499	for
+T145	Object 182500 182567;182568 182616	configuration files and directories that may be associated with the connection manager clients mRemote and SecureCRT
+R122	ActionMod Action:T45 Modifier:T144	
+R123	ModObj Modifier:T144 Object:T145	
+T146	Modifier 183264 183268	from
+T147	Object 183269 183287;183288 183336	sessions that have Username=root, Protocol=SSH and a saved password
+R124	ActionMod Action:T54 Modifier:T146	
+R125	ModObj Modifier:T146 Object:T147	
+T69	Object 183940 183967	the AgentBase.exe component
+T148	Action 183968 183979	is executed
+A138	ActionName T148 029:File-execute_file
+R55	ActionObj Action:T148 Object:T69	
+T149	Subject 183981 183983	it
+R57	SubjAction Subject:T149 Action:T72	
+R77	SubjAction Subject:T149 Action:T70	
+R78	CoRefer Referer:T149 Canonical:T69	
+T86	Object 184291 184341	the MBR (master boot record) of the affected drive
+R70	ActionObj Action:T85 Object:T86	
+T91	Object 184405 184439	the root directory on these drives
+R71	ActionObj Action:T90 Object:T91	
+R72	CoRefer Referer:T69 Canonical:T78	
+R73	CoRefer Referer:T69 Canonical:T87	
+T88	Action 184360 184364	look
+A92	Capability T88 015:MalwareCapability-probing
+A93	ActionName T88 030:File-find_file
+A94	StrategicObjectives T88 046:Probing-probe_host_configuration
+T150	Modifier 184365 184368	for
+R126	SubjAction Subject:T87 Action:T88	
+R127	ActionMod Action:T88 Modifier:T150	
+R128	ModObj Modifier:T150 Object:T89	
+T93	Object 184469 184508	all files and folders in this directory
+R75	ActionObj Action:T92 Object:T93	

@@ -1,0 +1,188 @@
+T1	Action 580 585	waits
+A1	Capability T1 012:MalwareCapability-machine_access/control
+A2	StrategicObjectives T1 017:CommandandControl-receive_data_from_c2_server
+T2	Subject 522 529	Derusbi
+T3	Object 590 624	commands from a controlling client
+R1	SubjAction Subject:T2 Action:T1	
+T4	Action 991 999	installs
+A3	Capability T4 017:MalwareCapability-secondary_operation
+A4	TacticalObjectives T4 118:SecondaryOperation-install_secondary_malware
+A5	StrategicObjectives T4 050:SecondaryOperation-install_other_components
+T5	Object 956 973	the device driver
+T6	Subject 979 990	the variant
+R3	SubjAction Subject:T6 Action:T4	
+R4	ActionObj Action:T4 Object:T5	
+T7	Action 1057 1061	hook
+A6	Capability T7 018:MalwareCapability-security_degradation
+A7	TacticalObjectives T7 123:SecurityDegradation-disable_firewall
+A8	StrategicObjectives T7 059:SecurityDegradation-disable_server_provider_security_features
+T8	Subject 1001 1019	The server variant
+T9	Object 1067 1087	the Windows firewall
+R5	SubjAction Subject:T8 Action:T7	
+T10	Action 1297 1304	hooking
+A9	Capability T10 018:MalwareCapability-security_degradation
+A10	TacticalObjectives T10 123:SecurityDegradation-disable_firewall
+A11	StrategicObjectives T10 059:SecurityDegradation-disable_server_provider_security_features
+T11	Subject 1279 1289	The driver
+T12	Object 1305 1317	the firewall
+R7	SubjAction Subject:T11 Action:T10	
+R8	ActionObj Action:T10 Object:T12	
+T13	Action 1732 1736	hide
+A12	Capability T13 002:MalwareCapability-anti-detection
+A13	TacticalObjectives T13 025:AntiDetection-hide_network_traffic
+A14	StrategicObjectives T13 006:AntiDetection-hide_executing_code
+T14	Subject 1717 1728	an attacker
+T15	Object 1737 1742;1743 1756	their communication
+R9	SubjAction Subject:T14 Action:T13	
+R10	ActionObj Action:T13 Object:T15	
+T16	Action 2235 2241	loaded
+A15	Capability T16 004:MalwareCapability-availability_violation
+A16	ActionName T16 123:ProcessMemory-write_to_process_memory
+A17	StrategicObjectives T16 015:AvailabilityViolation-consume_system_resources
+T17	Object 2301 2319	the server variant
+T18	Object 2247 2253	memory
+T19	Action 2435 2441	spawns
+A18	Capability T19 004:MalwareCapability-availability_violation
+A19	StrategicObjectives T19 015:AvailabilityViolation-consume_system_resources
+A20	ActionName T19 125:ProcessThread-create_thread
+T20	Subject 2419 2429	The binary
+T21	Object 2442 2454	a new thread
+R13	SubjAction Subject:T20 Action:T19	
+R14	ActionObj Action:T19 Object:T21	
+T22	Action 2940 2949	determine
+A21	Capability T22 015:MalwareCapability-probing
+A22	ActionName T22 207:User-get_user_attributes
+A23	StrategicObjectives T22 046:Probing-probe_host_configuration
+T23	Subject 2904 2922	The server variant
+T24	Object 2953 2982	it has suitable access rights
+R15	SubjAction Subject:T23 Action:T22	
+T25	Action 3064 3070	checks
+A24	Capability T25 015:MalwareCapability-probing
+A25	TacticalObjectives T25 114:Probing-inventory_system_applications
+A26	StrategicObjectives T25 046:Probing-probe_host_configuration
+T26	Subject 3024 3051	The check for access rights
+R17	SubjAction Subject:T26 Action:T25	
+T28	Action 3539 3546	install
+A27	Capability T28 017:MalwareCapability-secondary_operation
+A28	TacticalObjectives T28 119:SecondaryOperation-install_secondary_module
+A29	StrategicObjectives T28 050:SecondaryOperation-install_other_components
+T30	Object 3547 3565	the server variant
+R20	ActionObj Action:T28 Object:T30	
+T31	Action 3970 3977	loading
+A30	Capability T31 010:MalwareCapability-infection/propagation
+A31	TacticalObjectives T31 093:InfectionPropagation-write_code_into_file
+A32	StrategicObjectives T31 030:InfectionPropagation-infect_file
+T32	Subject 3938 3959	The mainLoop function
+T33	Object 3978 4001	the unique infection ID
+R21	SubjAction Subject:T32 Action:T31	
+R22	ActionObj Action:T31 Object:T33	
+T34	Action 4943 4946	get
+A33	Capability T34 015:MalwareCapability-probing
+A34	StrategicObjectives T34 046:Probing-probe_host_configuration
+T35	Subject 4918 4930	The mainLoop
+T36	Object 4947 4961	the privileges
+R23	SubjAction Subject:T35 Action:T34	
+R24	ActionObj Action:T34 Object:T36	
+T37	Action 8073 8080	selects
+A35	Capability T37 019:MalwareCapability-spying
+A36	ActionName T37 091:Network-listen_on_port
+A37	StrategicObjectives T37 063:Spying-capture_system_output_peripheral_data
+A38	TacticalObjectives T37 145:Spying-capture_system_network_traffic
+T38	Object 8081 8087;8088 8113	a port between 40,000 and 45,000
+T39	Modifier 8114 8116	to
+T40	Subject 8044 8072	DerusbiThread::DerusbiThread
+R25	SubjAction Subject:T40 Action:T37	
+R26	ActionObj Action:T37 Object:T38	
+R27	ActionMod Action:T37 Modifier:T39	
+T41	Action 8442 8447	opens
+A39	Capability T41 019:MalwareCapability-spying
+A40	ActionName T41 091:Network-listen_on_port
+A41	StrategicObjectives T41 062:Spying-capture_system_interface_data
+A42	TacticalObjectives T41 145:Spying-capture_system_network_traffic
+T42	Subject 8381 8409	DerusbiThread::DerusbiThread
+R28	SubjAction Subject:T42 Action:T41	
+T43	Object 8448 8456	the port
+R29	ActionObj Action:T41 Object:T43	
+T44	Action 9515 9523	inspects
+A43	Capability T44 019:MalwareCapability-spying
+A44	ActionName T44 091:Network-listen_on_port
+A45	StrategicObjectives T44 062:Spying-capture_system_interface_data
+A46	TacticalObjectives T44 145:Spying-capture_system_network_traffic
+T45	Subject 9497 9514	The device driver
+R30	SubjAction Subject:T45 Action:T44	
+T47	Action 9722 9729	reroute
+A47	Capability T47 011:MalwareCapability-integrity_violation
+A48	ActionName T47 096:Network-send_network_packet
+A49	StrategicObjectives T47 034:IntegrityViolation-compromise_network_operational_integrity
+A50	TacticalObjectives T47 098:IntegrityViolation-intercept/manipulate_network_traffic
+T48	Object 9730 9741;9742 9749	the network traffic
+T49	Action 10614 10622	redirect
+A51	Capability T49 011:MalwareCapability-integrity_violation
+A52	ActionName T49 096:Network-send_network_packet
+A53	StrategicObjectives T49 034:IntegrityViolation-compromise_network_operational_integrity
+A54	TacticalObjectives T49 098:IntegrityViolation-intercept/manipulate_network_traffic
+T50	Subject 10600 10610	the driver
+T51	Object 10623 10638;10639 10647	appropriate TCP sessions
+R33	SubjAction Subject:T50 Action:T49	
+R34	ActionObj Action:T49 Object:T51	
+T52	Action 10499 10505	listen
+A55	Capability T52 019:MalwareCapability-spying
+A56	ActionName T52 091:Network-listen_on_port
+A57	StrategicObjectives T52 062:Spying-capture_system_interface_data
+A58	TacticalObjectives T52 145:Spying-capture_system_network_traffic
+T53	Subject 10357 10383	The Derusbi server variant
+R35	SubjAction Subject:T53 Action:T52	
+T54	Object 10396 10421	an available, random port
+R36	ActionObj Action:T52 Object:T54	
+T55	Action 15765 15772	sending
+A59	Capability T55 006:MalwareCapability-data_exfiltration
+A60	TacticalObjectives T55 057:DataExfiltration-exfiltrate_via_network
+A61	StrategicObjectives T55 020:DataExfiltration-perform_data_exfiltration
+T56	Subject 15822 15832	the server
+R37	SubjAction Subject:T56 Action:T55	
+T57	Object 15773 15795	the server information
+R38	ActionObj Action:T55 Object:T57	
+T58	Action 18302 18308	routes
+A62	Capability T58 006:MalwareCapability-data_exfiltration
+A63	TacticalObjectives T58 057:DataExfiltration-exfiltrate_via_network
+A64	StrategicObjectives T58 020:DataExfiltration-perform_data_exfiltration
+T59	Subject 18293 18301	CommLoop
+T60	Object 18309 18316	packets
+R39	SubjAction Subject:T59 Action:T58	
+R40	ActionObj Action:T58 Object:T60	
+T61	Modifier 586 589	for
+R2	ActionMod Action:T1 Modifier:T61	
+R41	ModObj Modifier:T61 Object:T3	
+T62	Modifier 1062 1066	into
+R6	ActionMod Action:T7 Modifier:T62	
+R42	ModObj Modifier:T62 Object:T9	
+T63	Modifier 2242 2246	into
+R12	ModObj Modifier:T63 Object:T18	
+R43	ActionMod Action:T16 Modifier:T63	
+T64	Modifier 2254 2257	via
+T65	Object 2258 2299	a LoadLibrary or equivalent function call
+R44	ModObj Modifier:T64 Object:T65	
+R45	ActionMod Action:T16 Modifier:T64	
+R11	ActionObj Action:T16 Object:T17	
+T66	Modifier 2950 2952	if
+R16	ActionMod Action:T22 Modifier:T66	
+R46	ModObj Modifier:T66 Object:T24	
+T27	Modifier 3078 3080	if
+T67	Object 3081 3099;3100 3141	the server variant process is running under the NT Authority
+R18	ModObj Modifier:T27 Object:T67	
+R47	ActionMod Action:T25 Modifier:T27	
+T29	Subject 3472 3475;3476 3502	The DllRegisterServer function
+R19	SubjAction Subject:T29 Action:T28	
+T68	Object 8117 8140	use as a listening port
+R48	ModObj Modifier:T39 Object:T68	
+T69	Modifier 8457 8459	as
+T70	Object 8460 8461;8462 8470	a listener
+R49	ModObj Modifier:T69 Object:T70	
+R50	ActionMod Action:T41 Modifier:T69	
+T46	Object 9524 9557;9558 9597	incoming network traffic from any client connecting to the victim machine
+R31	ActionObj Action:T44 Object:T46	
+R32	ActionObj Action:T47 Object:T48	
+T71	Modifier 18317 18319	to
+T72	Object 18320 18358	the appropriate command handler object
+R51	ModObj Modifier:T71 Object:T72	
+R52	ActionMod Action:T58 Modifier:T71	

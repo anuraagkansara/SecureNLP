@@ -1,0 +1,1870 @@
+T1	Subject 3941 3958	All three samples
+T2	Action 3959 3967	provided
+A1	Capability T2 012:MalwareCapability-machine_access/control
+A2	TacticalObjectives T2 100:MachineAccessControl-control_machine_via_remote_command
+A3	StrategicObjectives T2 038:MachineAccessControl-control_local_machine
+T3	Object 3968 3981	remote access
+T4	Modifier 3982 3984	to
+T5	Object 3985 3997	the attacker
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T4	
+R4	ModObj Modifier:T4 Object:T5	
+T6	Modifier 3999 4002	via
+T7	Object 4003 4039	two Command and Control (C2) servers
+R5	ActionMod Action:T2 Modifier:T6	
+R6	ModObj Modifier:T6 Object:T7	
+T8	Subject 4041 4051	One sample
+T9	Action 4144 4149	write
+A4	ActionName T9 043:File-write_to_file
+T10	Object 4150 4171	a malicious component
+T11	Modifier 4172 4174	to
+T12	Object 4175 4179	disk
+R7	SubjAction Subject:T8 Action:T9	
+R8	ActionObj Action:T9 Object:T10	
+R9	ActionMod Action:T9 Modifier:T11	
+R10	ModObj Modifier:T11 Object:T12	
+T13	Object 4361 4389	a Dynamic Link Library (DLL)
+T14	Action 4390 4399	installed
+A5	ActionName T14 147:Service-create_service
+T15	Modifier 4400 4402	as
+T16	Object 4403 4412	a service
+R11	ActionObj Action:T14 Object:T13	
+R12	ActionMod Action:T14 Modifier:T15	
+R13	ModObj Modifier:T15 Object:T16	
+T17	Subject 4486 4510	a post exploitation tool
+T20	Object 4526 4539	other systems
+T18	Action 4519 4525	infect
+A6	Capability T18 010:MalwareCapability-infection/propagation
+A7	TacticalObjectives T18 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A8	StrategicObjectives T18 031:InfectionPropagation-infect_remote_machine
+R14	SubjAction Subject:T17 Action:T18	
+R15	ActionObj Action:T18 Object:T20	
+T19	Action 4541 4549	download
+A9	Capability T19 017:MalwareCapability-secondary_operation
+A10	TacticalObjectives T19 118:SecondaryOperation-install_secondary_malware
+A11	StrategicObjectives T19 050:SecondaryOperation-install_other_components
+T21	Object 4550 4566	additional tools
+A12	ActionName T19 090:Network-download_file
+R16	SubjAction Subject:T17 Action:T19	
+T22	Action 4568 4574	remove
+A13	Capability T22 008:MalwareCapability-destruction
+A14	ActionName T22 028:File-delete_file
+A15	StrategicObjectives T22 027:Destruction-destroy_virtual_entity
+A16	TacticalObjectives T22 085:Destruction-erase_data
+R17	SubjAction Subject:T17 Action:T22	
+T23	Object 4575 4583	log data
+R18	ActionObj Action:T22 Object:T23	
+T24	Object 4589 4595	itself
+R19	CoRefer Referer:T17 Canonical:T24	
+T25	Action 4596 4603	be used
+A17	Capability T25 012:MalwareCapability-machine_access/control
+A18	TacticalObjectives T25 100:MachineAccessControl-control_machine_via_remote_command
+A19	StrategicObjectives T25 038:MachineAccessControl-control_local_machine
+T26	Modifier 4604 4606	as
+T27	Object 4607 4617	a backdoor
+R20	ActionObj Action:T25 Object:T24	
+R21	ActionMod Action:T25 Modifier:T26	
+R22	ModObj Modifier:T26 Object:T27	
+T28	Subject 4619 4635	The third sample
+T29	Action 4684 4690	having
+A20	Capability T29 005:MalwareCapability-command_and_control
+T30	Object 4691 4726	multiple communication capabilities
+R23	SubjAction Subject:T28 Action:T29	
+R24	ActionObj Action:T29 Object:T30	
+T31	Action 4747 4750	act
+A21	Capability T31 005:MalwareCapability-command_and_control
+T32	Modifier 4751 4753	as
+T33	Object 4754 4786	a relay for other infected hosts
+R25	SubjAction Subject:T28 Action:T31	
+R26	ActionMod Action:T31 Modifier:T32	
+R27	ModObj Modifier:T32 Object:T33	
+T34	Action 4788 4796	utilized
+A22	ActionName T34 006:DeviceDriver-load_driver
+T35	Object 4797 4817	a kernel mode driver
+R28	SubjAction Subject:T28 Action:T34	
+R29	ActionObj Action:T34 Object:T35	
+T36	Action 4827 4831	hide
+A23	Capability T36 002:MalwareCapability-anti-detection
+A24	StrategicObjectives T36 007:AntiDetection-hide_malware_artifacts
+T37	Object 4832 4851	aspects of the tool
+T38	Modifier 4852 4856	from
+T39	Object 4857 4872	user-mode tools
+R30	SubjAction Subject:T28 Action:T36	
+R31	ActionObj Action:T36 Object:T37	
+R32	ActionMod Action:T36 Modifier:T38	
+R33	ModObj Modifier:T38 Object:T39	
+T40	Object 4874 4894	This third component
+T41	Action 4895 4909	is likely used
+A25	Capability T41 007:MalwareCapability-data_theft
+T42	Object 4941 4963	intelligence gathering
+T43	Modifier 4910 4913	for
+R34	ActionObj Action:T41 Object:T40	
+R35	ActionMod Action:T41 Modifier:T43	
+R36	ModObj Modifier:T43 Object:T42	
+T44	Action 6277 6287	extracting
+A26	Capability T44 017:MalwareCapability-secondary_operation
+A27	TacticalObjectives T44 118:SecondaryOperation-install_secondary_malware
+A28	StrategicObjectives T44 050:SecondaryOperation-install_other_components
+T45	Modifier 6288 6292	from
+T46	Object 6293 6299	itself
+R37	ActionMod Action:T44 Modifier:T45	
+R38	ModObj Modifier:T45 Object:T46	
+T47	Object 6300 6319	a malicious payload
+T48	Subject 6151 6198	The executable 14c04f88dc97aef3e9b516ef208a2bf5
+R39	SubjAction Subject:T48 Action:T44	
+R40	ActionObj Action:T44 Object:T47	
+T49	Action 6327 6349	initialize and install
+A29	Capability T49 017:MalwareCapability-secondary_operation
+A30	TacticalObjectives T49 118:SecondaryOperation-install_secondary_malware
+A31	StrategicObjectives T49 050:SecondaryOperation-install_other_components
+R41	SubjAction Subject:T48 Action:T49	
+R42	CoRefer Referer:T48 Canonical:T46	
+T50	Object 6350 6352	it
+R43	CoRefer Referer:T47 Canonical:T50	
+R44	ActionObj Action:T49 Object:T50	
+T51	Modifier 6353 6357	into
+T52	Object 6358 6359;6360 6375	a targeted system
+R45	ActionMod Action:T49 Modifier:T51	
+R46	ModObj Modifier:T51 Object:T52	
+T53	Subject 6391 6412	the malicious payload
+T54	Action 6452 6459	enables
+A32	Capability T54 012:MalwareCapability-machine_access/control
+A33	TacticalObjectives T54 100:MachineAccessControl-control_machine_via_remote_command
+A34	StrategicObjectives T54 038:MachineAccessControl-control_local_machine
+T55	Object 6460 6462;6463 6471	an attacker
+T56	Modifier 6472 6474	to
+T57	Object 6475 6506	have full control of the system
+R47	SubjAction Subject:T53 Action:T54	
+R48	ActionObj Action:T54 Object:T55	
+R49	ActionMod Action:T54 Modifier:T56	
+R50	ModObj Modifier:T56 Object:T57	
+T58	Subject 7201 7212	The dropper
+T59	Action 7213 7220	invokes
+A35	ActionName T59 080:Library-call_library_function
+T60	Object 7221 7253	the SHGetSpecialFolderPath() API
+R51	SubjAction Subject:T58 Action:T59	
+R52	ActionObj Action:T59 Object:T60	
+T61	Subject 6761 6771	The sample
+T62	Action 6779 6787	resolves
+A36	ActionName T62 080:Library-call_library_function
+T63	Object 6788 6835	several library functions provided by Microsoft
+T64	Modifier 6836 6841	using
+T65	Object 6842 6880;6881 6922	the LoadLibrary() and GetProcAddress() Application Programming Interfaces (APIs)
+R53	SubjAction Subject:T61 Action:T62	
+R54	ActionObj Action:T62 Object:T63	
+R55	ActionMod Action:T62 Modifier:T64	
+R56	ModObj Modifier:T64 Object:T65	
+T66	Subject 7581 7592	The dropper
+T67	Action 7605 7610	write
+A37	ActionName T67 043:File-write_to_file
+T68	Object 7611 7632	the malicious payload
+T69	Modifier 7633 7635	to
+T70	Object 7636 7662	one of the following names
+T71	Modifier 7664 7669	using
+T72	Object 7670 7679;7681 7707	the first available name in this set
+R57	SubjAction Subject:T66 Action:T67	
+R58	ActionObj Action:T67 Object:T68	
+R59	ActionMod Action:T67 Modifier:T69	
+R60	ModObj Modifier:T69 Object:T70	
+R61	ActionMod Action:T67 Modifier:T71	
+R62	ModObj Modifier:T71 Object:T72	
+T73	Subject 7812 7823	The dropper
+T74	Action 7824 7828	sets
+A38	Capability T74 002:MalwareCapability-anti-detection
+A39	TacticalObjectives T74 032:AntiDetection-obfuscate_artifact_properties
+A40	StrategicObjectives T74 007:AntiDetection-hide_malware_artifacts
+T75	Action 7977 7985	blend in
+A41	Capability T75 002:MalwareCapability-anti-detection
+A42	TacticalObjectives T75 032:AntiDetection-obfuscate_artifact_properties
+A43	StrategicObjectives T75 007:AntiDetection-hide_malware_artifacts
+T76	Object 7829 7894	the creation and last written timestamp of the newly created file
+T77	Modifier 7895 7897	to
+T78	Object 7898 7917;7919 7927	the date 2007-03-07 00:00:00
+R63	SubjAction Subject:T73 Action:T74	
+R64	ActionObj Action:T74 Object:T76	
+R65	ActionMod Action:T74 Modifier:T77	
+R66	ModObj Modifier:T77 Object:T78	
+T79	Object 7941 7973	the newly created malicious  DLL
+R67	ActionObj Action:T75 Object:T79	
+T80	Modifier 7986 7990	with
+T81	Object 7991 8009	other system files
+R68	ActionMod Action:T75 Modifier:T80	
+R69	ModObj Modifier:T80 Object:T81	
+T82	Action 8029 8036	prevent
+A44	Capability T82 002:MalwareCapability-anti-detection
+A45	StrategicObjectives T82 005:AntiDetection-anti-memory_forensics
+T83	Object 8037 8051	identification
+T84	Modifier 8052 8058	during
+T85	Object 8059 8073	disk forensics
+T86	Subject 8011 8015	This
+R70	SubjAction Subject:T86 Action:T82	
+R71	ActionObj Action:T82 Object:T83	
+R72	ActionMod Action:T82 Modifier:T84	
+R73	ModObj Modifier:T84 Object:T85	
+T87	Object 8243 8281	The malicious DLL file that is dropped
+T88	Action 8282 8291	is hidden
+A46	Capability T88 002:MalwareCapability-anti-detection
+A47	TacticalObjectives T88 023:AntiDetection-hide_file_system_artifacts
+A48	StrategicObjectives T88 007:AntiDetection-hide_malware_artifacts
+T89	Modifier 8292 8294	in
+T90	Object 8295 8327	a resource of the dropper binary
+R74	ActionObj Action:T88 Object:T87	
+R75	ActionMod Action:T88 Modifier:T89	
+R76	ModObj Modifier:T89 Object:T90	
+T91	Subject 9005 9016	the dropper
+T92	Action 9017 9023	writes
+A49	ActionName T92 043:File-write_to_file
+T93	Object 9024 9032	the file
+T94	Modifier 9033 9035	to
+T95	Object 9036 9040	disk
+R77	SubjAction Subject:T91 Action:T92	
+R78	ActionObj Action:T92 Object:T93	
+R79	ActionMod Action:T92 Modifier:T94	
+R80	ModObj Modifier:T94 Object:T95	
+T96	Action 9083 9091	prevents
+A50	Capability T96 002:MalwareCapability-anti-detection
+A51	StrategicObjectives T96 009:AntiDetection-security_software_evasion
+T97	Object 9092 9100	the file
+T98	Modifier 9101 9105	from
+T99	Object 9119 9174	being detected as an executable by many defensive tools
+R81	ActionObj Action:T96 Object:T97	
+R82	ActionMod Action:T96 Modifier:T98	
+R83	ModObj Modifier:T98 Object:T99	
+T100	Subject 9042 9075	the first byte of the file is 'Z'
+R84	SubjAction Subject:T100 Action:T96	
+T101	Subject 9176 9187	The dropper
+T102	Action 9201 9206	opens
+A52	ActionName T102 036:File-open_file
+T103	Object 9207 9223	the dropped file
+T104	Action 9228 9236	corrects
+A53	ActionName T104 034:File-modify_file
+T105	Object 9237 9247	the header
+T106	Modifier 9248 9250	by
+T107	Object 9251 9281;9283 9287	writing the 'M' over the first byte
+R85	SubjAction Subject:T101 Action:T102	
+R86	ActionObj Action:T102 Object:T103	
+R87	SubjAction Subject:T101 Action:T104	
+R88	ActionObj Action:T104 Object:T105	
+R89	ActionMod Action:T104 Modifier:T106	
+R90	ModObj Modifier:T106 Object:T107	
+T108	Subject 9753 9764	the dropper
+T109	Action 9780 9784	load
+A54	ActionName T109 119:ProcessMemory-map_library_into_process
+T110	Object 9785 9800	the dropped DLL
+T111	Modifier 9801 9805	into
+T112	Object 9806 9827	its own process space
+R91	SubjAction Subject:T108 Action:T109	
+R92	ActionObj Action:T109 Object:T110	
+R93	ActionMod Action:T109 Modifier:T111	
+R94	ModObj Modifier:T111 Object:T112	
+T113	Subject 9959 9970	This export
+T114	Action 9976 9986	implements
+A55	Capability T114 013:MalwareCapability-persistence
+T115	Object 9987 10011	the actual install logic
+T116	Modifier 10012 10014	to
+T117	Object 10015 10035	maintain persistence
+R95	SubjAction Subject:T113 Action:T114	
+R96	ActionObj Action:T114 Object:T115	
+R97	ActionMod Action:T114 Modifier:T116	
+R98	ModObj Modifier:T116 Object:T117	
+T118	Subject 10320 10346	The use of the Chrome icon
+T119	Action 10382 10390;10391 10399	socially engineer
+A56	Capability T119 010:MalwareCapability-infection/propagation
+A57	TacticalObjectives T119 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A58	StrategicObjectives T119 031:InfectionPropagation-infect_remote_machine
+T120	Object 10400 10419	the intended victim
+T121	Modifier 10420 10424	into
+T122	Object 10425 10490	thinking the dropper was a legitimate file associated with Google
+R99	SubjAction Subject:T118 Action:T119	
+R100	ActionObj Action:T119 Object:T120	
+R101	ActionMod Action:T119 Modifier:T121	
+R102	ModObj Modifier:T121 Object:T122	
+T123	Subject 10756 10767	This sample
+T124	Action 10768 10770	is
+A59	Capability T124 012:MalwareCapability-machine_access/control
+A60	StrategicObjectives T124 039:MachineAccessControl-install_backdoor
+T125	Object 10771 10783	a 'backdoor'
+R103	SubjAction Subject:T123 Action:T124	
+R104	ActionObj Action:T124 Object:T125	
+T126	Object 10793 10800	the DLL
+T127	Action 10801 10808	dropped
+A61	Capability T127 017:MalwareCapability-secondary_operation
+A62	TacticalObjectives T127 118:SecondaryOperation-install_secondary_malware
+A63	StrategicObjectives T127 050:SecondaryOperation-install_other_components
+T128	Subject 10812 10835	the dropper sample file
+R105	SubjAction Subject:T128 Action:T127	
+R106	ActionObj Action:T127 Object:T126	
+R107	CoRefer Referer:T123 Canonical:T126	
+T129	Object 11043 11045	it
+T130	Action 11046 11055	is mapped
+A64	ActionName T130 119:ProcessMemory-map_library_into_process
+T131	Modifier 11057 11061	into
+T132	Object 11062 11099	the process space of its dropped file
+R108	ActionObj Action:T130 Object:T129	
+R109	ActionMod Action:T130 Modifier:T131	
+R110	ModObj Modifier:T131 Object:T132	
+T133	Subject 11322 11333	the malware
+T134	Action 11334 11342	replaces
+A65	Capability T134 010:MalwareCapability-infection/propagation
+A66	StrategicObjectives T134 032:InfectionPropagation-prevent_duplicate_infection
+T135	Object 11343 11368;11369 11394	its previous instances or versions of this backdoor
+R111	SubjAction Subject:T133 Action:T134	
+R112	ActionObj Action:T134 Object:T135	
+T136	Subject 11446 11457	the malware
+T137	Action 11467 11474	install
+T138	Object 11475 11481	itself
+A67	ActionName T137 147:Service-create_service
+T139	Modifier 11482 11484	as
+T140	Object 11485 11514	a service with that same name
+R113	SubjAction Subject:T136 Action:T137	
+R114	ActionObj Action:T137 Object:T138	
+R115	ActionMod Action:T137 Modifier:T139	
+R116	ModObj Modifier:T139 Object:T140	
+T141	Subject 11537 11547	the sample
+T142	Action 11560 11563	use
+A68	Capability T142 013:MalwareCapability-persistence
+T143	Object 11564 11587;11588 11623	documented APIs such as OpenSCManager() and CreateService()
+T144	Modifier 11624 11626	to
+T145	Object 11627 11676	initialize itself as a persistent Windows service
+R117	SubjAction Subject:T141 Action:T142	
+R118	ActionObj Action:T142 Object:T143	
+R119	ActionMod Action:T142 Modifier:T144	
+R120	ModObj Modifier:T144 Object:T145	
+T146	Subject 11695 11705	the sample
+T147	Action 11706 11712	writes
+A69	ActionName T147 135:Registry-create_registry_key
+T148	Object 11713 11721	settings
+T149	Modifier 11722 11733	directly to
+T150	Object 11734 11754	the Windows Registry
+R121	SubjAction Subject:T146 Action:T147	
+R122	ActionObj Action:T147 Object:T148	
+R123	ActionMod Action:T147 Modifier:T149	
+R124	ModObj Modifier:T149 Object:T150	
+T151	Subject 11841 11860	The registry change
+T152	Action 11861 11868	creates
+A70	ActionName T152 135:Registry-create_registry_key
+T153	Object 11869 11886	the following key
+R125	SubjAction Subject:T151 Action:T152	
+R126	ActionObj Action:T152 Object:T153	
+T154	Subject 11997 12011	the subroutine
+T155	Action 12017 12020	set
+A71	ActionName T155 143:Registry-modify_registry_key_value
+T156	Object 12021 12050	the value of the ‘ServiceDLL’
+T157	Modifier 12051 12053	to
+T158	Object 12054 12082	the module handle of the DLL
+R127	SubjAction Subject:T154 Action:T155	
+R128	ActionObj Action:T155 Object:T156	
+R129	ActionMod Action:T155 Modifier:T157	
+R130	ModObj Modifier:T157 Object:T158	
+T159	Object 12085 12097	The next key
+T160	Action 12101 12111	be changed
+A72	ActionName T160 142:Registry-modify_registry_key
+R131	ActionObj Action:T160 Object:T159	
+T161	Object 12210 12228	the ‘msupdate’ key
+T162	Action 12229 12232	set
+A73	ActionName T162 142:Registry-modify_registry_key
+T163	Modifier 12233 12235	to
+T164	Object 12236 12246	‘msupdate’
+R132	ActionObj Action:T162 Object:T161	
+R133	ActionMod Action:T162 Modifier:T163	
+R134	ModObj Modifier:T163 Object:T164	
+T165	Object 12249 12279	The export ‘CollectW3PerfData’
+T166	Action 12280 12293	is registered
+A74	ActionName T166 147:Service-create_service
+T167	Modifier 12294 12296	as
+T168	Object 12297 12325	the main function of the DLL
+R135	ActionObj Action:T166 Object:T165	
+R136	ActionMod Action:T166 Modifier:T167	
+R137	ModObj Modifier:T167 Object:T168	
+T169	Subject 12381 12391	the sample
+T170	Action 12397 12403	starts
+A75	ActionName T170 153:Service-start_service
+T171	Object 12404 12419	the new service
+R138	SubjAction Subject:T169 Action:T170	
+R139	ActionObj Action:T170 Object:T171	
+T172	Subject 12458 12468	the sample
+T173	Action 12469 12475	spawns
+A76	ActionName T173 104:Process-create_process
+T174	Object 12476 12489	a new process
+T175	Modifier 12490 12495	using
+T176	Object 12496 12508	rundll32.exe
+R140	SubjAction Subject:T172 Action:T173	
+R141	ActionObj Action:T173 Object:T174	
+R142	ActionMod Action:T173 Modifier:T175	
+R143	ModObj Modifier:T175 Object:T176	
+T177	Object 12788 12799	permissions
+T178	Action 12800 12803	set
+A77	StrategicObjectives T178 044:PrivilegeEscalation-escalate_user_privilege
+R144	ActionObj Action:T178 Object:T177	
+T179	Modifier 12804 12806	to
+T180	Object 12807 12835	grant all access to the file
+R145	ActionMod Action:T178 Modifier:T179	
+R146	ModObj Modifier:T179 Object:T180	
+T181	Subject 12837 12841	This
+T182	Action 12842 12848	allows
+A78	Capability T182 014:MalwareCapability-privilege_escalation
+T183	Object 12849 12857	any user
+T184	Modifier 12858 12860	to
+T185	Object 12861 12882;12884 12900	have complete control over the machine
+R147	SubjAction Subject:T181 Action:T182	
+R148	ActionObj Action:T182 Object:T183	
+R149	ActionMod Action:T182 Modifier:T184	
+R150	ModObj Modifier:T184 Object:T185	
+T186	Action 13036 13047	cleaning up
+A79	Capability T186 017:MalwareCapability-secondary_operation
+A80	ActionName T186 028:File-delete_file
+A81	StrategicObjectives T186 054:SecondaryOperation-remove_traces_of_infection
+A82	TacticalObjectives T186 121:SecondaryOperation-remove_system_artifacts
+T187	Object 13048 13085	the components dropped by the malware
+R151	ActionObj Action:T186 Object:T187	
+T188	Subject 13087 13090;13091 13097	the system
+T189	Action 13098 13105	remains
+A83	Capability T189 013:MalwareCapability-persistence
+A84	StrategicObjectives T189 043:Persistence-persist_to_re-infect_system
+T190	Object 13106 13133	vulnerable to local attacks
+R152	SubjAction Subject:T188 Action:T189	
+R153	ActionObj Action:T189 Object:T190	
+T191	Action 13490 13494	fool
+A85	Capability T191 002:MalwareCapability-anti-detection
+A86	StrategicObjectives T191 009:AntiDetection-security_software_evasion
+T192	Object 13495 13551	some automated dynamic analysis or anti-malware software
+T193	Modifier 13552 13556	into
+T194	Object 13557 13578;13579 13606	believing this is the legitimate ESET AV software
+R154	ActionObj Action:T191 Object:T192	
+R155	ActionMod Action:T191 Modifier:T193	
+R156	ModObj Modifier:T193 Object:T194	
+T195	Subject 13715 13726	the routine
+T196	Action 13766 13775	initiates
+A87	Capability T196 005:MalwareCapability-command_and_control
+T197	Object 13776 13794;13795 13819	calling out to the Command and Control (C2)
+R157	SubjAction Subject:T195 Action:T196	
+R158	ActionObj Action:T196 Object:T197	
+T198	Subject 14362 14372	the sample
+T199	Action 14376 14382	access
+A88	Capability T199 012:MalwareCapability-machine_access/control
+A89	StrategicObjectives T199 038:MachineAccessControl-control_local_machine
+T200	Object 14383 14406	the real user’s desktop
+R159	SubjAction Subject:T198 Action:T199	
+R160	ActionObj Action:T199 Object:T200	
+T201	Modifier 14407 14409	if
+T202	Object 14410 14428	started as service
+R161	ActionMod Action:T199 Modifier:T201	
+R162	ModObj Modifier:T201 Object:T202	
+T203	Object 14431 14458	The communication to the C2
+T204	Action 14459 14469	is handled
+A90	Capability T204 005:MalwareCapability-command_and_control
+T205	Modifier 14470 14472	by
+T206	Object 14473 14487	a while() loop
+R163	ActionObj Action:T204 Object:T203	
+R164	ActionMod Action:T204 Modifier:T205	
+R165	ModObj Modifier:T205 Object:T206	
+T207	Subject 15166 15176	the sample
+T208	Action 15198 15205	connect
+A91	Capability T208 005:MalwareCapability-command_and_control
+A92	ActionName T208 158:Socket-connect_to_socket
+T209	Modifier 15215 15220	using
+T210	Modifier 15235 15237	to
+T211	Object 15222 15234	a raw socket
+T212	Object 15238 15268	the C2 located at 1.9.5.38:443
+R166	SubjAction Subject:T207 Action:T208	
+R167	ActionMod Action:T208 Modifier:T209	
+R168	ModObj Modifier:T209 Object:T211	
+T213	Action 15198 15205	connect
+A93	Capability T213 005:MalwareCapability-command_and_control
+A94	ActionName T213 086:Network-connect_to_ip
+R169	SubjAction Subject:T207 Action:T213	
+R170	ActionMod Action:T213 Modifier:T210	
+R171	ModObj Modifier:T210 Object:T212	
+T214	Subject 15402 15422	The malicious sample
+T215	Action 15423 15428	sends
+A95	Capability T215 005:MalwareCapability-command_and_control
+A96	ActionName T215 096:Network-send_network_packet
+A97	StrategicObjectives T215 018:CommandandControl-send_data_to_c2_server
+A98	TacticalObjectives T215 050:CommandandControl-send_system_information
+T216	Object 15429 15446	an initial beacon
+T217	Modifier 15447 15449	to
+T218	Object 15450 15456	the C2
+R172	SubjAction Subject:T214 Action:T215	
+R173	ActionObj Action:T215 Object:T216	
+R174	ActionMod Action:T215 Modifier:T217	
+R175	ModObj Modifier:T217 Object:T218	
+T219	Object 16113 16123	The beacon
+T220	Action 16124 16136	is encrypted
+A99	Capability T220 006:MalwareCapability-data_exfiltration
+A100	TacticalObjectives T220 053:DataExfiltration-encrypt_data
+A101	StrategicObjectives T220 019:DataExfiltration-obfuscate_data_for_exfiltration
+T221	Modifier 16137 16142	using
+T222	Object 16143 16196	an XOR/ADD loop using the statically defined key 0x1C
+R176	ActionObj Action:T220 Object:T219	
+R177	ActionMod Action:T220 Modifier:T221	
+R178	ModObj Modifier:T221 Object:T222	
+T223	Action 16201 16205	sent
+A102	Capability T223 005:MalwareCapability-command_and_control
+A103	ActionName T223 096:Network-send_network_packet
+A104	StrategicObjectives T223 018:CommandandControl-send_data_to_c2_server
+A105	TacticalObjectives T223 050:CommandandControl-send_system_information
+T224	Modifier 16206 16208	to
+T225	Object 16209 16215	the C2
+R179	ActionObj Action:T223 Object:T219	
+R180	ActionMod Action:T223 Modifier:T224	
+R181	ModObj Modifier:T224 Object:T225	
+T226	Subject 16639 16650	the routine
+T227	Action 16657 16666	receiving
+A106	Capability T227 005:MalwareCapability-command_and_control
+A107	ActionName T227 093:Network-receive_network_packet
+A108	StrategicObjectives T227 017:CommandandControl-receive_data_from_c2_server
+A109	TacticalObjectives T227 047:CommandandControl-control_malware_via_remote_command
+T228	Object 16667 16684	incoming commands
+R182	SubjAction Subject:T226 Action:T227	
+R183	ActionObj Action:T227 Object:T228	
+T229	Action 16689 16697	executes
+A110	Capability T229 005:MalwareCapability-command_and_control
+A111	TacticalObjectives T229 047:CommandandControl-control_malware_via_remote_command
+A112	StrategicObjectives T229 017:CommandandControl-receive_data_from_c2_server
+T230	Object 16698 16702	them
+R184	SubjAction Subject:T226 Action:T229	
+R185	ActionObj Action:T229 Object:T230	
+T231	Action 16611 16618	sending
+A113	Capability T231 005:MalwareCapability-command_and_control
+A114	ActionName T231 096:Network-send_network_packet
+A115	StrategicObjectives T231 018:CommandandControl-send_data_to_c2_server
+A116	TacticalObjectives T231 050:CommandandControl-send_system_information
+T232	Object 16619 16637	the initial beacon
+R186	SubjAction Subject:T226 Action:T231	
+R187	ActionObj Action:T231 Object:T232	
+T233	Object 17463 17483	This inbound payload
+T234	Action 17484 17495	is received
+A117	Capability T234 005:MalwareCapability-command_and_control
+A118	ActionName T234 093:Network-receive_network_packet
+A119	StrategicObjectives T234 017:CommandandControl-receive_data_from_c2_server
+R188	ActionObj Action:T234 Object:T233	
+T235	Subject 18216 18248	The primary aim of this backdoor
+T236	Action 18249 18251	is
+A120	Capability T236 012:MalwareCapability-machine_access/control
+A121	TacticalObjectives T236 100:MachineAccessControl-control_machine_via_remote_command
+A122	StrategicObjectives T236 038:MachineAccessControl-control_local_machine
+T237	Object 18252 18316;18317 18347	remote desktop control functionality comparable to VNC or Remote Desktop over a custom protocol
+R189	SubjAction Subject:T235 Action:T236	
+R190	ActionObj Action:T236 Object:T237	
+T238	Subject 18359 18372	the adversary
+T239	Action 18376 18380	view
+A123	TacticalObjectives T239 146:Spying-capture_system_screenshot
+A124	StrategicObjectives T239 062:Spying-capture_system_interface_data
+T240	Object 18381 18397	the main desktop
+R191	SubjAction Subject:T238 Action:T239	
+R192	ActionObj Action:T239 Object:T240	
+T241	Object 18398 18409	graphically
+R193	ActionObj Action:T239 Object:T241	
+T242	Action 18414 18421	control
+A125	Capability T242 019:MalwareCapability-spying
+A126	TacticalObjectives T242 140:Spying-capture_keyboard_input
+A127	StrategicObjectives T242 061:Spying-capture_system_input_peripheral_data
+T243	Object 18422 18434	the keyboard
+T244	Object 18439 18444	mouse
+R194	SubjAction Subject:T238 Action:T242	
+R195	ActionObj Action:T242 Object:T243	
+T245	Action 18414 18421	control
+A128	Capability T245 019:MalwareCapability-spying
+A129	TacticalObjectives T245 142:Spying-capture_mouse_input
+A130	StrategicObjectives T245 061:Spying-capture_system_input_peripheral_data
+R196	SubjAction Subject:T238 Action:T245	
+R197	ActionObj Action:T245 Object:T244	
+T246	Action 18480 18494	is implemented
+A131	Capability T246 012:MalwareCapability-machine_access/control
+A132	TacticalObjectives T246 100:MachineAccessControl-control_machine_via_remote_command
+A133	StrategicObjectives T246 038:MachineAccessControl-control_local_machine
+T247	Object 18446 18479	This remote control functionality
+R198	ActionObj Action:T246 Object:T247	
+T248	Modifier 18495 18497	as
+R199	ActionMod Action:T246 Modifier:T248	
+T249	Object 18498 18515;18516 18552	separate messages for mouse clicks, pressed keys, etc.
+T250	Modifier 18553 18558	using
+T251	Object 18559 18603	command identifiers 0x20000002 to 0x20000019
+R200	ActionMod Action:T246 Modifier:T250	
+R201	ModObj Modifier:T248 Object:T249	
+R202	ModObj Modifier:T250 Object:T251	
+T252	Subject 18605 18616;18618 18628	The command 0x22000001
+T253	Action 18629 18638	initiates
+A134	Capability T253 019:MalwareCapability-spying
+A135	TacticalObjectives T253 146:Spying-capture_system_screenshot
+A136	StrategicObjectives T253 062:Spying-capture_system_interface_data
+T254	Object 18639 18691	continuous transmission of screen captures to the C2
+R203	SubjAction Subject:T252 Action:T253	
+R204	ActionObj Action:T253 Object:T254	
+T255	Object 18693 18712	The screen captures
+T256	Action 18713 18716;18717 18724	are created
+A137	Capability T256 019:MalwareCapability-spying
+A138	TacticalObjectives T256 146:Spying-capture_system_screenshot
+A139	StrategicObjectives T256 061:Spying-capture_system_input_peripheral_data
+R205	ActionObj Action:T256 Object:T255	
+T257	Modifier 18725 18730	using
+T258	Object 18731 18826;18827 18838	a series of Microsoft Windows Graphic Device Interface (GDI) API calls culminating in a call to GetDIBits()
+R206	ActionMod Action:T256 Modifier:T257	
+R207	ModObj Modifier:T257 Object:T258	
+T259	Object 18883 18893	0x20000000
+T260	Action 18918 18924	remove
+A140	Capability T260 017:MalwareCapability-secondary_operation
+A141	TacticalObjectives T260 120:SecondaryOperation-remove_self
+A142	StrategicObjectives T260 055:SecondaryOperation-suicide_exit
+T261	Object 18925 18937	the backdoor
+T262	Modifier 18938 18942	from
+T263	Object 18943 18953	the system
+R208	ActionObj Action:T260 Object:T259	
+R209	ActionObj Action:T260 Object:T261	
+R210	ActionMod Action:T260 Modifier:T262	
+R211	ModObj Modifier:T262 Object:T263	
+T264	Object 19288 19300	The backdoor
+T265	Action 19301 19316	is then started
+A143	Capability T265 012:MalwareCapability-machine_access/control
+A144	TacticalObjectives T265 100:MachineAccessControl-control_machine_via_remote_command
+A145	StrategicObjectives T265 038:MachineAccessControl-control_local_machine
+R212	ActionObj Action:T265 Object:T264	
+T266	Modifier 19317 19322	under
+T267	Object 19323 19327;19328 19335	that account
+R213	ActionMod Action:T265 Modifier:T266	
+R214	ModObj Modifier:T266 Object:T267	
+T268	Object 19163 19222;19223 19231	a temporary new user “_DomainUser_” with password “Dom4!nU- serP4ss”
+T269	Action 19232 19242	is created
+A146	ActionName T269 202:User-add_user
+R215	ActionObj Action:T269 Object:T268	
+T270	Action 19247 19252	added
+A147	ActionName T270 203:User-add_user_to_group
+R216	ActionObj Action:T270 Object:T268	
+T271	Modifier 19253 19255	to
+T272	Object 19256 19286	the local Administrators group
+R217	ActionMod Action:T270 Modifier:T271	
+R218	ModObj Modifier:T271 Object:T272	
+T273	Object 19340 19348	the user
+T274	Action 19349 19359	is deleted
+A148	ActionName T274 205:User-delete_user
+R219	ActionObj Action:T274 Object:T273	
+R220	CoRefer Referer:T53 Canonical:T61	
+R222	CoRefer Referer:T126 Canonical:T129	
+R221	CoRefer Referer:T216 Canonical:T219	
+R223	CoRefer Referer:T268 Canonical:T273	
+T275	Subject 19377 19391	this technique
+T276	Action 19404 19413	obfuscate
+A149	Capability T276 002:MalwareCapability-anti-detection
+A150	TacticalObjectives T276 019:AntiDetection-execute_stealthy_code
+A151	StrategicObjectives T276 006:AntiDetection-hide_executing_code
+T277	Object 19414 19435;19436 19452	the activities of the malicious sample
+T278	Modifier 19453 19455	by
+T279	Object 19456 19533	masking the process creator’s user name to appear to be a generic domain user
+R224	SubjAction Subject:T275 Action:T276	
+R225	ActionObj Action:T276 Object:T277	
+R226	ActionMod Action:T276 Modifier:T278	
+R227	ModObj Modifier:T278 Object:T279	
+T280	Object 20897 20905	commands
+T281	Action 20906 20912	issued
+A152	Capability T281 005:MalwareCapability-command_and_control
+A153	TacticalObjectives T281 047:CommandandControl-control_malware_via_remote_command
+A154	StrategicObjectives T281 017:CommandandControl-receive_data_from_c2_server
+T282	Modifier 20913 20917	over
+T283	Object 20918 20919;20920 20942	a network based protocol
+T284	Modifier 20943 20946	via
+T285	Object 20947 20953	the C2
+R228	ActionObj Action:T281 Object:T280	
+R229	ActionMod Action:T281 Modifier:T282	
+R230	ModObj Modifier:T282 Object:T283	
+R231	ActionMod Action:T281 Modifier:T284	
+R232	ModObj Modifier:T284 Object:T285	
+T286	Object 20982 21004	a connection to the C2
+T287	Action 21005 21017	is initiated
+A155	Capability T287 005:MalwareCapability-command_and_control
+A156	ActionName T287 086:Network-connect_to_ip
+T288	Modifier 21018 21020	to
+T289	Object 21021 21031;21032 21056	the stati- cally defined IP address
+R233	ActionObj Action:T287 Object:T286	
+R234	ActionMod Action:T287 Modifier:T288	
+R235	ModObj Modifier:T288 Object:T289	
+T290	Subject 21058 21082	The command line options
+T291	Action 21083 21090	support
+A157	Capability T291 002:MalwareCapability-anti-detection
+A158	TacticalObjectives T291 032:AntiDetection-obfuscate_artifact_properties
+A159	StrategicObjectives T291 007:AntiDetection-hide_malware_artifacts
+T292	Object 21130 21138;21140 21155	changing file timestamps
+R236	SubjAction Subject:T290 Action:T291	
+R237	ActionObj Action:T291 Object:T292	
+T293	Action 21083 21090	support
+A160	Capability T293 002:MalwareCapability-anti-detection
+A161	StrategicObjectives T293 005:AntiDetection-anti-memory_forensics
+R238	SubjAction Subject:T290 Action:T293	
+T294	Object 21157 21176	forensic mitigation
+R239	ActionObj Action:T293 Object:T294	
+T295	Action 21083 21090	support
+A162	Capability T295 014:MalwareCapability-privilege_escalation
+R240	SubjAction Subject:T290 Action:T295	
+T296	Object 21178 21198	privilege escalation
+R241	ActionObj Action:T295 Object:T296	
+T297	Object 21200 21224	launching the executable
+T298	Action 21083 21090	support
+A163	ActionName T298 029:File-execute_file
+R242	ActionObj Action:T298 Object:T297	
+R243	SubjAction Subject:T290 Action:T298	
+T299	Action 21083 21090	support
+A164	Capability T299 005:MalwareCapability-command_and_control
+A165	StrategicObjectives T299 016:CommandandControl-determine_c2_server
+T300	Object 21230 21251;21252 21254	specifying a specific C2
+R244	ActionObj Action:T299 Object:T300	
+R245	SubjAction Subject:T290 Action:T299	
+T301	Subject 21300 21312	the backdoor
+T302	Action 21316 21322	filter
+A166	ActionName T302 030:File-find_file
+T303	Object 21323 21354	the contents of specified files
+R246	SubjAction Subject:T301 Action:T302	
+R247	ActionObj Action:T302 Object:T303	
+T304	Action 21358 21364	remove
+A167	ActionName T304 034:File-modify_file
+A168	Capability T304 008:MalwareCapability-destruction
+A169	StrategicObjectives T304 027:Destruction-destroy_virtual_entity
+A170	TacticalObjectives T304 085:Destruction-erase_data
+T305	Object 21366 21373	content
+T306	Modifier 21374 21379	using
+T307	Object 21380 21408	a regular expression (regex)
+R248	SubjAction Subject:T301 Action:T304	
+R249	ActionObj Action:T304 Object:T305	
+R250	ActionMod Action:T304 Modifier:T306	
+R251	ModObj Modifier:T306 Object:T307	
+T308	Subject 21410 21422	This command
+T309	Action 21428 21436	modifies
+A171	Capability T309 002:MalwareCapability-anti-detection
+A172	ActionName T309 041:File-set_file_attributes
+A173	StrategicObjectives T309 007:AntiDetection-hide_malware_artifacts
+A174	TacticalObjectives T309 032:AntiDetection-obfuscate_artifact_properties
+T310	Object 21437 21473;21475 21513	the creation, modification, and last access timestamps of the modified file
+R252	SubjAction Subject:T308 Action:T309	
+R253	ActionObj Action:T309 Object:T310	
+T311	Modifier 21514 21516	to
+T312	Object 21517 21550	conceal the content modifications
+R254	ActionMod Action:T309 Modifier:T311	
+R255	ModObj Modifier:T311 Object:T312	
+A175	ActionName T74 041:File-set_file_attributes
+T313	Subject 21627 21640	This activity
+T314	Action 21641 21664	is generally associated
+A176	Capability T314 002:MalwareCapability-anti-detection
+A177	StrategicObjectives T314 005:AntiDetection-anti-memory_forensics
+T315	Modifier 21665 21669	with
+T316	Object 21670 21690;21691 21723	log cleaning to com- plicate a forensic investigation
+R256	SubjAction Subject:T313 Action:T314	
+R257	ActionMod Action:T314 Modifier:T315	
+R258	ModObj Modifier:T315 Object:T316	
+T317	Object 22593 22607	Authentication
+T318	Action 22608 22623	is accomplished
+A178	Capability T318 005:MalwareCapability-command_and_control
+A179	TacticalObjectives T318 052:CommandandControl-validate_data
+T319	Modifier 22624 22629	using
+T320	Object 22630 22646	a 32 byte packet
+R259	ActionObj Action:T318 Object:T317	
+R260	ActionMod Action:T318 Modifier:T319	
+R261	ModObj Modifier:T319 Object:T320	
+T321	Subject 23822 23836	AES encryption
+T322	Action 23276 23283	sending
+A181	Capability T322 005:MalwareCapability-command_and_control
+A182	StrategicObjectives T322 018:CommandandControl-send_data_to_c2_server
+T323	Object 23195 23227	An example authentication packet
+T324	Action 23228 23232	sent
+A183	Capability T324 005:MalwareCapability-command_and_control
+A184	StrategicObjectives T324 018:CommandandControl-send_data_to_c2_server
+T325	Modifier 23233 23235	to
+T326	Object 23236 23242	the C2
+R262	ActionObj Action:T324 Object:T323	
+A185	ActionName T324 096:Network-send_network_packet
+R263	ActionMod Action:T324 Modifier:T325	
+R264	ModObj Modifier:T325 Object:T326	
+A180	TacticalObjectives T324 052:CommandandControl-validate_data
+T327	Object 23284 23317	the initial authentication packet
+A186	ActionName T322 096:Network-send_network_packet
+A187	TacticalObjectives T322 052:CommandandControl-validate_data
+R265	ActionObj Action:T322 Object:T327	
+T328	Subject 23319 23329	the sample
+T329	Action 23330 23338	verifies
+A188	Capability T329 005:MalwareCapability-command_and_control
+A189	TacticalObjectives T329 052:CommandandControl-validate_data
+T330	Modifier 23339 23343	that
+T331	Object 23344 23383;23385 23420	the first four bytes of the response is equal to a statically defined value
+R266	SubjAction Subject:T328 Action:T329	
+R267	ActionMod Action:T329 Modifier:T330	
+R268	ModObj Modifier:T330 Object:T331	
+R269	SubjAction Subject:T328 Action:T322	
+T332	Object 23476 23489	an 8 byte key
+T333	Action 23490 23497	is sent
+A190	Capability T333 005:MalwareCapability-command_and_control
+A191	ActionName T333 096:Network-send_network_packet
+A192	StrategicObjectives T333 018:CommandandControl-send_data_to_c2_server
+T334	Modifier 23499 23501	to
+T335	Object 23502 23512	the client
+R270	ActionObj Action:T333 Object:T332	
+R271	ActionMod Action:T333 Modifier:T334	
+R272	ModObj Modifier:T334 Object:T335	
+T336	Action 23859 23878	encrypt and decrypt
+A193	Capability T336 002:MalwareCapability-anti-detection
+A194	TacticalObjectives T336 025:AntiDetection-hide_network_traffic
+A195	StrategicObjectives T336 007:AntiDetection-hide_malware_artifacts
+R273	SubjAction Subject:T321 Action:T336	
+T337	Object 23879 23905	any further communications
+R274	ActionObj Action:T336 Object:T337	
+T338	Subject 24965 24986	Command handling loop
+T339	Action 25023 25042	process and execute
+A196	Capability T339 005:MalwareCapability-command_and_control
+A197	TacticalObjectives T339 047:CommandandControl-control_malware_via_remote_command
+A198	StrategicObjectives T339 017:CommandandControl-receive_data_from_c2_server
+T340	Object 25043 25066	commands sent by the C2
+R275	SubjAction Subject:T338 Action:T339	
+R276	ActionObj Action:T339 Object:T340	
+T341	Subject 25068 25079	The malware
+T342	Action 25080 25085	sends
+A199	Capability T342 005:MalwareCapability-command_and_control
+A200	ActionName T342 096:Network-send_network_packet
+A201	StrategicObjectives T342 018:CommandandControl-send_data_to_c2_server
+A202	TacticalObjectives T342 049:CommandandControl-send_heartbeat_data
+T343	Object 25099 25127	a heartbeat/keepalive packet
+T344	Modifier 25128 25133	every
+T345	Object 25134 25143	2 minutes
+T346	Action 25090 25098	receives
+A203	Capability T346 005:MalwareCapability-command_and_control
+A204	ActionName T346 093:Network-receive_network_packet
+A205	StrategicObjectives T346 017:CommandandControl-receive_data_from_c2_server
+A206	TacticalObjectives T346 049:CommandandControl-send_heartbeat_data
+R277	SubjAction Subject:T341 Action:T342	
+R278	SubjAction Subject:T341 Action:T346	
+R279	ActionObj Action:T342 Object:T343	
+R280	ActionObj Action:T346 Object:T343	
+R281	ActionMod Action:T346 Modifier:T344	
+R282	ActionMod Action:T342 Modifier:T344	
+R283	ModObj Modifier:T344 Object:T345	
+T347	Action 25582 25590	download
+A207	ActionName T347 090:Network-download_file
+T348	Object 25602 25607	files
+R284	ActionObj Action:T347 Object:T348	
+T349	Action 25595 25601	upload
+A208	ActionName T349 097:Network-upload_file
+R285	ActionObj Action:T349 Object:T348	
+T350	Action 25609 25619	installing
+A209	Capability T350 017:MalwareCapability-secondary_operation
+A210	TacticalObjectives T350 118:SecondaryOperation-install_secondary_malware
+A211	StrategicObjectives T350 050:SecondaryOperation-install_other_components
+T351	Object 25620 25639	new .NET assemblies
+R286	ActionObj Action:T350 Object:T351	
+T352	Action 25641 25648	calling
+A212	ActionName T352 080:Library-call_library_function
+T353	Object 25649 25656	methods
+T354	Modifier 25657 25659	on
+T355	Object 25660 25676	those assemblies
+R287	ActionObj Action:T352 Object:T353	
+R288	ActionMod Action:T352 Modifier:T354	
+R289	ModObj Modifier:T354 Object:T355	
+T356	Action 25678 25688	connecting
+A213	Capability T356 005:MalwareCapability-command_and_control
+A214	StrategicObjectives T356 016:CommandandControl-determine_c2_server
+T357	Modifier 25689 25691	to
+T358	Object 25692 25706	new C2 servers
+T359	Action 25711 25720	executing
+A215	ActionName T359 029:File-execute_file
+T360	Object 25721 25730	processes
+R290	ActionObj Action:T359 Object:T360	
+R291	ActionMod Action:T356 Modifier:T357	
+R292	ModObj Modifier:T357 Object:T358	
+T361	Subject 25933 25944	This sample
+T362	Action 25945 25947	is
+A216	Capability T362 012:MalwareCapability-machine_access/control
+A217	TacticalObjectives T362 100:MachineAccessControl-control_machine_via_remote_command
+A218	StrategicObjectives T362 038:MachineAccessControl-control_local_machine
+T363	Object 25948 25972	a sophisticated backdoor
+T364	Action 25979 25989	implements
+A219	Capability T364 005:MalwareCapability-command_and_control
+T365	Object 25990 26022	several communications protocols
+R293	SubjAction Subject:T361 Action:T362	
+R294	ActionObj Action:T362 Object:T363	
+R295	SubjAction Subject:T361 Action:T364	
+R296	ActionObj Action:T364 Object:T365	
+T366	Object 26764 26769	a DLL
+T367	Action 26780 26793	be registered
+A220	ActionName T367 147:Service-create_service
+T368	Modifier 26794 26796	as
+T369	Object 26797 26806	a service
+R297	ActionObj Action:T367 Object:T366	
+R298	ActionMod Action:T367 Modifier:T368	
+R299	ModObj Modifier:T368 Object:T369	
+T370	Subject 26749 26760	This sample
+T371	Action 26822 26826	drop
+A221	Capability T371 017:MalwareCapability-secondary_operation
+A222	TacticalObjectives T371 118:SecondaryOperation-install_secondary_malware
+A223	StrategicObjectives T371 050:SecondaryOperation-install_other_components
+R300	SubjAction Subject:T370 Action:T371	
+T372	Object 26827 26842	a kernel driver
+R301	ActionObj Action:T371 Object:T372	
+T373	Action 26847 26854	provide
+A224	Capability T373 005:MalwareCapability-command_and_control
+A225	TacticalObjectives T373 047:CommandandControl-control_malware_via_remote_command
+A226	StrategicObjectives T373 017:CommandandControl-receive_data_from_c2_server
+T374	Object 26855 26888	an interactive command line shell
+T375	Modifier 26889 26891	to
+T376	Object 26892 26898	the C2
+R302	SubjAction Subject:T370 Action:T373	
+R303	ActionObj Action:T373 Object:T374	
+R304	ActionMod Action:T373 Modifier:T375	
+R305	ModObj Modifier:T375 Object:T376	
+T377	Subject 26900 26902	It
+R306	CoRefer Referer:T370 Canonical:T377	
+T378	Action 26919 26925	bypass
+A227	Capability T378 018:MalwareCapability-security_degradation
+A228	TacticalObjectives T378 130:SecurityDegradation-disable_user_account_control
+A229	StrategicObjectives T378 057:SecurityDegradation-disable_[host-based_or_os]_access_controls
+R307	SubjAction Subject:T377 Action:T378	
+T379	Object 26926 26952	User Account Control (UAC)
+R308	ActionObj Action:T378 Object:T379	
+T380	Subject 27239 27241	it
+T381	Action 27242 27248	copies
+A230	ActionName T381 023:File-copy_file
+T382	Object 27249 27255	itself
+R309	SubjAction Subject:T380 Action:T381	
+R310	ActionObj Action:T381 Object:T382	
+R311	CoRefer Referer:T370 Canonical:T380	
+R312	CoRefer Referer:T370 Canonical:T382	
+T383	Action 27265 27271	modify
+A231	Capability T383 002:MalwareCapability-anti-detection
+A232	TacticalObjectives T383 032:AntiDetection-obfuscate_artifact_properties
+A233	StrategicObjectives T383 007:AntiDetection-hide_malware_artifacts
+T384	Object 27272 27337	the creation time, last access time and last modification    time
+A234	ActionName T383 041:File-set_file_attributes
+T385	Subject 27257 27259	it
+R313	SubjAction Subject:T385 Action:T383	
+R314	CoRefer Referer:T370 Canonical:T385	
+R315	ActionObj Action:T383 Object:T384	
+T386	Modifier 27338 27340	to
+T387	Object 27354 27433	he current system time when the copy was made but with the year changed to 2005
+R316	ActionMod Action:T383 Modifier:T386	
+R317	ModObj Modifier:T386 Object:T387	
+T388	Modifier 26953 26955	to
+T389	Object 26956 26963;26964 27058	install itself by using the ‘sysprep.exe’ Microsoft Windows executable provided by the targeted system
+R318	ActionMod Action:T378 Modifier:T388	
+R319	ModObj Modifier:T388 Object:T389	
+T390	Action 27446 27450	Adds
+A235	ActionName T390 147:Service-create_service
+T391	Object 27451 27457	itself
+R320	ActionObj Action:T390 Object:T391	
+T392	Modifier 27458 27460	as
+T393	Object 27461 27475	a service name
+T394	Modifier 27476 27480	from
+T395	Object 27481 27509	the backdoor's configuration
+T396	Modifier 27510 27515	under
+T397	Object 27516 27527;27539 27595	HKEY_LOCAL_ MACHINE\\SYSTEM\\CurrentControlSet\\Services\\<service>”
+R321	ActionMod Action:T390 Modifier:T392	
+R322	ActionMod Action:T390 Modifier:T394	
+R323	ActionMod Action:T390 Modifier:T396	
+R324	CoRefer Referer:T370 Canonical:T391	
+R325	ModObj Modifier:T392 Object:T393	
+R326	ModObj Modifier:T394 Object:T395	
+R327	ModObj Modifier:T396 Object:T397	
+T398	Action 27731 27735	Adds
+A236	ActionName T398 147:Service-create_service
+T399	Object 27736 27742	itself
+R328	ActionObj Action:T398 Object:T399	
+T400	Modifier 27743 27745	to
+T401	Object 27746 27782	list of services started by ‘netsvc’
+T402	Modifier 27783 27788	using
+T403	Object 27789 27815	the service name ‘helpsvc’
+R329	CoRefer Referer:T370 Canonical:T399	
+R330	ActionMod Action:T398 Modifier:T400	
+R331	ModObj Modifier:T400 Object:T401	
+R332	ActionMod Action:T398 Modifier:T402	
+R333	ModObj Modifier:T402 Object:T403	
+T404	Action 27855 27862	creates
+A237	ActionName T404 023:File-copy_file
+T405	Object 27863 27902	a copy of regsvr32.exe named Update.exe
+R334	ActionObj Action:T404 Object:T405	
+T406	Action 27912 27921	schedules
+A238	ActionName T406 183:System-add_scheduled_task
+T407	Object 27933 27941	the copy
+T408	Object 27945 27965	be deleted on reboot
+T409	Modifier 27942 27944	to
+T410	Modifier 27966 27971	using
+T411	Object 27972 28007	the well documented MoveFileExA API
+R335	ActionObj Action:T406 Object:T407	
+R336	ActionMod Action:T406 Modifier:T409	
+R337	ModObj Modifier:T409 Object:T408	
+R338	ActionMod Action:T406 Modifier:T410	
+R339	ModObj Modifier:T410 Object:T411	
+T412	Subject 28407 28417	The sample
+T413	Action 28432 28442	'dropping'
+A239	Capability T413 017:MalwareCapability-secondary_operation
+A240	TacticalObjectives T413 118:SecondaryOperation-install_secondary_malware
+A241	StrategicObjectives T413 050:SecondaryOperation-install_other_components
+T414	Object 28443 28478	an embedded/encrypted kernel driver
+R340	SubjAction Subject:T412 Action:T413	
+R341	ActionObj Action:T413 Object:T414	
+T415	Action 28920 28927	writing
+A242	ActionName T415 043:File-write_to_file
+T416	Object 28931 28941	the driver
+T417	Modifier 28942 28944	to
+T418	Object 28945 28949	disk
+R342	ActionObj Action:T415 Object:T416	
+R343	ActionMod Action:T415 Modifier:T417	
+R344	ModObj Modifier:T417 Object:T418	
+T419	Action 28954 28963	is loaded
+A243	ActionName T419 006:DeviceDriver-load_driver
+T420	Object 28951 28953	it
+R345	CoRefer Referer:T416 Canonical:T420	
+R346	ActionObj Action:T419 Object:T420	
+T421	Modifier 28964 28969	using
+T422	Object 28970 28992	the ZwLoadDriver() API
+R347	ActionMod Action:T419 Modifier:T421	
+R348	ModObj Modifier:T421 Object:T422	
+T423	Object 28994 29003;29114 29116	The driv- er
+T424	Action 29117 29129	is encrypted
+A244	Capability T424 002:MalwareCapability-anti-detection
+A245	TacticalObjectives T424 023:AntiDetection-hide_file_system_artifacts
+A246	StrategicObjectives T424 007:AntiDetection-hide_malware_artifacts
+R349	ActionObj Action:T424 Object:T423	
+T425	Modifier 29130 29134	with
+T426	Object 29135 29181	a simple four byte XOR key value of 0x2E885Df3
+R350	ActionMod Action:T424 Modifier:T425	
+R351	ModObj Modifier:T425 Object:T426	
+T427	Action 30047 30052	loads
+A247	ActionName T427 119:ProcessMemory-map_library_into_process
+T428	Object 30053 30079	the original service’s DLL
+T429	Subject 30029 30041	the backdoor
+R352	SubjAction Subject:T429 Action:T427	
+R353	ActionObj Action:T427 Object:T428	
+T430	Modifier 30080 30084	into
+T431	Object 30085 30102	the address space
+T432	Modifier 30103 30107	with
+T433	Object 30108 30119	LoadLibrary
+R354	ActionMod Action:T427 Modifier:T430	
+R355	ActionMod Action:T427 Modifier:T432	
+R356	ModObj Modifier:T430 Object:T431	
+R357	ModObj Modifier:T432 Object:T433	
+T434	Action 30292 30303	downloading
+A248	Capability T434 005:MalwareCapability-command_and_control
+A249	ActionName T434 090:Network-download_file
+A250	StrategicObjectives T434 016:CommandandControl-determine_c2_server
+A251	TacticalObjectives T434 048:CommandandControl-generate_c2_domain_name(s)
+T435	Object 30304 30324	a list of C2 servers
+T436	Modifier 30325 30329	from
+T437	Object 30330 30341	an HTTP URL
+R358	ActionObj Action:T434 Object:T435	
+R359	ActionMod Action:T434 Modifier:T436	
+R360	ModObj Modifier:T436 Object:T437	
+T438	Subject 30343 30354;30355 30376	the default configuration present
+T439	Action 30377 30386	specifies
+A252	Capability T439 005:MalwareCapability-command_and_control
+T440	Object 30387 30402	202.86.190.3:80
+T441	Modifier 30403 30405	as
+T442	Object 30406 30410	a C2
+R361	SubjAction Subject:T438 Action:T439	
+R362	ActionObj Action:T439 Object:T440	
+R363	ActionMod Action:T439 Modifier:T441	
+T443	Modifier 30411 30413	to
+T444	Object 30414 30417	use
+R364	ActionMod Action:T439 Modifier:T443	
+R365	ModObj Modifier:T441 Object:T442	
+R366	ModObj Modifier:T443 Object:T444	
+T445	Subject 30578 30589	The malware
+T446	Action 30590 30593	has
+A253	Capability T446 005:MalwareCapability-command_and_control
+T447	Object 30594 30621	three distinct C2 protocols
+R367	SubjAction Subject:T445 Action:T446	
+R368	ActionObj Action:T446 Object:T447	
+T448	Subject 30780 30788;30789 30799	The con- figuration
+T449	Action 30800 30808	contains
+A254	Capability T449 005:MalwareCapability-command_and_control
+T450	Object 30809 30835	the C2 protocol to be used
+R369	SubjAction Subject:T448 Action:T449	
+R370	ActionObj Action:T449 Object:T450	
+T451	Subject 30885 30896	the malware
+T452	Action 30898 30906	attempts
+A255	Capability T452 005:MalwareCapability-command_and_control
+T453	Object 30907 30933	the different C2 protocols
+T454	Modifier 30934 30936	in
+T455	Object 30937 30956	a pre-defined order
+R371	SubjAction Subject:T451 Action:T452	
+R372	ActionObj Action:T452 Object:T453	
+R373	ActionMod Action:T452 Modifier:T454	
+R374	ModObj Modifier:T454 Object:T455	
+T456	Object 31362 31377	64 random bytes
+T457	Action 31378 31388	being sent
+A256	Capability T457 005:MalwareCapability-command_and_control
+A257	ActionName T457 096:Network-send_network_packet
+A258	StrategicObjectives T457 018:CommandandControl-send_data_to_c2_server
+T458	Modifier 31389 31391	to
+T459	Object 31392 31398	the C2
+R375	ActionObj Action:T457 Object:T456	
+R376	ActionMod Action:T457 Modifier:T458	
+R377	ModObj Modifier:T458 Object:T459	
+T460	Object 32308 32330	chunks of POST payload
+T461	Action 32300 32307	sending
+A259	Capability T461 005:MalwareCapability-command_and_control
+A260	ActionName T461 058:HTTP-send_http_post_request
+A261	StrategicObjectives T461 018:CommandandControl-send_data_to_c2_server
+R378	ActionObj Action:T461 Object:T460	
+T462	Action 32335 32344	receiving
+A262	Capability T462 005:MalwareCapability-command_and_control
+A263	ActionName T462 093:Network-receive_network_packet
+A264	StrategicObjectives T462 017:CommandandControl-receive_data_from_c2_server
+T463	Object 32345 32367	chunks of the response
+R379	ActionObj Action:T462 Object:T463	
+T464	Subject 32651 32666	The GET request
+T465	Action 32667 32673	serves
+A265	Capability T465 005:MalwareCapability-command_and_control
+A266	ActionName T465 054:HTTP-send_http_get_request
+A267	StrategicObjectives T465 018:CommandandControl-send_data_to_c2_server
+T466	Modifier 32674 32676	as
+T467	Object 32677 32690;32701 32708	a down-stream channel
+R380	SubjAction Subject:T464 Action:T465	
+R381	ActionMod Action:T465 Modifier:T466	
+R382	ModObj Modifier:T466 Object:T467	
+T468	Subject 32715 32731	the POST request
+T469	Action 32732 32738	serves
+A268	Capability T469 005:MalwareCapability-command_and_control
+A269	ActionName T469 058:HTTP-send_http_post_request
+A270	StrategicObjectives T469 018:CommandandControl-send_data_to_c2_server
+R383	SubjAction Subject:T468 Action:T469	
+T470	Modifier 32739 32741	as
+T471	Object 32742 32760	a upstream channel
+R384	ActionMod Action:T469 Modifier:T470	
+R385	ModObj Modifier:T470 Object:T471	
+T472	Subject 33007 33018	the malware
+T473	Action 33019 33027	contains
+A271	ActionName T473 000:DNS-send_dns_query
+T474	Object 33028 33062	a custom DNS client implementation
+R386	SubjAction Subject:T472 Action:T473	
+R387	ActionObj Action:T473 Object:T474	
+T475	Subject 33028 33062	a custom DNS client implementation
+T476	Action 33073 33076	use
+A272	ActionName T476 000:DNS-send_dns_query
+R388	SubjAction Subject:T475 Action:T476	
+T477	Object 33077 33111	the system's configured DNS server
+R389	ActionObj Action:T476 Object:T477	
+T478	Action 33115 33121	tunnel
+A273	Capability T478 005:MalwareCapability-command_and_control
+A274	ActionName T478 000:DNS-send_dns_query
+R390	SubjAction Subject:T475 Action:T478	
+T479	Object 33122 33132	C2 traffic
+T480	Modifier 33133 33137	over
+T481	Object 33138 33152	legitimate DNS
+R391	ActionObj Action:T478 Object:T479	
+R392	ActionMod Action:T478 Modifier:T480	
+R393	ModObj Modifier:T480 Object:T481	
+T482	Subject 33562 33573	the malware
+T483	Action 33585 33592	sending
+A275	Capability T483 005:MalwareCapability-command_and_control
+A276	ActionName T483 096:Network-send_network_packet
+A277	StrategicObjectives T483 018:CommandandControl-send_data_to_c2_server
+T484	Action 33597 33606	receiving
+A279	StrategicObjectives T484 017:CommandandControl-receive_data_from_c2_server
+A278	Capability T484 005:MalwareCapability-command_and_control
+A280	ActionName T484 093:Network-receive_network_packet
+T485	Object 33607 33630	compressed binary blobs
+T486	Modifier 33631 33634	via
+T487	Object 33635 33656	the channel of choice
+R394	SubjAction Subject:T482 Action:T483	
+R395	SubjAction Subject:T482 Action:T484	
+R396	ActionObj Action:T483 Object:T485	
+R397	ActionObj Action:T484 Object:T485	
+R398	ActionMod Action:T484 Modifier:T486	
+R399	ActionMod Action:T483 Modifier:T486	
+R400	ModObj Modifier:T486 Object:T487	
+T488	Subject 34115 34139	The main backdoor thread
+T489	Action 34145 34150	reads
+A281	Capability T489 005:MalwareCapability-command_and_control
+A282	TacticalObjectives T489 047:CommandandControl-control_malware_via_remote_command
+A283	StrategicObjectives T489 017:CommandandControl-receive_data_from_c2_server
+T490	Object 34151 34159	commands
+T491	Modifier 34160 34164	from
+T492	Object 34165 34187	the chosen C2 protocol
+R401	SubjAction Subject:T488 Action:T489	
+R402	ActionObj Action:T489 Object:T490	
+R403	ActionMod Action:T489 Modifier:T491	
+R404	ModObj Modifier:T491 Object:T492	
+T493	Subject 34440 34475	This handler class for command ID 8
+T494	Action 34476 34486	implements
+A284	Capability T494 019:MalwareCapability-spying
+A285	ActionName T494 011:Directory-monitor_directory
+A286	StrategicObjectives T494 064:Spying-capture_system_state_data
+A287	TacticalObjectives T494 138:Spying-capture_file_system
+T495	Object 34487 34522	generic directory and file browsing
+R405	SubjAction Subject:T493 Action:T494	
+R406	ActionObj Action:T494 Object:T495	
+T496	Modifier 34523 34528	using
+T497	Object 34529 34545;34547 34571	FindFirstFileW() and FindNextFileW() APIs
+R407	ActionMod Action:T494 Modifier:T496	
+R408	ModObj Modifier:T496 Object:T497	
+T498	Action 34584 34591	reading
+A288	Capability T498 005:MalwareCapability-command_and_control
+A289	ActionName T498 038:File-read_from_file
+A290	StrategicObjectives T498 017:CommandandControl-receive_data_from_c2_server
+A291	TacticalObjectives T498 047:CommandandControl-control_malware_via_remote_command
+R409	SubjAction Subject:T493 Action:T498	
+T499	Action 34596 34603	writing
+A292	Capability T499 005:MalwareCapability-command_and_control
+A293	ActionName T499 043:File-write_to_file
+A294	StrategicObjectives T499 017:CommandandControl-receive_data_from_c2_server
+A295	TacticalObjectives T499 047:CommandandControl-control_malware_via_remote_command
+T500	Object 34604 34619	arbitrary files
+R410	ActionObj Action:T498 Object:T500	
+R411	ActionObj Action:T499 Object:T500	
+R412	SubjAction Subject:T493 Action:T499	
+T501	Modifier 34620 34623	via
+T502	Object 34624 34635	C2 commands
+R413	ActionMod Action:T498 Modifier:T501	
+R414	ActionMod Action:T499 Modifier:T501	
+R415	ModObj Modifier:T501 Object:T502	
+T503	Action 34651 34657	upload
+A296	ActionName T503 097:Network-upload_file
+T504	Action 34662 34670	download
+A297	ActionName T504 090:Network-download_file
+T505	Object 34674 34689	arbitrary files
+R416	SubjAction Subject:T493 Action:T503	
+R417	ActionObj Action:T503 Object:T505	
+R418	ActionObj Action:T504 Object:T505	
+R419	SubjAction Subject:T493 Action:T504	
+T506	Subject 34717 34721	RATs
+T507	Action 34726 34735	searching
+A298	ActionName T507 030:File-find_file
+T508	Object 34736 34750	specific files
+T509	Action 34754 34764	exfiltrate
+A299	Capability T509 006:MalwareCapability-data_exfiltration
+R420	ActionObj Action:T509 Object:T508	
+R421	ActionObj Action:T507 Object:T508	
+R422	SubjAction Subject:T506 Action:T507	
+R423	SubjAction Subject:T506 Action:T509	
+T510	Subject 34781 34791	this class
+T511	Action 34803 34812	launching
+A300	ActionName T511 029:File-execute_file
+T512	Object 34816 34842	specified executable files
+T513	Modifier 34843 34846	via
+T514	Object 34847 34870	the CreateProcess() API
+R424	CoRefer Referer:T493 Canonical:T510	
+R425	SubjAction Subject:T510 Action:T511	
+R426	ActionObj Action:T511 Object:T512	
+R427	ActionMod Action:T511 Modifier:T513	
+R428	ModObj Modifier:T513 Object:T514	
+T515	Subject 34934 34952	This handler class
+T516	Action 34953 34963	implements
+A301	Capability T516 005:MalwareCapability-command_and_control
+T517	Object 34964 34983	a generic TCP proxy
+R429	SubjAction Subject:T515 Action:T516	
+R430	ActionObj Action:T516 Object:T517	
+T518	Subject 34985 34987	It
+T519	Action 34997 35009	establishing
+A302	Capability T519 005:MalwareCapability-command_and_control
+T520	Object 35010 35025	TCP connections
+T521	Modifier 35026 35028	to
+T522	Object 35029 35040	other hosts
+T523	Action 35050 35059	listening
+A303	Capability T523 005:MalwareCapability-command_and_control
+A304	ActionName T523 091:Network-listen_on_port
+T524	Modifier 35060 35063	for
+T525	Object 35064 35084	incoming connections
+R431	CoRefer Referer:T515 Canonical:T518	
+R432	SubjAction Subject:T518 Action:T519	
+R433	ActionObj Action:T519 Object:T520	
+R434	ActionMod Action:T519 Modifier:T521	
+R435	ModObj Modifier:T521 Object:T522	
+R436	SubjAction Subject:T518 Action:T523	
+R437	ActionMod Action:T523 Modifier:T524	
+R438	ModObj Modifier:T524 Object:T525	
+T526	Object 35086 35118	The incoming connection contents
+T527	Action 35119 35132	are forwarded
+A305	ActionName T527 096:Network-send_network_packet
+A306	Capability T527 005:MalwareCapability-command_and_control
+A307	StrategicObjectives T527 018:CommandandControl-send_data_to_c2_server
+T528	Modifier 35133 35135	to
+T529	Object 35136 35142	the C2
+R439	ActionObj Action:T527 Object:T526	
+R440	ActionMod Action:T527 Modifier:T528	
+R441	ModObj Modifier:T528 Object:T529	
+T530	Object 35147 35163	data from the C2
+T531	Action 35164 35173	is passed
+A308	Capability T531 005:MalwareCapability-command_and_control
+A309	ActionName T531 096:Network-send_network_packet
+T532	Modifier 35174 35179	on to
+T533	Object 35180 35191	connections
+R442	ActionObj Action:T531 Object:T530	
+R443	ActionMod Action:T531 Modifier:T532	
+R444	ModObj Modifier:T532 Object:T533	
+T534	Subject 35327 35338	The malware
+T535	Action 35353 35362	gathering
+A310	Capability T535 007:MalwareCapability-data_theft
+T536	Object 35363 35392	various pieces of information
+T537	Modifier 35393 35397	from
+T538	Object 35398 35408	the system
+T539	Action 35465 35475	recovering
+A311	Capability T539 007:MalwareCapability-data_theft
+A312	TacticalObjectives T539 082:DataTheft-steal_web/network_credential
+A313	StrategicObjectives T539 022:DataTheft-steal_authentication_credentials
+T540	Object 35476 35502	authentication credentials
+T541	Modifier 35503 35507	from
+T542	Object 35508 35541;35542 35617	various system and client storage such as Mozilla Firefox, Internet Explorer, and Remote Access Service (RAS)
+T543	Subject 35619 35629	This class
+T544	Action 35644 35653	gathering
+A314	Capability T544 007:MalwareCapability-data_theft
+T545	Object 35654 35689	intelligence on the infected system
+T546	Action 35700 35711	identifying
+A315	Capability T546 018:MalwareCapability-security_degradation
+A316	TacticalObjectives T546 131:SecurityDegradation-gather_security_product_info
+T547	Object 35712 35726	security tools
+T548	Modifier 35727 35729	by
+T549	Object 35730 35748	their process name
+T550	Object 35770 35815	version numbers for the Operating System (OS)
+R445	SubjAction Subject:T543 Action:T546	
+R446	ActionObj Action:T546 Object:T547	
+R447	ActionMod Action:T546 Modifier:T548	
+R448	ModObj Modifier:T548 Object:T549	
+T551	Object 35750 35755;35756 35764	proxy accounts
+T552	Action 35700 35711	identifying
+A317	TacticalObjectives T552 111:Probing-check_for_proxy
+A318	StrategicObjectives T552 046:Probing-probe_host_configuration
+A319	Capability T552 015:MalwareCapability-probing
+R449	ActionObj Action:T552 Object:T551	
+R450	SubjAction Subject:T543 Action:T552	
+T553	Action 35700 35711	identifying
+A320	Capability T553 015:MalwareCapability-probing
+A321	TacticalObjectives T553 113:Probing-identify_os
+A322	StrategicObjectives T553 046:Probing-probe_host_configuration
+R451	ActionObj Action:T553 Object:T550	
+R452	SubjAction Subject:T543 Action:T553	
+T554	Object 35820 35837	Internet Explorer
+T555	Action 35700 35711	identifying
+A323	Capability T555 015:MalwareCapability-probing
+A324	TacticalObjectives T555 114:Probing-inventory_system_applications
+A325	StrategicObjectives T555 046:Probing-probe_host_configuration
+R453	ActionObj Action:T555 Object:T554	
+R454	SubjAction Subject:T543 Action:T555	
+R455	SubjAction Subject:T543 Action:T544	
+R456	ActionObj Action:T544 Object:T545	
+R457	SubjAction Subject:T534 Action:T535	
+R458	ActionObj Action:T535 Object:T536	
+R459	ActionMod Action:T535 Modifier:T537	
+R460	ModObj Modifier:T537 Object:T538	
+R461	ActionObj Action:T539 Object:T540	
+R462	ActionMod Action:T539 Modifier:T541	
+R463	ModObj Modifier:T541 Object:T542	
+T556	Subject 35907 35925	This handler class
+T557	Action 35968 35974	manage
+A326	Capability T557 012:MalwareCapability-machine_access/control
+A327	TacticalObjectives T557 100:MachineAccessControl-control_machine_via_remote_command
+A328	StrategicObjectives T557 038:MachineAccessControl-control_local_machine
+T558	Object 35975 35992	system components
+R464	SubjAction Subject:T556 Action:T557	
+R465	ActionObj Action:T557 Object:T558	
+T559	Action 36003 36008	start
+A329	Capability T559 012:MalwareCapability-machine_access/control
+A330	ActionName T559 153:Service-start_service
+A331	StrategicObjectives T559 038:MachineAccessControl-control_local_machine
+A332	TacticalObjectives T559 100:MachineAccessControl-control_machine_via_remote_command
+T560	Object 36022 36037	system services
+T561	Action 36009 36013	stop
+A333	Capability T561 012:MalwareCapability-machine_access/control
+A334	ActionName T561 154:Service-stop_service
+A335	StrategicObjectives T561 038:MachineAccessControl-control_local_machine
+A336	TacticalObjectives T561 100:MachineAccessControl-control_machine_via_remote_command
+T562	Action 36015 36021	delete
+A337	Capability T562 012:MalwareCapability-machine_access/control
+A338	ActionName T562 148:Service-delete_service
+A339	StrategicObjectives T562 038:MachineAccessControl-control_local_machine
+A340	TacticalObjectives T562 100:MachineAccessControl-control_machine_via_remote_command
+R466	SubjAction Subject:T556 Action:T559	
+R467	SubjAction Subject:T556 Action:T561	
+R468	SubjAction Subject:T556 Action:T562	
+R469	ActionObj Action:T559 Object:T560	
+R470	ActionObj Action:T561 Object:T560	
+R471	ActionObj Action:T562 Object:T560	
+T563	Action 36039 36048	enumerate
+A341	Capability T563 012:MalwareCapability-machine_access/control
+A342	ActionName T563 140:Registry-enumerate_registry_key_values
+A343	StrategicObjectives T563 038:MachineAccessControl-control_local_machine
+A344	TacticalObjectives T563 100:MachineAccessControl-control_machine_via_remote_command
+T564	Action 36049 36054	alter
+A345	Capability T564 012:MalwareCapability-machine_access/control
+A346	ActionName T564 142:Registry-modify_registry_key
+A347	StrategicObjectives T564 038:MachineAccessControl-control_local_machine
+A348	TacticalObjectives T564 100:MachineAccessControl-control_machine_via_remote_command
+T565	Object 36055 36068	registry keys
+R472	SubjAction Subject:T556 Action:T563	
+R473	SubjAction Subject:T556 Action:T564	
+R474	ActionObj Action:T564 Object:T565	
+R475	ActionObj Action:T563 Object:T565	
+T566	Action 36074 36080	manage
+A349	Capability T566 012:MalwareCapability-machine_access/control
+A350	ActionName T566 106:Process-enumerate_processes
+A351	StrategicObjectives T566 038:MachineAccessControl-control_local_machine
+A352	TacticalObjectives T566 100:MachineAccessControl-control_machine_via_remote_command
+T567	Object 36081 36098	running processes
+R476	SubjAction Subject:T556 Action:T566	
+R477	ActionObj Action:T566 Object:T567	
+T568	Subject 36100 36110	This class
+T569	Action 36157 36161	take
+A353	Capability T569 019:MalwareCapability-spying
+A354	TacticalObjectives T569 146:Spying-capture_system_screenshot
+A355	StrategicObjectives T569 062:Spying-capture_system_interface_data
+T570	Object 36162 36196	a screen shot of the users desktop
+R478	ActionObj Action:T569 Object:T570	
+R479	SubjAction Subject:T568 Action:T569	
+T571	Subject 36439 36457	This handler class
+T572	Action 36484 36494	implements
+A356	Capability T572 005:MalwareCapability-command_and_control
+A357	TacticalObjectives T572 047:CommandandControl-control_malware_via_remote_command
+A358	StrategicObjectives T572 017:CommandandControl-receive_data_from_c2_server
+T573	Object 36495 36539;36540 36558	an interactive command line shell accessible from the C2 server
+R480	SubjAction Subject:T571 Action:T572	
+R481	ActionObj Action:T572 Object:T573	
+T574	Subject 36657 36668	the malware
+T575	Action 36681 36687	invoke
+A359	ActionName T575 029:File-execute_file
+T576	Object 36688 36695	cmd.exe
+T577	Modifier 36696 36698	in
+T578	Object 36699 36713	the background
+R482	SubjAction Subject:T574 Action:T575	
+R483	ActionObj Action:T575 Object:T576	
+R484	ActionMod Action:T575 Modifier:T577	
+R485	ModObj Modifier:T577 Object:T578	
+T579	Action 36715 36724	launching
+A360	ActionName T579 029:File-execute_file
+T580	Object 36725 36745;36746 36788	a command or command line utility already present on the system
+R486	SubjAction Subject:T574 Action:T579	
+R487	ActionObj Action:T579 Object:T580	
+T581	Object 36790 36833	The standard output channel of that command
+T582	Action 36834 36845	is provided
+A361	Capability T582 005:MalwareCapability-command_and_control
+A362	ActionName T582 096:Network-send_network_packet
+A363	StrategicObjectives T582 018:CommandandControl-send_data_to_c2_server
+T583	Modifier 36846 36853	back to
+T584	Object 36854 36860	the C2
+R488	ActionObj Action:T582 Object:T581	
+R489	ActionMod Action:T582 Modifier:T583	
+R490	ModObj Modifier:T583 Object:T584	
+T585	Subject 37473 37480	the DLL
+T586	Action 37481 37489	deleting
+A364	Capability T586 017:MalwareCapability-secondary_operation
+A365	ActionName T586 028:File-delete_file
+A366	StrategicObjectives T586 055:SecondaryOperation-suicide_exit
+A367	TacticalObjectives T586 120:SecondaryOperation-remove_self
+T587	Object 37490 37496	itself
+R491	SubjAction Subject:T585 Action:T586	
+R492	ActionObj Action:T586 Object:T587	
+R493	CoRefer Referer:T585 Canonical:T587	
+T588	Action 37501 37512	terminating
+A368	ActionName T588 111:Process-kill_process
+T589	Object 37513 37533	the backdoor process
+R494	SubjAction Subject:T585 Action:T588	
+R495	ActionObj Action:T588 Object:T589	
+T590	Subject 38173 38183	The driver
+T591	Action 38194 38201	opening
+A369	ActionName T591 168:Synchronization-create_event
+T592	Object 38202 38215	a named event
+T593	Modifier 38216 38218	in
+T594	Modifier 38310 38315	using
+T595	Modifier 38257 38261	with
+T596	Object 38219 38256	the BaseNamedObjects object directory
+T597	Object 38262 38270;38271 38309	the name {8CB2ff21-0166-4cf1-BD8F-E190BC7902DC}
+T598	Object 38316 38345	the Windows API ZwOpenEvent()
+R496	SubjAction Subject:T590 Action:T591	
+R497	ActionObj Action:T591 Object:T592	
+R498	ActionMod Action:T591 Modifier:T593	
+R499	ModObj Modifier:T593 Object:T596	
+R500	ActionMod Action:T591 Modifier:T594	
+R501	ActionMod Action:T591 Modifier:T595	
+R502	ModObj Modifier:T595 Object:T597	
+R503	ModObj Modifier:T594 Object:T598	
+T599	Action 38417 38422	avoid
+A370	Capability T599 010:MalwareCapability-infection/propagation
+A371	StrategicObjectives T599 032:InfectionPropagation-prevent_duplicate_infection
+T600	Object 38586 38614	multiple instances of itself
+R504	ActionObj Action:T599 Object:T600	
+T601	Subject 38377 38387	the driver
+R505	SubjAction Subject:T601 Action:T599	
+T602	Subject 38645 38655	the driver
+T603	Action 38661 38668	creates
+A372	ActionName T603 168:Synchronization-create_event
+T604	Object 38669 38671	it
+R506	CoRefer Referer:T604 Canonical:T592	
+R507	SubjAction Subject:T602 Action:T603	
+R508	ActionObj Action:T603 Object:T604	
+T605	Modifier 38672 38677	using
+T606	Object 38678 38693;38694 38709	the Windows API ZwCreateEvent()
+R509	ActionMod Action:T603 Modifier:T605	
+R510	ModObj Modifier:T605 Object:T606	
+T607	Subject 39249 39288	The second component of the entry point
+T608	Action 39289 39297	performs
+A373	Capability T608 001:MalwareCapability-anti-code_analysis
+A374	StrategicObjectives T608 002:AntiCodeAnalysis-anti-debugging
+T609	Object 39298 39325	an anti-debugging technique
+R511	SubjAction Subject:T607 Action:T608	
+R512	ActionObj Action:T608 Object:T609	
+T610	Action 39327 39334	calling
+A375	ActionName T610 080:Library-call_library_function
+T611	Object 39335 39347;39348 39367	the function KdDisableDebugger()
+R513	SubjAction Subject:T607 Action:T610	
+R514	ActionObj Action:T610 Object:T611	
+T612	Subject 39382 39392	the driver
+T613	Action 39396 39403	disable
+A376	Capability T613 001:MalwareCapability-anti-code_analysis
+A377	TacticalObjectives T613 012:AntiCodeAnalysis-prevent_debugging
+A378	StrategicObjectives T613 002:AntiCodeAnalysis-anti-debugging
+T614	Object 39404 39450;39451 39514	usage of the built-in Windows kernel debugging facility that is used by popular kernel debuggers KD and WinDbg
+R515	SubjAction Subject:T612 Action:T613	
+R516	ActionObj Action:T613 Object:T614	
+T615	Subject 40137 40170	The final step of the entry point
+T616	Action 40183 40190	hooking
+A379	ActionName T616 061:Hooking-add_system_call_hook
+T617	Object 40191 40201	the system
+R517	SubjAction Subject:T615 Action:T616	
+R518	ActionObj Action:T616 Object:T617	
+T618	Subject 40243 40246	one
+T619	Action 40263 40267	hook
+A380	ActionName T619 061:Hooking-add_system_call_hook
+T620	Object 40268 40289	the system call table
+T621	Subject 40297 40306	the other
+T622	Action 40307 40312	hooks
+A381	ActionName T622 061:Hooking-add_system_call_hook
+T623	Object 40313 40330	the network stack
+R519	SubjAction Subject:T618 Action:T619	
+R520	ActionObj Action:T619 Object:T620	
+R521	SubjAction Subject:T621 Action:T622	
+R522	ActionObj Action:T622 Object:T623	
+T624	Subject 40395 40420	The network stack hooking
+T625	Action 40427 40434	queries
+A382	Capability T625 015:MalwareCapability-probing
+A383	TacticalObjectives T625 113:Probing-identify_os
+A384	StrategicObjectives T625 046:Probing-probe_host_configuration
+T626	Object 40435 40449	the OS version
+T627	Modifier 40450 40455	using
+T628	Object 40456 40489	RtlGetVersion() or PsGetVersion()
+R523	SubjAction Subject:T624 Action:T625	
+R524	ActionObj Action:T625 Object:T626	
+R525	ActionMod Action:T625 Modifier:T627	
+R526	ModObj Modifier:T627 Object:T628	
+T629	Subject 41037 41047	the driver
+T630	Action 41114 41119	hooks
+A385	ActionName T630 061:Hooking-add_system_call_hook
+T631	Object 41120 41125;41126 41163	Major Function 14 the IRP_MJ_DEVICE_CONTROL
+R527	SubjAction Subject:T629 Action:T630	
+R528	ActionObj Action:T630 Object:T631	
+T632	Subject 41592 41600	the hook
+T633	Action 41607 41611	scan
+A386	Capability T633 011:MalwareCapability-integrity_violation
+A387	TacticalObjectives T633 098:IntegrityViolation-intercept/manipulate_network_traffic
+A388	StrategicObjectives T633 034:IntegrityViolation-compromise_network_operational_integrity
+T634	Object 41612 41663	the list of active connections returned to the user
+T635	Action 41669 41673	hide
+A389	Capability T635 002:MalwareCapability-anti-detection
+A390	TacticalObjectives T635 025:AntiDetection-hide_network_traffic
+A391	StrategicObjectives T635 007:AntiDetection-hide_malware_artifacts
+T636	Object 41674 41682;41683 41732;41900 41933	any such connection currently bound to a local TCP port in the range between 40000 and 45000
+R529	SubjAction Subject:T632 Action:T633	
+R530	ActionObj Action:T633 Object:T634	
+R531	SubjAction Subject:T632 Action:T635	
+R532	ActionObj Action:T635 Object:T636	
+T637	Object 41935 41946	The hooking
+T638	Action 41947 41959	is performed
+A392	ActionName T638 061:Hooking-add_system_call_hook
+R533	ActionObj Action:T638 Object:T637	
+T639	Modifier 41960 41962	by
+T640	Object 41963 41996;41997 42090;42091 42165	creating a new completion routine associated with any IRP_MJ_DEVICE_CONTROL IRP that matches the IOCTL, attaching to the target process, performing several memory copies to hide the entry, and detaching
+R534	ActionMod Action:T638 Modifier:T639	
+R535	ModObj Modifier:T639 Object:T640	
+T641	Subject 42893 42905	The TCP hook
+T642	Action 42963 42970	hooking
+A393	ActionName T642 061:Hooking-add_system_call_hook
+T643	Object 42971 42993;42994 43019	IOCTL 0x120003 (IOCTL_ TCP_QUERY_INFORMATION_EX)
+R536	SubjAction Subject:T641 Action:T642	
+R537	ActionObj Action:T642 Object:T643	
+T644	Subject 43171 43180	This hook
+T645	Action 43186 43193	filters
+A394	Capability T645 011:MalwareCapability-integrity_violation
+A395	TacticalObjectives T645 098:IntegrityViolation-intercept/manipulate_network_traffic
+A396	StrategicObjectives T645 034:IntegrityViolation-compromise_network_operational_integrity
+R538	SubjAction Subject:T644 Action:T645	
+T646	Object 43195 43270	any connections listening on TCP ports in the range between 40000 and 45000
+R539	ActionObj Action:T645 Object:T646	
+T647	Subject 43442 43475	The unpacked kernel driver sample
+T648	Action 43476 43481	hooks
+A397	ActionName T648 061:Hooking-add_system_call_hook
+T649	Object 43482 43497	these functions
+T650	Modifier 43498 43500	by
+T651	Object 43501 43519;43521 43562	reading the second DWORD at each of these exported functions
+R540	SubjAction Subject:T647 Action:T648	
+R541	ActionObj Action:T648 Object:T649	
+R542	ActionMod Action:T648 Modifier:T650	
+R543	ModObj Modifier:T650 Object:T651	
+T652	Action 44154 44171	is then performed
+A398	ActionName T652 061:Hooking-add_system_call_hook
+T653	Object 44133 44153	The system call hook
+R544	ActionObj Action:T652 Object:T653	
+T654	Modifier 44172 44174	by
+T655	Object 44175 44232;44237 44317;44318 44345	first allocating a Memory Descriptor List (MDL) using the Windows API IoAllocateMdl(), and associating the MDL to a non-paged buffer using MmBuildMdlForNonPagedPool()
+R545	ActionMod Action:T652 Modifier:T654	
+R546	ModObj Modifier:T654 Object:T655	
+T656	Subject 44562 44572	the driver
+T657	Action 44686 44694	applying
+A399	ActionName T657 061:Hooking-add_system_call_hook
+T658	Object 44695 44715	a Detours-style hook
+R547	ActionObj Action:T657 Object:T658	
+R548	SubjAction Subject:T656 Action:T657	
+T659	Modifier 44716 44727	directly in
+T660	Object 44728 44731;44732 44736	the code
+R549	ActionMod Action:T657 Modifier:T659	
+R550	ModObj Modifier:T659 Object:T660	
+T661	Subject 45660 45662	It
+T662	Action 45668 45674	checks
+A400	ActionName T662 146:Registry-read_registry_key_value
+T663	Modifier 45675 45678	for
+T664	Object 45679 45696;45697 45729	the values of the “ServiceDll” and “Security” keys
+R551	SubjAction Subject:T661 Action:T662	
+R552	ActionMod Action:T662 Modifier:T663	
+R553	ModObj Modifier:T663 Object:T664	
+T665	Subject 45750 45752	it
+T666	Action 45753 45760	applies
+A401	ActionName T666 143:Registry-modify_registry_key_value
+R554	SubjAction Subject:T665 Action:T666	
+T667	Object 45761 45767	an XOR
+T668	Modifier 45768 45770	on
+T669	Object 45771 45779	the data
+T670	Modifier 45780 45784	with
+T671	Object 45785 45798	the value 127
+R555	ActionObj Action:T666 Object:T667	
+R556	ActionMod Action:T666 Modifier:T668	
+R557	ActionMod Action:T666 Modifier:T670	
+R558	ModObj Modifier:T668 Object:T669	
+R559	ModObj Modifier:T670 Object:T671	
+T672	Subject 45872 45883	this driver
+T673	Action 45901 45905	hide
+A402	Capability T673 002:MalwareCapability-anti-detection
+A403	TacticalObjectives T673 029:AntiDetection-hide_services
+A404	StrategicObjectives T673 007:AntiDetection-hide_malware_artifacts
+T674	Object 45906 45909;45910 45917	the service
+R560	SubjAction Subject:T672 Action:T673	
+R561	ActionObj Action:T673 Object:T674	
+T675	Object 46501 46507	a call
+T676	Action 46508 46515	is made
+A405	ActionName T676 080:Library-call_library_function
+T677	Modifier 46516 46518	to
+T678	Object 46519 46546	ObReferenceObjectByHandle()
+R562	ActionObj Action:T676 Object:T675	
+R563	ActionMod Action:T676 Modifier:T677	
+R564	ModObj Modifier:T677 Object:T678	
+T679	Modifier 46457 46459	In
+T680	Object 46460 46499	the registry hooking code of the driver
+R565	ModObj Modifier:T679 Object:T680	
+R566	ActionMod Action:T676 Modifier:T679	
+T681	Action 52113 52119	avoids
+A406	Capability T681 002:MalwareCapability-anti-detection
+A407	StrategicObjectives T681 009:AntiDetection-security_software_evasion
+T682	Subject 52027 52062;52064 52099	the backdoor DLL sample with an MD5 of de7500fc1065a081180841f32f06a537
+T683	Object 52120 52168;52171 52180	installing the kernel driver on a system running this tool
+R567	SubjAction Subject:T682 Action:T681	
+R568	ActionObj Action:T681 Object:T683	
+T684	Object 52757 52795	the various network hooking techniques
+T685	Action 52796 52800	used
+A408	ActionName T685 061:Hooking-add_system_call_hook
+T686	Modifier 52801 52803	in
+T687	Object 52804 52821	the kernel driver
+R569	ActionObj Action:T685 Object:T684	
+R570	ActionMod Action:T685 Modifier:T686	
+R571	ModObj Modifier:T686 Object:T687	
+T688	Action 53221 53228	perform
+A409	ActionName T688 061:Hooking-add_system_call_hook
+T689	Object 53229 53248	system call hooking
+T690	Modifier 53249 53256	through
+T691	Object 53257 53261	MDLs
+R572	ActionObj Action:T688 Object:T689	
+R573	ActionMod Action:T688 Modifier:T690	
+R574	ModObj Modifier:T690 Object:T691	
+T692	Subject 53743 53759	a cached rootkit
+T693	Action 53760 53770	performing
+A410	ActionName T693 061:Hooking-add_system_call_hook
+T694	Object 53771 53784	similar hooks
+T695	Modifier 53785 53787	on
+T696	Object 53788 53820	the same 3 registry related APIs
+R575	SubjAction Subject:T692 Action:T693	
+R576	ActionObj Action:T693 Object:T694	
+R577	ActionMod Action:T693 Modifier:T695	
+R578	ModObj Modifier:T695 Object:T696	
+T697	Subject 59691 59753	The dropped DLL (MD5: 47619fca20895abc83807321cbb80a3d) itself
+T698	Action 59754 59762	contains
+A411	Capability T698 012:MalwareCapability-machine_access/control
+A412	TacticalObjectives T698 100:MachineAccessControl-control_machine_via_remote_command
+A413	StrategicObjectives T698 038:MachineAccessControl-control_local_machine
+T699	Object 59763 59792;59793 59821	functionality that is typical of a Remote Access Tool(RAT)
+R579	SubjAction Subject:T697 Action:T698	
+R580	ActionObj Action:T698 Object:T699	
+T700	Action 59841 59845	used
+T701	Modifier 59866 59868	in
+T702	Object 59869 59894	data exfiltration attacks
+A414	Capability T700 006:MalwareCapability-data_exfiltration
+T703	Subject 59849 59865	PRC based actors
+R581	SubjAction Subject:T703 Action:T700	
+R582	ActionObj Action:T700 Object:T699	
+R583	ActionMod Action:T700 Modifier:T701	
+R584	ModObj Modifier:T701 Object:T702	
+T704	Object 60641 60643	it
+T705	Action 60648 60650;60651 60658	be dropped
+A415	Capability T705 017:MalwareCapability-secondary_operation
+A416	TacticalObjectives T705 118:SecondaryOperation-install_secondary_malware
+A417	StrategicObjectives T705 050:SecondaryOperation-install_other_components
+T706	Action 60663 60671	executed
+A418	ActionName T706 029:File-execute_file
+T707	Subject 60675 60696	a client-side exploit
+R585	SubjAction Subject:T707 Action:T706	
+R586	SubjAction Subject:T707 Action:T705	
+R587	ActionObj Action:T705 Object:T704	
+R588	ActionObj Action:T706 Object:T704	
+T708	Subject 60701 60714	the adversary
+T709	Action 60719 60725	launch
+A419	ActionName T709 029:File-execute_file
+T710	Object 60726 60728	it
+T711	Modifier 60729 60734	using
+T712	Object 60735 60755;60756 60768	a variety of command line options
+R589	SubjAction Subject:T708 Action:T709	
+R590	ActionObj Action:T709 Object:T710	
+R591	ActionMod Action:T709 Modifier:T711	
+R592	ModObj Modifier:T711 Object:T712	
+T713	Subject 61108 61118	The sample
+T714	Action 61119 61127	utilizes
+A420	Capability T714 002:MalwareCapability-anti-detection
+A421	TacticalObjectives T714 025:AntiDetection-hide_network_traffic
+A422	StrategicObjectives T714 007:AntiDetection-hide_malware_artifacts
+T715	Object 61128 61159	the AES cryptographic algorithm
+T716	Modifier 61160 61162	to
+T717	Object 61163 61177;61178 61192	protect its C2 communications
+R593	SubjAction Subject:T713 Action:T714	
+R594	ActionObj Action:T714 Object:T715	
+R595	ActionMod Action:T714 Modifier:T716	
+R596	ModObj Modifier:T716 Object:T717	
+T718	Subject 61449 61457	This DLL
+T719	Action 61458 61460	is
+A423	Capability T719 012:MalwareCapability-machine_access/control
+A424	TacticalObjectives T719 100:MachineAccessControl-control_machine_via_remote_command
+A425	StrategicObjectives T719 038:MachineAccessControl-control_local_machine
+T720	Object 61461 61496	a moderately sophisticated backdoor
+R597	SubjAction Subject:T718 Action:T719	
+R598	ActionObj Action:T719 Object:T720	
+T721	Subject 61764 61775	This sample
+T722	Action 61776 61779	has
+A426	Capability T722 005:MalwareCapability-command_and_control
+T723	Object 61780 61825	multiple communication capabilities available
+R599	SubjAction Subject:T721 Action:T722	
+R600	ActionObj Action:T722 Object:T723	
+T724	Subject 61873 61875	It
+T725	Action 61876 61886	implements
+A427	Capability T725 005:MalwareCapability-command_and_control
+R601	CoRefer Referer:T718 Canonical:T721	
+R602	CoRefer Referer:T718 Canonical:T724	
+T726	Object 61887 61947	relatively well thought out protocols including HTTP and DNS
+R603	SubjAction Subject:T724 Action:T725	
+R604	ActionObj Action:T725 Object:T726	
+T727	Subject 61949 61957	The tool
+T728	Action 61996 62002	select
+A428	Capability T728 005:MalwareCapability-command_and_control
+T729	Object 62003 62043	the most effective communication channel
+T730	Modifier 62044 62048	once
+T731	Object 62049 62073	it has been instantiated
+R605	SubjAction Subject:T727 Action:T728	
+R606	ActionObj Action:T728 Object:T729	
+R607	ActionMod Action:T728 Modifier:T730	
+R608	ModObj Modifier:T730 Object:T731	
+T732	Action 62090 62095	avoid
+A429	Capability T732 002:MalwareCapability-anti-detection
+A430	StrategicObjectives T732 009:AntiDetection-security_software_evasion
+T733	Object 62096 62171	detection from solutions like DNS blacklisting and RFC protocol enforcement
+R609	ActionObj Action:T732 Object:T733	
+R610	SubjAction Subject:T727 Action:T732	
+T734	Subject 62318 62328	The sample
+T735	Action 62353 62356	act
+A431	Capability T735 005:MalwareCapability-command_and_control
+T736	Modifier 62357 62359	as
+T737	Object 62360 62375	a generic proxy
+T738	Action 62403 62408	proxy
+A432	Capability T738 005:MalwareCapability-command_and_control
+T739	Object 62409 62419	C2 traffic
+T740	Modifier 62420 62423	for
+T741	Object 62424 62447	other infected machines
+T742	Modifier 62448 62459	in order to
+T743	Object 62460 62490;62492 62515	minimize the number of systems communicating to the C2
+R611	SubjAction Subject:T734 Action:T735	
+R612	ActionMod Action:T735 Modifier:T736	
+R613	ModObj Modifier:T736 Object:T737	
+R614	SubjAction Subject:T734 Action:T738	
+R615	ActionObj Action:T738 Object:T739	
+R616	ActionMod Action:T738 Modifier:T740	
+R617	ActionMod Action:T738 Modifier:T742	
+R618	ModObj Modifier:T740 Object:T741	
+R619	ModObj Modifier:T742 Object:T743	
+T744	Subject 62660 62697;62698 62714	the C2 client which would communicate with this sample
+T745	Action 62715 62721	shares
+A433	Capability T745 005:MalwareCapability-command_and_control
+T746	Object 62722 62789	the same communications library which was compiled into this sample
+R620	SubjAction Subject:T744 Action:T745	
+R621	ActionObj Action:T745 Object:T746	
+T747	Object 62845 62872	The kernel driver component
+T748	Action 62873 62880	dropped
+A434	Capability T748 017:MalwareCapability-secondary_operation
+A435	TacticalObjectives T748 118:SecondaryOperation-install_secondary_malware
+A436	StrategicObjectives T748 050:SecondaryOperation-install_other_components
+T749	Subject 62884 62900	the Backdoor DLL
+R622	SubjAction Subject:T749 Action:T748	
+R623	ActionObj Action:T748 Object:T747	
+T750	Subject 63008 63032	This kernel mode rootkit
+T751	Action 63033 63043	implements
+A437	ActionName T751 061:Hooking-add_system_call_hook
+T752	Object 63044 63051;63052 63070	several hooking techniques
+R624	SubjAction Subject:T750 Action:T751	
+R625	ActionObj Action:T751 Object:T752	
+T753	Action 63089 63099	preventing
+A438	Capability T753 002:MalwareCapability-anti-detection
+T754	Object 63100 63122	a system administrator
+T755	Modifier 63123 63127	from
+T756	Object 63128 63154	detecting the backdoor DLL
+R626	SubjAction Subject:T750 Action:T753	
+R627	ActionObj Action:T753 Object:T754	
+R628	ActionMod Action:T753 Modifier:T755	
+R629	ModObj Modifier:T755 Object:T756	
+T757	Subject 63295 63306	This driver
+T758	Action 63319 63323	hide
+A439	Capability T758 002:MalwareCapability-anti-detection
+A440	TacticalObjectives T758 025:AntiDetection-hide_network_traffic
+A441	StrategicObjectives T758 007:AntiDetection-hide_malware_artifacts
+T759	Object 63324 63363	a wide swath of TCP ports (40000-45000)
+T760	Modifier 63364 63367	for
+T761	Object 63368 63385	an unknown reason
+R630	SubjAction Subject:T757 Action:T758	
+R631	ActionObj Action:T758 Object:T759	
+R632	ActionMod Action:T758 Modifier:T760	
+R633	ModObj Modifier:T760 Object:T761	
+T762	Object 63565 63592	The kernel driver component
+T763	Action 63593 63600	dropped
+A442	Capability T763 017:MalwareCapability-secondary_operation
+A443	TacticalObjectives T763 118:SecondaryOperation-install_secondary_malware
+A444	StrategicObjectives T763 050:SecondaryOperation-install_other_components
+T764	Subject 63604 63620	the Backdoor DLL
+R634	SubjAction Subject:T764 Action:T763	
+R635	ActionObj Action:T763 Object:T762	
+T765	Subject 63728 63752	This kernel mode rootkit
+T766	Action 63753 63763	implements
+T767	Object 63764 63771;63772 63790	several hooking techniques
+R636	SubjAction Subject:T765 Action:T766	
+R637	ActionObj Action:T766 Object:T767	
+A445	ActionName T766 061:Hooking-add_system_call_hook
+T768	Action 63809 63819	preventing
+A446	Capability T768 002:MalwareCapability-anti-detection
+R638	SubjAction Subject:T765 Action:T768	
+T769	Object 63820 63842	a system administrator
+T770	Modifier 63843 63847	from
+T771	Object 63848 63874	detecting the backdoor DLL
+R639	ActionObj Action:T768 Object:T769	
+R640	ActionMod Action:T768 Modifier:T770	
+R641	ModObj Modifier:T770 Object:T771	
+T772	Subject 64015 64026	This driver
+T773	Action 64039 64043	hide
+A447	Capability T773 002:MalwareCapability-anti-detection
+A448	TacticalObjectives T773 025:AntiDetection-hide_network_traffic
+A449	StrategicObjectives T773 007:AntiDetection-hide_malware_artifacts
+T774	Object 64044 64083	a wide swath of TCP ports (40000-45000)
+T775	Modifier 64084 64087	for
+T776	Object 64088 64105	an unknown reason
+R642	SubjAction Subject:T772 Action:T773	
+R643	ActionObj Action:T773 Object:T774	
+R644	ActionMod Action:T773 Modifier:T775	
+R645	ModObj Modifier:T775 Object:T776	

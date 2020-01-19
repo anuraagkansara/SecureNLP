@@ -1,0 +1,146 @@
+T1	Subject 428 432	code
+T2	Action 438 444	loaded
+A1	Capability T2 005:MalwareCapability-command_and_control
+A2	ActionName T2 090:Network-download_file
+A3	StrategicObjectives T2 017:CommandandControl-receive_data_from_c2_server
+A4	TacticalObjectives T2 047:CommandandControl-control_malware_via_remote_command
+T3	Object 445 472	a malicious Javascript file
+T4	Modifier 473 477	from
+T5	Object 478 493	a remote server
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T4	
+R4	ModObj Modifier:T4 Object:T5	
+T7	Subject 758 779	The Scanbox framework
+T8	Action 786 796	configures
+A5	Capability T8 005:MalwareCapability-command_and_control
+A6	TacticalObjectives T8 051:CommandandControl-update_configuration
+A7	StrategicObjectives T8 016:CommandandControl-determine_c2_server
+T9	Object 797 835	the remote C&C server that it will use
+R6	ActionObj Action:T8 Object:T9	
+R7	SubjAction Subject:T7 Action:T8	
+T10	Action 840 848	collects
+A8	Capability T10 007:MalwareCapability-data_theft
+A9	ActionName T10 207:User-get_user_attributes
+A10	StrategicObjectives T10 024:DataTheft-steal_system_information
+A11	TacticalObjectives T10 066:DataTheft-steal_cookie
+R8	SubjAction Subject:T7 Action:T10	
+T11	Object 849 878	a small amount of information
+T12	Subject 1272 1279	Scanbox
+T13	Action 1229 1236	sending
+A12	Capability T13 006:MalwareCapability-data_exfiltration
+A13	ActionName T13 096:Network-send_network_packet
+A14	StrategicObjectives T13 020:DataExfiltration-perform_data_exfiltration
+A15	TacticalObjectives T13 057:DataExfiltration-exfiltrate_via_network
+T14	Object 1237 1252	the information
+T15	Modifier 1253 1255	to
+T16	Object 1256 1270	the C&C server
+R9	ActionObj Action:T13 Object:T14	
+R10	ActionMod Action:T13 Modifier:T15	
+R11	ModObj Modifier:T15 Object:T16	
+R12	SubjAction Subject:T12 Action:T13	
+T17	Action 1280 1287	encodes
+A16	Capability T17 006:MalwareCapability-data_exfiltration
+A17	TacticalObjectives T17 053:DataExfiltration-encrypt_data
+A18	StrategicObjectives T17 019:DataExfiltration-obfuscate_data_for_exfiltration
+T18	Action 1292 1300	encrypts
+A19	Capability T18 006:MalwareCapability-data_exfiltration
+A20	TacticalObjectives T18 053:DataExfiltration-encrypt_data
+A21	StrategicObjectives T18 019:DataExfiltration-obfuscate_data_for_exfiltration
+R13	SubjAction Subject:T12 Action:T17	
+T19	Object 1301 1309	the data
+R14	ActionObj Action:T17 Object:T19	
+R15	SubjAction Subject:T12 Action:T18	
+R16	ActionObj Action:T18 Object:T19	
+T20	Subject 1438 1451	the framework
+R17	CoRefer Referer:T12 Canonical:T20	
+T21	Action 1480 1487	extract
+A22	Capability T21 007:MalwareCapability-data_theft
+A23	ActionName T21 207:User-get_user_attributes
+A24	StrategicObjectives T21 024:DataTheft-steal_system_information
+A25	TacticalObjectives T21 068:DataTheft-steal_database_content
+T22	Object 1488 1509	different information
+T23	Modifier 1510 1514	from
+T24	Object 1515 1525	the victim
+R18	SubjAction Subject:T20 Action:T21	
+R19	ActionObj Action:T21 Object:T22	
+R20	ActionMod Action:T21 Modifier:T23	
+R21	ModObj Modifier:T23 Object:T24	
+T25	Action 2015 2025	Implements
+A26	Capability T25 017:MalwareCapability-secondary_operation
+A27	ActionName T25 104:Process-create_process
+A28	StrategicObjectives T25 050:SecondaryOperation-install_other_components
+A29	TacticalObjectives T25 119:SecondaryOperation-install_secondary_module
+R22	SubjAction Subject:T20 Action:T25	
+T26	Object 2026 2053	a “keylogger” functionality
+R23	ActionObj Action:T25 Object:T26	
+T27	Action 2077 2081	logs
+A30	Capability T27 019:MalwareCapability-spying
+A31	TacticalObjectives T27 140:Spying-capture_keyboard_input
+A32	StrategicObjectives T27 061:Spying-capture_system_input_peripheral_data
+R24	SubjAction Subject:T20 Action:T27	
+T28	Object 2082 2152	all the keystrokes the victim is typing inside the compromised website
+R25	ActionObj Action:T27 Object:T28	
+T29	Object 2214 2228	all keystrokes
+T30	Action 2233 2247	being recorded
+A33	Capability T30 019:MalwareCapability-spying
+A34	TacticalObjectives T30 140:Spying-capture_keyboard_input
+A35	StrategicObjectives T30 061:Spying-capture_system_input_peripheral_data
+T31	Subject 2282 2284	It
+R28	SubjAction Subject:T31 Action:T30	
+R26	ActionObj Action:T30 Object:T29	
+T33	Action 2252 2256	sent
+A36	Capability T33 006:MalwareCapability-data_exfiltration
+A37	ActionName T33 096:Network-send_network_packet
+A38	StrategicObjectives T33 020:DataExfiltration-perform_data_exfiltration
+A39	TacticalObjectives T33 057:DataExfiltration-exfiltrate_via_network
+R29	SubjAction Subject:T31 Action:T33	
+R30	ActionObj Action:T33 Object:T29	
+T34	Modifier 2257 2259	to
+T35	Object 2260 2267	the C&C
+R31	ModObj Modifier:T34 Object:T35	
+R32	ActionMod Action:T33 Modifier:T34	
+T36	Action 2295 2299	send
+A40	Capability T36 006:MalwareCapability-data_exfiltration
+A41	ActionName T36 096:Network-send_network_packet
+A42	StrategicObjectives T36 020:DataExfiltration-perform_data_exfiltration
+A43	TacticalObjectives T36 057:DataExfiltration-exfiltrate_via_network
+R33	SubjAction Subject:T31 Action:T36	
+T37	Object 2300 2310	keystrokes
+R34	ActionObj Action:T36 Object:T37	
+T6	Subject 495 515	This Javascript file
+T38	Action 516 518	is
+A44	Capability T38 007:MalwareCapability-data_theft
+T39	Object 519 549	a framework for reconnaissance
+R5	SubjAction Subject:T6 Action:T38	
+R35	ActionObj Action:T38 Object:T39	
+T40	Subject 366 379	The attackers
+T41	Action 393 403	compromise
+A45	Capability T41 011:MalwareCapability-integrity_violation
+A46	TacticalObjectives T41 099:IntegrityViolation-subvert_system
+A47	StrategicObjectives T41 036:IntegrityViolation-compromise_system_operational_integrity
+T42	Object 404 415	the website
+R36	SubjAction Subject:T40 Action:T41	
+R37	ActionObj Action:T41 Object:T42	
+T43	Modifier 879 884	about
+T44	Object 885 936	the victim that is visiting the compromised website
+R38	ActionObj Action:T10 Object:T11	
+R39	ActionMod Action:T10 Modifier:T43	
+R40	ModObj Modifier:T43 Object:T44	
+R41	CoRefer Referer:T7 Canonical:T6	
+T45	Modifier 1310 1314	with
+T46	Object 1315 1337	the following function
+R42	ActionMod Action:T18 Modifier:T45	
+R43	ActionMod Action:T17 Modifier:T45	
+R44	ModObj Modifier:T45 Object:T46	
+T47	Modifier 2054 2060	trough
+T48	Object 2061 2071	Javascript
+R45	ActionMod Action:T25 Modifier:T47	
+R46	ModObj Modifier:T47 Object:T48	
+T49	Object 2268 2280	periodically
+R47	ActionObj Action:T33 Object:T49	
+T50	Modifier 2311 2315	when
+T51	Object 2316 2406	the user submits web forms that can potentially include passwords and other sensitive data
+R48	ActionMod Action:T36 Modifier:T50	
+R49	ModObj Modifier:T50 Object:T51	
+R27	CoRefer Referer:T20 Canonical:T31	

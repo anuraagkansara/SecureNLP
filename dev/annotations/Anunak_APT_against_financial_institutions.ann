@@ -1,0 +1,122 @@
+T1	Action 6847 6853	remove
+A1	Capability T1 002:MalwareCapability-anti-detection
+A2	ActionName T1 028:File-delete_file
+A3	StrategicObjectives T1 054:SecondaryOperation-remove_traces_of_infection
+T2	Action 6865 6873	to crack
+A4	Capability T2 010:MalwareCapability-infection/propagation
+A5	StrategicObjectives T2 058:SecurityDegradation-disable_os_security_features
+T3	Action 6865 6873	to crack
+A6	Capability T3 018:MalwareCapability-security_degradation
+A7	StrategicObjectives T3 059:SecurityDegradation-disable_server_provider_security_features
+T4	Object 6874 6881;6882 6891	Windows computers
+R1	ActionObj Action:T3 Object:T4	
+T5	Object 6896 6903	servers
+R2	ActionObj Action:T2 Object:T5	
+T6	Subject 6782 6798;6836 6843	the program “MBR Eraser”
+R3	SubjAction Subject:T6 Action:T2	
+R4	SubjAction Subject:T6 Action:T3	
+R5	SubjAction Subject:T6 Action:T1	
+T7	Object 6854 6860	traces
+R6	ActionObj Action:T1 Object:T7	
+T8	Action 7657 7660	got
+A8	Capability T8 007:MalwareCapability-data_theft
+A9	TacticalObjectives T8 071:DataTheft-steal_email_data
+T9	Action 7689 7696	control
+A11	StrategicObjectives T9 034:IntegrityViolation-compromise_network_operational_integrity
+A10	Capability T9 011:MalwareCapability-integrity_violation
+T10	Subject 7649 7656	hackers
+T11	Object 7671 7685	e-mail servers
+R7	SubjAction Subject:T10 Action:T8	
+R9	SubjAction Subject:T10 Action:T9	
+T12	Object 7697 7700;7711 7734	all internal communications
+R10	ActionObj Action:T9 Object:T12	
+T37	Action 12807 12815	download
+A19	ActionName T37 090:Network-download_file
+A20	Capability T37 017:MalwareCapability-secondary_operation
+A21	StrategicObjectives T37 050:SecondaryOperation-install_other_components
+T38	Object 12816 12830;12844 12884	arbitrary exe- cutable files from the management server
+R31	ActionObj Action:T37 Object:T38	
+T39	Action 13365 13369	gets
+A22	Capability T39 012:MalwareCapability-machine_access/control
+A23	TacticalObjectives T39 100:MachineAccessControl-control_machine_via_remote_command
+A24	StrategicObjectives T39 039:MachineAccessControl-install_backdoor
+T40	Object 13387 13404	the user computer
+T41	Subject 13340 13343;13356 13364	the attacker
+R32	SubjAction Subject:T41 Action:T39	
+T42	Action 13631 13634	use
+A25	Capability T42 012:MalwareCapability-machine_access/control
+A26	TacticalObjectives T42 100:MachineAccessControl-control_machine_via_remote_command
+A27	StrategicObjectives T42 039:MachineAccessControl-install_backdoor
+T43	Action 13653 13662	transmits
+A28	Capability T43 007:MalwareCapability-data_theft
+A29	ActionName T43 096:Network-send_network_packet
+A30	TacticalObjectives T43 082:DataTheft-steal_web/network_credential
+T44	Object 13635 13638;13639 13647	SSH backdoor
+T45	Subject 13543 13556	the attackers
+R34	SubjAction Subject:T45 Action:T42	
+R35	ActionObj Action:T42 Object:T44	
+T46	Subject 13635 13638;13639 13647	SSH backdoor
+R36	SubjAction Subject:T46 Action:T43	
+T49	Action 13742 13750	provides
+A31	Capability T49 012:MalwareCapability-machine_access/control
+A32	TacticalObjectives T49 100:MachineAccessControl-control_machine_via_remote_command
+A33	StrategicObjectives T49 038:MachineAccessControl-control_local_machine
+T50	Object 13751 13760	attackers
+R39	ActionObj Action:T49 Object:T50	
+T51	Action 13872 13878	modify
+A34	Capability T51 018:MalwareCapability-security_degradation
+A35	TacticalObjectives T51 123:SecurityDegradation-disable_firewall
+A36	StrategicObjectives T51 056:SecurityDegradation-degrade_security_programs
+T52	Object 13879 13898;13899 13924	rules for firewalls Microsoft TMG, CISCO, etc
+T53	Subject 13838 13845;13846 13853	the at- tackers
+R40	SubjAction Subject:T53 Action:T51	
+R41	ActionObj Action:T51 Object:T52	
+T54	Action 21316 21326	downloaded
+A37	Capability T54 017:MalwareCapability-secondary_operation
+A38	TacticalObjectives T54 118:SecondaryOperation-install_secondary_malware
+A39	StrategicObjectives T54 049:RemoteMachineManipulation-search_for_remote_machine
+A40	ActionName T54 090:Network-download_file
+T56	Subject 21302 21315	the attackers
+R42	SubjAction Subject:T56 Action:T54	
+T57	Action 23117 23124	changed
+A41	ActionName T57 142:Registry-modify_registry_key
+T58	Subject 23107 23116	this file
+R44	SubjAction Subject:T58 Action:T57	
+T60	Action 40811 40815	drop
+A42	Capability T60 017:MalwareCapability-secondary_operation
+A43	ActionName T60 090:Network-download_file
+A44	StrategicObjectives T60 050:SecondaryOperation-install_other_components
+A45	TacticalObjectives T60 118:SecondaryOperation-install_secondary_malware
+T61	Subject 40771 40798	The Gozi/ISFB based malware
+T62	Object 40816 40860	additional components on interesting systems
+R46	SubjAction Subject:T61 Action:T60	
+R47	ActionObj Action:T60 Object:T62	
+T64	Object 7661 7667	access
+T65	Modifier 7668 7670	to
+R8	ActionObj Action:T8 Object:T64	
+R49	ModObj Modifier:T65 Object:T11	
+R50	ActionMod Action:T8 Modifier:T65	
+T15	Action 12889 12892	run
+A14	ActionName T15 029:File-execute_file
+T16	Object 12908 12912	them
+R13	CoRefer Referer:T38 Canonical:T16	
+R14	ActionObj Action:T15 Object:T16	
+T17	Object 13370 13383	remote access
+T18	Modifier 13384 13386	to
+R15	ActionObj Action:T39 Object:T17	
+R16	ActionMod Action:T39 Modifier:T18	
+R17	ModObj Modifier:T18 Object:T40	
+T19	Object 13687 13690;13691 13737	the login/password data used to access the servers
+R18	ActionObj Action:T43 Object:T19	
+T20	Modifier 13663 13665	to
+T21	Object 13666 13686	the malicious server
+R19	ModObj Modifier:T20 Object:T21	
+R20	ActionMod Action:T43 Modifier:T20	
+A15	StrategicObjectives T43 022:DataTheft-steal_authentication_credentials
+R21	SubjAction Subject:T46 Action:T49	
+T22	Object 13761 13789	remote access to the servers
+R22	ActionObj Action:T49 Object:T22	
+T23	Object 21327 21332;21346 21395;21396 21442	mali- cious scripts and changed denominations of issued banknotes in the ATM operating system registry
+R23	ActionObj Action:T54 Object:T23	
+T24	Object 23125 23141;23154 23195;23218 23259;23282 23323;23346 23394	registry keys in the registry branch ““HKEY_LOCAL_MACHINE\ SOFTWARE\Wincor Nixdorf\ProTopas\Current- Version\LYNXPAR\CASH_DISPENSER”” that are responsible for cassette denominations in an ATM
+R24	ActionObj Action:T57 Object:T24	

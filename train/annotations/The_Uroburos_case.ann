@@ -1,0 +1,236 @@
+T1	Subject 782 795	the attackers
+T2	Action 801 807	shared
+A1	Capability T2 005:MalwareCapability-command_and_control
+T3	Object 808 820	a C&C domain
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 844 850	ComRAT
+T5	Action 945 955	complicate
+A2	Capability T5 000:MalwareCapability-anti-behavioral_analysis
+T6	Object 956 968	the analysis
+R3	ActionObj Action:T5 Object:T6	
+R4	SubjAction Subject:T4 Action:T5	
+T7	Subject 1049 1062	the attackers
+T8	Action 1063 1066	use
+A3	Capability T8 013:MalwareCapability-persistence
+T9	Object 1089 1119	the same persistence mechanism
+R5	SubjAction Subject:T7 Action:T8	
+R6	ActionObj Action:T8 Object:T9	
+T10	Subject 1751 1762	the malware
+T11	Action 1769 1776	install
+A4	Capability T11 017:MalwareCapability-secondary_operation
+A6	StrategicObjectives T11 050:SecondaryOperation-install_other_components
+T12	Object 1777 1798	the file credprov.tlb
+T13	Modifier 1799 1801	in
+R7	SubjAction Subject:T10 Action:T11	
+T14	Object 1802 1822	%APPDATA%\Microsoft\
+R8	ModObj Modifier:T13 Object:T14	
+R9	ActionMod Action:T11 Modifier:T13	
+R10	ActionObj Action:T11 Object:T12	
+T15	Subject 1870 1881	The dropper
+T16	Action 1925 1932	install
+A5	Capability T16 017:MalwareCapability-secondary_operation
+A7	TacticalObjectives T16 118:SecondaryOperation-install_secondary_malware
+A8	StrategicObjectives T16 050:SecondaryOperation-install_other_components
+A9	TacticalObjectives T11 118:SecondaryOperation-install_secondary_malware
+R11	SubjAction Subject:T15 Action:T16	
+T17	Object 1933 1946	a second file
+R12	ActionObj Action:T16 Object:T17	
+T18	Subject 2251 2262	the malware
+T20	Object 2209 2249	the boot process of the infected machine
+T21	Action 2263 2270	creates
+A13	ActionName T21 135:Registry-create_registry_key
+T22	Object 2271 2297	the following registry key
+R15	ActionObj Action:T21 Object:T22	
+R16	SubjAction Subject:T18 Action:T21	
+T23	Subject 2795 2806	the dropper
+T24	Action 2807 2814	creates
+A14	ActionName T24 024:File-create_file
+T25	Object 2815 2852	an additional file called winview.ocx
+R17	SubjAction Subject:T23 Action:T24	
+R18	ActionObj Action:T24 Object:T25	
+T26	Object 2950 2958	The file
+T27	Action 2959 2967	is xored
+A15	Capability T27 001:MalwareCapability-anti-code_analysis
+A16	ActionName T27 034:File-modify_file
+A17	StrategicObjectives T27 004:AntiCodeAnalysis-code_obfuscation
+A18	TacticalObjectives T27 010:AntiCodeAnalysis-obfuscate_instructions
+R19	ActionObj Action:T27 Object:T26	
+T28	Modifier 2968 2972	with
+T29	Object 2973 2976;2977 3002	the following obfuscation key
+R20	ModObj Modifier:T28 Object:T29	
+R21	ActionMod Action:T27 Modifier:T28	
+T30	Subject 4369 4380	the malware
+T31	Action 4381 4387	checks
+A19	Capability T31 015:MalwareCapability-probing
+A20	ActionName T31 030:File-find_file
+A21	StrategicObjectives T31 046:Probing-probe_host_configuration
+R22	SubjAction Subject:T30 Action:T31	
+T32	Object 4388 4434	if an older version is installed on the system
+R23	ActionObj Action:T31 Object:T32	
+T33	Subject 4460 4463;4464 4471	the dropper
+T34	Action 4472 4479	removes
+A22	Capability T34 010:MalwareCapability-infection/propagation
+A23	ActionName T34 028:File-delete_file
+A24	StrategicObjectives T34 032:InfectionPropagation-prevent_duplicate_infection
+A25	TacticalObjectives T34 090:InfectionPropagation-modify_file
+R24	SubjAction Subject:T33 Action:T34	
+T35	Object 4480 4497	the older version
+R25	ActionObj Action:T34 Object:T35	
+T36	Subject 4564 4572	Uroburos
+T37	Action 4573 4577;4578 4589	does not install
+A26	Capability T37 010:MalwareCapability-infection/propagation
+A27	StrategicObjectives T37 032:InfectionPropagation-prevent_duplicate_infection
+T38	Object 4590 4596	itself
+R26	CoRefer Referer:T36 Canonical:T38	
+R27	SubjAction Subject:T36 Action:T37	
+R28	ActionObj Action:T37 Object:T38	
+T40	Modifier 4638 4640	on
+T41	Object 4641 4649	a system
+T42	Object 4605 4627	a version of Agent.BTZ
+T39	Action 4628 4637	was found
+A28	Capability T39 015:MalwareCapability-probing
+A29	ActionName T39 030:File-find_file
+A30	StrategicObjectives T39 046:Probing-probe_host_configuration
+R29	ActionMod Action:T39 Modifier:T40	
+R30	ModObj Modifier:T40 Object:T41	
+R31	ActionObj Action:T39 Object:T42	
+R32	SubjAction Subject:T36 Action:T39	
+T43	Object 4764 4787	the shdocvw.tlp library
+T44	Action 4788 4797	is loaded
+A31	ActionName T44 119:ProcessMemory-map_library_into_process
+T45	Modifier 4798 4802	into
+T46	Object 4803 4816	all processes
+R33	ModObj Modifier:T45 Object:T46	
+R34	ActionObj Action:T44 Object:T43	
+R35	ActionMod Action:T44 Modifier:T45	
+T47	Action 2606 2610	load
+A32	ActionName T47 084:Library-load_library
+T48	Object 2611 2622	the library
+T49	Modifier 2623 2627	into
+T50	Object 2628 2650;2651 2682	each and every process executed on the infected system
+R36	ActionObj Action:T47 Object:T48	
+R37	ActionMod Action:T47 Modifier:T49	
+R38	ModObj Modifier:T49 Object:T50	
+T51	Subject 4850 4862	this library
+T52	Action 4863 4872	will load
+A33	ActionName T52 084:Library-load_library
+T53	Object 4873 4910	the other library called credprov.tlb
+R39	SubjAction Subject:T51 Action:T52	
+R40	ActionObj Action:T52 Object:T53	
+T57	Action 5177 5189	is performed
+A34	Capability T57 005:MalwareCapability-command_and_control
+T58	Subject 5193 5212	the browser process
+R41	SubjAction Subject:T58 Action:T57	
+T54	Object 5120 5176	ComRAT’s communication to the command and control server
+R42	ActionObj Action:T57 Object:T54	
+T55	Action 5249 5254	avoid
+A35	Capability T55 002:MalwareCapability-anti-detection
+A36	TacticalObjectives T55 025:AntiDetection-hide_network_traffic
+A37	StrategicObjectives T55 009:AntiDetection-security_software_evasion
+T56	Object 5255 5332	being blocked by a firewall on the system or any additional security products
+R43	ActionObj Action:T55 Object:T56	
+T59	Subject 5390 5400	named pipe
+T60	Action 5374 5386	is performed
+A38	ActionName T60 064:IPC-connect_to_named_pipe
+R44	SubjAction Subject:T59 Action:T60	
+T61	Object 5334 5337;5338 5373	The communication between the processes
+R45	ActionObj Action:T60 Object:T61	
+T62	Action 5467 5478	are created
+A39	Capability T62 017:MalwareCapability-secondary_operation
+A40	ActionName T62 024:File-create_file
+A41	StrategicObjectives T62 052:SecondaryOperation-log_activity
+T63	Object 5453 5466	Two log files
+R46	ActionObj Action:T62 Object:T63	
+T64	Modifier 5479 5485	during
+T65	Object 5486 5507	the malware execution
+R47	ModObj Modifier:T64 Object:T65	
+R48	ActionMod Action:T62 Modifier:T64	
+T66	Object 5509 5536	mskfp32.ocx and msvcrtd.tlb
+R49	CoRefer Referer:T63 Canonical:T66	
+T67	Object 6715 6757	The command and control server information
+T68	Action 6758 6760;6761 6767	is stored
+A42	Capability T68 005:MalwareCapability-command_and_control
+A43	ActionName T68 143:Registry-modify_registry_key_value
+T69	Modifier 6768 6770	in
+T70	Object 6771 6783	the registry
+R50	ActionMod Action:T68 Modifier:T69	
+R51	ModObj Modifier:T69 Object:T70	
+R52	ActionObj Action:T68 Object:T67	
+T71	Subject 7226 7242	the XML log file
+T72	Action 7243 7251	contains
+A44	Capability T72 005:MalwareCapability-command_and_control
+T73	Object 7252 7294	the command and control server information
+A45	StrategicObjectives T72 016:CommandandControl-determine_c2_server
+R53	SubjAction Subject:T71 Action:T72	
+R54	ActionObj Action:T72 Object:T73	
+A46	StrategicObjectives T68 016:CommandandControl-determine_c2_server
+T74	Object 8200 8234	Command and control server domains
+T75	Action 8235 8245	are shared
+A47	Capability T75 005:MalwareCapability-command_and_control
+R55	ActionObj Action:T75 Object:T74	
+T76	Modifier 8246 8253	between
+R56	ActionMod Action:T75 Modifier:T76	
+T77	Object 8254 8273	Uroburos and ComRAT
+R57	ModObj Modifier:T76 Object:T77	
+T78	Subject 8525 8534	Agent.BTZ
+T79	Action 8535 8537	is
+A48	Capability T79 016:MalwareCapability-remote_machine_manipulation
+A49	TacticalObjectives T79 116:RemoteMachineManipulation-compromise_remote_machine
+A50	StrategicObjectives T79 048:RemoteMachineManipulation-access_remote_machine
+T80	Object 8538 8550	a common RAT
+R58	SubjAction Subject:T78 Action:T79	
+R59	ActionObj Action:T79 Object:T80	
+T81	Object 8645 8656	The malware
+T82	Action 8657 8666	is loaded
+R60	ActionObj Action:T82 Object:T81	
+A51	ActionName T82 119:ProcessMemory-map_library_into_process
+T83	Modifier 8667 8671	into
+R61	ActionMod Action:T82 Modifier:T83	
+T84	Object 8672 8718	each and every process of the infected machine
+R62	ModObj Modifier:T83 Object:T84	
+T86	Action 8768 8784	is only executed
+A52	ActionName T86 029:File-execute_file
+T87	Modifier 8785 8787	in
+T88	Object 8788 8800	explorer.exe
+R63	ModObj Modifier:T87 Object:T88	
+R64	ActionMod Action:T86 Modifier:T87	
+T85	Object 8723 8736;8743 8767	the main part (payload) of the malware
+R65	ActionObj Action:T86 Object:T85	
+T89	Subject 8815 8836	the C&C communication
+T90	Action 8837 8843	blends
+A53	Capability T90 002:MalwareCapability-anti-detection
+A54	TacticalObjectives T90 025:AntiDetection-hide_network_traffic
+A55	StrategicObjectives T90 007:AntiDetection-hide_malware_artifacts
+R66	SubjAction Subject:T89 Action:T90	
+T91	Modifier 8844 8848	into
+T92	Object 8855 8880	the usual browser traffic
+R67	ActionMod Action:T90 Modifier:T91	
+R68	ModObj Modifier:T91 Object:T92	
+T19	Action 2194 2201	started
+A10	Capability T19 013:MalwareCapability-persistence
+A11	TacticalObjectives T19 104:Persistence-persist_after_system_reboot
+A12	StrategicObjectives T19 042:Persistence-persist_to_continuously_execute_on_system
+T93	Modifier 2202 2208	during
+R13	ActionMod Action:T19 Modifier:T93	
+R14	ModObj Modifier:T93 Object:T20	
+R69	SubjAction Subject:T18 Action:T19	
+T94	Subject 8885 8896	the malware
+T95	Action 8897 8909	communicates
+A56	Capability T95 005:MalwareCapability-command_and_control
+A57	ActionName T95 064:IPC-connect_to_named_pipe
+T96	Modifier 8910 8912	to
+T97	Modifier 8925 8927	by
+R70	SubjAction Subject:T94 Action:T95	
+R71	ActionMod Action:T95 Modifier:T96	
+T98	Object 8913 8924	the browser
+T99	Object 8928 8938	named pipe
+R72	ModObj Modifier:T96 Object:T98	
+R73	ActionMod Action:T95 Modifier:T97	
+R74	ModObj Modifier:T97 Object:T99	
+T100	Action 9332 9342	is spoofed
+A58	Capability T100 002:MalwareCapability-anti-detection
+A59	TacticalObjectives T100 032:AntiDetection-obfuscate_artifact_properties
+A60	StrategicObjectives T100 009:AntiDetection-security_software_evasion
+T101	Object 9322 9331	this date
+R75	ActionObj Action:T100 Object:T101	

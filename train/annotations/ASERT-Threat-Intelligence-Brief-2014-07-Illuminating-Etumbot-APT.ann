@@ -1,0 +1,263 @@
+T1	Action 1993 2005	calling back
+A1	ActionName T1 096:Network-send_network_packet
+T3	Subject 1960 1973	both families
+T4	Subject 2185 2194	a dropper
+T5	Action 2201 2209	contains
+A2	ActionName T5 024:File-create_file
+A3	Capability T5 012:MalwareCapability-machine_access/control
+A4	StrategicObjectives T5 039:MachineAccessControl-install_backdoor
+T6	Object 2210 2234;2235 2277	the backdoor binary (the second component) and the distraction file
+T7	Subject 3249 3256	dropper
+T8	Action 3257 3265	loads up
+A5	Capability T8 010:MalwareCapability-infection/propagation
+A6	ActionName T8 084:Library-load_library
+A7	StrategicObjectives T8 030:InfectionPropagation-infect_file
+A8	TacticalObjectives T8 093:InfectionPropagation-write_code_into_file
+T9	Object 3266 3317	a resource named "BINARY" from the resource section
+T10	Action 3323 3330	creates
+A9	ActionName T10 008:Directory-create_directory
+T11	Action 3404 3411	creates
+A10	ActionName T11 024:File-create_file
+T12	Action 3478 3485	creates
+A11	ActionName T12 024:File-create_file
+T13	Subject 3917 3955	Most Etumbot samples observed by ASERT
+T14	Action 3956 3960	drop
+A12	ActionName T14 024:File-create_file
+R1	SubjAction Subject:T3 Action:T1	
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+R5	SubjAction Subject:T7 Action:T8	
+R6	ActionObj Action:T8 Object:T9	
+R7	SubjAction Subject:T7 Action:T11	
+R8	SubjAction Subject:T7 Action:T12	
+T15	Object 3961 4009;4010 4106;4107 4127	decoy documents (PDFs, Word Documents, and Excel Spreadsheets) written in Traditional Chinese and usually pertaining to Cross-Strait or Taiwanese Government interests
+R9	SubjAction Subject:T13 Action:T14	
+R10	ActionObj Action:T14 Object:T15	
+T18	Action 7633 7641	contains
+A14	ActionName T18 024:File-create_file
+A15	Capability T18 013:MalwareCapability-persistence
+T19	Subject 7876 7883	dropper
+T20	Action 7889 7894	calls
+A16	ActionName T20 080:Library-call_library_function
+A17	TacticalObjectives T20 090:InfectionPropagation-modify_file
+T21	Object 7959 7970	kb71271.log
+T22	Action 7971 7973;7974 7986	is then deleted
+A18	ActionName T22 028:File-delete_file
+A19	Capability T22 017:MalwareCapability-secondary_operation
+A20	StrategicObjectives T22 027:Destruction-destroy_virtual_entity
+T23	Object 8152 8195	C:\DOCUME~1\User\LOCALS~1\Temp\ka4281x3.log
+R11	SubjAction Subject:T19 Action:T20	
+T17	Subject 7574 7605;7606 7617	C:\DOCUME~1\User\LOCALS~1\Temp\ kb71271.log
+T24	Action 7618 7628	is created
+A13	ActionName T24 024:File-create_file
+R14	SubjAction Subject:T17 Action:T18	
+T16	Action 8196 8206	is created
+A21	ActionName T16 024:File-create_file
+T25	Action 8208 8214	filled
+A22	ActionName T25 036:File-open_file
+A23	TacticalObjectives T25 093:InfectionPropagation-write_code_into_file
+T26	Action 8268 8274	copied
+A24	ActionName T26 043:File-write_to_file
+T27	Object 8410 8431	The ka4281x3.log file
+T28	Action 8440 8447	deleted
+A25	ActionName T28 028:File-delete_file
+A26	TacticalObjectives T28 120:SecondaryOperation-remove_self
+T29	Subject 8486 8497	the dropper
+T30	Action 8533 8541	installs
+A27	ActionName T30 090:Network-download_file
+A28	Capability T30 012:MalwareCapability-machine_access/control
+A29	StrategicObjectives T30 039:MachineAccessControl-install_backdoor
+T31	Action 8622 8629	is sent
+A30	Capability T31 005:MalwareCapability-command_and_control
+A31	ActionName T31 096:Network-send_network_packet
+A32	StrategicObjectives T31 018:CommandandControl-send_data_to_c2_server
+T32	Action 8911 8918	is used
+A33	Capability T32 006:MalwareCapability-data_exfiltration
+A34	StrategicObjectives T32 019:DataExfiltration-obfuscate_data_for_exfiltration
+A36	TacticalObjectives T32 053:DataExfiltration-encrypt_data
+T33	Action 9872 9884	is delivered
+A35	ActionName T33 164:Socket-receive_data_on_socket
+T34	Action 12659 12664	sends
+A37	Capability T34 005:MalwareCapability-command_and_control
+A38	ActionName T34 096:Network-send_network_packet
+A39	StrategicObjectives T34 018:CommandandControl-send_data_to_c2_server
+T35	Subject 12651 12658	the bot
+R17	SubjAction Subject:T35 Action:T34	
+T36	Action 13295 13304	discovers
+A40	Capability T36 015:MalwareCapability-probing
+A41	ActionName T36 016:Disk-monitor_disks
+A42	StrategicObjectives T36 047:Probing-probe_network_configuration
+T37	Action 13841 13851	registered
+A43	Capability T37 005:MalwareCapability-command_and_control
+A44	ActionName T37 096:Network-send_network_packet
+A45	StrategicObjectives T37 018:CommandandControl-send_data_to_c2_server
+A46	TacticalObjectives T37 049:CommandandControl-send_heartbeat_data
+T38	Action 13874 13878	send
+A47	TacticalObjectives T38 049:CommandandControl-send_heartbeat_data
+A48	Capability T38 005:MalwareCapability-command_and_control
+A49	ActionName T38 096:Network-send_network_packet
+A50	StrategicObjectives T38 018:CommandandControl-send_data_to_c2_server
+T39	Subject 13829 13836	the bot
+R18	SubjAction Subject:T39 Action:T37	
+R19	SubjAction Subject:T39 Action:T38	
+T40	Action 16828 16839	is received
+A51	Capability T40 005:MalwareCapability-command_and_control
+A52	ActionName T40 093:Network-receive_network_packet
+A53	StrategicObjectives T40 017:CommandandControl-receive_data_from_c2_server
+T41	Action 16862 16867	makes
+A54	Capability T41 005:MalwareCapability-command_and_control
+A55	ActionName T41 096:Network-send_network_packet
+A56	StrategicObjectives T41 018:CommandandControl-send_data_to_c2_server
+A57	TacticalObjectives T41 049:CommandandControl-send_heartbeat_data
+T42	Subject 16854 16861	the bot
+R20	SubjAction Subject:T42 Action:T41	
+T44	Object 7895 7957	regedit with kb71271.log as a parameter to modify the registry
+R22	ActionObj Action:T20 Object:T44	
+T46	Object 8278 8320	C:\DOCUME~1\User\LOCALS~1\Temp\~t3fcj1.doc
+R25	SubjAction Subject:T29 Action:T30	
+T47	Object 8542 8545;8546 8562	the Etumbot backdoor
+R26	ActionObj Action:T30 Object:T47	
+T48	Object 8633 8636;8637 8697	the Command & Control server that requests an RC4 encryption key
+T49	Object 9888 9895	the bot
+T52	Object 13305 13344	the proxy settings of the local machine
+R30	ActionObj Action:T36 Object:T52	
+T53	Object 13852 13864	with the C&C
+R31	ActionObj Action:T37 Object:T53	
+T54	Object 13879 13893	periodic pings
+R32	ActionObj Action:T38 Object:T54	
+T55	Object 16887 16969	/manage/asp/item.asp?id=<encrypted computer name>&&mux=<encrypted total file size>
+T56	Action 17270 17277	expects
+A58	Capability T56 005:MalwareCapability-command_and_control
+A59	ActionName T56 093:Network-receive_network_packet
+A60	StrategicObjectives T56 017:CommandandControl-receive_data_from_c2_server
+A61	TacticalObjectives T56 052:CommandandControl-validate_data
+T57	Object 17301 17308	the C&C
+T58	Subject 17262 17269	The bot
+R34	SubjAction Subject:T58 Action:T56	
+T59	Action 17371 17375	send
+A62	Capability T59 005:MalwareCapability-command_and_control
+A63	ActionName T59 096:Network-send_network_packet
+A64	StrategicObjectives T59 018:CommandandControl-send_data_to_c2_server
+A65	TacticalObjectives T59 052:CommandandControl-validate_data
+T60	Object 17396 17403	the C&C
+T61	Action 18001 18005	load
+A66	Capability T61 010:MalwareCapability-infection/propagation
+A67	ActionName T61 123:ProcessMemory-write_to_process_memory
+A68	StrategicObjectives T61 030:InfectionPropagation-infect_file
+T62	Subject 17973 17980	Etumbot
+R37	SubjAction Subject:T62 Action:T61	
+T63	Object 18006 18078;18079 18088	strings into memory that has been called “byte strings” and also “string stacking”
+R38	ActionObj Action:T61 Object:T63	
+T2	Modifier 2006 2008	to
+T64	Object 2009 2043	the same Command & Control servers
+R2	ModObj Modifier:T2 Object:T64	
+R39	ActionMod Action:T1 Modifier:T2	
+T65	Object 3331 3397	the directory C:\Documents and Settings\User\Application Data\JAVA
+R40	ActionObj Action:T10 Object:T65	
+R41	SubjAction Subject:T7 Action:T10	
+T66	Object 3412 3423;3424 3472	a temporary file C:\DOCUME~1\User\LOCALS~1\Temp\ka4281x3.log
+R42	ActionObj Action:T11 Object:T66	
+T67	Object 3486 3502;3503 3550	C:\Documents and Settings\User\Application Data\JAVA\JavaSvc.exe
+R43	ActionObj Action:T12 Object:T67	
+T68	Modifier 3551 3555	from
+T69	Object 3556 3590	the aforementioned BINARY resource
+R44	ModObj Modifier:T68 Object:T69	
+R45	ActionMod Action:T12 Modifier:T68	
+T70	Object 7574 7605;7606 7617	C:\DOCUME~1\User\LOCALS~1\Temp\ kb71271.log
+R13	ActionObj Action:T24 Object:T70	
+R12	ActionObj Action:T22 Object:T21	
+R15	ActionObj Action:T16 Object:T23	
+R23	ActionObj Action:T25 Object:T23	
+T45	Modifier 8215 8219	with
+T71	Object 8220 8235;8236 8257	contents of the bait/distraction file
+R46	ModObj Modifier:T45 Object:T71	
+R47	ActionMod Action:T25 Modifier:T45	
+T72	Modifier 8275 8277	to
+R24	ModObj Modifier:T72 Object:T46	
+R48	ActionObj Action:T26 Object:T23	
+R49	ActionMod Action:T26 Modifier:T72	
+R16	ActionObj Action:T28 Object:T27	
+T73	Object 8599 8621	an initial HTTP beacon
+T74	Modifier 8630 8632	to
+R27	ActionObj Action:T31 Object:T73	
+R50	ActionMod Action:T31 Modifier:T74	
+R51	ModObj Modifier:T74 Object:T48	
+T75	Modifier 8919 8921	to
+T76	Object 8894 8905	the RC4 key
+T77	Object 8922 8929;8930 8954	encrypt subsequent communication
+R53	ActionMod Action:T32 Modifier:T75	
+R54	ModObj Modifier:T75 Object:T77	
+R52	ActionObj Action:T32 Object:T76	
+T78	Object 9860 9871	the RC4 key
+T79	Modifier 9885 9887	to
+R28	ModObj Modifier:T79 Object:T49	
+R55	ActionObj Action:T33 Object:T78	
+R56	ActionMod Action:T33 Modifier:T79	
+T50	Object 12665 12699;12700 12796;12797 12894;12895 12948	a registration callback to the C&C /image/<encrypted data>.jpg containing the encrypted values of system information to include the NetBIOS name of the system, user name, IP address, if the system is using a proxy (Yes/No), and a numeric value which may be some type of campaign code
+R29	ActionObj Action:T34 Object:T50	
+T51	Subject 13287 13294	Etumbot
+R57	SubjAction Subject:T51 Action:T36	
+T80	Modifier 16840 16844	from
+T81	Object 16845 16852	the C&C
+T82	Object 16809 16827	a READFILE command
+R58	ActionObj Action:T40 Object:T82	
+R59	ModObj Modifier:T80 Object:T81	
+R60	ActionMod Action:T40 Modifier:T80	
+T83	Object 16868 16883	an initial call
+T84	Modifier 16884 16886	to
+R33	ActionObj Action:T41 Object:T83	
+R61	ActionMod Action:T41 Modifier:T84	
+R62	ModObj Modifier:T84 Object:T55	
+T85	Modifier 17309 17314	after
+T86	Modifier 17296 17300	from
+T87	Object 17315 17336	each response is sent
+T88	Object 17278 17279;17280 17295	a message of “OK”
+R35	ActionObj Action:T56 Object:T88	
+R63	ModObj Modifier:T86 Object:T57	
+R64	ModObj Modifier:T85 Object:T87	
+R65	ActionMod Action:T56 Modifier:T86	
+R66	ActionMod Action:T56 Modifier:T85	
+T89	Object 17139 17147	The data
+T90	Action 17148 17160	is sent back
+A69	Capability T90 005:MalwareCapability-command_and_control
+A70	StrategicObjectives T90 018:CommandandControl-send_data_to_c2_server
+R67	ActionObj Action:T90 Object:T89	
+T91	Modifier 17161 17163	to
+T92	Object 17164 17171	the C&C
+R68	ModObj Modifier:T91 Object:T92	
+T93	Modifier 17172 17175	via
+T94	Object 17176 17183;17184 17260	the URI /article/30441/Review.asp?id=<encoded computer name>&&date=<file chunk data>
+R69	ModObj Modifier:T93 Object:T94	
+R70	ActionMod Action:T90 Modifier:T91	
+R71	ActionMod Action:T90 Modifier:T93	
+T95	Object 17376 17378;17379 17392	an error message
+T96	Modifier 17393 17395	to
+R36	ModObj Modifier:T96 Object:T60	
+R72	ActionObj Action:T59 Object:T95	
+R73	ActionMod Action:T59 Modifier:T96	
+T97	Object 25130 25159	The IP address 98.188.111.244
+T98	Action 25169 25178	been used
+A71	Capability T98 005:MalwareCapability-command_and_control
+T99	Modifier 25179 25181	as
+T100	Object 25182 25187	a C&C
+R74	ModObj Modifier:T99 Object:T100	
+R75	ActionObj Action:T98 Object:T97	
+R76	ActionMod Action:T98 Modifier:T99	
+T101	Modifier 25188 25191	for
+T102	Object 25192 25215	multiple IXESHE samples
+R77	ModObj Modifier:T101 Object:T102	
+R78	ActionMod Action:T98 Modifier:T101	
+T103	Subject 1303 1312	the group
+T104	Action 1313 1317	used
+A72	Capability T104 010:MalwareCapability-infection/propagation
+A73	TacticalObjectives T104 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A74	StrategicObjectives T104 031:InfectionPropagation-infect_remote_machine
+T105	Object 1318 1364	targeted emails with malicious PDF attachments
+R79	ActionObj Action:T104 Object:T105	
+R80	SubjAction Subject:T103 Action:T104	
+T106	Modifier 1365 1367	to
+T107	Object 1368 1402;1403 1472	compromise East Asian governments, Taiwanese electronics manufacturers, and a telecommunications company
+R81	ModObj Modifier:T106 Object:T107	
+R82	ActionMod Action:T104 Modifier:T106	
+T43	Object 7642 7669	the following registry file
+R21	ActionObj Action:T18 Object:T43	

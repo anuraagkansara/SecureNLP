@@ -1,0 +1,39 @@
+T1	Action 1553 1561	performs
+A1	Capability T1 019:MalwareCapability-spying
+A2	TacticalObjectives T1 140:Spying-capture_keyboard_input
+A3	StrategicObjectives T1 061:Spying-capture_system_input_peripheral_data
+T2	Subject 1545 1552	ScanBox
+T3	Object 1562 1581	keylogging of users
+T4	Modifier 1582 1586	when
+T5	Object 1587 1619	they visit a compromised website
+R1	ModObj Modifier:T4 Object:T5	
+R2	SubjAction Subject:T2 Action:T1	
+R3	ActionObj Action:T1 Object:T3	
+R4	ActionMod Action:T1 Modifier:T4	
+T6	Subject 4094 4105	an attacker
+T7	Action 4109 4116	perform
+A4	Capability T7 019:MalwareCapability-spying
+A5	TacticalObjectives T7 140:Spying-capture_keyboard_input
+A6	StrategicObjectives T7 061:Spying-capture_system_input_peripheral_data
+T8	Object 4120 4186	reconnaissance and key logging of visitors to compromised websites
+R5	SubjAction Subject:T6 Action:T7	
+R6	ActionObj Action:T7 Object:T8	
+T9	Action 6404 6412	tracking
+A7	Capability T9 019:MalwareCapability-spying
+A8	TacticalObjectives T9 138:Spying-capture_file_system
+A9	StrategicObjectives T9 064:Spying-capture_system_state_data
+T10	Object 6413 6459	files and drives present on the victim machine
+R7	ActionObj Action:T9 Object:T10	
+T11	Subject 11981 11983	it
+T12	Action 12010 12015	being
+A10	Capability T12 005:MalwareCapability-command_and_control
+T13	Object 12016 12025;12029 12064	a command and control destination for malware
+R8	SubjAction Subject:T11 Action:T12	
+R9	ActionObj Action:T12 Object:T13	
+T14	Subject 19395 19406	the e-mails
+T15	Action 19407 19414	contain
+A11	Capability T15 010:MalwareCapability-infection/propagation
+A12	TacticalObjectives T15 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T16	Object 19418 19451	links to websites hosting ScanBox
+R10	SubjAction Subject:T14 Action:T15	
+R11	ActionObj Action:T15 Object:T16	

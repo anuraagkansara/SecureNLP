@@ -1,0 +1,298 @@
+T1	Subject 437 442	Regin
+T2	Subject 789 800	The malware
+T3	Action 808 814	steals
+T4	Object 815 819	data
+T5	Modifier 820 824	from
+T6	Object 825 841	infected systems
+R1	SubjAction Subject:T2 Action:T3	
+R2	CoRefer Referer:T1 Canonical:T2	
+R3	ActionObj Action:T3 Object:T4	
+R4	ActionMod Action:T3 Modifier:T5	
+R5	ModObj Modifier:T5 Object:T6	
+T7	Action 846 855	disguises
+A1	Capability T7 002:MalwareCapability-anti-detection
+A2	StrategicObjectives T7 009:AntiDetection-security_software_evasion
+T8	Object 856 862	itself
+R6	SubjAction Subject:T2 Action:T7	
+R7	ActionObj Action:T7 Object:T8	
+R8	CoRefer Referer:T2 Canonical:T8	
+T9	Modifier 863 865	as
+T10	Object 866 895	legitimate Microsoft software
+R9	ActionMod Action:T7 Modifier:T9	
+R10	ModObj Modifier:T9 Object:T10	
+T11	Subject 2755 2759	GCHQ
+T13	Action 2760 2766	gained
+A3	Capability T13 012:MalwareCapability-machine_access/control
+R12	SubjAction Subject:T11 Action:T13	
+T17	Subject 3038 3054	a malware attack
+T18	Action 3056 3065	infecting
+A4	Capability T18 010:MalwareCapability-infection/propagation
+T19	Object 3066 3090	the employees’ computers
+R16	SubjAction Subject:T17 Action:T18	
+R17	ActionObj Action:T18 Object:T19	
+T20	Action 3095 3101	giving
+A5	Capability T20 012:MalwareCapability-machine_access/control
+A6	StrategicObjectives T20 038:MachineAccessControl-control_local_machine
+R18	SubjAction Subject:T17 Action:T20	
+T21	Object 3112 3142	total control of their systems
+R19	ActionObj Action:T20 Object:T21	
+T14	Object 2767 2804	access to Belgacom’s internal systems
+R13	ActionObj Action:T13 Object:T14	
+T15	Subject 3153 3157	GCHQ
+T16	Action 3200 3205	steal
+A7	Capability T16 007:MalwareCapability-data_theft
+T22	Object 3206 3210	data
+R14	SubjAction Subject:T15 Action:T16	
+R15	ActionObj Action:T16 Object:T22	
+T12	Subject 3213 3225	The implants
+T23	Action 3242 3249	conduct
+A8	Capability T23 019:MalwareCapability-spying
+T24	Object 3250 3306	surveillance of internal Belgacom company communications
+R11	ActionObj Action:T23 Object:T24	
+R20	SubjAction Subject:T12 Action:T23	
+T25	Action 3345 3351	gather
+A9	Capability T25 007:MalwareCapability-data_theft
+T26	Object 3352 3356	data
+R21	ActionObj Action:T25 Object:T26	
+R22	SubjAction Subject:T12 Action:T25	
+T27	Subject 3668 3675	malware
+T28	Action 3628 3633	avoid
+A10	Capability T28 002:MalwareCapability-anti-detection
+T29	Object 3634 3643	detection
+T30	Action 3648 3657	frustrate
+A11	Capability T30 000:MalwareCapability-anti-behavioral_analysis
+T31	Object 3658 3666	analysis
+R23	ActionObj Action:T30 Object:T31	
+R24	ActionObj Action:T28 Object:T29	
+R25	SubjAction Subject:T27 Action:T28	
+R26	SubjAction Subject:T27 Action:T30	
+T32	Subject 7472 7487	The first stage
+T33	Action 7506 7512	act as
+A12	Capability T33 010:MalwareCapability-infection/propagation
+A13	ActionName T33 006:DeviceDriver-load_driver
+A14	StrategicObjectives T33 030:InfectionPropagation-infect_file
+T34	Object 7513 7539	loaders for a second stage
+R27	SubjAction Subject:T32 Action:T33	
+R28	ActionObj Action:T33 Object:T34	
+T35	Subject 7735 7745	this stage
+T36	Action 7753 7771	loads and executes
+A15	ActionName T36 005:DeviceDriver-load_and_call_driver
+T37	Object 7772 7779	Stage 2
+A16	Capability T36 010:MalwareCapability-infection/propagation
+A17	StrategicObjectives T36 030:InfectionPropagation-infect_file
+R29	SubjAction Subject:T35 Action:T36	
+R30	ActionObj Action:T36 Object:T37	
+T38	Subject 7782 7799	The Regin loaders
+T39	Action 7805 7821	are disguised as
+A18	Capability T39 002:MalwareCapability-anti-detection
+A19	ActionName T39 004:DeviceDriver-emulate_driver
+T40	Object 7822 7839	Microsoft drivers
+R31	SubjAction Subject:T38 Action:T39	
+R32	ActionObj Action:T39 Object:T40	
+T41	Subject 7991 8002	the loaders
+T42	Action 7956 7965	Mimicking
+A20	Capability T42 002:MalwareCapability-anti-detection
+A21	ActionName T42 004:DeviceDriver-emulate_driver
+R33	SubjAction Subject:T41 Action:T42	
+T43	Object 7966 7983	Microsoft drivers
+R34	ActionObj Action:T42 Object:T43	
+T44	Action 8013 8021	disguise
+A22	Capability T44 002:MalwareCapability-anti-detection
+T45	Object 8022 8050	their presence on the system
+A23	StrategicObjectives T44 009:AntiDetection-security_software_evasion
+R35	ActionObj Action:T44 Object:T45	
+A24	StrategicObjectives T39 009:AntiDetection-security_software_evasion
+A25	StrategicObjectives T42 009:AntiDetection-security_software_evasion
+T46	Action 8055 8061	appear
+A26	Capability T46 002:MalwareCapability-anti-detection
+A27	StrategicObjectives T46 009:AntiDetection-security_software_evasion
+R36	SubjAction Subject:T41 Action:T44	
+R37	SubjAction Subject:T41 Action:T46	
+T47	Object 8062 8077	less suspicious
+R38	ActionObj Action:T46 Object:T47	
+T48	Modifier 8078 8080	to
+R39	ActionMod Action:T46 Modifier:T48	
+T49	Object 8081 8113	host intrusion detection systems
+R40	ModObj Modifier:T48 Object:T49	
+T50	Subject 8191 8193	it
+T51	Action 8194 8200	cleans
+A28	Capability T51 017:MalwareCapability-secondary_operation
+A29	ActionName T51 028:File-delete_file
+A30	StrategicObjectives T51 054:SecondaryOperation-remove_traces_of_infection
+A31	TacticalObjectives T51 120:SecondaryOperation-remove_self
+T52	Object 8201 8229	traces of the initial loader
+R41	SubjAction Subject:T50 Action:T51	
+R42	ActionObj Action:T51 Object:T52	
+T53	Action 8231 8236	loads
+A32	ActionName T53 029:File-execute_file
+T54	Object 8237 8265	the next part of the toolkit
+R43	ActionObj Action:T53 Object:T54	
+R44	SubjAction Subject:T50 Action:T53	
+T55	Action 8270 8278	monitors
+A33	Capability T55 017:MalwareCapability-secondary_operation
+A34	StrategicObjectives T55 052:SecondaryOperation-log_activity
+T56	Object 8279 8292	its execution
+R45	ActionObj Action:T55 Object:T56	
+R46	SubjAction Subject:T50 Action:T55	
+T57	Subject 8306 8313	Stage 2
+T58	Action 8325 8334	disinfect
+A35	Capability T58 017:MalwareCapability-secondary_operation
+A36	ActionName T58 028:File-delete_file
+A37	StrategicObjectives T58 055:SecondaryOperation-suicide_exit
+A38	TacticalObjectives T58 120:SecondaryOperation-remove_self
+T59	Object 8335 8338;8339 8357	the compromised device
+T60	Modifier 8294 8296	On
+T61	Object 8297 8304	failure
+R47	ActionMod Action:T58 Modifier:T60	
+R48	ModObj Modifier:T60 Object:T61	
+R49	SubjAction Subject:T57 Action:T58	
+R50	ActionObj Action:T58 Object:T59	
+R51	CoRefer Referer:T50 Canonical:T57	
+T62	Subject 8359 8370	The malware
+T63	Action 8371 8381	zeroes out
+A39	Capability T63 017:MalwareCapability-secondary_operation
+A40	ActionName T63 034:File-modify_file
+A41	StrategicObjectives T63 054:SecondaryOperation-remove_traces_of_infection
+A42	TacticalObjectives T63 121:SecondaryOperation-remove_system_artifacts
+T64	Object 8382 8459	its PE (Portable Executable, the Windows executable format) headers in memory
+R52	ActionObj Action:T63 Object:T64	
+R53	SubjAction Subject:T62 Action:T63	
+T65	Action 8461 8470	replacing
+A43	Capability T65 017:MalwareCapability-secondary_operation
+A44	ActionName T65 034:File-modify_file
+A45	StrategicObjectives T65 054:SecondaryOperation-remove_traces_of_infection
+A46	TacticalObjectives T65 121:SecondaryOperation-remove_system_artifacts
+T66	Object 8471 8475	“MZ”
+R54	ActionObj Action:T65 Object:T66	
+T67	Modifier 8476 8480	with
+T68	Object 8481 8494;8495 8512	its own magic marker 0xfedcbafe
+R55	ModObj Modifier:T67 Object:T68	
+R56	ActionMod Action:T65 Modifier:T67	
+R57	SubjAction Subject:T62 Action:T65	
+T69	Subject 8646 8648	It
+T70	Action 8649 8660	initializes
+A47	ActionName T70 029:File-execute_file
+T71	Object 8661 8700	the core components of the architecture
+R58	SubjAction Subject:T69 Action:T70	
+R59	ActionObj Action:T70 Object:T71	
+T72	Action 8705 8710	loads
+A48	ActionName T72 029:File-execute_file
+T73	Object 8711 8732;8733 8740	the next parts of the malware
+R60	ActionObj Action:T72 Object:T73	
+R61	SubjAction Subject:T69 Action:T72	
+T74	Subject 8987 9008	a self-defense engine
+T75	Action 9015 9022	detects
+A49	Capability T75 002:MalwareCapability-anti-detection
+A50	StrategicObjectives T75 009:AntiDetection-security_software_evasion
+R62	SubjAction Subject:T74 Action:T75	
+T76	Object 9026 9056	attempts to detect the toolkit
+R63	ActionObj Action:T75 Object:T76	
+T77	Action 9082 9091	encrypted
+A51	Capability T77 006:MalwareCapability-data_exfiltration
+A52	TacticalObjectives T77 053:DataExfiltration-encrypt_data
+A53	StrategicObjectives T77 019:DataExfiltration-obfuscate_data_for_exfiltration
+T78	Object 9092 9106	communications
+R64	ActionObj Action:T77 Object:T78	
+T79	Subject 8944 8957	These modules
+T80	Action 8962 8969	include
+A54	Capability T80 007:MalwareCapability-data_theft
+T81	Object 8970 8985	data collectors
+R65	ActionObj Action:T80 Object:T81	
+R66	SubjAction Subject:T79 Action:T80	
+T82	Action 8962 8969	include
+A55	Capability T82 019:MalwareCapability-spying
+A56	TacticalObjectives T82 145:Spying-capture_system_network_traffic
+A57	StrategicObjectives T82 064:Spying-capture_system_state_data
+R67	SubjAction Subject:T79 Action:T82	
+T83	Object 9108 9123;9124 9132	network capture programs
+R68	ActionObj Action:T82 Object:T83	
+R69	SubjAction Subject:T79 Action:T77	
+T84	Object 9138 9175	remote controllers of different kinds
+T85	Action 8962 8969	include
+A58	Capability T85 012:MalwareCapability-machine_access/control
+A59	TacticalObjectives T85 100:MachineAccessControl-control_machine_via_remote_command
+A60	StrategicObjectives T85 038:MachineAccessControl-control_local_machine
+R70	SubjAction Subject:T79 Action:T85	
+R71	ActionObj Action:T80 Object:T84	
+T86	Subject 9418 9432	a Regin driver
+T87	Action 9408 9414	loaded
+T88	Object 9273 9281	a sample
+R72	ActionObj Action:T87 Object:T88	
+R73	SubjAction Subject:T86 Action:T87	
+A61	ActionName T87 029:File-execute_file
+T89	Action 9451 9458	provide
+A62	Capability T89 002:MalwareCapability-anti-detection
+T90	Object 9459 9480	stealth functionality
+T91	Subject 9437 9439	it
+R74	SubjAction Subject:T91 Action:T89	
+R75	ActionObj Action:T89 Object:T90	
+T92	Modifier 9481 9484	for
+T93	Object 9485 9497	the tool kit
+R76	ModObj Modifier:T92 Object:T93	
+R77	ActionMod Action:T89 Modifier:T92	
+R78	CoRefer Referer:T88 Canonical:T91	
+T94	Subject 9726 9734	programs
+T95	Action 9674 9680	access
+A63	Capability T95 007:MalwareCapability-data_theft
+A64	ActionName T95 038:File-read_from_file
+A65	StrategicObjectives T95 023:DataTheft-steal_stored_information
+R79	SubjAction Subject:T94 Action:T95	
+T96	Object 9681 9724	information stored in the computer’s memory
+R80	ActionObj Action:T95 Object:T96	
+T97	Action 9917 9927	was dumped
+A66	Capability T97 017:MalwareCapability-secondary_operation
+A67	ActionName T97 028:File-delete_file
+A68	StrategicObjectives T97 054:SecondaryOperation-remove_traces_of_infection
+A69	TacticalObjectives T97 121:SecondaryOperation-remove_system_artifacts
+T98	Object 9908 9916	the file
+R81	ActionObj Action:T97 Object:T98	
+T99	Modifier 9928 9932	from
+T100	Object 9933 9939	memory
+R82	ActionMod Action:T97 Modifier:T99	
+R83	ModObj Modifier:T99 Object:T100	
+T101	Subject 11537 11547	the driver
+T102	Action 11548 11554	zeroes
+A70	Capability T102 017:MalwareCapability-secondary_operation
+A71	ActionName T102 028:File-delete_file
+A72	StrategicObjectives T102 054:SecondaryOperation-remove_traces_of_infection
+A73	TacticalObjectives T102 121:SecondaryOperation-remove_system_artifacts
+R84	SubjAction Subject:T101 Action:T102	
+T103	Object 11555 11566	the content
+R85	ActionObj Action:T102 Object:T103	
+T104	Action 11580 11585	avoid
+A74	Capability T104 017:MalwareCapability-secondary_operation
+A75	TacticalObjectives T104 121:SecondaryOperation-remove_system_artifacts
+A76	StrategicObjectives T104 054:SecondaryOperation-remove_traces_of_infection
+T105	Object 11586 11615	leaving traces in pool memory
+R86	SubjAction Subject:T101 Action:T104	
+R87	ActionObj Action:T104 Object:T105	
+T106	Subject 11618 11628	The driver
+T107	Action 11655 11664	check for
+A77	Capability T107 015:MalwareCapability-probing
+A78	TacticalObjectives T107 113:Probing-identify_os
+A79	StrategicObjectives T107 046:Probing-probe_host_configuration
+R88	SubjAction Subject:T106 Action:T107	
+T108	Object 11665 11709	specific builds of the Windows kernel in use
+R89	ActionObj Action:T107 Object:T108	
+T109	Action 11806 11812	adapts
+A80	Capability T109 002:MalwareCapability-anti-detection
+A81	StrategicObjectives T109 010:AntiDetection-self-modification
+T110	Object 11813 11825	its behavior
+R90	SubjAction Subject:T106 Action:T109	
+R91	ActionObj Action:T109 Object:T110	
+T111	Subject 12149 12166	This Regin driver
+T112	Action 12179 12185	checks
+A82	Capability T112 015:MalwareCapability-probing
+A83	StrategicObjectives T112 046:Probing-probe_host_configuration
+T113	Object 12191 12233	the current IRQL (Interrupt Request Level)
+R92	SubjAction Subject:T111 Action:T112	
+R93	ActionObj Action:T112 Object:T113	
+T114	Subject 12600 12610	the driver
+T115	Action 12648 12654	remove
+A84	Capability T115 017:MalwareCapability-secondary_operation
+A85	ActionName T115 028:File-delete_file
+A86	StrategicObjectives T115 054:SecondaryOperation-remove_traces_of_infection
+A87	TacticalObjectives T115 121:SecondaryOperation-remove_system_artifacts
+R94	SubjAction Subject:T114 Action:T115	
+T116	Object 12655 12685	remaining traces and artifacts
+R95	ActionObj Action:T115 Object:T116	

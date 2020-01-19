@@ -1,0 +1,852 @@
+                                             SPECIAL REPORT
+
+
+
+
+OPERATION
+SAFFRON ROSE
+2013
+Authors: Nart Villeneuve, Ned Moran,
+Thoufique Haq and Mike Scott
+
+
+
+
+                                       SECURITY
+                                       REIMAGINED
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+CONTENTS
+Introduction................................................................................................................................................................................................................................................................................................................................................ 2
+
+	Background................................................................................................................................................................................................................................................................................................................................... 2
+
+Attack Vectors...................................................................................................................................................................................................................................................................................................................................... 4
+
+The “Stealer” Malware.................................................................................................................................................................................................................................................................................................... 6
+
+The “Stealer” Builder and Tools......................................................................................................................................................................................................................................................... 11
+
+Command-and-Control Infrastructure.................................................................................................................................................................................................................. 13
+
+Victimology........................................................................................................................................................................................................................................................................................................................................... 15
+
+Attribution.............................................................................................................................................................................................................................................................................................................................................. 16
+
+Conclusion................................................................................................................................................................................................................................................................................................................................................ 19
+
+	              About FireEye, Inc.......................................................................................................................................................................................................................................................................................... 19
+
+
+
+
+1 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+We believe we’re seeing an evolution and development in Iranian-based cyber activity. In
+years past, Iranian actors primarily committed politically-motivated website defacement
+and DDoS attacks.1 More recently, however, suspected Iranian actors have destroyed data
+on thousands of computers with the Shamoon virus,2 and they have penetrated the Navy
+Marine Corps Intranet (NMCI), which is used by the U.S. Navy worldwide.3
+
+
+
+                             In this report, we document the activities of the                                   Background
+                             Ajax Security Team, a hacking group believed to be                                  The transition from patriotic hacking to cyber
+                             operating from Iran. Members of this group have                                     espionage is not an uncommon phenomenon. It
+                             accounts on popular Iranian hacker forums such as                                   typically follows an increasing politicization within
+                             ashiyane[.]org and shabgard[.]org, and they have                                    the hacking community, particularly around
+                             engaged in website defacements under the group                                      geopolitical events. This is followed by increasing
+                             name “AjaxTM” since 2010. By 2014, the Ajax                                         links between the hacking community and the
+                             Security Team had transitioned from performing                                      state, particularly military and/or intelligence
+                             defacements (their last defacement was in                                           organizations.
+                             December 2013) to malware-based espionage,
+                             using a methodology consistent with other                                           In the late 1990’s and early 2000’s, a similar
+                             advanced persistent threat actors in this region.                                   transition occurred within the Chinese hacking
+                                                                                                                 community. During that time period, the Chinese
+                             It is unclear if the Ajax Security Team operates in                                 hacking community engaged in website
+                             isolation or if they are a part of a larger                                         defacements and denial of service attacks in
+                             coordinated effort. The Ajax Security Team itself                                   conjunction with incidents such as the accidental
+                             uses malware tools that do not appear to be                                         bombing of the Chinese embassy in Belgrade in
+                             publicly available. We have seen this group                                         1999, the collision of a U.S. spy plane and a
+                             leverage varied social engineering tactics as a                                     Chinese military plane in 2001, and the Japanese
+                             means to lure their targets into infecting                                          Prime Minister’s controversial visit to the
+                             themselves with malware. Although we have not                                       Yasukuni shrine in 2005.4 Around this time a
+                             observed the use of exploits as a means to infect                                   significant shift in philosophy began to take place.
+                             victims, members of the Ajax Security Team have
+                             previously used publicly available exploit code in                                  Members of the Chinese hacking community that
+                             web site defacement operations.                                                     participated in such attacks soon found that
+                                                                                                                 transitioning to cyber espionage was more
+                             In sum, FireEye has recently observed the Ajax                                      rewarding—both in terms of developing a more
+                             Security Team conducting multiple cyber                                             advanced skill set as well as in monetary
+                             espionage operations against companies in the                                       remuneration. One group known as NCPH
+                             defense industrial base (DIB) within the Unites                                     (Network Crack Program Hacker), whose
+                             States, as well as targeting local Iranian users of                                 founding member “Wicked/Withered Rose” was a
+                             anti-censorship technologies that bypass Iran’s                                     patriotic hacker, made the transition to cyber
+                             Internet filtering system.                                                          espionage by founding a “hacker-for-hire” group
+
+
+
+                             1 HP Security Research. “Threat Intelligence Briefing Episode 11”. February 2014.
+
+                             2 Perlroth, N. “In Cyberattack on Saudi Firm, U.S. Sees Iran Firing Back”. October 2012.
+
+                             3 Gallagher, S. “Iranians hacked Navy network for four months? Not a surprise”. February 2014.
+
+                             4 Key. “Honker Union of China to launch network attacks against Japan is a rumor”. September 2010.
+
+
+2 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             that simultaneously developed an association with                                  Foreign news and opposition websites are
+                             the Chinese military.5 The group began developing                                  routinely blocked in Iran, as are the tools that
+                             zero-day exploits, rootkits and remote access                                      allow users in Iran to bypass these restrictions.11
+                             tools (RATs)—using them in attacks against a                                       One of the key stakeholders in Iran’s Internet
+                             variety of targets including the U.S. Department of                                censorship program is the Iranian Revolutionary
+                             Defense.6 (One of this group’s associates, “whg”, is                               Guard Corps (IRGC), under which the Basij
+                             still active and is believed to have developed one                                 paramilitary organization operates.
+                             variant of the PlugX/SOGU malware.7) The
+                             rationale behind this transition within the Chinese                                The Basij formed the Basij Cyber Council and
+                             hacking community is nicely summed up in a                                         actively recruits hackers in order to develop both
+                             message by the “Honker Union of China” to its                                      defensive and offensive cyber capabilities.12 There
+                             members in 2010:                                                                   is increasing evidence to suggest that the hacker
+                                                                                                                community in Iran is engaged in a transition from
+                             What benefit can hacking a Web page bring our                                      politically motivated defacements and denial of
+                             country and the people? It is only a form of                                       service attacks to cyber espionage activities. This
+                             emotional catharsis, please do not launch any                                      model is consistent with the Basij’s recruitment of
+                             pointless attacks, the real attack is to fatally                                   paramilitary volunteer hackers to “engage in less
+                             damage their network or gain access to their                                       complex hacking or infiltration operations” leaving
+                             sensitive information.8                                                            the more technical operations to entities over
+                                                                                                                which they have increasingly direct control.13
+                             In Iran, the hacking community appears to be
+                             undergoing a similar transformation. While a                                       As such, the capabilities of threat actors operating
+                             variety of Iranian hacker groups had engaged in                                    from Iran have traditionally been considered
+                             politically motivated website defacements, the                                     limited.14 However, the “Shamoon” attacks, which
+                             emergence of the “Iranian Cyber Army” in 2009                                      wiped computers in Saudi Arabia and Qatar,
+                             demonstrated “a concentrated effort to promote                                     indicate an improvement in capabilities.15 And
+                             the Iranian government’s political narrative                                       unsurprisingly, Iran has reportedly increased its
+                             online”.9 They targeted, among others, news                                        efforts to improve offensive capabilities after
+                             organizations, opposition websites and social                                      being targeted by Stuxnet and Flame.16
+                             media.10 This marked the beginning of a large-
+                             scale cyber offensive against the perceived
+                             enemies of the Iranian government.
+
+
+
+                             5	   Elegant, S. “Enemies at The Firewall”. December 2007. Dunham, K. & Melnick, J. “’Wicked Rose’ and the NCPH Hacking Group”.
+
+                                  Wikipedia. “Network Crack Program Hacker Group”.
+
+                             6	   Dunham, K. & Melnick, J. “’Wicked Rose’ and the NCPH Hacking Group”.
+
+                             7	   Blasco, J. “The connection between the Plugx Chinese gang and the latest Internet Explorer Zeroday”. September 2012.
+
+                             8	   Key. “Honker Union of China to launch network attacks against Japan is a rumor”. September 2010.
+
+                             9	   OpenNet Initiative. “After the Green Movement: Internet Controls in Iran 2009 – 2012”. February 2013.
+
+                             10	 Rezvaniyeh, F. “Pulling the Strings of the Net: Iran’s Cyber Army”. February 2010. “Twitter hackers appear to be Shiite group”. December 2009.
+
+                             11	 OpenNet Initiative. “Iran”. June 2009.
+
+                             12	 The IRGC has also indicated that they would welcome hackers that support the Iranian government. Esfandiari, G.
+
+                                  “Iran Says It Welcomes Hackers Who Work For Islamic Republic”. March 2011, HP Security Research.
+
+                                  “Threat Intelligence Briefing Episode 11”. February 2014.
+
+                             13	 BBC Persian. “Structure of Iran’s Cyber Warfare”.
+
+                             14	 Mandiant. “M-Trends: Beyond the Breach, 2014”, page 9. April 2014.
+
+                             15	 Mount, M. “U.S. Officials believe Iran behind recent cyber attacks”. October 2012.
+
+                             16	 Shalal-Esa, A. “Iran strengthened cyber capabilities after Stuxnet: U.S. general”. January 2013, Lim, K. “Iran’s cyber posture”. November 2013.
+
+
+3 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             Attack Vectors                                                                 registered the domain “aeroconf2014[.]org” in
+                             We have observed the Ajax Security Team use a                                  order to impersonate the IEEE Aerospace
+                             variety of vectors to lure targets into installing                             conference—the conference’s actual domain is
+                             malicious software and/or revealing login                                      aeroconf.org—and sent out an email with the
+                             credentials. These attack vectors include sending                              following information:
+                             email, private messages via social media, fake login
+                             pages, and the propagation of anti-censorship                                  From: invite@aeroconf2014[.]org
+                             software that has been infected with malware.                                  Subject: IEEE Aerospace Conference 2014
+
+                             Spear phishing                                                                 The email encouraged users to visit a fake
+                             During our investigation, we discovered that these                             conference website owned by the attackers:
+                             attackers sent targeted emails, as well as private
+                             messages through social media. For example, the                                Upon visiting the website, visitors were notified
+                             attackers targeted companies in the DIB using a                                that they must install “proxy” software in order to
+                             fake conference page as a lure to trick targets into                           access it, which is actually malware.
+                             installing malicious software. The attackers
+
+
+
+
+  Figure 1: The Fake
+  IEEE Aerospace
+  Conference Website
+
+
+
+
+                             7
+                                 Bloomberg. “Neiman Marcus Hackers Set Off 60,000 Alerts While Bagging Credit Card Data.” February 2014.
+
+
+
+
+4 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             Credential Phishing                                                                   political opposition.18 In response to these
+                             The attackers have also used phishing attacks, in                                     restrictions, Iranians have been increasingly using
+                             which they set up Web pages to emulate various                                        software that bypasses such filtering technology.
+                             services that require security credentials. The
+                             attackers tailored these login pages for specific                                     To counter anti-censorship efforts, Iran has
+                             targets in the DIB and spoofed a variety of services                                  attempted to block the use of certain software
+                             such as Outlook Web Access and VPN login pages.                                       tools.19 In 2012, researchers found that an
+                                                                                                                   anti-censorship tool that is primarily used by
+                             If users attempt to login through these fake Web                                      Internet users in Iran was bundled with malware
+                             pages, the attackers collect their login credentials.                                 and redistributed.20
+
+                             Anti-censorship Tools                                                                 Our investigation found that malware-laden
+                             All Internet Service Providers (ISPs) in Iran are                                     versions of legitimate anti-censorship software,
+                             required to implement filtering technology that                                       such as Psiphon and Ultrasurf, were distributed to
+                             censors access to content which the Iranian                                           users Iran and Persian speaking people around the
+                             government deems unacceptable.17 This content                                         world.
+                             includes categories such as pornography and
+
+
+
+
+  Figure 2: The Fake Outlook
+  Web Access page
+
+
+
+
+                             17 OpenNet Initiative. “Iran”. June 2009.
+
+                             18 OpenNet Initiative. “After the Green Movement: Internet Controls in Iran 2009 – 2012”. February 2013.
+
+                             19 Torbati, Y. “Iran blocks use of tool to get around Internet filter”. March 2013.
+
+                             20 Marquis-Boire, M. “Iranian anti-censorship software ‘Simurgh’ circulated with malicious backdoor”. May 2012.
+
+
+5 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             The “Stealer” Malware                                        The IntelRS.exe is written in .NET and is aptly
+                             Host-based Indicators and Malware                            named “Stealer”, as it has various data collection
+                             Functionality                                                modules. It drops and launches AppTransferWiz.dll
+                             We have observed the Ajax Security Team use a                via the following command:
+                             malware family that they identify simply as ‘Stealer’.
+                             They deliver this malware as a malicious executable          “C:\WINDOWS\system32\rundll32.exe” “C:\
+                             (dropper). The executable is a CAB extractor that            Documents and Settings\{USER}\Application
+                             drops the implant IntelRS.exe. This implant, in turn,
+                             drops various other components into C:\                      Data\IntelRapidStart\AppTransferWiz.dll”,#110
+                             Documents and Settings\{USER}\Application
+                             Data\IntelRapidStart\. The following files are               110 is an ordinal that corresponds to “StartBypass”
+                             written to disk in this location:                            export in AppTransferWiz.dll.
+
+
+
+                                             File                                               Functionality
+                               IntelRS.exe             Various stealer components and encryption implementation
+                               DelphiNative.dll        Browser URL extraction, IE Accounts, RDP accounts (Imported by IntelRS.exe)
+
+
+
+                               IntelRS.exe.config      Config containing supported .NET versions for IntelRS.exe
+
+
+                               AppTransferWiz.dll      FTP exfiltration (Launched by IntelRS.exe)
+
+
+
+                               RapidStartTech.stl      Base64 encoded config block containing FTP credentials, implant name, decoy name, screenshot
+                                                       interval and booleans for startup, keylogger and screenshot
+
+
+
+
+  Figure 3: StartBypass
+  Ordinal
+
+
+
+
+6 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             Data exfiltration is conducted over FTP by              •	   Takes various screenshots
+                             AppTransferWiz.dll, which acts as an FTP client.
+                             This DLL is written in Delphi. There is code to         •	   Harvests instant messaging (IM) account
+                             exfiltrate data over HTTP POST as well, but it is            information: GTalk, Pidgin, Yahoo, Skype
+                             unused. We also found incomplete code that would
+                             perform SFTP and SMTP exfiltration, which could         •	   Tracks credentials, bookmarks and history
+                             be completed in a future version.                            from major browsers: Chrome, Firefox, Opera
+
+                             State is maintained between the stealer                 •	   Collects email account information
+                             component IntelRS.exe and the FTP component
+                             AppTransferWiz.DLL using a file from the FTP            •	   Extracts installed proxy software
+                             server “sqlite3.dll”, as well as a global atom               configuration information
+                             “SQLiteFinish”. IntelRS.exe waits in an indefinite
+                             loop, until AppTransferWiz.DLL defines this state.      •	   Harvests data from installed cookies
+
+                             Once the state is set, IntelRS.exe proceeds to          IntelRS.exe loads a Delphi component called
+                             collect data from various areas in the system as        DelphiNative.DLL, which implements some
+                             described below:                                        additional data theft functionality for the following:
+
+                             •	    Collects system information: hostname,            •	   Internet Explorer (IE) accounts
+                                   username, timezone, IP addresses, open ports,
+                                   installed applications, running processes, etc.   •	   Remote Desktop Protocol (RDP) accounts
+
+                             •	    Performs key logging                              •	   Browser URLs
+
+
+
+
+  Figure 4: AppTransferWizard.
+  dll creates sqlite3.dll and
+  global atom
+
+
+
+
+  Figure 5: IntelRS.exe sleeps
+  until global atom is set and
+  sqlite3.dll is present
+
+
+
+
+7 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                                The Stealer component uses common techniques                      Analysis of the malware indicates that the data is
+                                to acquire credential data. For instance, it loads                encrypted via a Rijndael cipher implementation;
+                                vaultcli.DLL and uses various APIs shown below to                 more specifically it uses AES which is a specific set
+                                acquire RDP accounts from the Windows vault.                      of configurations of Rijndael. It uses a key size of
+                                                                                                  256 bytes and block size of 128 bytes, which
+                                Harvested data is encrypted and written to disk on                conforms to the FIPS-197 specification of
+                                the local host. The filenames for these encrypted                 AES-256.21 It utilizes the passphrase ‘HavijeBaba’
+                                files follow this naming scheme:                                  and a salt of ‘salam!*%#’ as an input to PBKDF2
+                                                                                                  (Password-Based Key Derivation Function 2) to
+                                {stolen data type}_{victim system name}_                          derive the key and initialization vector for the
+                                YYYYMMDD_HHMM.Enc                                                 encryption.22 This key derivation implementation in
+                                                                                                  .NET is done using the Rfc2898DeriveBytes
+                                The {stolen data type} parameter indicates where                  class.23 The passphrase and salt are Persian
+                                the data was harvested from (e.g., a Web browser,                 language words. “Havij” means “carrot”, “Baba”
+                                an instant messenger application, installed proxy                 means “father”, and “Salam” is a common greeting
+                                software).                                                        that means “Peace”.
+
+
+
+
+  Figure 6: Acquiring RDP
+  Accounts
+
+
+
+
+                        21
+                             ShawnFa. “The Differences Between Rijndael and AES”. October 2006.
+                        22
+                             Wikipedia. “PBKDF2”.
+                        23
+                             Microsoft. “Rfc2898DeriveBytes Class”.
+
+
+
+
+8 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             Sample Timeline                                        Spoofed Installers
+                             We identified 17 droppers during this research,        Many of the malicious executables (droppers) that
+                             including:                                             we collected were bundled with legitimate
+                                                                                    installers for VPN or proxy software. Examples
+                             •	    9 samples compiled on 2013-02-17 07:00           include:
+
+                             •	    4 samples compiled on 2009-07-13 23:42           •	   6dc7cc33a3cdcfee6c4edb6c085b869d was
+                                                                                         bundled with an installer for Ultrasurf Proxy
+                             •	    3 sample compiled on 2013-10-14 06:48                 software.
+
+                             •	    1 sample compiled on 2013-10-13 09:56            •	   3d26442f06b34df3d5921f89bf680ee9 was
+                                                                                         bundled with an installer for Gerdoovpn
+                             The 2009 compile time appears to have been                  virtual private network software.
+                             forged, while the 2013 compile times may be
+                             legitimate.                                            •	   3efd971db6fbae08e96535478888cff9 was
+                                                                                         bundled with an installer for the Psiphon
+                             In some cases, we found an implant but not the              proxy.
+                             parent dropper. In total, 22 of the 23 implants that
+                             we identified during our research had unique           •	   288c91d6c0197e99b92c06496921bf2f was
+                             compile times ranging from 2013-10-29 until                 bundled with an installer for Proxifier
+                             2014-03-15. We identified two implants that were            software.
+                             both compiled on 2014-3-15 at 23:16. These
+                             compile times appear to be legitimate and coincide     These droppers were also designed to visually
+                             with attempted intrusion activity attributed to        spoof the appearance of the above applications.
+                             these attackers.                                       These droppers contained icons used in the
+                                                                                    legitimate installers for these programs.
+
+
+
+
+  Figure 7: Icon for the Psiphon
+  Anti-censorship Tool
+
+
+
+
+9 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             Process Debug (PDB) Strings
+                             Analysis of the PDB strings seen in the implants      VS_VERSION_INFO
+                             indicates that there may be more than one             VarFileInfo
+                             developer working on the source code for the          Translation
+                             Stealer builder. The following two PDB paths were     StringFileInfo
+                             seen in the collection of implants that we            000004b0
+                             collected:                                            Comments
+                                                                                   Process for Windows
+                             •	    d:\svn\Stealer\source\Stealer\Stealer\obj\      CompanyName
+                                   x86\Release\Stealer.pdb
+                                                                                   Microsoft
+                                                                                   FileDescription
+                             •	    f:\Projects\C#\Stealer\source\Stealer\
+                                                                                   Process for Windows
+                                   Stealer\obj\x86\Release\Stealer.pdb
+                                                                                   FileVersion
+                             These strings indicate that the Stealer source        1.0.0.0
+                             code was stored in two different paths but not        InternalName
+                             necessarily on two different computers. The f:\       Stealer.exe
+                             Projects\ path may be from an external storage        LegalCopyright
+                             device such as a thumb drive. It is therefore         Copyright
+                             possible that only one person has access to the          2013
+                             source code, but keeps a separate repository on       OriginalFilename
+                             an external storage device. Alternatively, the        Stealer.exe
+                             different file paths could be the result of two
+                                                                                   ProductName
+                             different actors storing their source code in two
+                                                                                   Process for Windows
+                             different locations.
+                                                                                   ProductVersion
+                             Builder Artifacts                                     1.0.0.0
+                             In nine of the implants that we collected, we found   Assembly Version
+                             a consistent portable executable (PE) resource        1.0.0.0
+                             with a SHA256 of
+                             5156aca994ecfcb40458ead8c830cd66469d5f5
+                             a031392898d323a8d7a7f23d3. This PE
+                             resource contains the VS_VERSION_INFO. In
+                             layman’s terms, this can best be described as the
+                             metadata describing the executable file. This
+                             specific PE resource contained the
+                             following information:
+
+                             Note the InternalName of ‘Stealer.exe’. This is the
+                             attackers’ name for this malware family.
+
+
+
+
+10 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             The “Stealer” Builder and Tools                             The Builder option enables an attacker to
+                             During our research, we recovered two different             configure a new Stealer backdoor. The user can
+                             tools used by the members of the Ajax Security              configure the new backdoor to connect to a
+                             Team in conjunction with targeted intrusion                 specific CnC server with a personalized username
+                             activities. The first tool, labeled the ‘Stealer Builder’   and password. The attacker can bind the backdoor
+                             was compiled on 2014-04-08. This compile date               to a legitimate application of his or her choosing, or
+                             may indicate that the group is still active.                they can cloak it with an icon designed to make the
+                                                                                         backdoor appear as though it is a legitimate file.
+                             Upon executing the ‘Stealer Builder’ the user is            We also noted that the Builder did not allow the
+                             presented with an option to load the ‘Builder’ or to        attacker to select a new passphrase or salt used to
+                             ‘Decrypt’ logs generated from a victim and                  encrypt the stolen data. The passphrase
+                             exfiltrated to a command-and-control (CnC) server           ‘HavijeBaba’ and a salt of ‘salam!*%#’ are both
+                             under the groups’ control.                                  hardcoded into the builder.
+
+
+
+
+     Figure 8: The Stealer Tool
+
+
+
+
+     Figure 9: The Stealer Builder
+
+
+
+
+11 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             During testing, we observed that backdoors            Base64 encoded text into plaintext. Members of
+                             generated by this Stealer Builder had a timestamp     the Ajax Security Team likely this use tool to
+                             of 2013-12-19. We had one backdoor in our             encode the configuration data seen in
+                             repository with this same timestamp. This sample      RapidStartTech.stl files. As noted above, the
+                                                                                   RapidStartTech.stl contains the backdoor’s FTP
+                             (MD5 1823b77b9ee6296a8b997ffb64d32d21)                credentials, implant name, decoy name, and
+                             was configured to exfiltrate data to ultrasms[.]ir.   screenshot interval, along with boolean settings for
+                             The VS_VERSION_INFO PE resource mentioned             startup, keylogger, and screenshot plugins.
+                             above (SHA256
+                             5156aca994ecfcb40458ead8c830cd66469d5f5               Encoding and decoding Base64 data is a
+                             a031392898d323a8d7a7f23d3) is an artifact of          straightforward task and the standard Linux
+                             the Stealer builder that we recovered. The builder    operating system offers a number of command line
+                             generates an executable named IntelRapidStart.        tools to achieve this task. The presence of a
+                             exe. This executable contains the aforementioned      Windows-based GUI tool that simplifies encoding
+                             VS_VERSION_INFO PE resource.                          and decoding Base64 data indicates that these
+                                                                                   tools may have been developed for less adept
+                             We also recovered a tool designed to encode           users.
+                             plaintext into Base64 encoded text or decode
+
+
+
+
+     Figure 10: Base64 Encoder
+
+
+
+
+12 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                                Command-and-Control Infrastructure                    The website used in the Aerospace Conference
+                                The CnC infrastructure consists of distinct, but      attack was aeroconf2014[.]org, which is registered
+                                linked, clusters that have targeted both the users    to info@usa.gov[.]us. However, historical WHOIS
+                                of anti-censorship tools in Iran as well as defense   information shows that the domain was registered
+                                contractor companies in the U.S.                      by keyvan.ajaxtm@gmail[.]com—the same domain
+                                                                                      used to register ajaxtm[.]org, the website of the
+                                The first cluster contains the domain used in the     Ajax Security Team. The same email addresses
+                                Aerospace Conference attack as well as the            were used to register variations of domain names
+                                domains used in phishing attacks designed to          associated with popular services provided by
+                                capture user credentials:                             companies such as Google, Facebook, Yahoo and
+                                                                                      LinkedIn.
+
+
+
+
+     Figure 11: Ajax Security
+     Team’s Phishing
+     Infrastructure
+
+
+
+
+13 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             The second cluster comprises the CnC                  domains registered by osshom@yahoo[.]com, many
+                             infrastructure used in the anti-censorship attacks.   of which are consistent with the pattern of
+                             The majority of the samples we analyzed connect       registering domains with associations to Google
+                             to intel-update[.]com and update-mirror[.]com,        and Yahoo services. We also observed crossover
+                             which were registered by james.mateo@aim[.]com.       with a sample that connected to both intel-
+                             The domain intel-update[.]com resolved to the IP      update[.]com and ultrasms[.]ir, which was
+                             address 88.150.227.197, which also hosted             registered by lvlr98@gmail[.]com.
+
+
+
+
+     Figure 12: Ajax Security
+     Team’s Stealer CnC
+     Infrastructure
+
+
+
+
+   Figure 13: Overlap between the
+   phishing and stealer clusters
+
+
+
+
+14 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             These two clusters are linked by a common IP            found that the majority had either their timezone
+                             address (5.9.244.151), which is used by both ns2.       set to “Iran Standard Time” or had their language
+                             aeroconf2014[.]org and office.windows-                  setting set to Persian:
+                             essentials[.]tk.
+                                                                                     •	    44 had their timezone set to “Iran Standard
+                             A third cluster of activity was found via analysis of         Time” (37 of those also have their language set
+                             1d4d9f6e6fa1a07cb0a66a9ee06d624a. This                        to Persian)
+                             sample is a Stealer variant that connects to the
+                             aforementioned intel-update[.]com as well as            •	    Of the remaining 33, 10 have Persian
+                             plugin-adobe[.]com. The domain plugin-adobe[.]                language settings
+                             com resolved to 81.17.28.235. Other domains
+                             seen resolving to IP address nearby include the         •	    12 have either Proxifier or Psiphon installed
+                             following:                                                    or running (all 12 had a Persian language
+                                                                                           setting and all but one had their timezone set
+                             Aside from the sample connecting to plugin-                   to “Iran Standard Time”)
+                             adobe[.]com, we have not discovered any malware
+                             connecting to these domains.                            The largest concentration of victims is in Iran,
+                                                                                     based on the premise that Persian language
+                             Victimology                                             settings and “Iran Standard Time” correlate the
+                             During our investigation, we were able to recover       victim to be geographically located in Iran. As such,
+                             information on 77 victims from one CnC server           we believe that attackers disguised malware as
+                             that we discovered while analyzing malware              anti-censorship tools in order to target the users of
+                             samples that were disguised as anti-censorship          such tools inside Iran as well as Iranian dissidents
+                             tools. While analyzing the data from the victims, we    outside the country.
+
+
+
+
+                              Domain                          IP                          First Seen                  Last Seen
+                              yahoomail.com.co                81.17.28.227                2013-11-28                  2014-4-10
+                              privacy-google.com              81.17.28.229                2014-02-14                  2014-02-23
+                              xn--google-yri.com              81.17.28.229                2013-12-08                  2014-01-15
+                              appleid.com.co                  81.17.28.231                2014-02-20                  2014-02-20
+                              accounts-apple.com              81.17.28.231                2013-12-31                  2014-02-20
+                              users-facebook.com              81.17.28.231                2014-01-15                  2014-01-15
+                              xn--facebook-06k.com 81.17.28.231                           2013-11-27                  2014-03-07
+
+
+
+
+15 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             Attribution                                                                      several exploits for content management systems
+                             The Ajax Security Team appears to have been                                      and engaged in defacements.25 Initially, the
+                             formed by personas named “HUrr!c4nE!” and                                        defacements seemed to be motivated by a desire
+                             “Cair3x” in 2010.24 Both members were engaged in                                 to demonstrate the group’s prowess—they even
+                             website defacements prior to the forming of the                                  defaced an Iranian government website.26
+                             Ajax Security Team, and both were members of
+                             Iranian hacker forums such as ashiyane[.]org and                                 However, the group appears to have become
+                             shabgard[.]org. Other members include “0day”,                                    increasingly political. For example, in a blog post in
+                             “Mohammad PK” and “Crim3r”. The Ajax Security                                    2012, “Cair3x” announced the targeting of Iran’s
+                             Team website at ajaxtm[.]org had a Web forum                                     political opponents.
+                             with at least 236 members. The group published
+
+
+
+
+  Figure 14: Cair3x’s original
+  blog post and translation
+
+
+
+
+                                            Hacking anti-revolution political and opposition websites
+                                            Hello to everyone, After a while of operating underground
+                                            and enhancing our company’s projects and getting close to
+                                            24 June 2012, and the martyrdom of Ayatollah Dr. Beheshti
+                                            and 72 of Imam Khomeini’s (First and Former supreme
+                                            leader of Iran) followers, we have planned a project/
+                                            initiative to attack anti-revolution and political
+                                            websites against the Islamic Republic. And in late hours
+                                            of Wednesday, June 24, 2012, we attacked these websites
+                                            and defaced them by writing the words “We are young but
+                                            we can” on their websites. This is so the enemies of this
+                                            country know that the blood of our martyr will never be
+                                            in vain and they will always be remembered in the heart
+                                            of gallant Iranians.
+
+
+
+
+                             24
+                                 	   By March 2010 HUrr!c4nE! was identifying as a member of Ajax Security Team in exploit releases http://www.exploit-db.com/exploits/17011/ and the
+
+                                     first defacement archived by Zone-H, which lists both HUrr!c4nE! and Cair3x as members was December 2010 http://www.zone-h.org/mirror/
+
+                                     id/12730879
+                             25
+                                 	   http://osvdb.org/affiliations/1768-ajax-security-team http://www.exploit-db.com/author/?a=3223 http://packetstormsecurity.com/files/author/9928/
+                             26
+                                 	http://www.zone-h.org/mirror/id/13225183
+
+
+16 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             In 2013, the Ajax Security Team, and “HUrr!c4nE!”                                  “HUrr!c4nE!” has the most open/documented
+                             in particular, took part in “#OpIsrael” and                                        Internet persona of the Ajax Security Team. He
+                             “#OpUSA”.27                                                                        registered the ajaxtm[.]org domain name using the
+                                                                                                                email address keyvan.ajaxtm@gmail[.]com. This
+                             By early 2014, the Ajax Security Team appears to                                   was also the email address used to register the
+                             have dwindled. There have been no defacements                                      domain aerospace2014[.]org, which was used in
+                             since December 2013. The website and forum at                                      spear phishing attacks against companies in the
+                             ajaxtm[.]org operated by “HUrr!c4nE!”, aka                                         U.S. and is linked with malware activity directed at
+                             “k3yv4n”, is no longer active.                                                     users of anti-censorship tools in Iran.
+
+
+
+
+    Figure 15: Screenshot of the
+    defacement content used in
+    #OpUSA
+
+
+
+
+                              27
+                                   Ashraf, N. “#OpIsrael: Hacktivists Starting Cyber Attack against Israel on 7th of April”. March 2013. “OpUSA Targeting Government & Financial Sectors on
+
+                                       07 May 2013: Likely Tools, Targets and Mitigating Measures”. May 2013.
+
+
+
+
+17 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                             “HUrr!c4nE!” features prominently in all the                                        For example, the Ajax Security Team could just be
+                             group’s activities and defacements. Although there                                  using anti-censorship tools as a lure because they
+                             has been a decline in public-facing Ajax Security                                   are popular in Iran, in order to engage in activities
+                             Team activity, this coincides with an increase in                                   that would be considered traditional cybercrime. In
+                             malware activity linked to the group’s                                              one case, “HUrr!c4nE!”, using the email address
+                             infrastructure.                                                                     keyvan.ajaxtm@gmail[.]com, has been flagged for
+                                                                                                                 possible fraud by an online retailer. While
+                             • ~2009—Membership in ashiyane.org and                                              “HUrr!c4nE!” is engaged in operations that align
+                             shabgard.org forums                                                                 with Iran’s political objectives, he may also be
+                                                                                                                 dabbling in traditional cybercrime.
+                             • 2010 – 2012—Defacements, Release of exploits
+                             for CMS                                                                             This indicates that there is a considerable grey area
+                                                                                                                 between the cyber espionage capabilities of Iran’s
+                             • 2012 – 2013—Increasing politicization,                                            hacker groups and any direct Iranian government
+                             participation on #OpIsrael, #OpUSA                                                  or military involvement.
+
+                             • 2013 – 2014—Transition to cyber-espionage                                         On the spectrum of state responsibility, these
+                                                                                                                 attacks align with state-encouraged attacks, which
+                             The increasing politicization of the Ajax Security                                  are defined as attacks in which:
+                             Team aligns with the timing of their activities
+                             against the perceived enemies of Iran. In addition                                  Third parties control and conduct the attack, but
+                             to attacking companies in the U.S., they have                                       the national government encourages them as a
+                             targeted domestic users of anti-censorship                                          matter of policy.28
+                             technology.
+                                                                                                                 Recruiting hackers through this model allows Iran
+                             While the objectives of this group are consistent                                   to influence their activities, and provides the
+                             with Iran’s efforts at controlling political dissent                                Iranian government plausible deniability, but a lack
+                             and expanding offensive cyber capabilities, the                                     of direct control also means that the groups may be
+                             relationship between this group and the Iranian                                     unpredictable and engage in unsanctioned attacks.
+                             government remains inconclusive.
+
+
+
+
+ Figure 16: Screenshot
+ of an online retailer’s
+ fraud alert
+
+
+
+
+                             28
+                                  Healey, J. “Beyond Attribution: Seeking National Responsibility for Cyber Attacks”. January 2012.
+
+
+
+
+18 www.fireeye.com
+Fireeye: Operation Saffron Rose 2013
+
+
+
+
+                                     Conclusion                                               About FireEye
+                                     The increased politicization of the Ajax Security        FireEye has invented a purpose-built, virtual
+                                     Team, and the transition from nuisance                   machine-based security platform that provides
+                                     defacements to operations against internal               real-time threat protection to enterprises and
+                                     dissidents and foreign targets, coincides with           governments worldwide against the next
+                                     moves by Iran aimed at increasing offensive cyber        generation of cyber attacks. These highly
+                                     capabilities. While the relationship between actors      sophisticated cyber attacks easily circumvent
+                                     such as the Ajax Security Team and the Iranian           traditional signature-based defenses, such as
+                                     government is unknown, their activities appear to        next-generation firewalls, IPS, anti-virus, and
+                                     align with Iranian government political objectives.      gateways. The FireEye Threat Prevention Platform
+                                                                                              provides real-time, dynamic threat protection
+                                     The capabilities of the Ajax Security Team remain        without the use of signatures to protect an
+                                     unclear. This group uses at least one malware            organization across the primary threat vectors and
+                                     family that is not publicly available. We have not       across the different stages of an attack life cycle.
+                                     directly observed the Ajax Security Team use
+                                     exploits to deliver malware, but it is unclear if they   The core of the FireEye platform is a virtual
+                                     or other Iranian actors are capable of producing or      execution engine, complemented by dynamic
+                                     acquiring exploit code.                                  threat intelligence, to identify and block cyber
+                                                                                              attacks in real time. FireEye has over 1,500
+                                     While the Ajax Security Team’s capabilities remain       customers across more than 40 countries,
+                                     unclear, we know that their current operations           including over 100 of the Fortune 500.
+                                     have been somewhat successful as measured by
+                                     the number of victims seen checking into to an Ajax
+                                     Security Team controlled CnC server. We believe
+                                     that if these actors continue the current pace of
+                                     their operations they will improve their capabilities
+                                     in the mid-term.                                         We thank Kenneth Geers and Jen Weedon for their support and analysis on
+
+                                                                                              these findings.
+
+
+
+
+FireEye, Inc. | 1440 McCarthy Blvd. Milpitas, CA 95035 | 408.321.6300 | 877.FIREEYE (347.3393) | info@fireeye.com | www.fireeye.com
+
+© 2014 FireEye, Inc. All rights reserved. FireEye is a registered trademark of FireEye,
+Inc. All other brands, products, or service names are or may be trademarks or service
+marks of their respective owners. – RPT.OSR.EN-US.082014
+
+
+
+19 www.fireeye.com
+

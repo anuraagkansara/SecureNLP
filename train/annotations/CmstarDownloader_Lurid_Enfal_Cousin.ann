@@ -1,0 +1,129 @@
+T1	Subject 156 178	spear-phishing attacks
+T2	Action 184 188	drop
+T3	Object 189 208	a custom downloader
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+A1	ActionName T2 090:Network-download_file
+T4	Subject 1026 1038	this malware
+T5	Action 1039 1049	enumerates
+T6	Object 1050 1087	libraries’ export address table (EAT)
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+A2	ActionName T5 083:Library-get_function_address
+T7	Subject 4171 4182	that Cmstar
+T8	Action 4183 4187	uses
+T9	Modifier 4188 4190	as
+T10	Object 4165 4170	a URL
+T11	Object 4191 4194;4195 4228	its command and control (C2) location
+R5	SubjAction Subject:T7 Action:T8	
+R6	ActionObj Action:T8 Object:T10	
+R7	ActionMod Action:T8 Modifier:T9	
+R8	ModObj Modifier:T9 Object:T11	
+A3	Capability T8 005:MalwareCapability-command_and_control
+T12	Subject 4320 4326	Cmstar
+T13	Action 4332 4338	create
+T14	Object 4301 4314	HTTP requests
+T15	Modifier 4339 4341	to
+T16	Object 4342 4372	communicate with its C2 server
+R9	SubjAction Subject:T12 Action:T13	
+R10	ActionObj Action:T13 Object:T14	
+R11	ActionMod Action:T13 Modifier:T15	
+R12	ModObj Modifier:T15 Object:T16	
+A4	Capability T13 005:MalwareCapability-command_and_control
+A5	ActionName T13 054:HTTP-send_http_get_request
+T17	Subject 5136 5165	a 752-byte piece of shellcode
+T18	Action 5171 5182	carries out
+T19	Object 5183 5197	communications
+T20	Modifier 5198 5202	with
+T21	Object 5203 5216	the C2 server
+R13	SubjAction Subject:T17 Action:T18	
+R14	ActionObj Action:T18 Object:T19	
+R15	ActionMod Action:T18 Modifier:T20	
+R16	ModObj Modifier:T20 Object:T21	
+T22	Action 5234 5241	sending
+R17	SubjAction Subject:T17 Action:T22	
+T23	Object 5242 5260	HTTP POST requests
+R18	ActionObj Action:T22 Object:T23	
+T24	Modifier 5261 5263	to
+T25	Object 5264 5281	the following URL
+R19	ModObj Modifier:T24 Object:T25	
+R20	ActionMod Action:T22 Modifier:T24	
+A6	Capability T18 005:MalwareCapability-command_and_control
+A7	ActionName T22 058:HTTP-send_http_post_request
+T26	Object 4510 4536	the following registry key
+T27	Subject 4440 4501	The Cmstar sample associated with the MNKIT delivery document
+T28	Action 4502 4509	creates
+T29	Modifier 4537 4539	to
+T30	Object 4540 4579	automatically execute at system startup
+R21	ModObj Modifier:T29 Object:T30	
+R22	SubjAction Subject:T27 Action:T28	
+R23	ActionObj Action:T28 Object:T26	
+R24	ActionMod Action:T28 Modifier:T29	
+A8	ActionName T28 135:Registry-create_registry_key
+T31	Subject 5970 5980	the Trojan
+T32	Action 5981 5988	gathers
+T33	Object 5960 5964	data
+T34	Modifier 5989 5993	from
+T35	Object 5994 6014	the infected machine
+R25	SubjAction Subject:T31 Action:T32	
+R26	ActionObj Action:T32 Object:T33	
+R27	ActionMod Action:T32 Modifier:T34	
+R28	ModObj Modifier:T34 Object:T35	
+A9	Capability T32 015:MalwareCapability-probing
+T36	Subject 6463 6481	the malware author
+T37	Action 6482 6488	writes
+T38	Object 6489 6501	log messages
+T39	Modifier 6502 6504	to
+T40	Object 6505 6527	the ‘DF64159.TMP’ file
+R29	SubjAction Subject:T36 Action:T37	
+R30	ActionObj Action:T37 Object:T38	
+R31	ActionMod Action:T37 Modifier:T39	
+R32	ModObj Modifier:T39 Object:T40	
+A10	Capability T37 017:MalwareCapability-secondary_operation
+A11	StrategicObjectives T37 052:SecondaryOperation-log_activity
+T41	Subject 7312 7333	the Cmstar downloader
+T42	Action 7334 7341	gathers
+T43	Object 7342 7357;7358 7369	system-specific information
+T44	Modifier 7370 7372	to
+T45	Object 7373 7394	send to the C2 server
+R33	SubjAction Subject:T41 Action:T42	
+R34	ActionObj Action:T42 Object:T43	
+R35	ActionMod Action:T42 Modifier:T44	
+R36	ModObj Modifier:T44 Object:T45	
+A12	Capability T42 015:MalwareCapability-probing
+T46	Subject 8572 8589	the Cmstar sample
+T47	Action 8603 8612	looks for
+T48	Object 8613 8668;8669 8687	Kaspersky’s Anti-virus product (avp.exe) running on the compromised system
+R37	SubjAction Subject:T46 Action:T47	
+R38	ActionObj Action:T47 Object:T48	
+A13	Capability T47 002:MalwareCapability-anti-detection
+A14	StrategicObjectives T47 009:AntiDetection-security_software_evasion
+T49	Subject 12232 12247	The Cmstar tool
+T50	Action 12456 12460	used
+T51	Object 12436 12455	a hashing algorithm
+T52	Modifier 12461 12463	to
+T53	Object 12464 12488	find antivirus processes
+T54	Modifier 12489 12491	on
+T55	Object 12492 12510	an infected system
+R39	ModObj Modifier:T54 Object:T55	
+R40	ModObj Modifier:T52 Object:T53	
+R41	ActionObj Action:T50 Object:T51	
+R42	SubjAction Subject:T49 Action:T50	
+R43	ActionMod Action:T50 Modifier:T52	
+R44	ActionMod Action:T50 Modifier:T54	
+A15	Capability T50 002:MalwareCapability-anti-detection
+A16	StrategicObjectives T50 009:AntiDetection-security_software_evasion
+T56	Action 12322 12330;12331 12339	manually creating
+T57	Object 12340 12364	its import address table
+T58	Modifier 12365 12370	using
+T59	Object 12371 12401	an API function name character
+T60	Modifier 12402 12404	to
+T61	Object 12405 12430	offset mapping techniques
+R45	SubjAction Subject:T49 Action:T56	
+R46	ActionObj Action:T56 Object:T57	
+R47	ActionMod Action:T56 Modifier:T58	
+R48	ActionMod Action:T56 Modifier:T60	
+R49	ModObj Modifier:T58 Object:T59	
+R50	ModObj Modifier:T60 Object:T61	
+A17	Capability T56 002:MalwareCapability-anti-detection
+A18	TacticalObjectives T56 019:AntiDetection-execute_stealthy_code

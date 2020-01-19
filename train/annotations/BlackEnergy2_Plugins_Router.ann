@@ -1,0 +1,166 @@
+T1	Action 1259 1268	launching
+A1	Capability T1 004:MalwareCapability-availability_violation
+A2	ActionName T1 088:Network-connect_to_url
+A3	StrategicObjectives T1 015:AvailabilityViolation-consume_system_resources
+A4	TacticalObjectives T1 044:AvailabilityViolation-denial_of_service
+T2	Object 1269 1281	DDoS attacks
+T3	Subject 1228 1246;1247 1254	BlackEnergy custom plugins
+R1	SubjAction Subject:T3 Action:T1	
+R2	ActionObj Action:T1 Object:T2	
+T4	Action 1379 1390	downloading
+A5	Capability T4 017:MalwareCapability-secondary_operation
+A6	TacticalObjectives T4 118:SecondaryOperation-install_secondary_malware
+A7	StrategicObjectives T4 050:SecondaryOperation-install_other_components
+T5	Subject 1346 1358	BlackEnergy2
+T6	Object 1391 1442;1443 1484	more crimeware plugins - a custom spam plugin and a banking information stealer custom plugin
+R3	SubjAction Subject:T5 Action:T4	
+R4	ActionObj Action:T4 Object:T6	
+T7	Action 1628 1634	launch
+A8	Capability T7 004:MalwareCapability-availability_violation
+A9	TacticalObjectives T7 044:AvailabilityViolation-denial_of_service
+A10	StrategicObjectives T7 014:AvailabilityViolation-compromise_system_availability
+T8	Subject 1572 1595	another crimeware group
+T9	Object 1635 1639;1640 1647	DDoS attacks
+R5	SubjAction Subject:T8 Action:T7	
+R6	ActionObj Action:T7 Object:T9	
+T10	Action 2274 2287	is downloaded
+A11	ActionName T10 090:Network-download_file
+A12	Capability T10 005:MalwareCapability-command_and_control
+A13	StrategicObjectives T10 017:CommandandControl-receive_data_from_c2_server
+A14	TacticalObjectives T10 051:CommandandControl-update_configuration
+T11	Object 2293 2303	the server
+T13	Object 2253 2254;2255 2273	a configuration file
+T14	Action 3068 3085	spread and launch
+A15	Capability T14 010:MalwareCapability-infection/propagation
+A16	TacticalObjectives T14 088:InfectionPropagation-identify_target_machine(s)
+A17	StrategicObjectives T14 031:InfectionPropagation-infect_remote_machine
+T15	Subject 3033 3051	The 'vsnet' plugin
+R9	SubjAction Subject:T15 Action:T14	
+T17	Modifier 3164 3169	using
+T18	Action 3189 3196	gaining
+A18	Capability T18 019:MalwareCapability-spying
+A19	StrategicObjectives T18 064:Spying-capture_system_state_data
+T19	Object 3197 3251	primary information on the user's computer and network
+R12	SubjAction Subject:T15 Action:T18	
+T20	Action 3674 3683	delivered
+A20	Capability T20 006:MalwareCapability-data_exfiltration
+A21	TacticalObjectives T20 057:DataExfiltration-exfiltrate_via_network
+A22	StrategicObjectives T20 020:DataExfiltration-perform_data_exfiltration
+T22	Subject 3652 3662	The server
+R14	SubjAction Subject:T22 Action:T20	
+T23	Action 3790 3799	delivered
+A23	Capability T23 017:MalwareCapability-secondary_operation
+A24	TacticalObjectives T23 119:SecondaryOperation-install_secondary_module
+A25	StrategicObjectives T23 050:SecondaryOperation-install_other_components
+T24	Object 3771 3785	the ARM module
+T25	Subject 3803 3818	the same server
+T26	Action 6029 6041	communicated
+A26	Capability T26 005:MalwareCapability-command_and_control
+A27	ActionName T26 096:Network-send_network_packet
+A28	StrategicObjectives T26 017:CommandandControl-receive_data_from_c2_server
+T27	Subject 6006 6028	Linux Hook main module
+T28	Object 6047 6050;6051 6066	the same CnC server
+R18	SubjAction Subject:T27 Action:T26	
+T29	Action 9367 9373	upload
+T30	Object 9374 9390	specific plugins
+T31	Subject 9349 9362	the attackers
+R20	SubjAction Subject:T31 Action:T29	
+R21	ActionObj Action:T29 Object:T30	
+A29	Capability T29 017:MalwareCapability-secondary_operation
+A30	TacticalObjectives T29 118:SecondaryOperation-install_secondary_malware
+T32	Action 11833 11843	controlled
+A31	Capability T32 012:MalwareCapability-machine_access/control
+A32	TacticalObjectives T32 100:MachineAccessControl-control_machine_via_remote_command
+T33	Subject 11819 11832	the attackers
+T34	Object 11844 11861;11862 11869	infected MIPS/ARM devices
+R22	SubjAction Subject:T33 Action:T32	
+T35	Action 16331 16343	spearphished
+A33	Capability T35 010:MalwareCapability-infection/propagation
+A34	TacticalObjectives T35 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T36	Object 16344 16359	an organization
+T37	Subject 16300 16317	The BE2 attackers
+R23	SubjAction Subject:T37 Action:T35	
+R24	ActionObj Action:T35 Object:T36	
+T38	Action 17406 17412	stores
+A35	Capability T38 002:MalwareCapability-anti-detection
+A36	TacticalObjectives T38 016:AntiDetection-encrypt_self
+T39	Object 17413 17435	the downloaded plugins
+T40	Subject 17398 17401	BE2
+R25	SubjAction Subject:T40 Action:T38	
+R26	ActionObj Action:T38 Object:T39	
+T41	Action 17757 17763	pushed
+A37	Capability T41 002:MalwareCapability-anti-detection
+A38	StrategicObjectives T41 007:AntiDetection-hide_malware_artifacts
+T42	Subject 17743 17756	the attackers
+T43	Object 17764 17781	the 'dstr' module
+R27	SubjAction Subject:T42 Action:T41	
+R28	ActionObj Action:T41 Object:T43	
+T44	Action 18579 18590	were hacked
+A39	Capability T44 010:MalwareCapability-infection/propagation
+A40	StrategicObjectives T44 031:InfectionPropagation-infect_remote_machine
+T45	Object 18531 18578	their Cisco routers with different IOS versions
+R29	ActionObj Action:T44 Object:T45	
+T46	Action 19106 19114	download
+A41	Capability T46 017:MalwareCapability-secondary_operation
+A42	TacticalObjectives T46 118:SecondaryOperation-install_secondary_malware
+A43	StrategicObjectives T46 050:SecondaryOperation-install_other_components
+T47	Subject 19086 19096	The script
+T48	Object 19115 19127	ciscoapi.tcl
+R30	SubjAction Subject:T47 Action:T46	
+R31	ActionObj Action:T46 Object:T48	
+T49	Modifier 19128 19132	from
+T50	Action 20767 20777	downloaded
+A44	Capability T50 017:MalwareCapability-secondary_operation
+A45	ActionName T50 090:Network-download_file
+A46	ActionName T38 043:File-write_to_file
+R33	ActionObj Action:T32 Object:T34	
+T51	Object 20791 20822	a handful of different payloads
+R34	ActionObj Action:T50 Object:T51	
+T52	Subject 20740 20747;20748 20766	Siemens "ccprojectmgr.exe"
+R35	SubjAction Subject:T52 Action:T50	
+T53	Action 21778 21786	installs
+A47	Capability T53 017:MalwareCapability-secondary_operation
+A48	ActionName T53 090:Network-download_file
+A49	StrategicObjectives T53 050:SecondaryOperation-install_other_components
+A50	TacticalObjectives T53 118:SecondaryOperation-install_secondary_malware
+T54	Subject 21767 21777	BE dropper
+T55	Object 21787 21797	its driver
+R36	SubjAction Subject:T54 Action:T53	
+R37	ActionObj Action:T53 Object:T55	
+T56	Action 22424 22428	uses
+A51	Capability T56 013:MalwareCapability-persistence
+A52	StrategicObjectives T56 042:Persistence-persist_to_continuously_execute_on_system
+T57	Subject 22415 22418	BE2
+T58	Object 22429 22449	start menu locations
+T59	Modifier 22450 22453	for
+R38	SubjAction Subject:T57 Action:T56	
+R39	ActionObj Action:T56 Object:T58	
+R40	ActionMod Action:T56 Modifier:T59	
+R8	ActionObj Action:T10 Object:T13	
+T60	Modifier 2288 2292	from
+R41	ModObj Modifier:T60 Object:T11	
+R7	ActionMod Action:T10 Modifier:T60	
+T12	Subject 2307 2315	main.dll
+R42	SubjAction Subject:T12 Action:T10	
+T61	Modifier 2316 2318	on
+T62	Object 2319 2337	an infected system
+R43	ModObj Modifier:T61 Object:T62	
+R44	ActionMod Action:T10 Modifier:T61	
+T63	Object 3170 3176	PsExec
+R11	ModObj Modifier:T17 Object:T63	
+T16	Object 3086 3087;3088 3160	a payload (BlackEnergy2 dropper itself at the moment) in the local network
+R10	ActionObj Action:T14 Object:T16	
+R45	ActionMod Action:T14 Modifier:T17	
+R13	ActionObj Action:T18 Object:T19	
+T21	Object 3684 3696	config files
+R15	ActionObj Action:T20 Object:T21	
+R16	SubjAction Subject:T25 Action:T23	
+R17	ActionObj Action:T23 Object:T24	
+T64	Modifier 6042 6046	with
+R19	ActionMod Action:T26 Modifier:T64	
+R46	ModObj Modifier:T64 Object:T28	
+T65	Object 19133 19153	a certain FTP server
+R32	ModObj Modifier:T49 Object:T65	
+R47	ActionMod Action:T46 Modifier:T49	
+T66	Object 22454 22465	persistence
+R48	ModObj Modifier:T59 Object:T66	

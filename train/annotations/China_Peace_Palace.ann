@@ -1,0 +1,25 @@
+T1	Subject 4911 4918	LMS.exe
+T2	Action 4924 4928	load
+T3	Object 4929 4946;4947 4989	any DLL file name dbghelp.dll that is found in the same path
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+A1	ActionName T2 084:Library-load_library
+T4	Subject 5033 5050	The malicious DLL
+T5	Action 5051 5056	loads
+T6	Object 5057 5083	a backdoor binary blob MD5
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+A2	Capability T5 012:MalwareCapability-machine_access/control
+A3	ActionName T5 084:Library-load_library
+A4	StrategicObjectives T5 039:MachineAccessControl-install_backdoor
+T7	Subject 5132 5143	The malware
+T8	Action 5144 5157	connects back
+T9	Modifier 5158 5160	to
+T10	Object 5161 5206	the exploit domain pic.nicklockluckydog[.]org
+T11	Object 5218 5231;5232 5258	the subdomain ssl.nicklockluckydog[.]org
+R5	ModObj Modifier:T9 Object:T10	
+R6	ModObj Modifier:T9 Object:T11	
+R7	SubjAction Subject:T7 Action:T8	
+R8	ActionMod Action:T8 Modifier:T9	
+A5	Capability T8 005:MalwareCapability-command_and_control
+A6	ActionName T8 088:Network-connect_to_url

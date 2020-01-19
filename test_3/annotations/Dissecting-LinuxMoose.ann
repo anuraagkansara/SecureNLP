@@ -1,0 +1,363 @@
+T1	Action 3605 3610	steal
+T2	Subject 3569 3592	The compromised devices
+T3	Object 3611 3638	unencrypted network traffic
+R1	SubjAction Subject:T2 Action:T1	
+R2	ActionObj Action:T1 Object:T3	
+A1	Capability T1 011:MalwareCapability-integrity_violation
+A2	TacticalObjectives T1 098:IntegrityViolation-intercept/manipulate_network_traffic
+A3	StrategicObjectives T1 034:IntegrityViolation-compromise_network_operational_integrity
+T4	Action 3735 3740	steal
+T5	Object 3741 3753	HTTP Cookies
+T6	Modifier 3754 3756	on
+T7	Object 3757 3785	popular social network sites
+R3	ModObj Modifier:T6 Object:T7	
+R4	ActionObj Action:T4 Object:T5	
+R5	ActionMod Action:T4 Modifier:T6	
+A4	Capability T4 007:MalwareCapability-data_theft
+A5	TacticalObjectives T4 066:DataTheft-steal_cookie
+T8	Action 4119 4125	infect
+T9	Object 4126 4139	other devices
+R6	ActionObj Action:T8 Object:T9	
+A6	Capability T8 010:MalwareCapability-infection/propagation
+A7	TacticalObjectives T8 091:InfectionPropagation-perform_autonomous_remote_infection
+A8	StrategicObjectives T8 031:InfectionPropagation-infect_remote_machine
+T10	Action 4110 4114	find
+R7	ActionObj Action:T10 Object:T9	
+A9	Capability T10 010:MalwareCapability-infection/propagation
+A10	TacticalObjectives T10 088:InfectionPropagation-identify_target_machine(s)
+T11	Subject 4268 4273	Moose
+T12	Action 4319 4323	kill
+T13	Object 4324 4346;4347 4439	the processes of other malware families competing for the limited resources offered by the infected embedded system
+R8	SubjAction Subject:T11 Action:T12	
+R9	ActionObj Action:T12 Object:T13	
+A11	ActionName T12 111:Process-kill_process
+T39	Subject 9798 9809	Linux/Moose
+T40	Action 9828 9839	communicate
+T41	Modifier 9840 9844	with
+T42	Object 9845 9887;9888 9930	a set of command and control servers (C&C) that are hardcoded into the malware itself
+R33	SubjAction Subject:T39 Action:T40	
+R34	ModObj Modifier:T41 Object:T42	
+R35	ActionMod Action:T40 Modifier:T41	
+T43	Subject 9975 10003	the configuration C&C server
+T44	Action 10010 10017	provide
+A22	Capability T40 005:MalwareCapability-command_and_control
+T45	Object 10018 10073;10074 10088	configuration information that will affect the behavior of the malware
+R36	ActionObj Action:T44 Object:T45	
+R37	SubjAction Subject:T43 Action:T44	
+A23	Capability T44 005:MalwareCapability-command_and_control
+A24	TacticalObjectives T44 051:CommandandControl-update_configuration
+A25	StrategicObjectives T44 017:CommandandControl-receive_data_from_c2_server
+T46	Subject 11280 11287	the bot
+T47	Action 11301 11306	steal
+T48	Object 11310 11351	HTTP cookies from popular social networks
+R38	SubjAction Subject:T46 Action:T47	
+R39	ActionObj Action:T47 Object:T48	
+A26	Capability T47 007:MalwareCapability-data_theft
+A27	TacticalObjectives T47 066:DataTheft-steal_cookie
+T49	Subject 22163 22174	the malware
+T50	Action 22175 22181	checks
+T51	Modifier 22182 22189	whether
+T52	Object 22190 22232	the file /home/hik/start.sh exists on disk
+R40	SubjAction Subject:T49 Action:T50	
+R41	ActionMod Action:T50 Modifier:T51	
+R42	ModObj Modifier:T51 Object:T52	
+A28	ActionName T50 030:File-find_file
+T62	Action 30379 30385	inject
+T63	Subject 30315 30332	rogue DNS servers
+T64	Action 30337 30342	point
+T65	Object 30343 30359	legitimate sites
+T66	Modifier 30360 30362	to
+T67	Object 30363 30377	phishing sites
+R49	SubjAction Subject:T63 Action:T64	
+R50	ActionObj Action:T64 Object:T65	
+R51	ActionMod Action:T64 Modifier:T66	
+R52	ModObj Modifier:T66 Object:T67	
+A36	Capability T64 010:MalwareCapability-infection/propagation
+A37	TacticalObjectives T64 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A38	StrategicObjectives T64 031:InfectionPropagation-infect_remote_machine
+T68	Object 30386 30393	malware
+R53	ActionObj Action:T62 Object:T68	
+T69	Modifier 30394 30396	in
+T70	Object 30397 30413	downloaded files
+R54	ModObj Modifier:T69 Object:T70	
+R55	ActionMod Action:T62 Modifier:T69	
+A39	Capability T62 002:MalwareCapability-anti-detection
+A40	TacticalObjectives T62 022:AntiDetection-hide_code_in_file
+A41	StrategicObjectives T62 006:AntiDetection-hide_executing_code
+T71	Action 30418 30425	perform
+T72	Object 30426 30451	man-in-the-middle attacks
+R56	SubjAction Subject:T63 Action:T71	
+R57	ActionObj Action:T71 Object:T72	
+A42	Capability T71 011:MalwareCapability-integrity_violation
+A43	TacticalObjectives T71 098:IntegrityViolation-intercept/manipulate_network_traffic
+A44	StrategicObjectives T71 034:IntegrityViolation-compromise_network_operational_integrity
+T73	Action 35502 35509	applied
+T74	Object 35478 35493	The obfuscation
+T75	Modifier 35510 35512	to
+T76	Object 35513 35537;35538 35549	the strings sent through the network
+R58	ModObj Modifier:T75 Object:T76	
+R59	ActionObj Action:T73 Object:T74	
+R60	ActionMod Action:T73 Modifier:T75	
+A45	Capability T73 006:MalwareCapability-data_exfiltration
+A46	TacticalObjectives T73 053:DataExfiltration-encrypt_data
+A47	StrategicObjectives T73 019:DataExfiltration-obfuscate_data_for_exfiltration
+T77	Object 36560 36581	three sets of threads
+T78	Action 36586 36593	created
+R61	ActionObj Action:T78 Object:T77	
+A48	ActionName T78 125:ProcessThread-create_thread
+T80	Subject 39210 39212	it
+T81	Action 39243 39250	connect
+T82	Modifier 39251 39253	on
+T83	Object 39254 39268	TCP port 10073
+R63	ActionMod Action:T81 Modifier:T82	
+R64	ModObj Modifier:T82 Object:T83	
+R65	SubjAction Subject:T80 Action:T81	
+A49	ActionName T81 052:HTTP-send_http_connect_request
+T84	Subject 39273 39275	it
+R66	CoRefer Referer:T80 Canonical:T84	
+T85	Action 39344 39353	considers
+T86	Modifier 39354 39358	that
+T87	Object 39359 39387	the host is already infected
+R67	SubjAction Subject:T84 Action:T85	
+R68	ActionMod Action:T85 Modifier:T86	
+R69	ModObj Modifier:T86 Object:T87	
+A50	Capability T85 010:MalwareCapability-infection/propagation
+A51	StrategicObjectives T85 032:InfectionPropagation-prevent_duplicate_infection
+T88	Action 39397 39403	report
+T89	Object 39404 39406	it
+R70	CoRefer Referer:T89 Canonical:T87	
+R71	ActionObj Action:T88 Object:T89	
+R72	SubjAction Subject:T84 Action:T88	
+T90	Modifier 39415 39417	to
+T91	Object 39418 39439	the report C&C server
+R73	ActionMod Action:T88 Modifier:T90	
+R74	ModObj Modifier:T90 Object:T91	
+A52	Capability T88 005:MalwareCapability-command_and_control
+A53	StrategicObjectives T88 018:CommandandControl-send_data_to_c2_server
+T92	Action 41681 41691	bruteforce
+T93	Subject 41662 41664	It
+T94	Object 41692 41708	the login prompt
+R75	SubjAction Subject:T93 Action:T92	
+R76	ActionObj Action:T92 Object:T94	
+T95	Modifier 41718 41722	with
+T96	Object 41723 41775;41776 41809	a username and password combination list it received from the configuration C&C server
+R77	ModObj Modifier:T95 Object:T96	
+R78	ActionMod Action:T92 Modifier:T95	
+A54	Capability T92 004:MalwareCapability-availability_violation
+A55	TacticalObjectives T92 043:AvailabilityViolation-crack_passwords
+A56	StrategicObjectives T92 015:AvailabilityViolation-consume_system_resources
+T97	Subject 41834 41836	it
+R79	CoRefer Referer:T93 Canonical:T97	
+T98	Action 41842 41848	report
+T99	Object 41849 41862	the intrusion
+T100	Modifier 41863 41865	to
+T101	Object 41866 41876;41877 41887	the report C&C server
+R80	SubjAction Subject:T97 Action:T98	
+R81	ActionObj Action:T98 Object:T99	
+R82	ActionMod Action:T98 Modifier:T100	
+R83	ModObj Modifier:T100 Object:T101	
+A57	Capability T98 005:MalwareCapability-command_and_control
+A58	StrategicObjectives T98 018:CommandandControl-send_data_to_c2_server
+T118	Subject 45705 45710	Moose
+T119	Action 45737 45746	executing
+T120	Object 45747 45755	commands
+T121	Modifier 45756 45758	on
+T122	Object 45759 45776	the victim device
+R98	SubjAction Subject:T118 Action:T119	
+R99	ActionObj Action:T119 Object:T120	
+R100	ModObj Modifier:T121 Object:T122	
+R101	ActionMod Action:T119 Modifier:T121	
+A63	Capability T119 012:MalwareCapability-machine_access/control
+A64	TacticalObjectives T119 100:MachineAccessControl-control_machine_via_remote_command
+A65	StrategicObjectives T119 038:MachineAccessControl-control_local_machine
+T123	Action 47105 47109	send
+T124	Subject 47092 47094	It
+T125	Subject 47049 47054	Moose
+R102	CoRefer Referer:T125 Canonical:T124	
+R103	SubjAction Subject:T124 Action:T123	
+T126	Object 47110 47119	a message
+R104	ActionObj Action:T123 Object:T126	
+T127	Modifier 47120 47122	to
+T128	Object 47123 47133;47134 47144	the report C&C server
+R105	ModObj Modifier:T127 Object:T128	
+R106	ActionMod Action:T123 Modifier:T127	
+A66	Capability T123 005:MalwareCapability-command_and_control
+A67	TacticalObjectives T123 050:CommandandControl-send_system_information
+A68	StrategicObjectives T123 018:CommandandControl-send_data_to_c2_server
+T129	Modifier 47145 47149	with
+T130	Object 47150 47200	what it has learned so far about the target victim
+R107	ModObj Modifier:T129 Object:T130	
+R108	ActionMod Action:T123 Modifier:T129	
+T131	Subject 49390 49411	The report C&C server
+T132	Action 49412 49420	responds
+T133	Modifier 49421 49425	with
+T134	Object 49426 49470	obfuscated commands to execute on the victim
+R109	ModObj Modifier:T133 Object:T134	
+R110	SubjAction Subject:T131 Action:T132	
+R111	ActionMod Action:T132 Modifier:T133	
+A69	Capability T132 005:MalwareCapability-command_and_control
+A70	TacticalObjectives T132 047:CommandandControl-control_malware_via_remote_command
+A71	StrategicObjectives T132 017:CommandandControl-receive_data_from_c2_server
+T135	Subject 52023 52025	it
+T136	Action 52031 52036	reach
+T137	Object 52037 52054;52055 52065	the configuration C&C server
+R112	SubjAction Subject:T135 Action:T136	
+R113	ActionObj Action:T136 Object:T137	
+T138	Action 52067 52073	obtain
+T139	Object 52074 52102	its configuration parameters
+R114	ActionObj Action:T138 Object:T139	
+R115	SubjAction Subject:T135 Action:T138	
+A72	Capability T138 005:MalwareCapability-command_and_control
+A73	TacticalObjectives T138 051:CommandandControl-update_configuration
+A74	StrategicObjectives T138 017:CommandandControl-receive_data_from_c2_server
+T140	Action 54541 54551	redirected
+T141	Object 54485 54505;54506 54533	traffic intended for a certain specified address
+T142	Modifier 54552 54554	to
+T143	Object 54555 54582;54583 54590	another, entirely unrelated address
+R116	ActionObj Action:T140 Object:T141	
+R117	ModObj Modifier:T142 Object:T143	
+R118	ActionMod Action:T140 Modifier:T142	
+A75	Capability T140 011:MalwareCapability-integrity_violation
+A76	TacticalObjectives T140 098:IntegrityViolation-intercept/manipulate_network_traffic
+A77	StrategicObjectives T140 034:IntegrityViolation-compromise_network_operational_integrity
+T144	Subject 56107 56135	the configuration C&C server
+T145	Action 56136 56143	returns
+T146	Object 56144 56172	the public IP address it saw
+T147	Modifier 56173 56177	when
+T148	Object 56178 56217	it was contacted by the infected router
+R119	SubjAction Subject:T144 Action:T145	
+R120	ActionObj Action:T145 Object:T146	
+R121	ActionMod Action:T145 Modifier:T147	
+R122	ModObj Modifier:T147 Object:T148	
+A78	Capability T145 005:MalwareCapability-command_and_control
+A79	StrategicObjectives T145 017:CommandandControl-receive_data_from_c2_server
+T149	Subject 59171 59179	the worm
+T150	Action 59183 59189	spread
+T151	Modifier 59190 59196	inside
+T152	Object 59197 59256;59257 59340	Local Area Networks (LANs) that are not normally accessible from the Internet due to the use of firewalls and network address translation (NAT)
+R123	ModObj Modifier:T151 Object:T152	
+R124	SubjAction Subject:T149 Action:T150	
+R125	ActionMod Action:T150 Modifier:T151	
+A80	Capability T150 010:MalwareCapability-infection/propagation
+A81	TacticalObjectives T150 091:InfectionPropagation-perform_autonomous_remote_infection
+A82	StrategicObjectives T150 031:InfectionPropagation-infect_remote_machine
+T153	Subject 56420 56424	This
+T154	Action 56441 56447	bypass
+T155	Object 56448 56474	firewalls on the perimeter
+R126	SubjAction Subject:T153 Action:T154	
+R127	ActionObj Action:T154 Object:T155	
+A83	Capability T154 018:MalwareCapability-security_degradation
+A84	TacticalObjectives T154 123:SecurityDegradation-disable_firewall
+T156	Subject 64910 64921	Linux/Moose
+T157	Action 64939 64948	listening
+T158	Modifier 64949 64951	on
+T159	Object 64952 64966	TCP port 10073
+T160	Modifier 64967 64970	for
+T161	Object 64971 64991	incoming connections
+R128	ModObj Modifier:T160 Object:T161	
+R129	ModObj Modifier:T158 Object:T159	
+R130	ActionMod Action:T157 Modifier:T158	
+R131	ActionMod Action:T157 Modifier:T160	
+R132	SubjAction Subject:T156 Action:T157	
+A85	ActionName T157 091:Network-listen_on_port
+T162	Subject 65045 65052	the bot
+T163	Action 65037 65041	used
+T164	Object 65022 65033	this server
+T165	Modifier 65053 65055	to
+T166	Object 65056 65091	assess whether a system is infected
+R133	ModObj Modifier:T165 Object:T166	
+R134	SubjAction Subject:T162 Action:T163	
+R135	ActionObj Action:T163 Object:T164	
+R136	ActionMod Action:T163 Modifier:T165	
+A86	Capability T163 010:MalwareCapability-infection/propagation
+A87	StrategicObjectives T163 032:InfectionPropagation-prevent_duplicate_infection
+T167	Subject 65160 65162	it
+T168	Action 65168 65174	result
+T169	Modifier 65175 65177	in
+T170	Object 65178 65193	a TCP handshake
+R137	ModObj Modifier:T169 Object:T170	
+T171	Modifier 65194 65201	without
+T172	Object 65202 65216	a data payload
+R138	ModObj Modifier:T171 Object:T172	
+R139	SubjAction Subject:T167 Action:T168	
+R140	ActionMod Action:T168 Modifier:T169	
+R141	ActionMod Action:T168 Modifier:T171	
+A88	ActionName T168 052:HTTP-send_http_connect_request
+T173	Object 65098 65158	some Linux/Moose scanner thread reaches an opened 10073 port
+R142	CoRefer Referer:T167 Canonical:T173	
+T174	Action 67954 67958	sent
+T175	Object 67943 67950	traffic
+R143	ActionObj Action:T174 Object:T175	
+T176	Modifier 67988 67995	between
+T177	Object 67996 68030;68031 68053	the client of the infected service and the specified host
+R144	ModObj Modifier:T176 Object:T177	
+R145	ActionMod Action:T174 Modifier:T176	
+A89	Capability T174 011:MalwareCapability-integrity_violation
+A90	TacticalObjectives T174 098:IntegrityViolation-intercept/manipulate_network_traffic
+A91	StrategicObjectives T174 034:IntegrityViolation-compromise_network_operational_integrity
+T178	Subject 70223 70234	Linux/Moose
+T179	Action 70246 70255	eavesdrop
+T180	Modifier 70256 70258	on
+T181	Object 70259 70297	traffic going through affected devices
+R146	SubjAction Subject:T178 Action:T179	
+R147	ActionMod Action:T179 Modifier:T180	
+R148	ModObj Modifier:T180 Object:T181	
+A92	Capability T179 011:MalwareCapability-integrity_violation
+A93	TacticalObjectives T179 098:IntegrityViolation-intercept/manipulate_network_traffic
+A94	StrategicObjectives T179 034:IntegrityViolation-compromise_network_operational_integrity
+T182	Subject 71011 71013	It
+T183	Action 71014 71021	creates
+T184	Object 71022 71034	a raw socket
+R149	SubjAction Subject:T182 Action:T183	
+R150	ActionObj Action:T183 Object:T184	
+A95	ActionName T183 159:Socket-create_socket
+T185	Action 71931 71935	sent
+T186	Object 71859 71927	the whole packet including its Ethernet, IP, TCP headers and payload
+T187	Modifier 71949 71951	to
+T188	Object 71952 71973	the report C&C server
+R151	ActionObj Action:T185 Object:T186	
+R152	ActionMod Action:T185 Modifier:T187	
+R153	ModObj Modifier:T187 Object:T188	
+A96	Capability T185 005:MalwareCapability-command_and_control
+A97	StrategicObjectives T185 018:CommandandControl-send_data_to_c2_server
+T189	Subject 73821 73823	it
+T190	Action 73829 73833	send
+T191	Object 73834 73847	a kill signal
+R154	ActionObj Action:T190 Object:T191	
+R155	SubjAction Subject:T189 Action:T190	
+T192	Subject 73535 73540	Moose
+R156	CoRefer Referer:T192 Canonical:T189	
+T193	Modifier 73848 73850	to
+T194	Object 73851 73906	any process that matches any of the blacklisted strings
+R157	ModObj Modifier:T193 Object:T194	
+R158	ActionMod Action:T190 Modifier:T193	
+A98	ActionName T190 111:Process-kill_process
+T195	Object 75943 75958	all of the data
+T196	Subject 75976 75983	the C&C
+T197	Action 75968 75972	sent
+R159	SubjAction Subject:T196 Action:T197	
+R160	ActionObj Action:T197 Object:T195	
+A99	Capability T197 005:MalwareCapability-command_and_control
+A100	StrategicObjectives T197 017:CommandandControl-receive_data_from_c2_server
+T198	Action 75886 75892	update
+T199	Subject 75881 75885	they
+R161	SubjAction Subject:T199 Action:T198	
+T200	Object 75903 75912	variables
+T201	Modifier 75913 75915	in
+T202	Object 75916 75926	the client
+R162	ActionObj Action:T198 Object:T200	
+R163	ModObj Modifier:T201 Object:T202	
+R164	ActionMod Action:T198 Modifier:T201	
+A101	Capability T198 005:MalwareCapability-command_and_control
+A102	TacticalObjectives T198 051:CommandandControl-update_configuration
+A103	StrategicObjectives T198 017:CommandandControl-receive_data_from_c2_server
+T203	Subject 78651 78661	The server
+T204	Action 78662 78669	replies
+T205	Modifier 78670 78674	with
+T206	Object 78675 78708	the configuration for the malware
+R165	SubjAction Subject:T203 Action:T204	
+A104	Capability T204 005:MalwareCapability-command_and_control
+A105	TacticalObjectives T204 051:CommandandControl-update_configuration
+A106	StrategicObjectives T204 017:CommandandControl-receive_data_from_c2_server
+R166	ModObj Modifier:T205 Object:T206	
+R167	ActionMod Action:T204 Modifier:T205	

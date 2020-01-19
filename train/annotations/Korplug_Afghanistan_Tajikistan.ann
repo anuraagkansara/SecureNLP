@@ -1,0 +1,221 @@
+T1	Subject 1487 1515	the employed Korplug samples
+T2	Action 1517 1532	were connecting
+A1	Capability T2 005:MalwareCapability-command_and_control
+T3	Object 1536 1555	the same C&C domain
+T4	Modifier 1533 1535	to
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionMod Action:T2 Modifier:T4	
+R3	ModObj Modifier:T4 Object:T3	
+T5	Subject 1972 1993	Other Korplug samples
+T6	Action 1994 2009	were connecting
+A2	Capability T6 005:MalwareCapability-command_and_control
+T7	Modifier 2010 2012	to
+T8	Object 2013 2065;2066 2080	a different domain name resolving to the same IPs as notebookhk.net
+R4	SubjAction Subject:T5 Action:T6	
+R5	ActionMod Action:T6 Modifier:T7	
+R6	ModObj Modifier:T7 Object:T8	
+T9	Subject 188 214	two larger scale campaigns
+T10	Action 215 224	employing
+A3	Capability T10 012:MalwareCapability-machine_access/control
+A4	StrategicObjectives T10 039:MachineAccessControl-install_backdoor
+T11	Object 225 261	this well-known Remote Access Trojan
+R7	SubjAction Subject:T9 Action:T10	
+R8	ActionObj Action:T10 Object:T11	
+T12	Object 1131 1134;1135 1161	the Korplug RAT (a.k.a .PlugX)
+T13	Action 1225 1229	used
+A5	Capability T13 012:MalwareCapability-machine_access/control
+A6	TacticalObjectives T13 100:MachineAccessControl-control_machine_via_remote_command
+A7	StrategicObjectives T13 038:MachineAccessControl-control_local_machine
+R9	ActionObj Action:T13 Object:T12	
+T14	Object 1233 1234;1235 1267	a large number of targeted attacks
+T15	Modifier 1230 1232	in
+T16	Modifier 1268 1273	since
+T17	Object 1274 1278	2012
+R10	ActionMod Action:T13 Modifier:T15	
+R11	ActionMod Action:T13 Modifier:T16	
+R12	ModObj Modifier:T15 Object:T14	
+R13	ModObj Modifier:T16 Object:T17	
+T18	Subject 5623 5656	Some of the above-mentioned files
+T19	Action 5662 5671	contained
+A8	Capability T19 010:MalwareCapability-infection/propagation
+A9	TacticalObjectives T19 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A10	StrategicObjectives T19 031:InfectionPropagation-infect_remote_machine
+T20	Object 5672 5687	decoy documents
+R14	SubjAction Subject:T18 Action:T19	
+R15	ActionObj Action:T19 Object:T20	
+T21	Object 5731 5749	three binary files
+T22	Action 5750 5762	were dropped
+A11	Capability T22 017:MalwareCapability-secondary_operation
+A12	TacticalObjectives T22 118:SecondaryOperation-install_secondary_malware
+A13	StrategicObjectives T22 050:SecondaryOperation-install_other_components
+R16	ActionObj Action:T22 Object:T21	
+T25	Subject 6134 6149	The Korplug RAT
+T26	Action 6162 6165	use
+A14	ActionName T26 119:ProcessMemory-map_library_into_process
+T27	Object 6166 6189	this side-loading trick
+R19	SubjAction Subject:T25 Action:T26	
+R20	ActionObj Action:T26 Object:T27	
+T28	Action 6257 6261	stay
+A15	Capability T28 002:MalwareCapability-anti-detection
+A16	StrategicObjectives T28 009:AntiDetection-security_software_evasion
+T29	Modifier 6262 6267	under
+T30	Object 6268 6277	the radar
+R21	SubjAction Subject:T25 Action:T28	
+R22	ActionMod Action:T28 Modifier:T29	
+R23	ModObj Modifier:T29 Object:T30	
+T31	Subject 6386 6419	The maliciously crafted documents
+T32	Action 6452 6459	exploit
+A17	Capability T32 010:MalwareCapability-infection/propagation
+T33	Object 6460 6491;6492 6509	the CVE-2012-0158 vulnerability in Microsoft Word
+R24	SubjAction Subject:T31 Action:T32	
+R25	ActionObj Action:T32 Object:T33	
+T34	Subject 8252 8258;8259 8283	One of these ‘alternative RATs’
+T35	Action 8284 8298	was connecting
+A18	Capability T35 005:MalwareCapability-command_and_control
+R26	SubjAction Subject:T34 Action:T35	
+T36	Modifier 8299 8301	to
+T37	Object 8302 8343	a domain also used by the Korplug samples
+R27	SubjAction Subject:T34 Action:T35	
+R28	ActionMod Action:T35 Modifier:T36	
+R29	ModObj Modifier:T36 Object:T37	
+T38	Subject 9527 9538	The malware
+T39	Action 9543 9549	manage
+A19	Capability T39 012:MalwareCapability-machine_access/control
+A20	TacticalObjectives T39 100:MachineAccessControl-control_machine_via_remote_command
+A21	StrategicObjectives T39 038:MachineAccessControl-control_local_machine
+T40	Object 9550 9596	processes and services on the infected machine
+R30	SubjAction Subject:T38 Action:T39	
+R31	ActionObj Action:T39 Object:T40	
+T41	Action 9598 9606	transfer
+A22	ActionName T41 096:Network-send_network_packet
+A23	StrategicObjectives T41 018:CommandandControl-send_data_to_c2_server
+A24	Capability T41 005:MalwareCapability-command_and_control
+T42	Object 9607 9612	files
+T43	Modifier 9613 9615	to
+R32	ActionMod Action:T41 Modifier:T43	
+T44	Object 9625 9628;9629 9639	the C&C server
+R33	ModObj Modifier:T43 Object:T44	
+R34	ActionObj Action:T41 Object:T42	
+T45	Action 9598 9606	transfer
+A25	Capability T45 005:MalwareCapability-command_and_control
+A26	ActionName T45 093:Network-receive_network_packet
+A27	StrategicObjectives T45 017:CommandandControl-receive_data_from_c2_server
+T46	Modifier 9620 9624	from
+R35	ActionMod Action:T45 Modifier:T46	
+R36	ActionObj Action:T45 Object:T42	
+R37	ModObj Modifier:T46 Object:T44	
+T47	Action 9641 9644	run
+A28	Capability T47 012:MalwareCapability-machine_access/control
+A29	TacticalObjectives T47 100:MachineAccessControl-control_machine_via_remote_command
+A30	StrategicObjectives T47 038:MachineAccessControl-control_local_machine
+T48	Object 9645 9659	shell commands
+R38	SubjAction Subject:T38 Action:T47	
+R39	ActionObj Action:T47 Object:T48	
+R40	SubjAction Subject:T38 Action:T45	
+R41	SubjAction Subject:T38 Action:T41	
+T49	Action 9700 9708	connects
+A31	Capability T49 005:MalwareCapability-command_and_control
+A32	ActionName T49 088:Network-connect_to_url
+T50	Subject 9672 9674	It
+R42	SubjAction Subject:T50 Action:T49	
+T51	Modifier 9709 9711	to
+T52	Object 9712 9731	www.dicemention.com
+R43	ActionMod Action:T49 Modifier:T51	
+R44	ModObj Modifier:T51 Object:T52	
+T53	Subject 9891 9903	This malware
+T54	Action 9954 9964	harvesting
+A33	Capability T54 006:MalwareCapability-data_exfiltration
+T55	Object 9965 9970	files
+T56	Modifier 9971 9974	off
+T57	Object 9975 9998	the victim’s hard drive
+T58	Modifier 9999 10011	according to
+T59	Object 10012 10050	criteria set in the configuration file
+R45	ModObj Modifier:T58 Object:T59	
+R46	ActionMod Action:T54 Modifier:T58	
+R47	ActionObj Action:T54 Object:T55	
+R48	ActionMod Action:T54 Modifier:T56	
+R49	ModObj Modifier:T56 Object:T57	
+R50	SubjAction Subject:T53 Action:T54	
+T60	Action 10063 10068	doing
+A34	Capability T60 015:MalwareCapability-probing
+A35	TacticalObjectives T60 110:Probing-check_for_network_drives
+A36	StrategicObjectives T60 047:Probing-probe_network_configuration
+T61	Object 10069 10107;10108 10125	a recursive sweep of all logical fixed and remote drives
+R51	ActionObj Action:T60 Object:T61	
+T62	Subject 10127 10129	it
+R52	SubjAction Subject:T62 Action:T60	
+T63	Action 10147 10155	monitors
+A37	Capability T63 015:MalwareCapability-probing
+A38	ActionName T63 103:NetworkShare-enumerate_network_shares
+A39	StrategicObjectives T63 047:Probing-probe_network_configuration
+A40	TacticalObjectives T63 110:Probing-check_for_network_drives
+T64	Object 10188 10202	network shares
+R53	ActionObj Action:T63 Object:T64	
+T65	Object 10160 10184	attached removable media
+T66	Action 10147 10155	monitors
+A41	Capability T66 015:MalwareCapability-probing
+A42	ActionName T66 015:Disk-list_disks
+A43	StrategicObjectives T66 046:Probing-probe_host_configuration
+R54	ActionObj Action:T66 Object:T65	
+R55	SubjAction Subject:T62 Action:T63	
+R56	SubjAction Subject:T62 Action:T66	
+T67	Modifier 10203 10205	by
+T68	Object 10206 10243	listening to DBT_DEVICEARRIVAL events
+R57	ModObj Modifier:T67 Object:T68	
+R58	ActionMod Action:T63 Modifier:T67	
+R59	ActionMod Action:T66 Modifier:T67	
+T69	Action 10261 10271	collecting
+A44	Capability T69 007:MalwareCapability-data_theft
+T70	Subject 10279 10290	the malware
+T71	Object 10272 10277	files
+R60	SubjAction Subject:T70 Action:T69	
+R61	ActionObj Action:T69 Object:T71	
+T72	Action 10303 10309	gather
+A45	Capability T72 007:MalwareCapability-data_theft
+A46	TacticalObjectives T72 082:DataTheft-steal_web/network_credential
+A47	StrategicObjectives T72 022:DataTheft-steal_authentication_credentials
+T73	Object 10310 10325	saved passwords
+R62	ActionObj Action:T72 Object:T73	
+T74	Action 10303 10309	gather
+A48	Capability T74 007:MalwareCapability-data_theft
+A49	TacticalObjectives T74 064:DataTheft-steal_browser_history
+A50	StrategicObjectives T74 025:DataTheft-steal_user_data
+T75	Object 10327 10350	history of visited URLs
+R63	ActionObj Action:T74 Object:T75	
+T76	Object 10352 10371	account information
+T77	Action 10303 10309	gather
+A51	StrategicObjectives T77 025:DataTheft-steal_user_data
+A52	Capability T77 007:MalwareCapability-data_theft
+R64	ActionObj Action:T77 Object:T76	
+T78	Object 10376 10393	proxy information
+T79	Action 10303 10309	gather
+A53	StrategicObjectives T79 024:DataTheft-steal_system_information
+A54	Capability T79 007:MalwareCapability-data_theft
+R65	ActionObj Action:T79 Object:T78	
+T80	Modifier 10394 10398	from
+T81	Object 10399 10425	the following applications
+R67	SubjAction Subject:T70 Action:T79	
+R66	SubjAction Subject:T70 Action:T77	
+R68	SubjAction Subject:T70 Action:T72	
+R69	SubjAction Subject:T70 Action:T74	
+R70	ActionMod Action:T79 Modifier:T80	
+R71	ActionMod Action:T77 Modifier:T80	
+R72	ActionMod Action:T74 Modifier:T80	
+R73	ActionMod Action:T72 Modifier:T80	
+R74	ModObj Modifier:T80 Object:T81	
+T83	Action 10679 10687	detected
+A55	Capability T83 007:MalwareCapability-data_theft
+T84	Modifier 10688 10690	in
+T82	Object 10645 10678	Some samples of this file stealer
+R75	ActionObj Action:T83 Object:T82	
+R76	ActionMod Action:T83 Modifier:T84	
+T85	Object 10691 10706	these campaigns
+R77	ModObj Modifier:T84 Object:T85	
+T23	Action 5823 5836	being loading
+A56	ActionName T23 119:ProcessMemory-map_library_into_process
+T24	Object 5804 5815;5816 5822	the Korplug trojan
+R17	ActionObj Action:T23 Object:T24	
+T86	Modifier 5837 5841	into
+R18	ActionMod Action:T23 Modifier:T86	
+T87	Object 5842 5848	memory
+R78	ModObj Modifier:T86 Object:T87	

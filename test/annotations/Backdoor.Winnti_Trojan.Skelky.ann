@@ -1,0 +1,10 @@
+T1	Subject 442 448	a tool
+T2	Action 470 476	allows
+T3	Object 477 486	attackers
+T4	Modifier 487 489	to
+T5	Object 502 562	use a password of their choosing to authenticate as any user
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T4	
+R4	ModObj Modifier:T4 Object:T5	
+A1	ActionName T2 209:User-logon_as_user

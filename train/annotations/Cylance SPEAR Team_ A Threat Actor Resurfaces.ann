@@ -1,0 +1,140 @@
+T1	Subject 3402 3413	The malware
+T2	Action 3490 3497	creates
+T3	Object 3498 3507	a Run key
+T4	Modifier 3508 3510	in
+T5	Object 3511 3534	the current user's hive
+R1	ModObj Modifier:T4 Object:T5	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T4	
+R4	SubjAction Subject:T1 Action:T2	
+A1	ActionName T2 135:Registry-create_registry_key
+T6	Subject 3859 3871	the attacker
+T7	Action 3887 3893	upload
+A2	ActionName T7 097:Network-upload_file
+T8	Action 3895 3903	download
+A3	ActionName T8 090:Network-download_file
+T9	Action 3905 3914	enumerate
+A4	Capability T9 019:MalwareCapability-spying
+A5	TacticalObjectives T9 138:Spying-capture_file_system
+T10	Action 3916 3922	delete
+A6	ActionName T10 028:File-delete_file
+T11	Action 3924 3930	search
+A7	ActionName T11 030:File-find_file
+T12	Action 3936 3943	execute
+A8	ActionName T12 029:File-execute_file
+T13	Object 3944 3949	files
+T14	Action 3961 3965	list
+T15	Object 3966 3973	drivers
+T16	Modifier 3974 3976	on
+T17	Object 3977 3987	the system
+R5	ModObj Modifier:T16 Object:T17	
+R6	ActionObj Action:T14 Object:T15	
+R7	ActionMod Action:T14 Modifier:T16	
+A9	Capability T14 015:MalwareCapability-probing
+A10	StrategicObjectives T14 046:Probing-probe_host_configuration
+R8	SubjAction Subject:T6 Action:T7	
+R9	SubjAction Subject:T6 Action:T14	
+R10	SubjAction Subject:T6 Action:T8	
+R11	SubjAction Subject:T6 Action:T9	
+R12	SubjAction Subject:T6 Action:T10	
+R13	SubjAction Subject:T6 Action:T11	
+R14	SubjAction Subject:T6 Action:T12	
+R15	ActionObj Action:T7 Object:T13	
+R16	ActionObj Action:T8 Object:T13	
+R17	ActionObj Action:T9 Object:T13	
+R18	ActionObj Action:T10 Object:T13	
+R19	ActionObj Action:T11 Object:T13	
+R20	ActionObj Action:T12 Object:T13	
+T18	Subject 6354 6366	the backdoor
+T19	Action 6372 6380	look for
+T20	Object 6381 6399	encrypted commands
+T21	Modifier 6400 6406	within
+T22	Object 6407 6420;6421 6441	HTML comments returned from the C2
+R21	ModObj Modifier:T21 Object:T22	
+R22	ActionObj Action:T19 Object:T20	
+R23	SubjAction Subject:T18 Action:T19	
+R24	ActionMod Action:T19 Modifier:T21	
+A11	Capability T19 005:MalwareCapability-command_and_control
+A12	ActionName T19 051:HTTP-receive_http_response
+A13	StrategicObjectives T19 017:CommandandControl-receive_data_from_c2_server
+A14	TacticalObjectives T19 047:CommandandControl-control_malware_via_remote_command
+T57	Subject 9596 9608	the backdoor
+T58	Action 9619 9623	load
+T59	Object 9624 9638;9639 9664	the legitimate system32\msacm32.drv file
+R58	SubjAction Subject:T57 Action:T58	
+R59	ActionObj Action:T58 Object:T59	
+A29	ActionName T58 029:File-execute_file
+T60	Subject 10059 10061	it
+T61	Subject 9948 9951;9952 9968	The backdoor routine
+R60	CoRefer Referer:T61 Canonical:T60	
+T62	Action 10073 10081	spawning
+T63	Object 10082 10099	malicious threads
+R61	SubjAction Subject:T60 Action:T62	
+R62	ActionObj Action:T62 Object:T63	
+A30	ActionName T62 125:ProcessThread-create_thread
+T64	Subject 9762 9774	The backdoor
+T65	Action 9775 9783	contains
+T66	Object 9784 9801	identical exports
+T67	Object 9816 9850;9851 9891	additional dummy function from the legitimate msacm32.drvcalled "StartWork"
+R63	ActionObj Action:T65 Object:T66	
+R64	ActionObj Action:T65 Object:T67	
+R65	SubjAction Subject:T64 Action:T65	
+A31	Capability T65 002:MalwareCapability-anti-detection
+T68	Subject 9434 9446	explorer.exe
+T69	Action 9464 9468	load
+T70	Object 9469 9481	the backdoor
+T71	Modifier 9424 9426	On
+T72	Object 9427 9433	reboot
+R66	ActionObj Action:T69 Object:T70	
+R67	ModObj Modifier:T71 Object:T72	
+R68	SubjAction Subject:T68 Action:T69	
+R69	ActionMod Action:T69 Modifier:T71	
+A32	Capability T69 013:MalwareCapability-persistence
+A33	TacticalObjectives T69 104:Persistence-persist_after_system_reboot
+A34	StrategicObjectives T69 042:Persistence-persist_to_continuously_execute_on_system
+T73	Subject 6594 6606	The backdoor
+T74	Action 6616 6620	make
+T75	Object 6621 6629	requests
+T76	Modifier 6630 6632	to
+T77	Object 6633 6639	the C2
+T78	Modifier 6640 6644	over
+T79	Object 6645 6649	HTTP
+R70	ModObj Modifier:T78 Object:T79	
+R71	ModObj Modifier:T76 Object:T77	
+R72	SubjAction Subject:T73 Action:T74	
+R73	ActionObj Action:T74 Object:T75	
+T80	Modifier 6650 6655	using
+T81	Object 6656 6698	the following parameters in the URI string
+R74	ModObj Modifier:T80 Object:T81	
+R75	ActionMod Action:T74 Modifier:T76	
+R76	ActionMod Action:T74 Modifier:T78	
+R77	ActionMod Action:T74 Modifier:T80	
+A35	Capability T74 005:MalwareCapability-command_and_control
+A36	StrategicObjectives T74 018:CommandandControl-send_data_to_c2_server
+T82	Subject 4168 4178	The binary
+T83	Action 4196 4207	communicate
+T84	Modifier 4208 4210	to
+T85	Object 4211 4247	"www.microsoftservices.proxydns.com"
+R78	ModObj Modifier:T84 Object:T85	
+T86	Modifier 4248 4250	on
+T87	Object 4251 4258	port 80
+T88	Modifier 4259 4264	using
+T89	Object 4265 4300	standard HTTP POST and GET requests
+R79	ModObj Modifier:T88 Object:T89	
+R80	ModObj Modifier:T86 Object:T87	
+R81	SubjAction Subject:T82 Action:T83	
+R82	ActionMod Action:T83 Modifier:T84	
+R83	ActionMod Action:T83 Modifier:T86	
+R84	ActionMod Action:T83 Modifier:T88	
+A37	Capability T83 005:MalwareCapability-command_and_control
+A38	ActionName T83 058:HTTP-send_http_post_request
+T90	Subject 4141 4144;4145 4153	the backdoor
+T91	Action 4159 4166	execute
+T92	Modifier 4095 4103	whenever
+T93	Object 4104 4140	the victim user logs into the system
+R85	ModObj Modifier:T92 Object:T93	
+R86	SubjAction Subject:T90 Action:T91	
+R87	ActionMod Action:T91 Modifier:T92	
+A39	Capability T91 013:MalwareCapability-persistence
+A40	TacticalObjectives T91 104:Persistence-persist_after_system_reboot
+A41	StrategicObjectives T91 042:Persistence-persist_to_continuously_execute_on_system

@@ -1,0 +1,147 @@
+T1	Subject 3466 3471	APT29
+T2	Action 3633 3639	adding
+A1	Capability T2 002:MalwareCapability-anti-detection
+T3	Object 3640 3661	layers of obfuscation
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 10612 10621	the group
+T5	Action 10650 10654	uses
+A2	Capability T5 005:MalwareCapability-command_and_control
+T6	Object 10655 10666;10670 10677	compromised servers
+T7	Modifier 10678 10681	for
+T8	Object 10682 10685	CnC
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+R5	ActionMod Action:T5 Modifier:T7	
+R6	ModObj Modifier:T7 Object:T8	
+T9	Action 12769 12776	acquire
+A3	Capability T9 005:MalwareCapability-command_and_control
+A4	TacticalObjectives T9 047:CommandandControl-control_malware_via_remote_command
+A5	StrategicObjectives T9 017:CommandandControl-receive_data_from_c2_server
+T10	Subject 12675 12679;12735 12742	Each variant
+T11	Object 12790 12806	CnC instructions
+R7	SubjAction Subject:T10 Action:T9	
+R8	ActionObj Action:T9 Object:T11	
+T12	Action 28892 28899	deliver
+A6	Capability T12 005:MalwareCapability-command_and_control
+A7	TacticalObjectives T12 047:CommandandControl-control_malware_via_remote_command
+A8	StrategicObjectives T12 017:CommandandControl-receive_data_from_c2_server
+T13	Object 28900 28903;28935 28951	the second-stage CnC
+R9	ActionObj Action:T12 Object:T13	
+T14	Modifier 28952 28954	to
+T15	Object 28955 28964	HAMERTOSS
+R10	ModObj Modifier:T14 Object:T15	
+R11	ActionMod Action:T12 Modifier:T14	
+T16	Subject 35145 35153	MiniDuke
+T17	Action 35205 35210	using
+A9	Capability T17 005:MalwareCapability-command_and_control
+T18	Object 35211 35218	Twitter
+T19	Modifier 35219 35222	for
+T20	Object 35223 35226	CnC
+R12	SubjAction Subject:T16 Action:T17	
+R13	ActionObj Action:T17 Object:T18	
+R14	ModObj Modifier:T19 Object:T20	
+R15	ActionMod Action:T17 Modifier:T19	
+T21	Action 40583 40589	upload
+A10	Capability T21 006:MalwareCapability-data_exfiltration
+A11	TacticalObjectives T21 057:DataExfiltration-exfiltrate_via_network
+A12	StrategicObjectives T21 020:DataExfiltration-perform_data_exfiltration
+T22	Object 40590 40605	a victim’s data
+T23	Modifier 40606 40608	to
+T24	Object 40609 40624;40635 40642	a cloud storage service
+R16	ActionObj Action:T21 Object:T22	
+R17	ModObj Modifier:T23 Object:T24	
+R18	ActionMod Action:T21 Modifier:T23	
+T25	Action 44441 44448	execute
+A13	Capability T25 012:MalwareCapability-machine_access/control
+A14	TacticalObjectives T25 100:MachineAccessControl-control_machine_via_remote_command
+A15	StrategicObjectives T25 038:MachineAccessControl-control_local_machine
+T26	Object 44449 44457	commands
+T27	Modifier 44458 44461	via
+T28	Object 44485 44495	PowerShell
+R19	ActionObj Action:T25 Object:T26	
+R20	ModObj Modifier:T27 Object:T28	
+R21	ActionMod Action:T25 Modifier:T27	
+T29	Action 44497 44504	execute
+A16	Capability T29 012:MalwareCapability-machine_access/control
+A17	TacticalObjectives T29 100:MachineAccessControl-control_machine_via_remote_command
+A18	StrategicObjectives T29 038:MachineAccessControl-control_local_machine
+T30	Object 44505 44521	a direct command
+R22	ActionObj Action:T29 Object:T30	
+T31	Action 44497 44504	execute
+A19	ActionName T31 029:File-execute_file
+T32	Object 44537 44541	file
+R23	ActionObj Action:T31 Object:T32	
+T33	Action 44546 44550	save
+A20	ActionName T33 024:File-create_file
+T34	Object 44551 44564	an executable
+T35	Modifier 44565 44567	to
+T36	Object 44568 44572	disk
+R24	ActionObj Action:T33 Object:T34	
+R25	ActionMod Action:T33 Modifier:T35	
+R26	ModObj Modifier:T35 Object:T36	
+T37	Action 44577 44584	execute
+A21	ActionName T37 029:File-execute_file
+T38	Object 44585 44587	it
+R27	CoRefer Referer:T34 Canonical:T38	
+R28	ActionObj Action:T37 Object:T38	
+T39	Subject 44757 44767	HAMMERTOSS
+T40	Action 44771 44777	upload
+A22	Capability T40 006:MalwareCapability-data_exfiltration
+A23	TacticalObjectives T40 057:DataExfiltration-exfiltrate_via_network
+A24	StrategicObjectives T40 020:DataExfiltration-perform_data_exfiltration
+T41	Object 44778 44789	information
+T42	Modifier 44790 44794	from
+T43	Object 44855 44870	victim networks
+T44	Modifier 44871 44873	to
+T45	Object 44874 44899;44900 44908	accounts on cloud storage services
+T46	Modifier 44909 44914	using
+T47	Object 44915 44944;44945 44952	login credentials received in Stage 4
+R29	ModObj Modifier:T46 Object:T47	
+R30	SubjAction Subject:T39 Action:T40	
+R31	ActionObj Action:T40 Object:T41	
+R32	ModObj Modifier:T42 Object:T43	
+R33	ModObj Modifier:T44 Object:T45	
+R34	ActionMod Action:T40 Modifier:T42	
+R35	ActionMod Action:T40 Modifier:T44	
+R36	ActionMod Action:T40 Modifier:T46	
+T48	Action 45023 45029	obtain
+A25	ActionName T48 106:Process-enumerate_processes
+T49	Object 45030 45039;45040 45053	a list of running tasks
+R37	ActionObj Action:T48 Object:T49	
+T50	Subject 45007 45019	the backdoor
+R38	SubjAction Subject:T50 Action:T48	
+T51	Action 45054 45068	reconnaissance
+A26	Capability T51 019:MalwareCapability-spying
+T52	Modifier 45069 45071	on
+T53	Object 45072 45082;45083 45090	the victim network
+R39	ActionMod Action:T51 Modifier:T52	
+R40	ModObj Modifier:T52 Object:T53	
+R41	SubjAction Subject:T50 Action:T51	
+T54	Action 45095 45101	upload
+A27	Capability T54 006:MalwareCapability-data_exfiltration
+A28	TacticalObjectives T54 057:DataExfiltration-exfiltrate_via_network
+A29	StrategicObjectives T54 020:DataExfiltration-perform_data_exfiltration
+T55	Object 45102 45104	it
+R42	CoRefer Referer:T49 Canonical:T55	
+R43	ActionObj Action:T54 Object:T55	
+T56	Modifier 45105 45107	to
+T57	Object 45108 45131;45132 45153	a specific account on a cloud storage service
+T58	Modifier 45154 45159	using
+T59	Object 45160 45181	the login credentials
+R44	ModObj Modifier:T58 Object:T59	
+R45	ModObj Modifier:T56 Object:T57	
+R46	ActionMod Action:T54 Modifier:T56	
+R47	ActionMod Action:T54 Modifier:T58	
+R48	SubjAction Subject:T50 Action:T54	
+T60	Subject 48786 48791	APT29
+T61	Action 48841 48846	avoid
+A30	Capability T61 002:MalwareCapability-anti-detection
+T62	Object 48847 48856	detection
+R49	ActionObj Action:T61 Object:T62	
+T63	Action 48841 48846	avoid
+A31	Capability T63 003:MalwareCapability-anti-removal
+T64	Object 48862 48869	removal
+R50	ActionObj Action:T63 Object:T64	
+R51	SubjAction Subject:T60 Action:T63	
+R52	SubjAction Subject:T60 Action:T61	

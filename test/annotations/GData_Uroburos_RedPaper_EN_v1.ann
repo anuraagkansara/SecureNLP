@@ -1,0 +1,131 @@
+T1	Subject 4050 4099	a very complex and sophisticated piece of malware
+T2	Action 4113 4118	steal
+A1	Capability T2 007:MalwareCapability-data_theft
+A2	StrategicObjectives T2 023:DataTheft-steal_stored_information
+T3	Object 4119 4136	confidential data
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 4464 4475	The rootkit
+T5	Action 4487 4491	take
+A3	Capability T5 012:MalwareCapability-machine_access/control
+A4	TacticalObjectives T5 100:MachineAccessControl-control_machine_via_remote_command
+A5	StrategicObjectives T5 038:MachineAccessControl-control_local_machine
+T6	Object 4492 4522	control of an infected machine
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+T7	Action 4524 4531	execute
+A6	Capability T7 012:MalwareCapability-machine_access/control
+A7	TacticalObjectives T7 100:MachineAccessControl-control_machine_via_remote_command
+A8	StrategicObjectives T7 038:MachineAccessControl-control_local_machine
+T8	Object 4532 4550	arbitrary commands
+R5	ActionObj Action:T7 Object:T8	
+R6	SubjAction Subject:T4 Action:T7	
+T9	Action 4555 4559	hide
+A9	Capability T9 002:MalwareCapability-anti-detection
+A10	StrategicObjectives T9 007:AntiDetection-hide_malware_artifacts
+T10	Object 4560 4566;4567 4577	system activities
+R7	SubjAction Subject:T4 Action:T9	
+R8	ActionObj Action:T9 Object:T10	
+T11	Subject 4579 4581	It
+T12	Action 4586 4591	steal
+A11	Capability T12 007:MalwareCapability-data_theft
+T13	Object 4592 4603	information
+R9	SubjAction Subject:T11 Action:T12	
+R10	ActionObj Action:T12 Object:T13	
+T14	Action 4649 4656	capture
+A12	Capability T14 011:MalwareCapability-integrity_violation
+A13	TacticalObjectives T14 098:IntegrityViolation-intercept/manipulate_network_traffic
+A14	StrategicObjectives T14 034:IntegrityViolation-compromise_network_operational_integrity
+T15	Object 4657 4672	network traffic
+T16	Subject 4630 4632	it
+R11	SubjAction Subject:T16 Action:T14	
+R12	ActionObj Action:T14 Object:T15	
+R13	CoRefer Referer:T4 Canonical:T11	
+R14	CoRefer Referer:T11 Canonical:T16	
+T17	Action 5522 5531	commanded
+A15	Capability T17 012:MalwareCapability-machine_access/control
+A16	TacticalObjectives T17 100:MachineAccessControl-control_machine_via_remote_command
+A17	StrategicObjectives T17 038:MachineAccessControl-control_local_machine
+T18	Modifier 5532 5534	by
+T19	Object 5535 5555	the remote attackers
+T20	Object 5474 5491	infected machines
+R15	ActionObj Action:T17 Object:T20	
+R16	ModObj Modifier:T18 Object:T19	
+R17	ActionMod Action:T17 Modifier:T18	
+T21	Action 5645 5651	infect
+A18	Capability T21 010:MalwareCapability-infection/propagation
+A19	TacticalObjectives T21 091:InfectionPropagation-perform_autonomous_remote_infection
+T22	Object 5652 5668	further machines
+T23	Subject 5622 5633	the malware
+T24	Modifier 5669 5675	within
+T25	Object 5676 5687	the network
+R18	SubjAction Subject:T23 Action:T21	
+A20	StrategicObjectives T21 031:InfectionPropagation-infect_remote_machine
+R19	ActionObj Action:T21 Object:T22	
+R20	ModObj Modifier:T24 Object:T25	
+R21	ActionMod Action:T21 Modifier:T24	
+T26	Subject 5732 5734	It
+R22	CoRefer Referer:T23 Canonical:T26	
+T27	Action 5739 5742	spy
+A21	Capability T27 019:MalwareCapability-spying
+T28	Modifier 5743 5745	on
+T29	Object 5746 5777	each and every infected machine
+R23	SubjAction Subject:T26 Action:T27	
+R24	ActionMod Action:T27 Modifier:T28	
+R25	ModObj Modifier:T28 Object:T29	
+T30	Action 5793 5797	send
+A22	Capability T30 006:MalwareCapability-data_exfiltration
+A23	TacticalObjectives T30 057:DataExfiltration-exfiltrate_via_network
+A24	StrategicObjectives T30 020:DataExfiltration-perform_data_exfiltration
+T31	Object 5798 5825	the exfiltrated information
+T32	Modifier 5831 5833	to
+T33	Object 5834 5847	the attackers
+R26	ModObj Modifier:T32 Object:T33	
+R27	ActionObj Action:T30 Object:T31	
+R28	ActionMod Action:T30 Modifier:T32	
+R29	SubjAction Subject:T26 Action:T30	
+T34	Modifier 5849 5851	by
+T35	Object 5852 5882;5883 5948	relaying this exfiltrated data through infected machines to one machine with Internet connection
+R30	ModObj Modifier:T34 Object:T35	
+R31	ActionMod Action:T30 Modifier:T34	
+T36	Action 12301 12305	hide
+A25	Capability T36 002:MalwareCapability-anti-detection
+T37	Object 12306 12320	its activities
+T38	Modifier 12321 12325	from
+T39	Object 12326 12334	the user
+T40	Subject 12347 12355	Uroburos
+R32	SubjAction Subject:T40 Action:T36	
+R33	ActionObj Action:T36 Object:T37	
+R34	ModObj Modifier:T38 Object:T39	
+R35	ActionMod Action:T36 Modifier:T38	
+T41	Action 18975 18983	generate
+A26	Capability T41 019:MalwareCapability-spying
+A27	TacticalObjectives T41 145:Spying-capture_system_network_traffic
+T42	Object 18984 19017	a snapshot of the network traffic
+R36	ActionObj Action:T41 Object:T42	
+T43	Subject 18956 18968	this feature
+R37	SubjAction Subject:T43 Action:T41	
+T44	Subject 19322 19335	the attackers
+T45	Action 19350 19353	use
+A28	Capability T45 006:MalwareCapability-data_exfiltration
+A29	TacticalObjectives T45 057:DataExfiltration-exfiltrate_via_network
+A30	StrategicObjectives T45 020:DataExfiltration-perform_data_exfiltration
+T46	Object 19354 19363	a website
+T47	Modifier 19364 19366	to
+T48	Object 19367 19382	exfiltrate data
+R38	SubjAction Subject:T44 Action:T45	
+R39	ActionObj Action:T45 Object:T46	
+R40	ActionMod Action:T45 Modifier:T47	
+R41	ModObj Modifier:T47 Object:T48	
+T49	Action 22155 22162	pass on
+A31	Capability T49 011:MalwareCapability-integrity_violation
+A32	TacticalObjectives T49 098:IntegrityViolation-intercept/manipulate_network_traffic
+A33	StrategicObjectives T49 034:IntegrityViolation-compromise_network_operational_integrity
+T50	Object 22163 22197	all data received from machine (A)
+T51	Subject 22132 22143	machine (B)
+T52	Modifier 22198 22200	to
+T53	Object 22201 22204;22205 22213	the Internet
+R42	SubjAction Subject:T51 Action:T49	
+R43	ActionObj Action:T49 Object:T50	
+R44	ModObj Modifier:T52 Object:T53	
+R45	ActionMod Action:T49 Modifier:T52	

@@ -1,0 +1,122 @@
+T6	Subject 6542 6559	Seaduke operators
+T7	Action 6560 6566	upload
+A4	Capability T7 005:MalwareCapability-command_and_control
+A5	ActionName T7 097:Network-upload_file
+A6	StrategicObjectives T7 018:CommandandControl-send_data_to_c2_server
+T8	Object 6578 6583	files
+T9	Modifier 6593 6595	to
+T10	Object 6596 6608;6609 6633	the command- and-control (C&C) server
+R5	ModObj Modifier:T9 Object:T10	
+R6	ActionObj Action:T7 Object:T8	
+R7	SubjAction Subject:T6 Action:T7	
+R1	ActionMod Action:T7 Modifier:T9	
+T1	Action 7121 7129	retrieve
+A1	Capability T1 007:MalwareCapability-data_theft
+A2	StrategicObjectives T1 024:DataTheft-steal_system_information
+T2	Object 7130 7161	detailed bot/system information
+R2	ActionObj Action:T1 Object:T2	
+T3	Action 7163 7169	update
+A3	Capability T3 005:MalwareCapability-command_and_control
+A7	TacticalObjectives T3 051:CommandandControl-update_configuration
+A8	StrategicObjectives T3 017:CommandandControl-receive_data_from_c2_server
+T4	Object 7170 7187	bot configuration
+R3	ActionObj Action:T3 Object:T4	
+T5	Action 7189 7195	upload
+A9	ActionName T5 097:Network-upload_file
+T11	Object 7196 7201	files
+R4	ActionObj Action:T5 Object:T11	
+T12	Action 7203 7211	download
+A10	ActionName T12 090:Network-download_file
+T13	Object 7212 7217	files
+R8	ActionObj Action:T12 Object:T13	
+T14	Action 7223 7228;7229 7235	self- delete
+A11	Capability T14 017:MalwareCapability-secondary_operation
+A12	TacticalObjectives T14 120:SecondaryOperation-remove_self
+T15	Object 7236 7247	the malware
+T16	Modifier 7248 7252	from
+T17	Object 7253 7263	the system
+R9	ModObj Modifier:T16 Object:T17	
+R10	ActionObj Action:T14 Object:T15	
+R11	ActionMod Action:T14 Modifier:T16	
+T32	Subject 7096 7100	They
+R22	SubjAction Subject:T32 Action:T1	
+R23	SubjAction Subject:T32 Action:T3	
+R24	SubjAction Subject:T32 Action:T5	
+R25	SubjAction Subject:T32 Action:T12	
+R26	SubjAction Subject:T32 Action:T14	
+T33	Subject 2409 2423	the Duke group
+T34	Action 2433 2439	target
+A21	Capability T34 010:MalwareCapability-infection/propagation
+A22	TacticalObjectives T34 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T35	Object 2440 2447	victims
+T36	Modifier 2448 2452	with
+T37	Object 2453 2504;2505 2542	â€œOffice Monkeysâ€​- and â€œeFaxâ€​-themed emails, booby-trapped with a Cozyduke payload
+R27	ModObj Modifier:T36 Object:T37	
+R28	ActionObj Action:T34 Object:T35	
+R29	ActionMod Action:T34 Modifier:T36	
+R30	SubjAction Subject:T33 Action:T34	
+T38	Subject 1355 1368	the operators
+T39	Action 1374 1381	install
+A23	Capability T39 017:MalwareCapability-secondary_operation
+A24	TacticalObjectives T39 118:SecondaryOperation-install_secondary_malware
+T40	Object 1382 1389	Seaduke
+R31	ActionObj Action:T39 Object:T40	
+R32	SubjAction Subject:T38 Action:T39	
+T41	Modifier 1303 1305	if
+T42	Object 1306 1353	the computer appears to be a target of interest
+R33	ActionMod Action:T39 Modifier:T41	
+R34	ModObj Modifier:T41 Object:T42	
+T43	Subject 3913 3922	the group
+T44	Action 3923 3933	instructed
+A25	Capability T44 012:MalwareCapability-machine_access/control
+A26	StrategicObjectives T44 039:MachineAccessControl-install_backdoor
+T45	Object 3934 3961	Cozyduke-infected computers
+T46	Modifier 3962 3964	to
+T47	Object 3965 3997;3998 4017	install Backdoor.Miniduke onto a compromised network
+R35	ModObj Modifier:T46 Object:T47	
+R36	SubjAction Subject:T43 Action:T44	
+A27	TacticalObjectives T44 100:MachineAccessControl-control_machine_via_remote_command
+R37	ActionObj Action:T44 Object:T45	
+R38	ActionMod Action:T44 Modifier:T46	
+T48	Subject 5779 5792	The attackers
+T49	Action 5793 5800	control
+A28	Capability T49 005:MalwareCapability-command_and_control
+A29	TacticalObjectives T49 047:CommandandControl-control_malware_via_remote_command
+T50	Object 5801 5809	Cozyduke
+T51	Modifier 5810 5813	via
+T52	Object 5814 5834	compromised websites
+R39	ModObj Modifier:T51 Object:T52	
+R40	ActionObj Action:T49 Object:T50	
+R41	SubjAction Subject:T48 Action:T49	
+R42	ActionMod Action:T49 Modifier:T51	
+T53	Subject 5923 5931	Cozyduke
+T54	Action 5950 5957	contact
+A30	Capability T54 005:MalwareCapability-command_and_control
+T55	Object 5958 5972	these websites
+T56	Modifier 5973 5975	to
+T57	Object 5976 5984;5985 6037	retrieve task information to be executed on the local machine
+R43	ModObj Modifier:T56 Object:T57	
+R44	ActionObj Action:T54 Object:T55	
+A31	TacticalObjectives T54 047:CommandandControl-control_malware_via_remote_command
+A32	StrategicObjectives T54 017:CommandandControl-receive_data_from_c2_server
+R45	ActionMod Action:T54 Modifier:T56	
+R46	SubjAction Subject:T53 Action:T54	
+T58	Subject 6096 6104	Cozyduke
+T59	Action 6108 6116	download
+A33	ActionName T59 090:Network-download_file
+T60	Action 6121 6128	execute
+A34	Capability T60 017:MalwareCapability-secondary_operation
+A35	ActionName T60 029:File-execute_file
+A36	StrategicObjectives T60 050:SecondaryOperation-install_other_components
+A37	TacticalObjectives T60 118:SecondaryOperation-install_secondary_malware
+A38	StrategicObjectives T39 050:SecondaryOperation-install_other_components
+T61	Object 6129 6136	Seaduke
+T62	Modifier 6137 6141	from
+T63	Object 6142 6163	a compromised website
+R47	ModObj Modifier:T62 Object:T63	
+R48	ActionObj Action:T60 Object:T61	
+R49	ActionMod Action:T60 Modifier:T62	
+R50	ActionObj Action:T59 Object:T61	
+R51	ActionMod Action:T59 Modifier:T62	
+R52	SubjAction Subject:T58 Action:T59	
+R53	SubjAction Subject:T58 Action:T60	

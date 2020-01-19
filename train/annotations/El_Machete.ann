@@ -1,0 +1,28 @@
+T1	Action 896 898	is
+A1	Capability T1 019:MalwareCapability-spying
+T2	Object 899 950	capable of the following cyber-espionage operations
+T3	Subject 884 895	The malware
+R1	SubjAction Subject:T3 Action:T1	
+R2	ActionObj Action:T1 Object:T2	
+T4	Action 1839 1853	is distributed
+A2	Capability T4 010:MalwareCapability-infection/propagation
+A3	TacticalObjectives T4 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T5	Object 1827 1838	The malware
+T6	Modifier 1854 1857	via
+T7	Object 1858 1887	social engineering techniques
+R3	ModObj Modifier:T6 Object:T7	
+R4	ActionObj Action:T4 Object:T5	
+R5	ActionMod Action:T4 Modifier:T6	
+T8	Action 2184 2194	installing
+A4	Capability T8 010:MalwareCapability-infection/propagation
+A5	TacticalObjectives T8 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A6	StrategicObjectives T8 030:InfectionPropagation-infect_file
+T9	Object 2195 2220	this cyber-espionage tool
+T10	Modifier 2221 2223	in
+T11	Object 2224 2280	what appears to be a dedicated a spear phishing campaign
+T12	Subject 2163 2183	many other the files
+R6	SubjAction Subject:T12 Action:T8	
+R7	ActionObj Action:T8 Object:T9	
+R8	ActionMod Action:T8 Modifier:T10	
+R9	ModObj Modifier:T10 Object:T11	
+A7	StrategicObjectives T4 031:InfectionPropagation-infect_remote_machine

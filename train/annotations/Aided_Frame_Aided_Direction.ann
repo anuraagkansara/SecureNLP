@@ -1,0 +1,110 @@
+T2	Action 481 488	dropped
+A1	ActionName T2 090:Network-download_file
+A2	Capability T2 010:MalwareCapability-infection/propagation
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+A4	TacticalObjectives T2 091:InfectionPropagation-perform_autonomous_remote_infection
+T4	Subject 1618 1632	these exploits
+T5	Action 1633 1643	downloaded
+A5	Capability T5 010:MalwareCapability-infection/propagation
+A6	ActionName T5 090:Network-download_file
+A7	StrategicObjectives T5 031:InfectionPropagation-infect_remote_machine
+A8	TacticalObjectives T5 091:InfectionPropagation-perform_autonomous_remote_infection
+R3	SubjAction Subject:T4 Action:T5	
+T6	Object 1656 1708	a payload hosted at: hxxp://103.27.108.45/img/js.php
+R4	ActionObj Action:T5 Object:T6	
+T7	Object 1570 1607	Java exploits hosted at 103.27.108.45
+R5	CoRefer Referer:T7 Canonical:T4	
+T1	Subject 439 475	a threat actor-controlled IP address
+R1	SubjAction Subject:T1 Action:T2	
+T3	Object 489 526	a Poison Ivy remote access tool (RAT)
+R2	ActionObj Action:T2 Object:T3	
+T8	Modifier 527 531	onto
+T9	Object 532 548	victims’ systems
+T10	Subject 402 411	an iframe
+T11	Action 415 421	direct
+A9	Capability T11 010:MalwareCapability-infection/propagation
+A10	TacticalObjectives T11 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A11	StrategicObjectives T11 031:InfectionPropagation-infect_remote_machine
+T12	Object 422 435	site visitors
+T13	Modifier 436 438	to
+T14	Object 439 475	a threat actor-controlled IP address
+R6	SubjAction Subject:T10 Action:T11	
+R7	ActionObj Action:T11 Object:T12	
+R8	ActionMod Action:T11 Modifier:T13	
+R9	ModObj Modifier:T13 Object:T14	
+R10	ActionMod Action:T2 Modifier:T8	
+R11	ModObj Modifier:T8 Object:T9	
+T15	Subject 1444 1460	The threat group
+T16	Action 1461 1471	obfuscated
+A12	Capability T16 002:MalwareCapability-anti-detection
+A13	TacticalObjectives T16 023:AntiDetection-hide_file_system_artifacts
+A14	StrategicObjectives T16 007:AntiDetection-hide_malware_artifacts
+T17	Object 1472 1482	the iframe
+T18	Modifier 1483 1485	on
+T19	Object 1486 1517	two of the compromised websites
+R12	SubjAction Subject:T15 Action:T16	
+R13	ActionObj Action:T16 Object:T17	
+R14	ActionMod Action:T16 Modifier:T18	
+R15	ModObj Modifier:T18 Object:T19	
+T20	Subject 1519 1548	The iframes on these websites
+T21	Action 1549 1557	directed
+A15	Capability T21 010:MalwareCapability-infection/propagation
+A16	TacticalObjectives T21 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A17	StrategicObjectives T21 031:InfectionPropagation-infect_remote_machine
+T22	Object 1558 1566	visitors
+T23	Modifier 1567 1569	to
+R16	SubjAction Subject:T20 Action:T21	
+R17	ActionObj Action:T21 Object:T22	
+R18	ActionMod Action:T21 Modifier:T23	
+R19	ModObj Modifier:T23 Object:T7	
+T24	Subject 1328 1337	The group
+T25	Action 1350 1360	compromise
+A18	Capability T25 011:MalwareCapability-integrity_violation
+A19	TacticalObjectives T25 099:IntegrityViolation-subvert_system
+A20	StrategicObjectives T25 036:IntegrityViolation-compromise_system_operational_integrity
+T26	Object 1361 1375	these websites
+R20	SubjAction Subject:T24 Action:T25	
+R21	ActionObj Action:T25 Object:T26	
+T27	Action 1380 1386	insert
+A21	Capability T27 011:MalwareCapability-integrity_violation
+A22	TacticalObjectives T27 099:IntegrityViolation-subvert_system
+A23	StrategicObjectives T27 036:IntegrityViolation-compromise_system_operational_integrity
+T28	Object 1387 1404	malicious iframes
+R22	SubjAction Subject:T24 Action:T27	
+R23	ActionObj Action:T27 Object:T28	
+T29	Subject 2468 2488	This versioning info
+T30	Action 2502 2512	masquerade
+A24	Capability T30 010:MalwareCapability-infection/propagation
+A25	TacticalObjectives T30 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A26	StrategicObjectives T30 031:InfectionPropagation-infect_remote_machine
+T31	Modifier 2513 2515	as
+T32	Object 2516 2536	a Google Chrome file
+R24	SubjAction Subject:T29 Action:T30	
+R25	ActionMod Action:T30 Modifier:T31	
+R26	ModObj Modifier:T31 Object:T32	
+T33	Subject 2830 2872	The C2 domain quakegoogle.servequake[.]com
+T34	Action 2873 2881	resolved
+A27	Capability T34 005:MalwareCapability-command_and_control
+T35	Modifier 2882 2884	to
+T36	Object 2885 2899	115.126.62.100
+T37	Modifier 2900 2902	at
+T38	Object 2903 2923	the time of the SWCs
+R27	SubjAction Subject:T33 Action:T34	
+R28	ActionMod Action:T34 Modifier:T35	
+R29	ModObj Modifier:T35 Object:T36	
+R30	ActionMod Action:T34 Modifier:T37	
+R31	ModObj Modifier:T37 Object:T38	
+T39	Object 3051 3083	SOGU (aka Kaba) callback traffic
+T40	Action 3084 3088	sent
+A28	Capability T40 005:MalwareCapability-command_and_control
+A29	ActionName T40 096:Network-send_network_packet
+A30	StrategicObjectives T40 018:CommandandControl-send_data_to_c2_server
+T41	Modifier 3089 3091	to
+T42	Object 3092 3111	assign.ddnsking.com
+T43	Modifier 3112 3116	over
+T44	Object 3117 3125	port 443
+R32	ActionObj Action:T40 Object:T39	
+R33	ActionMod Action:T40 Modifier:T41	
+R34	ActionMod Action:T40 Modifier:T43	
+R35	ModObj Modifier:T41 Object:T42	
+R36	ModObj Modifier:T43 Object:T44	

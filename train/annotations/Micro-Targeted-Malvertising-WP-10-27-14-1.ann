@@ -1,0 +1,554 @@
+T1	Subject 3469 3512	Most targeted attacks against organizations
+T2	Action 3513 3522	originate
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Modifier 3523 3525	as
+T4	Object 3526 3570;3571 3590	spear-phish campaigns or watering hole style web driveby attacks
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ModObj Modifier:T3 Object:T4	
+T5	Subject 4222 4239	cyber crime gangs
+T6	Action 4271 4281	perpetrate
+A4	Capability T6 009:MalwareCapability-fraud
+T7	Object 4282 4290	ad fraud
+T8	Object 4292 4306	identity fraud
+T9	Action 4271 4281	perpetrate
+A5	Capability T9 009:MalwareCapability-fraud
+T10	Action 4271 4281	perpetrate
+A6	Capability T10 007:MalwareCapability-data_theft
+A7	StrategicObjectives T10 022:DataTheft-steal_authentication_credentials
+T11	Object 4312 4336	banking credential theft
+R4	SubjAction Subject:T5 Action:T10	
+R5	SubjAction Subject:T5 Action:T9	
+R6	SubjAction Subject:T5 Action:T6	
+R7	ActionObj Action:T9 Object:T7	
+R8	ActionObj Action:T6 Object:T8	
+R9	ActionObj Action:T10 Object:T11	
+T12	Subject 5033 5040	methods
+T13	Action 5049 5056	provide
+A8	Capability T13 012:MalwareCapability-machine_access/control
+A9	TacticalObjectives T13 100:MachineAccessControl-control_machine_via_remote_command
+A10	StrategicObjectives T13 038:MachineAccessControl-control_local_machine
+T14	Object 5057 5072;5073 5122	backdoor access and command and control over compromised networks
+R10	SubjAction Subject:T12 Action:T13	
+R11	ActionObj Action:T13 Object:T14	
+T15	Subject 6416 6429	Threat actors
+T16	Action 6504 6510	switch
+A11	Capability T16 010:MalwareCapability-infection/propagation
+A12	TacticalObjectives T16 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A13	StrategicObjectives T16 031:InfectionPropagation-infect_remote_machine
+T17	Modifier 6511 6514	out
+T18	Object 6515 6546	the landing pages for their ads
+T19	Modifier 6547 6549	to
+T20	Object 6550 6573;6574 6578	pages that host exploit kits
+T21	Action 6590 6596	create
+A14	Capability T21 010:MalwareCapability-infection/propagation
+A15	TacticalObjectives T21 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A16	StrategicObjectives T21 031:InfectionPropagation-infect_remote_machine
+T22	Object 6597 6675	a temporary redirection from their usual content to the malicious landing page
+R12	SubjAction Subject:T15 Action:T16	
+R13	ActionMod Action:T16 Modifier:T17	
+R14	ModObj Modifier:T17 Object:T18	
+R15	ActionMod Action:T16 Modifier:T19	
+R16	ModObj Modifier:T19 Object:T20	
+R17	SubjAction Subject:T15 Action:T21	
+R18	ActionObj Action:T21 Object:T22	
+T23	Object 7051 7075	traditional malvertising
+T24	Action 7080 7090	been armed
+A17	Capability T24 010:MalwareCapability-infection/propagation
+A18	TacticalObjectives T24 088:InfectionPropagation-identify_target_machine(s)
+A19	StrategicObjectives T24 031:InfectionPropagation-infect_remote_machine
+T25	Modifier 7091 7095	with
+T26	Object 7096 7097;7098 7202;7203 7236	a micro-targeting system using IP address ranges, geographically narrowed down to zip codes, and interests of the user (recorded in cookies)
+T27	Modifier 7237 7239	to
+T28	Object 7240 7290;7291 7312	target specific companies, company types, and user interests/preferences
+R19	ActionObj Action:T24 Object:T23	
+R20	ActionMod Action:T24 Modifier:T25	
+R21	ModObj Modifier:T25 Object:T26	
+R22	ActionMod Action:T24 Modifier:T27	
+R23	ModObj Modifier:T27 Object:T28	
+T29	Subject 8491 8510	these threat actors
+T30	Action 8516 8526	weaponized
+A20	Capability T30 010:MalwareCapability-infection/propagation
+A21	TacticalObjectives T30 088:InfectionPropagation-identify_target_machine(s)
+A22	StrategicObjectives T30 031:InfectionPropagation-infect_remote_machine
+T31	Object 8527 8547	ad delivery networks
+T32	Modifier 8548 8550	to
+T33	Object 8551 8565	target victims
+R24	SubjAction Subject:T29 Action:T30	
+R25	ActionObj Action:T30 Object:T31	
+R26	ActionMod Action:T30 Modifier:T32	
+R27	ModObj Modifier:T32 Object:T33	
+T34	Object 10771 10787	Those ad windows
+T35	Action 10800 10810	being used
+A23	Capability T35 010:MalwareCapability-infection/propagation
+A24	TacticalObjectives T35 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A25	StrategicObjectives T35 031:InfectionPropagation-infect_remote_machine
+T36	Modifier 10811 10813	to
+T37	Object 10814 10829	deliver malware
+T38	Modifier 10830 10832	if
+T39	Object 10833 10859	the bidding price is right
+T40	Subject 10396 10418	advanced threat actors
+T41	Action 10431 10437	target
+A26	Capability T41 010:MalwareCapability-infection/propagation
+A27	TacticalObjectives T41 088:InfectionPropagation-identify_target_machine(s)
+A28	StrategicObjectives T41 031:InfectionPropagation-infect_remote_machine
+T42	Object 10438 10453	an organization
+T43	Object 10454 10462	directly
+T44	Modifier 10463 10466	via
+T45	Object 10467 10494	micro-targeted malvertising
+R28	SubjAction Subject:T40 Action:T41	
+R29	ActionObj Action:T41 Object:T42	
+R30	ActionObj Action:T41 Object:T43	
+T46	Modifier 10496 10511	based solely on
+T47	Object 10512 10544	their corporate network IP range
+R31	ActionMod Action:T41 Modifier:T46	
+R32	ModObj Modifier:T46 Object:T47	
+R33	ActionMod Action:T41 Modifier:T44	
+R34	ModObj Modifier:T44 Object:T45	
+R35	ActionObj Action:T35 Object:T34	
+R36	ActionMod Action:T35 Modifier:T36	
+R37	ModObj Modifier:T36 Object:T37	
+R38	ActionMod Action:T35 Modifier:T38	
+R39	ModObj Modifier:T38 Object:T39	
+T48	Subject 11026 11049	a malvertising campaign
+T49	Action 11009 11022	were targeted
+A29	Capability T49 010:MalwareCapability-infection/propagation
+A30	TacticalObjectives T49 088:InfectionPropagation-identify_target_machine(s)
+A31	StrategicObjectives T49 031:InfectionPropagation-infect_remote_machine
+T50	Object 10967 11008	multiple US Defense/Aerospace contractors
+R40	SubjAction Subject:T48 Action:T49	
+R41	ActionObj Action:T49 Object:T50	
+T51	Object 11570 11589	these organizations
+T52	Action 11590 11598	were hit
+A32	Capability T52 010:MalwareCapability-infection/propagation
+A33	TacticalObjectives T52 088:InfectionPropagation-identify_target_machine(s)
+A34	StrategicObjectives T52 031:InfectionPropagation-infect_remote_machine
+T53	Modifier 11599 11603	with
+T54	Object 11604 11649	dozens of micro-targeted malvertising attacks
+R42	ActionObj Action:T52 Object:T51	
+R43	ActionMod Action:T52 Modifier:T53	
+R44	ModObj Modifier:T53 Object:T54	
+T55	Object 11790 11801	the attacks
+T56	Action 11802 11818	were carried out
+A35	Capability T56 010:MalwareCapability-infection/propagation
+A36	TacticalObjectives T56 088:InfectionPropagation-identify_target_machine(s)
+A37	StrategicObjectives T56 031:InfectionPropagation-infect_remote_machine
+T57	Modifier 11819 11821	by
+T58	Object 11822 11845;11846 11891	targeting these Defense contractors directly via real-time ad bidding
+R45	ActionObj Action:T56 Object:T55	
+R46	ActionMod Action:T56 Modifier:T57	
+R47	ModObj Modifier:T57 Object:T58	
+T59	Subject 13180 13194	a malicious ad
+T60	Action 13195 13204	delivered
+A38	Capability T60 012:MalwareCapability-machine_access/control
+A39	StrategicObjectives T60 039:MachineAccessControl-install_backdoor
+T61	Object 13205 13222	a backdoor Trojan
+T62	Modifier 13223 13226	via
+T63	Object 13227 13247	a Java-based exploit
+R48	SubjAction Subject:T59 Action:T60	
+R49	ActionObj Action:T60 Object:T61	
+R50	ActionMod Action:T60 Modifier:T62	
+R51	ModObj Modifier:T62 Object:T63	
+T64	Subject 13382 13393	The malware
+T65	Action 13459 13468	installed
+A40	Capability T65 012:MalwareCapability-machine_access/control
+A41	StrategicObjectives T65 039:MachineAccessControl-install_backdoor
+T66	Object 13469 13494	a generic backdoor Trojan
+R52	SubjAction Subject:T64 Action:T65	
+R53	ActionObj Action:T65 Object:T66	
+T67	Object 13710 13733	the exploit and malware
+T68	Action 13734 13743	delivered
+A42	Capability T68 010:MalwareCapability-infection/propagation
+A43	TacticalObjectives T68 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A44	StrategicObjectives T68 031:InfectionPropagation-infect_remote_machine
+T69	Modifier 13744 13748	from
+T70	Modifier 13755 13757	by
+T71	Object 13749 13754	an ad
+T72	Object 13758 13782	visiting Fleaflicker.com
+R54	ActionObj Action:T68 Object:T67	
+R55	ActionMod Action:T68 Modifier:T69	
+R56	ModObj Modifier:T69 Object:T71	
+R57	ActionMod Action:T68 Modifier:T70	
+R58	ModObj Modifier:T70 Object:T72	
+T73	Subject 14273 14291;14292 14299	the exploited Java process
+T74	Action 14300 14307	dropped
+A45	Capability T74 010:MalwareCapability-infection/propagation
+A47	StrategicObjectives T74 031:InfectionPropagation-infect_remote_machine
+T75	Object 14308 14334	a file called fvJcrgR0.exe
+R59	SubjAction Subject:T73 Action:T74	
+R60	ActionObj Action:T74 Object:T75	
+T76	Subject 14500 14505;14506 14522	a Web server in Poland
+T77	Action 14528 14535	dropped
+A46	Capability T77 010:MalwareCapability-infection/propagation
+A48	StrategicObjectives T77 031:InfectionPropagation-infect_remote_machine
+T78	Object 14536 14547	the malware
+R61	SubjAction Subject:T76 Action:T77	
+R62	ActionObj Action:T77 Object:T78	
+T79	Subject 15873 15885	this malware
+T80	Action 15886 15888	is
+A49	Capability T80 012:MalwareCapability-machine_access/control
+A50	StrategicObjectives T80 039:MachineAccessControl-install_backdoor
+T81	Object 15889 15906	a Trojan backdoor
+T82	Action 15936 15944	download
+A51	Capability T82 017:MalwareCapability-secondary_operation
+A52	TacticalObjectives T82 118:SecondaryOperation-install_secondary_malware
+A53	StrategicObjectives T82 050:SecondaryOperation-install_other_components
+T83	Object 15945 15963	additional malware
+T84	Action 15970 15977	provide
+A54	Capability T84 012:MalwareCapability-machine_access/control
+A55	TacticalObjectives T84 100:MachineAccessControl-control_machine_via_remote_command
+A56	StrategicObjectives T84 038:MachineAccessControl-control_local_machine
+T85	Object 15978 16002	remote persistent access
+T86	Modifier 16003 16005	to
+T87	Object 16006 16018	the attacker
+R63	SubjAction Subject:T79 Action:T80	
+R64	ActionObj Action:T80 Object:T81	
+R65	SubjAction Subject:T79 Action:T82	
+R66	ActionObj Action:T82 Object:T83	
+R67	SubjAction Subject:T79 Action:T84	
+R68	ActionObj Action:T84 Object:T85	
+R69	ActionMod Action:T84 Modifier:T86	
+R70	ModObj Modifier:T86 Object:T87	
+T88	Subject 17633 17662	delivery.first-impression.com
+T89	Action 17663 17673	redirected
+A57	Capability T89 010:MalwareCapability-infection/propagation
+A58	TacticalObjectives T89 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A59	StrategicObjectives T89 031:InfectionPropagation-infect_remote_machine
+T90	Modifier 17683 17685	to
+T91	Object 17686 17688;17689 17718	an IP address, not a domain name
+T92	Modifier 17719 17721	to
+T93	Object 17722 17751	deliver its malicious payload
+R71	SubjAction Subject:T88 Action:T89	
+R72	ActionMod Action:T89 Modifier:T90	
+R73	ModObj Modifier:T90 Object:T91	
+R74	ActionMod Action:T89 Modifier:T92	
+R75	ModObj Modifier:T92 Object:T93	
+T94	Subject 18883 18887	this
+T95	Action 18888 18891	was
+A60	Capability T95 010:MalwareCapability-infection/propagation
+A61	TacticalObjectives T95 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A62	StrategicObjectives T95 031:InfectionPropagation-infect_remote_machine
+T96	Object 18899 18919	a spear-phish attack
+R76	SubjAction Subject:T94 Action:T95	
+R77	ActionObj Action:T95 Object:T96	
+T97	Subject 18984 18991;18992 19013	the ads on the Earthlink page
+T98	Action 19025 19033	dropping
+A63	Capability T98 010:MalwareCapability-infection/propagation
+A64	TacticalObjectives T98 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A65	StrategicObjectives T98 031:InfectionPropagation-infect_remote_machine
+T99	Object 19034 19050	the exploit code
+T100	Modifier 19051 19054	via
+T101	Object 19055 19059	Java
+R78	SubjAction Subject:T97 Action:T98	
+R79	ActionObj Action:T98 Object:T99	
+R80	ActionMod Action:T98 Modifier:T100	
+R81	ModObj Modifier:T100 Object:T101	
+T102	Subject 18526 18534	a new ad
+T103	Action 18574 18581	exploit
+A66	Capability T103 010:MalwareCapability-infection/propagation
+A67	TacticalObjectives T103 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A68	StrategicObjectives T103 031:InfectionPropagation-infect_remote_machine
+T104	Object 18582 18586	Java
+R82	SubjAction Subject:T102 Action:T103	
+R83	ActionObj Action:T103 Object:T104	
+T105	Object 20773 20802	real-time ad bidding networks
+T106	Action 20807 20817	being used
+R84	ActionObj Action:T106 Object:T105	
+A69	Capability T106 010:MalwareCapability-infection/propagation
+A70	TacticalObjectives T106 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A71	StrategicObjectives T106 031:InfectionPropagation-infect_remote_machine
+T107	Subject 20821 20829;20830 20840	criminal enterprise
+R85	SubjAction Subject:T107 Action:T106	
+T108	Modifier 20841 20843	to
+T109	Object 20844 20883	target companies with malicious content
+R86	ModObj Modifier:T108 Object:T109	
+R87	ActionMod Action:T106 Modifier:T108	
+T110	Action 20896 20900	gain
+A72	Capability T110 012:MalwareCapability-machine_access/control
+A73	TacticalObjectives T110 100:MachineAccessControl-control_machine_via_remote_command
+A74	StrategicObjectives T110 038:MachineAccessControl-control_local_machine
+T111	Object 20901 20925	persistent remote access
+R88	SubjAction Subject:T107 Action:T110	
+R89	ActionObj Action:T110 Object:T111	
+T112	Subject 21117 21134	malicious content
+T113	Action 21135 21142	linking
+A75	Capability T113 010:MalwareCapability-infection/propagation
+A76	TacticalObjectives T113 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A77	StrategicObjectives T113 031:InfectionPropagation-infect_remote_machine
+T114	Modifier 21143 21145	to
+T115	Object 21146 21177	landing pages that infect users
+R90	SubjAction Subject:T112 Action:T113	
+R91	ActionMod Action:T113 Modifier:T114	
+R92	ModObj Modifier:T114 Object:T115	
+T116	Subject 25132 25168	the highest bidder for the placement
+T117	Action 25169 25175	serves
+A78	Capability T117 010:MalwareCapability-infection/propagation
+A79	TacticalObjectives T117 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A80	StrategicObjectives T117 031:InfectionPropagation-infect_remote_machine
+T118	Object 25176 25183	malware
+R93	SubjAction Subject:T116 Action:T117	
+R94	ActionObj Action:T117 Object:T118	
+T119	Action 25704 25711	replace
+A81	Capability T119 010:MalwareCapability-infection/propagation
+A82	TacticalObjectives T119 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A83	StrategicObjectives T119 031:InfectionPropagation-infect_remote_machine
+T120	Object 25712 25732	the redirection code
+R95	ActionObj Action:T119 Object:T120	
+T121	Modifier 25733 25735	to
+T122	Object 25736 25844;25845 25870	switch from a legitimate ad banner to a drop site that hosts an exploit kit, typically based on Java, Flash, Silverlight, or all three
+R96	ActionMod Action:T119 Modifier:T121	
+R97	ModObj Modifier:T121 Object:T122	
+T123	Subject 39521 39533	malvertisers
+T124	Action 39534 39539	using
+A84	Capability T124 010:MalwareCapability-infection/propagation
+A85	TacticalObjectives T124 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A86	StrategicObjectives T124 031:InfectionPropagation-infect_remote_machine
+T125	Object 39540 39556;39557 39571	these same tools and techniques
+T126	Modifier 39572 39574	to
+T127	Object 39575 39633	target companies with malware for persistent remote access
+T128	Modifier 39634 39648	in addition to
+T129	Object 39649 39660;39661 39702	traditional click fraud, phishing, and identity theft
+R98	SubjAction Subject:T123 Action:T124	
+R99	ActionObj Action:T124 Object:T125	
+R100	ActionMod Action:T124 Modifier:T126	
+R101	ModObj Modifier:T126 Object:T127	
+R102	ActionMod Action:T124 Modifier:T128	
+R103	ModObj Modifier:T128 Object:T129	
+T130	Action 40448 40454	copied
+A87	ActionName T130 023:File-copy_file
+T131	Object 40455 40462;40463 40491	a fully functional version of Chrome
+T132	Modifier 40492 40496	into
+T133	Subject 40435 40447	This exploit
+T134	Object 40497 40521	the Java cache directory
+R104	SubjAction Subject:T133 Action:T130	
+R105	ActionObj Action:T130 Object:T131	
+R106	ActionMod Action:T130 Modifier:T132	
+R107	ModObj Modifier:T132 Object:T134	
+T135	Subject 40381 40394	a malvertiser
+T136	Action 40409 40418	delivered
+A88	Capability T136 010:MalwareCapability-infection/propagation
+A89	TacticalObjectives T136 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A90	StrategicObjectives T136 031:InfectionPropagation-infect_remote_machine
+T137	Object 40419 40433	a Java exploit
+R108	SubjAction Subject:T135 Action:T136	
+R109	ActionObj Action:T136 Object:T137	
+T138	Subject 40527 40549	that version of Chrome
+T139	Action 40613 40618	click
+A91	StrategicObjectives T139 028:Fraud-perform_click_fraud
+A92	Capability T139 009:MalwareCapability-fraud
+T140	Modifier 40619 40621	on
+T141	Object 40622 40641	specific ad banners
+R110	SubjAction Subject:T138 Action:T139	
+R111	ActionMod Action:T139 Modifier:T140	
+R112	ModObj Modifier:T140 Object:T141	
+T142	Subject 40764 40765;40766 40788	a background web browser
+T143	Action 40794 40798	does
+A93	Capability T143 009:MalwareCapability-fraud
+A94	StrategicObjectives T143 028:Fraud-perform_click_fraud
+T144	Object 40811 40822	click fraud
+R113	SubjAction Subject:T142 Action:T143	
+R114	ActionObj Action:T143 Object:T144	
+T145	Object 42164 42172	the host
+T146	Action 42173 42193	was almost converted
+A95	Capability T146 009:MalwareCapability-fraud
+A96	StrategicObjectives T146 028:Fraud-perform_click_fraud
+R115	ActionObj Action:T146 Object:T145	
+T147	Modifier 42194 42196	to
+T148	Object 42197 42214	a click-fraud bot
+R116	ActionMod Action:T146 Modifier:T147	
+R117	ModObj Modifier:T147 Object:T148	
+T149	Object 42220 42240	the malware delivery
+T150	Action 42252 42265	been intended
+A97	Capability T150 006:MalwareCapability-data_exfiltration
+T151	Modifier 42266 42269	for
+T152	Object 42270 42287	data exfiltration
+R118	ActionObj Action:T150 Object:T149	
+R119	ActionMod Action:T150 Modifier:T151	
+R120	ModObj Modifier:T151 Object:T152	
+T153	Object 43711 43723	malvertising
+T154	Action 43724 43733	delivered
+A98	Capability T154 010:MalwareCapability-infection/propagation
+A99	TacticalObjectives T154 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A100	StrategicObjectives T154 031:InfectionPropagation-infect_remote_machine
+T155	Modifier 43734 43737	via
+T156	Object 43738 43744;43745 43752	RTB ad bidding
+R121	ActionObj Action:T154 Object:T153	
+R122	ActionMod Action:T154 Modifier:T155	
+R123	ModObj Modifier:T155 Object:T156	
+T157	Object 43122 43139	the landing pages
+T158	Action 43140 43157	are preconfigured
+A101	Capability T158 010:MalwareCapability-infection/propagation
+A102	TacticalObjectives T158 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A103	StrategicObjectives T158 031:InfectionPropagation-infect_remote_machine
+T159	Modifier 43158 43162	with
+T160	Object 43163 43178	the exploit kit
+R124	ActionObj Action:T158 Object:T157	
+R125	ActionMod Action:T158 Modifier:T159	
+R126	ModObj Modifier:T159 Object:T160	
+T161	Subject 45337 45349	malvertising
+T162	Action 45350 45360	delivering
+A104	Capability T162 010:MalwareCapability-infection/propagation
+A105	TacticalObjectives T162 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A106	StrategicObjectives T162 031:InfectionPropagation-infect_remote_machine
+T163	Object 45361 45371;45372 45390	CryptoWall ransomware attacks
+T164	Modifier 45391 45394	via
+T165	Object 45395 45415	Real Time Ad Bidding
+R127	SubjAction Subject:T161 Action:T162	
+R128	ActionObj Action:T162 Object:T163	
+R129	ActionMod Action:T162 Modifier:T164	
+R130	ModObj Modifier:T164 Object:T165	
+T166	Subject 45429 45470;45471 45525	Real Time Ad bidding platforms, including OpenX, GoogleAds, Yahoo, AOL, and first-impression.com
+T167	Action 45592 45602	delivering
+A107	Capability T167 010:MalwareCapability-infection/propagation
+A108	TacticalObjectives T167 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A109	StrategicObjectives T167 031:InfectionPropagation-infect_remote_machine
+T168	Object 45603 45636	the CryptoWall 2.0 ransomware ads
+R131	SubjAction Subject:T166 Action:T167	
+R132	ActionObj Action:T167 Object:T168	
+T169	Subject 45639 45649	Ransomware
+T170	Action 45706 45714	encrypts
+A110	Capability T170 004:MalwareCapability-availability_violation
+A111	StrategicObjectives T170 014:AvailabilityViolation-compromise_system_availability
+A112	TacticalObjectives T170 041:AvailabilityViolation-compromise_access_to_information_assets
+T171	Object 45715 45741;45742 45773	the victim’s disk and data files, including remote storage
+R133	SubjAction Subject:T169 Action:T170	
+R134	ActionObj Action:T170 Object:T171	
+T172	Subject 46114 46117;46118 46126	the attacker
+T173	Action 46132 46145	is delivering
+A113	Capability T173 010:MalwareCapability-infection/propagation
+A114	TacticalObjectives T173 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A115	StrategicObjectives T173 031:InfectionPropagation-infect_remote_machine
+T174	Object 46146 46163	the malicious ads
+R135	SubjAction Subject:T172 Action:T173	
+R136	ActionObj Action:T173 Object:T174	
+T175	Object 46585 46606	3rd party ad networks
+T176	Action 46607 46611	used
+A116	Capability T176 010:MalwareCapability-infection/propagation
+A117	TacticalObjectives T176 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A118	StrategicObjectives T176 031:InfectionPropagation-infect_remote_machine
+T177	Modifier 46612 46614	to
+T178	Object 46615 46633	distribute malware
+R137	ActionObj Action:T176 Object:T175	
+R138	ActionMod Action:T176 Modifier:T177	
+R139	ModObj Modifier:T177 Object:T178	
+T179	Subject 46681 46698	the malicious ads
+T180	Action 46704 46711	exploit
+A119	Capability T180 010:MalwareCapability-infection/propagation
+A120	TacticalObjectives T180 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A121	StrategicObjectives T180 031:InfectionPropagation-infect_remote_machine
+T181	Object 46712 46733	unsuspecting visitors
+T182	Modifier 46734 46738	with
+T183	Object 46740 46751;46752 46760	rive-by web exploits
+R140	SubjAction Subject:T179 Action:T180	
+R141	ActionObj Action:T180 Object:T181	
+R142	ActionMod Action:T180 Modifier:T182	
+R143	ModObj Modifier:T182 Object:T183	
+T184	Subject 46769 46799	visiting any ad-supported site
+T185	Action 46804 46810	result
+A122	Capability T185 010:MalwareCapability-infection/propagation
+A123	TacticalObjectives T185 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A124	StrategicObjectives T185 031:InfectionPropagation-infect_remote_machine
+T186	Modifier 46811 46813	in
+T187	Object 46814 46847	a CryptoWall ransomware infection
+R144	SubjAction Subject:T184 Action:T185	
+R145	ActionMod Action:T185 Modifier:T186	
+R146	ModObj Modifier:T186 Object:T187	
+T188	Subject 46850 46864	Cryptowall 2.0
+T189	Action 46865 46873	utilizes
+A125	Capability T189 002:MalwareCapability-anti-detection
+A126	TacticalObjectives T189 025:AntiDetection-hide_network_traffic
+A127	StrategicObjectives T189 007:AntiDetection-hide_malware_artifacts
+T190	Object 46874 46889	the TOR network
+T191	Modifier 46890 46892	to
+T192	Object 46893 46916	hide its communications
+R147	SubjAction Subject:T188 Action:T189	
+R148	ActionObj Action:T189 Object:T190	
+R149	ActionMod Action:T189 Modifier:T191	
+R150	ModObj Modifier:T191 Object:T192	
+T193	Subject 46922 46924	it
+T194	Action 46933 46941	encrypts
+A128	Capability T194 004:MalwareCapability-availability_violation
+A129	TacticalObjectives T194 044:AvailabilityViolation-denial_of_service
+A130	StrategicObjectives T194 014:AvailabilityViolation-compromise_system_availability
+T195	Object 46942 46957;46958 46969	all local files on the disk
+R151	CoRefer Referer:T188 Canonical:T193	
+R152	SubjAction Subject:T193 Action:T194	
+R153	ActionObj Action:T194 Object:T195	
+T196	Object 48862 48877	the ransom note
+T197	Action 48878 48891	being written
+A131	ActionName T197 043:File-write_to_file
+T198	Modifier 48892 48894	to
+T199	Object 48895 48899	disk
+T200	Modifier 48900 48902	on
+T201	Object 48903 48922	an infected machine
+R154	ActionObj Action:T197 Object:T196	
+R155	ActionMod Action:T197 Modifier:T198	
+R156	ModObj Modifier:T198 Object:T199	
+R157	ActionMod Action:T197 Modifier:T200	
+R158	ModObj Modifier:T200 Object:T201	
+T202	Action 49255 49260	place
+A132	Capability T202 010:MalwareCapability-infection/propagation
+A133	TacticalObjectives T202 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A134	StrategicObjectives T202 031:InfectionPropagation-infect_remote_machine
+T203	Object 49261 49287	malvertising of Cryptowall
+T204	Modifier 49288 49290	on
+T205	Object 49291 49307	sports.yahoo.com
+R159	ActionObj Action:T202 Object:T203	
+R160	ActionMod Action:T202 Modifier:T204	
+R161	ModObj Modifier:T204 Object:T205	
+T206	Subject 53203 53223	Operation DeathClick
+T207	Action 53249 53261	micro-target
+A135	Capability T207 010:MalwareCapability-infection/propagation
+A136	TacticalObjectives T207 088:InfectionPropagation-identify_target_machine(s)
+A137	StrategicObjectives T207 031:InfectionPropagation-infect_remote_machine
+T208	Object 53262 53271	companies
+T209	Modifier 53272 53275	via
+T210	Object 53276 53288	malvertising
+T211	Modifier 53289 53300	in order to
+T212	Object 53301 53326	compromise their networks
+R162	SubjAction Subject:T206 Action:T207	
+R163	ActionObj Action:T207 Object:T208	
+R164	ActionMod Action:T207 Modifier:T209	
+R165	ModObj Modifier:T209 Object:T210	
+R166	ActionMod Action:T207 Modifier:T211	
+R167	ModObj Modifier:T211 Object:T212	
+T213	Subject 53343 53385	the micro-targeting malvertising technique
+T214	Action 53386 53392	evades
+A138	Capability T214 002:MalwareCapability-anti-detection
+A139	StrategicObjectives T214 009:AntiDetection-security_software_evasion
+T215	Object 53393 53403;53404 53466	almost all network controls and traditional endpoint anti-virus solutions
+R168	SubjAction Subject:T213 Action:T214	
+R169	ActionObj Action:T214 Object:T215	
+T216	Subject 53610 53619	attackers
+T217	Action 53654 53661	deliver
+A140	Capability T217 010:MalwareCapability-infection/propagation
+A141	TacticalObjectives T217 088:InfectionPropagation-identify_target_machine(s)
+A142	StrategicObjectives T217 031:InfectionPropagation-infect_remote_machine
+T218	Object 53662 53669	malware
+T219	Object 53673 53676	you
+T220	Object 53685 53701	your web browser
+T221	Object 53720 53768	your IP address space and your industry vertical
+T222	Modifier 53677 53684	through
+T223	Modifier 53670 53672	to
+T224	Modifier 53709 53719	because of
+R170	SubjAction Subject:T216 Action:T217	
+R171	ActionObj Action:T217 Object:T218	
+R172	ActionMod Action:T217 Modifier:T223	
+R173	ActionMod Action:T217 Modifier:T222	
+R174	ActionMod Action:T217 Modifier:T224	
+R175	ModObj Modifier:T223 Object:T219	
+R176	ModObj Modifier:T222 Object:T220	
+R177	ModObj Modifier:T224 Object:T221	
+T225	Action 53804 53812;53813 53821	were not detected
+A143	Capability T225 002:MalwareCapability-anti-detection
+A144	StrategicObjectives T225 009:AntiDetection-security_software_evasion
+T226	Object 53770 53803	Most of the attacks featured here
+R178	ActionObj Action:T225 Object:T226	
+T227	Subject 53825 53844	standard Anti-Virus
+R179	SubjAction Subject:T227 Action:T225	
+T228	Modifier 53845 53852	because
+R180	ActionMod Action:T225 Modifier:T228	
+T229	Object 53853 53889	the malware hashes constantly change
+R181	ModObj Modifier:T228 Object:T229	

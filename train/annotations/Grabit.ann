@@ -1,0 +1,50 @@
+T1	Subject 3777 3788	the malware
+T2	Action 3789 3793	uses
+A1	Capability T2 012:MalwareCapability-machine_access/control
+A2	TacticalObjectives T2 100:MachineAccessControl-control_machine_via_remote_command
+A3	StrategicObjectives T2 038:MachineAccessControl-control_local_machine
+T3	Object 3794 3810	a number of RATs
+R1	ActionObj Action:T2 Object:T3	
+R2	SubjAction Subject:T1 Action:T2	
+T4	Action 3814 3821	control
+A4	Capability T4 012:MalwareCapability-machine_access/control
+A5	TacticalObjectives T4 100:MachineAccessControl-control_machine_via_remote_command
+A6	StrategicObjectives T4 038:MachineAccessControl-control_local_machine
+T5	Object 3822 3833	its victims
+R3	ActionObj Action:T4 Object:T5	
+R4	SubjAction Subject:T1 Action:T4	
+T6	Action 3837 3842	track
+A7	Capability T6 019:MalwareCapability-spying
+T7	Object 3843 3857	their activity
+R5	ActionObj Action:T6 Object:T7	
+R6	SubjAction Subject:T1 Action:T6	
+T8	Action 4659 4665	packed
+A8	Capability T8 006:MalwareCapability-data_exfiltration
+A9	TacticalObjectives T8 062:DataExfiltration-package_data
+A10	StrategicObjectives T8 021:DataExfiltration-stage_data_for_exfiltration
+T9	Object 4643 4654	Stolen data
+R7	ActionObj Action:T8 Object:T9	
+T10	Action 4670 4674	sent
+A11	Capability T10 006:MalwareCapability-data_exfiltration
+A12	TacticalObjectives T10 057:DataExfiltration-exfiltrate_via_network
+A13	StrategicObjectives T10 020:DataExfiltration-perform_data_exfiltration
+R8	ActionObj Action:T10 Object:T9	
+T11	Modifier 4685 4689	over
+T12	Object 4690 4694;4695 4707	HTTP random ports
+R9	ModObj Modifier:T11 Object:T12	
+R10	ActionMod Action:T10 Modifier:T11	
+T13	Action 6656 6665	modifying
+A14	ActionName T13 143:Registry-modify_registry_key_value
+T14	Object 6666 6694	commonplace registry entries
+R11	ActionObj Action:T13 Object:T14	
+T15	Subject 6626 6637	The malware
+R12	SubjAction Subject:T15 Action:T13	
+T16	Action 6088 6097	delivered
+A15	Capability T16 010:MalwareCapability-infection/propagation
+A16	TacticalObjectives T16 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A17	StrategicObjectives T16 031:InfectionPropagation-infect_remote_machine
+T17	Object 6067 6078	the malware
+R13	ActionObj Action:T16 Object:T17	
+T18	Modifier 6098 6100	as
+T19	Object 6101 6137;6138 6148	a Microsoft Office Word (.doc) email attachment
+R14	ModObj Modifier:T18 Object:T19	

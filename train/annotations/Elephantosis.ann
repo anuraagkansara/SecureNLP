@@ -1,0 +1,382 @@
+T1	Subject 3784 3786;3787 3794	an implant
+T2	Action 3831 3836	steal
+T3	Object 3837 3841	data
+T4	Modifier 3842 3846	from
+T5	Object 3847 3878;3879 3911	instant messengers, softphones, browsers and office applications
+R1	ActionObj Action:T2 Object:T3	
+R2	ModObj Modifier:T4 Object:T5	
+R3	ActionMod Action:T2 Modifier:T4	
+R4	SubjAction Subject:T1 Action:T2	
+A1	Capability T2 007:MalwareCapability-data_theft
+T6	Subject 3975 3978;3979 3986	The implant
+T7	Action 4054 4059	steal
+A2	Capability T7 007:MalwareCapability-data_theft
+T8	Object 4060 4064	data
+T9	Modifier 4065 4067	on
+T10	Object 4068 4075	the fly
+R5	SubjAction Subject:T6 Action:T7	
+R6	ActionObj Action:T7 Object:T8	
+R7	ModObj Modifier:T9 Object:T10	
+R8	ActionMod Action:T7 Modifier:T9	
+T11	Subject 5813 5815	it
+T12	Action 5816 5823	fetches
+T13	Object 5824 5841	the encrypted DLL
+T14	Modifier 5842 5846	from
+T15	Object 5847 5866;5867 5895	its own binary from outside its resource section
+R9	ModObj Modifier:T14 Object:T15	
+R10	SubjAction Subject:T11 Action:T12	
+R11	ActionObj Action:T12 Object:T13	
+R12	ActionMod Action:T12 Modifier:T14	
+A3	Capability T12 001:MalwareCapability-anti-code_analysis
+A4	StrategicObjectives T12 004:AntiCodeAnalysis-code_obfuscation
+T16	Action 5913 5918	hides
+T17	Object 5919 5921	it
+T18	Modifier 5922 5924	in
+T19	Object 5925 5940	the file system
+R13	SubjAction Subject:T11 Action:T16	
+R14	ActionObj Action:T16 Object:T17	
+R15	ActionMod Action:T16 Modifier:T18	
+R16	ModObj Modifier:T18 Object:T19	
+R17	CoRefer Referer:T13 Canonical:T17	
+A5	Capability T16 002:MalwareCapability-anti-detection
+A6	TacticalObjectives T16 022:AntiDetection-hide_code_in_file
+A7	StrategicObjectives T16 006:AntiDetection-hide_executing_code
+A8	TacticalObjectives T12 011:AntiCodeAnalysis-obfuscate_runtime_code
+T20	Subject 6018 6020	it
+T21	Action 6021 6027	spawns
+T22	Object 6028 6047	a dedicated process
+T23	Modifier 6048 6052	with
+T24	Object 6053 6064;6065 6117	the command line '"regsvr32.exe" /s /n /i "%APPDATA%\%DLLNAME%"'
+R18	ModObj Modifier:T23 Object:T24	
+R19	ActionObj Action:T21 Object:T22	
+R20	SubjAction Subject:T20 Action:T21	
+R21	ActionMod Action:T21 Modifier:T23	
+A9	ActionName T21 104:Process-create_process
+T25	Subject 5947 5949	it
+T26	Action 5961 5965	load
+T27	Object 5966 5969;5970 5973	the DLL
+T28	Modifier 5974 5979	using
+T29	Object 5980 6000	Windows regsvr32.exe
+R22	SubjAction Subject:T25 Action:T26	
+R23	ActionObj Action:T26 Object:T27	
+R24	ActionMod Action:T26 Modifier:T28	
+R25	ModObj Modifier:T28 Object:T29	
+A10	Capability T26 002:MalwareCapability-anti-detection
+A11	ActionName T26 084:Library-load_library
+A12	TacticalObjectives T26 019:AntiDetection-execute_stealthy_code
+T30	Action 7345 7353	deleting
+T31	Subject 7216 7227	the dropper
+T36	Object 7354 7380	the dropper binary on disk
+R30	ActionObj Action:T30 Object:T36	
+A14	Capability T30 017:MalwareCapability-secondary_operation
+A15	TacticalObjectives T30 121:SecondaryOperation-remove_system_artifacts
+T37	Subject 7278 7287;7288 7295	a cmd.exe process
+R31	SubjAction Subject:T37 Action:T30	
+T33	Object 7278 7287;7288 7295	a cmd.exe process
+T34	Action 7269 7277	spawning
+A16	ActionName T34 104:Process-create_process
+R26	ActionObj Action:T34 Object:T33	
+R27	SubjAction Subject:T31 Action:T34	
+T32	Subject 7391 7402	the malware
+T35	Action 7403 7410	reduces
+T38	Object 7411 7429	forensic artefacts
+A13	Capability T35 017:MalwareCapability-secondary_operation
+A17	TacticalObjectives T35 121:SecondaryOperation-remove_system_artifacts
+A18	StrategicObjectives T35 054:SecondaryOperation-remove_traces_of_infection
+R28	SubjAction Subject:T32 Action:T35	
+R29	ActionObj Action:T35 Object:T38	
+A19	StrategicObjectives T30 054:SecondaryOperation-remove_traces_of_infection
+T39	Subject 8155 8170	Babar's implant
+T40	Action 8220 8227	injects
+T41	Object 8228 8234	itself
+R32	SubjAction Subject:T39 Action:T40	
+R33	ActionObj Action:T40 Object:T41	
+R34	CoRefer Referer:T39 Canonical:T41	
+T42	Modifier 8235 8237	to
+T43	Object 8238 8255	running processes
+R35	ModObj Modifier:T42 Object:T43	
+R36	ActionMod Action:T40 Modifier:T42	
+A20	Capability T40 002:MalwareCapability-anti-detection
+A21	ActionName T40 119:ProcessMemory-map_library_into_process
+A22	TacticalObjectives T40 019:AntiDetection-execute_stealthy_code
+T44	Action 8260 8267	invades
+T45	Object 8268 8288	desktop applications
+T46	Modifier 8289 8291	by
+T47	Object 8292 8323	applying a global Windows hooks
+R37	ModObj Modifier:T46 Object:T47	
+R38	ActionObj Action:T44 Object:T45	
+R39	ActionMod Action:T44 Modifier:T46	
+R40	SubjAction Subject:T39 Action:T44	
+A23	ActionName T44 062:Hooking-add_windows_hook
+T48	Subject 8325 8336	The implant
+T49	Action 8351 8358	logging
+T50	Object 8359 8369	keystrokes
+R41	ActionObj Action:T49 Object:T50	
+A24	Capability T49 019:MalwareCapability-spying
+A25	TacticalObjectives T49 140:Spying-capture_keyboard_input
+A26	StrategicObjectives T49 061:Spying-capture_system_input_peripheral_data
+T51	Action 8371 8378	capture
+T52	Object 8379 8391	screen shots
+R42	ActionObj Action:T51 Object:T52	
+A27	Capability T51 019:MalwareCapability-spying
+A28	StrategicObjectives T51 062:Spying-capture_system_interface_data
+R43	SubjAction Subject:T48 Action:T49	
+R44	SubjAction Subject:T48 Action:T51	
+T53	Subject 8743 8748	Babar
+T54	Action 8789 8798	injecting
+A29	Capability T54 002:MalwareCapability-anti-detection
+A30	ActionName T54 119:ProcessMemory-map_library_into_process
+A31	TacticalObjectives T54 019:AntiDetection-execute_stealthy_code
+T55	Object 8799 8806	its DLL
+T56	Modifier 8807 8809	to
+T57	Object 8810 8846	a maximum of three desktop processes
+R45	ModObj Modifier:T56 Object:T57	
+R46	SubjAction Subject:T53 Action:T54	
+R47	ActionObj Action:T54 Object:T55	
+R48	ActionMod Action:T54 Modifier:T56	
+T58	Subject 8977 9005	a userland rootkit component
+T59	Action 9012 9019	applies
+T60	Object 9020 9034;9035 9040	global Windows hooks
+T61	Modifier 9041 9043	to
+T62	Object 9044 9079	invade all processes on its desktop
+R49	ModObj Modifier:T61 Object:T62	
+R50	SubjAction Subject:T58 Action:T59	
+R51	ActionObj Action:T59 Object:T60	
+R52	ActionMod Action:T59 Modifier:T61	
+A32	ActionName T59 062:Hooking-add_windows_hook
+T63	Subject 9090 9095	Babar
+T64	Action 9100 9107	install
+A33	ActionName T64 062:Hooking-add_windows_hook
+T65	Object 9108 9134	API hooks for various APIs
+T66	Modifier 9135 9138	via
+T67	Object 9139 9164	Windows Detours technique
+T68	Action 9177 9182	steal
+A34	Capability T68 007:MalwareCapability-data_theft
+T69	Object 9183 9187	data
+T70	Modifier 9188 9192	from
+T71	Object 9193 9212	arbitrary processes
+R53	ModObj Modifier:T70 Object:T71	
+R54	ActionMod Action:T68 Modifier:T70	
+R55	ActionObj Action:T68 Object:T69	
+R56	SubjAction Subject:T63 Action:T64	
+R57	ActionMod Action:T64 Modifier:T66	
+R58	SubjAction Subject:T63 Action:T68	
+R59	ActionObj Action:T64 Object:T65	
+R60	ModObj Modifier:T66 Object:T67	
+T72	Subject 11141 11146	Babar
+T73	Action 11152 11162	implements
+T74	Object 11163 11187	an obfuscation technique
+T75	Modifier 11188 11190	to
+T76	Object 11191 11213	hide certain API names
+R61	ModObj Modifier:T75 Object:T76	
+R62	ActionObj Action:T73 Object:T74	
+R63	ActionMod Action:T73 Modifier:T75	
+R64	SubjAction Subject:T72 Action:T73	
+A35	Capability T73 002:MalwareCapability-anti-detection
+T77	Subject 12168 12208	The startup routine of the Babar implant
+T78	Action 12214 12220	create
+T79	Object 12221 12235	a registry key
+T80	Modifier 12236 12241	under
+T81	Object 12242 12271	'[HKU]\..\CurrentVersion\Run'
+T82	Modifier 12272 12274	to
+T83	Object 12275 12293	assure persistence
+A36	Capability T78 013:MalwareCapability-persistence
+A37	ActionName T78 135:Registry-create_registry_key
+R65	SubjAction Subject:T77 Action:T78	
+R66	ActionObj Action:T78 Object:T79	
+R67	ModObj Modifier:T80 Object:T81	
+R68	ModObj Modifier:T82 Object:T83	
+R69	ActionMod Action:T78 Modifier:T80	
+R70	ActionMod Action:T78 Modifier:T82	
+T84	Subject 12628 12633	Babar
+T85	Action 12667 12676	uninstall
+A38	Capability T85 017:MalwareCapability-secondary_operation
+A39	TacticalObjectives T85 120:SecondaryOperation-remove_self
+T86	Object 12677 12683	itself
+R71	SubjAction Subject:T84 Action:T85	
+R72	ActionObj Action:T85 Object:T86	
+R73	CoRefer Referer:T84 Canonical:T86	
+T87	Modifier 12684 12688	from
+T88	Object 12689 12708	the affected system
+R74	ModObj Modifier:T87 Object:T88	
+R75	ActionMod Action:T85 Modifier:T87	
+T89	Subject 12482 12506	the regsvr32.exe process
+T90	Action 12519 12523	load
+T91	Object 12524 12527;12528 12537	the Babar DLL
+T92	Modifier 12462 12464	At
+T93	Object 12465 12481	system boot time
+R76	ModObj Modifier:T92 Object:T93	
+R77	SubjAction Subject:T89 Action:T90	
+R78	ActionMod Action:T90 Modifier:T92	
+R79	ActionObj Action:T90 Object:T91	
+A40	Capability T90 013:MalwareCapability-persistence
+A41	ActionName T90 084:Library-load_library
+A42	StrategicObjectives T90 042:Persistence-persist_to_continuously_execute_on_system
+A43	TacticalObjectives T90 104:Persistence-persist_after_system_reboot
+T94	Subject 16207 16224	The function stub
+T95	Action 16244 16248	load
+A44	ActionName T95 084:Library-load_library
+T96	Object 16249 16262	the Babar DLL
+T97	Modifier 16263 16270	through
+T98	Object 16271 16283	LoadLibraryA
+R80	ModObj Modifier:T97 Object:T98	
+R81	ActionObj Action:T95 Object:T96	
+R82	SubjAction Subject:T94 Action:T95	
+R83	ActionMod Action:T95 Modifier:T97	
+T99	Action 16288 16295	execute
+T100	Object 16296 16302;16303 16314	one of its exports
+R84	ActionObj Action:T99 Object:T100	
+A45	ActionName T99 080:Library-call_library_function
+R85	SubjAction Subject:T94 Action:T99	
+T101	Subject 17113 17118	Babar
+T102	Action 17119 17123	uses
+T103	Object 17124 17135	named pipes
+R86	SubjAction Subject:T101 Action:T102	
+R87	ActionObj Action:T102 Object:T103	
+T104	Modifier 17081 17084	For
+T105	Object 17085 17112	inter process communication
+R88	ActionMod Action:T102 Modifier:T104	
+R89	ModObj Modifier:T104 Object:T105	
+A46	ActionName T102 064:IPC-connect_to_named_pipe
+T106	Subject 17250 17267	the main instance
+T107	Action 17268 17275	creates
+A47	ActionName T107 066:IPC-create_named_pipe
+T108	Object 17276 17291	six named pipes
+T109	Modifier 17292 17297	using
+T110	Object 17298 17316	the very same GUID
+R90	ModObj Modifier:T109 Object:T110	
+R91	SubjAction Subject:T106 Action:T107	
+R92	ActionObj Action:T107 Object:T108	
+R93	ActionMod Action:T107 Modifier:T109	
+T111	Action 17786 17795	performed
+T112	Object 17760 17781	The spying activities
+R94	ActionObj Action:T111 Object:T112	
+T113	Modifier 17803 17810	through
+T114	Object 17811 17829	the Babar instance
+R95	ModObj Modifier:T113 Object:T114	
+R96	ActionMod Action:T111 Modifier:T113	
+T115	Modifier 17841 17844	via
+T116	Object 17845 17853;17854 17917	a global Windows hook invading all processes running in the same desktop
+R97	ModObj Modifier:T115 Object:T116	
+R98	ActionMod Action:T111 Modifier:T115	
+A48	Capability T111 019:MalwareCapability-spying
+T117	Action 17957 17963	spying
+A49	Capability T117 019:MalwareCapability-spying
+A50	StrategicObjectives T117 062:Spying-capture_system_interface_data
+T118	Modifier 17964 17966	on
+T119	Object 17967 17979	window names
+R99	ModObj Modifier:T118 Object:T119	
+R100	ActionMod Action:T117 Modifier:T118	
+T120	Subject 18021 18037	the global hooks
+T121	Action 18048 18053	steal
+A51	Capability T121 007:MalwareCapability-data_theft
+T122	Object 18054 18065	information
+T123	Modifier 18075 18079	from
+T124	Object 18080 18097	Windows API calls
+R101	SubjAction Subject:T120 Action:T121	
+R102	ActionObj Action:T121 Object:T122	
+R103	ActionMod Action:T121 Modifier:T123	
+R104	ModObj Modifier:T123 Object:T124	
+T125	Subject 19058 19066	a thread
+T126	Action 19074 19082	performs
+T127	Object 19083 19093	encryption
+R105	ActionObj Action:T126 Object:T127	
+R106	SubjAction Subject:T125 Action:T126	
+A52	Capability T126 006:MalwareCapability-data_exfiltration
+A53	TacticalObjectives T126 053:DataExfiltration-encrypt_data
+A54	StrategicObjectives T126 019:DataExfiltration-obfuscate_data_for_exfiltration
+T128	Subject 18489 18508	an invisible window
+T129	Action 18540 18547	receive
+T130	Object 18548 18563	window messages
+R107	ActionObj Action:T129 Object:T130	
+R108	SubjAction Subject:T128 Action:T129	
+A55	Capability T129 019:MalwareCapability-spying
+A56	TacticalObjectives T129 140:Spying-capture_keyboard_input
+A57	StrategicObjectives T129 061:Spying-capture_system_input_peripheral_data
+T131	Subject 19264 19269	Babar
+T132	Action 19281 19286	sniff
+T133	Object 19287 19301;19302 19355	all keystrokes happening on the same desktop as its invisible window
+R109	SubjAction Subject:T131 Action:T132	
+R110	ActionObj Action:T132 Object:T133	
+A58	Capability T132 019:MalwareCapability-spying
+A59	TacticalObjectives T132 140:Spying-capture_keyboard_input
+A60	StrategicObjectives T132 061:Spying-capture_system_input_peripheral_data
+T134	Subject 19518 19535	The Babar implant
+T135	Action 19536 19543	applies
+T136	Object 19544 19564	global Windows hooks
+R111	ActionObj Action:T135 Object:T136	
+R112	SubjAction Subject:T134 Action:T135	
+A61	ActionName T135 062:Hooking-add_windows_hook
+T137	Action 19568 19572	load
+T138	Object 19573 19580	its DLL
+T139	Modifier 19581 19585	into
+T140	Object 19586 19612;19613 19622	the process space of other processes
+A62	ActionName T137 084:Library-load_library
+R113	ActionObj Action:T137 Object:T138	
+R114	ModObj Modifier:T139 Object:T140	
+R115	ActionMod Action:T137 Modifier:T139	
+R116	SubjAction Subject:T134 Action:T137	
+T141	Action 19902 19911	installed
+T142	Object 19877 19898	A global Windows hook
+T143	Modifier 19912 19916	into
+T144	Object 19917 19940	the Windows event chain
+R117	ActionObj Action:T141 Object:T142	
+R118	ActionMod Action:T141 Modifier:T143	
+R119	ModObj Modifier:T143 Object:T144	
+A63	ActionName T141 062:Hooking-add_windows_hook
+T145	Subject 20479 20490	the malware
+T146	Action 20502 20506	hook
+T147	Object 20507 20532	specific APIs of interest
+R120	SubjAction Subject:T145 Action:T146	
+R121	ActionObj Action:T146 Object:T147	
+A64	ActionName T146 062:Hooking-add_windows_hook
+T148	Subject 22280 22306	The respective trampolines
+T149	Action 22307 22312	steal
+T150	Object 22313 22352	data going in or out of the hooked APIs
+T151	Modifier 22353 22355	on
+T152	Object 22356 22363	the fly
+R122	ModObj Modifier:T151 Object:T152	
+R123	ActionObj Action:T149 Object:T150	
+R124	SubjAction Subject:T148 Action:T149	
+R125	ActionMod Action:T149 Modifier:T151	
+A65	Capability T149 007:MalwareCapability-data_theft
+T153	Subject 23057 23074	a separate thread
+T154	Action 23096 23104	encrypts
+A66	Capability T154 006:MalwareCapability-data_exfiltration
+A67	TacticalObjectives T154 053:DataExfiltration-encrypt_data
+A68	StrategicObjectives T154 019:DataExfiltration-obfuscate_data_for_exfiltration
+T155	Action 23081 23091	compresses
+A69	Capability T155 006:MalwareCapability-data_exfiltration
+A70	StrategicObjectives T155 021:DataExfiltration-stage_data_for_exfiltration
+R126	SubjAction Subject:T153 Action:T155	
+R127	SubjAction Subject:T153 Action:T154	
+T156	Object 23105 23107	it
+R128	ActionObj Action:T155 Object:T156	
+R129	ActionObj Action:T154 Object:T156	
+T157	Subject 23173 23178	Babar
+T158	Action 23179 23187	includes
+A71	Capability T158 019:MalwareCapability-spying
+A72	StrategicObjectives T158 063:Spying-capture_system_output_peripheral_data
+T159	Object 23188 23192;23193 23222	code from the OpenCORE AMR library
+T160	Modifier 23146 23149	For
+T161	Object 23150 23172	grabbing audio streams
+R130	ModObj Modifier:T160 Object:T161	
+R131	SubjAction Subject:T157 Action:T158	
+R132	ActionObj Action:T158 Object:T159	
+R133	ActionMod Action:T158 Modifier:T160	
+T162	Subject 25777 25782	Babar
+T163	Action 25783 25786	has
+A73	Capability T163 005:MalwareCapability-command_and_control
+T164	Object 25787 25822	two hard coded C&C server addresses
+R134	SubjAction Subject:T162 Action:T163	
+R135	ActionObj Action:T163 Object:T164	
+T165	Action 26045 26049	push
+A74	Capability T165 006:MalwareCapability-data_exfiltration
+A75	TacticalObjectives T165 057:DataExfiltration-exfiltrate_via_network
+A76	StrategicObjectives T165 020:DataExfiltration-perform_data_exfiltration
+T166	Object 26050 26067	spied information
+T167	Modifier 26068 26072	onto
+T168	Object 26073 26088	the remote site
+R136	ActionObj Action:T165 Object:T166	
+R137	ActionMod Action:T165 Modifier:T167	
+R138	ModObj Modifier:T167 Object:T168	

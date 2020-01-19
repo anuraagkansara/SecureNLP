@@ -1,0 +1,2807 @@
+T1	Subject 21803 21807	They
+T2	Action 21850 21858	maintain
+A1	Capability T2 013:MalwareCapability-persistence
+T3	Object 21859 21893	persistent access to their targets
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 21895 21906	These tools
+T5	Action 21911 21918	be used
+A2	Capability T5 002:MalwareCapability-anti-detection
+T6	Modifier 21919 21922	for
+T7	Object 21923 21929;21930 21944	covert communications
+T8	Modifier 21945 21947	in
+T9	Object 21948 21975	a number of different modes
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionMod Action:T5 Modifier:T6	
+R5	ModObj Modifier:T6 Object:T7	
+R6	ActionMod Action:T5 Modifier:T8	
+R7	ModObj Modifier:T8 Object:T9	
+T10	Subject 21977 21990	some of which
+T11	Action 21991 21998	present
+A3	Capability T11 002:MalwareCapability-anti-detection
+T12	Object 21999 22025;22026 22069	significant challenges for traditional security technologies to detect
+R8	ActionObj Action:T11 Object:T12	
+R9	SubjAction Subject:T10 Action:T11	
+T13	Subject 25201 25222	two distinct variants
+T14	Action 25283 25311	establishing and maintaining
+A4	Capability T14 013:MalwareCapability-persistence
+T15	Object 25312 25322	a presence
+T16	Modifier 25323 25325	on
+T17	Object 25326 25343	the target system
+R10	ActionObj Action:T14 Object:T15	
+R11	ActionMod Action:T14 Modifier:T16	
+R12	ModObj Modifier:T16 Object:T17	
+R13	SubjAction Subject:T13 Action:T14	
+T18	Subject 25423 25425	It
+T19	Action 25441 25457	covertly install
+A5	Capability T19 012:MalwareCapability-machine_access/control
+A6	StrategicObjectives T19 039:MachineAccessControl-install_backdoor
+T20	Object 25458 25468	a backdoor
+T21	Modifier 25469 25471	on
+T22	Object 25472 25492	a compromised system
+R14	SubjAction Subject:T18 Action:T19	
+R15	ActionObj Action:T19 Object:T20	
+R16	ActionMod Action:T19 Modifier:T21	
+R17	ModObj Modifier:T21 Object:T22	
+T23	Action 25494 25498	hide
+A7	Capability T23 002:MalwareCapability-anti-detection
+A8	TacticalObjectives T23 023:AntiDetection-hide_file_system_artifacts
+A9	StrategicObjectives T23 007:AntiDetection-hide_malware_artifacts
+T24	Object 25499 25518;25519 25529	the presence of its components
+T25	Action 25531 25538	provide
+A10	Capability T25 005:MalwareCapability-command_and_control
+T26	Object 25539 25585	a communication mechanism with its C&C servers
+R18	ActionObj Action:T25 Object:T26	
+R19	ActionObj Action:T23 Object:T24	
+R20	SubjAction Subject:T18 Action:T23	
+R21	SubjAction Subject:T18 Action:T25	
+T27	Action 25591 25597	enable
+A11	Capability T27 006:MalwareCapability-data_exfiltration
+T28	Object 25598 25638	an effective data exfiltration mechanism
+R22	ActionObj Action:T27 Object:T28	
+R23	SubjAction Subject:T18 Action:T27	
+R24	CoRefer Referer:T13 Canonical:T18	
+T29	Object 25787 25813	the network communications
+T30	Action 25814 25829	are carried out
+A12	Capability T30 005:MalwareCapability-command_and_control
+T31	Modifier 25830 25834	from
+T32	Object 25835 25847	the userland
+R25	ActionObj Action:T30 Object:T29	
+R26	ActionMod Action:T30 Modifier:T31	
+R27	ModObj Modifier:T31 Object:T32	
+T33	Object 25942 25968	the network communications
+T34	Action 25969 25980	are handled
+A13	Capability T34 005:MalwareCapability-command_and_control
+R28	ActionObj Action:T34 Object:T33	
+T35	Subject 25984 26004	a kernel mode driver
+R29	SubjAction Subject:T35 Action:T34	
+T36	Subject 26079 26125	The choice of what architecture should be used
+T37	Action 26130 26139	depend on
+A14	Capability T37 015:MalwareCapability-probing
+A15	StrategicObjectives T37 046:Probing-probe_host_configuration
+T38	Object 26140 26150;26151 26171	a specific target’s environment
+R30	SubjAction Subject:T36 Action:T37	
+R31	ActionObj Action:T37 Object:T38	
+T39	Object 26291 26311	a kernel mode driver
+T40	Action 26312 26321	installed
+A16	Capability T40 010:MalwareCapability-infection/propagation
+R32	ActionObj Action:T40 Object:T39	
+A17	ActionName T40 006:DeviceDriver-load_driver
+T41	Subject 26353 26363	the driver
+R33	CoRefer Referer:T39 Canonical:T41	
+T42	Object 26326 26340	a usermode DLL
+T43	Action 26341 26349	injected
+A18	Capability T43 012:MalwareCapability-machine_access/control
+A19	ActionName T43 119:ProcessMemory-map_library_into_process
+R34	ActionObj Action:T43 Object:T42	
+A20	StrategicObjectives T43 038:MachineAccessControl-control_local_machine
+R35	SubjAction Subject:T41 Action:T43	
+T44	Modifier 26364 26368	into
+T45	Object 26369 26389	the system processes
+R36	ModObj Modifier:T44 Object:T45	
+R37	ActionMod Action:T43 Modifier:T44	
+T46	Subject 31816 31832	the Snake driver
+T47	Action 31851 31855	load
+A21	Capability T47 012:MalwareCapability-machine_access/control
+A22	ActionName T47 119:ProcessMemory-map_library_into_process
+A23	StrategicObjectives T47 038:MachineAccessControl-control_local_machine
+R38	SubjAction Subject:T46 Action:T47	
+T48	Object 31856 31870	the DLL module
+R39	ActionObj Action:T47 Object:T48	
+T49	Modifier 31871 31875	into
+T50	Object 31876 31898	the usermode processes
+R40	ActionMod Action:T47 Modifier:T49	
+R41	ModObj Modifier:T49 Object:T50	
+T51	Action 31909 31912	use
+A24	Capability T51 005:MalwareCapability-command_and_control
+R42	SubjAction Subject:T46 Action:T51	
+T52	Object 31913 31917;31918 31924	that module
+T53	Modifier 31925 31928	for
+T54	Object 31929 31947	the communications
+R43	ActionObj Action:T51 Object:T52	
+R44	ActionMod Action:T51 Modifier:T53	
+R45	ModObj Modifier:T53 Object:T54	
+T55	Subject 33988 33998	the driver
+T56	Action 33999 34006	creates
+A25	ActionName T56 024:File-create_file
+T57	Object 34007 34035	device named \Device\vstor32
+T58	Modifier 34036 34040	with
+T59	Object 34041 34076	a symbolic link \DosDevices\vstor32
+R46	SubjAction Subject:T55 Action:T56	
+R47	ActionObj Action:T56 Object:T57	
+R48	ActionMod Action:T56 Modifier:T58	
+R49	ModObj Modifier:T58 Object:T59	
+T60	Object 34078 34089	This device
+T61	Action 34090 34097	is used
+A26	Capability T61 005:MalwareCapability-command_and_control
+T62	Modifier 34098 34101	for
+T63	Object 34102 34132	userland/kernel communications
+R50	ActionObj Action:T61 Object:T60	
+R51	ActionMod Action:T61 Modifier:T62	
+R52	ModObj Modifier:T62 Object:T63	
+T64	Action 34144 34149	drops
+A27	ActionName T64 084:Library-load_library
+T65	Object 34150 34155	a DLL
+T66	Modifier 34156 34160	into
+T67	Subject 34141 34143	it
+R53	CoRefer Referer:T55 Canonical:T67	
+R54	SubjAction Subject:T67 Action:T64	
+R55	ActionObj Action:T64 Object:T65	
+T68	Object 34161 34184	the %windows% directory
+R56	ActionMod Action:T64 Modifier:T66	
+R57	ModObj Modifier:T66 Object:T68	
+T69	Action 34264 34271	applied
+A28	Capability T69 001:MalwareCapability-anti-code_analysis
+A29	StrategicObjectives T69 004:AntiCodeAnalysis-code_obfuscation
+T70	Object 34255 34263	XOR 0xAA
+T71	Modifier 34272 34281	on top of
+T72	Object 34282 34284	it
+R58	ActionObj Action:T69 Object:T70	
+R59	ActionMod Action:T69 Modifier:T71	
+R60	ModObj Modifier:T71 Object:T72	
+R61	CoRefer Referer:T65 Canonical:T72	
+T73	Object 34346 34353	the DLL
+T74	Action 34354 34364	is dropped
+A30	ActionName T74 084:Library-load_library
+R62	ActionObj Action:T74 Object:T73	
+T75	Modifier 34372 34377	under
+T76	Object 34378 34412	a random name or a hard-coded name
+R63	ModObj Modifier:T75 Object:T76	
+R64	ActionMod Action:T74 Modifier:T75	
+T77	Action 34467 34478	be injected
+A31	Capability T77 012:MalwareCapability-machine_access/control
+A32	ActionName T77 119:ProcessMemory-map_library_into_process
+A33	StrategicObjectives T77 038:MachineAccessControl-control_local_machine
+T78	Object 34452 34460	this DLL
+T79	Modifier 34479 34483	into
+R65	ActionMod Action:T77 Modifier:T79	
+T80	Object 34484 34507	the user-mode processes
+R66	ActionObj Action:T77 Object:T78	
+R67	ModObj Modifier:T79 Object:T80	
+T81	Action 34563 34565;34566 34575	be installed
+A34	ActionName T81 147:Service-create_service
+T82	Modifier 34576 34578	as
+T83	Object 34579 34588	a service
+R68	ActionMod Action:T81 Modifier:T82	
+R69	ModObj Modifier:T82 Object:T83	
+T84	Object 34542 34553	DLL modules
+R70	ActionObj Action:T81 Object:T84	
+T85	Action 34593 34599	be run
+A35	Capability T85 012:MalwareCapability-machine_access/control
+A36	ActionName T85 153:Service-start_service
+A37	StrategicObjectives T85 038:MachineAccessControl-control_local_machine
+T86	Modifier 34600 34606	within
+T87	Object 34607 34645	taskhost.exe or services.exe processes
+R71	ActionMod Action:T85 Modifier:T86	
+R72	ModObj Modifier:T86 Object:T87	
+R73	ActionObj Action:T85 Object:T84	
+T88	Action 34665 34672	sets up
+A38	ActionName T88 061:Hooking-add_system_call_hook
+T89	Object 34673 34682	the hooks
+T90	Modifier 34683 34686	for
+T91	Object 34687 34717	the following kernel-mode APIs
+T92	Subject 34654 34664	the driver
+R74	SubjAction Subject:T92 Action:T88	
+R75	ActionObj Action:T88 Object:T89	
+R76	ActionMod Action:T88 Modifier:T90	
+R77	ModObj Modifier:T90 Object:T91	
+T93	Subject 34819 34821	it
+T94	Action 34822 34827	calls
+A39	ActionName T94 080:Library-call_library_function
+T95	Object 34828 34861	PsSetCreateProcessNotifyRoutine()
+R78	ActionObj Action:T94 Object:T95	
+R79	SubjAction Subject:T93 Action:T94	
+T96	Action 34874 34885	be notified
+A40	Capability T96 015:MalwareCapability-probing
+A41	ActionName T96 106:Process-enumerate_processes
+A42	StrategicObjectives T96 046:Probing-probe_host_configuration
+T97	Modifier 34886 34894	whenever
+T98	Object 34895 34919	a new process is started
+R80	ActionMod Action:T96 Modifier:T97	
+R81	ModObj Modifier:T97 Object:T98	
+T99	Object 34819 34821	it
+R82	ActionObj Action:T96 Object:T99	
+T100	Subject 34997 35002	Snake
+T101	Action 35006 35010	stay
+A43	Capability T101 013:MalwareCapability-persistence
+T102	Object 35011 35033	persistent on a system
+R83	ActionObj Action:T101 Object:T102	
+R84	SubjAction Subject:T100 Action:T101	
+T103	Action 35049 35055	infect
+A44	Capability T103 012:MalwareCapability-machine_access/control
+A45	StrategicObjectives T103 038:MachineAccessControl-control_local_machine
+R85	SubjAction Subject:T100 Action:T103	
+T104	Object 35056 35083	any newly created processes
+R86	ActionObj Action:T103 Object:T104	
+T105	Action 35089 35096	restore
+A46	Capability T105 013:MalwareCapability-persistence
+A47	TacticalObjectives T105 106:Persistence-reinstantiate_self_after_initial_detection
+A48	StrategicObjectives T105 043:Persistence-persist_to_re-infect_system
+T106	Object 35097 35112	its driver file
+R87	SubjAction Subject:T100 Action:T105	
+T107	Modifier 35113 35120	in case
+T108	Object 35121 35136	it gets deleted
+R88	ActionObj Action:T105 Object:T106	
+R89	ActionMod Action:T105 Modifier:T107	
+R90	ModObj Modifier:T107 Object:T108	
+T109	Subject 35160 35162	it
+T110	Action 35163 35167	sets
+A49	ActionName T110 061:Hooking-add_system_call_hook
+T111	Object 35139 35159	Another set of hooks
+T112	Subject 35139 35159	Another set of hooks
+R91	SubjAction Subject:T109 Action:T110	
+R92	ActionObj Action:T110 Object:T111	
+T113	Action 35183 35187	hide
+A50	Capability T113 002:MalwareCapability-anti-detection
+A51	TacticalObjectives T113 023:AntiDetection-hide_file_system_artifacts
+A52	StrategicObjectives T113 007:AntiDetection-hide_malware_artifacts
+T114	Object 35188 35238	the presence of the Snake components on the system
+R93	ActionObj Action:T113 Object:T114	
+R94	SubjAction Subject:T112 Action:T113	
+T115	Subject 35361 35371	The driver
+T116	Object 35389 35411	all userland processes
+T117	Object 35415 35445	see if they load any web pages
+T118	Modifier 35412 35414	to
+T119	Modifier 35385 35388	for
+T120	Action 35377 35384	watches
+A53	Capability T120 019:MalwareCapability-spying
+A54	ActionName T120 106:Process-enumerate_processes
+A55	StrategicObjectives T120 064:Spying-capture_system_state_data
+A56	TacticalObjectives T120 145:Spying-capture_system_network_traffic
+R95	SubjAction Subject:T115 Action:T120	
+R96	ActionMod Action:T120 Modifier:T119	
+R97	ActionMod Action:T120 Modifier:T118	
+R98	ModObj Modifier:T119 Object:T116	
+R99	ModObj Modifier:T118 Object:T117	
+T121	Subject 35495 35500	Snake
+T122	Action 35501 35506	stays
+A57	Capability T122 017:MalwareCapability-secondary_operation
+A58	StrategicObjectives T122 051:SecondaryOperation-lay_dormant
+T123	Object 35507 35514	dormant
+R100	SubjAction Subject:T121 Action:T122	
+R101	ActionObj Action:T122 Object:T123	
+T124	Subject 35626 35636	the driver
+T125	Modifier 35448 35458	As long as
+T126	Object 35459 35493	the user is not using the Internet
+R102	ActionMod Action:T122 Modifier:T125	
+R103	ModObj Modifier:T125 Object:T126	
+T127	Action 35637 35647	intercepts
+A59	Capability T127 011:MalwareCapability-integrity_violation
+A60	TacticalObjectives T127 098:IntegrityViolation-intercept/manipulate_network_traffic
+A61	StrategicObjectives T127 034:IntegrityViolation-compromise_network_operational_integrity
+T128	Object 35648 35658	that event
+T129	Modifier 35593 35603	as soon as
+T130	Object 35604 35624	the user goes online
+R104	ModObj Modifier:T129 Object:T130	
+R105	ActionMod Action:T127 Modifier:T129	
+R106	SubjAction Subject:T124 Action:T127	
+R107	ActionObj Action:T127 Object:T128	
+T131	Action 35680 35687	injects
+A62	Capability T131 012:MalwareCapability-machine_access/control
+A63	ActionName T131 119:ProcessMemory-map_library_into_process
+A64	StrategicObjectives T131 038:MachineAccessControl-control_local_machine
+R108	SubjAction Subject:T124 Action:T131	
+T132	Object 35688 35712	the malicious DLL module
+T133	Modifier 35713 35717	into
+T134	Object 35718 35755	the process that initiated connection
+R109	ModObj Modifier:T133 Object:T134	
+R110	ActionMod Action:T131 Modifier:T133	
+R111	ActionObj Action:T131 Object:T132	
+T135	Subject 35787 35797	the module
+T136	Action 35798 35807	initiates
+A65	Capability T136 005:MalwareCapability-command_and_control
+A66	TacticalObjectives T136 046:CommandandControl-check_for_payload
+A67	StrategicObjectives T136 017:CommandandControl-receive_data_from_c2_server
+T137	Object 35808 35815	polling
+T138	Object 35821 35854	one of the hard-coded C&C servers
+T139	Modifier 35816 35820	from
+R112	SubjAction Subject:T135 Action:T136	
+R113	ActionMod Action:T136 Modifier:T139	
+R114	ActionObj Action:T136 Object:T137	
+R115	ModObj Modifier:T139 Object:T138	
+T140	Subject 35872 35886	this behaviour
+T141	Action 35893 35898	blend
+A68	Capability T141 002:MalwareCapability-anti-detection
+A69	TacticalObjectives T141 025:AntiDetection-hide_network_traffic
+A70	StrategicObjectives T141 007:AntiDetection-hide_malware_artifacts
+T142	Object 35899 35914	Snake’s traffic
+T143	Object 35920 35939	the browser traffic
+T144	Modifier 35915 35919	with
+R116	SubjAction Subject:T140 Action:T141	
+R117	ActionObj Action:T141 Object:T142	
+R118	ActionMod Action:T141 Modifier:T144	
+R119	ModObj Modifier:T144 Object:T143	
+T145	Action 35941 35950	bypassing
+A71	Capability T145 018:MalwareCapability-security_degradation
+A73	StrategicObjectives T145 058:SecurityDegradation-disable_os_security_features
+T146	Object 35951 35964	the firewalls
+R120	ActionObj Action:T145 Object:T146	
+T147	Action 35970 35977	keeping
+A74	Capability T147 002:MalwareCapability-anti-detection
+T148	Object 35978 35991	a low profile
+R121	ActionObj Action:T147 Object:T148	
+T149	Subject 36675 36688	Snake rootkit
+T150	Action 36692 36696	stay
+A75	Capability T150 002:MalwareCapability-anti-detection
+T151	Object 36697 36706	unnoticed
+T152	Action 36610 36616	Hiding
+A76	Capability T152 002:MalwareCapability-anti-detection
+A77	TacticalObjectives T152 025:AntiDetection-hide_network_traffic
+A78	StrategicObjectives T152 009:AntiDetection-security_software_evasion
+T153	Object 36617 36640	a few DNS/HTTP requests
+T154	Modifier 36641 36646	among
+T155	Object 36647 36667	busy network traffic
+R122	SubjAction Subject:T149 Action:T152	
+R123	ActionObj Action:T152 Object:T153	
+R124	ActionMod Action:T152 Modifier:T154	
+R125	ModObj Modifier:T154 Object:T155	
+T156	Subject 37431 37441	the driver
+T157	Action 37454 37462	injected
+A79	Capability T157 012:MalwareCapability-machine_access/control
+A80	ActionName T157 119:ProcessMemory-map_library_into_process
+A81	StrategicObjectives T157 038:MachineAccessControl-control_local_machine
+T158	Object 37463 37485	a malicious DLL module
+T159	Modifier 37486 37488	in
+T160	Object 37489 37491	it
+R126	ModObj Modifier:T159 Object:T160	
+R127	SubjAction Subject:T156 Action:T157	
+R128	ActionObj Action:T157 Object:T158	
+R129	ActionMod Action:T157 Modifier:T159	
+T161	Subject 37497 37508	that module
+T162	Action 37509 37516	started
+A82	Capability T162 011:MalwareCapability-integrity_violation
+A83	ActionName T162 096:Network-send_network_packet
+A84	StrategicObjectives T162 034:IntegrityViolation-compromise_network_operational_integrity
+A85	TacticalObjectives T162 098:IntegrityViolation-intercept/manipulate_network_traffic
+T163	Object 37517 37548	producing the following traffic
+R130	ActionObj Action:T162 Object:T163	
+R131	SubjAction Subject:T161 Action:T162	
+T164	Object 39954 39989	The domain names of the C&C servers
+T165	Action 39993 40002	relies on
+A86	TacticalObjectives T165 048:CommandandControl-generate_c2_domain_name(s)
+A87	StrategicObjectives T165 016:CommandandControl-determine_c2_server
+T166	Subject 39990 39992	it
+R132	ActionObj Action:T165 Object:T164	
+R133	SubjAction Subject:T166 Action:T165	
+T167	Subject 40398 40409	the malware
+T168	Action 40416 40424	resolves
+A88	Capability T168 005:MalwareCapability-command_and_control
+A89	TacticalObjectives T168 048:CommandandControl-generate_c2_domain_name(s)
+A90	StrategicObjectives T168 016:CommandandControl-determine_c2_server
+T169	Object 40425 40451	the domain name of its C&C
+R134	SubjAction Subject:T167 Action:T168	
+R135	ActionObj Action:T168 Object:T169	
+T170	Subject 40459 40461	it
+T171	Action 40462 40469	fetches
+A91	Capability T171 005:MalwareCapability-command_and_control
+A92	ActionName T171 054:HTTP-send_http_get_request
+A93	StrategicObjectives T171 018:CommandandControl-send_data_to_c2_server
+T172	Action 40493 40500	expects
+A94	Capability T172 005:MalwareCapability-command_and_control
+A95	TacticalObjectives T172 052:CommandandControl-validate_data
+A96	StrategicObjectives T172 017:CommandandControl-receive_data_from_c2_server
+T173	Object 40501 40567	the server to respond with a string “1”, acknowledging it’s active
+R136	ActionObj Action:T172 Object:T173	
+R137	SubjAction Subject:T170 Action:T171	
+R138	SubjAction Subject:T170 Action:T172	
+A97	Capability T165 005:MalwareCapability-command_and_control
+T174	Object 40470 40487	a file /D/pub.txt
+R139	ActionObj Action:T171 Object:T174	
+T175	Subject 40829 40831	it
+R140	CoRefer Referer:T167 Canonical:T170	
+R141	CoRefer Referer:T170 Canonical:T175	
+T176	Action 40832 40836	asks
+A98	Capability T176 005:MalwareCapability-command_and_control
+A99	ActionName T176 096:Network-send_network_packet
+A100	StrategicObjectives T176 018:CommandandControl-send_data_to_c2_server
+A101	TacticalObjectives T176 046:CommandandControl-check_for_payload
+T177	Object 40837 40847	the server
+T178	Object 40852 40861	a command
+T179	Modifier 40848 40851	for
+R142	SubjAction Subject:T175 Action:T176	
+R143	ActionObj Action:T176 Object:T177	
+R144	ActionMod Action:T176 Modifier:T179	
+R145	ModObj Modifier:T179 Object:T178	
+T180	Subject 40867 40877	the server
+T181	Action 40878 40885	returns
+A102	Capability T181 005:MalwareCapability-command_and_control
+A103	ActionName T181 093:Network-receive_network_packet
+A104	StrategicObjectives T181 017:CommandandControl-receive_data_from_c2_server
+A105	TacticalObjectives T181 047:CommandandControl-control_malware_via_remote_command
+T182	Object 40886 40910	a new command to execute
+R146	SubjAction Subject:T180 Action:T181	
+R147	ActionObj Action:T181 Object:T182	
+T183	Object 41388 41399	The command
+T184	Subject 41400 41402	it
+T185	Action 41403 41411	receives
+A106	Capability T185 005:MalwareCapability-command_and_control
+A107	TacticalObjectives T185 047:CommandandControl-control_malware_via_remote_command
+A108	StrategicObjectives T185 017:CommandandControl-receive_data_from_c2_server
+T186	Modifier 41412 41416	from
+T187	Object 41417 41420	C&C
+T188	Action 41452 41464	is encrypted
+A109	ActionName T185 093:Network-receive_network_packet
+A110	Capability T188 002:MalwareCapability-anti-detection
+A111	TacticalObjectives T188 025:AntiDetection-hide_network_traffic
+A112	StrategicObjectives T188 007:AntiDetection-hide_malware_artifacts
+R148	ActionObj Action:T188 Object:T183	
+R149	SubjAction Subject:T184 Action:T185	
+R150	ActionMod Action:T185 Modifier:T186	
+R151	ModObj Modifier:T186 Object:T187	
+R152	ActionObj Action:T185 Object:T183	
+T189	Action 41753 41776	calculates and confirms
+A113	Capability T189 005:MalwareCapability-command_and_control
+A114	TacticalObjectives T189 052:CommandandControl-validate_data
+A115	StrategicObjectives T189 017:CommandandControl-receive_data_from_c2_server
+T190	Subject 41750 41752	it
+T191	Object 41777 41793	a CRC32 checksum
+T192	Modifier 41794 41800	within
+T193	Object 41801 41812	the command
+R153	SubjAction Subject:T190 Action:T189	
+R154	ActionObj Action:T189 Object:T191	
+R155	ActionMod Action:T189 Modifier:T192	
+R156	ModObj Modifier:T192 Object:T193	
+T194	Subject 41490 41501	the malware
+T195	Action 41478 41485	decrypt
+A116	Capability T195 005:MalwareCapability-command_and_control
+A117	TacticalObjectives T195 052:CommandandControl-validate_data
+A118	StrategicObjectives T195 017:CommandandControl-receive_data_from_c2_server
+R157	SubjAction Subject:T194 Action:T195	
+T196	Object 41486 41488	it
+R158	ActionObj Action:T195 Object:T196	
+T197	Action 41508 41515	applies
+A119	Capability T197 005:MalwareCapability-command_and_control
+A120	TacticalObjectives T197 052:CommandandControl-validate_data
+A121	StrategicObjectives T197 017:CommandandControl-receive_data_from_c2_server
+T198	Object 41516 41528	the XOR mask
+T199	Object 41532 41569	the bytes that start from offset 0x40
+T200	Modifier 41529 41531	to
+R159	SubjAction Subject:T194 Action:T197	
+R160	ActionObj Action:T197 Object:T198	
+R161	ActionMod Action:T197 Modifier:T200	
+R162	ModObj Modifier:T200 Object:T199	
+R163	CoRefer Referer:T167 Canonical:T184	
+R164	CoRefer Referer:T167 Canonical:T190	
+T201	Action 41822 41830	decrypts
+A122	Capability T201 005:MalwareCapability-command_and_control
+A123	TacticalObjectives T201 052:CommandandControl-validate_data
+A124	StrategicObjectives T201 017:CommandandControl-receive_data_from_c2_server
+T202	Object 41831 41839	the data
+T203	Modifier 41840 41842	by
+T204	Object 41843 41866;41867 41880	using the Number Theory Library (NTL)
+R165	ModObj Modifier:T203 Object:T204	
+R166	ActionObj Action:T201 Object:T202	
+R167	ActionMod Action:T201 Modifier:T203	
+R168	SubjAction Subject:T190 Action:T201	
+T205	Action 41886 41896	makes sure
+A125	Capability T205 005:MalwareCapability-command_and_control
+A126	TacticalObjectives T205 052:CommandandControl-validate_data
+A127	StrategicObjectives T205 017:CommandandControl-receive_data_from_c2_server
+T206	Object 41897 41940	the command is destined to the current host
+T207	Object 41944 41971	matching the ID field in it
+T208	Modifier 41941 41943	by
+R169	ActionObj Action:T205 Object:T206	
+R170	ActionMod Action:T205 Modifier:T208	
+R171	ModObj Modifier:T208 Object:T207	
+R172	SubjAction Subject:T190 Action:T205	
+T209	Subject 45709 45720	the malware
+T210	Action 45721 45731	interprets
+A128	Capability T210 005:MalwareCapability-command_and_control
+A129	TacticalObjectives T210 047:CommandandControl-control_malware_via_remote_command
+A130	StrategicObjectives T210 017:CommandandControl-receive_data_from_c2_server
+T211	Object 45732 45752	the received command
+R173	SubjAction Subject:T209 Action:T210	
+R174	ActionObj Action:T210 Object:T211	
+T212	Subject 46089 46100	the malware
+T213	Action 46101 46109	connects
+A131	Capability T213 005:MalwareCapability-command_and_control
+A132	ActionName T213 088:Network-connect_to_url
+A133	StrategicObjectives T213 016:CommandandControl-determine_c2_server
+A134	TacticalObjectives T213 048:CommandandControl-generate_c2_domain_name(s)
+T214	Object 46113 46124	the new C&C
+T215	Modifier 46110 46112	to
+R175	SubjAction Subject:T212 Action:T213	
+R176	ActionMod Action:T213 Modifier:T215	
+R177	ModObj Modifier:T215 Object:T214	
+T216	Action 46126 46132	asking
+A135	Capability T216 005:MalwareCapability-command_and_control
+A136	ActionName T216 096:Network-send_network_packet
+A137	StrategicObjectives T216 018:CommandandControl-send_data_to_c2_server
+A138	TacticalObjectives T216 046:CommandandControl-check_for_payload
+T217	Modifier 46136 46139	for
+T218	Object 46140 46155	another command
+T219	Object 46133 46135	it
+R178	CoRefer Referer:T214 Canonical:T219	
+R179	SubjAction Subject:T212 Action:T216	
+R180	ActionMod Action:T216 Modifier:T217	
+R181	ModObj Modifier:T217 Object:T218	
+T220	Subject 46568 46570	it
+T221	Object 46556 46567	The command
+T222	Action 46571 46579	receives
+A139	Capability T222 005:MalwareCapability-command_and_control
+A140	ActionName T222 093:Network-receive_network_packet
+A141	StrategicObjectives T222 017:CommandandControl-receive_data_from_c2_server
+A142	TacticalObjectives T222 047:CommandandControl-control_malware_via_remote_command
+R182	ActionObj Action:T222 Object:T221	
+R183	SubjAction Subject:T220 Action:T222	
+T223	Subject 46601 46603	it
+T224	Action 46604 46611	uploads
+A143	Capability T224 005:MalwareCapability-command_and_control
+A144	ActionName T224 097:Network-upload_file
+A145	StrategicObjectives T224 018:CommandandControl-send_data_to_c2_server
+A146	TacticalObjectives T224 050:CommandandControl-send_system_information
+T225	Object 46612 46634	all the collected logs
+T226	Object 46638 46648	the server
+T227	Modifier 46635 46637	to
+T228	Action 46659 46669	cleans out
+A147	Capability T228 017:MalwareCapability-secondary_operation
+A148	ActionName T228 028:File-delete_file
+A149	StrategicObjectives T228 054:SecondaryOperation-remove_traces_of_infection
+A150	TacticalObjectives T228 121:SecondaryOperation-remove_system_artifacts
+T229	Object 46670 46680	those logs
+R184	SubjAction Subject:T223 Action:T224	
+R185	ActionObj Action:T224 Object:T225	
+R186	ActionMod Action:T224 Modifier:T227	
+R187	ModObj Modifier:T227 Object:T226	
+R188	SubjAction Subject:T223 Action:T228	
+R189	ActionObj Action:T228 Object:T229	
+T230	Subject 47537 47539	it
+R190	CoRefer Referer:T212 Canonical:T220	
+R191	CoRefer Referer:T212 Canonical:T223	
+R192	CoRefer Referer:T225 Canonical:T229	
+T231	Object 47527 47536	The files
+T232	Action 47540 47547	uploads
+A151	Capability T232 005:MalwareCapability-command_and_control
+A152	ActionName T232 097:Network-upload_file
+A153	StrategicObjectives T232 018:CommandandControl-send_data_to_c2_server
+A154	TacticalObjectives T232 050:CommandandControl-send_system_information
+R193	SubjAction Subject:T230 Action:T232	
+R194	ActionObj Action:T232 Object:T231	
+T233	Subject 47782 47789	rootkit
+T234	Action 47793 47798	store
+A155	Capability T234 017:MalwareCapability-secondary_operation
+A156	ActionName T234 043:File-write_to_file
+A157	StrategicObjectives T234 052:SecondaryOperation-log_activity
+T235	Object 47799 47825	configuration and log data
+R195	ActionObj Action:T234 Object:T235	
+R196	SubjAction Subject:T233 Action:T234	
+T236	Object 47734 47765	The files within that directory
+T237	Action 47766 47774	are used
+A158	ActionName T237 043:File-write_to_file
+R197	SubjAction Subject:T233 Action:T237	
+R198	ActionObj Action:T237 Object:T236	
+T238	Subject 49462 49464	it
+T239	Action 49465 49473	supports
+A159	Capability T239 005:MalwareCapability-command_and_control
+T240	Object 49474 49506	3 modes of fetching C&C commands
+R199	ActionObj Action:T239 Object:T240	
+R200	SubjAction Subject:T238 Action:T239	
+T241	Subject 49536 49538	it
+T242	Action 49539 49548	relies on
+A160	Capability T242 005:MalwareCapability-command_and_control
+T243	Object 49549 49627;49636 49659	Windows Internet (WinINet) APIs, such as HttpOpenRequest(), HttpSendRequest(), InternetReadFile(), etc
+R201	ActionObj Action:T242 Object:T243	
+R202	SubjAction Subject:T241 Action:T242	
+T244	Subject 49689 49691	it
+T245	Action 49692 49696	uses
+A161	Capability T245 005:MalwareCapability-command_and_control
+A162	ActionName T245 158:Socket-connect_to_socket
+T246	Object 49697 49773;49782 49793	Windows Sockets 2 (Winsock) APIs, such as WSAStartup(), socket(), connect(), send(), etc
+R203	ActionObj Action:T245 Object:T246	
+R204	SubjAction Subject:T244 Action:T245	
+T247	Subject 49822 49824	it
+T248	Action 49825 49830	works
+A163	Capability T248 005:MalwareCapability-command_and_control
+A164	ActionName T248 064:IPC-connect_to_named_pipe
+T249	Modifier 49831 49833	in
+T250	Object 49834 49856	the ‘pipe server’ mode
+R205	SubjAction Subject:T247 Action:T248	
+R206	ActionMod Action:T248 Modifier:T249	
+R207	ModObj Modifier:T249 Object:T250	
+T251	Subject 49863 49865	it
+T252	Action 49866 49872	passes
+A165	Capability T252 005:MalwareCapability-command_and_control
+A166	ActionName T252 072:IPC-write_to_named_pipe
+T253	Object 49873 49923	the web requests it is interested in (as a client)
+T254	Object 49927 49930;49939 50049	the pipe server that runs within Windows Explorer (explorer.exe) and/or Internet Explorer (iexplore.exe) processes
+T255	Modifier 49924 49926	to
+R208	SubjAction Subject:T251 Action:T252	
+R209	ActionObj Action:T252 Object:T253	
+R210	ActionMod Action:T252 Modifier:T255	
+R211	ModObj Modifier:T255 Object:T254	
+T256	Subject 52032 52081	the malicious driver with the embedded DLL module
+T257	Action 52082 52089	injects
+A167	Capability T257 012:MalwareCapability-machine_access/control
+A168	ActionName T257 119:ProcessMemory-map_library_into_process
+A169	StrategicObjectives T257 038:MachineAccessControl-control_local_machine
+T258	Object 52090 52098	that DLL
+T259	Object 52104 52121;52132 52152	a system process, such as services.exe
+T260	Modifier 52099 52103	into
+R212	SubjAction Subject:T256 Action:T257	
+R213	ActionObj Action:T257 Object:T258	
+R214	ActionMod Action:T257 Modifier:T260	
+R215	ModObj Modifier:T260 Object:T259	
+T261	Subject 52167 52174	the DLL
+T262	Action 52180 52188	function
+A170	ActionName T262 064:IPC-connect_to_named_pipe
+T263	Modifier 52189 52191	in
+T264	Object 52192 52214	the ‘pipe server’ mode
+R216	SubjAction Subject:T261 Action:T262	
+R217	ActionMod Action:T262 Modifier:T263	
+R218	ModObj Modifier:T263 Object:T264	
+R219	CoRefer Referer:T258 Canonical:T261	
+T265	Subject 52239 52249	the driver
+T266	Action 52250 52257	detects
+A171	Capability T266 019:MalwareCapability-spying
+A172	ActionName T266 106:Process-enumerate_processes
+A173	StrategicObjectives T266 064:Spying-capture_system_state_data
+A174	TacticalObjectives T266 145:Spying-capture_system_network_traffic
+T267	Object 52258 52310	a usermode process that goes online (e.g. a browser)
+R220	SubjAction Subject:T265 Action:T266	
+R221	ActionObj Action:T266 Object:T267	
+R222	SubjAction Subject:T149 Action:T150	
+R223	ActionObj Action:T150 Object:T151	
+T268	Subject 52312 52314	it
+R224	CoRefer Referer:T265 Canonical:T268	
+T269	Action 52320 52326	inject
+A175	Capability T269 012:MalwareCapability-machine_access/control
+A176	ActionName T269 119:ProcessMemory-map_library_into_process
+A177	StrategicObjectives T269 038:MachineAccessControl-control_local_machine
+T270	Object 52327 52347	malicious DLL module
+T271	Modifier 52357 52361	into
+T272	Object 52362 52364	it
+R225	SubjAction Subject:T268 Action:T269	
+R226	ActionObj Action:T269 Object:T270	
+R227	ActionMod Action:T269 Modifier:T271	
+R228	ModObj Modifier:T271 Object:T272	
+T273	Subject 52401 52408	the DLL
+T274	Action 52413 52418	start
+A178	Capability T274 005:MalwareCapability-command_and_control
+T275	Object 52419 52450	communicating with C&C directly
+R229	SubjAction Subject:T273 Action:T274	
+R230	ActionObj Action:T274 Object:T275	
+T276	Subject 52497 52513	the injected DLL
+T277	Action 52519 52524	start
+A179	Capability T277 005:MalwareCapability-command_and_control
+A180	ActionName T277 064:IPC-connect_to_named_pipe
+R231	SubjAction Subject:T276 Action:T277	
+T278	Object 52525 52559	communicating with the pipe server
+R232	ActionObj Action:T277 Object:T278	
+T279	Action 52563 52570	sending
+A181	Capability T279 005:MalwareCapability-command_and_control
+A182	ActionName T279 072:IPC-write_to_named_pipe
+A183	StrategicObjectives T279 018:CommandandControl-send_data_to_c2_server
+T280	Object 52571 52579	messages
+T281	Modifier 52580 52584	into
+T282	Object 52594 52643	the established inter-process communication pipes
+R233	SubjAction Subject:T276 Action:T279	
+R234	ActionObj Action:T279 Object:T280	
+R235	ActionMod Action:T279 Modifier:T281	
+R236	ModObj Modifier:T281 Object:T282	
+T283	Action 52697 52709	is delegated
+A184	Capability T283 005:MalwareCapability-command_and_control
+A185	ActionName T283 064:IPC-connect_to_named_pipe
+T284	Object 52662 52696	the task of communication with C&C
+T285	Object 52713 52728	the pipe server
+T286	Modifier 52710 52712	to
+R237	ActionObj Action:T283 Object:T284	
+R238	ActionMod Action:T283 Modifier:T286	
+R239	ModObj Modifier:T286 Object:T285	
+T287	Action 52738 52743	start
+A186	Capability T287 005:MalwareCapability-command_and_control
+T288	Object 52744 52770	communicating with the C&C
+T289	Subject 52730 52732	it
+R240	CoRefer Referer:T285 Canonical:T289	
+R241	SubjAction Subject:T289 Action:T287	
+R242	ActionObj Action:T287 Object:T288	
+T290	Action 52783 52792	bypassing
+A187	Capability T290 018:MalwareCapability-security_degradation
+A188	TacticalObjectives T290 123:SecurityDegradation-disable_firewall
+A189	StrategicObjectives T290 058:SecurityDegradation-disable_os_security_features
+T291	Object 52793 52870	the host-based firewalls that keep an infected system process in a white-list
+R243	ActionObj Action:T290 Object:T291	
+T292	Subject 53040 53055	the pipes usage
+T293	Action 53062 53074	‘legitimise’
+A72	Capability T293 018:MalwareCapability-security_degradation
+A190	TacticalObjectives T293 123:SecurityDegradation-disable_firewall
+A191	StrategicObjectives T293 058:SecurityDegradation-disable_os_security_features
+T294	Object 53075 53100	the outbound web requests
+R244	SubjAction Subject:T292 Action:T293	
+R245	ActionObj Action:T293 Object:T294	
+T295	Object 53265 53283	a dedicated thread
+T296	Action 53284 53294	is spawned
+A192	ActionName T296 125:ProcessThread-create_thread
+R246	ActionObj Action:T296 Object:T295	
+T297	Action 53298 53304	listen
+A193	Capability T297 019:MalwareCapability-spying
+A194	ActionName T297 070:IPC-read_from_named_pipe
+A195	StrategicObjectives T297 064:Spying-capture_system_state_data
+A196	TacticalObjectives T297 145:Spying-capture_system_network_traffic
+T298	Modifier 53305 53308	for
+T299	Object 53309 53312;53313 53348	IPC messages received through the pipes
+R247	ActionMod Action:T297 Modifier:T298	
+R248	ModObj Modifier:T298 Object:T299	
+T300	Object 53547 53550	GET
+T301	Subject 53626 53641	the pipe server
+T302	Action 53645 53652	perform
+A197	Capability T302 005:MalwareCapability-command_and_control
+A198	ActionName T302 054:HTTP-send_http_get_request
+R249	ActionObj Action:T302 Object:T300	
+T303	Object 53551 53564	POST requests
+T304	Action 53645 53652	perform
+A199	Capability T304 005:MalwareCapability-command_and_control
+A200	ActionName T304 058:HTTP-send_http_post_request
+R250	ActionObj Action:T304 Object:T303	
+R251	SubjAction Subject:T301 Action:T304	
+R252	SubjAction Subject:T301 Action:T302	
+T305	Subject 53566 53612	the pipe clients (infected usermode processes)
+T306	Action 53622 53625	ask
+A201	ActionName T306 064:IPC-connect_to_named_pipe
+T307	Object 53626 53641	the pipe server
+R253	ActionObj Action:T306 Object:T307	
+R254	SubjAction Subject:T305 Action:T306	
+T308	Action 53695 53701	saving
+A202	ActionName T308 043:File-write_to_file
+A203	Capability T308 012:MalwareCapability-machine_access/control
+A204	StrategicObjectives T308 038:MachineAccessControl-control_local_machine
+R255	SubjAction Subject:T301 Action:T308	
+T309	Modifier 53707 53711	into
+T310	Object 53702 53706	data
+T311	Object 53712 53728	a temporary file
+R256	ActionObj Action:T308 Object:T310	
+R257	ActionMod Action:T308 Modifier:T309	
+R258	ModObj Modifier:T309 Object:T311	
+T312	Action 53730 53734	copy
+A205	Capability T312 012:MalwareCapability-machine_access/control
+A206	ActionName T312 023:File-copy_file
+A207	StrategicObjectives T312 038:MachineAccessControl-control_local_machine
+T313	Action 53735 53741	delete
+A208	Capability T313 012:MalwareCapability-machine_access/control
+A209	ActionName T313 028:File-delete_file
+A210	StrategicObjectives T313 038:MachineAccessControl-control_local_machine
+T314	Object 53742 53747	files
+R259	ActionObj Action:T312 Object:T314	
+R260	ActionObj Action:T313 Object:T314	
+R261	SubjAction Subject:T301 Action:T312	
+R262	SubjAction Subject:T301 Action:T313	
+T315	Action 53749 53753	save
+A211	Capability T315 012:MalwareCapability-machine_access/control
+A212	ActionName T315 142:Registry-modify_registry_key
+A213	StrategicObjectives T315 038:MachineAccessControl-control_local_machine
+T316	Object 53754 53772	configuration data
+T317	Modifier 53773 53777	into
+T318	Object 53778 53790	the registry
+T319	Modifier 53791 53796	under
+T320	Object 53797 53831	the aforementioned ShellCore value
+R263	ActionObj Action:T315 Object:T316	
+R264	SubjAction Subject:T301 Action:T315	
+R265	ActionMod Action:T315 Modifier:T317	
+R266	ActionMod Action:T315 Modifier:T319	
+R267	ModObj Modifier:T317 Object:T318	
+R268	ModObj Modifier:T319 Object:T320	
+T321	Action 53874 53878	keep
+A214	Capability T321 002:MalwareCapability-anti-detection
+A215	StrategicObjectives T321 009:AntiDetection-security_software_evasion
+T322	Object 53879 53897	infected processes
+T323	Subject 53834 53858	This delegation of tasks
+T324	Modifier 53898 53903	under
+T325	Object 53904 53947	the radar of the behavioural analysis tools
+T326	Modifier 53948 53951	for
+T327	Object 53952 53962;53963 53971	as long as possible
+R269	SubjAction Subject:T323 Action:T321	
+R270	ActionObj Action:T321 Object:T322	
+R271	ActionMod Action:T321 Modifier:T324	
+R272	ModObj Modifier:T324 Object:T325	
+R273	ActionMod Action:T321 Modifier:T326	
+R274	ModObj Modifier:T326 Object:T327	
+T328	Action 53994 54002	overcome
+A216	Capability T328 018:MalwareCapability-security_degradation
+A217	StrategicObjectives T328 057:SecurityDegradation-disable_[host-based_or_os]_access_controls
+T329	Object 54003 54052	account restrictions imposed on a browser process
+R275	ActionObj Action:T328 Object:T329	
+T330	Action 54076 54081	write
+A218	Capability T330 012:MalwareCapability-machine_access/control
+A219	ActionName T330 043:File-write_to_file
+A220	StrategicObjectives T330 038:MachineAccessControl-control_local_machine
+T331	Modifier 54082 54086	into
+T332	Object 54087 54092	files
+T333	Action 54076 54081	write
+A221	Capability T333 012:MalwareCapability-machine_access/control
+A222	ActionName T333 142:Registry-modify_registry_key
+A223	StrategicObjectives T333 038:MachineAccessControl-control_local_machine
+T334	Modifier 54082 54086	into
+R276	ActionMod Action:T333 Modifier:T334	
+T335	Object 54094 54102	registry
+R277	ModObj Modifier:T334 Object:T335	
+R278	ActionMod Action:T330 Modifier:T331	
+R279	ModObj Modifier:T331 Object:T332	
+T336	Subject 54143 54154	the clients
+T337	Object 54160 54168	messages
+T338	Action 54155 54159	send
+A224	Capability T338 005:MalwareCapability-command_and_control
+A225	ActionName T338 072:IPC-write_to_named_pipe
+A226	StrategicObjectives T338 018:CommandandControl-send_data_to_c2_server
+R280	SubjAction Subject:T336 Action:T338	
+R281	ActionObj Action:T338 Object:T337	
+T339	Object 54172 54187	the pipe server
+T340	Modifier 54169 54171	to
+T341	Object 54194 54235	the following task identification headers
+T342	Modifier 54188 54193	using
+R282	ActionMod Action:T338 Modifier:T340	
+R283	ActionMod Action:T338 Modifier:T342	
+R284	ModObj Modifier:T340 Object:T339	
+R285	ModObj Modifier:T342 Object:T341	
+T343	Action 54669 54674	calls
+A227	ActionName T343 080:Library-call_library_function
+T344	Object 54675 54696	DeviceIoControl() API
+T345	Subject 54612 54614	it
+T346	Subject 54366 54397	The usermode component of Snake
+T347	Action 54398 54410	communicates
+A228	Capability T347 012:MalwareCapability-machine_access/control
+T348	Modifier 54411 54415	with
+T349	Object 54416 54438	its kernel-mode driver
+T350	Modifier 54439 54442	via
+T351	Object 54443 54485;54486 54512	a device called \\.\vstor32 (created under kernel as \Device\vstor32)
+R286	SubjAction Subject:T346 Action:T347	
+R287	ActionMod Action:T347 Modifier:T348	
+R288	ActionMod Action:T347 Modifier:T350	
+R289	ModObj Modifier:T348 Object:T349	
+R290	ModObj Modifier:T350 Object:T351	
+T352	Action 54600 54605	write
+A229	ActionName T352 043:File-write_to_file
+T353	Object 54606 54610	data
+R291	ActionObj Action:T352 Object:T353	
+R292	SubjAction Subject:T345 Action:T352	
+T354	Action 54615 54620	opens
+A230	ActionName T354 036:File-open_file
+T355	Object 54621 54631	the device
+T356	Object 54637 54662	CreateFile(“\\.\vstor32”)
+T357	Modifier 54632 54636	with
+R293	SubjAction Subject:T345 Action:T354	
+R294	ActionObj Action:T354 Object:T355	
+R295	ActionMod Action:T354 Modifier:T357	
+R296	ModObj Modifier:T357 Object:T356	
+R297	SubjAction Subject:T345 Action:T343	
+R298	ActionObj Action:T343 Object:T344	
+T358	Modifier 54697 54699	on
+T359	Modifier 54711 54715	with
+T360	Object 54700 54710	its handle
+T361	Object 54716 54738	IOCTL code of 0x222038
+R299	ActionMod Action:T343 Modifier:T358	
+R300	ActionMod Action:T343 Modifier:T359	
+R301	ModObj Modifier:T358 Object:T360	
+R302	ModObj Modifier:T359 Object:T361	
+T362	Object 54777 54808	the initial set of domain names
+T363	Action 54809 54823	are hard-coded
+A231	Capability T363 005:MalwareCapability-command_and_control
+A232	TacticalObjectives T363 048:CommandandControl-generate_c2_domain_name(s)
+A233	StrategicObjectives T363 016:CommandandControl-determine_c2_server
+T364	Modifier 54824 54830	within
+R303	CoRefer Referer:T346 Canonical:T345	
+T365	Object 54831 54850	the body of the DLL
+R304	ActionObj Action:T363 Object:T362	
+R305	ActionMod Action:T363 Modifier:T364	
+R306	ModObj Modifier:T364 Object:T365	
+T366	Subject 55937 55951	these commands
+T367	Action 55952 55959	provide
+A234	Capability T367 012:MalwareCapability-machine_access/control
+A235	TacticalObjectives T367 100:MachineAccessControl-control_machine_via_remote_command
+A236	StrategicObjectives T367 038:MachineAccessControl-control_local_machine
+R307	SubjAction Subject:T366 Action:T367	
+T368	Object 55960 55991	complete backdoor functionality
+R308	ActionObj Action:T367 Object:T368	
+T369	Action 55993 56001	allowing
+A237	Capability T369 012:MalwareCapability-machine_access/control
+A238	TacticalObjectives T369 100:MachineAccessControl-control_machine_via_remote_command
+A239	StrategicObjectives T369 038:MachineAccessControl-control_local_machine
+T370	Object 56002 56017	remote attacker
+T371	Object 56018 56051;56052 56058	full control over the compromised system
+R309	ActionObj Action:T369 Object:T370	
+R310	ActionObj Action:T369 Object:T371	
+T372	Subject 55080 55091	the malware
+T373	Action 55067 55076	performed
+A240	Capability T373 012:MalwareCapability-machine_access/control
+A241	TacticalObjectives T373 100:MachineAccessControl-control_machine_via_remote_command
+A242	StrategicObjectives T373 038:MachineAccessControl-control_local_machine
+T374	Object 55054 55066	the commands
+R311	SubjAction Subject:T372 Action:T373	
+R312	ActionObj Action:T373 Object:T374	
+R313	SubjAction Subject:T366 Action:T369	
+T375	Action 56076 56082	update
+A243	Capability T375 005:MalwareCapability-command_and_control
+A244	TacticalObjectives T375 051:CommandandControl-update_configuration
+A245	StrategicObjectives T375 017:CommandandControl-receive_data_from_c2_server
+T376	Object 56083 56093	the driver
+R314	ActionObj Action:T375 Object:T376	
+T377	Action 56103 56110	rely on
+A246	Capability T377 005:MalwareCapability-command_and_control
+T378	Object 56111 56141	its communication capabilities
+R315	ActionObj Action:T377 Object:T378	
+T379	Action 56453 56465	is installed
+A247	Capability T379 017:MalwareCapability-secondary_operation
+A248	TacticalObjectives T379 119:SecondaryOperation-install_secondary_module
+A249	StrategicObjectives T379 050:SecondaryOperation-install_other_components
+T380	Object 56439 56452	such a driver
+T381	Object 56470 56479	an update
+T382	Modifier 56466 56469	via
+R316	ModObj Modifier:T382 Object:T381	
+R317	ActionMod Action:T379 Modifier:T382	
+R318	ActionObj Action:T379 Object:T380	
+T383	Subject 56374 56396	the kernel-mode driver
+T384	Action 56397 56399	is
+A250	Capability T384 005:MalwareCapability-command_and_control
+T385	Object 56400 56419;56420 56434	responsible for the communications
+R319	SubjAction Subject:T383 Action:T384	
+R320	ActionObj Action:T384 Object:T385	
+T386	Action 56508 56521	be instructed
+A251	Capability T386 012:MalwareCapability-machine_access/control
+A252	TacticalObjectives T386 100:MachineAccessControl-control_machine_via_remote_command
+A253	StrategicObjectives T386 038:MachineAccessControl-control_local_machine
+T387	Object 56481 56503	the usermode component
+R321	ActionObj Action:T386 Object:T387	
+T388	Action 56572 56579	copying
+A254	ActionName T388 023:File-copy_file
+A255	Capability T388 012:MalwareCapability-machine_access/control
+A256	StrategicObjectives T388 038:MachineAccessControl-control_local_machine
+T389	Object 56580 56602	all the necessary logs
+T390	Modifier 56603 56607	into
+T391	Object 56608 56636	the shared virtual partition
+R322	ModObj Modifier:T390 Object:T391	
+R323	ActionObj Action:T388 Object:T389	
+R324	ActionMod Action:T388 Modifier:T390	
+T392	Subject 56972 56992	a kernel-mode driver
+T393	Action 56996 57005	carry out
+A257	Capability T393 005:MalwareCapability-command_and_control
+T394	Object 57006 57032	the network communications
+R325	SubjAction Subject:T392 Action:T393	
+R326	ActionObj Action:T393 Object:T394	
+T395	Object 57034 57051	The usermode DLLs
+T396	Action 57052 57061;57062 57070	are still injected
+A258	Capability T396 012:MalwareCapability-machine_access/control
+A259	ActionName T396 119:ProcessMemory-map_library_into_process
+A260	StrategicObjectives T396 038:MachineAccessControl-control_local_machine
+T397	Modifier 57071 57075	into
+T398	Modifier 57097 57099	to
+T399	Object 57076 57096	the system processes
+T400	Object 57100 57124	perform high-level tasks
+R327	ActionObj Action:T396 Object:T395	
+R328	ActionMod Action:T396 Modifier:T397	
+R329	ModObj Modifier:T397 Object:T399	
+R330	ActionMod Action:T396 Modifier:T398	
+R331	ModObj Modifier:T398 Object:T400	
+T401	Action 57171 57185	be distributed
+A261	Capability T401 010:MalwareCapability-infection/propagation
+A262	TacticalObjectives T401 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A263	StrategicObjectives T401 031:InfectionPropagation-infect_remote_machine
+T402	Object 57205 57232	a phishing email attachment
+T403	Modifier 57186 57189	via
+R332	ActionMod Action:T401 Modifier:T403	
+R333	ModObj Modifier:T403 Object:T402	
+T404	Action 57237 57249	be delivered
+A264	Capability T404 010:MalwareCapability-infection/propagation
+A265	TacticalObjectives T404 091:InfectionPropagation-perform_autonomous_remote_infection
+A266	StrategicObjectives T404 031:InfectionPropagation-infect_remote_machine
+T405	Object 57254 57256;57257 57283	an exploit across the network
+T406	Modifier 57250 57253	via
+R334	ActionMod Action:T404 Modifier:T406	
+R335	ModObj Modifier:T406 Object:T405	
+T407	Object 57164 57166	it
+R336	ActionObj Action:T401 Object:T407	
+R337	ActionObj Action:T404 Object:T407	
+T408	Action 57360 57366	starts
+A267	Capability T408 010:MalwareCapability-infection/propagation
+T409	Subject 57350 57359	Infection
+R338	SubjAction Subject:T409 Action:T408	
+T410	Modifier 57367 57371	from
+T411	Object 57372 57448	a dropper penetrating into the compromised system where it is allowed to run
+R339	ModObj Modifier:T410 Object:T411	
+R340	ActionMod Action:T408 Modifier:T410	
+T412	Subject 57465 57476	the dropper
+T413	Object 57465 57476	the dropper
+T414	Action 57455 57463	executed
+A268	ActionName T414 029:File-execute_file
+R341	ActionObj Action:T414 Object:T413	
+T415	Action 57477 57485	installs
+A269	Capability T415 017:MalwareCapability-secondary_operation
+A270	TacticalObjectives T415 118:SecondaryOperation-install_secondary_malware
+A271	StrategicObjectives T415 050:SecondaryOperation-install_other_components
+T416	Object 57486 57508	the kernel mode driver
+T417	Object 57512 57534	a pre-defined location
+T418	Modifier 57509 57511	in
+R342	ActionObj Action:T415 Object:T416	
+R343	ActionMod Action:T415 Modifier:T418	
+R344	ModObj Modifier:T418 Object:T417	
+R345	SubjAction Subject:T412 Action:T415	
+T419	Subject 57651 57653	it
+T420	Action 57659 57666	install
+A272	Capability T420 017:MalwareCapability-secondary_operation
+A273	TacticalObjectives T420 118:SecondaryOperation-install_secondary_malware
+A274	StrategicObjectives T420 050:SecondaryOperation-install_other_components
+T421	Action 57708 57715	install
+A275	Capability T421 017:MalwareCapability-secondary_operation
+A276	TacticalObjectives T421 118:SecondaryOperation-install_secondary_malware
+A277	StrategicObjectives T421 050:SecondaryOperation-install_other_components
+T422	Object 57667 57682	a 32-bit driver
+T423	Subject 57700 57702	it
+T424	Modifier 57635 57637	On
+T425	Modifier 57684 57686	On
+T426	Object 57638 57649	a 32-bit OS
+T427	Object 57687 57698	a 64-bit OS
+T428	Object 57716 57731	a 64-bit driver
+R346	ActionObj Action:T421 Object:T428	
+R347	SubjAction Subject:T423 Action:T421	
+R348	ActionMod Action:T421 Modifier:T425	
+R349	ModObj Modifier:T425 Object:T427	
+R350	ActionMod Action:T420 Modifier:T424	
+R351	ModObj Modifier:T424 Object:T426	
+R352	SubjAction Subject:T419 Action:T420	
+R353	ActionObj Action:T420 Object:T422	
+T429	Subject 57734 57761	The analysed 32-bit dropper
+T430	Action 57762 57769	creates
+A278	Capability T430 017:MalwareCapability-secondary_operation
+A279	ActionName T430 024:File-create_file
+A280	StrategicObjectives T430 050:SecondaryOperation-install_other_components
+A281	TacticalObjectives T430 118:SecondaryOperation-install_secondary_malware
+T431	Object 57770 57778	a driver
+T432	Modifier 57779 57781	in
+T433	Object 57782 57804	the following location
+R354	SubjAction Subject:T429 Action:T430	
+R355	ActionObj Action:T430 Object:T431	
+R356	ActionMod Action:T430 Modifier:T432	
+R357	ModObj Modifier:T432 Object:T433	
+T434	Action 58344 58354	is ensured
+A282	ActionName T434 135:Registry-create_registry_key
+T435	Object 58327 58343	The registration
+T436	Modifier 58355 58359	with
+T437	Object 58360 58385;58386 58402	creation of the following registry entries
+R358	ActionMod Action:T434 Modifier:T436	
+R359	ModObj Modifier:T436 Object:T437	
+R360	ActionObj Action:T434 Object:T435	
+T438	Subject 58881 58892	The rootkit
+T439	Action 58898 58904	places
+A283	ActionName T439 061:Hooking-add_system_call_hook
+T440	Object 58905 58926	a number of the hooks
+R361	SubjAction Subject:T438 Action:T439	
+R362	ActionObj Action:T439 Object:T440	
+T441	Action 58679 58684	flags
+A284	ActionName T441 196:System-set_system_global_flags
+T442	Object 58685 58705	the following events
+T443	Object 58711 58736	the notification purposes
+T444	Subject 58663 58673	The driver
+T445	Modifier 58706 58710	with
+R363	SubjAction Subject:T444 Action:T441	
+R364	ActionObj Action:T441 Object:T442	
+R365	ActionMod Action:T441 Modifier:T445	
+R366	ModObj Modifier:T445 Object:T443	
+T446	Subject 58998 59000	it
+T447	Action 59001 59006	hooks
+A285	ActionName T447 061:Hooking-add_system_call_hook
+T448	Object 59010 59026	IoCreateDevice()
+R367	SubjAction Subject:T446 Action:T447	
+R368	ActionObj Action:T447 Object:T448	
+T449	Subject 59144 59146	it
+T450	Action 59152 59159	install
+A286	Capability T450 017:MalwareCapability-secondary_operation
+A287	TacticalObjectives T450 118:SecondaryOperation-install_secondary_malware
+A288	StrategicObjectives T450 050:SecondaryOperation-install_other_components
+T451	Object 59160 59179	a TDI filter driver
+R369	SubjAction Subject:T449 Action:T450	
+R370	ActionObj Action:T450 Object:T451	
+T452	Action 59055 59060	calls
+A289	ActionName T452 080:Library-call_library_function
+T453	Object 59061 59077	the original API
+T454	Subject 59028 59054	The installed hook handler
+R371	SubjAction Subject:T454 Action:T452	
+R372	ActionObj Action:T452 Object:T453	
+T455	Action 59087 59093	checks
+A290	ActionName T455 031:File-get_file_attributes
+T456	Object 59094 59112;59113 59135	if the name of the device is netbt or afd
+R373	ActionObj Action:T455 Object:T456	
+R374	SubjAction Subject:T454 Action:T455	
+T457	Subject 59270 59279	its hooks
+T458	Action 59292 59296	hide
+A291	Capability T458 002:MalwareCapability-anti-detection
+A292	StrategicObjectives T458 009:AntiDetection-security_software_evasion
+T459	Object 59297 59330	the presence of Snake on a system
+R375	SubjAction Subject:T457 Action:T458	
+R376	ActionObj Action:T458 Object:T459	
+T460	Subject 59424 59434	the driver
+T461	Action 59403 59407	hide
+A293	Capability T461 002:MalwareCapability-anti-detection
+A294	TacticalObjectives T461 023:AntiDetection-hide_file_system_artifacts
+A295	StrategicObjectives T461 007:AntiDetection-hide_malware_artifacts
+T462	Object 59408 59422	its components
+R377	SubjAction Subject:T460 Action:T461	
+R378	ActionObj Action:T461 Object:T462	
+T463	Action 59435 59440	hooks
+A296	ActionName T463 061:Hooking-add_system_call_hook
+T464	Object 59441 59459	the following APIs
+R379	SubjAction Subject:T460 Action:T463	
+R380	ActionObj Action:T463 Object:T464	
+T465	Action 59947 59952	block
+A297	TacticalObjectives T465 039:AntiRemoval-prevent_registry_access
+A298	StrategicObjectives T465 011:AntiRemoval-prevent_malware_artifact_access
+A299	Capability T465 003:MalwareCapability-anti-removal
+T467	Subject 59895 59941	the hook handlers of the registry-related APIs
+T470	Subject 60037 60048	the rootkit
+T471	Action 60049 60055	blocks
+A300	Capability T471 003:MalwareCapability-anti-removal
+A301	TacticalObjectives T471 039:AntiRemoval-prevent_registry_access
+A302	StrategicObjectives T471 011:AntiRemoval-prevent_malware_artifact_access
+T466	Object 59953 60012;60013 60019	access to the registry entries that contain the name of the driver
+T468	Object 60056 60128	access to registry entries that contain the strings “Ultra3” and “~ROOT”
+R381	SubjAction Subject:T467 Action:T465	
+R382	ActionObj Action:T465 Object:T466	
+R383	SubjAction Subject:T470 Action:T471	
+R384	ActionObj Action:T471 Object:T468	
+T469	Subject 60131 60160	The ZwReadFile() hook handler
+T472	Action 60166 60171	block
+A303	Capability T472 003:MalwareCapability-anti-removal
+A304	TacticalObjectives T472 036:AntiRemoval-prevent_file_access
+A305	StrategicObjectives T472 011:AntiRemoval-prevent_malware_artifact_access
+T473	Object 60172 60233	access to the home directory where the rootkit keeps its file
+R385	SubjAction Subject:T469 Action:T472	
+R386	ActionObj Action:T472 Object:T473	
+T474	Subject 60359 60361	it
+T475	Action 60362 60369	blocked
+A306	Capability T475 003:MalwareCapability-anti-removal
+A307	TacticalObjectives T475 036:AntiRemoval-prevent_file_access
+A308	StrategicObjectives T475 011:AntiRemoval-prevent_malware_artifact_access
+R387	SubjAction Subject:T474 Action:T475	
+T476	Object 60370 60374;60375 60406	file read access from that directory
+R388	ActionObj Action:T475 Object:T476	
+T477	Subject 60409 60435	The ZwClose() hook handler
+T478	Action 60447 60453	inject
+A309	Capability T478 012:MalwareCapability-machine_access/control
+A310	ActionName T478 119:ProcessMemory-map_library_into_process
+A311	StrategicObjectives T478 038:MachineAccessControl-control_local_machine
+T479	Object 60454 60468	the DLL module
+T480	Object 60474 60496	the userland processes
+T481	Modifier 60469 60473	into
+R389	SubjAction Subject:T477 Action:T478	
+R390	ActionObj Action:T478 Object:T479	
+R391	ActionMod Action:T478 Modifier:T481	
+R392	ModObj Modifier:T481 Object:T480	
+T482	Subject 60499 60540	The hook handler for ZwTerminateProcess()
+T483	Action 60541 60547	checks
+A312	ActionName T483 106:Process-enumerate_processes
+T484	Object 60548 60593	if the process being shut down is svchost.exe
+R393	SubjAction Subject:T482 Action:T483	
+R394	ActionObj Action:T483 Object:T484	
+T485	Subject 60646 60648	it
+T486	Action 60649 60656	unloads
+A313	ActionName T486 082:Library-free_library
+T487	Object 60657 60673	its usermode DLL
+R395	SubjAction Subject:T485 Action:T486	
+R396	ActionObj Action:T486 Object:T487	
+T488	Action 60678 60689	deactivates
+A314	ActionName T488 007:DeviceDriver-unload_driver
+T489	Object 60690 60713	its own network drivers
+R397	SubjAction Subject:T485 Action:T488	
+R398	ActionObj Action:T488 Object:T489	
+T490	Subject 60789 60818	The ObOpenObjectByName() hook
+T491	Action 60834 60838	hide
+A315	Capability T491 002:MalwareCapability-anti-detection
+A316	TacticalObjectives T491 023:AntiDetection-hide_file_system_artifacts
+A317	StrategicObjectives T491 007:AntiDetection-hide_malware_artifacts
+T492	Object 60839 60877	the presence of its virtual partitions
+R399	SubjAction Subject:T490 Action:T491	
+R400	ActionObj Action:T491 Object:T492	
+T493	Subject 60948 60958	the driver
+T494	Action 60901 60908	encrypt
+A318	Capability T494 002:MalwareCapability-anti-detection
+A319	TacticalObjectives T494 023:AntiDetection-hide_file_system_artifacts
+A320	StrategicObjectives T494 007:AntiDetection-hide_malware_artifacts
+T495	Object 60909 60946	data stored on its virtual partitions
+R401	ActionObj Action:T494 Object:T495	
+R402	SubjAction Subject:T493 Action:T494	
+T496	Action 60959 60963	sets
+A321	ActionName T496 061:Hooking-add_system_call_hook
+T497	Object 60964 60986	a hook for another API
+R403	SubjAction Subject:T493 Action:T496	
+R404	ActionObj Action:T496 Object:T497	
+T498	Subject 61112 61123	the rootkit
+T499	Action 61031 61040	re-infect
+A322	Capability T499 013:MalwareCapability-persistence
+A323	TacticalObjectives T499 104:Persistence-persist_after_system_reboot
+A324	StrategicObjectives T499 042:Persistence-persist_to_continuously_execute_on_system
+T500	Object 61041 61073	the usermode process svchost.exe
+T501	Action 61081 61090	re-enable
+A325	Capability T501 015:MalwareCapability-probing
+A326	TacticalObjectives T501 104:Persistence-persist_after_system_reboot
+A327	StrategicObjectives T501 042:Persistence-persist_to_continuously_execute_on_system
+T502	Object 61091 61110	its network drivers
+T503	Action 61124 61129	hooks
+A328	ActionName T503 061:Hooking-add_system_call_hook
+T504	Object 61130 61140	these APIs
+R405	SubjAction Subject:T498 Action:T499	
+R406	ActionObj Action:T499 Object:T500	
+R407	SubjAction Subject:T498 Action:T501	
+R408	ActionObj Action:T501 Object:T502	
+R409	SubjAction Subject:T498 Action:T503	
+R410	ActionObj Action:T503 Object:T504	
+T505	Action 61374 61383	registers
+A329	Capability T505 011:MalwareCapability-integrity_violation
+A330	TacticalObjectives T505 098:IntegrityViolation-intercept/manipulate_network_traffic
+A331	StrategicObjectives T505 034:IntegrityViolation-compromise_network_operational_integrity
+T506	Subject 61371 61373	it
+T507	Object 61384 61437	a callout driver for Windows Filtering Platform (WFP)
+R411	SubjAction Subject:T506 Action:T505	
+R412	ActionObj Action:T505 Object:T507	
+T508	Object 61726 61744	its callout driver
+T509	Action 61745 61756	is notified
+A332	Capability T509 011:MalwareCapability-integrity_violation
+A333	TacticalObjectives T509 098:IntegrityViolation-intercept/manipulate_network_traffic
+A334	StrategicObjectives T509 034:IntegrityViolation-compromise_network_operational_integrity
+R413	ActionObj Action:T509 Object:T508	
+T510	Modifier 61757 61765	whenever
+T511	Object 61766 61810	a TCP connection is established by a browser
+R414	ActionMod Action:T509 Modifier:T510	
+R415	ModObj Modifier:T510 Object:T511	
+T512	Object 61852 61901	an event named \BaseNamedObjects\wininet_activate
+T513	Action 61843 61851	triggers
+A335	ActionName T513 168:Synchronization-create_event
+T514	Subject 61831 61834;61835 61842	the rootkit
+R416	SubjAction Subject:T514 Action:T513	
+R417	ActionObj Action:T513 Object:T512	
+T515	Object 61926 61928	it
+T516	Action 61929 61943	is intercepted
+A336	Capability T516 011:MalwareCapability-integrity_violation
+A337	TacticalObjectives T516 098:IntegrityViolation-intercept/manipulate_network_traffic
+A338	StrategicObjectives T516 034:IntegrityViolation-compromise_network_operational_integrity
+T517	Modifier 61944 61948	with
+R418	ActionObj Action:T516 Object:T515	
+T518	Object 61949 61952;61953 61986	the FwpsCopyStreamDataToBuffer0() API
+R419	ActionMod Action:T516 Modifier:T517	
+R420	ModObj Modifier:T517 Object:T518	
+T519	Modifier 61903 61907	When
+T520	Object 61908 61924	the data arrives
+R421	ActionMod Action:T516 Modifier:T519	
+R422	ModObj Modifier:T519 Object:T520	
+T521	Action 61997 62004	scanned
+A339	Capability T521 005:MalwareCapability-command_and_control
+T522	Modifier 62005 62008	for
+T523	Object 62009 62053	the presence of the hidden commands from C&C
+R423	ActionMod Action:T521 Modifier:T522	
+R424	ModObj Modifier:T522 Object:T523	
+R425	ActionObj Action:T521 Object:T515	
+T524	Action 62067 62075	inspects
+A340	Capability T524 011:MalwareCapability-integrity_violation
+A341	TacticalObjectives T524 098:IntegrityViolation-intercept/manipulate_network_traffic
+A342	StrategicObjectives T524 034:IntegrityViolation-compromise_network_operational_integrity
+T525	Object 62076 62102	bidirectional network data
+T526	Subject 62056 62066	The driver
+T527	Modifier 62103 62105	on
+T528	Object 62106 62124	a per stream basis
+R426	SubjAction Subject:T526 Action:T524	
+R427	ActionObj Action:T524 Object:T525	
+R428	ActionMod Action:T524 Modifier:T527	
+R429	ModObj Modifier:T527 Object:T528	
+T529	Action 62187 62197	manipulate
+A343	Capability T529 011:MalwareCapability-integrity_violation
+A344	TacticalObjectives T529 098:IntegrityViolation-intercept/manipulate_network_traffic
+A345	StrategicObjectives T529 034:IntegrityViolation-compromise_network_operational_integrity
+T530	Object 62198 62210	data streams
+R430	ActionObj Action:T529 Object:T530	
+T531	Subject 62271 62276	Snake
+R431	SubjAction Subject:T531 Action:T529	
+T532	Action 62289 62295	insert
+A346	Capability T532 005:MalwareCapability-command_and_control
+A347	ActionName T532 096:Network-send_network_packet
+A348	StrategicObjectives T532 018:CommandandControl-send_data_to_c2_server
+T533	Object 62296 62319;62320 62331	traffic destined to its C&C servers
+R432	SubjAction Subject:T531 Action:T532	
+R433	ActionObj Action:T532 Object:T533	
+T534	Subject 64460 64465	Snake
+T535	Action 64471 64476	hooks
+A349	ActionName T535 061:Hooking-add_system_call_hook
+T536	Object 64477 64530	the Transport Driver Interface (TDI) network routines
+T537	Object 64534 64574	setting itself up as a TDI filter driver
+T538	Modifier 64531 64533	by
+R434	SubjAction Subject:T534 Action:T535	
+R435	ActionObj Action:T535 Object:T536	
+R436	ActionMod Action:T535 Modifier:T538	
+R437	ModObj Modifier:T538 Object:T537	
+T539	Subject 64763 64768	Snake
+T540	Action 64769 64774	hooks
+A350	ActionName T540 061:Hooking-add_system_call_hook
+T541	Object 64775 64784	TCP calls
+R438	SubjAction Subject:T539 Action:T540	
+R439	ActionObj Action:T540 Object:T541	
+T542	Subject 64795 64797	it
+T543	Action 64798 64808	intercepts
+A351	Capability T543 011:MalwareCapability-integrity_violation
+A352	TacticalObjectives T543 098:IntegrityViolation-intercept/manipulate_network_traffic
+A353	StrategicObjectives T543 034:IntegrityViolation-compromise_network_operational_integrity
+T544	Object 64809 64838;64839 64849	all requests along with their parameters
+T545	Modifier 64850 64853	via
+T546	Object 64854 64884	IRP (IO request package) hooks
+R440	SubjAction Subject:T542 Action:T543	
+R441	ActionObj Action:T543 Object:T544	
+R442	ModObj Modifier:T545 Object:T546	
+R443	ActionMod Action:T543 Modifier:T545	
+T547	Subject 64920 64922	it
+T548	Action 64931 64938	inspect
+A354	Capability T548 011:MalwareCapability-integrity_violation
+A355	TacticalObjectives T548 098:IntegrityViolation-intercept/manipulate_network_traffic
+A356	StrategicObjectives T548 034:IntegrityViolation-compromise_network_operational_integrity
+T549	Object 64939 64950	the traffic
+R444	SubjAction Subject:T547 Action:T548	
+R445	ActionObj Action:T548 Object:T549	
+T550	Action 64952 64980	looking for and then parsing
+A357	Capability T550 005:MalwareCapability-command_and_control
+T551	Object 64981 65017;65018 65032	GET/POST HTTP requests and also SMTP communications
+R446	ActionObj Action:T550 Object:T551	
+R447	SubjAction Subject:T547 Action:T550	
+T552	Action 65046 65057	distinguish
+A358	Capability T552 005:MalwareCapability-command_and_control
+T553	Object 65058 65086	commands addressed to itself
+R448	SubjAction Subject:T547 Action:T552	
+R449	ActionObj Action:T552 Object:T553	
+T554	Subject 65093 65104	the rootkit
+T555	Action 65105 65112	detects
+A359	Capability T555 015:MalwareCapability-probing
+A360	TacticalObjectives T555 113:Probing-identify_os
+A361	StrategicObjectives T555 046:Probing-probe_host_configuration
+T556	Modifier 65113 65117	that
+T557	Object 65118 65213	the OS version is pre-Vista (e.g. Windows XP) or Windows Server 2008 (e.g. Windows Server 2003)
+R450	SubjAction Subject:T554 Action:T555	
+R451	ActionMod Action:T555 Modifier:T556	
+R452	ModObj Modifier:T556 Object:T557	
+T558	Subject 65215 65217	it
+R453	CoRefer Referer:T554 Canonical:T558	
+T559	Action 65223 65229	invoke
+A362	ActionName T559 080:Library-call_library_function
+T560	Object 65230 65258	FwpsStreamInjectAsync0() API
+R454	ActionObj Action:T559 Object:T560	
+R455	SubjAction Subject:T558 Action:T559	
+T561	Action 65271 65279	generate
+A363	Capability T561 005:MalwareCapability-command_and_control
+A364	ActionName T561 096:Network-send_network_packet
+A365	StrategicObjectives T561 018:CommandandControl-send_data_to_c2_server
+T562	Object 65280 65297	outbound requests
+R456	ActionObj Action:T561 Object:T562	
+R457	SubjAction Subject:T558 Action:T561	
+T563	Action 65371 65378	‘pulse’
+A366	ActionName T563 168:Synchronization-create_event
+T564	Object 65379 65417;65418 65423	the \BaseNamedObjects\wininet_activate event
+T565	Subject 65346 65360	the TDI driver
+T566	Modifier 65301 65309	Whenever
+T567	Object 65310 65344	the client establishes connections
+R458	SubjAction Subject:T565 Action:T563	
+R459	ActionMod Action:T563 Modifier:T566	
+R460	ModObj Modifier:T566 Object:T567	
+R461	ActionObj Action:T563 Object:T564	
+T568	Subject 65542 65552	the driver
+T569	Action 65553 65563	intercepts
+A367	Capability T569 011:MalwareCapability-integrity_violation
+A368	TacticalObjectives T569 098:IntegrityViolation-intercept/manipulate_network_traffic
+A369	StrategicObjectives T569 034:IntegrityViolation-compromise_network_operational_integrity
+T570	Object 65528 65536	The data
+R462	SubjAction Subject:T568 Action:T569	
+R463	ActionObj Action:T569 Object:T570	
+T571	Subject 65692 65706	the DLL module
+T572	Action 65722 65729	execute
+A370	Capability T572 005:MalwareCapability-command_and_control
+A371	TacticalObjectives T572 047:CommandandControl-control_malware_via_remote_command
+A372	StrategicObjectives T572 017:CommandandControl-receive_data_from_c2_server
+T573	Object 65730 65734	them
+T574	Object 65655 65658;65659 65690	the data contains commands from C&C
+T575	Modifier 65652 65654	If
+R464	ModObj Modifier:T575 Object:T574	
+R465	SubjAction Subject:T571 Action:T572	
+R466	ActionMod Action:T572 Modifier:T575	
+R467	ActionObj Action:T572 Object:T573	
+T576	Subject 65762 65772	the driver
+T577	Action 65776 65778;65779 65788	be delivered
+A373	Capability T577 005:MalwareCapability-command_and_control
+A374	ActionName T577 096:Network-send_network_packet
+A375	StrategicObjectives T577 018:CommandandControl-send_data_to_c2_server
+A376	TacticalObjectives T577 050:CommandandControl-send_system_information
+R468	SubjAction Subject:T576 Action:T577	
+T578	Modifier 65789 65796	back to
+T579	Object 65797 65800	C&C
+R469	ActionMod Action:T577 Modifier:T578	
+R470	ModObj Modifier:T578 Object:T579	
+T580	Subject 65905 65909	code
+T581	Action 65915 65923	installs
+A377	Capability T581 017:MalwareCapability-secondary_operation
+A378	TacticalObjectives T581 118:SecondaryOperation-install_secondary_malware
+A379	StrategicObjectives T581 050:SecondaryOperation-install_other_components
+T582	Object 65924 65955	NDIS filter intermediate driver
+R471	SubjAction Subject:T580 Action:T581	
+R472	ActionObj Action:T581 Object:T582	
+T583	Action 65970 65979	is set up
+A380	Capability T583 017:MalwareCapability-secondary_operation
+A381	TacticalObjectives T583 118:SecondaryOperation-install_secondary_malware
+A382	StrategicObjectives T583 050:SecondaryOperation-install_other_components
+T584	Modifier 65980 65985	above
+T585	Modifier 66062 66067	below
+T586	Subject 65958 65969	This driver
+T587	Object 65986 66003	a miniport driver
+T588	Object 66068 66085	a protocol driver
+R473	SubjAction Subject:T586 Action:T583	
+R474	ActionMod Action:T583 Modifier:T584	
+R475	ActionMod Action:T583 Modifier:T585	
+R476	ModObj Modifier:T584 Object:T587	
+R477	ModObj Modifier:T585 Object:T588	
+T593	Subject 66219 66230	the drivers
+T594	Action 66231 66236	hooks
+A384	ActionName T594 061:Hooking-add_system_call_hook
+R481	SubjAction Subject:T593 Action:T594	
+T596	Subject 66377 66381	code
+T597	Action 66387 66395	installs
+A385	Capability T597 017:MalwareCapability-secondary_operation
+A386	TacticalObjectives T597 118:SecondaryOperation-install_secondary_malware
+A387	StrategicObjectives T597 050:SecondaryOperation-install_other_components
+T598	Object 66396 66437	NDIS filter driver for NDIS 6.0 and above
+R483	SubjAction Subject:T596 Action:T597	
+R484	ActionObj Action:T597 Object:T598	
+T599	Object 66557 66589	NDIS filter driver configuration
+T600	Action 66590 66599	is stored
+A388	ActionName T600 135:Registry-create_registry_key
+T601	Object 66603 66621	the registry entry
+T602	Modifier 66600 66602	in
+R485	ActionObj Action:T600 Object:T599	
+R486	ActionMod Action:T600 Modifier:T602	
+R487	ModObj Modifier:T602 Object:T601	
+T589	Action 66966 66971	hooks
+A383	ActionName T589 061:Hooking-add_system_call_hook
+T591	Subject 66954 66965	the drivers
+R478	SubjAction Subject:T591 Action:T589	
+T592	Subject 67189 67191	it
+T603	Action 67204 67208	hook
+A389	ActionName T603 061:Hooking-add_system_call_hook
+T604	Object 67166 67188	Another set of exports
+T605	Modifier 67209 67211	in
+T606	Object 67212 67235	ndis.sys (for NDIS 6.0)
+T595	Modifier 66259 66265	within
+T607	Object 66237 66258	the following exports
+T608	Object 66266 66274	ndis.sys
+R480	ActionObj Action:T594 Object:T607	
+R482	ActionMod Action:T594 Modifier:T595	
+R488	ModObj Modifier:T595 Object:T608	
+T590	Object 66972 66993	the following exports
+T609	Modifier 66994 67000	within
+T610	Object 67001 67024	ndis.sys (for NDIS 6.0)
+R479	ActionObj Action:T589 Object:T590	
+R489	ActionMod Action:T589 Modifier:T609	
+R490	ModObj Modifier:T609 Object:T610	
+R491	SubjAction Subject:T592 Action:T603	
+R492	ActionObj Action:T603 Object:T604	
+R493	ActionMod Action:T603 Modifier:T605	
+R494	ModObj Modifier:T605 Object:T606	
+T611	Action 67438 67447	installed
+A390	ActionName T611 061:Hooking-add_system_call_hook
+T612	Object 67428 67437	the hooks
+R495	ActionObj Action:T611 Object:T612	
+T613	Subject 67606 67623	the hook handlers
+T614	Action 67629 67637	register
+A391	ActionName T614 147:Service-create_service
+T615	Object 67638 67671	Snake’s own MiniportXxx functions
+T616	Modifier 67672 67676	with
+T617	Object 67677 67685;67686 67693	the NDIS library
+R496	SubjAction Subject:T613 Action:T614	
+R497	ActionObj Action:T614 Object:T615	
+R498	ActionMod Action:T614 Modifier:T616	
+R499	ModObj Modifier:T616 Object:T617	
+T618	Subject 67737 67739	it
+T619	Action 67744 67748	send
+A392	Capability T619 005:MalwareCapability-command_and_control
+A393	ActionName T619 096:Network-send_network_packet
+A394	StrategicObjectives T619 018:CommandandControl-send_data_to_c2_server
+T620	Action 67749 67756	receive
+A395	Capability T620 005:MalwareCapability-command_and_control
+A396	ActionName T620 093:Network-receive_network_packet
+A397	StrategicObjectives T620 017:CommandandControl-receive_data_from_c2_server
+T621	Object 67757 67761	data
+R500	SubjAction Subject:T618 Action:T619	
+R501	ActionObj Action:T619 Object:T621	
+R502	SubjAction Subject:T618 Action:T620	
+R503	ActionObj Action:T620 Object:T621	
+T622	Action 67795 67804	bypassing
+A398	Capability T622 018:MalwareCapability-security_degradation
+A399	TacticalObjectives T622 123:SecurityDegradation-disable_firewall
+A400	StrategicObjectives T622 058:SecurityDegradation-disable_os_security_features
+T623	Object 67805 67823	all firewall hooks
+R504	SubjAction Subject:T618 Action:T622	
+T624	Modifier 67762 67764	by
+T625	Object 67765 67793	using a private TCP/IP stack
+R505	ModObj Modifier:T624 Object:T625	
+R506	ActionMod Action:T620 Modifier:T624	
+R507	ActionMod Action:T619 Modifier:T624	
+T626	Action 67829 67835	making
+A401	Capability T626 002:MalwareCapability-anti-detection
+A402	TacticalObjectives T626 026:AntiDetection-hide_open_network_ports
+A403	StrategicObjectives T626 007:AntiDetection-hide_malware_artifacts
+T627	Object 67836 67850	its open ports
+T628	Object 67851 67872	invisible to scanners
+R508	SubjAction Subject:T618 Action:T626	
+R509	ActionObj Action:T626 Object:T627	
+R510	ActionObj Action:T626 Object:T628	
+T629	Subject 68882 68886	NDIS
+T630	Action 68887 68894	invokes
+A404	ActionName T630 080:Library-call_library_function
+T631	Object 68895 68916	Snake’s hook function
+R511	SubjAction Subject:T629 Action:T630	
+R512	ActionObj Action:T630 Object:T631	
+T632	Subject 68701 68731	the underlying miniport driver
+T633	Action 68732 68740	receives
+A405	Capability T633 005:MalwareCapability-command_and_control
+A406	ActionName T633 093:Network-receive_network_packet
+A407	StrategicObjectives T633 017:CommandandControl-receive_data_from_c2_server
+T634	Object 68741 68745	data
+T635	Object 68751 68762	the network
+T636	Modifier 68746 68750	from
+T637	Subject 68764 68766	it
+T638	Action 68781 68789	invoking
+A408	ActionName T638 080:Library-call_library_function
+T639	Object 68790 68824;68825 68861	a data receive indication function NdisMIndicateReceiveNetBufferLists()
+R513	SubjAction Subject:T632 Action:T633	
+R514	ActionObj Action:T633 Object:T634	
+R515	ActionMod Action:T633 Modifier:T636	
+R516	ModObj Modifier:T636 Object:T635	
+R517	CoRefer Referer:T632 Canonical:T637	
+R518	SubjAction Subject:T637 Action:T638	
+R519	ActionObj Action:T638 Object:T639	
+T640	Subject 69002 69021	the protocol driver
+T641	Action 69112 69119	calling
+A409	ActionName T641 080:Library-call_library_function
+T642	Object 69120 69144	NdisSendNetBufferLists()
+T643	Action 69022 69029	defines
+A410	Capability T643 006:MalwareCapability-data_exfiltration
+A411	TacticalObjectives T643 062:DataExfiltration-package_data
+A412	StrategicObjectives T643 021:DataExfiltration-stage_data_for_exfiltration
+T644	Object 69030 69038	the data
+T645	Object 69042 69078	a list of NET_BUFFER_LIST structures
+T646	Modifier 69039 69041	in
+R520	ModObj Modifier:T646 Object:T645	
+T647	Action 68982 68986	send
+A413	Capability T647 006:MalwareCapability-data_exfiltration
+A414	StrategicObjectives T647 020:DataExfiltration-perform_data_exfiltration
+T648	Object 68987 68995	the data
+R521	ActionObj Action:T647 Object:T648	
+R522	ActionObj Action:T641 Object:T642	
+R523	SubjAction Subject:T640 Action:T643	
+R524	ActionObj Action:T643 Object:T644	
+R525	ActionMod Action:T643 Modifier:T646	
+R526	SubjAction Subject:T640 Action:T641	
+T649	Subject 69146 69150	NDIS
+T650	Action 69161 69166	calls
+A415	ActionName T650 080:Library-call_library_function
+T651	Object 69167 69188;69189 69226	the miniport driver’s MiniportSendNetBufferLists() function
+R527	SubjAction Subject:T649 Action:T650	
+R528	ActionObj Action:T650 Object:T651	
+T652	Action 69302 69312	manipulate
+A416	Capability T652 011:MalwareCapability-integrity_violation
+A417	TacticalObjectives T652 098:IntegrityViolation-intercept/manipulate_network_traffic
+A418	StrategicObjectives T652 034:IntegrityViolation-compromise_network_operational_integrity
+T653	Object 69313 69320	traffic
+T654	Modifier 69321 69323	at
+T655	Object 69324 69401	3 different levels (NDIS protocol driver, TDI Driver, and WPF callout driver)
+T656	Subject 69403 69408	Snake
+R529	SubjAction Subject:T656 Action:T652	
+R530	ActionObj Action:T652 Object:T653	
+R531	ActionMod Action:T652 Modifier:T654	
+R532	ModObj Modifier:T654 Object:T655	
+T657	Action 69528 69533	parse
+A419	Capability T657 011:MalwareCapability-integrity_violation
+A420	TacticalObjectives T657 098:IntegrityViolation-intercept/manipulate_network_traffic
+A421	StrategicObjectives T657 034:IntegrityViolation-compromise_network_operational_integrity
+T658	Action 69420 69428	‘inject’
+A422	TacticalObjectives T658 098:IntegrityViolation-intercept/manipulate_network_traffic
+A423	StrategicObjectives T658 034:IntegrityViolation-compromise_network_operational_integrity
+T659	Object 69429 69440	the traffic
+T660	Modifier 69441 69445	into
+T661	Object 69446 69469	existing communications
+T662	Action 69473 69482	reach out
+A424	Capability T662 005:MalwareCapability-command_and_control
+T663	Modifier 69483 69485	to
+T664	Object 69486 69505	external components
+T665	Object 69534 69554	all incoming traffic
+T666	Action 69558 69564	detect
+A425	Capability T666 011:MalwareCapability-integrity_violation
+A426	TacticalObjectives T666 098:IntegrityViolation-intercept/manipulate_network_traffic
+A427	StrategicObjectives T666 034:IntegrityViolation-compromise_network_operational_integrity
+T667	Object 69565 69592	traffic addressed to itself
+R533	ActionObj Action:T657 Object:T665	
+R534	ActionObj Action:T666 Object:T667	
+R535	ActionObj Action:T658 Object:T659	
+R536	ActionMod Action:T662 Modifier:T663	
+R537	ModObj Modifier:T663 Object:T664	
+R538	ActionMod Action:T658 Modifier:T660	
+R539	ModObj Modifier:T660 Object:T661	
+R540	SubjAction Subject:T656 Action:T657	
+R541	SubjAction Subject:T656 Action:T662	
+R542	SubjAction Subject:T656 Action:T658	
+A428	Capability T658 011:MalwareCapability-integrity_violation
+R543	SubjAction Subject:T656 Action:T666	
+T668	Action 64715 64725	registered
+A429	ActionName T668 147:Service-create_service
+T669	Object 64729 64741	a TDI driver
+T670	Object 64745 64761	the device stack
+R544	SubjAction Subject:T539 Action:T668	
+T671	Modifier 64726 64728	as
+T672	Modifier 64742 64744	on
+R545	ActionMod Action:T668 Modifier:T671	
+R546	ActionMod Action:T668 Modifier:T672	
+R547	ModObj Modifier:T671 Object:T669	
+R548	ModObj Modifier:T672 Object:T670	
+T673	Action 66150 66163	is registered
+A430	ActionName T673 147:Service-create_service
+T674	Object 66139 66149	The driver
+T675	Object 66169 66204	NdisIMRegisterLayeredMiniport() API
+T676	Modifier 66164 66168	with
+R549	ActionObj Action:T673 Object:T674	
+R550	ActionMod Action:T673 Modifier:T676	
+R551	ModObj Modifier:T676 Object:T675	
+T677	Object 66727 66737	The driver
+T678	Action 66738 66751	is registered
+A431	ActionName T678 147:Service-create_service
+T679	Object 66757 66788	NdisFRegisterFilterDriver() API
+T680	Modifier 66752 66756	with
+R552	ActionObj Action:T678 Object:T677	
+R553	ActionMod Action:T678 Modifier:T680	
+R554	ModObj Modifier:T680 Object:T679	
+T681	Subject 67938 67955	The Snake rootkit
+T682	Action 67956 67965	registers
+A432	ActionName T682 147:Service-create_service
+T683	Object 67976 68037	Network Driver Interface Specification (NDIS) protocol driver
+T684	Object 67966 67972	itself
+T685	Modifier 67973 67975	as
+R555	SubjAction Subject:T681 Action:T682	
+R556	ActionObj Action:T682 Object:T684	
+R557	ActionMod Action:T682 Modifier:T685	
+R558	ModObj Modifier:T685 Object:T683	
+T686	Action 70695 70705	intercepts
+A433	Capability T686 011:MalwareCapability-integrity_violation
+A434	TacticalObjectives T686 098:IntegrityViolation-intercept/manipulate_network_traffic
+A435	StrategicObjectives T686 034:IntegrityViolation-compromise_network_operational_integrity
+T687	Subject 70684 70694	the driver
+T688	Object 70706 70721	all connections
+R559	SubjAction Subject:T687 Action:T686	
+R560	ActionObj Action:T686 Object:T688	
+T689	Action 70841 70847	parses
+A436	Capability T689 011:MalwareCapability-integrity_violation
+A437	TacticalObjectives T689 098:IntegrityViolation-intercept/manipulate_network_traffic
+A438	StrategicObjectives T689 034:IntegrityViolation-compromise_network_operational_integrity
+T690	Subject 70838 70840	it
+R561	CoRefer Referer:T687 Canonical:T690	
+R562	SubjAction Subject:T690 Action:T689	
+T691	Object 70848 70882	all incoming HTTP and SMTP traffic
+R563	ActionObj Action:T689 Object:T691	
+T692	Action 70900 70916	be authenticated
+A439	Capability T692 005:MalwareCapability-command_and_control
+A440	TacticalObjectives T692 052:CommandandControl-validate_data
+A441	StrategicObjectives T692 017:CommandandControl-receive_data_from_c2_server
+T693	Object 70893 70895	it
+R564	ActionObj Action:T692 Object:T693	
+T694	Modifier 70917 70919	as
+T695	Object 70920 70933	Snake traffic
+R565	ModObj Modifier:T694 Object:T695	
+R566	ActionMod Action:T692 Modifier:T694	
+R567	SubjAction Subject:T690 Action:T692	
+T696	Object 70936 70954	The authentication
+T697	Action 70955 70969	is implemented
+A442	Capability T697 005:MalwareCapability-command_and_control
+A443	TacticalObjectives T697 052:CommandandControl-validate_data
+A444	StrategicObjectives T697 017:CommandandControl-receive_data_from_c2_server
+R568	ActionObj Action:T697 Object:T696	
+T698	Object 70984 70992	the data
+T699	Action 70973 70983	decrypting
+A445	Capability T699 005:MalwareCapability-command_and_control
+A446	TacticalObjectives T699 052:CommandandControl-validate_data
+A447	StrategicObjectives T699 017:CommandandControl-receive_data_from_c2_server
+T700	Action 70997 71008	making sure
+A448	Capability T700 005:MalwareCapability-command_and_control
+A449	TacticalObjectives T700 052:CommandandControl-validate_data
+A450	StrategicObjectives T700 017:CommandandControl-receive_data_from_c2_server
+T701	Object 71009 71050;71051 71119	it starts with the markers 0xDEADBEAF and 0xC001BA5E (which appear to derive from ‘DEAD BEEF’ and ‘COOL BASE’)
+R569	ActionObj Action:T700 Object:T701	
+R570	ActionObj Action:T699 Object:T698	
+T702	Subject 75198 75208	the driver
+T703	Action 75246 75253	routing
+A451	Capability T703 011:MalwareCapability-integrity_violation
+T704	Object 75254 75288	requests from other infected hosts
+R571	SubjAction Subject:T702 Action:T703	
+T705	Action 75209 75218	is acting
+A452	Capability T705 005:MalwareCapability-command_and_control
+R572	SubjAction Subject:T702 Action:T705	
+T706	Modifier 75219 75221	in
+T707	Object 75222 75231	this mode
+T708	Modifier 75232 75236	like
+T709	Object 75237 75244	a proxy
+R573	ActionMod Action:T705 Modifier:T706	
+R574	ModObj Modifier:T706 Object:T707	
+R575	ActionMod Action:T705 Modifier:T708	
+R576	ModObj Modifier:T708 Object:T709	
+T710	Subject 74931 74941	the driver
+T711	Action 74947 74954	respond
+A454	Capability T711 005:MalwareCapability-command_and_control
+A455	ActionName T711 096:Network-send_network_packet
+A456	StrategicObjectives T711 018:CommandandControl-send_data_to_c2_server
+T712	Modifier 74955 74959	with
+T713	Object 74960 75022	messages like “HTTP/1.1 200 OK” or “HTTP/1.1 500 Server Error”
+R577	SubjAction Subject:T710 Action:T711	
+R578	ActionMod Action:T711 Modifier:T712	
+R579	ModObj Modifier:T712 Object:T713	
+R580	ActionObj Action:T703 Object:T704	
+T714	Object 75292 75311	a remote C&C server
+T715	Modifier 75289 75291	to
+R581	ActionMod Action:T703 Modifier:T715	
+R582	ModObj Modifier:T715 Object:T714	
+T716	Action 75915 75945	is authenticated and decrypted
+A453	Capability T716 005:MalwareCapability-command_and_control
+A457	TacticalObjectives T716 052:CommandandControl-validate_data
+A458	StrategicObjectives T716 017:CommandandControl-receive_data_from_c2_server
+T717	Object 75897 75914	the incoming data
+R583	ActionObj Action:T716 Object:T717	
+T718	Action 76296 76299	log
+A459	Capability T718 017:MalwareCapability-secondary_operation
+A460	StrategicObjectives T718 052:SecondaryOperation-log_activity
+T719	Object 76300 76312	its activity
+R584	ActionObj Action:T718 Object:T719	
+T720	Subject 76314 76324	the driver
+R585	SubjAction Subject:T720 Action:T718	
+T721	Action 76325 76331	writes
+A461	Capability T721 017:MalwareCapability-secondary_operation
+A462	ActionName T721 072:IPC-write_to_named_pipe
+A463	StrategicObjectives T721 052:SecondaryOperation-log_activity
+R586	SubjAction Subject:T720 Action:T721	
+T722	Object 76332 76340	log data
+T723	Modifier 76341 76345	into
+T724	Object 76346 76382	the pipe \Device\NamedPipe\isapi_log
+T725	Action 76047 76051	send
+A464	ActionName T725 072:IPC-write_to_named_pipe
+T726	Object 76052 76064	traffic data
+T727	Action 76124 76128	send
+A465	ActionName T727 072:IPC-write_to_named_pipe
+T728	Subject 76040 76042	it
+R587	SubjAction Subject:T728 Action:T725	
+R588	ActionObj Action:T725 Object:T726	
+T729	Modifier 76065 76069	into
+T730	Object 76070 76112	a memory pipe \Device\NamedPipe\isapi_http
+R589	ActionMod Action:T725 Modifier:T729	
+R590	ModObj Modifier:T729 Object:T730	
+T731	Object 76129 76222	a received peer-2-peer command message write_peer_nfo=[IP_ADDRESS:PORT]0frag_no_scrambling=Y0
+T732	Object 76228 76281	another memory pipe called \Device\NamedPipe\isapi_dg
+T733	Modifier 76223 76227	into
+R591	ActionObj Action:T727 Object:T731	
+R592	ActionMod Action:T727 Modifier:T733	
+R593	ModObj Modifier:T733 Object:T732	
+R594	SubjAction Subject:T728 Action:T727	
+R595	ActionObj Action:T721 Object:T722	
+R596	ActionMod Action:T721 Modifier:T723	
+R597	ModObj Modifier:T723 Object:T724	
+T734	Subject 76392 76399	the DLL
+T735	Action 76406 76409	log
+A466	Capability T735 017:MalwareCapability-secondary_operation
+A467	ActionName T735 043:File-write_to_file
+A468	StrategicObjectives T735 052:SecondaryOperation-log_activity
+R598	SubjAction Subject:T734 Action:T735	
+T736	Object 76424 76437	the log files
+T737	Modifier 76419 76423	into
+T738	Object 76410 76413;76414 76418	the data
+R599	ActionObj Action:T735 Object:T738	
+R600	ActionMod Action:T735 Modifier:T737	
+R601	ModObj Modifier:T737 Object:T736	
+T739	Object 76453 76468	the named pipes
+T740	Action 76469 76473	used
+A469	ActionName T740 064:IPC-connect_to_named_pipe
+T741	Modifier 76474 76477	for
+T742	Object 76478 76492	communications
+R602	ActionObj Action:T740 Object:T739	
+R603	ActionMod Action:T740 Modifier:T741	
+R604	ModObj Modifier:T741 Object:T742	
+T743	Object 76674 76682	Messages
+T744	Action 76683 76692	submitted
+A470	ActionName T744 072:IPC-write_to_named_pipe
+T745	Modifier 76693 76697	into
+T746	Object 76698 76707	the pipes
+R605	ActionObj Action:T744 Object:T743	
+R606	ActionMod Action:T744 Modifier:T745	
+R607	ModObj Modifier:T745 Object:T746	
+T747	Action 77024 77032	received
+A471	ActionName T747 070:IPC-read_from_named_pipe
+T748	Modifier 77033 77037	from
+T749	Object 77038 77047	the pipes
+T750	Object 77071 77079	the data
+R608	ActionObj Action:T747 Object:T750	
+R609	ModObj Modifier:T748 Object:T749	
+R610	ActionMod Action:T747 Modifier:T748	
+T751	Action 76857 76865	identify
+A472	ActionName T751 070:IPC-read_from_named_pipe
+T752	Subject 76791 76799;76800 76806	the pipe server
+R611	SubjAction Subject:T752 Action:T751	
+T753	Object 76866 76878	the messages
+R612	ActionObj Action:T751 Object:T753	
+T754	Action 77518 77525	creates
+A473	ActionName T754 116:ProcessMemory-allocate_process_virtual_memory
+T755	Subject 77507 77517	The driver
+T756	Object 77526 77546	virtual file volumes
+T757	Object 77551 77604	encrypted storage of its files and configuration data
+T758	Modifier 77547 77550	for
+R613	SubjAction Subject:T755 Action:T754	
+R614	ActionObj Action:T754 Object:T756	
+A474	Capability T754 002:MalwareCapability-anti-detection
+A475	StrategicObjectives T754 007:AntiDetection-hide_malware_artifacts
+A476	TacticalObjectives T754 023:AntiDetection-hide_file_system_artifacts
+R615	ActionMod Action:T754 Modifier:T758	
+R616	ModObj Modifier:T758 Object:T757	
+T759	Object 77651 77662	The volumes
+T760	Action 77663 77674	are mounted
+A477	ActionName T760 017:Disk-mount_disk
+T761	Object 77680 77726	the virtual file systems RawDisk1 and RawDisk2
+T762	Modifier 77675 77679	from
+R617	ActionObj Action:T760 Object:T759	
+R618	ActionMod Action:T760 Modifier:T762	
+R619	ModObj Modifier:T762 Object:T761	
+T763	Object 77729 77748	The first partition
+T764	Action 77749 77759	is created
+A478	ActionName T764 116:ProcessMemory-allocate_process_virtual_memory
+T765	Modifier 77760 77764	with
+T766	Object 77765 77784	the following steps
+R620	ModObj Modifier:T765 Object:T766	
+R621	ActionObj Action:T764 Object:T763	
+R622	ActionMod Action:T764 Modifier:T765	
+T767	Object 78386 78394	The hook
+T768	Action 78395 78404	installed
+A479	ActionName T768 061:Hooking-add_system_call_hook
+T769	Subject 78408 78419	the rootkit
+T770	Object 78423 78442	IofCallDriver() API
+T771	Modifier 78420 78422	on
+T772	Subject 78386 78394	The hook
+R623	ActionObj Action:T768 Object:T767	
+R624	SubjAction Subject:T769 Action:T768	
+R625	ActionMod Action:T768 Modifier:T771	
+R626	ModObj Modifier:T771 Object:T770	
+T773	Action 78443 78451	provides
+A480	Capability T773 002:MalwareCapability-anti-detection
+A481	TacticalObjectives T773 023:AntiDetection-hide_file_system_artifacts
+A482	StrategicObjectives T773 007:AntiDetection-hide_malware_artifacts
+T774	Object 78452 78489	on-the-fly data encryption/decryption
+R627	SubjAction Subject:T772 Action:T773	
+R628	ActionObj Action:T773 Object:T774	
+T775	Object 78499 78508	that data
+T776	Action 78509 78511;78512 78519	is written
+A483	ActionName T776 043:File-write_to_file
+T777	Action 78526 78530	read
+A484	ActionName T777 038:File-read_from_file
+T778	Modifier 78520 78522	to
+T779	Modifier 78531 78535	from
+T780	Object 78536 78546	the volume
+R629	ActionObj Action:T776 Object:T775	
+R630	ActionObj Action:T777 Object:T775	
+R631	ActionMod Action:T776 Modifier:T778	
+R632	ActionMod Action:T777 Modifier:T779	
+R633	ModObj Modifier:T778 Object:T780	
+R634	ModObj Modifier:T779 Object:T780	
+T781	Object 78548 78572	The encryption algorithm
+T782	Action 78573 78581	is based
+A485	Capability T782 002:MalwareCapability-anti-detection
+A486	TacticalObjectives T782 023:AntiDetection-hide_file_system_artifacts
+A487	StrategicObjectives T782 007:AntiDetection-hide_malware_artifacts
+T783	Modifier 78582 78584	on
+T784	Object 78585 78593	CAST-128
+T785	Modifier 78595 78599	with
+T786	Object 78600 78640;78641 78645	the hard-coded key stored in the rootkit body
+R635	ModObj Modifier:T785 Object:T786	
+R636	ModObj Modifier:T783 Object:T784	
+R637	ActionObj Action:T782 Object:T781	
+R638	ActionMod Action:T782 Modifier:T783	
+T787	Action 78717 78729	be scrambled
+A488	Capability T787 002:MalwareCapability-anti-detection
+A489	TacticalObjectives T787 023:AntiDetection-hide_file_system_artifacts
+A490	StrategicObjectives T787 007:AntiDetection-hide_malware_artifacts
+T788	Object 78730 78740	on-the-fly
+R639	ActionObj Action:T787 Object:T788	
+T789	Object 78709 78711	it
+R640	ActionObj Action:T787 Object:T789	
+T790	Object 78670 78678	the data
+T791	Action 78679 78687	is saved
+A491	ActionName T791 043:File-write_to_file
+T792	Modifier 78688 78692	into
+T793	Object 78693 78707	the volume Hd1
+R641	ActionObj Action:T791 Object:T790	
+R642	ActionMod Action:T791 Modifier:T792	
+R643	ModObj Modifier:T792 Object:T793	
+R644	CoRefer Referer:T790 Canonical:T789	
+T794	Action 78746 78755	reflected
+A492	Capability T794 017:MalwareCapability-secondary_operation
+A493	StrategicObjectives T794 052:SecondaryOperation-log_activity
+T795	Object 78756 78781;78782 78797	in the persistent storage file hotfix.dat
+R645	ActionObj Action:T794 Object:T795	
+R646	ActionObj Action:T794 Object:T789	
+T796	Subject 79490 79492	it
+T797	Action 79492 79494	’s
+A494	Capability T797 002:MalwareCapability-anti-detection
+A495	TacticalObjectives T797 023:AntiDetection-hide_file_system_artifacts
+A496	StrategicObjectives T797 007:AntiDetection-hide_malware_artifacts
+T798	Object 79495 79535	a fully encrypted file with flat entropy
+R647	ActionObj Action:T797 Object:T798	
+R648	SubjAction Subject:T796 Action:T797	
+T799	Object 80775 80801	The data stored in \\.\Hd2
+T800	Action 80802 80814	is encrypted
+A497	Capability T800 002:MalwareCapability-anti-detection
+A498	TacticalObjectives T800 023:AntiDetection-hide_file_system_artifacts
+A499	StrategicObjectives T800 007:AntiDetection-hide_malware_artifacts
+T801	Object 80815 80851	the same way the first volume’s data
+R649	ActionObj Action:T800 Object:T799	
+R650	ActionObj Action:T800 Object:T801	
+T802	Action 80877 80886	be set up
+A500	ActionName T802 116:ProcessMemory-allocate_process_virtual_memory
+T803	Modifier 80887 80889	as
+T804	Object 80854 80866	Both volumes
+T805	Object 80890 80901	FAT volumes
+R651	ActionObj Action:T802 Object:T804	
+R652	ActionMod Action:T802 Modifier:T803	
+R653	ModObj Modifier:T803 Object:T805	
+T806	Action 83123 83127	keep
+A501	Capability T806 002:MalwareCapability-anti-detection
+A502	TacticalObjectives T806 023:AntiDetection-hide_file_system_artifacts
+A503	StrategicObjectives T806 007:AntiDetection-hide_malware_artifacts
+T807	Object 83128 83136	its data
+T808	Object 83140 83162	TrueCrypt-like volumes
+T809	Subject 83172 83177	Snake
+T810	Modifier 83137 83139	on
+R654	SubjAction Subject:T809 Action:T806	
+R655	ActionObj Action:T806 Object:T807	
+R656	ActionMod Action:T806 Modifier:T810	
+R657	ModObj Modifier:T810 Object:T808	
+T811	Subject 83354 83370	the Snake driver
+T812	Action 83371 83375	uses
+A504	ActionName T812 116:ProcessMemory-allocate_process_virtual_memory
+T813	Object 83376 83391	virtual volumes
+R658	SubjAction Subject:T811 Action:T812	
+R659	ActionObj Action:T812 Object:T813	
+T816	Subject 83453 83455	it
+R662	CoRefer Referer:T811 Canonical:T816	
+T817	Object 83484 83497	a file called
+T818	Action 83456 83462	stores
+A505	ActionName T818 043:File-write_to_file
+T819	Object 83463 83480	its message queue
+T820	Modifier 83481 83483	in
+R663	SubjAction Subject:T816 Action:T818	
+R664	ActionObj Action:T818 Object:T819	
+R665	ActionMod Action:T818 Modifier:T820	
+R666	ModObj Modifier:T820 Object:T817	
+T814	Action 83395 83400	store
+A506	ActionName T814 043:File-write_to_file
+T815	Object 83401 83430	its data and additional files
+R660	SubjAction Subject:T811 Action:T814	
+T821	Object 83434 83436	it
+T822	Modifier 83431 83433	on
+R661	ActionObj Action:T814 Object:T815	
+R667	ActionMod Action:T814 Modifier:T822	
+R668	ModObj Modifier:T822 Object:T821	
+T823	Action 83974 83985	intercepted
+A507	Capability T823 019:MalwareCapability-spying
+A508	TacticalObjectives T823 140:Spying-capture_keyboard_input
+A509	StrategicObjectives T823 061:Spying-capture_system_input_peripheral_data
+T824	Object 83986 83996	keystrokes
+R669	ActionObj Action:T823 Object:T824	
+T825	Subject 83905 83920	other log files
+T826	Action 83939 83946	contain
+A510	Capability T826 017:MalwareCapability-secondary_operation
+A511	StrategicObjectives T826 052:SecondaryOperation-log_activity
+T827	Object 83947 83963;83965 83972	executed command outputs
+R670	SubjAction Subject:T825 Action:T826	
+R671	ActionObj Action:T826 Object:T827	
+T828	Subject 85162 85164	it
+T829	Action 85182 85186	load
+A512	ActionName T829 006:DeviceDriver-load_driver
+T830	Object 85187 85190;85191 85213	its unsigned 64-bit driver
+T831	Object 85217 85247	a 64-bit version of Windows XP
+T832	Modifier 85214 85216	on
+R672	ModObj Modifier:T832 Object:T831	
+R673	ActionObj Action:T829 Object:T830	
+R674	SubjAction Subject:T828 Action:T829	
+R675	ActionMod Action:T829 Modifier:T832	
+T833	Subject 85428 85439	the dropper
+T834	Action 85374 85380	ensure
+A513	Capability T834 013:MalwareCapability-persistence
+A514	TacticalObjectives T834 104:Persistence-persist_after_system_reboot
+A515	StrategicObjectives T834 042:Persistence-persist_to_continuously_execute_on_system
+T835	Object 85381 85426	the driver is loaded automatically at startup
+R676	ActionObj Action:T834 Object:T835	
+R677	SubjAction Subject:T833 Action:T834	
+T836	Action 85444 85451	install
+A516	Capability T836 017:MalwareCapability-secondary_operation
+A517	TacticalObjectives T836 118:SecondaryOperation-install_secondary_malware
+A518	StrategicObjectives T836 050:SecondaryOperation-install_other_components
+T837	Object 85452 85462;85463 85469	the 64-bit driver
+R678	SubjAction Subject:T833 Action:T836	
+R679	ActionObj Action:T836 Object:T837	
+T838	Modifier 85470 85472	on
+T839	Object 85473 85490	64-bit Windows XP
+R680	ModObj Modifier:T838 Object:T839	
+R681	ActionMod Action:T836 Modifier:T838	
+T840	Subject 85507 85509	it
+T841	Action 85510 85518	installs
+A519	Capability T841 017:MalwareCapability-secondary_operation
+A520	TacticalObjectives T841 118:SecondaryOperation-install_secondary_malware
+A521	StrategicObjectives T841 050:SecondaryOperation-install_other_components
+T842	Object 85519 85534	a 32-bit driver
+T843	Object 85538 85568	a 32-bit version of Windows XP
+R682	SubjAction Subject:T840 Action:T841	
+R683	ActionObj Action:T841 Object:T842	
+T844	Modifier 85535 85537	on
+R684	ActionMod Action:T841 Modifier:T844	
+R685	ModObj Modifier:T844 Object:T843	
+R686	CoRefer Referer:T833 Canonical:T840	
+T845	Subject 85617 85619	it
+T846	Action 85620 85627	behaves
+A522	Capability T846 015:MalwareCapability-probing
+A523	TacticalObjectives T846 113:Probing-identify_os
+A524	StrategicObjectives T846 046:Probing-probe_host_configuration
+T847	Object 85628 85639	differently
+T848	Object 85574 85616	64-bit versions of Windows Vista and above
+T849	Modifier 85571 85573	On
+R687	ModObj Modifier:T849 Object:T848	
+R688	SubjAction Subject:T845 Action:T846	
+R689	ActionObj Action:T846 Object:T847	
+R690	ActionMod Action:T846 Modifier:T849	
+T850	Object 85650 85681	the 64-bit unsigned driver file
+T851	Action 85682 85692	is created
+A525	ActionName T851 024:File-create_file
+T852	Subject 85865 85876	the dropper
+T853	Action 85883 85889	copies
+A526	ActionName T853 023:File-copy_file
+T854	Object 85890 85896	itself
+R691	ActionObj Action:T853 Object:T854	
+R692	SubjAction Subject:T852 Action:T853	
+R693	CoRefer Referer:T854 Canonical:T852	
+T855	Subject 85966 85977	The dropper
+T856	Action 85983 85992	registers
+A527	ActionName T856 147:Service-create_service
+T857	Modifier 86000 86002	as
+T858	Object 85993 85999	itself
+R694	SubjAction Subject:T855 Action:T856	
+R695	ActionObj Action:T856 Object:T858	
+R696	ActionMod Action:T856 Modifier:T857	
+R697	CoRefer Referer:T858 Canonical:T855	
+T859	Action 85808 85821	is registered
+A528	ActionName T859 147:Service-create_service
+T860	Object 85833 85851	the dropper itself
+R698	ActionObj Action:T859 Object:T860	
+T861	Object 86003 86012	a service
+R699	ModObj Modifier:T857 Object:T861	
+T862	Action 86016 86022	ensure
+A529	Capability T862 013:MalwareCapability-persistence
+A530	TacticalObjectives T862 104:Persistence-persist_after_system_reboot
+A531	StrategicObjectives T862 042:Persistence-persist_to_continuously_execute_on_system
+T863	Object 86023 86061	it starts every time Windows is booted
+R700	SubjAction Subject:T855 Action:T862	
+R701	ActionObj Action:T862 Object:T863	
+T864	Subject 89001 89003;89004 89012	an attacker
+T865	Action 89017 89022	craft
+A532	Capability T865 018:MalwareCapability-security_degradation
+A533	TacticalObjectives T865 124:SecurityDegradation-disable_kernel_patching_protection
+A534	StrategicObjectives T865 058:SecurityDegradation-disable_os_security_features
+T866	Object 89023 89124	such input parameters that will define address within kernel memory to patch and the data to patch it
+R702	SubjAction Subject:T864 Action:T865	
+R703	ActionObj Action:T865 Object:T866	
+T867	Object 90941 90962	the vulnerable driver
+T868	Action 90967 90974	be used
+A535	Capability T868 018:MalwareCapability-security_degradation
+A536	TacticalObjectives T868 124:SecurityDegradation-disable_kernel_patching_protection
+A537	StrategicObjectives T868 058:SecurityDegradation-disable_os_security_features
+R704	ActionObj Action:T868 Object:T867	
+T869	Modifier 90975 90977	as
+T870	Object 90978 91009	a weapon to patch kernel memory
+R705	ActionMod Action:T868 Modifier:T869	
+R706	ModObj Modifier:T869 Object:T870	
+T871	Object 91317 91344	Code Integrity verification
+T872	Action 91345 91356	is disabled
+A538	Capability T872 018:MalwareCapability-security_degradation
+A539	TacticalObjectives T872 132:SecurityDegradation-modify_security_program_configuration
+A540	StrategicObjectives T872 058:SecurityDegradation-disable_os_security_features
+R707	ActionObj Action:T872 Object:T871	
+T873	Object 91365 91391	the unsigned 64-bit driver
+T874	Action 91396 91405	be loaded
+A541	ActionName T874 006:DeviceDriver-load_driver
+R708	ActionObj Action:T874 Object:T873	
+T875	Action 91642 91647	loads
+A542	ActionName T875 036:File-open_file
+T876	Action 91692 91699	locates
+A543	ActionName T876 038:File-read_from_file
+T877	Subject 91624 91633;91634 91641	the Snake dropper
+T878	Object 91648 91690	a copy of the NT core image (ntoskrnl.exe)
+T879	Object 91700 91746	the import of CI.dll’s function CiInitialize()
+T880	Object 91757 91795	SepInitializeCodeIntegrity() within it
+R709	ActionObj Action:T876 Object:T879	
+R710	SubjAction Subject:T877 Action:T875	
+R711	ActionObj Action:T875 Object:T878	
+R712	SubjAction Subject:T877 Action:T876	
+R713	ActionObj Action:T876 Object:T880	
+T881	Action 91805 91811	parses
+A544	ActionName T881 038:File-read_from_file
+T882	Object 91812 91831	the function’s code
+T883	Object 91835 91868	locate the offset of the variable
+T884	Subject 91802 91804	it
+T885	Modifier 91832 91834	to
+R714	SubjAction Subject:T884 Action:T881	
+R715	ActionObj Action:T881 Object:T882	
+R716	ActionMod Action:T881 Modifier:T885	
+R717	ModObj Modifier:T885 Object:T883	
+T886	Object 91960 91986	the 64-bit unsigned driver
+T887	Action 91987 91996	is loaded
+A545	ActionName T887 006:DeviceDriver-load_driver
+R718	ActionObj Action:T887 Object:T886	
+T888	Subject 92016 92029	Snake dropper
+T889	Action 92030 92039	registers
+A546	ActionName T889 147:Service-create_service
+T890	Modifier 92047 92049	as
+T891	Object 92040 92046	itself
+T892	Object 92050 92059	a service
+R719	SubjAction Subject:T888 Action:T889	
+R720	ActionObj Action:T889 Object:T891	
+R721	CoRefer Referer:T891 Canonical:T888	
+R722	ActionMod Action:T889 Modifier:T890	
+R723	ModObj Modifier:T890 Object:T892	
+T893	Action 92063 92068	start
+A547	Capability T893 013:MalwareCapability-persistence
+A548	TacticalObjectives T893 104:Persistence-persist_after_system_reboot
+A549	StrategicObjectives T893 042:Persistence-persist_to_continuously_execute_on_system
+T894	Object 92069 92093	each time Windows starts
+R724	SubjAction Subject:T888 Action:T893	
+R725	ActionObj Action:T893 Object:T894	
+T895	Action 92266 92270	load
+A550	ActionName T895 006:DeviceDriver-load_driver
+T896	Object 92271 92281	the driver
+R726	ActionObj Action:T895 Object:T896	
+T897	Action 92107 92114	install
+A551	Capability T897 017:MalwareCapability-secondary_operation
+A552	TacticalObjectives T897 117:SecondaryOperation-install_legitimate_software
+A553	StrategicObjectives T897 050:SecondaryOperation-install_other_components
+T898	Object 92115 92129;92130 92141	the vulnerable VBox driver
+R727	SubjAction Subject:T888 Action:T897	
+R728	ActionObj Action:T897 Object:T898	
+T899	Action 92187 92194	disable
+A554	Capability T899 018:MalwareCapability-security_degradation
+A555	TacticalObjectives T899 132:SecurityDegradation-modify_security_program_configuration
+A556	StrategicObjectives T899 059:SecurityDegradation-disable_server_provider_security_features
+T900	Object 92195 92217	Code Integrity control
+T901	Object 92223 92251	a DeviceIoControl() API call
+T902	Modifier 92218 92222	with
+R729	SubjAction Subject:T888 Action:T899	
+R730	SubjAction Subject:T888 Action:T895	
+R731	ActionObj Action:T899 Object:T900	
+R732	ActionMod Action:T899 Modifier:T902	
+R733	ModObj Modifier:T902 Object:T901	
+T903	Subject 92332 92343	the dropper
+T904	Action 92355 92361	obtain
+A557	Capability T904 014:MalwareCapability-privilege_escalation
+T905	Object 92362 92386	Administrator privileges
+R734	SubjAction Subject:T903 Action:T904	
+R735	ActionObj Action:T904 Object:T905	
+T906	Action 92414 92421	running
+A558	ActionName T906 029:File-execute_file
+T907	Object 92422 92452	MS09-025 and MS10-015 exploits
+T908	Object 92456 92473	the target system
+T909	Subject 92388 92390	It
+R736	CoRefer Referer:T909 Canonical:T903	
+T910	Modifier 92453 92455	on
+R737	SubjAction Subject:T909 Action:T906	
+R738	ActionMod Action:T906 Modifier:T910	
+R739	ActionObj Action:T906 Object:T907	
+R740	ModObj Modifier:T910 Object:T908	
+A559	Capability T906 014:MalwareCapability-privilege_escalation
+A560	StrategicObjectives T906 044:PrivilegeEscalation-escalate_user_privilege
+T911	Object 92833 92842	libraries
+T912	Action 92853 92864	be injected
+A561	ActionName T912 119:ProcessMemory-map_library_into_process
+T913	Modifier 92865 92869	into
+T914	Object 92870 92888	usermode processes
+R741	ActionObj Action:T912 Object:T911	
+R742	ActionMod Action:T912 Modifier:T913	
+R743	ModObj Modifier:T913 Object:T914	
+T915	Action 92669 92677	creating
+A562	ActionName T915 116:ProcessMemory-allocate_process_virtual_memory
+T916	Object 92678 92695	NTFS file systems
+R744	ActionObj Action:T915 Object:T916	
+T917	Subject 92658 92664	a tool
+R745	SubjAction Subject:T917 Action:T915	
+T918	Object 92701 92731	the initial message queue file
+T919	Action 92738 92748	is written
+A563	ActionName T919 043:File-write_to_file
+T920	Object 92754 92772	the virtual volume
+T921	Modifier 92749 92753	into
+R746	ModObj Modifier:T921 Object:T920	
+R747	ActionObj Action:T919 Object:T918	
+R748	ActionMod Action:T919 Modifier:T921	
+T922	Object 93093 93110	The usermode DLLs
+T923	Action 93111 93119	injected
+A564	ActionName T923 119:ProcessMemory-map_library_into_process
+T924	Subject 93123 93145	the kernel-mode driver
+T925	Object 93151 93178	the userland system process
+T926	Modifier 93146 93150	into
+R749	ModObj Modifier:T926 Object:T925	
+R750	ActionObj Action:T923 Object:T922	
+R751	SubjAction Subject:T924 Action:T923	
+R752	ActionMod Action:T923 Modifier:T926	
+T927	Subject 93402 93442	The rkctl_Win32.dll/rkctl_x64.dll module
+T928	Action 93443 93447	uses
+A565	ActionName T928 064:IPC-connect_to_named_pipe
+T929	Object 93448 93483	the following hard-coded named pipe
+A566	Capability T928 005:MalwareCapability-command_and_control
+T930	Modifier 93484 93487	for
+T931	Object 93488 93502	communications
+R753	SubjAction Subject:T927 Action:T928	
+R754	ActionObj Action:T928 Object:T929	
+R755	ActionMod Action:T928 Modifier:T930	
+R756	ModObj Modifier:T930 Object:T931	
+T932	Object 93545 93564	The remote commands
+T933	Subject 93565 93567	it
+R757	CoRefer Referer:T929 Canonical:T933	
+T934	Action 93568 93576	receives
+A567	Capability T934 005:MalwareCapability-command_and_control
+A568	TacticalObjectives T934 047:CommandandControl-control_malware_via_remote_command
+A569	StrategicObjectives T934 017:CommandandControl-receive_data_from_c2_server
+T935	Action 93602 93609	control
+A570	Capability T935 005:MalwareCapability-command_and_control
+A571	TacticalObjectives T935 047:CommandandControl-control_malware_via_remote_command
+A572	StrategicObjectives T935 018:CommandandControl-send_data_to_c2_server
+R758	SubjAction Subject:T933 Action:T934	
+R759	ActionObj Action:T934 Object:T932	
+T936	Object 93610 93635	other components of Snake
+R760	ActionObj Action:T935 Object:T936	
+T937	Subject 93545 93564	The remote commands
+R761	SubjAction Subject:T937 Action:T935	
+T938	Action 94493 94502	activates
+A573	ActionName T938 084:Library-load_library
+T939	Subject 94485 94492	the DLL
+R762	SubjAction Subject:T939 Action:T938	
+T940	Subject 94504 94506	it
+T941	Action 94507 94512	reads
+A574	ActionName T941 038:File-read_from_file
+T942	Object 94513 94537	configuration parameters
+T943	Object 94543 94566	the configuration queue
+T944	Modifier 94538 94542	from
+R763	SubjAction Subject:T940 Action:T941	
+R764	ActionObj Action:T941 Object:T942	
+R765	ActionMod Action:T941 Modifier:T944	
+R766	ModObj Modifier:T944 Object:T943	
+T945	Subject 94573 94583	the driver
+T946	Action 94584 94591	creates
+A575	ActionName T946 024:File-create_file
+R767	SubjAction Subject:T945 Action:T946	
+R768	ActionObj Action:T946 Object:T943	
+R769	CoRefer Referer:T939 Canonical:T940	
+T947	Object 94595 94611	a virtual volume
+T948	Modifier 94592 94594	on
+R770	ActionMod Action:T946 Modifier:T948	
+R771	ModObj Modifier:T948 Object:T947	
+T949	Subject 94665 94672	the DLL
+T950	Action 94680 94683	use
+A576	Capability T950 005:MalwareCapability-command_and_control
+A577	ActionName T950 064:IPC-connect_to_named_pipe
+T951	Modifier 94684 94687	for
+T952	Object 94688 94706	its communications
+T953	Object 94643 94659	the pipe name(s)
+R772	SubjAction Subject:T949 Action:T950	
+R773	ActionObj Action:T950 Object:T953	
+R774	ActionMod Action:T950 Modifier:T951	
+R775	ModObj Modifier:T951 Object:T952	
+T954	Subject 94741 94762	this Snake DLL module
+T955	Action 94729 94737	received
+A578	Capability T955 005:MalwareCapability-command_and_control
+A579	ActionName T955 093:Network-receive_network_packet
+A580	StrategicObjectives T955 017:CommandandControl-receive_data_from_c2_server
+A581	TacticalObjectives T955 047:CommandandControl-control_malware_via_remote_command
+T956	Object 94709 94728	The remote commands
+R776	ActionObj Action:T955 Object:T956	
+R777	SubjAction Subject:T954 Action:T955	
+T957	Object 95322 95330	the data
+T958	Subject 95332 95339	the DLL
+T959	Action 95317 95321	post
+A582	Capability T959 005:MalwareCapability-command_and_control
+A583	ActionName T959 096:Network-send_network_packet
+A584	StrategicObjectives T959 018:CommandandControl-send_data_to_c2_server
+A585	TacticalObjectives T959 050:CommandandControl-send_system_information
+R778	ActionObj Action:T959 Object:T957	
+R779	SubjAction Subject:T958 Action:T959	
+T960	Subject 95418 95420	It
+R780	CoRefer Referer:T958 Canonical:T960	
+T961	Action 95425 95432	rely on
+T962	Object 95433 95480	the following Internet Media types (MIME types)
+T963	Object 95485 95502	data exfiltration
+T964	Modifier 95481 95484	for
+A586	Capability T961 006:MalwareCapability-data_exfiltration
+R781	SubjAction Subject:T960 Action:T961	
+R782	ActionObj Action:T961 Object:T962	
+R783	ActionMod Action:T961 Modifier:T964	
+R784	ModObj Modifier:T964 Object:T963	
+T965	Subject 95761 95763	it
+T966	Action 95764 95768	uses
+A587	Capability T966 005:MalwareCapability-command_and_control
+T967	Object 95748 95760	Request type
+T968	Action 95780 95782	be
+A588	Capability T968 005:MalwareCapability-command_and_control
+A589	ActionName T968 058:HTTP-send_http_post_request
+T969	Object 95783 95787	POST
+T970	Object 95791 95794	GET
+T971	Subject 95800 95824	C&C server resource name
+T972	Object 95828 95840	/default.asp
+T973	Action 95825 95827	is
+A590	Capability T973 005:MalwareCapability-command_and_control
+R785	SubjAction Subject:T971 Action:T973	
+R786	ActionObj Action:T973 Object:T972	
+R787	SubjAction Subject:T965 Action:T966	
+R788	CoRefer Referer:T965 Canonical:T967	
+T974	Subject 95748 95760	Request type
+R789	SubjAction Subject:T974 Action:T968	
+R790	ActionObj Action:T968 Object:T969	
+T975	Action 95780 95782	be
+A591	ActionName T975 054:HTTP-send_http_get_request
+A592	Capability T975 005:MalwareCapability-command_and_control
+R791	ActionObj Action:T975 Object:T970	
+R792	SubjAction Subject:T974 Action:T975	
+T976	Action 96135 96149	was identified
+A593	Capability T976 015:MalwareCapability-probing
+A594	StrategicObjectives T976 047:Probing-probe_network_configuration
+T977	Object 96153 96162;96163 96182	a network reconnaissance tool
+T978	Modifier 96150 96152	as
+R793	ActionMod Action:T976 Modifier:T978	
+R794	ModObj Modifier:T978 Object:T977	
+T979	Object 96049 96076	One of the Snake components
+R795	ActionObj Action:T976 Object:T979	
+T980	Action 96093 96108	been downloaded
+A595	Capability T980 017:MalwareCapability-secondary_operation
+A596	TacticalObjectives T980 118:SecondaryOperation-install_secondary_malware
+A597	StrategicObjectives T980 050:SecondaryOperation-install_other_components
+T981	Modifier 96109 96113	from
+T982	Object 96114 96133	a remote C&C server
+A598	ActionName T980 090:Network-download_file
+R796	ActionObj Action:T980 Object:T979	
+R797	ActionMod Action:T980 Modifier:T981	
+R798	ModObj Modifier:T981 Object:T982	
+T983	Subject 96273 96282	this tool
+T984	Action 96283 96293	enumerates
+A599	Capability T984 015:MalwareCapability-probing
+A600	TacticalObjectives T984 115:Probing-map_local_network
+A601	StrategicObjectives T984 047:Probing-probe_network_configuration
+T985	Object 96294 96313	other network hosts
+R799	SubjAction Subject:T983 Action:T984	
+R800	ActionObj Action:T984 Object:T985	
+T986	Action 96318 96325	detects
+A602	Capability T986 015:MalwareCapability-probing
+A603	StrategicObjectives T986 047:Probing-probe_network_configuration
+T987	Object 96326 96380	what Windows RPC services are enabled at the endpoints
+R801	ActionObj Action:T986 Object:T987	
+R802	SubjAction Subject:T983 Action:T986	
+T988	Modifier 96185 96189	When
+T989	Object 96190 96216	run as a command line tool
+R803	ModObj Modifier:T988 Object:T989	
+R804	ActionMod Action:T986 Modifier:T988	
+R805	ActionMod Action:T984 Modifier:T988	
+T990	Action 96425 96435	associated
+A604	ActionName T990 064:IPC-connect_to_named_pipe
+T991	Object 96393 96424	a list of interface identifiers
+T992	Modifier 96436 96440	with
+T993	Object 96441 96456	the named pipes
+R806	ActionObj Action:T990 Object:T991	
+R807	ActionMod Action:T990 Modifier:T992	
+R808	ModObj Modifier:T992 Object:T993	
+T994	Action 96492 96497	write
+A605	ActionName T994 072:IPC-write_to_named_pipe
+T995	Object 96498 96507	a message
+T996	Modifier 96508 96510	to
+T997	Object 96535 96561	the associated named pipes
+R809	ActionObj Action:T994 Object:T995	
+T998	Subject 96458 96460	It
+R810	SubjAction Subject:T998 Action:T994	
+R811	ActionMod Action:T994 Modifier:T996	
+R812	ModObj Modifier:T996 Object:T997	
+T999	Action 96515 96519	read
+A606	ActionName T999 070:IPC-read_from_named_pipe
+T1000	Object 96520 96529	a message
+T1001	Modifier 96530 96534	from
+R813	SubjAction Subject:T998 Action:T999	
+R814	ActionObj Action:T999 Object:T1000	
+R815	ActionMod Action:T999 Modifier:T1001	
+R816	ModObj Modifier:T1001 Object:T997	
+T1002	Subject 96605 96607	it
+R817	CoRefer Referer:T983 Canonical:T998	
+R818	CoRefer Referer:T983 Canonical:T1002	
+T1003	Action 96625 96636	fingerprint
+A607	Capability T1003 015:MalwareCapability-probing
+A608	TacticalObjectives T1003 115:Probing-map_local_network
+A609	StrategicObjectives T1003 047:Probing-probe_network_configuration
+R819	SubjAction Subject:T1002 Action:T1003	
+T1005	Modifier 96655 96657	by
+T1006	Object 96658 96696;96697 96719	mimicking the Metasploit’s logic of OS fingerprinting via SMB
+T1004	Object 96637 96654	all network hosts
+R820	ActionObj Action:T1003 Object:T1004	
+R821	ActionMod Action:T1003 Modifier:T1005	
+R822	ModObj Modifier:T1005 Object:T1006	
+T1007	Subject 96747 96749	it
+R823	CoRefer Referer:T983 Canonical:T1007	
+T1008	Action 96753 96759	reveal
+A610	Capability T1008 015:MalwareCapability-probing
+A611	TacticalObjectives T1008 115:Probing-map_local_network
+A612	StrategicObjectives T1008 046:Probing-probe_host_configuration
+T1009	Object 96760 96789	the following characteristics
+T1010	Object 96794 96824	each host found in the network
+R824	SubjAction Subject:T1007 Action:T1008	
+R825	ActionObj Action:T1008 Object:T1009	
+T1011	Modifier 96790 96793	for
+R826	ActionMod Action:T1008 Modifier:T1011	
+R827	ModObj Modifier:T1011 Object:T1010	
+T1012	Object 96960 96968	The data
+T1013	Action 96982 96994	is encrypted
+A613	Capability T1013 002:MalwareCapability-anti-detection
+A614	TacticalObjectives T1013 023:AntiDetection-hide_file_system_artifacts
+A615	StrategicObjectives T1013 007:AntiDetection-hide_malware_artifacts
+R828	ActionObj Action:T1013 Object:T1012	
+T1014	Action 96999 97004	saved
+A616	ActionName T1014 043:File-write_to_file
+T1015	Object 97010 97049	a configuration file %system%\vtmon.bin
+T1016	Modifier 97005 97009	into
+R829	ActionObj Action:T1014 Object:T1012	
+R830	ActionMod Action:T1014 Modifier:T1016	
+R831	ModObj Modifier:T1016 Object:T1015	
+T1017	Action 97061 97086	is then further encrypted
+A617	Capability T1017 002:MalwareCapability-anti-detection
+A618	TacticalObjectives T1017 023:AntiDetection-hide_file_system_artifacts
+A619	StrategicObjectives T1017 007:AntiDetection-hide_malware_artifacts
+T1018	Object 97051 97060	This file
+R832	ActionObj Action:T1017 Object:T1018	
+T1019	Object 97092 97138	an NTL-based (Number Theory Library) algorithm
+T1020	Modifier 97087 97091	with
+R833	ActionMod Action:T1017 Modifier:T1020	
+R834	ModObj Modifier:T1020 Object:T1019	
+T1021	Action 97143 97154	is uploaded
+A620	Capability T1021 005:MalwareCapability-command_and_control
+A621	ActionName T1021 097:Network-upload_file
+A622	StrategicObjectives T1021 018:CommandandControl-send_data_to_c2_server
+A623	TacticalObjectives T1021 050:CommandandControl-send_system_information
+T1022	Object 97158 97192	the usermode-centric Snake rootkit
+T1023	Object 97196 97210	the C&C server
+T1024	Modifier 97193 97195	to
+T1025	Modifier 97155 97157	by
+T1026	Modifier 97212 97217;97218 97222	along with
+T1027	Object 97223 97333;97334 97395	other configuration files, such as mtmon.sdb, mtmon32.sdb, gstatsnd.bin, gstat.bin, gstat32.bin, and other log files found in the %windows%\$NtUninstallQ[random]$ directory
+R835	ActionObj Action:T1021 Object:T1018	
+R836	ActionMod Action:T1021 Modifier:T1025	
+R837	ActionMod Action:T1021 Modifier:T1024	
+R838	ActionMod Action:T1021 Modifier:T1026	
+R839	ModObj Modifier:T1025 Object:T1022	
+R840	ModObj Modifier:T1024 Object:T1023	
+R841	ModObj Modifier:T1026 Object:T1027	
+T1028	Subject 97421 97440	the remote attacker
+T1029	Action 97445 97453	identify
+A624	Capability T1029 010:MalwareCapability-infection/propagation
+A625	TacticalObjectives T1029 088:InfectionPropagation-identify_target_machine(s)
+A626	StrategicObjectives T1029 031:InfectionPropagation-infect_remote_machine
+T1030	Object 97454 97529	any potentially exploitable hosts located in the same network as the victim
+R842	SubjAction Subject:T1028 Action:T1029	
+R843	ActionObj Action:T1029 Object:T1030	
+T1031	Action 97644 97651	deliver
+A627	Capability T1031 005:MalwareCapability-command_and_control
+A628	ActionName T1031 093:Network-receive_network_packet
+A629	StrategicObjectives T1031 017:CommandandControl-receive_data_from_c2_server
+T1032	Object 97652 97655;97656 97675	the generated shellcode
+T1033	Subject 97531 97543	The attacker
+T1034	Modifier 97676 97683	back to
+T1035	Object 97684 97707	the reconnaissance tool
+T1036	Modifier 97708 97710	to
+R844	ActionObj Action:T1031 Object:T1032	
+R845	SubjAction Subject:T1033 Action:T1031	
+R846	ActionMod Action:T1031 Modifier:T1034	
+R847	ModObj Modifier:T1034 Object:T1035	
+R848	ActionMod Action:T1031 Modifier:T1036	
+T1037	Object 97711 97779;97780 97795	be applied against the identified hosts by running the tool with the ‘exp_os’ switch
+R849	ModObj Modifier:T1036 Object:T1037	
+T1038	Action 98201 98210	adjusting
+A630	Capability T1038 010:MalwareCapability-infection/propagation
+A631	TacticalObjectives T1038 091:InfectionPropagation-perform_autonomous_remote_infection
+A632	StrategicObjectives T1038 031:InfectionPropagation-infect_remote_machine
+T1039	Object 98211 98215	them
+T1040	Subject 98149 98161	the attacker
+T1041	Modifier 98216 98218	to
+T1042	Object 98219 98255	the hosts present within the network
+R850	ActionObj Action:T1038 Object:T1039	
+R851	ActionMod Action:T1038 Modifier:T1041	
+R852	ModObj Modifier:T1041 Object:T1042	
+R853	SubjAction Subject:T1040 Action:T1038	
+T1043	Action 97823 97831	delivers
+A633	Capability T1043 010:MalwareCapability-infection/propagation
+A634	ActionName T1043 096:Network-send_network_packet
+A635	StrategicObjectives T1043 031:InfectionPropagation-infect_remote_machine
+A636	TacticalObjectives T1043 091:InfectionPropagation-perform_autonomous_remote_infection
+T1044	Object 97832 97843	the payload
+T1045	Action 97848 97856	exploits
+A637	Capability T1045 010:MalwareCapability-infection/propagation
+A638	TacticalObjectives T1045 091:InfectionPropagation-perform_autonomous_remote_infection
+A639	StrategicObjectives T1045 031:InfectionPropagation-infect_remote_machine
+T1046	Action 97885 97894	replicate
+A640	Capability T1046 010:MalwareCapability-infection/propagation
+A641	TacticalObjectives T1046 091:InfectionPropagation-perform_autonomous_remote_infection
+A642	StrategicObjectives T1046 031:InfectionPropagation-infect_remote_machine
+T1047	Action 98014 98023	spreading
+A643	Capability T1047 010:MalwareCapability-infection/propagation
+A644	TacticalObjectives T1047 091:InfectionPropagation-perform_autonomous_remote_infection
+A645	StrategicObjectives T1047 031:InfectionPropagation-infect_remote_machine
+T1048	Action 97965 97974	repeating
+A646	Capability T1048 010:MalwareCapability-infection/propagation
+A647	TacticalObjectives T1048 091:InfectionPropagation-perform_autonomous_remote_infection
+A648	StrategicObjectives T1048 031:InfectionPropagation-infect_remote_machine
+T1049	Subject 97801 97809	the tool
+T1050	Subject 97877 97879	it
+T1051	Object 97857 97875	the remote host(s)
+T1052	Action 97929 97935;97936 97943	taking control
+A649	Capability T1052 016:MalwareCapability-remote_machine_manipulation
+A650	TacticalObjectives T1052 116:RemoteMachineManipulation-compromise_remote_machine
+A651	StrategicObjectives T1052 048:RemoteMachineManipulation-access_remote_machine
+T1054	Object 97975 97994	the infection cycle
+T1055	Object 98024 98037	the infection
+T1056	Object 97995 98009	all over again
+T1057	Object 98038 98045	further
+R854	ActionObj Action:T1047 Object:T1055	
+R855	ActionObj Action:T1047 Object:T1057	
+R856	ActionObj Action:T1048 Object:T1054	
+R857	ActionObj Action:T1048 Object:T1056	
+T1053	Modifier 97944 97948	over
+R858	SubjAction Subject:T1049 Action:T1043	
+R859	CoRefer Referer:T1049 Canonical:T1050	
+T1058	Object 97949 97958	new hosts
+R860	ActionMod Action:T1052 Modifier:T1053	
+R861	ModObj Modifier:T1053 Object:T1058	
+R862	SubjAction Subject:T1049 Action:T1045	
+R863	ActionObj Action:T1043 Object:T1044	
+R864	ActionObj Action:T1045 Object:T1051	
+R865	SubjAction Subject:T1050 Action:T1046	
+T1059	Object 97895 97908	the infection
+T1060	Object 97916 97927	the network
+T1061	Modifier 97909 97915	across
+R866	ActionObj Action:T1046 Object:T1059	
+R867	ActionMod Action:T1046 Modifier:T1061	
+R868	ModObj Modifier:T1061 Object:T1060	
+R869	SubjAction Subject:T1050 Action:T1052	
+R870	SubjAction Subject:T1050 Action:T1048	
+R871	SubjAction Subject:T1050 Action:T1047	
+T1062	Subject 98782 98791	Agent.BTZ
+T1063	Action 98792 98796	used
+A652	Capability T1063 002:MalwareCapability-anti-detection
+A653	TacticalObjectives T1063 023:AntiDetection-hide_file_system_artifacts
+A654	StrategicObjectives T1063 007:AntiDetection-hide_malware_artifacts
+T1064	Object 98797 98813	the same XOR key
+T1065	Modifier 98814 98817	for
+T1066	Object 98818 98821;98822 98826	its logs
+R872	SubjAction Subject:T1062 Action:T1063	
+R873	ActionObj Action:T1063 Object:T1064	
+R874	ActionMod Action:T1063 Modifier:T1065	
+R875	ModObj Modifier:T1065 Object:T1066	
+T1067	Object 98969 98978	Log files
+T1068	Action 98979 98986	created
+A655	Capability T1068 017:MalwareCapability-secondary_operation
+A656	ActionName T1068 024:File-create_file
+A657	StrategicObjectives T1068 052:SecondaryOperation-log_activity
+R876	ActionObj Action:T1068 Object:T1067	
+T1069	Subject 98990 99017	the latest samples of Snake
+R877	SubjAction Subject:T1069 Action:T1068	
+T1070	Action 99516 99521	using
+A658	Capability T1070 002:MalwareCapability-anti-detection
+T1071	Object 99522 99540	complex techniques
+T1072	Object 99545 99566	evading host defences
+T1073	Modifier 99541 99544	for
+A659	StrategicObjectives T1070 009:AntiDetection-security_software_evasion
+R878	ActionMod Action:T1070 Modifier:T1073	
+R879	ActionObj Action:T1070 Object:T1071	
+T1074	Subject 99490 99492	It
+R880	SubjAction Subject:T1074 Action:T1070	
+R881	ModObj Modifier:T1073 Object:T1072	
+T1075	Action 99571 99580	providing
+A660	Capability T1075 002:MalwareCapability-anti-detection
+A661	TacticalObjectives T1075 025:AntiDetection-hide_network_traffic
+A662	StrategicObjectives T1075 007:AntiDetection-hide_malware_artifacts
+T1076	Object 99595 99624	covert communication channels
+T1077	Object 99581 99594	the attackers
+R882	SubjAction Subject:T1074 Action:T1075	
+R883	ActionObj Action:T1075 Object:T1077	
+R884	ActionObj Action:T1075 Object:T1076	
+T1078	Action 100002 100011	carry out
+A663	Capability T1078 005:MalwareCapability-command_and_control
+T1079	Object 100012 100037	all of the communications
+T1080	Object 100043 100065	the kernel-mode driver
+T1081	Action 99886 99894	delegate
+A664	Capability T1081 005:MalwareCapability-command_and_control
+T1083	Object 99931 99944	usermode code
+T1082	Object 99895 99927	the network communication engine
+T1084	Modifier 100038 100042	from
+T1085	Modifier 99928 99930	to
+R885	ActionObj Action:T1078 Object:T1079	
+R886	ActionMod Action:T1078 Modifier:T1084	
+R887	ModObj Modifier:T1084 Object:T1080	
+R888	ActionObj Action:T1081 Object:T1082	
+R889	ActionMod Action:T1081 Modifier:T1085	
+R890	ModObj Modifier:T1085 Object:T1083	
+T1086	Subject 100606 100608	it
+T1087	Action 100609 100619	only needs
+A665	Capability T1087 005:MalwareCapability-command_and_control
+T1088	Object 100620 100634;100635 100651	one host to be connected online
+T1089	Object 100543 100604	most of the infected hosts are cut off from the outside world
+T1090	Modifier 100538 100542	When
+R891	ModObj Modifier:T1090 Object:T1089	
+R892	ActionMod Action:T1087 Modifier:T1090	
+R893	SubjAction Subject:T1086 Action:T1087	
+R894	ActionObj Action:T1087 Object:T1088	
+T1091	Action 100665 100679	is then routed
+A666	Capability T1091 011:MalwareCapability-integrity_violation
+A667	TacticalObjectives T1091 098:IntegrityViolation-intercept/manipulate_network_traffic
+A668	StrategicObjectives T1091 034:IntegrityViolation-compromise_network_operational_integrity
+T1092	Object 100653 100664	The traffic
+R895	ActionObj Action:T1091 Object:T1092	
+T1093	Object 100688 100697	that host
+T1094	Modifier 100680 100687	through
+R896	ActionMod Action:T1091 Modifier:T1094	
+R897	ModObj Modifier:T1094 Object:T1093	
+T1095	Action 100701 100705	make
+T1096	Object 100706 100722	external control
+T1097	Object 100745 100759	still possible
+A669	Capability T1095 012:MalwareCapability-machine_access/control
+R898	ActionObj Action:T1095 Object:T1096	
+R899	ActionObj Action:T1095 Object:T1097	
+T1098	Object 100727 100744	data exfiltration
+T1099	Action 100701 100705	make
+A670	Capability T1099 006:MalwareCapability-data_exfiltration
+R900	ActionObj Action:T1099 Object:T1098	
+R901	ActionObj Action:T1099 Object:T1097	
+T1100	Object 100845 100888;100889 100894	the existence of an arsenal of infiltration tools
+T1101	Action 100836 100844	suggests
+A671	Capability T1101 010:MalwareCapability-infection/propagation
+T1102	Subject 100762 100835	The presence of the reconnaissance tool in the Snake operators’ framework
+R902	SubjAction Subject:T1102 Action:T1101	
+R903	ActionObj Action:T1101 Object:T1100	
+T1103	Action 100908 100918	compromise
+A672	Capability T1103 012:MalwareCapability-machine_access/control
+T1104	Object 100919 100927	a system
+R904	ActionObj Action:T1103 Object:T1104	
+T1105	Subject 100845 100888;100889 100894	the existence of an arsenal of infiltration tools
+R905	SubjAction Subject:T1105 Action:T1103	
+T1106	Action 100948 100957	replicate
+A673	Capability T1106 010:MalwareCapability-infection/propagation
+A674	TacticalObjectives T1106 091:InfectionPropagation-perform_autonomous_remote_infection
+A675	StrategicObjectives T1106 031:InfectionPropagation-infect_remote_machine
+T1107	Object 100963 100974	other hosts
+T1108	Object 100983 100987	them
+T1109	Object 101000 101013	the infection
+T1110	Object 101014 101026	even further
+T1111	Modifier 100958 100962	into
+T1112	Action 100976 100982	infect
+A676	Capability T1112 010:MalwareCapability-infection/propagation
+A677	TacticalObjectives T1112 091:InfectionPropagation-perform_autonomous_remote_infection
+A678	StrategicObjectives T1112 031:InfectionPropagation-infect_remote_machine
+T1113	Action 100993 100999	spread
+A679	Capability T1113 010:MalwareCapability-infection/propagation
+A680	TacticalObjectives T1113 091:InfectionPropagation-perform_autonomous_remote_infection
+A681	StrategicObjectives T1113 031:InfectionPropagation-infect_remote_machine
+R906	ActionMod Action:T1106 Modifier:T1111	
+R907	ModObj Modifier:T1111 Object:T1107	
+R908	ActionObj Action:T1112 Object:T1108	
+R909	ActionObj Action:T1113 Object:T1109	
+R910	ActionObj Action:T1113 Object:T1110	
+T1114	Subject 101045 101066	the backdoor commands
+T1115	Action 101067 101072	allow
+A682	Capability T1115 012:MalwareCapability-machine_access/control
+T1116	Object 101073 101078	Snake
+R911	SubjAction Subject:T1114 Action:T1115	
+R912	ActionObj Action:T1115 Object:T1116	
+T1117	Action 101082 101089	provide
+A683	Capability T1117 012:MalwareCapability-machine_access/control
+A684	TacticalObjectives T1117 100:MachineAccessControl-control_machine_via_remote_command
+A685	StrategicObjectives T1117 038:MachineAccessControl-control_local_machine
+T1118	Subject 101073 101078	Snake
+R913	SubjAction Subject:T1118 Action:T1117	
+T1119	Object 101090 101106	remote attackers
+T1120	Object 101112 101137;101138 101156	full remote access to the compromised system
+T1121	Modifier 101107 101111	with
+R914	ActionObj Action:T1117 Object:T1119	
+R915	ActionMod Action:T1117 Modifier:T1121	
+R916	ModObj Modifier:T1121 Object:T1120	
+T1122	Action 101184 101191	staying
+A686	Capability T1122 017:MalwareCapability-secondary_operation
+A687	StrategicObjectives T1122 051:SecondaryOperation-lay_dormant
+T1123	Object 101192 101206	fully inactive
+T1124	Action 101173 101182	hibernate
+A688	Capability T1124 017:MalwareCapability-secondary_operation
+A689	StrategicObjectives T1124 051:SecondaryOperation-lay_dormant
+R917	ActionObj Action:T1122 Object:T1123	
+T1125	Modifier 101207 101210	for
+T1126	Object 101211 101227	a number of days
+R918	ActionMod Action:T1122 Modifier:T1125	
+R919	ModObj Modifier:T1125 Object:T1126	
+T1127	Action 101229 101234	makes
+A690	Capability T1127 002:MalwareCapability-anti-detection
+T1128	Object 101235 101265	its detection during that time
+T1129	Object 101266 101270;101271 101280	very difficult
+R920	ActionObj Action:T1127 Object:T1128	
+R921	ActionObj Action:T1127 Object:T1129	
+T1130	Action 101425 101429	stay
+A691	Capability T1130 002:MalwareCapability-anti-detection
+A692	StrategicObjectives T1130 009:AntiDetection-security_software_evasion
+T1131	Object 101430 101439	unnoticed
+T1132	Object 101443 101495	behaviour analysis engines of the antivirus products
+T1133	Modifier 101440 101442	by
+R922	ActionObj Action:T1130 Object:T1131	
+R923	ActionMod Action:T1130 Modifier:T1133	
+R924	ModObj Modifier:T1133 Object:T1132	
+T1134	Action 101504 101512	overcome
+A693	Capability T1134 018:MalwareCapability-security_degradation
+A694	StrategicObjectives T1134 057:SecurityDegradation-disable_[host-based_or_os]_access_controls
+T1135	Object 101513 101536;101537 101558	account restrictions of the browser processes
+R925	ActionObj Action:T1134 Object:T1135	
+T1136	Subject 101567 101586	the injected module
+T1137	Action 101599 101604	write
+A695	ActionName T1137 043:File-write_to_file
+T1138	Modifier 101605 101609	into
+T1139	Object 101610 101615	files
+T1140	Modifier 101620 101624	into
+T1141	Object 101625 101653	the sensitive registry hives
+R926	SubjAction Subject:T1136 Action:T1137	
+R927	ActionMod Action:T1137 Modifier:T1138	
+R928	ModObj Modifier:T1138 Object:T1139	
+R929	ActionMod Action:T1137 Modifier:T1140	
+R930	ModObj Modifier:T1140 Object:T1141	
+T1142	Subject 101675 101677	it
+T1143	Action 101678 101685	creates
+A696	Capability T1143 017:MalwareCapability-secondary_operation
+A697	ActionName T1143 024:File-create_file
+A698	StrategicObjectives T1143 052:SecondaryOperation-log_activity
+T1144	Object 101656 101674	The logs and dumps
+R931	SubjAction Subject:T1142 Action:T1143	
+R932	ActionObj Action:T1143 Object:T1144	
+T1145	Modifier 101686 101688	on
+T1146	Object 101689 101715	the hidden virtual volumes
+R933	ActionMod Action:T1143 Modifier:T1145	
+R934	ModObj Modifier:T1145 Object:T1146	
+T1147	Action 101802 101806	keep
+A699	Capability T1147 002:MalwareCapability-anti-detection
+A700	TacticalObjectives T1147 025:AntiDetection-hide_network_traffic
+A701	StrategicObjectives T1147 007:AntiDetection-hide_malware_artifacts
+T1148	Object 101807 101833	its network communications
+T1149	Object 101834 101854	as quiet as possible
+R935	ActionObj Action:T1147 Object:T1148	
+R936	ActionObj Action:T1147 Object:T1149	
+T1150	Action 101871 101879	generate
+A702	Capability T1150 011:MalwareCapability-integrity_violation
+A703	TacticalObjectives T1150 098:IntegrityViolation-intercept/manipulate_network_traffic
+A704	StrategicObjectives T1150 034:IntegrityViolation-compromise_network_operational_integrity
+T1151	Object 101880 101897	malicious traffic
+R937	ActionObj Action:T1150 Object:T1151	
+T1152	Modifier 101898 101906	whenever
+T1153	Object 101907 101915;101916 101959	the user goes online and start loading the web pages
+R938	ModObj Modifier:T1152 Object:T1153	
+R939	ActionMod Action:T1150 Modifier:T1152	
+T1154	Subject 101967 101969	it
+R940	SubjAction Subject:T1154 Action:T1150	
+T1155	Action 101973 101983	‘blend in’
+A705	Capability T1155 002:MalwareCapability-anti-detection
+A706	TacticalObjectives T1155 025:AntiDetection-hide_network_traffic
+A707	StrategicObjectives T1155 007:AntiDetection-hide_malware_artifacts
+T1156	Object 101989 102018	the legitimate communications
+T1157	Modifier 101984 101988	with
+R941	SubjAction Subject:T1154 Action:T1155	
+R942	ActionMod Action:T1155 Modifier:T1157	
+R943	ModObj Modifier:T1157 Object:T1156	

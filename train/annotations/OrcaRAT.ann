@@ -1,0 +1,94 @@
+T1	Object 3107 3133	the initial communications
+T2	Subject 3139 3141	it
+T3	Action 3142 3151	sends out
+A1	Capability T3 005:MalwareCapability-command_and_control
+A2	StrategicObjectives T3 018:CommandandControl-send_data_to_c2_server
+T4	Modifier 3152 3154	to
+T5	Object 3155 3185	its command and control server
+R1	SubjAction Subject:T2 Action:T3	
+R2	ActionMod Action:T3 Modifier:T4	
+R3	ActionObj Action:T3 Object:T1	
+R4	ModObj Modifier:T4 Object:T5	
+T6	Action 3374 3381	encrypt
+A3	Capability T6 006:MalwareCapability-data_exfiltration
+A4	TacticalObjectives T6 053:DataExfiltration-encrypt_data
+A5	StrategicObjectives T6 019:DataExfiltration-obfuscate_data_for_exfiltration
+T7	Object 3382 3399;3400 3446	several pieces of information that are extracted from the system
+R5	ActionObj Action:T6 Object:T7	
+T8	Subject 5338 5363	The first set of commands
+T9	Action 5364 5369	force
+A6	Capability T9 005:MalwareCapability-command_and_control
+A7	TacticalObjectives T9 047:CommandandControl-control_malware_via_remote_command
+A8	StrategicObjectives T9 017:CommandandControl-receive_data_from_c2_server
+T10	Object 5370 5381	the malware
+T11	Modifier 5382 5384	to
+T12	Object 5385 5391;5392 5414	behave as a simple downloader
+R6	SubjAction Subject:T8 Action:T9	
+R7	ActionObj Action:T9 Object:T10	
+R8	ModObj Modifier:T11 Object:T12	
+R9	ActionMod Action:T9 Modifier:T11	
+A9	ActionName T9 090:Network-download_file
+T13	Action 6046 6053	written
+A10	ActionName T13 024:File-create_file
+T14	Object 6006 6025;6026 6030	a binary executable file
+R10	ActionObj Action:T13 Object:T14	
+T15	Modifier 6054 6056	to
+T16	Object 6057 6065	the disk
+R11	ModObj Modifier:T15 Object:T16	
+R12	ActionMod Action:T13 Modifier:T15	
+T17	Action 6070 6078	executed
+A11	ActionName T17 029:File-execute_file
+R13	ActionObj Action:T17 Object:T14	
+T18	Subject 6633 6666	The command and control structure
+T19	Action 6692 6700	provides
+A12	Capability T19 005:MalwareCapability-command_and_control
+A13	TacticalObjectives T19 047:CommandandControl-control_malware_via_remote_command
+T20	Object 6701 6713	the operator
+T21	Modifier 6714 6718	with
+T22	Object 6719 6739;6740 6777	access to the victim machine’s filesystem and command line
+R14	SubjAction Subject:T18 Action:T19	
+R15	ActionObj Action:T19 Object:T20	
+R16	ActionMod Action:T19 Modifier:T21	
+R17	ModObj Modifier:T21 Object:T22	
+T23	Action 6844 6853	executing
+A14	Capability T23 005:MalwareCapability-command_and_control
+A15	TacticalObjectives T23 047:CommandandControl-control_malware_via_remote_command
+T24	Object 6854 6872	arbitrary commands
+R18	ActionObj Action:T23 Object:T24	
+T25	Action 6876 6885	uploading
+A16	Capability T25 005:MalwareCapability-command_and_control
+A17	ActionName T25 097:Network-upload_file
+A18	StrategicObjectives T25 018:CommandandControl-send_data_to_c2_server
+T26	Object 6902 6907	files
+T27	Modifier 6908 6912	from
+T28	Object 6913 6935	the compromised system
+R19	ActionObj Action:T25 Object:T26	
+R20	ActionMod Action:T25 Modifier:T27	
+R21	ModObj Modifier:T27 Object:T28	
+T29	Action 6890 6901	downloading
+A19	Capability T29 005:MalwareCapability-command_and_control
+A20	StrategicObjectives T29 017:CommandandControl-receive_data_from_c2_server
+A21	ActionName T29 090:Network-download_file
+R22	ActionObj Action:T29 Object:T26	
+R23	ActionMod Action:T29 Modifier:T27	
+T30	Subject 6987 6994	OrcaRAT
+T31	Action 6995 7000	sends
+A22	Capability T31 005:MalwareCapability-command_and_control
+A23	ActionName T31 058:HTTP-send_http_post_request
+A24	StrategicObjectives T31 018:CommandandControl-send_data_to_c2_server
+T32	Object 7001 7021	an HTTP POST message
+T33	Modifier 7027 7029	to
+T34	Object 7030 7033;7034 7060	the command and control server
+R24	SubjAction Subject:T30 Action:T31	
+R25	ActionObj Action:T31 Object:T32	
+R26	ModObj Modifier:T33 Object:T34	
+R27	ActionMod Action:T31 Modifier:T33	
+T35	Subject 7495 7507	this malware
+T36	Action 7524 7532	designed
+A25	Capability T36 017:MalwareCapability-secondary_operation
+A26	TacticalObjectives T36 118:SecondaryOperation-install_secondary_malware
+T37	Modifier 7533 7535	as
+T38	Object 7536 7537;7538 7557	a first stage implant
+R28	SubjAction Subject:T35 Action:T36	
+R29	ModObj Modifier:T37 Object:T38	
+R30	ActionMod Action:T36 Modifier:T37	

@@ -1,0 +1,167 @@
+T1	Subject 161 176	a Tor exit node
+T2	Action 202 222;223 244	was consistently and maliciously modifying
+A1	Capability T2 011:MalwareCapability-integrity_violation
+A2	TacticalObjectives T2 098:IntegrityViolation-intercept/manipulate_network_traffic
+A3	StrategicObjectives T2 034:IntegrityViolation-compromise_network_operational_integrity
+T3	Object 245 303	any uncompressed Windows executables downloaded through it
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 1063 1083	the malicious actors
+T5	Action 1096 1102	bypass
+A4	Capability T5 002:MalwareCapability-anti-detection
+A5	StrategicObjectives T5 009:AntiDetection-security_software_evasion
+T6	Object 1103 1127;1128 1157	any integrity checks the original binary might contain
+T7	Modifier 1034 1036	By
+T8	Object 1037 1061	using a separate wrapper
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionMod Action:T5 Modifier:T7	
+R5	ModObj Modifier:T7 Object:T8	
+R6	ActionObj Action:T5 Object:T6	
+T9	Subject 1582 1597	This executable
+T10	Action 1598 1600	is
+A6	Capability T10 017:MalwareCapability-secondary_operation
+A7	TacticalObjectives T10 118:SecondaryOperation-install_secondary_malware
+A8	StrategicObjectives T10 050:SecondaryOperation-install_other_components
+T11	Object 1601 1610	a dropper
+R7	SubjAction Subject:T9 Action:T10	
+R8	ActionObj Action:T10 Object:T11	
+T12	Subject 1622 1626;1627 1635	a PE resource
+T13	Action 1641 1649	pretends
+A9	Capability T13 010:MalwareCapability-infection/propagation
+A10	TacticalObjectives T13 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A11	StrategicObjectives T13 031:InfectionPropagation-infect_remote_machine
+T14	Modifier 1650 1652	to
+T15	Object 1653 1682	be an embedded GIF image file
+R9	SubjAction Subject:T12 Action:T13	
+R10	ActionMod Action:T13 Modifier:T14	
+R11	ModObj Modifier:T14 Object:T15	
+T16	Subject 1773 1784	The dropper
+T17	Action 1790 1797	proceed
+A12	Capability T17 017:MalwareCapability-secondary_operation
+A13	TacticalObjectives T17 118:SecondaryOperation-install_secondary_malware
+A14	StrategicObjectives T17 050:SecondaryOperation-install_other_components
+T18	Modifier 1798 1800	to
+T19	Object 1801 1839;1840 1850	decrypt this DLL, write it to disk and execute it
+R12	SubjAction Subject:T16 Action:T17	
+R13	ActionMod Action:T17 Modifier:T18	
+R14	ModObj Modifier:T18 Object:T19	
+T20	Subject 1947 1959	the DLL file
+T21	Action 2115 2122	connect
+A15	Capability T21 005:MalwareCapability-command_and_control
+A16	ActionName T21 088:Network-connect_to_url
+T22	Modifier 2123 2125	to
+T23	Object 2126 2180	hardcoded C&C URLs specified in the configuration data
+R15	SubjAction Subject:T20 Action:T21	
+R16	ActionMod Action:T21 Modifier:T22	
+R17	ModObj Modifier:T22 Object:T23	
+T24	Subject 2198 2209	the malware
+T25	Action 2214 2221	receive
+A17	Capability T25 005:MalwareCapability-command_and_control
+A18	TacticalObjectives T25 047:CommandandControl-control_malware_via_remote_command
+A19	StrategicObjectives T25 017:CommandandControl-receive_data_from_c2_server
+T26	Object 2222 2234	instructions
+T27	Action 2238 2258	download and execute
+A20	Capability T27 017:MalwareCapability-secondary_operation
+A21	ActionName T27 090:Network-download_file
+A22	StrategicObjectives T27 050:SecondaryOperation-install_other_components
+A23	TacticalObjectives T27 118:SecondaryOperation-install_secondary_malware
+T28	Object 2259 2290	additional malicious components
+R18	ActionObj Action:T27 Object:T28	
+R19	ActionObj Action:T25 Object:T26	
+R20	SubjAction Subject:T24 Action:T25	
+R21	SubjAction Subject:T24 Action:T27	
+T29	Subject 2702 2712	components
+T30	Action 2726 2734	stealing
+A24	Capability T30 007:MalwareCapability-data_theft
+A25	TacticalObjectives T30 082:DataTheft-steal_web/network_credential
+A26	StrategicObjectives T30 022:DataTheft-steal_authentication_credentials
+T31	Object 2735 2752	login credentials
+T32	Object 2758 2776	the victim machine
+T33	Modifier 2753 2757	from
+R22	SubjAction Subject:T29 Action:T30	
+R23	ActionObj Action:T30 Object:T31	
+R24	ActionMod Action:T30 Modifier:T33	
+R25	ModObj Modifier:T33 Object:T32	
+T34	Subject 2781 2791	components
+T35	Action 2805 2814	gathering
+A27	Capability T35 015:MalwareCapability-probing
+A28	TacticalObjectives T35 108:Probing-check_for_firewall
+A29	StrategicObjectives T35 046:Probing-probe_host_configuration
+T36	Object 2815 2853;2854 2914	further information on the compromised system like the presence of antivirus software or a firewall
+R26	SubjAction Subject:T34 Action:T35	
+R27	ActionObj Action:T35 Object:T36	
+T37	Action 2960 2989	being downloaded and executed
+A30	Capability T37 017:MalwareCapability-secondary_operation
+A31	ActionName T37 090:Network-download_file
+A32	StrategicObjectives T37 050:SecondaryOperation-install_other_components
+A33	TacticalObjectives T37 118:SecondaryOperation-install_secondary_malware
+T38	Subject 2993 3022	the original backdoor process
+R28	SubjAction Subject:T38 Action:T37	
+T39	Object 2916 2940	Some of these components
+R29	ActionObj Action:T37 Object:T39	
+T40	Subject 3095 3119	Most of these components
+T41	Action 3169 3180	communicate
+A34	Capability T41 005:MalwareCapability-command_and_control
+T42	Modifier 3181 3185	with
+T43	Modifier 3204 3211	through
+T44	Object 3186 3203	their controllers
+T45	Object 3212 3241	the original backdoor process
+R30	SubjAction Subject:T40 Action:T41	
+R31	ActionMod Action:T41 Modifier:T42	
+R32	ActionMod Action:T41 Modifier:T43	
+R33	ModObj Modifier:T42 Object:T44	
+R34	ModObj Modifier:T43 Object:T45	
+T47	Action 3398 3406	contains
+A35	Capability T47 005:MalwareCapability-command_and_control
+T46	Subject 3298 3311	This DLL file
+T49	Modifier 3407 3412	among
+T50	Object 3413 3435	its configuration data
+R35	ModObj Modifier:T49 Object:T50	
+R36	SubjAction Subject:T46 Action:T47	
+R37	ActionMod Action:T47 Modifier:T49	
+T48	Object 3436 3482	a different hardcoded C&C domain, overpict.com
+R38	ActionObj Action:T47 Object:T48	
+T51	Subject 3517 3531	this component
+T52	Action 3536 3541	abuse
+A36	Capability T52 005:MalwareCapability-command_and_control
+T53	Object 3542 3549	Twitter
+T54	Object 3553 3578	an additional C&C channel
+T55	Modifier 3550 3552	as
+R39	SubjAction Subject:T51 Action:T52	
+R40	ActionObj Action:T52 Object:T53	
+R41	ActionMod Action:T52 Modifier:T55	
+R42	ModObj Modifier:T55 Object:T54	
+T56	Object 4015 4062	the domains leveldelta.com and grouptumbler.com
+T57	Action 4079 4083;4084 4094	been identified
+A37	Capability T57 005:MalwareCapability-command_and_control
+T58	Modifier 4095 4097	as
+T59	Object 4098 4126	C&C domains used by MiniDuke
+R43	ActionObj Action:T57 Object:T56	
+R44	ActionMod Action:T57 Modifier:T58	
+R45	ModObj Modifier:T58 Object:T59	
+T60	Subject 4515 4518;4519 4538	the OnionDuke operators
+T61	Action 4544 4558	been infecting
+A38	Capability T61 010:MalwareCapability-infection/propagation
+A39	StrategicObjectives T61 031:InfectionPropagation-infect_remote_machine
+R46	SubjAction Subject:T60 Action:T61	
+T62	Object 4559 4581	downloaded executables
+T63	Modifier 4591 4596	since
+T64	Object 4597 4620	the end of October 2013
+R47	ActionObj Action:T61 Object:T62	
+R48	ActionMod Action:T61 Modifier:T63	
+R49	ModObj Modifier:T63 Object:T64	
+T65	Object 4694 4703	OnionDuke
+T66	Action 4717 4721;4722 4728	been spread
+A40	Capability T66 010:MalwareCapability-infection/propagation
+A41	StrategicObjectives T66 031:InfectionPropagation-infect_remote_machine
+T67	Modifier 4729 4731	by
+T68	Object 4732 4764	modifying downloaded executables
+T69	Modifier 4774 4776	by
+T70	Object 4777 4827;4828 4844	infecting executables in .torrent files containing pirated software
+R50	ModObj Modifier:T69 Object:T70	
+R51	ModObj Modifier:T67 Object:T68	
+R52	ActionMod Action:T66 Modifier:T67	
+R53	ActionMod Action:T66 Modifier:T69	
+A42	TacticalObjectives T61 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A43	TacticalObjectives T66 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+R54	ActionObj Action:T66 Object:T65	

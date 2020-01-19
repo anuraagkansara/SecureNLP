@@ -1,0 +1,424 @@
+T1	Subject 3334 3343	EvilBunny
+T2	Action 3358 3367	spreading
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Modifier 3368 3375	through
+T4	Object 3376 3400	a malicious PDF document
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ActionObj Action:T2 Object:T4	
+T5	Action 3485 3493	download
+A4	ActionName T5 090:Network-download_file
+T6	Subject 3467 3478	The exploit
+R4	SubjAction Subject:T6 Action:T5	
+T7	Object 3494 3511	the bunny dropper
+R5	ActionObj Action:T5 Object:T7	
+T8	Action 3516 3523	install
+A5	Capability T8 017:MalwareCapability-secondary_operation
+A6	TacticalObjectives T8 119:SecondaryOperation-install_secondary_module
+A7	StrategicObjectives T8 050:SecondaryOperation-install_other_components
+T9	Object 3524 3534	suspect #4
+R6	SubjAction Subject:T6 Action:T8	
+R7	ActionObj Action:T8 Object:T9	
+T10	Modifier 3535 3537	on
+T11	Object 3538 3557	the infected system
+R8	ModObj Modifier:T10 Object:T11	
+R9	ActionMod Action:T8 Modifier:T10	
+T12	Action 4168 4177	Searching
+A8	TacticalObjectives T12 000:AntiBehavioralAnalysis-detect_sandbox_environment
+T13	Modifier 4178 4181	for
+T14	Object 4182 4203	a sandbox environment
+R10	ActionMod Action:T12 Modifier:T13	
+R11	ModObj Modifier:T13 Object:T14	
+T15	Subject 4793 4804	the malware
+T16	Action 4805 4812	queries
+A9	Capability T16 002:MalwareCapability-anti-detection
+A10	StrategicObjectives T16 009:AntiDetection-security_software_evasion
+T17	Object 4813 4845	the installed AntiVirus software
+R12	SubjAction Subject:T15 Action:T16	
+R13	ActionObj Action:T16 Object:T17	
+T18	Action 6630 6635	avoid
+A11	Capability T18 002:MalwareCapability-anti-detection
+T19	Object 6636 6643;6644 6685	raising suspicion of a forensic analysts or tools
+R14	ActionObj Action:T18 Object:T19	
+T20	Action 6726 6733	creates
+A12	ActionName T20 135:Registry-create_registry_key
+T21	Object 6734 6755;6756 6784	an entry under [HKLM| HKCU]\...\CurrentVersion\Run
+T22	Subject 6714 6725	the dropper
+T23	Modifier 6688 6690	As
+A13	Capability T20 013:MalwareCapability-persistence
+T24	Object 6691 6713	a means of persistence
+R15	SubjAction Subject:T22 Action:T20	
+R16	ActionObj Action:T20 Object:T21	
+R17	ModObj Modifier:T23 Object:T24	
+R18	ActionMod Action:T20 Modifier:T23	
+T25	Action 6866 6873	ensures
+A14	Capability T25 013:MalwareCapability-persistence
+A15	TacticalObjectives T25 104:Persistence-persist_after_system_reboot
+A16	StrategicObjectives T25 042:Persistence-persist_to_continuously_execute_on_system
+T26	Modifier 6874 6878	that
+T27	Object 6879 6934	netmgr.exe will be executed every time the system boots
+R19	ActionMod Action:T25 Modifier:T26	
+R20	ModObj Modifier:T26 Object:T27	
+T28	Action 6961 6970	generates
+A17	ActionName T28 135:Registry-create_registry_key
+T29	Subject 6949 6952;6953 6960	the dropper
+T30	Object 6971 7008	another entry in the Windows registry
+R21	SubjAction Subject:T29 Action:T28	
+R22	ActionObj Action:T28 Object:T30	
+T31	Subject 7161 7171	netmgr.exe
+T32	Action 7211 7217	delete
+A18	Capability T32 017:MalwareCapability-secondary_operation
+A19	TacticalObjectives T32 120:SecondaryOperation-remove_self
+A20	StrategicObjectives T32 054:SecondaryOperation-remove_traces_of_infection
+T33	Object 7218 7220	it
+R23	SubjAction Subject:T31 Action:T32	
+R24	ActionObj Action:T32 Object:T33	
+T34	Action 8121 8126	alter
+A21	Capability T34 002:MalwareCapability-anti-detection
+A22	TacticalObjectives T34 015:AntiDetection-change/add_content
+A23	StrategicObjectives T34 010:AntiDetection-self-modification
+T35	Object 8127 8147	the malware behavior
+R25	ActionObj Action:T34 Object:T35	
+T36	Modifier 8148 8150	at
+T37	Subject 8070 8077;8078 8085	The Lua scripts
+T38	Object 8151 8158	runtime
+R26	SubjAction Subject:T37 Action:T34	
+R27	ActionMod Action:T34 Modifier:T36	
+R28	ModObj Modifier:T36 Object:T38	
+T39	Action 8182 8186	keep
+A24	Capability T39 002:MalwareCapability-anti-detection
+T40	Object 8187 8200	a low profile
+T41	Subject 8161 8172	The malware
+T42	Modifier 8201 8203	on
+T43	Object 8204 8224	the infected machine
+R29	SubjAction Subject:T41 Action:T39	
+R30	ActionObj Action:T39 Object:T40	
+R31	ModObj Modifier:T42 Object:T43	
+R32	ActionMod Action:T39 Modifier:T42	
+T44	Action 8232 8241	executing
+A25	Capability T44 012:MalwareCapability-machine_access/control
+A26	TacticalObjectives T44 100:MachineAccessControl-control_machine_via_remote_command
+A27	StrategicObjectives T44 038:MachineAccessControl-control_local_machine
+T45	Object 8242 8245;8246 8282	the botmaster's commands and Lua scripts
+R33	ActionObj Action:T44 Object:T45	
+R34	SubjAction Subject:T41 Action:T44	
+T46	Subject 8469 8480	the malware
+T47	Action 8547 8557	reply back
+A28	Capability T47 005:MalwareCapability-command_and_control
+A29	StrategicObjectives T47 018:CommandandControl-send_data_to_c2_server
+T48	Modifier 8558 8560	to
+T49	Object 8561 8568	the C&C
+T50	Modifier 8569 8573	with
+T51	Object 8574 8580;8581 8589	status messages
+R35	ActionMod Action:T47 Modifier:T48	
+R36	SubjAction Subject:T46 Action:T47	
+R37	ModObj Modifier:T48 Object:T49	
+R38	ModObj Modifier:T50 Object:T51	
+R39	ActionMod Action:T47 Modifier:T50	
+T52	Action 9542 9550	be found
+A30	Capability T52 001:MalwareCapability-anti-code_analysis
+T53	Object 9506 9537	Only few anti-analysis measures
+R40	ActionObj Action:T52 Object:T53	
+T54	Modifier 9551 9553	in
+T55	Object 9554 9564	the binary
+R41	ActionMod Action:T52 Modifier:T54	
+R42	ModObj Modifier:T54 Object:T55	
+T56	Subject 10788 10799	the malware
+T57	Action 10773 10784	implemented
+A31	Capability T57 002:MalwareCapability-anti-detection
+T58	Object 10751 10772	Another evasion trick
+R43	SubjAction Subject:T56 Action:T57	
+R44	ActionObj Action:T57 Object:T58	
+T59	Subject 11536 11546	suspect #4
+T60	Action 11547 11557	enumerates
+A32	Capability T60 002:MalwareCapability-anti-detection
+A33	StrategicObjectives T60 009:AntiDetection-security_software_evasion
+T61	Object 11558 11598	the system's installed AntiVirus product
+R45	SubjAction Subject:T59 Action:T60	
+R46	ActionObj Action:T60 Object:T61	
+T62	Action 11603 11609	checks
+A34	Capability T62 015:MalwareCapability-probing
+A35	TacticalObjectives T62 108:Probing-check_for_firewall
+A36	StrategicObjectives T62 047:Probing-probe_network_configuration
+T63	Object 11610 11627	firewall settings
+R47	SubjAction Subject:T59 Action:T62	
+R48	ActionObj Action:T62 Object:T63	
+T64	Action 14550 14564	be exfiltrated
+A37	Capability T64 006:MalwareCapability-data_exfiltration
+A38	TacticalObjectives T64 057:DataExfiltration-exfiltrate_via_network
+A39	StrategicObjectives T64 020:DataExfiltration-perform_data_exfiltration
+T65	Object 14529 14531	It
+T66	Modifier 14565 14567	to
+T67	Object 14568 14589	a C&C server directly
+R49	ActionObj Action:T64 Object:T65	
+R50	ActionMod Action:T64 Modifier:T66	
+R51	ModObj Modifier:T66 Object:T67	
+T68	Action 14593 14599	dumped
+A40	Capability T68 006:MalwareCapability-data_exfiltration
+A41	ActionName T68 024:File-create_file
+A42	StrategicObjectives T68 021:DataExfiltration-stage_data_for_exfiltration
+A43	TacticalObjectives T68 062:DataExfiltration-package_data
+T69	Modifier 14600 14602	to
+T70	Object 14603 14623	a local file on disk
+R52	ModObj Modifier:T69 Object:T70	
+R53	ActionMod Action:T68 Modifier:T69	
+R54	ActionObj Action:T68 Object:T65	
+T71	Subject 14812 14823	the malware
+T72	Action 14832 14838	inject
+A44	Capability T72 002:MalwareCapability-anti-detection
+A45	ActionName T72 123:ProcessMemory-write_to_process_memory
+A46	TacticalObjectives T72 019:AntiDetection-execute_stealthy_code
+T73	Object 14839 14845	itself
+T74	Modifier 14846 14848	to
+T75	Object 14849 14871	an svchost.exe process
+R55	SubjAction Subject:T71 Action:T72	
+R56	ActionObj Action:T72 Object:T73	
+R57	ActionMod Action:T72 Modifier:T74	
+R58	ModObj Modifier:T74 Object:T75	
+T76	Action 14913 14919	inject
+A47	Capability T76 002:MalwareCapability-anti-detection
+A48	ActionName T76 123:ProcessMemory-write_to_process_memory
+A49	TacticalObjectives T76 019:AntiDetection-execute_stealthy_code
+T77	Subject 14890 14901	the malware
+T78	Object 14920 14926	itself
+R59	CoRefer Referer:T71 Canonical:T73	
+R60	SubjAction Subject:T77 Action:T76	
+R61	ActionObj Action:T76 Object:T78	
+R62	CoRefer Referer:T77 Canonical:T78	
+T79	Modifier 14927 14929	as
+T80	Object 14930 14978	a remote thread to a running svchost.exe process
+R63	ActionMod Action:T76 Modifier:T79	
+R64	ModObj Modifier:T79 Object:T80	
+T81	Subject 15069 15080	the malware
+T82	Action 15081 15087	relies
+A50	Capability T82 013:MalwareCapability-persistence
+A51	TacticalObjectives T82 104:Persistence-persist_after_system_reboot
+A52	StrategicObjectives T82 042:Persistence-persist_to_continuously_execute_on_system
+T83	Modifier 15088 15090	on
+T84	Object 15091 15118;15119 15200;15201 15232	the auto-start registry key created by its dropper under [HKLM|HKCU]\...\CurrentVersion\Run, which will start netmgr.exe on every system boot
+R65	SubjAction Subject:T81 Action:T82	
+R66	ActionMod Action:T82 Modifier:T83	
+R67	ModObj Modifier:T83 Object:T84	
+T85	Modifier 15034 15036	As
+T86	Object 15037 15068	a singular means of persistence
+R68	ActionMod Action:T82 Modifier:T85	
+R69	ModObj Modifier:T85 Object:T86	
+T87	Subject 15241 15252	the payload
+T88	Action 15359 15366	deletes
+A53	Capability T88 017:MalwareCapability-secondary_operation
+A54	TacticalObjectives T88 121:SecondaryOperation-remove_system_artifacts
+A55	StrategicObjectives T88 054:SecondaryOperation-remove_traces_of_infection
+T89	Object 15367 15407;15408 15420	the binary and the 'isakmpAutoNegociate' registry key
+R70	SubjAction Subject:T87 Action:T88	
+R71	ActionObj Action:T88 Object:T89	
+T90	Subject 19711 19722	the malware
+T91	Action 19728 19734	create
+A56	ActionName T91 136:Registry-create_registry_key_value
+T92	Object 19735 19736;19737 19763	a subkey for every parameter
+T93	Modifier 19764 19769	under
+T94	Object 19770 19806	[HKLM|HKCU]\Software\Microsoft\IPSec
+R72	SubjAction Subject:T90 Action:T91	
+R73	ActionObj Action:T91 Object:T92	
+R74	ModObj Modifier:T93 Object:T94	
+R75	ActionMod Action:T91 Modifier:T93	
+T95	Object 19808 19816	This key
+T96	Action 19831 19843	been created
+A57	ActionName T96 135:Registry-create_registry_key
+T97	Subject 19847 19858	the dropper
+R76	SubjAction Subject:T97 Action:T96	
+R77	ActionObj Action:T96 Object:T95	
+T98	Subject 20323 20333;20334 20341	The worker threads
+T99	Action 20359 20366	receive
+A58	Capability T99 005:MalwareCapability-command_and_control
+A59	TacticalObjectives T99 047:CommandandControl-control_malware_via_remote_command
+A60	StrategicObjectives T99 017:CommandandControl-receive_data_from_c2_server
+T100	Object 20367 20387	commands and scripts
+R78	SubjAction Subject:T98 Action:T99	
+R79	ActionObj Action:T99 Object:T100	
+T101	Modifier 20388 20395	through
+T102	Object 20396 20410	different ways
+R80	ModObj Modifier:T101 Object:T102	
+R81	ActionMod Action:T99 Modifier:T101	
+T103	Subject 20452 20463	sub threads
+T104	Action 20467 20475	maintain
+A61	Capability T104 017:MalwareCapability-secondary_operation
+A62	StrategicObjectives T104 052:SecondaryOperation-log_activity
+T105	Object 20476 20508;20509 20525	log files the malware creates at during execution
+R82	SubjAction Subject:T103 Action:T104	
+R83	ActionObj Action:T104 Object:T105	
+T106	Action 20533 20543	keep track
+A63	Capability T106 019:MalwareCapability-spying
+A65	StrategicObjectives T106 064:Spying-capture_system_state_data
+A64	TacticalObjectives T106 144:Spying-capture_system_memory
+T107	Modifier 20544 20546	of
+T108	Object 20547 20590	the overall system load the malware creates
+R84	SubjAction Subject:T103 Action:T106	
+R85	ActionMod Action:T106 Modifier:T107	
+R86	ModObj Modifier:T107 Object:T108	
+T109	Action 21158 21168	monitoring
+A66	Capability T109 019:MalwareCapability-spying
+A67	TacticalObjectives T109 144:Spying-capture_system_memory
+A68	StrategicObjectives T109 064:Spying-capture_system_state_data
+T110	Object 21169 21210	the CPU load the malware itself generates
+T111	Subject 21124 21142	A dedicated thread
+R87	SubjAction Subject:T111 Action:T109	
+R88	ActionObj Action:T109 Object:T110	
+T112	Action 23171 23178	receive
+A69	Capability T112 005:MalwareCapability-command_and_control
+A70	TacticalObjectives T112 047:CommandandControl-control_malware_via_remote_command
+A71	StrategicObjectives T112 017:CommandandControl-receive_data_from_c2_server
+T113	Object 23179 23215	instructions from the remote servers
+T114	Subject 23137 23156	The hearer thread's
+R89	SubjAction Subject:T114 Action:T112	
+R90	ActionObj Action:T112 Object:T113	
+T115	Subject 23882 23890	Hearer 1
+T116	Action 23891 23899	receives
+A72	Capability T116 005:MalwareCapability-command_and_control
+A73	ActionName T116 051:HTTP-receive_http_response
+A74	StrategicObjectives T116 017:CommandandControl-receive_data_from_c2_server
+A75	TacticalObjectives T116 047:CommandandControl-control_malware_via_remote_command
+T117	Object 23900 23924	commands and Lua scripts
+T118	Modifier 23934 23937	via
+T119	Object 23938 23942	HTTP
+R91	ActionObj Action:T116 Object:T117	
+R92	ModObj Modifier:T118 Object:T119	
+R93	SubjAction Subject:T115 Action:T116	
+T120	Modifier 23943 23947	from
+T121	Object 23948 23962;23963 23970	one of the C&C servers
+R94	ModObj Modifier:T120 Object:T121	
+R95	ActionMod Action:T116 Modifier:T118	
+R96	ActionMod Action:T116 Modifier:T120	
+T122	Subject 24977 24980;24981 24987	the thread
+T123	Action 24993 24997	read
+A76	Capability T123 005:MalwareCapability-command_and_control
+A77	ActionName T123 038:File-read_from_file
+A78	StrategicObjectives T123 017:CommandandControl-receive_data_from_c2_server
+A79	TacticalObjectives T123 047:CommandandControl-control_malware_via_remote_command
+T124	Object 24998 25009	its content
+T125	Modifier 25010 25012	in
+T126	Object 25013 25051	chunks representing different commands
+R97	SubjAction Subject:T122 Action:T123	
+R98	ActionObj Action:T123 Object:T124	
+R99	ModObj Modifier:T125 Object:T126	
+R100	ActionMod Action:T123 Modifier:T125	
+T127	Action 25256 25269	be downloaded
+A80	Capability T127 005:MalwareCapability-command_and_control
+A81	ActionName T127 090:Network-download_file
+A82	StrategicObjectives T127 017:CommandandControl-receive_data_from_c2_server
+T128	Modifier 25270 25274	from
+T129	Object 25275 25287	a C&C server
+T130	Object 25241 25245;25246 25250	this file
+R101	ActionObj Action:T127 Object:T130	
+R102	ActionMod Action:T127 Modifier:T128	
+R103	ModObj Modifier:T128 Object:T129	
+T131	Action 26882 26889	setting
+A83	Capability T131 005:MalwareCapability-command_and_control
+A84	TacticalObjectives T131 051:CommandandControl-update_configuration
+A85	StrategicObjectives T131 017:CommandandControl-receive_data_from_c2_server
+T132	Object 26890 26914	configuration parameters
+R104	ActionObj Action:T131 Object:T132	
+T133	Action 26860 26870	restarting
+A86	ActionName T133 125:ProcessThread-create_thread
+T134	Object 26871 26878	threads
+R105	ActionObj Action:T133 Object:T134	
+T135	Object 28432 28487;28488 28493	The initial command, the status line and a current time stamp
+T136	Action 28498 28507	encrypted
+A87	Capability T136 006:MalwareCapability-data_exfiltration
+A88	TacticalObjectives T136 053:DataExfiltration-encrypt_data
+A89	StrategicObjectives T136 019:DataExfiltration-obfuscate_data_for_exfiltration
+R106	ActionObj Action:T136 Object:T135	
+T137	Action 28512 28521	sent back
+A90	Capability T137 006:MalwareCapability-data_exfiltration
+A91	TacticalObjectives T137 057:DataExfiltration-exfiltrate_via_network
+A92	StrategicObjectives T137 020:DataExfiltration-perform_data_exfiltration
+T138	Modifier 28522 28524	to
+T139	Object 28525 28539	the C&C server
+R107	ActionMod Action:T137 Modifier:T138	
+R108	ModObj Modifier:T138 Object:T139	
+R109	ActionObj Action:T137 Object:T135	
+T140	Object 28555 28568	the same data
+T141	Action 28569 28571;28572 28579	is written
+A93	ActionName T141 043:File-write_to_file
+T142	Modifier 28580 28582	to
+A94	Capability T141 006:MalwareCapability-data_exfiltration
+A95	StrategicObjectives T141 021:DataExfiltration-stage_data_for_exfiltration
+A96	TacticalObjectives T141 062:DataExfiltration-package_data
+T143	Object 28583 28617	the Perflib_Perfdat_dmpbX.dat file
+R110	ActionMod Action:T141 Modifier:T142	
+R111	ActionObj Action:T141 Object:T140	
+R112	ModObj Modifier:T142 Object:T143	
+T144	Action 28637 28643	pushed
+A97	Capability T144 006:MalwareCapability-data_exfiltration
+A98	TacticalObjectives T144 057:DataExfiltration-exfiltrate_via_network
+A99	StrategicObjectives T144 020:DataExfiltration-perform_data_exfiltration
+T145	Modifier 28644 28646	to
+T146	Object 28647 28654	the C&C
+R113	ActionMod Action:T144 Modifier:T145	
+R114	ActionObj Action:T144 Object:T143	
+R115	ModObj Modifier:T145 Object:T146	
+T147	Modifier 28655 28657	by
+T148	Object 28658 28661;28662 28677	the backfile thread
+R116	ModObj Modifier:T147 Object:T148	
+R117	ActionMod Action:T144 Modifier:T147	
+T149	Action 29152 29159	survive
+A100	Capability T149 013:MalwareCapability-persistence
+A101	TacticalObjectives T149 104:Persistence-persist_after_system_reboot
+A102	StrategicObjectives T149 042:Persistence-persist_to_continuously_execute_on_system
+T150	Subject 29140 29151	These files
+R118	SubjAction Subject:T150 Action:T149	
+T151	Object 29160 29178	restart or cleanup
+R119	ActionObj Action:T149 Object:T151	
+T152	Action 29215 29220	reads
+A103	ActionName T152 038:File-read_from_file
+T153	Object 29221 29239	the current status
+T154	Subject 29194 29205	the malware
+R120	SubjAction Subject:T154 Action:T152	
+R121	ActionObj Action:T152 Object:T153	
+T155	Modifier 29240 29244	from
+T156	Object 29245 29255	these logs
+R122	ModObj Modifier:T155 Object:T156	
+R123	ActionMod Action:T152 Modifier:T155	
+T157	Action 31762 31770	requests
+A104	ActionName T157 146:Registry-read_registry_key_value
+T158	Object 31771 31818;31819 31882	a value from Windows registry named 'EnableLua' under SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+T159	Subject 31747 31761	the Lua thread
+R124	SubjAction Subject:T159 Action:T157	
+R125	ActionObj Action:T157 Object:T158	
+T160	Subject 32792 32812	Lua script execution
+T161	Action 32818 32825	returns
+A105	Capability T161 017:MalwareCapability-secondary_operation
+A106	StrategicObjectives T161 052:SecondaryOperation-log_activity
+T162	Object 32826 32851;32852 32876	a status message which is extended by a time stamp
+R126	SubjAction Subject:T160 Action:T161	
+R127	ActionObj Action:T161 Object:T162	
+T163	Action 32881 32890	forwarded
+A107	Capability T163 005:MalwareCapability-command_and_control
+A108	StrategicObjectives T163 018:CommandandControl-send_data_to_c2_server
+T164	Modifier 32891 32893	to
+T165	Object 32894 32916	one of the C&C servers
+R128	ActionMod Action:T163 Modifier:T164	
+R129	ModObj Modifier:T164 Object:T165	
+R130	ActionObj Action:T163 Object:T162	
+T166	Action 32929 32936	written
+A109	Capability T166 017:MalwareCapability-secondary_operation
+A110	ActionName T166 043:File-write_to_file
+A111	StrategicObjectives T166 052:SecondaryOperation-log_activity
+R131	ActionObj Action:T166 Object:T162	
+T167	Modifier 32937 32939	to
+R132	ActionMod Action:T166 Modifier:T167	
+T168	Object 32940 32985	the backfile log in Perflib_Perfdat_dmpbX.dat
+R133	ModObj Modifier:T167 Object:T168	
+T169	Subject 32997 33012	the Lua threads
+T170	Action 33013 33016	log
+A112	Capability T170 017:MalwareCapability-secondary_operation
+A113	ActionName T170 043:File-write_to_file
+A114	StrategicObjectives T170 052:SecondaryOperation-log_activity
+T171	Object 33017 33031	their activity
+T172	Modifier 33032 33034	to
+T173	Object 33035 33067	Perflib_Perfdata_41X.dat/42X.dat
+R134	SubjAction Subject:T169 Action:T170	
+R135	ActionObj Action:T170 Object:T171	
+R136	ActionMod Action:T170 Modifier:T172	
+R137	ModObj Modifier:T172 Object:T173	

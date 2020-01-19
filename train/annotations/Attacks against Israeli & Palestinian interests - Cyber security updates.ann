@@ -1,0 +1,59 @@
+T1	Subject 4165 4176	the malware
+T2	Action 4177 4182	makes
+T3	Object 4183 4201	a couple of checks
+T5	Object 4205 4219	avoid analysis
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Modifier 4202 4204	to
+R3	ActionMod Action:T2 Modifier:T4	
+R4	ModObj Modifier:T4 Object:T5	
+A1	Capability T2 001:MalwareCapability-anti-code_analysis
+A2	TacticalObjectives T2 008:AntiCodeAnalysis-detect_debugging
+T6	Subject 4403 4414	The malware
+T7	Action 4415 4426	also checks
+T8	Modifier 4427 4430	for
+T9	Object 4431 4475	the presence of several anti­virus solutions
+R5	SubjAction Subject:T6 Action:T7	
+R6	ActionMod Action:T7 Modifier:T8	
+R7	ModObj Modifier:T8 Object:T9	
+A3	Capability T7 018:MalwareCapability-security_degradation
+A4	TacticalObjectives T7 131:SecurityDegradation-gather_security_product_info
+T10	Modifier 4477 4488	as well for
+R8	ActionMod Action:T7 Modifier:T10	
+T11	Object 4489 4502;4503 4532	any processes including the word ‘security’
+R9	ModObj Modifier:T10 Object:T11	
+T12	Subject 4729 4740	the malware
+T13	Action 4741 4747	begins
+T14	Object 4748 4760	calling home
+R10	SubjAction Subject:T12 Action:T13	
+R11	ActionObj Action:T13 Object:T14	
+T15	Action 4774 4781	keeping
+T16	Object 4782 4802	a log of its actions
+T17	Modifier 4803 4805	in
+T18	Object 4806 4822;4823 4895	a plaintext file that is created in the same folder as where the binary was executed from
+R12	ActionObj Action:T15 Object:T16	
+R13	ActionMod Action:T15 Modifier:T17	
+R14	ModObj Modifier:T17 Object:T18	
+R15	SubjAction Subject:T12 Action:T15	
+A5	Capability T15 017:MalwareCapability-secondary_operation
+A6	StrategicObjectives T15 052:SecondaryOperation-log_activity
+A7	Capability T13 005:MalwareCapability-command_and_control
+A8	StrategicObjectives T13 018:CommandandControl-send_data_to_c2_server
+A9	ActionName T13 088:Network-connect_to_url
+T19	Subject 5062 5064	it
+T20	Action 5065 5074	downloads
+T21	Object 5095 5100	files
+T22	Action 5085 5093	executes
+R16	SubjAction Subject:T19 Action:T20	
+R17	ActionObj Action:T20 Object:T21	
+R18	SubjAction Subject:T19 Action:T22	
+R19	ActionObj Action:T22 Object:T21	
+A10	ActionName T20 090:Network-download_file
+A11	ActionName T22 029:File-execute_file
+T23	Object 5255 5276	The basic information
+T24	Action 5277 5290	reported back
+T25	Subject 5294 5305	the malware
+R20	ActionObj Action:T24 Object:T23	
+R21	SubjAction Subject:T25 Action:T24	
+A12	Capability T24 006:MalwareCapability-data_exfiltration
+A13	StrategicObjectives T24 020:DataExfiltration-perform_data_exfiltration

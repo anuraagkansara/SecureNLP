@@ -1,0 +1,341 @@
+T1	Subject 380 392	this exploit
+T2	Action 404 411	deliver
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Object 412 419	malware
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Action 848 851	use
+A3	Capability T4 010:MalwareCapability-infection/propagation
+A4	StrategicObjectives T4 031:InfectionPropagation-infect_remote_machine
+T5	Object 855 872	zero-day exploits
+T6	Subject 757 765	MiniDuke
+R3	SubjAction Subject:T6 Action:T4	
+R4	ActionObj Action:T4 Object:T5	
+T7	Modifier 873 876	for
+T8	Object 877 889	distribution
+R5	ActionMod Action:T4 Modifier:T7	
+R6	ModObj Modifier:T7 Object:T8	
+T9	Subject 1086 1126	a secondary component written in JScript
+T10	Action 1130 1137	contact
+A5	Capability T10 005:MalwareCapability-command_and_control
+T11	Object 1138 1139;1140 1150	a C&C server
+T12	Object 1155 1162	Twitter
+T13	Modifier 1151 1154	via
+R7	SubjAction Subject:T9 Action:T10	
+R8	ActionObj Action:T10 Object:T11	
+R9	ActionMod Action:T10 Modifier:T13	
+R10	ModObj Modifier:T13 Object:T12	
+T14	Action 1629 1640	is executed
+A6	Capability T14 012:MalwareCapability-machine_access/control
+A7	TacticalObjectives T14 100:MachineAccessControl-control_machine_via_remote_command
+A8	StrategicObjectives T14 038:MachineAccessControl-control_local_machine
+T15	Object 1609 1622	the shellcode
+R11	ActionObj Action:T14 Object:T15	
+T16	Modifier 1641 1643	by
+T17	Object 1644 1672	triggering the vulnerability
+R12	ActionMod Action:T14 Modifier:T16	
+R13	ModObj Modifier:T16 Object:T17	
+T18	Action 1810 1828	decrypts and drops
+A9	Capability T18 017:MalwareCapability-secondary_operation
+A10	TacticalObjectives T18 118:SecondaryOperation-install_secondary_malware
+A11	StrategicObjectives T18 050:SecondaryOperation-install_other_components
+T19	Object 1829 1840	the payload
+T20	Object 1844 1886	the %TEMP% directory in a file named “a.l”
+T21	Modifier 1841 1843	in
+T22	Subject 1807 1809	it
+R14	CoRefer Referer:T15 Canonical:T22	
+R15	SubjAction Subject:T22 Action:T18	
+R16	ActionObj Action:T18 Object:T19	
+R17	ActionMod Action:T18 Modifier:T21	
+R18	ModObj Modifier:T21 Object:T20	
+T23	Action 1893 1895;1896 1915	is subsequently loaded
+A12	ActionName T23 084:Library-load_library
+T24	Modifier 1916 1918	by
+T25	Object 1919 1948	calling kernel32!LoadLibraryA
+R19	ModObj Modifier:T24 Object:T25	
+R20	ActionMod Action:T23 Modifier:T24	
+R21	ActionObj Action:T23 Object:T19	
+T26	Subject 2048 2050	it
+T27	Action 2102 2108	detect
+A13	Capability T27 002:MalwareCapability-anti-detection
+A14	StrategicObjectives T27 009:AntiDetection-security_software_evasion
+T28	Object 2109 2159;2160 2198	hooks and debugger breakpoints which may be set by security software and monitoring tools
+R22	ActionObj Action:T27 Object:T28	
+R23	SubjAction Subject:T26 Action:T27	
+R24	CoRefer Referer:T15 Canonical:T26	
+T29	Subject 3093 3095	it
+T30	Action 3096 3104	proceeds
+A15	Capability T30 017:MalwareCapability-secondary_operation
+A16	TacticalObjectives T30 118:SecondaryOperation-install_secondary_malware
+A17	StrategicObjectives T30 050:SecondaryOperation-install_other_components
+T31	Modifier 3105 3109	with
+T32	Object 3110 3142	its installation onto the system
+R25	SubjAction Subject:T29 Action:T30	
+R26	ActionMod Action:T30 Modifier:T31	
+R27	ModObj Modifier:T31 Object:T32	
+T33	Subject 3144 3152	MiniDuke
+T34	Action 3153 3160	gathers
+A18	Capability T34 015:MalwareCapability-probing
+A19	StrategicObjectives T34 046:Probing-probe_host_configuration
+T35	Object 3161 3182;3183 3189	information about the system
+R28	SubjAction Subject:T33 Action:T34	
+R29	ActionObj Action:T34 Object:T35	
+T36	Action 3194 3202	encrypts
+A20	TacticalObjectives T36 016:AntiDetection-encrypt_self
+A21	StrategicObjectives T36 005:AntiDetection-anti-memory_forensics
+A22	Capability T36 002:MalwareCapability-anti-detection
+T37	Object 3203 3220	its configuration
+R30	ActionObj Action:T36 Object:T37	
+T38	Modifier 3221 3229	based on
+T39	Object 3230 3246	that information
+R31	ActionMod Action:T36 Modifier:T38	
+R32	ModObj Modifier:T38 Object:T39	
+R33	SubjAction Subject:T33 Action:T36	
+R34	CoRefer Referer:T33 Canonical:T29	
+T40	Action 3367 3389	impossible to retrieve
+T41	Object 3390 3393;3394 3431	the configuration of an encrypted payload
+A23	Capability T40 002:MalwareCapability-anti-detection
+A24	StrategicObjectives T40 005:AntiDetection-anti-memory_forensics
+A25	TacticalObjectives T40 016:AntiDetection-encrypt_self
+R35	ActionObj Action:T40 Object:T41	
+T42	Modifier 3432 3434	if
+T43	Object 3435 3471	analyzing it on a different computer
+R36	ActionMod Action:T40 Modifier:T42	
+R37	ModObj Modifier:T42 Object:T43	
+T44	Object 3808 3844	the encrypted version of the malware
+T45	Action 3845 3855	is created
+A26	Capability T45 002:MalwareCapability-anti-detection
+A27	TacticalObjectives T45 016:AntiDetection-encrypt_self
+A28	StrategicObjectives T45 005:AntiDetection-anti-memory_forensics
+R38	ActionObj Action:T45 Object:T44	
+T46	Object 3857 3859	it
+R39	CoRefer Referer:T44 Canonical:T46	
+T47	Action 3860 3870	is written
+A29	ActionName T47 043:File-write_to_file
+T48	Modifier 3871 3875	into
+T49	Object 3876 3889;3890 3934	a file in the %ALLUSERSPROFILE%\Application Data directory
+R40	ModObj Modifier:T48 Object:T49	
+R41	ActionMod Action:T47 Modifier:T48	
+R42	ActionObj Action:T47 Object:T46	
+T50	Action 4211 4218	persist
+A30	Capability T50 013:MalwareCapability-persistence
+A31	TacticalObjectives T50 104:Persistence-persist_after_system_reboot
+A32	StrategicObjectives T50 042:Persistence-persist_to_continuously_execute_on_system
+T51	Modifier 4219 4221	on
+T52	Modifier 4242 4247	after
+T53	Object 4222 4241	the infected system
+T54	Object 4248 4255	reboots
+T55	Subject 4257 4268	the malware
+R43	SubjAction Subject:T55 Action:T50	
+R44	ActionMod Action:T50 Modifier:T51	
+R45	ActionMod Action:T50 Modifier:T52	
+R46	ModObj Modifier:T51 Object:T53	
+R47	ModObj Modifier:T52 Object:T54	
+T56	Action 4269 4276	creates
+A33	ActionName T56 024:File-create_file
+T57	Object 4277 4295	a hidden .LNK file
+T58	Modifier 4296 4298	in
+T59	Object 4299 4312;4313 4322	the “Startup” directory
+R48	SubjAction Subject:T55 Action:T56	
+R49	ActionObj Action:T56 Object:T57	
+R50	ActionMod Action:T56 Modifier:T58	
+R51	ModObj Modifier:T58 Object:T59	
+T60	Object 4454 4466	The .LNKfile
+T61	Action 4467 4477	is created
+A34	ActionName T61 024:File-create_file
+T62	Modifier 4478 4483	using
+T63	Object 4484 4496	a COM object
+T64	Object 4502 4527	the IShellLinkA interface
+T65	Modifier 4497 4501	with
+R52	ActionObj Action:T61 Object:T60	
+R53	ActionMod Action:T61 Modifier:T62	
+R54	ActionMod Action:T61 Modifier:T65	
+R55	ModObj Modifier:T62 Object:T63	
+R56	ModObj Modifier:T65 Object:T64	
+T66	Object 4806 4817	the malware
+T67	Action 4818 4827	is loaded
+A35	ActionName T67 029:File-execute_file
+T68	Subject 4831 4843	rundll32.exe
+R57	SubjAction Subject:T68 Action:T67	
+R58	ActionObj Action:T67 Object:T66	
+T69	Subject 4884 4895	the malware
+T70	Action 4908 4917	gathering
+A36	Capability T70 015:MalwareCapability-probing
+A37	StrategicObjectives T70 046:Probing-probe_host_configuration
+T71	Object 4918 4988	the same system information as described in the “Installation” section
+T72	Object 4992 4999;5000 5025	decrypt configuration information
+T73	Modifier 4989 4991	to
+R59	ActionObj Action:T70 Object:T71	
+R60	ActionMod Action:T70 Modifier:T73	
+R61	ModObj Modifier:T73 Object:T72	
+R62	SubjAction Subject:T69 Action:T70	
+T74	Subject 5392 5400	MiniDuke
+T75	Action 5401 5410	retrieves
+A38	Capability T75 005:MalwareCapability-command_and_control
+A39	TacticalObjectives T75 048:CommandandControl-generate_c2_domain_name(s)
+A40	StrategicObjectives T75 016:CommandandControl-determine_c2_server
+T76	Object 5411 5446	the Twitter page of @FloydLSchwartz
+T77	Object 5450 5467;5468 5493	search of URLs by which to reach C&C server
+T78	Modifier 5447 5449	in
+R63	SubjAction Subject:T74 Action:T75	
+R64	ActionObj Action:T75 Object:T76	
+R65	ActionMod Action:T75 Modifier:T78	
+R66	ModObj Modifier:T78 Object:T77	
+T79	Subject 5808 5816	MiniDuke
+T80	Action 5817 5824	gathers
+A41	Capability T80 007:MalwareCapability-data_theft
+A42	StrategicObjectives T80 024:DataTheft-steal_system_information
+T81	Object 5825 5850	the following information
+T82	Object 5856 5876	the infected systems
+T83	Modifier 5851 5855	from
+R67	SubjAction Subject:T79 Action:T80	
+R68	ActionObj Action:T80 Object:T81	
+R69	ActionMod Action:T80 Modifier:T83	
+R70	ModObj Modifier:T83 Object:T82	
+T84	Object 6242 6258	This information
+T85	Action 6259 6271	is then sent
+A43	Capability T85 005:MalwareCapability-command_and_control
+A44	ActionName T85 096:Network-send_network_packet
+A45	StrategicObjectives T85 018:CommandandControl-send_data_to_c2_server
+A46	TacticalObjectives T85 050:CommandandControl-send_system_information
+T86	Modifier 6272 6274	to
+T87	Object 6275 6289	the C&C server
+T88	Action 6305 6312	request
+A47	Capability T88 005:MalwareCapability-command_and_control
+A48	TacticalObjectives T88 046:CommandandControl-check_for_payload
+A49	StrategicObjectives T88 018:CommandandControl-send_data_to_c2_server
+T89	Modifier 6313 6315	to
+T90	Object 6316 6334	download a payload
+R71	ActionObj Action:T85 Object:T84	
+R72	ActionMod Action:T85 Modifier:T86	
+R73	ModObj Modifier:T86 Object:T87	
+R74	ActionMod Action:T88 Modifier:T89	
+R75	ModObj Modifier:T89 Object:T90	
+T91	Object 6336 6345;6346 6349	The final URL
+T92	Action 6350 6354	used
+A50	Capability T92 005:MalwareCapability-command_and_control
+R76	ActionObj Action:T92 Object:T91	
+T93	Modifier 6355 6357	to
+T94	Object 6358 6389	communicate with the C&C server
+R77	ActionMod Action:T92 Modifier:T93	
+R78	ModObj Modifier:T93 Object:T94	
+T95	Object 6822 6833	The payload
+T96	Action 6834 6847	is downloaded
+A51	Capability T96 017:MalwareCapability-secondary_operation
+A52	ActionName T96 090:Network-download_file
+A53	StrategicObjectives T96 050:SecondaryOperation-install_other_components
+A54	TacticalObjectives T96 118:SecondaryOperation-install_secondary_malware
+T97	Modifier 6848 6850	in
+T98	Object 6851 6874	the file named “fdbywu”
+T99	Object 6881 6914	the urlmon!URLDownloadToFileA API
+T100	Modifier 6875 6880	using
+R79	ActionObj Action:T96 Object:T95	
+R80	ActionMod Action:T96 Modifier:T97	
+R81	ActionMod Action:T96 Modifier:T100	
+R82	ModObj Modifier:T97 Object:T98	
+R83	ModObj Modifier:T100 Object:T99	
+T101	Subject 7104 7106	it
+T102	Action 7107 7115	verifies
+A55	Capability T102 005:MalwareCapability-command_and_control
+A56	TacticalObjectives T102 052:CommandandControl-validate_data
+A57	StrategicObjectives T102 017:CommandandControl-receive_data_from_c2_server
+R84	SubjAction Subject:T101 Action:T102	
+T103	Object 7116 7141	the integrity of the file
+T104	Modifier 7142 7147	using
+T105	Object 7148 7156	RSA-2048
+R85	ActionObj Action:T102 Object:T103	
+R86	ActionMod Action:T102 Modifier:T104	
+R87	ModObj Modifier:T104 Object:T105	
+T106	Action 7205 7213	executes
+A58	ActionName T106 029:File-execute_file
+T107	Object 7214 7216	it
+R88	SubjAction Subject:T101 Action:T106	
+R89	ActionObj Action:T106 Object:T107	
+T108	Action 7245 7251	verify
+A59	Capability T108 005:MalwareCapability-command_and_control
+A60	TacticalObjectives T108 052:CommandandControl-validate_data
+A61	StrategicObjectives T108 017:CommandandControl-receive_data_from_c2_server
+T109	Subject 7218 7241	The RSA-2048 public key
+T110	Object 7252 7299	integrity of the executable inside the GIF file
+R90	ActionObj Action:T108 Object:T110	
+R91	SubjAction Subject:T109 Action:T108	
+T111	Action 7874 7882	creating
+A62	ActionName T111 023:File-copy_file
+T112	Object 7883 7921	a copy of the Windows DLL cryptdll.dll
+R92	ActionObj Action:T111 Object:T112	
+T113	Action 8127 8141	is then stored
+A63	ActionName T113 025:File-create_file_alternate_data_stream
+T114	Modifier 8142 8144	in
+T115	Object 8145 8210;8211 8217	an Alternate Data Stream (ADS) in NTUSER.DAT in the %USERPROFILE% folder
+T116	Subject 8117 8126	This file
+R93	SubjAction Subject:T116 Action:T113	
+R94	ActionMod Action:T113 Modifier:T114	
+R95	ModObj Modifier:T114 Object:T115	
+T117	Object 8227 8235	this DLL
+T118	Action 8236 8249	is registered
+A64	ActionName T118 147:Service-create_service
+R96	ActionObj Action:T118 Object:T117	
+T119	Modifier 8250 8252	as
+R97	ActionMod Action:T118 Modifier:T119	
+T120	Object 8253 8290	the Open command when a drive is open
+R98	ModObj Modifier:T119 Object:T120	
+T121	Action 8316 8324	starting
+A65	Capability T121 013:MalwareCapability-persistence
+A66	StrategicObjectives T121 042:Persistence-persist_to_continuously_execute_on_system
+T122	Modifier 8333 8343	every time
+T123	Object 8325 8332	the bot
+T124	Object 8344 8371	the user opens a disk drive
+R99	ActionObj Action:T121 Object:T123	
+R100	ActionMod Action:T121 Modifier:T122	
+R101	ModObj Modifier:T122 Object:T124	
+T125	Subject 8435 8443	MiniDuke
+T126	Action 8447 8454	install
+A67	Capability T126 017:MalwareCapability-secondary_operation
+A68	TacticalObjectives T126 118:SecondaryOperation-install_secondary_malware
+A69	StrategicObjectives T126 050:SecondaryOperation-install_other_components
+T127	Object 8455 8471	TwitterJS module
+T128	Object 8477 8487	the system
+T129	Modifier 8472 8476	onto
+R102	ActionObj Action:T126 Object:T127	
+R103	SubjAction Subject:T125 Action:T126	
+R104	ActionMod Action:T126 Modifier:T129	
+R105	ModObj Modifier:T129 Object:T128	
+T130	Subject 8847 8851	This
+T131	Action 8872 8878	thwart
+A70	Capability T131 002:MalwareCapability-anti-detection
+A71	StrategicObjectives T131 009:AntiDetection-security_software_evasion
+T132	Object 8879 8947	security systems that scan at the entry points of the JScript engine
+R106	SubjAction Subject:T130 Action:T131	
+R107	ActionObj Action:T131 Object:T132	
+T133	Subject 8682 8690	MiniDuke
+T134	Action 8691 8698	applies
+A72	Capability T134 002:MalwareCapability-anti-detection
+A73	TacticalObjectives T134 022:AntiDetection-hide_code_in_file
+A74	StrategicObjectives T134 009:AntiDetection-security_software_evasion
+T135	Object 8699 8715	a light encoding
+T136	Object 8719 8729	the script
+T137	Modifier 8716 8718	to
+R108	SubjAction Subject:T133 Action:T134	
+R109	ActionObj Action:T134 Object:T135	
+R110	ActionMod Action:T134 Modifier:T137	
+R111	ModObj Modifier:T137 Object:T136	
+T138	Subject 9102 9113	this script
+T139	Action 9120 9123	use
+A75	Capability T139 005:MalwareCapability-command_and_control
+A76	TacticalObjectives T139 048:CommandandControl-generate_c2_domain_name(s)
+A77	StrategicObjectives T139 016:CommandandControl-determine_c2_server
+T140	Object 9124 9131	Twitter
+T141	Modifier 9132 9134	to
+T142	Object 9135 9145	find a C&C
+R112	SubjAction Subject:T138 Action:T139	
+R113	ActionObj Action:T139 Object:T140	
+R114	ActionMod Action:T139 Modifier:T141	
+R115	ModObj Modifier:T141 Object:T142	
+T143	Action 9150 9158	retrieve
+A78	Capability T143 005:MalwareCapability-command_and_control
+A79	TacticalObjectives T143 046:CommandandControl-check_for_payload
+A80	StrategicObjectives T143 017:CommandandControl-receive_data_from_c2_server
+T144	Object 9159 9182	JScript code to execute
+R116	ActionObj Action:T143 Object:T144	
+R117	SubjAction Subject:T138 Action:T143	

@@ -1,0 +1,231 @@
+T1	Action 189 204	being served up
+A1	Capability T1 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T1 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T1 031:InfectionPropagation-infect_remote_machine
+T2	Modifier 205 209	from
+T3	Object 210 218;219 264	the U.S. Veterans of Foreign Wars’ website (vfw[.]org)
+T4	Object 154 188	a zero-day exploit (CVE-2014-0322)
+R1	ActionObj Action:T1 Object:T4	
+R2	ActionMod Action:T1 Modifier:T2	
+R3	ModObj Modifier:T2 Object:T3	
+T5	Action 1276 1280;1281 1300	were silently redirected
+A4	Capability T5 010:MalwareCapability-infection/propagation
+A5	TacticalObjectives T5 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A6	StrategicObjectives T5 031:InfectionPropagation-infect_remote_machine
+T6	Modifier 1301 1308	through
+T7	Object 1309 1318	an iframe
+T8	Modifier 1319 1321	to
+T9	Object 1322 1373	the exploit at www.[REDACTED].com/Data/img/img.html
+T10	Object 1248 1275	visitors to the VFW website
+R4	ActionObj Action:T5 Object:T10	
+R5	ActionMod Action:T5 Modifier:T6	
+R6	ActionMod Action:T5 Modifier:T8	
+R7	ModObj Modifier:T6 Object:T7	
+R8	ModObj Modifier:T8 Object:T9	
+T11	Subject 1471 1473	It
+T12	Action 1474 1480	aborts
+A7	Capability T12 017:MalwareCapability-secondary_operation
+A8	TacticalObjectives T12 120:SecondaryOperation-remove_self
+A9	StrategicObjectives T12 055:SecondaryOperation-suicide_exit
+T13	Object 1481 1493	exploitation
+T14	Modifier 1494 1496	if
+T15	Object 1497 1534;1535 1614	the user is browsing with a different version of IE or has installed Microsoft’s Experience Mitigation Toolkit (EMET)
+R9	SubjAction Subject:T11 Action:T12	
+R10	ActionObj Action:T12 Object:T13	
+R11	ActionMod Action:T12 Modifier:T14	
+R12	ModObj Modifier:T14 Object:T15	
+T16	Action 1897 1903	modify
+A10	ActionName T16 123:ProcessMemory-write_to_process_memory
+T17	Subject 1881 1893	the attacker
+R13	SubjAction Subject:T17 Action:T16	
+T18	Object 1904 1922	one byte of memory
+T19	Object 1926 1946	an arbitrary address
+T20	Modifier 1923 1925	at
+R14	ActionObj Action:T16 Object:T18	
+R15	ActionMod Action:T16 Modifier:T20	
+R16	ModObj Modifier:T20 Object:T19	
+T21	Subject 2749 2758	attackers
+T22	Action 2762 2768	modify
+A11	ActionName T22 123:ProcessMemory-write_to_process_memory
+T23	Object 2769 2775	memory
+T24	Modifier 2776 2778	to
+T25	Object 2779 2799	an arbitrary address
+R17	SubjAction Subject:T21 Action:T22	
+R18	ActionObj Action:T22 Object:T23	
+R19	ActionMod Action:T22 Modifier:T24	
+R20	ModObj Modifier:T24 Object:T25	
+T26	Subject 2801 2813	the attacker
+T27	Action 2818 2821	use
+A12	Capability T27 018:MalwareCapability-security_degradation
+A13	TacticalObjectives T27 125:SecurityDegradation-disable_os_security_alerts
+A14	StrategicObjectives T27 058:SecurityDegradation-disable_os_security_features
+T28	Object 2822 2824	it
+T29	Modifier 2825 2827	to
+T30	Object 2828 2839	bypass ASLR
+R21	ActionObj Action:T27 Object:T28	
+R22	ActionMod Action:T27 Modifier:T29	
+R23	ModObj Modifier:T29 Object:T30	
+R24	SubjAction Subject:T26 Action:T27	
+T31	Subject 2306 2318	The attacker
+T32	Action 2319 2323	uses
+A15	ActionName T32 029:File-execute_file
+T33	Object 2324 2360	the Microsoft.XMLDOM ActiveX control
+T34	Object 2364 2408;2409 2429	load a one-line XML string containing a file path to the EMET DLL
+T35	Modifier 2361 2363	to
+R25	SubjAction Subject:T31 Action:T32	
+R26	ActionObj Action:T32 Object:T33	
+R27	ActionMod Action:T32 Modifier:T35	
+R28	ModObj Modifier:T35 Object:T34	
+T36	Subject 3344 3352	the code
+T37	Action 3353 3361	searches
+A16	ActionName T37 081:Library-enumerate_libraries
+T38	Modifier 3362 3369	through
+T39	Modifier 3253 3257	Once
+T40	Object 3258 3342	the attacker’s code has full memory access through the corrupted Flash Vector object
+T41	Object 3370 3394	loaded libraries gadgets
+T42	Object 3398 3410	machine code
+T43	Modifier 3395 3397	by
+T44	Action 3430 3440	overwrites
+A17	ActionName T44 034:File-modify_file
+T46	Modifier 3503 3505	to
+T45	Object 3441 3452;3453 3492	the vftable pointer of a flash.Media.Sound() object
+T47	Modifier 3493 3495	in
+T48	Object 3496 3502	memory
+T49	Subject 3412 3424	The attacker
+T50	Object 3506 3524	point to the pivot
+R29	ModObj Modifier:T39 Object:T40	
+R30	SubjAction Subject:T36 Action:T37	
+R31	ActionMod Action:T37 Modifier:T39	
+R32	ActionMod Action:T37 Modifier:T38	
+R33	ModObj Modifier:T38 Object:T41	
+R34	ActionMod Action:T37 Modifier:T43	
+R35	ModObj Modifier:T43 Object:T42	
+R36	SubjAction Subject:T49 Action:T44	
+R37	ActionObj Action:T44 Object:T45	
+R38	ActionMod Action:T44 Modifier:T47	
+R39	ActionMod Action:T44 Modifier:T46	
+R40	ModObj Modifier:T47 Object:T48	
+R41	ModObj Modifier:T46 Object:T50	
+T51	Action 3529 3534	begin
+A18	Capability T51 002:MalwareCapability-anti-detection
+A19	TacticalObjectives T51 019:AntiDetection-execute_stealthy_code
+A20	StrategicObjectives T51 006:AntiDetection-hide_executing_code
+T52	Object 3535 3538	ROP
+R42	ActionObj Action:T51 Object:T52	
+R43	SubjAction Subject:T49 Action:T51	
+T53	Subject 3734 3758	the malicious Flash code
+T54	Action 3759 3768	downloads
+A21	Capability T54 017:MalwareCapability-secondary_operation
+A22	ActionName T54 090:Network-download_file
+A23	StrategicObjectives T54 050:SecondaryOperation-install_other_components
+A24	TacticalObjectives T54 118:SecondaryOperation-install_secondary_malware
+T55	Object 3769 3814	a file containing the dropped malware payload
+R44	SubjAction Subject:T53 Action:T54	
+R45	ActionObj Action:T54 Object:T55	
+T56	Subject 4063 4074	the malware
+T57	Action 4075 4082	creates
+A25	ActionName T57 024:File-create_file
+T58	Object 4083 4120	files “sqlrenew.txt” and “stream.exe”
+T59	Modifier 4031 4035	when
+T60	Object 4036 4061	the shellcode is executed
+R46	SubjAction Subject:T56 Action:T57	
+R47	ActionObj Action:T57 Object:T58	
+R48	ActionMod Action:T57 Modifier:T59	
+R49	ModObj Modifier:T59 Object:T60	
+T61	Object 4122 4137;4138 4148	The tail of the image file
+T62	Action 4149 4172	is decoded, and written
+A26	ActionName T62 043:File-write_to_file
+T63	Modifier 4173 4175	to
+T64	Object 4176 4187	these files
+R50	ActionObj Action:T62 Object:T61	
+R51	ActionMod Action:T62 Modifier:T63	
+R52	ModObj Modifier:T63 Object:T64	
+T65	Object 4189 4203	“sqlrenew.txt”
+T66	Action 4204 4220	is then executed
+A27	ActionName T66 029:File-execute_file
+R53	ActionObj Action:T66 Object:T65	
+T67	Modifier 4221 4225	with
+T68	Object 4226 4242;4243 4259	the LoadLibraryA Windows API call
+R54	ActionMod Action:T66 Modifier:T67	
+R55	ModObj Modifier:T67 Object:T68	
+T69	Subject 4348 4360	this exploit
+T70	Action 4361 4368	dropped
+A28	Capability T70 017:MalwareCapability-secondary_operation
+A29	StrategicObjectives T70 050:SecondaryOperation-install_other_components
+A30	TacticalObjectives T70 118:SecondaryOperation-install_secondary_malware
+T71	Object 4369 4390	an XOR (0×95) payload
+T72	Subject 4369 4390	an XOR (0×95) payload
+T73	Action 4396 4404	executed
+A31	Capability T73 012:MalwareCapability-machine_access/control
+A32	StrategicObjectives T73 039:MachineAccessControl-install_backdoor
+T74	Object 4405 4423;4424 4463	a ZxShell backdoor (MD5: 8455bbb9a210ce603a1b646b0d951bce)
+R56	SubjAction Subject:T69 Action:T70	
+R57	ActionObj Action:T70 Object:T71	
+R58	SubjAction Subject:T72 Action:T73	
+R59	ActionObj Action:T73 Object:T74	
+T75	Object 5085 5105	The ZxShell backdoor
+T76	Action 5151 5155	used
+A33	Capability T76 012:MalwareCapability-machine_access/control
+A34	TacticalObjectives T76 100:MachineAccessControl-control_machine_via_remote_command
+A35	StrategicObjectives T76 038:MachineAccessControl-control_local_machine
+T77	Subject 5159 5191;5192 5218	multiple threat actors linked to cyber espionage operations
+R60	SubjAction Subject:T77 Action:T76	
+R61	ActionObj Action:T76 Object:T75	
+T78	Subject 5220 5243	This particular variant
+T79	Action 5244 5250	called
+A36	Capability T79 005:MalwareCapability-command_and_control
+A37	ActionName T79 088:Network-connect_to_url
+T80	Modifier 5251 5258	back to
+T81	Object 5259 5298;5299 5319	a command and control server located at newss[.]effers[.]com
+R62	SubjAction Subject:T78 Action:T79	
+R63	ActionMod Action:T79 Modifier:T80	
+R64	ModObj Modifier:T80 Object:T81	
+T82	Subject 6322 6374	Gh0stRat samples with the custom packet flag “HTTPS”
+T83	Action 6375 6382	calling
+A38	Capability T83 005:MalwareCapability-command_and_control
+A39	ActionName T83 088:Network-connect_to_url
+T84	Modifier 6383 6390	back to
+T85	Object 6391 6434	book[.]flnet[.]org and icybin[.]flnet[.]org
+R65	SubjAction Subject:T82 Action:T83	
+R66	ActionMod Action:T83 Modifier:T84	
+R67	ModObj Modifier:T84 Object:T85	
+T86	Subject 6550 6579	another “HTTPS” Gh0st variant
+T87	Action 6580 6590	connecting
+A40	Capability T87 005:MalwareCapability-command_and_control
+A41	ActionName T87 088:Network-connect_to_url
+T88	Modifier 6591 6593	to
+T89	Object 6594 6652	a related command and control server at me[.]scieron[.]com
+R68	SubjAction Subject:T86 Action:T87	
+R69	ActionMod Action:T87 Modifier:T88	
+R70	ModObj Modifier:T88 Object:T89	
+T90	Object 8134 8205	dll[.]freshdns[.]org, ali[.]blankchair[.]com and cht[.]blankchair[.]com
+T91	Action 8206 8221	were all linked
+A42	Capability T91 005:MalwareCapability-command_and_control
+T92	Modifier 8222 8224	to
+T93	Object 8225 8279	both Operation DeputyDog and Operation Ephemeral Hydra
+R71	ModObj Modifier:T92 Object:T93	
+R72	ActionObj Action:T91 Object:T90	
+R73	ActionMod Action:T91 Modifier:T92	
+T94	Subject 9590 9594	They
+T95	Action 9595 9600	build
+A43	Capability T95 002:MalwareCapability-anti-detection
+A44	TacticalObjectives T95 019:AntiDetection-execute_stealthy_code
+A45	StrategicObjectives T95 006:AntiDetection-hide_executing_code
+T96	Object 9601 9611	ROP chains
+R74	SubjAction Subject:T94 Action:T95	
+R75	ActionObj Action:T95 Object:T96	
+T97	Subject 10303 10316	this actor(s)
+T98	Action 10175 10181	deploy
+A46	Capability T98 012:MalwareCapability-machine_access/control
+A47	StrategicObjectives T98 039:MachineAccessControl-install_backdoor
+T99	Object 10182 10227	a number of different private and public RATs
+T100	Modifier 10228 10233	using
+T101	Object 10234 10242;10243 10251	zero-day exploits
+T102	Modifier 10252 10259	against
+T103	Object 10260 10280	high-profile targets
+R76	SubjAction Subject:T97 Action:T98	
+R77	ActionObj Action:T98 Object:T99	
+R78	ActionMod Action:T98 Modifier:T100	
+R79	ActionMod Action:T98 Modifier:T102	
+R80	ModObj Modifier:T100 Object:T101	
+R81	ModObj Modifier:T102 Object:T103	

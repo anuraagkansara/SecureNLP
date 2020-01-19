@@ -1,0 +1,235 @@
+T1	Subject 83 135	the actors responsible for Operation Clandestine Fox
+T2	Action 161 165	send
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Object 166 197	waves of spearphishing messages
+T4	Object 203 222	the past few months
+T5	Modifier 198 202	over
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T5	
+R4	ModObj Modifier:T5 Object:T4	
+T6	Subject 543 552;553 557	CVE-2014- 4113
+T7	Action 558 560	is
+A4	Capability T7 014:MalwareCapability-privilege_escalation
+T8	Object 561 597	a privilege escalation vulnerability
+R5	SubjAction Subject:T6 Action:T7	
+R6	ActionObj Action:T7 Object:T8	
+T9	Subject 417 430	CVE-2014-6332
+T10	Action 472 474	is
+A5	Capability T10 012:MalwareCapability-machine_access/control
+A6	TacticalObjectives T10 100:MachineAccessControl-control_machine_via_remote_command
+A7	StrategicObjectives T10 038:MachineAccessControl-control_local_machine
+T11	Object 475 541	a Windows OLE Automation Array Remote Code Execution vulnerability
+R7	SubjAction Subject:T9 Action:T10	
+R8	ActionObj Action:T10 Object:T11	
+T12	Subject 1810 1820	a VBScript
+T13	Action 1878 1886	download
+A8	Capability T13 017:MalwareCapability-secondary_operation
+A9	ActionName T13 090:Network-download_file
+A10	StrategicObjectives T13 050:SecondaryOperation-install_other_components
+A11	TacticalObjectives T13 118:SecondaryOperation-install_secondary_malware
+T14	Object 1887 1904	the below payload
+R9	SubjAction Subject:T12 Action:T13	
+R10	ActionObj Action:T13 Object:T14	
+T15	Subject 2585 2595	the system
+T16	Action 2596 2605	downloads
+A12	Capability T16 017:MalwareCapability-secondary_operation
+A13	ActionName T16 090:Network-download_file
+A14	StrategicObjectives T16 050:SecondaryOperation-install_other_components
+A15	TacticalObjectives T16 118:SecondaryOperation-install_secondary_malware
+T17	Object 2606 2617	install.exe
+R11	SubjAction Subject:T15 Action:T16	
+R12	ActionObj Action:T16 Object:T17	
+T18	Subject 2827 2847	The file install.exe
+T19	Action 2860 2865	write
+A16	ActionName T19 043:File-write_to_file
+T20	Object 2866 2898	two files (doc.exe and test.exe)
+T21	Modifier 2899 2901	to
+T22	Object 2902 2921;2922 2939	the hard-coded path “C:\Users\Public”
+R13	SubjAction Subject:T18 Action:T19	
+R14	ActionObj Action:T19 Object:T20	
+R15	ActionMod Action:T19 Modifier:T21	
+R16	ModObj Modifier:T21 Object:T22	
+T23	Subject 3013 3044	The first dropped file, doc.exe
+T24	Action 3046 3054	contains
+A17	Capability T24 014:MalwareCapability-privilege_escalation
+T25	Object 3055 3080	the CVE-2014-4113 exploit
+R17	SubjAction Subject:T23 Action:T24	
+R18	ActionObj Action:T24 Object:T25	
+T26	Action 3102 3109	execute
+A18	ActionName T26 029:File-execute_file
+A19	Capability T26 014:MalwareCapability-privilege_escalation
+A20	StrategicObjectives T7 044:PrivilegeEscalation-escalate_user_privilege
+A21	StrategicObjectives T24 044:PrivilegeEscalation-escalate_user_privilege
+A22	StrategicObjectives T26 044:PrivilegeEscalation-escalate_user_privilege
+T27	Object 3110 3118	test.exe
+T28	Modifier 3119 3123	with
+T29	Object 3124 3147	the elevated privileges
+R19	SubjAction Subject:T23 Action:T26	
+R20	ActionObj Action:T26 Object:T27	
+R21	ActionMod Action:T26 Modifier:T28	
+R22	ModObj Modifier:T28 Object:T29	
+T30	Subject 4159 4167	This CVE
+T31	Action 4242 4246	give
+A23	Capability T31 014:MalwareCapability-privilege_escalation
+A24	StrategicObjectives T31 044:PrivilegeEscalation-escalate_user_privilege
+T32	Object 4247 4255	any user
+T33	Object 4256 4276;4277 4284	SYSTEM access on the machine
+R23	ActionObj Action:T31 Object:T32	
+R24	ActionObj Action:T31 Object:T33	
+R25	SubjAction Subject:T30 Action:T31	
+R26	CoRefer Referer:T25 Canonical:T30	
+T34	Subject 4287 4318	The malware component, test.exe
+T35	Action 4320 4324	uses
+A25	Capability T35 014:MalwareCapability-privilege_escalation
+A26	StrategicObjectives T35 044:PrivilegeEscalation-escalate_user_privilege
+T36	Object 4325 4365	the Windows command "cmd.exe" /C whoami”
+T37	Modifier 4366 4368	to
+T38	Object 4369 4381;4382 4430	verify it is running with the elevated privileges of “System”
+T39	Action 4435 4442	creates
+A27	Capability T39 013:MalwareCapability-persistence
+T40	Object 4443 4454	persistence
+R27	ActionObj Action:T39 Object:T40	
+T41	Modifier 4455 4457	by
+T42	Object 4458 4480;4481 4495	creating the following scheduled task
+R28	SubjAction Subject:T34 Action:T35	
+R29	ActionObj Action:T35 Object:T36	
+R30	ActionMod Action:T35 Modifier:T37	
+R31	ModObj Modifier:T37 Object:T38	
+R32	SubjAction Subject:T34 Action:T39	
+R33	ActionMod Action:T39 Modifier:T41	
+R34	ModObj Modifier:T41 Object:T42	
+T43	Subject 4619 4630	the malware
+T44	Action 4637 4648	establishes
+A28	ActionName T44 086:Network-connect_to_ip
+T45	Object 4649 4668	a SOCKS5 connection
+T46	Object 4672 4687	192.157.198.103
+T47	Object 4694 4702;4703 4707	TCP port 1913
+T48	Modifier 4688 4693	using
+T49	Modifier 4669 4671	to
+R35	SubjAction Subject:T43 Action:T44	
+R36	ActionObj Action:T44 Object:T45	
+R37	ActionMod Action:T44 Modifier:T49	
+R38	ModObj Modifier:T49 Object:T46	
+R39	ActionMod Action:T44 Modifier:T48	
+R40	ModObj Modifier:T48 Object:T47	
+T50	Subject 4709 4720	The malware
+T51	Action 4721 4726	sends
+A29	ActionName T51 086:Network-connect_to_ip
+T52	Object 4727 4767	the SOCKS5 connection request "05 01 00"
+R41	SubjAction Subject:T50 Action:T51	
+R42	ActionObj Action:T51 Object:T52	
+A30	Capability T51 005:MalwareCapability-command_and_control
+T53	Action 4772 4780	verifies
+A31	Capability T53 005:MalwareCapability-command_and_control
+A32	TacticalObjectives T53 052:CommandandControl-validate_data
+T54	Object 4781 4800;4801 4820	the server response starts with "05 00"
+A33	StrategicObjectives T53 017:CommandandControl-receive_data_from_c2_server
+R43	ActionObj Action:T53 Object:T54	
+R44	SubjAction Subject:T50 Action:T53	
+T55	Subject 4822 4833	The malware
+T56	Action 4839 4847	requests
+A34	Capability T56 005:MalwareCapability-command_and_control
+A35	ActionName T56 086:Network-connect_to_ip
+T57	Object 4848 4893	a connection to 192.184.60.229 on TCP port 81
+R45	SubjAction Subject:T55 Action:T56	
+R46	ActionObj Action:T56 Object:T57	
+T58	Modifier 4894 4899	using
+T59	Object 4900 4903;4904 4943	the command "05 01 00 01 c0 b8 3c e5 00 51"
+R47	ActionMod Action:T56 Modifier:T58	
+R48	ModObj Modifier:T58 Object:T59	
+T60	Action 4948 4956	verifies
+A36	Capability T60 005:MalwareCapability-command_and_control
+A37	TacticalObjectives T60 052:CommandandControl-validate_data
+A38	StrategicObjectives T60 017:CommandandControl-receive_data_from_c2_server
+T61	Modifier 4957 4961	that
+T62	Object 4962 5009	the first two bytes from the server are "05 00"
+R49	ActionMod Action:T60 Modifier:T61	
+R50	ModObj Modifier:T61 Object:T62	
+R51	SubjAction Subject:T55 Action:T60	
+T63	Subject 5138 5149	the malware
+T64	Action 5150 5157	expects
+A39	Capability T64 005:MalwareCapability-command_and_control
+A40	TacticalObjectives T64 052:CommandandControl-validate_data
+A41	StrategicObjectives T64 017:CommandandControl-receive_data_from_c2_server
+T65	Object 5158 5193;5194 5215	a message containing at least three bytes from the server
+R52	SubjAction Subject:T63 Action:T64	
+R53	ActionObj Action:T64 Object:T65	
+T66	Modifier 5088 5092	Once
+T67	Object 5093 5136	the connection to the server is established
+R54	ModObj Modifier:T66 Object:T67	
+R55	ActionMod Action:T64 Modifier:T66	
+T68	Subject 6656 6660	APT3
+T69	Action 6661 6668	sending
+A42	Capability T69 010:MalwareCapability-infection/propagation
+A43	TacticalObjectives T69 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A44	StrategicObjectives T69 031:InfectionPropagation-infect_remote_machine
+T70	Modifier 6669 6672	out
+T71	Object 6673 6719;6720 6741	spearphishing messages containing a compressed executable attachment
+R56	SubjAction Subject:T68 Action:T69	
+R57	ActionMod Action:T69 Modifier:T70	
+R58	ModObj Modifier:T70 Object:T71	
+T72	Subject 6743 6759	The deflated exe
+T73	Action 6760 6763	was
+A45	Capability T73 017:MalwareCapability-secondary_operation
+A46	ActionName T73 090:Network-download_file
+A47	StrategicObjectives T73 050:SecondaryOperation-install_other_components
+A48	TacticalObjectives T73 118:SecondaryOperation-install_secondary_malware
+T74	Object 6764 6812	a variant of the same downloader described above
+R59	SubjAction Subject:T72 Action:T73	
+R60	ActionObj Action:T73 Object:T74	
+T75	Action 6817 6826	connected
+A49	Capability T75 005:MalwareCapability-command_and_control
+A50	ActionName T75 086:Network-connect_to_ip
+T76	Modifier 6827 6829	to
+T77	Object 6830 6843	198.55.115.71
+T78	Modifier 6844 6848	over
+T79	Modifier 6859 6862	via
+T80	Object 6849 6858	port 1913
+T81	Object 6863 6875	SOCKS5 proxy
+R61	SubjAction Subject:T72 Action:T75	
+R62	ActionMod Action:T75 Modifier:T76	
+R63	ActionMod Action:T75 Modifier:T78	
+R64	ActionMod Action:T75 Modifier:T79	
+R65	ModObj Modifier:T76 Object:T77	
+R66	ModObj Modifier:T78 Object:T80	
+R67	ModObj Modifier:T79 Object:T81	
+T82	Subject 6877 6898	The secondary payload
+T83	Action 6912 6915;6916 6924	was detected
+A51	Capability T83 012:MalwareCapability-machine_access/control
+A52	StrategicObjectives T83 039:MachineAccessControl-install_backdoor
+T84	Modifier 6925 6927	as
+T85	Object 6928 6965	Backdoor.APT.CookieCutter (aka Pirpi)
+R68	SubjAction Subject:T82 Action:T83	
+R69	ActionMod Action:T83 Modifier:T84	
+R70	ModObj Modifier:T84 Object:T85	
+T86	Action 7039 7048	connected
+A53	Capability T86 005:MalwareCapability-command_and_control
+A54	ActionName T86 088:Network-connect_to_url
+T87	Modifier 7049 7051	to
+T88	Object 7052 7074	the known APT3 domains
+R71	SubjAction Subject:T82 Action:T86	
+R72	ActionMod Action:T86 Modifier:T87	
+R73	ModObj Modifier:T87 Object:T88	
+T89	Subject 8110 8131	the walterclean[.]com
+T90	Action 8132 8138	served
+A55	Capability T90 005:MalwareCapability-command_and_control
+T91	Modifier 8139 8141	as
+T92	Object 8142 8143;8144 8181	a Plugx/Kaba command and control server
+R74	SubjAction Subject:T89 Action:T90	
+R75	ActionMod Action:T90 Modifier:T91	
+R76	ModObj Modifier:T91 Object:T92	
+T93	Subject 8351 8355	they
+T94	Action 8366 8372	attack
+A56	Capability T94 010:MalwareCapability-infection/propagation
+A57	TacticalObjectives T94 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A58	StrategicObjectives T94 031:InfectionPropagation-infect_remote_machine
+T95	Object 8373 8380	targets
+T96	Modifier 8381 8385	with
+T97	Object 8386 8422	known exploits or social engineering
+R77	SubjAction Subject:T93 Action:T94	
+R78	ActionObj Action:T94 Object:T95	
+R79	ActionMod Action:T94 Modifier:T96	
+R80	ModObj Modifier:T96 Object:T97	

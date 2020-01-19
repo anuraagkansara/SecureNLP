@@ -1,0 +1,306 @@
+T1	Subject 356 365	attackers
+T2	Action 371 379	launched
+A1	Capability T2 004:MalwareCapability-availability_violation
+A2	TacticalObjectives T2 044:AvailabilityViolation-denial_of_service
+A3	StrategicObjectives T2 014:AvailabilityViolation-compromise_system_availability
+T3	Object 380 436	a series of Distributed Denial of Service attacks (DDoS)
+T4	Modifier 437 444	against
+T5	Object 445 486	websites promoting democracy in Hong Kong
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T4	
+R4	ModObj Modifier:T4 Object:T5	
+T6	Subject 526 547;548 584	websites belonging to Next Media’s Apple Daily publication
+T7	Action 590 598	suffered
+A4	Capability T7 004:MalwareCapability-availability_violation
+A5	TacticalObjectives T7 044:AvailabilityViolation-denial_of_service
+A6	StrategicObjectives T7 014:AvailabilityViolation-compromise_system_availability
+R5	SubjAction Subject:T6 Action:T7	
+T8	Modifier 599 603	from
+T9	Object 604 649;650 673	an ongoing DDoS attack that “brought down its email system for hours”
+R6	ActionMod Action:T7 Modifier:T8	
+R7	ModObj Modifier:T8 Object:T9	
+T10	Subject 703 723	Next Media’s network
+T11	Action 728 736	suffered
+A7	Capability T11 004:MalwareCapability-availability_violation
+A8	TacticalObjectives T11 044:AvailabilityViolation-denial_of_service
+A9	StrategicObjectives T11 014:AvailabilityViolation-compromise_system_availability
+T12	Object 737 754	a “total failure”
+T13	Modifier 755 757;758 769	as a result of
+T14	Object 770 783	these attacks
+R8	SubjAction Subject:T10 Action:T11	
+R9	ActionObj Action:T11 Object:T12	
+R10	ActionMod Action:T11 Modifier:T13	
+R11	ModObj Modifier:T13 Object:T14	
+T15	Subject 2009 2029	a number of binaries
+T16	Action 2039 2046	receive
+A10	ActionName T16 093:Network-receive_network_packet
+A11	StrategicObjectives T16 017:CommandandControl-receive_data_from_c2_server
+A12	TacticalObjectives T16 047:CommandandControl-control_malware_via_remote_command
+T17	Object 2047 2059	instructions
+T18	Modifier 2060 2064	from
+T19	Object 2065 2085;2086 2106	a set of command and control (C2) servers
+T20	Action 2107 2118	instructing
+A13	Capability T20 005:MalwareCapability-command_and_control
+A14	TacticalObjectives T20 047:CommandandControl-control_malware_via_remote_command
+A15	StrategicObjectives T20 017:CommandandControl-receive_data_from_c2_server
+T21	Object 2119 2137	participating bots
+T22	Modifier 2138 2140	to
+T23	Object 2141 2181;2182 2196	attack Next Media-owned websites and the HKGolden forum
+A16	Capability T16 005:MalwareCapability-command_and_control
+R12	SubjAction Subject:T15 Action:T16	
+R13	ActionObj Action:T16 Object:T17	
+R14	ActionMod Action:T16 Modifier:T18	
+R15	ModObj Modifier:T18 Object:T19	
+T24	Subject 2065 2085;2086 2106	a set of command and control (C2) servers
+R16	SubjAction Subject:T24 Action:T20	
+R17	ActionObj Action:T20 Object:T21	
+R18	ActionMod Action:T20 Modifier:T22	
+R19	ModObj Modifier:T22 Object:T23	
+T25	Subject 2505 2519	These binaries
+T26	Action 2563 2567	drop
+A17	Capability T26 017:MalwareCapability-secondary_operation
+A18	TacticalObjectives T26 118:SecondaryOperation-install_secondary_malware
+A19	StrategicObjectives T26 050:SecondaryOperation-install_other_components
+T27	Object 2568 2608;2609 2618	a variant of an older DDoS tool known as KernelBot
+R20	SubjAction Subject:T25 Action:T26	
+R21	ActionObj Action:T26 Object:T27	
+T28	Subject 2750 2754	they
+T29	Action 2755 2759	drop
+A20	Capability T29 017:MalwareCapability-secondary_operation
+A21	TacticalObjectives T29 118:SecondaryOperation-install_secondary_malware
+A22	StrategicObjectives T29 050:SecondaryOperation-install_other_components
+T30	Object 2760 2771	three files
+R22	SubjAction Subject:T28 Action:T29	
+R23	ActionObj Action:T29 Object:T30	
+R24	CoRefer Referer:T25 Canonical:T28	
+T31	Subject 3331 3353	The KernelBot implants
+T32	Action 3354 3361	receive
+A23	Capability T32 005:MalwareCapability-command_and_control
+A24	ActionName T32 093:Network-receive_network_packet
+A25	StrategicObjectives T32 017:CommandandControl-receive_data_from_c2_server
+A26	TacticalObjectives T32 047:CommandandControl-control_malware_via_remote_command
+R25	SubjAction Subject:T31 Action:T32	
+T33	Object 3362 3384	targeting instructions
+T34	Modifier 3385 3389	from
+T35	Object 3390 3429;3430 3436	C2 servers hard-coded directly into the sample
+R26	ActionObj Action:T32 Object:T33	
+R27	ActionMod Action:T32 Modifier:T34	
+R28	ModObj Modifier:T34 Object:T35	
+T36	Subject 3451 3483	c3d6450075d618b1edba17ee723eb3ca
+T37	Action 3484 3489	drops
+A27	Capability T37 017:MalwareCapability-secondary_operation
+A28	TacticalObjectives T37 118:SecondaryOperation-install_secondary_malware
+A29	StrategicObjectives T37 050:SecondaryOperation-install_other_components
+T38	Object 3490 3509	a KernelBot variant
+T39	Subject 3490 3509	a KernelBot variant
+T40	Action 3515 3523	connects
+A30	Capability T40 005:MalwareCapability-command_and_control
+A31	ActionName T40 088:Network-connect_to_url
+T41	Modifier 3524 3526	to
+T42	Object 3527 3591	both www.sapporo-digital-photoclub[.]com and wakayamasatei[.]com
+R29	SubjAction Subject:T36 Action:T37	
+R30	ActionObj Action:T37 Object:T38	
+R31	SubjAction Subject:T39 Action:T40	
+R32	ActionMod Action:T40 Modifier:T41	
+R33	ModObj Modifier:T41 Object:T42	
+T43	Subject 6172 6206	two different single-byte XOR keys
+T44	Action 6215 6221	encode
+A32	Capability T44 002:MalwareCapability-anti-detection
+A33	TacticalObjectives T44 025:AntiDetection-hide_network_traffic
+A34	StrategicObjectives T44 007:AntiDetection-hide_malware_artifacts
+R34	SubjAction Subject:T43 Action:T44	
+T45	Object 6222 6255;6256 6288	configuration files issued by the DDOS C2 servers in this campaign
+R35	ActionObj Action:T44 Object:T45	
+T46	Object 7626 7675	more than 30 different unique configuration files
+T47	Action 7676 7682	issued
+A35	Capability T47 005:MalwareCapability-command_and_control
+A36	TacticalObjectives T47 047:CommandandControl-control_malware_via_remote_command
+A37	StrategicObjectives T47 017:CommandandControl-receive_data_from_c2_server
+T48	Subject 7715 7735	These configurations
+T49	Action 7736 7742	issued
+A38	Capability T49 012:MalwareCapability-machine_access/control
+A39	TacticalObjectives T49 100:MachineAccessControl-control_machine_via_remote_command
+A40	StrategicObjectives T49 038:MachineAccessControl-control_local_machine
+T50	Object 7743 7787;7788 7791	commands to attack the following domains and IPs
+T51	Subject 7686 7713	the C2 servers listed above
+R36	SubjAction Subject:T51 Action:T47	
+R37	ActionObj Action:T47 Object:T46	
+R38	SubjAction Subject:T48 Action:T49	
+R39	ActionObj Action:T49 Object:T50	
+T52	Subject 8268 8281	the attackers
+T53	Action 8282 8288	pushed
+A41	Capability T53 005:MalwareCapability-command_and_control
+A42	TacticalObjectives T53 047:CommandandControl-control_malware_via_remote_command
+A43	StrategicObjectives T53 017:CommandandControl-receive_data_from_c2_server
+A44	ActionName T53 093:Network-receive_network_packet
+T54	Object 8289 8311	a configuration update
+T55	Object 8315 8336	four controls servers
+T56	Modifier 8312 8314	to
+R40	SubjAction Subject:T52 Action:T53	
+R41	ActionObj Action:T53 Object:T54	
+R42	ActionMod Action:T53 Modifier:T56	
+R43	ModObj Modifier:T56 Object:T55	
+T57	Subject 8289 8311	a configuration update
+T58	Action 8342 8352	instructed
+A45	Capability T58 012:MalwareCapability-machine_access/control
+A46	TacticalObjectives T58 100:MachineAccessControl-control_machine_via_remote_command
+A47	StrategicObjectives T58 038:MachineAccessControl-control_local_machine
+T59	Object 8353 8377	bots under their control
+R44	SubjAction Subject:T57 Action:T58	
+R45	ActionObj Action:T58 Object:T59	
+T60	Action 8381 8386	flood
+A48	Capability T60 004:MalwareCapability-availability_violation
+A49	TacticalObjectives T60 044:AvailabilityViolation-denial_of_service
+A50	StrategicObjectives T60 014:AvailabilityViolation-compromise_system_availability
+T61	Object 8387 8402	124.217.214.149
+T62	Modifier 8403 8407	with
+T63	Object 8408 8419	UDP traffic
+T64	Subject 8353 8377	bots under their control
+R46	SubjAction Subject:T64 Action:T60	
+R47	ActionObj Action:T60 Object:T61	
+R48	ActionMod Action:T60 Modifier:T62	
+R49	ModObj Modifier:T62 Object:T63	
+T65	Subject 8519 8545	two of the active controls
+T66	Action 8552 8563	instructing
+A51	Capability T66 012:MalwareCapability-machine_access/control
+A52	TacticalObjectives T66 100:MachineAccessControl-control_machine_via_remote_command
+A53	StrategicObjectives T66 038:MachineAccessControl-control_local_machine
+T67	Object 8564 8582	participating bots
+T68	Modifier 8583 8585	to
+T69	Object 8586 8599	cease attacks
+R50	SubjAction Subject:T65 Action:T66	
+R51	ActionObj Action:T66 Object:T67	
+R52	ActionMod Action:T66 Modifier:T68	
+R53	ModObj Modifier:T68 Object:T69	
+T70	Subject 8619 8663	all five of the known active control servers
+T71	Action 8664 8676	were issuing
+A54	Capability T71 012:MalwareCapability-machine_access/control
+A55	TacticalObjectives T71 100:MachineAccessControl-control_machine_via_remote_command
+A56	StrategicObjectives T71 038:MachineAccessControl-control_local_machine
+T72	Object 8677 8685	commands
+T73	Modifier 8686 8688	to
+T74	Object 8689 8706	cease the attacks
+R54	SubjAction Subject:T70 Action:T71	
+R55	ActionObj Action:T71 Object:T72	
+R56	ActionMod Action:T71 Modifier:T73	
+R57	ModObj Modifier:T73 Object:T74	
+T75	Subject 9602 9604	it
+T76	Subject 9512 9530	This PlugX variant
+T77	Action 9531 9540	connected
+A57	Capability T77 005:MalwareCapability-command_and_control
+A58	ActionName T77 088:Network-connect_to_url
+T78	Modifier 9541 9543	to
+T79	Object 9544 9565;9566 9594	a Google Code project at code.google[.]com/p/udom/
+R58	SubjAction Subject:T76 Action:T77	
+R59	ActionMod Action:T77 Modifier:T78	
+R60	ModObj Modifier:T78 Object:T79	
+R61	CoRefer Referer:T76 Canonical:T75	
+T80	Action 9605 9612	decoded
+A59	Capability T80 005:MalwareCapability-command_and_control
+A60	TacticalObjectives T80 051:CommandandControl-update_configuration
+A61	StrategicObjectives T80 017:CommandandControl-receive_data_from_c2_server
+T81	Object 9613 9652	a command that configured its C2 server
+R62	SubjAction Subject:T75 Action:T80	
+R63	ActionObj Action:T80 Object:T81	
+T82	Object 9874 9885	This sample
+T83	Action 9886 9897	is detected
+A62	Capability T83 012:MalwareCapability-machine_access/control
+A63	StrategicObjectives T83 039:MachineAccessControl-install_backdoor
+T84	Modifier 9898 9900	as
+T85	Object 9901 9921	Backdoor.APT.Preshin
+T86	Subject 9874 9885	This sample
+T87	Action 9926 9935	connected
+A64	Capability T87 005:MalwareCapability-command_and_control
+A65	ActionName T87 088:Network-connect_to_url
+T88	Modifier 9936 9938	to
+R64	ActionObj Action:T83 Object:T82	
+R65	ActionMod Action:T83 Modifier:T84	
+R66	ModObj Modifier:T84 Object:T85	
+R67	SubjAction Subject:T86 Action:T87	
+R68	ActionMod Action:T87 Modifier:T88	
+T89	Object 9939 9953	luxscena[.]com
+T90	Modifier 9954 9957	for
+T91	Object 9958 9960	C2
+R69	ModObj Modifier:T88 Object:T89	
+R70	ActionMod Action:T87 Modifier:T90	
+R71	ModObj Modifier:T90 Object:T91	
+T92	Subject 10053 10055	We
+T93	Action 10056 10062	detect
+A66	Capability T93 012:MalwareCapability-machine_access/control
+A67	StrategicObjectives T93 039:MachineAccessControl-install_backdoor
+T94	Object 10063 10075	this payload
+T95	Modifier 10076 10078	as
+T96	Object 10079 10098	Backdoor.APT.PISCES
+T97	Subject 10103 10105	it
+T98	Action 10106 10110	used
+A68	Capability T98 005:MalwareCapability-command_and_control
+A69	ActionName T98 088:Network-connect_to_url
+T99	Object 10111 10127	hk.java-se[.]com
+T100	Modifier 10128 10131	for
+T101	Object 10132 10134	C2
+R72	SubjAction Subject:T92 Action:T93	
+R73	ActionObj Action:T93 Object:T94	
+R74	ActionMod Action:T93 Modifier:T95	
+R75	ModObj Modifier:T95 Object:T96	
+R76	SubjAction Subject:T97 Action:T98	
+R77	CoRefer Referer:T94 Canonical:T97	
+R78	ActionObj Action:T98 Object:T99	
+R79	ActionMod Action:T98 Modifier:T100	
+R80	ModObj Modifier:T100 Object:T101	
+R81	CoRefer Referer:T94 Canonical:T96	
+R82	CoRefer Referer:T82 Canonical:T85	
+T102	Subject 10823 10825	We
+T103	Action 10831 10837	detect
+A70	Capability T103 012:MalwareCapability-machine_access/control
+A71	StrategicObjectives T103 039:MachineAccessControl-install_backdoor
+T104	Object 10838 10850	this payload
+T105	Modifier 10851 10853	as
+T106	Object 10854 10873	Backdoor.APT.PISCES
+T107	Subject 10887 10889	it
+T108	Action 10890 10897	connect
+A72	Capability T108 005:MalwareCapability-command_and_control
+A73	ActionName T108 088:Network-connect_to_url
+T109	Modifier 10898 10900	to
+T110	Object 10901 10916	u.java-se[.]com
+R83	SubjAction Subject:T102 Action:T103	
+R84	ActionObj Action:T103 Object:T104	
+R85	ActionMod Action:T103 Modifier:T105	
+R86	ModObj Modifier:T105 Object:T106	
+R87	SubjAction Subject:T107 Action:T108	
+R88	ActionMod Action:T108 Modifier:T109	
+R89	ModObj Modifier:T109 Object:T110	
+R90	CoRefer Referer:T104 Canonical:T106	
+R91	CoRefer Referer:T104 Canonical:T107	
+T111	Subject 11808 11834	These ongoing DDoS attacks
+T112	Action 11876 11882	target
+A74	Capability T112 004:MalwareCapability-availability_violation
+A75	TacticalObjectives T112 044:AvailabilityViolation-denial_of_service
+A76	StrategicObjectives T112 014:AvailabilityViolation-compromise_system_availability
+T113	Object 11883 11909	the hkgolden[.]com website
+R92	SubjAction Subject:T111 Action:T112	
+R93	ActionObj Action:T112 Object:T113	
+T114	Object 11927 11936	this site
+T115	Action 11941 11954	been targeted
+A77	Capability T115 004:MalwareCapability-availability_violation
+A78	TacticalObjectives T115 044:AvailabilityViolation-denial_of_service
+A79	StrategicObjectives T115 014:AvailabilityViolation-compromise_system_availability
+T116	Modifier 11955 11959	with
+T117	Object 11960 11973	a DDoS attack
+T118	Subject 11977 11996	a KernelBot network
+R94	SubjAction Subject:T118 Action:T115	
+R95	ActionObj Action:T115 Object:T114	
+R96	ActionMod Action:T115 Modifier:T116	
+R97	ModObj Modifier:T116 Object:T117	
+T119	Subject 13095 13108	the attackers
+T120	Action 13109 13115	issued
+A80	Capability T120 012:MalwareCapability-machine_access/control
+A81	TacticalObjectives T120 100:MachineAccessControl-control_machine_via_remote_command
+A82	StrategicObjectives T120 038:MachineAccessControl-control_local_machine
+T121	Object 13116 13132	new instructions
+T122	Modifier 13133 13135	to
+T123	Object 13136 13148	their botnet
+R98	SubjAction Subject:T119 Action:T120	
+R99	ActionObj Action:T120 Object:T121	
+R100	ActionMod Action:T120 Modifier:T122	
+R101	ModObj Modifier:T122 Object:T123	

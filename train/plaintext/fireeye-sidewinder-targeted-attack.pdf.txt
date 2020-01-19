@@ -1,0 +1,846 @@
+                  REPORT
+
+
+
+
+SIDEWINDER
+TARGETED ATTACK
+AGAINST ANDROID
+IN THE GOLDEN
+AGE OF AD
+LIBRARIES
+
+
+
+
+           SECURITY
+           REIMAGINED
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+CONTENTS
+Introduction................................................................................................................................................................................................................................................................................................................................................ 3
+
+Sidewinder Targeted Attack Overview............................................................................................................................................................................................................................. 3
+
+Warhead: Attacking Vulnerabilities of Android........................................................................................................................................................................................ 5
+
+	              Piercing The Armor................................................................................................................................................................................................................................................................................................. 5
+
+	              Detonation without Android Context.................................................................................................................................................................................................................... 7
+
+	              Detonation with Android Context................................................................................................................................................................................................................................... 8
+
+Targeting Victims Based on Ad Traffic............................................................................................................................................................................................................................ 11
+
+	              Communication Channels Prone to Hijack.......................................................................................................................................................................................... 11
+
+	              Information Leakage from Ad Libraries....................................................................................................................................................................................................... 11
+
+	              Large-scale Monitoring and Precise Hijacking........................................................................................................................................................................... 12
+
+Targetable and Exploitable Google Play Apps ......................................................................................................................................................................................... 13
+
+Conclusion................................................................................................................................................................................................................................................................................................................................................. 20
+
+
+
+
+2 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              Introduction                                                                     Finally, we show that this threat is not only real
+                              By 2014, the number of Android users has                                         but also prevalent due to the popularity of
+                              grown to 1.1 billion and the number of Android                                   Android ad libraries. We hope this paper
+                              devices has reached 1.9 billion1. At the same                                    kickstarts the conversation on how to better
+                              time, enterprises are also embracing Android-                                    protect the security and privacy in third-party
+                              based Bring Your Own Device (BYOD) solutions.                                    libraries and how to further harden the Android
+                              For example, in Intel’s BYOD program, there are                                  security framework in the future.
+                              more than 20,000 Android devices across over
+                              800 combinations of Android versions and
+                              hardware configurations2.
+                                                                                                               Sidewinder Targeted Attack Overview
+                              Although little malware has been found in Google                                 To understand the security risks brought by a
+                              Play, both Android apps and the Android system                                   Sidewinder Targeted Attack, we first explain one
+                              itself contain vulnerabilities. Aggressive ad                                    possible attack mechanism (illustrated in Figure 1)
+                              libraries also leak the user’s private information.                              that is similar to that of Sidewinder missiles. The
+                              By leveraging all these vulnerabilities, an attacker                             attacker can hijack the network where the
+                              can conduct more targeted attacks, which we call                                 targeted victim resides. Like an infrared homing
+                              “Sidewinder Targeted Attacks.” In this paper we                                  system, the attacker then seeks “emission” from ad
+                              explain the security risks from such attacks, in                                 libraries running on the target device to track and
+                              which an attacker can intercept and use private                                  lock on it. Once the target is locked on, the
+                              information uploaded from ad libraries to                                        attacker can launch advanced persistent attacks.
+                              precisely locate targeted areas such as a CEO’s                                  To minimize detection chances, the attacker can
+                              office or specific conference rooms. When the                                    choose to take action on important targets only,
+                              target is identified, a “Sidewinder Targeted Attack”                             ignoring all other devices. In later sections, we
+                              exploits popular vulnerabilities in ad libraries, such                           discuss attacking (“warhead”) and targeting
+                              as Javascript-binding-over-HTTP or dynamic-                                      (“homing”) components in detail and show how a
+                              loading-over-HTTP, etc.                                                          combination of these components can launch
+                                                                                                               powerful and precise attacks on target devices.
+                              It is a well-known challenge for an attacker to call
+                              Android services from injected native code that                                  Table 1 proposes different attacks that an
+                              doesn’t have Android application context. Here,                                  attacker can launch remotely on target devices
+                              we explain how attackers can invoke Android                                      through vulnerable ad libraries. Figure 2 shows a
+                              services for tasks including taking photos, calling                              proof-of-concept attack control interface. This
+                              phone numbers, sending SMS, reading from/                                        attack targets one of the ad libraries described in
+                              writing to the clipboard, etc. Furthermore, the                                  this paper. The security risks become obvious by
+                              attackers can exploit several Android                                            looking at what the attacker can do with this
+                              vulnerabilities to get valuable private information                              control interface. The left panel enables the
+                              or to launch more advanced attacks.                                              attacker to command the victim's device,
+
+
+
+
+                              1
+                               	 Ranjit Atwal, Lillian Tay, Roberta Cozza, Tuong Huy Nguyen, Tracy Tsai, Annette Zimmermann, and CK Lu. Forecast: Pcs, ultramobiles and mobile phones,
+                                 worldwide, 2010-2017, 4q13 update. Gartner, 2013.
+                              2
+                               	 Rob Evered, Steve Watson, Paul Dockter, and Derek Harkin. Android devices in a byod environment. Intel White Paper, 2013.
+
+
+
+
+3 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              including uploading local files, taking pictures,                 installed app list, clipboard, a photo taken from
+                              recording audio/video, manipulating the                           the back camera, an audio clip, and a video clip
+                              clipboard, sending SMS, dialing numbers,                          have been uploaded, with the GPS location
+                              implanting bootkit, or installing the attacker’s                  intercepted from the ad library. The panel also
+                              apps uploaded to Google Play, etc. The right                      pins down the GPS location of the victim’s
+                              panel lists all information stolen from the                       device onto a Google Map widget.
+                              victim’s device. In this screenshot, the victim’s
+
+
+
+     Figure 1:
+     Illustration of
+     the Sidewinder
+                                                                                                                            Info uploaded from ad libs
+     Targeted Attack
+     Scenario
+                              Attack Overview                                                                                        Serving Normal ad
+                                                                                                                              Injecting attack payload
+                                                                                                                                   Comman & Control
+
+
+                                                      Device A
+
+
+
+
+                                               Device
+                                               Victim
+
+
+
+
+                                                      Device B                               Attacker’s                         Actual
+                                                                                               Server                          Ad Server
+
+
+
+
+                              	
+     Table 1: Outline                     API Level                                        ≤ API 16                                      > API 16
+     of the Sidewinder
+     Targeted                            Attack Vector                               JBOH and DLOH                                      JS Sidedoor
+     Attack through                     31.08%                     (w/ Android Context )         (w/o Android Context )
+     Vulnerable Ad                                                                                       51.04%              48.96%
+     Libraries
+                                                         68.92%   Clipboard manipulation       Local files uploading Root
+                                                                     Launcher settings          exploit & Code injection             Abusing privileged
+                                           Attacks
+                                                                    modification Proxy                                                  interfaces
+                                                                       modification            Implanting bootkit Sending
+                                                                                                SMS Making phone calls
+                                                                  Taking pictures Audio &
+                                                                  video recording Stealthy
+                                                                      app installation
+
+
+
+
+4 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              Based on this precise position information, it is easy to identify individuals or groups of “VIP” targets by
+                              which offices they are in.
+
+
+
+     Figure 2: The
+     control panel of
+     the attacker, and
+     the files uploaded
+     from the victim
+
+
+
+
+                              Warhead: Attacking Vulnerabilities                                             (Android 4.1) or below. As noted by Google: “Use
+                              of Android                                                                     of this method in a WebView containing
+                                                                                                             untrusted content could allow an attacker to
+                              Piercing The Armor                                                             manipulate the host application in unintended
+                              In this section, we explain in more detail the risks                           ways, executing Java code with the permissions
+                              of remote attacks on the Android devices.                                      of the host application.”3
+
+                              Attacking JavaScript Binding over                                              In particular, if an app running on Android API 16
+                              HTTP (JBOH)                                                                    or below uses the JavaScript binding method
+                              Android uses the JavaScript binding method                                     addJavascriptInterface and loads the content
+                              addJavascriptInterface to enable JavaScript                                    in the WebView over HTTP, an attacker over the
+                              code running inside a WebView to access the                                    network could hijack the HTTP traffic (e.g.,
+                              app’s Java methods (also known as the Javascript                               through WiFi or DNS hijacking) to inject
+                              bridge). However, it is widely known that this                                 malicious content into the WebView and to
+                              feature, if not used carefully, presents a potential                           control the host application. Listing 1 is a sample
+                              security risk when running on Android API 16                                   Javascript snippet to execute shell command.
+
+
+                              3
+                               	 http://developer.android.com/reference/android/webkit/WebView.html# addJavascriptInterface(java.lang.Object,%20java.lang.String).
+
+
+
+
+5 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+     Figure 3: Target
+     SDK statistics of
+     popular Google
+     Play apps                        31.08%                                        API <=16                                                         API <=16
+                                                                                    API >=16                          51.04%                48.96%   API >16
+                                                        68.92%
+
+
+
+                                     (a) Statistics by app number                                                     (b) Statistics by app download count
+
+
+
+
+     Listing 1: Sample
+     Javascript snippet            jsObj.getClass().forName(”java.lang.Runtime”)
+     to execute shell              	.getMethod(”getRuntime”,null).invoke(null,null).exec(cmd)
+     command
+
+
+
+
+                              We call this the JavaScript-Binding-Over-HTTP                                    Attacking Annotated JavaScript
+                              (JBOH) vulnerability4. This applies to insecure                                  Binding Interfaces
+                              HTTPS channels as well. If an app containing such                                Starting with Android 4.2 (API>16), Google
+                              vulnerability has sensitive Android permissions                                  introduced the @JavascriptInterface
+                              such as access to the camera, a remote attacker                                  anno- tation6 to explicitly designate and restrict
+                              could exploit it to perform sensitive tasks such as                              which public Java methods in the app were
+                              taking photos or recording video, over the                                       accessible from JavaScript running inside
+                              Internet, without consent. Based on the official                                 a WebView. However, if an ad library uses the
+                              data in June 20145, ~60% of Android devices are                                  @JavascriptInterface annotation to expose
+                              still running API≤16.                                                            security-sensitive interfaces, and uses HTTP to
+                                                                                                               load content in the WebView, it is vulnerable to
+                              Note that API>16 platforms are not necessarily                                   attacks where an attacker over the network
+                              secure. If the app is targeting at a lower API                                   could inject malicious content into the WebView
+                              level, Android will still run it with the lower API                              to misuse the interfaces exposed through the JS
+                              level for compatibility reasons. Figure 3 shows                                  binding annotation. We call these exposed JS
+                              the targeted API of popular Google Play apps,                                    binding annotation interfaces “JS Sidedoors.”
+                              each of which has over 50,000 downloads. We
+                              can see that a large portion of apps are                                         For example, we found a list of sensitive
+                              targeting at API≤16.                                                             Javascript interfaces that are publicly ex- posed
+                                                                                                               from certain versions of a real-world ad library:
+
+
+                              4
+                               	 http://www.fireeye.com/blog/technical/2014/01/js-binding-over-http- vulnerability-and-javascript-sidedoor.html.
+                              5
+                               	https://developer.android.com/about/dashboards/index.html.
+                              6
+                               	 http://developer.android.com/reference/android/webkit/ JavascriptInterface.html.
+
+
+
+
+6 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              createCalendarEvent, makeCall,                                           functionalities, especially remote call invocations,
+                              postToSocial, sendMail, sendSMS,                                         are encapsulated in the context. We discuss
+                              takeCameraPicture, getGalleryImage,                                      attacks requiring context in a later section. In this
+                              registerMicListener, etc4. Given that this ad                            section, we explain attacks that don’t need
+                              library loads ads using HTTP, if the host app has                        Android context, and discuss their security risks.
+                              the corresponding permissions (e.g., CALL
+                              PHONE), attackers over the network can abuse                             Root Exploits and Code Injection
+                              these interfaces to do malicious things (e.g.,                           One direct threat posed by JBOH is to use the
+                              utilizing the makeCall interface to dial phone                           JBOH shell (Listing 1) to download exe- cutables
+                              numbers without the user’s consent).                                     and use them to root the device. Commercial
+                                                                                                       one-touch root apps claim they can root more
+                              Security Issues with DEX Loading over                                    than 1,000 brands (>20,000 models) 8.
+                              HTTP (DLOH)                                                              towelroot 9, which exploits a bug found
+                              Similar to JBOH, DEX loading over HTTP or                                recently in Linux kernel, claims that it can root
+                              insecure HTTPS (DLOH) is another serious issue                           most new devices released before June 2014.
+                              raised by ad libraries. If the attackers can hijack                      Thus, as long as attackers can get the JBOH shell,
+                              the communication channels and inject malicious                          they have the tools to obtain root on most
+                              DEX files, they can then control the behaviors of                        Android phone models.
+                              the victim apps.
+                                                                                                       Even if the attackers can’t obtain root, they can
+                              Detonation without Android Context                                       attempt ptrace 10 to control the host app.
+                              After getting local access, the attacker can upload                      Although only processes with root privilege can
+                              private and sensitive files from the victim’s device,                    ptrace others, child processes are able to
+                              or modify files that the host app can write to (e.g.,                    ptrace their parents. Because the shell
+                              the directory of the host app and SD Card with                           launched from the Javascript bridge is a child
+                              FAT file system).                                                        process of the host app, it can ptrace the host
+                                                                                                       app’s process. Note that only apps with
+                              To launch more sophisticated attacks like sending                        android:debuggable set as “true” in the manifest
+                              SMS or taking pictures, the attackers may use                            can be ptraced, which limits its adoption.
+                              Java reflection to call other APIs from the
+                              Javascript bridge. It appears this method makes                          Sending SMS and Dialing Numbers without
+                              sending SMS easy. However, some other                                    User Consent
+                              operations require Android context 7 or                                  Sending SMS does not require context or user
+                              registering Java callbacks. Android context                              interaction. A simple call does the job, as
+                              provides an interface to the global information                          shown in Listing 2
+                              about an app’s environment. Many Android
+
+
+
+     Listing 2: Sending
+     SMS without user             SmsManager.getDefault().sendTextMessage(phoneNumber,null,message,null,null);
+     consent
+
+
+
+
+                              7
+                               	http://developer.android.com/reference/android/content/Context.html.
+                              8
+                               	http://shuaji.360.cn/root/.
+                              9
+                               	http://towelroot.com/.
+                              10
+                                	http://linux.die.net/man/2/ptrace.
+
+
+
+
+7 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              To make calls from the Javascript bridge                                       Javascript bridge. Code in Listing 4, for
+                              without user consent, we can invoke the                                        example, is an easy way to get context from
+                              telephony service to dial numbers directly via                                 anywhere of the application.
+                              binder, as shown in Listing 3, where phone is
+                              the remote Android telephony service and the                                   Operations like taking pictures and recording
+                              number 2 represents the second remote call.                                    videos need to register Java callbacks. The
+                              s16 is the type marker represents “16 bit                                      attackers either need to boot a Java VM from
+                              string,” and packageName is the host app’s                                     the Javascript bridge, or to inject code into
+                              package name, where we can obtain from the                                     the host app’s Java VM.
+                              information posted from the ad libraries. The
+                              sequence number of the remote calls can be                                     Fortunately, Android Runtime offers another
+                              found in the corresponding Android Interface                                   way to load Java Native Interface (JNI) code
+                                                                                                             into the host app using Runtime.load(). As
+                              Definition Language (AIDL) files 11. Many other                                shown in Listing 5, an attacker can load
+                              Android services can be invoked in the same                                    executables compiled from JNI code. Once
+                              way, including sending SMS                                                     loaded, the code can obtain context as described
+                                                                                                             in Listing 4, or call DexClassLoaderload12 to
+                              Detonation with Android Context                                                inject new classes from the attackers’ DEX
+                              As mentioned, it is more convenient to                                         files to register callbacks to take pictures/
+                              directly obtain the Android context via the                                    record videos.
+
+
+
+     Listing 3: Dial
+     numbers without               Runtime.getRuntime()
+     user consent                  	   .exec(”service call phone 2 s 16 ”+ packageName +” s16” + phoneNumber);
+
+
+
+
+     Listing 4: Sample
+     code to obtain                // We omit all try−catch statements and other unimportant code in this paper
+     context
+                                   public ContextgetContext(){
+                                   	finalClass<?>activityThreadClass=Class
+                                   		.forName(”android.app ActivityThread”);
+                                   	finalMethodmethod=activityThreadClass
+                                   		.getMethod(”currentApplication”);
+                                   	return(Application)method.invoke(null,(Object[])null);
+                                   }
+
+
+
+
+                               	 http://developer.android.com/guide/components/aidl.html.
+                              11
+
+                               	http://developer.android.com/reference/dalvik/system/DexClassLoader. html.
+                              12
+
+
+
+
+8 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              There are other ways to obtain Android context,                               Using these APIs, the attackers can monitor
+                              like reflecting to the private static context                                 changes to a clipboard and transfer the
+                              variable of WebView13. However, without Java                                  clipboard contents to some remote server.
+                              VM instances, it’s difficult to take pictures and                             They can also alter the clipboard content to
+                              record videos. After our submission to Black Hat                              achieve phishing goals. For example, the user
+                              in April 2014, we noticed that MWR was also                                   may copy a link to visit and the background
+                              concurrently and independently working on this                                malicious service can change that link to a
+                              issue. They published a similar mechanism in                                  phishing site. We have notified Google about
+                              June 201414.                                                                  this issue.
+
+                              Clipboard Monitoring nd Tampering                                             Launcher Settings Modification
+                              With the Android context, an attacker can                                     Android Open Source Project (AOSP) classifies
+                              monitor or tamper with the clipboard. Android                                 Android permissions into several protec- tion
+                              users may perform copy-paste on important text                                levels: “normal,””dangerous,” “system,”
+                              content. For example, there are many popular                                  “signature” and “development”15,16,17. Dangerous
+                              password-management apps in Google Play,                                      permissions“may be displayed to the user and
+                              enabling the users to click-and-copy passwords                                require confirmation before pro- ceeding, or
+
+
+
+     Listing 5: Sample
+     Javascript snippet            jsObj.getClass().forName(”java.lang.Runtime”)
+     to load JNI binary            	   .getMethod (”getRuntime”,null).invoke(null,null).load(binaryPath );
+     into the host app’s
+     Java VM
+
+
+
+
+     Listing 6: API
+     calls to peek into/           ClipboardManager.getText()
+     tamper with the               ClipboardManager.hasPrimaryClip()
+                                   ClipboardManager.setText()
+     clipboard                     Clipboard Manager.setPrimaryClip()
+                                   ClipboardManager.hasText()
+                                   ClipboardManager.addPrimaryClipChangedListener()
+                                   ClipboardManager.getPrimaryClip()
+
+
+
+
+                              and paste them into login forms. Malicious                                    some other approach may be taken to avoid
+                              apps can steal the passwords if they can read                                 the user automatically allowing the use of such
+                              the contents on clipboard. Android has no                                     facilities.”In contrast, normal permissions are
+                              permissions restricting apps from accessing                                   automatically granted at installation, “without
+                              the global clipboard. Any UID has the capability                              asking for the user’s explicit approval (though
+                              to manipulate clipboard via the API calls in Listing 6:                       the user always has the option to review these
+
+
+
+
+                              13
+                                	 http://www.weibo.com/p/1001603724694418249344?utm_source=weibolife.
+                              14
+                                	https://labs.mwrinfosecurity.com/blog/2014/06/12/putting-javascript- bridges-into-android-context.
+                              15
+                                	 http://developer.android.com/guide/topics/manifest/permission-element.html.
+                              16
+                                	 https://android.googlesource.com/platform/frameworks/base/+/master/ core/res/AndroidManifest.xml.
+                              17
+                                	https://android.googlesource.com/platform/packages/apps/Launcher2/+/ master/AndroidManifest.xml.
+
+
+
+
+9 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              permissions before installing)”15. If an app requests                         corresponding field. Note that the
+                              both dangerous permissions and normal                                         proxySettings field is a private Java field not
+                              permissions, Android only displays the dangerous                              intended to be accessed by other processes.
+                              per- missions by default. If an app requests only                             Unfortunately, the flexible and powerful Java
+                              normal permissions, Android doesn’t display any                               reflection mechanism (especially the forName(),
+                              permission to the user.                                                       getField(), setAccessible() calls) exposes
+                                                                                                            such components to the attackers for arbitrary
+                              We have found that certain “normal” permissions                               read or write operations.
+                              have dangerous security impacts18. For example,
+                              the attackers can manipulate Android home                                     Taking Pictures and Recording Audio/Video
+                              screen icons using two normal permissions:                                    without User Interaction
+                              launcher READ SETTINGS and WRITE                                              Android audio recording via the MediaRecorder
+                              SETTINGS permissions. These two permissions                                   APIs does not need user interaction or
+                              enable an app to query, insert, delete, or modify                             consent, which makes it easy to record sound
+                              all launcher configuration settings, including icon                           in the background.
+                              insertion or modification.
+                                                                                                            On the contrary, taking pictures and recording
+                              As a proof-of-concept attack scenario, a malicious                            videos are more challenging. First, this requires
+                              app with these two permissions can query/insert/                              registering Java callbacks. Second, Android warns
+                              alter the system icon settings and modify                                     that “Preview must be started before you can take
+                              legitimate icons of some security- sensitive apps,                            a picture”19. It seems that taking pictures and
+                              such as banking apps, to a phishing website.                                  recording videos without user notification is
+                                                                                                            impossible. However, security largely depends on
+                              After our notification, Google has patched this                               the correct implementation and enforcing a
+                              vulnerability in Android 4.4.3 and has released the                           flawless implementation is difficult. On some of
+                              patch to its OEM partners. However, according to                              the popular phones (models anonymized for
+                              Google5, by 7 July 2014, 17.9% Android devices                                security consideration), startPreview() is
+                              are using Android 4.4. Given that Android 4.4.2                               required to take pictures/record videos;
+                              and below has this vulnerability, over 82.1%                                  However, it’s highly possible that on these
+                              Android devices are vulnerable.                                               devices takePicture() fails to check whether a
+                                                                                                            view has been presented to the user.
+                              Proxy Modification                                                            Fortunately, we have never witnessed a case
+                              With the CHANGE WIFI STATE permission,                                        where the MediaRecorder can shoot videos
+                              Android processes can change the proxy                                        without calling setPreviewDisplay. But we
+                              settings of WIFI networks (not solely the currently                           were able to create and register a dummy
+                              connected one). To do this, the attacker can use                              SurfaceView to the WindowManager, which made
+                              the remote calls exposed by WifiManager to                                    taking photos and videos possible even on
+                              obtain the WifiConfiguration objects, then                                    devices that properly checked for an
+                              create new proxySettings to replace to a                                      existing preview.
+
+
+
+
+                               	 http://www.fireeye.com/blog/technical/2014/04/occupy_your_icons_ silently_on_android.html.
+                              18
+
+                               	http://developer.android.com/reference/android/hardware/Camera.html.
+                              19
+
+
+
+
+10 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              Stealthy App Installation by Abusing                                         case with the attackers eavesdropping or hijacking
+                              Credentials                                                                  the HTTP traffic. Switching to HTTPS may not
+                              With both the GET ACCOUNTS and the USE                                       solve this issue since the HTTPS security relies on
+                              CREDENTIALS permissions, Android pro- cesses                                 a flawless implementation, which is difficult. For
+                              can get secret tokens of services (e.g., Google                              example, there are cases where the developer
+                              services) from the AccountManager and use them                               failed (intentionally or unintentionally) to check
+                              to authenticate to these services20. We verified                             the server’s certificate21. We found that some of
+                              that Android apps with these two permissions can                             the most popular ad libraries (see Table 3) have
+                              authenticate themselves with the user’s Google                               this issue. We successfully launched Man-in-the-
+                              account, allowing access to Google Play and the                              Middle (MITM) attacks and intercepted the data
+                              ability send app installation requests. Through the                          uploaded to the remote server. Note that even if
+                              Javascript bridge, attackers can install apps of                             the ad libraries have a correct and rigorous
+                              choice (e.g., an attacker’s phishing app) to any                             implementation, the SSL library itself may contain
+                              devices registered in user’s account in the                                  serious vulnerabilities that can be exploited by
+                              background without user consent. Combined                                    MITM attacks22,23.
+                              with the launcher modification attack introduced
+                              earlier, the attackers can redirect other app icons                          Information Leakage from Ad Libraries
+                              (e.g., bank or email app icons) to the phishing app                          Almost every ad library uploads local information
+                              and steal the user’s login credentials.                                      from Android devices. Based on our observations,
+                                                                                                           they do so mostly for purposes such as checking
+                              Targeting Victims Based on Ad Traffic                                        for platform compatibility and user interest
+                              In this section, we explain the risks of victims’                            targeting. The information most frequently
+                              devices being tracked and targeted through                                   uploaded includes IMEI, Android version,
+                              ad traffic.                                                                  manufacturer, Android ID, device specification,
+                                                                                                           carrier information, host app information,
+                              Communication Channels Prone to Hijack                                       installed app list, etc. Table 3 lists the info
+                              It is well known that communication via HTTP is                              uploaded from the top five popular ad libraries.
+                              prone to hijacking and data tamper- ing. Though
+                              ad libraries may not have the incentive to abuse                             Listing 7 is a captured packet posted to the
+                              users’ private and sensitive data, this is not the                           remote ad server by one of the ad libraries. It is
+
+
+
+
+     Listing 7: API
+     calls to peek into/           requestactivity=AdRequest&d-device-screen-density=1.5&d-device-screen-
+     tamper with the               size=320X533&u-appBId=com.example.app&u-appDNM=Example&u-appVer=1.2&h-user-
+                                   agent=Mozilla
+     clipboard                     %2F5.0+%28Linux%3B+U%3B+Android+4.1.2%3B+en-us%3B+sdk+Build%2FMASTER%
+                                   29+AppleWebKit%2F534.30+%28KHTML%2C+like+Gecko%29+Version%2F4.0+Mobile+Safari
+                                   %2F534.30&d-localization=en_us&d-netType=umts&d-orientation=1&u-latlong-accu=
+                                   37.410835%2C-121.920514%2C
+
+
+
+
+                              20
+                                	 http://seclists.org/bugtraq/2014/Mar/52.
+                              21
+                                	Sascha Fahl, Marian Harbach, Thomas Muders, Lars Baumga¨rtner, Bernd Freisleben, and Matthew Smith. Why eve and mallory love android: An analysis
+                                 of android ssl (in) security. In Proceedings of the 2012 ACM conference on Computer and communications security, pages 50–61. ACM, 2012.
+                              22
+                                	 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224.
+                              23
+                                	http://www.fireeye.com/blog/technical/2014/04/if-an-android-has-a- heart-does-it-bleed.html.
+
+
+
+
+11 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              captured from a popular Google Play app. From                                DNS hijacking is legally and maliciously used in
+                              this packet we can tell the device’s screen density                          many situations including traffic management,
+                              (d-device-screen-density), screen size (d-device-                            phishing and censorship. Attackers successfully
+                              screen-size), host app’s pack- age name (u-appBId),                          compromised many DNS servers, including the
+                              host app’s name (u-appDNM)1, host app’s version                              ones from Google and Godaddy24. By DNS
+                              (u-appVer), user agent (h-user-agent), localization                          hijacking, attackers can effectively access all the
+                              (d-localization), mobile network type (d-netType),                           traffic to ad servers.
+                              screen orientation (d-orientation), and GPS
+                              location (u-latlong-accu). The most important                                BGP hijacking takes over groups of IP addresses,
+                              infor- mation is the GPS location, where the                                 corrupting Internet routing tables by breaking
+                              victim’s latitude, longitude and the location                                BGP sessions or injecting fake BGP information.
+                              precision are shown. It is reasonable for an ad to                           This enables attackers to monitor all traffic to
+                              obtain this information to improve the ad-serving                            specific IPs. Historically, there were many BGP
+                              experience. However, with this information, an                               hijacking attacks that affected YouTube, DNS root
+                              attacker can precisely locate the victim and                                 servers, Yahoo, and many other important
+                              acquire the device’s specifications.                                         Internet services25.
+
+                              Large-scale Monitoring and Precise Hijacking                                 ARP hijacking (or spoofing) in IDC26 is done to
+                              To locate victims effectively, an attacker needs to                          hijack the traffic to the ad server in the IDC where
+                              monitor large-scale network traffic containing                               the ad server locates through fake ARP packets.
+                              such private information. Unfortunately, several                             Attackers may rent servers close to the target
+                              well-known attacks can be used to achieve                                    servers, and use fake ARP packets to direct all the
+                              large-scale monitoring, including DNS hijacking,                             traffic to go through the hijacking servers first for
+                              BGP hijacking, and ARP hijacking in IDC.                                     monitoring and hijacking..ARP hijacking is a
+                                                                                                           well-known approach used in network attacks.
+                              In this context, DNS hijacking is done to subvert
+                              the resolution of Domain Name System (DNS)                                   Using the large-scale traffic intercepted from the
+                              queries through modifying the behavior of DNS                                above methods, attackers can iden- tify potential
+                              servers so that they serve fake DNS information.                             victims based on information leakage such as GPS
+
+
+     Figure 4: Number                                                                            App Num
+     of ad libraries
+     included in Google
+                                                      25017
+     Play apps (with
+     more than 50,000                       20429
+     downloads
+                                                                 9196
+                                                                           4452
+                                                                                                         2543
+                                                                                     2343
+                                                                                                                   1609         1310
+                                                                                               1291                                    607         980
+                                                                                                                                             498
+                                     0
+                                               0         1         2         3         4         5         6          7          8      9    10    >10
+
+
+
+
+                               	 https://isc.sans.edu/diary/Domaincontrol+(GoDaddy)+Nameservers+DNS+ Poisoning+/5146.
+                              24
+
+                               	http://www.networkworld.com/article/2272520/lan-wan/six-worst-internet- routing-attacks.html.
+                              25
+
+                               	http://en.wikipedia.org/wiki/ARP\_spoofing.
+                              26
+
+
+
+
+12 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              location described in Sec- tion 4.2. After that,        using Ad1, Ad2, ..., Ad92 to refer to them, where
+                              they can inject exploits only into the targeted         the subscripts represent the rankings of how
+                              traffic to launch further attacks. Attackers keep a     many apps include the ad libraries. The top five
+                              low profile by allowing all other irrelevant            popular ad libraries’ inclusion and download
+                              network traffic to pass without being modified.         statistics are listed in Table 2.
+
+                              Targetable and Exploitable Google                       We analyzed the 92 ad libraries found in the
+                              Play Apps                                               popular Google Play apps, and summa- rized the
+                              We used the FireEye Mobile Threat Prevention            communication channel vulnerabilities in Table
+                              (MTP) engine to analyze all of the ~73,000              3. Combined with the uploaded information
+                              popular apps from Google Play with more than            column we can learn about the data the
+                              50,000 downloads, and identified 93 ad libraries.       attackers can obtain.
+                              The detailed ad library inclusion statistics are
+                              shown in Figure 4. Seventy-one% of the apps             Fifty-seven of the 92 ad libraries in the popular
+                              contain at least one ad library, 35% have at least      Google Play apps have the JBOH issue.
+                              two ad libraries, and 22.25% include at least           Specifically, four of the top five ad libraries are
+                              three ad libraries. The largest ad inclusion            subject to this problem (shown in Table 2). Seven
+                              number is 35. Since Google is cautious about the        of the 92 ad libraries are prone to DLOH attacks.
+                              security of the products it directly controls, we       Particularly, some versions of Ad5 in Table 3 have
+                              exclude Google Ad from the following discussion.        this problem. The affected Google Play apps
+                              For security considerations, in this paper we           number and the accumulated download counts
+                              anonymize the names of the other 92 ad libraries,       are listed in Table 4.
+
+
+                              	
+     Table 2: The
+     inclusion statistics          Ad Library         Number of Apps      JBOH Apps          Total Downloads      JBOH Downloads
+     of the top five
+     Android ad
+                                      Ad1                 9,702              2,802               8,781M               2,348M
+     libraries excluding
+     Google Ad. Their
+     JBOH statistics                  Ad2                 8,856              4,204               7,865M               4,754M
+     are also listed
+     (discussed in
+                                      Ad3                 8,818              2,117               8,499M               1,611M
+     the earlier JBOH
+     section.).
+                                      Ad4                 5,519              1,112               4,687M                617M
+
+
+                                      Ad5                 5,170               0                  4,519M                  0
+
+
+
+
+13 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              	
+
+     Table 3: The
+                                   Ad Library                         Uploaded Info                       Protocol   SSL Vuln       JBOH       DLOH
+     uploaded data,
+     communication
+     channel                                               IMEI/device id, device model, An-              HTTP/
+                                      Ad1
+                                                                 droid version, location                  HTTPS
+     vulnerabilities, and
+     JBOH/DLOH details
+                                                          device specification, Android version,
+     of the top five ad               Ad2                                                                  HTTP
+                                                                  host app info, location
+     libraries.
+                                                           IMEI/device id, device model, An-
+                                      Ad3           droid version, device manufacturer, carrier info,      HTTP
+                                                                      location, ip
+
+                                                          IMEI/device id, device model, device
+                                      Ad4                                                                  HTTP
+                                                            specification, Android version
+
+                                                          IMEI/device id, device model, device
+                                      Ad5               specification, Android version, coun- try,        HTTPS
+                                                                        launguage
+
+
+
+
+                                                	
+
+     Table 4: Assessment statistics                                                                       Type I                            Type II
+                                                       Subject to attack type           Type I #                        Type II #
+     of Google Play apps (downloads                                                                     Downloads                          Downloads
+     ≥50,000) that are vulnerable to the
+                                                      Code injection via ptrace          2,055            444M            272                67M
+     Sidewinder Targeted Attack. Type I
+     apps are those subject to JBOH or                       Send SMS                     349             340M            229                254M
+     DLOH attacks; Type II apps are those
+     not only JBOH/DLOH exploitable but                  Make phone calls                 572             399M            426                324M
+     also have the LOCATION leakage
+                                                       Launcher modification              111             95M              81                37M
+     (thus vulnerable to the Sidewinder
+     Targeted Attack). Note that an app                 Proxy modification                644             792M            419                378M
+     is counted in the total statistics if
+     it is subject to any of the attacks,                  Record audio                  1,097           1,408M           654                621M
+
+     including uploading files and root             Take pictures/record videos          1,141           1,380M           622                665M
+     exploits.
+                                                       Install apps stealthily            351             552M            197                332M
+
+                                                      Total(incl. root exploits)        16,579          11,706M          4,201              3,207M
+
+
+
+
+14 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                              Conclusion
+                              In the current golden age of Android ad              1.	 Android is a complex system. Any sub-
+                              libraries, Sidewinder Targeted Attacks can               component’s vulnerability may impact the
+                              target victims using info leakage and other              security of the whole system.
+                              vulnerabilities of ad libraries to get valuable,         Fragmentation makes the situation even
+                              sensitive information. Millions of users are still       more challenging.
+                              under the threat of Sidewinder Targeted
+                              Attacks. First we need to improve the security       2.	 The trade-off between usability,
+                              and privacy protection of ad libraries. For              performance and security always matters,
+                              example, we encourage ad libraries’ publishers           and market demand frequently dictates
+                              to use HTTPS with proper SSL certificate                 that security comes last. Many Android
+                                                                                       developers do not even understand how
+                                                                                       to program securely (as shown in the
+                                                                                       JBOH issue).
+Sidewinder Targeted Attacks can target
+victims using info leakage and other                                               3.	 Many security patches are not back-ported
+                                                                                       to old versions of Android (like the launcher
+vulnerabilities of ad libraries to get valuable,                                       settings problem described earlier), even
+sensitive information. Millions of users are                                           though older versions are widely used.
+
+still under the threat of Sidewinder                                               4.	 There is always information asymmetry in
+Targeted Attacks.                                                                      the development chain. For example, it
+                                                                                       usually takes several months for vendors to
+                                                                                       apply security patches after Google
+                                                                                       releases them.
+                              validation, and to properly encrypt network
+                              traffic. They also need to be cautious about         Albeit challenging, we hope that this work
+                              which privileged interfaces are exposed to the       can kickstart a conversation, both on
+                              ad providers, in case of malicious ads or            improved security and privacy protection in
+                              attackers hijacking the communication channels.      third-party libraries and on a hardened
+                                                                                   Android security framework.
+                              Meanwhile, Google itself needs to further
+                              harden the security framework. This may prove
+                              difficult because:
+
+
+
+
+15 www.fireeye.com
+FireEye: Sidewinder Targeted Attack against Android
+
+
+
+
+                                    About FireEye, Inc.                                   provides real-time, dynamic threat protection
+                                    FireEye has invented a purpose-built, virtual         without the use of signatures to protect an
+                                    machine-based security platform that provides         organization across the primary threat vectors and
+                                    real-time threat protection to enterprises and        across the different stages of an attack life cycle.
+                                    governments worldwide against the next                The core of the FireEye platform is a virtual
+                                    generation of cyber attacks. These highly             execution engine, complemented by dynamic threat
+                                    sophisticated cyber attacks easily circumvent         intelligence, to identify and block cyber attacks in
+                                    traditional signature-based defenses, such as         real time. FireEye has over 1,900 customers across
+                                    next-generation firewalls, IPS, anti-virus, and       more than 60 countries, including over 130 of the
+                                    gateways. The FireEye Threat Prevention Platform      Fortune 500.
+
+
+
+
+FireEye, Inc. | 1440 McCarthy Blvd. Milpitas, CA 95035 | 408.321.6300 | 877.FIREEYE (347.3393) | info@fireeye.com | www.fireeye.com
+
+© 2014 FireEye, Inc. All rights reserved. FireEye is a registered trademark of FireEye,
+Inc. All other brands, products, or service names are or may be trademarks or service
+marks of their respective owners. WP.SW.EN-US.072014
+

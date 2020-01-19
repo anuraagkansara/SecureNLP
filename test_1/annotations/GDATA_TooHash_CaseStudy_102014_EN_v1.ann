@@ -1,0 +1,123 @@
+T1	Subject 6762 6775	The attackers
+T2	Action 6798 6807	carry out
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Object 6808 6822	spear phishing
+T4	Modifier 6823 6828	using
+T5	Object 6829 6872;6873 6883	a malicious Microsoft Office document as an attachment
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ModObj Modifier:T4 Object:T5	
+R4	ActionMod Action:T2 Modifier:T4	
+T6	Subject 7537 7559	The attached documents
+T7	Action 7630 7634	drop
+A4	Capability T7 012:MalwareCapability-machine_access/control
+A5	ActionName T7 024:File-create_file
+A6	StrategicObjectives T7 039:MachineAccessControl-install_backdoor
+T8	Object 7635 7643;7644 7663	a remote administration tool
+T9	Modifier 7683 7687	onto
+T10	Object 7688 7716	the targeted user’s computer
+R5	SubjAction Subject:T6 Action:T7	
+R6	ActionObj Action:T7 Object:T8	
+R7	ModObj Modifier:T9 Object:T10	
+R8	ActionMod Action:T7 Modifier:T9	
+T11	Subject 7786 7790	Both
+T12	Action 7791 7798	include
+A7	Capability T12 012:MalwareCapability-machine_access/control
+A8	TacticalObjectives T12 100:MachineAccessControl-control_machine_via_remote_command
+A9	StrategicObjectives T12 038:MachineAccessControl-control_local_machine
+T13	Object 7841 7855	code execution
+R9	ActionObj Action:T12 Object:T13	
+T14	Action 7791 7798	include
+A10	Capability T14 019:MalwareCapability-spying
+A11	TacticalObjectives T14 138:Spying-capture_file_system
+T15	Object 7857 7861;7862 7869	file listing
+R10	ActionObj Action:T14 Object:T15	
+T16	Action 7791 7798	include
+A12	Capability T16 007:MalwareCapability-data_theft
+A13	TacticalObjectives T16 070:DataTheft-steal_documents
+A14	StrategicObjectives T16 023:DataTheft-steal_stored_information
+T17	Object 7871 7892	document exfiltration
+R11	ActionObj Action:T16 Object:T17	
+R12	SubjAction Subject:T11 Action:T16	
+R13	SubjAction Subject:T11 Action:T14	
+R14	SubjAction Subject:T11 Action:T12	
+T18	Action 7963 7967	used
+A15	Capability T18 005:MalwareCapability-command_and_control
+T19	Object 7917 7957	more than 75 command and control servers
+R15	ActionObj Action:T18 Object:T19	
+T20	Modifier 7968 7970	to
+T21	Object 7971 8001	administrate infected machines
+R16	ActionMod Action:T18 Modifier:T20	
+R17	ModObj Modifier:T20 Object:T21	
+T22	Subject 10413 10426	the attackers
+T23	Action 10436 10445	carry out
+A16	Capability T23 010:MalwareCapability-infection/propagation
+A17	TacticalObjectives T23 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A18	StrategicObjectives T23 031:InfectionPropagation-infect_remote_machine
+T24	Object 10446 10447;10448 10471	a spear phishing campaign
+R18	SubjAction Subject:T22 Action:T23	
+R19	ActionObj Action:T23 Object:T24	
+T25	Action 12980 12992	is performed
+A19	Capability T25 005:MalwareCapability-command_and_control
+A20	StrategicObjectives T25 018:CommandandControl-send_data_to_c2_server
+T26	Object 12964 12979	a network query
+R20	ActionObj Action:T25 Object:T26	
+T27	Action 16474 16484	is ensured
+A21	Capability T27 013:MalwareCapability-persistence
+T28	Object 16462 16473	Persistence
+R21	ActionObj Action:T27 Object:T28	
+T29	Modifier 16485 16487	by
+T30	Object 16488 16526;16527 16551	the creation of a shortcut file (.lnk) in the Start Menu folder
+R22	ActionMod Action:T27 Modifier:T29	
+R23	ModObj Modifier:T29 Object:T30	
+T31	Subject 18619 18639	The “Cohhoc” malware
+T32	Action 18640 18644	uses
+A22	Capability T32 002:MalwareCapability-anti-detection
+T33	Object 18645 18665	an obfuscation layer
+T34	Modifier 18667 18669	to
+T35	Object 18670 18690	disguise the malware
+R24	ModObj Modifier:T34 Object:T35	
+A23	TacticalObjectives T32 016:AntiDetection-encrypt_self
+R25	ActionObj Action:T32 Object:T33	
+R26	ActionMod Action:T32 Modifier:T34	
+T36	Action 18640 18644	uses
+A24	Capability T36 001:MalwareCapability-anti-code_analysis
+A25	StrategicObjectives T36 004:AntiCodeAnalysis-code_obfuscation
+R27	ActionObj Action:T36 Object:T33	
+T37	Modifier 18695 18697	to
+T38	Object 18698 18721	complicate the analysis
+R28	ActionMod Action:T36 Modifier:T37	
+R29	ModObj Modifier:T37 Object:T38	
+R30	SubjAction Subject:T31 Action:T36	
+R31	SubjAction Subject:T31 Action:T32	
+T39	Action 21858 21869	is realized
+A26	Capability T39 013:MalwareCapability-persistence
+A27	ActionName T39 147:Service-create_service
+T40	Object 21832 21857	The persistence mechanism
+R32	ActionObj Action:T39 Object:T40	
+T41	Modifier 21870 21872	by
+T42	Object 21873 21898	the creation of a service
+R33	ActionMod Action:T39 Modifier:T41	
+R34	ModObj Modifier:T41 Object:T42	
+T43	Action 23340 23351	is injected
+A28	Capability T43 002:MalwareCapability-anti-detection
+A29	ActionName T43 119:ProcessMemory-map_library_into_process
+A30	TacticalObjectives T43 019:AntiDetection-execute_stealthy_code
+T44	Object 23328 23339	the library
+T45	Modifier 23352 23356	into
+T46	Object 23357 23410;23411 23445	the process of BitDefender (seccenter.exe), ZoneAlarm (svchost.exe) or 360 (360tray.exe)
+R35	ModObj Modifier:T45 Object:T46	
+R36	ActionObj Action:T43 Object:T44	
+R37	ActionMod Action:T43 Modifier:T45	
+T47	Action 23579 23591	is performed
+A31	Capability T47 002:MalwareCapability-anti-detection
+A32	ActionName T47 119:ProcessMemory-map_library_into_process
+A33	TacticalObjectives T47 019:AntiDetection-execute_stealthy_code
+T48	Object 23565 23578	the injection
+T49	Modifier 23592 23596	into
+T50	Object 23597 23609	explorer.exe
+R38	ActionObj Action:T47 Object:T48	
+R39	ActionMod Action:T47 Modifier:T49	
+R40	ModObj Modifier:T49 Object:T50	

@@ -1,0 +1,355 @@
+T1	Subject 1690 1710	The CozyDuke toolset
+T2	Action 1814 1823	infecting
+T3	Object 1824 1838	targeted hosts
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+A1	TacticalObjectives T2 088:InfectionPropagation-identify_target_machine(s)
+A2	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T4	Action 1844 1872	establishing and maintaining
+A3	Capability T4 012:MalwareCapability-machine_access/control
+A4	StrategicObjectives T4 039:MachineAccessControl-install_backdoor
+T5	Object 1873 1888	backdoor access
+T6	Modifier 1889 1891	to
+T7	Object 1892 1895;1900 1905	the hosts
+R3	SubjAction Subject:T1 Action:T4	
+R4	ActionObj Action:T4 Object:T5	
+R5	ActionMod Action:T4 Modifier:T6	
+R6	ModObj Modifier:T6 Object:T7	
+T8	Action 1907 1916	gathering
+T9	Object 1917 1928	information
+T10	Modifier 1929 1933	from
+T11	Object 1934 1938	them
+R7	CoRefer Referer:T7 Canonical:T11	
+R8	SubjAction Subject:T1 Action:T8	
+R9	ActionObj Action:T8 Object:T9	
+R10	ActionMod Action:T8 Modifier:T10	
+R11	ModObj Modifier:T10 Object:T11	
+A5	Capability T8 015:MalwareCapability-probing
+T12	Action 1943 1950	gaining
+T13	Object 1955 1969	further access
+T14	Modifier 1970 1972	to
+T15	Object 1973 2002;2007 2019	other hosts inside the victim organization
+R12	SubjAction Subject:T1 Action:T12	
+R13	ActionObj Action:T12 Object:T13	
+R14	ActionMod Action:T12 Modifier:T14	
+R15	ModObj Modifier:T14 Object:T15	
+T17	Action 3279 3288	infecting
+T18	Object 3289 3294	hosts
+T16	Subject 3232 3246;3263 3274	multiple kinds of droppers
+T19	Modifier 3295 3299	with
+T20	Object 3300 3308	CozyDuke
+R16	ModObj Modifier:T19 Object:T20	
+R17	ActionObj Action:T17 Object:T18	
+R18	ActionMod Action:T17 Modifier:T19	
+R19	SubjAction Subject:T16 Action:T17	
+A6	Capability T17 010:MalwareCapability-infection/propagation
+T21	Action 3329 3338	executing
+T22	Object 3339 3355	additional tools
+T23	Modifier 3356 3360	from
+T24	Object 3361 3381	the CozyDuke toolset
+R20	ActionObj Action:T21 Object:T22	
+R21	ModObj Modifier:T23 Object:T24	
+R22	ActionMod Action:T21 Modifier:T23	
+R23	SubjAction Subject:T16 Action:T21	
+A7	Capability T21 017:MalwareCapability-secondary_operation
+A8	TacticalObjectives T21 119:SecondaryOperation-install_secondary_module
+A9	StrategicObjectives T21 050:SecondaryOperation-install_other_components
+T25	Action 3570 3579	gathering
+T26	Subject 3404 3424	the CozyDuke toolset
+R24	SubjAction Subject:T26 Action:T25	
+T27	Object 3580 3599	further information
+R25	ActionObj Action:T25 Object:T27	
+T28	Modifier 3600 3604	from
+T29	Object 3605 3619	infected hosts
+R26	ModObj Modifier:T28 Object:T29	
+R27	ActionMod Action:T25 Modifier:T28	
+A10	Capability T25 015:MalwareCapability-probing
+T30	Action 3627 3636	infecting
+T31	Object 3646 3694	additional hosts in the same target organization
+R28	ActionObj Action:T30 Object:T31	
+R29	SubjAction Subject:T26 Action:T30	
+A11	Capability T12 010:MalwareCapability-infection/propagation
+A12	StrategicObjectives T12 031:InfectionPropagation-infect_remote_machine
+A13	TacticalObjectives T12 088:InfectionPropagation-identify_target_machine(s)
+A14	Capability T30 010:MalwareCapability-infection/propagation
+A15	TacticalObjectives T30 088:InfectionPropagation-identify_target_machine(s)
+A16	StrategicObjectives T30 031:InfectionPropagation-infect_remote_machine
+T32	Subject 4084 4092	CozyDuke
+T33	Action 4099 4105	spread
+T34	Modifier 4106 4109	via
+T35	Object 4110 4115	email
+R30	SubjAction Subject:T32 Action:T33	
+R31	ActionMod Action:T33 Modifier:T34	
+R32	ModObj Modifier:T34 Object:T35	
+A17	Capability T33 010:MalwareCapability-infection/propagation
+A18	TacticalObjectives T33 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T36	Subject 4305 4318	an executable
+T37	Action 4358 4363	write
+T38	Modifier 4364 4366	to
+T39	Object 4367 4371	disk
+R33	SubjAction Subject:T36 Action:T37	
+R34	ActionMod Action:T37 Modifier:T38	
+R35	ModObj Modifier:T38 Object:T39	
+A19	ActionName T37 024:File-create_file
+T40	Action 4376 4383	execute
+R36	SubjAction Subject:T36 Action:T40	
+T41	Object 4397 4405	CozyDuke
+R37	ActionObj Action:T40 Object:T41	
+A20	ActionName T40 029:File-execute_file
+T42	Subject 6412 6420	CozyDuke
+T43	Action 6445 6455	downloaded
+R38	SubjAction Subject:T42 Action:T43	
+T44	Object 6470 6507;6509 6518	droppers for DLL files reminiscent of OnionDuke
+R39	ActionObj Action:T43 Object:T44	
+T45	Action 6461 6469	executed
+R40	SubjAction Subject:T42 Action:T45	
+R41	ActionObj Action:T45 Object:T44	
+A21	ActionName T43 090:Network-download_file
+A22	ActionName T45 029:File-execute_file
+T46	Subject 7415 7417	it
+T47	Action 7423 7428	write
+T48	Object 7429 7438	two files
+T49	Modifier 7439 7441	to
+T50	Object 7442 7446	disk
+T52	Subject 7662 7674	This dropper
+T53	Action 7705 7710	write
+T54	Object 7719 7747	the main CozyDuke components
+T55	Modifier 7711 7713	to
+T56	Object 7714 7718	disk
+R47	ModObj Modifier:T55 Object:T56	
+R48	ActionMod Action:T53 Modifier:T55	
+R49	ActionObj Action:T53 Object:T54	
+R50	SubjAction Subject:T52 Action:T53	
+A24	ActionName T53 024:File-create_file
+T57	Object 7768 7813	encrypted configuration file used by CozyDuke
+R51	ActionObj Action:T53 Object:T57	
+T58	Subject 9593 9618	The main CozyDuke dropper
+T59	Action 9671 9679	checking
+T60	Modifier 9680 9687	whether
+T61	Object 9688 9698;9700 9735	the victim has an anti-virus product installed
+R52	SubjAction Subject:T58 Action:T59	
+R53	ActionMod Action:T59 Modifier:T60	
+R54	ModObj Modifier:T60 Object:T61	
+A25	Capability T59 002:MalwareCapability-anti-detection
+A26	StrategicObjectives T59 009:AntiDetection-security_software_evasion
+T66	Subject 9929 9958	Newer versions of the dropper
+T62	Action 9994 10000	ensure
+T63	Object 10001 10034	the dropper is not being executed
+T64	Modifier 10035 10041	inside
+T65	Object 10043 10060	a virtual machine
+R55	ModObj Modifier:T64 Object:T65	
+T67	Modifier 10035 10041	inside
+T68	Object 10064 10096	a known malware analysis sandbox
+R56	ModObj Modifier:T67 Object:T68	
+T69	Action 9994 10000	ensure
+R57	ActionMod Action:T69 Modifier:T67	
+R58	ActionObj Action:T69 Object:T63	
+R59	ActionMod Action:T62 Modifier:T64	
+R60	ActionObj Action:T62 Object:T63	
+R61	SubjAction Subject:T66 Action:T69	
+R62	SubjAction Subject:T66 Action:T62	
+A27	Capability T62 000:MalwareCapability-anti-behavioral_analysis
+A28	TacticalObjectives T62 001:AntiBehavioralAnalysis-detect_vm_environment
+A29	StrategicObjectives T62 001:AntiBehavioralAnalysis-anti-vm
+A30	Capability T69 000:MalwareCapability-anti-behavioral_analysis
+A31	TacticalObjectives T69 000:AntiBehavioralAnalysis-detect_sandbox_environment
+A32	StrategicObjectives T69 000:AntiBehavioralAnalysis-anti-sandbox
+T70	Subject 11052 11063	The dropper
+T71	Action 11085 11090	write
+T72	Object 11091 11103;11105 11115	the CozyDuke components
+T73	Modifier 11116 11118	to
+T74	Object 11119 11141	the specified location
+R63	ModObj Modifier:T73 Object:T74	
+R64	ActionObj Action:T71 Object:T72	
+R65	SubjAction Subject:T70 Action:T71	
+R66	ActionMod Action:T71 Modifier:T73	
+A33	ActionName T71 024:File-create_file
+T75	Subject 11143 11154	The dropper
+T76	Action 11174 11178	copy
+T77	Object 11179 11207	the system file rundll32.exe
+T78	Modifier 11208 11210	to
+T79	Object 11211 11214;11216 11245	the install location for CozyDuke
+R67	ModObj Modifier:T78 Object:T79	
+R68	ActionObj Action:T76 Object:T77	
+R69	ActionMod Action:T76 Modifier:T78	
+R70	SubjAction Subject:T75 Action:T76	
+A34	ActionName T76 023:File-copy_file
+T80	Subject 11334 11337;11339 11346	the dropper
+T81	Action 11352 11355	use
+T82	Object 11356 11380	the copy of rundll32.exe
+T83	Modifier 11381 11383	to
+T84	Object 11384 11392;11394 11429	load and execute the CozyDuke main component
+R71	SubjAction Subject:T80 Action:T81	
+R72	ActionObj Action:T81 Object:T82	
+R73	ActionMod Action:T81 Modifier:T83	
+R74	ModObj Modifier:T83 Object:T84	
+A35	ActionName T81 084:Library-load_library
+T85	Subject 11956 11976	the CozyDuke dropper
+T86	Action 11935 11943	executed
+T87	Object 11913 11931	The main component
+R75	SubjAction Subject:T85 Action:T86	
+R76	ActionObj Action:T86 Object:T87	
+T88	Modifier 11977 11982	using
+T89	Object 11983 12005	a copy of rundll32.exe
+R77	ModObj Modifier:T88 Object:T89	
+R78	ActionMod Action:T86 Modifier:T88	
+A36	ActionName T86 084:Library-load_library
+T90	Subject 12198 12232	The most important functionalities
+T91	Action 12269 12272	are
+T92	Object 12273 12301	establishment of persistence
+T93	Object 12303 12312;12320 12347	gathering of basic system information
+T94	Object 12349 12375;12381 12387	communication with the C&C server
+T95	Object 12392 12437;12442 12453	the execution of additional tasks, modules or executables
+T96	Modifier 12454 12456	as
+T97	Object 12457 12484	commanded by the C&C server
+R79	ActionObj Action:T91 Object:T95	
+R80	ActionMod Action:T91 Modifier:T96	
+R81	ModObj Modifier:T96 Object:T97	
+A37	Capability T91 005:MalwareCapability-command_and_control
+A38	TacticalObjectives T91 047:CommandandControl-control_malware_via_remote_command
+A39	StrategicObjectives T91 017:CommandandControl-receive_data_from_c2_server
+T98	Action 12269 12272	are
+R82	ActionObj Action:T98 Object:T94	
+A40	Capability T98 005:MalwareCapability-command_and_control
+T99	Action 12269 12272	are
+A41	Capability T99 015:MalwareCapability-probing
+R83	ActionObj Action:T99 Object:T93	
+T100	Action 12269 12272	are
+R84	ActionObj Action:T100 Object:T92	
+A42	Capability T100 013:MalwareCapability-persistence
+R85	SubjAction Subject:T90 Action:T91	
+R86	SubjAction Subject:T90 Action:T98	
+R87	SubjAction Subject:T90 Action:T99	
+R88	SubjAction Subject:T90 Action:T100	
+T101	Subject 12819 12827	CozyDuke
+T102	Action 12883 12889	adding
+T103	Object 12890 12906	a registry value
+R89	SubjAction Subject:T101 Action:T102	
+T104	Modifier 12843 12845	to
+T105	Object 12846 12875	be executed at system startup
+R90	ModObj Modifier:T104 Object:T105	
+R91	ActionObj Action:T102 Object:T103	
+R92	ActionMod Action:T102 Modifier:T104	
+A43	ActionName T102 136:Registry-create_registry_key_value
+T106	Subject 13681 13689	CozyDuke
+T107	Action 13699 13707	register
+T108	Object 13708 13714	itself
+T109	Modifier 13715 13717	as
+T110	Object 13718 13735	a Windows service
+A44	ActionName T107 147:Service-create_service
+R93	SubjAction Subject:T106 Action:T107	
+R94	ActionObj Action:T107 Object:T108	
+R95	ActionMod Action:T107 Modifier:T109	
+R96	ModObj Modifier:T109 Object:T110	
+T111	Action 13699 13707	register
+A45	ActionName T111 183:System-add_scheduled_task
+T112	Modifier 13715 13717	as
+T113	Object 13741 13755	scheduled task
+R97	ModObj Modifier:T112 Object:T113	
+R98	ActionMod Action:T111 Modifier:T112	
+R99	SubjAction Subject:T106 Action:T111	
+R100	ActionObj Action:T111 Object:T108	
+A46	Capability T111 013:MalwareCapability-persistence
+A47	StrategicObjectives T111 042:Persistence-persist_to_continuously_execute_on_system
+A49	Capability T102 013:MalwareCapability-persistence
+A50	StrategicObjectives T102 042:Persistence-persist_to_continuously_execute_on_system
+A51	TacticalObjectives T102 104:Persistence-persist_after_system_reboot
+A48	Capability T107 013:MalwareCapability-persistence
+A52	StrategicObjectives T107 042:Persistence-persist_to_continuously_execute_on_system
+T114	Subject 13891 13899	CozyDuke
+T115	Action 13907 13915	“hijack”
+T116	Object 13916 13955;13958 13979	the registry entries for the COM object “SharedTaskScheduler”
+R101	SubjAction Subject:T114 Action:T115	
+R102	ActionObj Action:T115 Object:T116	
+A53	ActionName T115 143:Registry-modify_registry_key_value
+T117	Subject 13981 13989	CozyDuke
+T118	Action 13995 14001	modify
+T119	Object 14002 14005;14008 14024	the registry entries
+T120	Modifier 14140 14144	that
+T121	Object 14145 14178;14181 14199	will ensure CozyDuke stays active on the victim host
+R103	ModObj Modifier:T120 Object:T121	
+R104	SubjAction Subject:T117 Action:T118	
+R105	ActionObj Action:T118 Object:T119	
+R106	ActionMod Action:T118 Modifier:T120	
+A54	Capability T118 013:MalwareCapability-persistence
+A55	ActionName T118 143:Registry-modify_registry_key_value
+A56	StrategicObjectives T118 042:Persistence-persist_to_continuously_execute_on_system
+T122	Subject 18656 18659;18677 18728	the configuration data for any single CozyDuke instance
+T123	Action 18749 18757	included
+A57	Capability T123 005:MalwareCapability-command_and_control
+A58	StrategicObjectives T123 016:CommandandControl-determine_c2_server
+T124	Object 18758 18802	the details of either one or two C&C servers
+R107	SubjAction Subject:T122 Action:T123	
+R108	ActionObj Action:T123 Object:T124	
+T125	Subject 18317 18325	CozyDuke
+T126	Action 18343 18356	communicating
+T127	Modifier 18357 18361	with
+T128	Object 18362 18365;18389 18415	its command and control server
+T129	Modifier 18419 18424	using
+T130	Object 18425 18439;18461 18466	either HTTP or HTTPS
+R109	SubjAction Subject:T125 Action:T126	
+R110	ActionMod Action:T126 Modifier:T127	
+R111	ModObj Modifier:T127 Object:T128	
+R112	ActionMod Action:T126 Modifier:T129	
+R113	ModObj Modifier:T129 Object:T130	
+A59	Capability T126 005:MalwareCapability-command_and_control
+A60	ActionName T126 052:HTTP-send_http_connect_request
+T131	Subject 19457 19483	CozyDuke’s primary purpose
+T132	Action 19484 19486	is
+T133	Object 19487 19509	the execution of tasks
+R114	SubjAction Subject:T131 Action:T132	
+R115	ActionObj Action:T132 Object:T133	
+A61	ActionName T132 104:Process-create_process
+T134	Object 19540 19567;19569 19615	the execution of modules or executables providing additional functionality
+T135	Action 19532 19539	involve
+T136	Subject 19512 19523	These tasks
+R116	SubjAction Subject:T136 Action:T135	
+R117	ActionObj Action:T135 Object:T134	
+A62	ActionName T135 029:File-execute_file
+T137	Subject 19862 19880;19882 19893	the main component of CozyDuke
+T138	Action 19894 19904	implements
+R119	SubjAction Subject:T137 Action:T138	
+T139	Object 19905 19928;19930 19948	6 commands that the C&C server can specify
+R118	ActionObj Action:T138 Object:T139	
+A63	Capability T138 016:MalwareCapability-remote_machine_manipulation
+A64	TacticalObjectives T138 100:MachineAccessControl-control_machine_via_remote_command
+A65	StrategicObjectives T138 038:MachineAccessControl-control_local_machine
+T151	Subject 21723 21739	CozyDuke modules
+T152	Action 21843 21852	extending
+T153	Object 21859 21883	CozyDuke’s functionality
+R132	SubjAction Subject:T151 Action:T152	
+R133	ActionObj Action:T152 Object:T153	
+A72	Capability T152 017:MalwareCapability-secondary_operation
+A73	TacticalObjectives T152 119:SecondaryOperation-install_secondary_module
+A74	StrategicObjectives T152 050:SecondaryOperation-install_other_components
+T154	Subject 21945 21953	CozyDuke
+T155	Action 21959 21964	write
+T156	Object 21920 21939	PE executable files
+R134	SubjAction Subject:T154 Action:T155	
+R135	ActionObj Action:T155 Object:T156	
+T157	Modifier 21965 21967	to
+T158	Object 21968 21972	disk
+R136	ActionMod Action:T155 Modifier:T157	
+R137	ModObj Modifier:T157 Object:T158	
+A76	ActionName T155 024:File-create_file
+T159	Action 21979 21986	execute
+T160	Modifier 21987 21989	on
+T161	Object 21990 22007	the infected host
+R138	ModObj Modifier:T160 Object:T161	
+R139	ActionMod Action:T159 Modifier:T160	
+R140	SubjAction Subject:T154 Action:T159	
+R141	ActionObj Action:T159 Object:T156	
+A77	ActionName T159 029:File-execute_file
+T162	Subject 22159 22174	the executables
+T163	Action 22179 22183	drop
+T164	Object 22184 22202;22207 22222	other executables, scripts or DLLs
+R142	SubjAction Subject:T162 Action:T163	
+R143	ActionObj Action:T163 Object:T164	
+A78	Capability T163 017:MalwareCapability-secondary_operation
+A79	TacticalObjectives T163 118:SecondaryOperation-install_secondary_malware
+A80	StrategicObjectives T163 050:SecondaryOperation-install_other_components
+A23	ActionName T47 024:File-create_file
+R42	SubjAction Subject:T46 Action:T47	
+R43	ActionObj Action:T47 Object:T48	
+R44	ModObj Modifier:T49 Object:T50	
+R45	ActionMod Action:T47 Modifier:T49	

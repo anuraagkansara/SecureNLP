@@ -1,0 +1,55 @@
+T1	Action 134 141	running
+A1	Capability T1 011:MalwareCapability-integrity_violation
+A2	ActionName T1 091:Network-listen_on_port
+A3	StrategicObjectives T1 034:IntegrityViolation-compromise_network_operational_integrity
+A4	TacticalObjectives T1 098:IntegrityViolation-intercept/manipulate_network_traffic
+T2	Object 142 155	a MITM attack
+T3	Subject 118 129	The Chinese
+R1	SubjAction Subject:T3 Action:T1	
+R2	ActionObj Action:T1 Object:T2	
+T4	Action 5390 5404	is carried out
+A5	Capability T4 011:MalwareCapability-integrity_violation
+A6	ActionName T4 091:Network-listen_on_port
+A7	StrategicObjectives T4 034:IntegrityViolation-compromise_network_operational_integrity
+A8	TacticalObjectives T4 098:IntegrityViolation-intercept/manipulate_network_traffic
+T5	Object 5381 5389	the MITM
+T6	Object 5408 5433	the 2001:252::/32 network
+T7	Action 6131 6143	taking place
+A9	Capability T7 010:MalwareCapability-infection/propagation
+A11	StrategicObjectives T7 034:IntegrityViolation-compromise_network_operational_integrity
+A12	TacticalObjectives T7 098:IntegrityViolation-intercept/manipulate_network_traffic
+T8	Subject 6123 6130	IP MITM
+R5	SubjAction Subject:T8 Action:T7	
+T9	Action 8101 8119	is being conducted
+A13	Capability T9 011:MalwareCapability-integrity_violation
+A14	ActionName T9 091:Network-listen_on_port
+A15	StrategicObjectives T9 034:IntegrityViolation-compromise_network_operational_integrity
+A16	TacticalObjectives T9 098:IntegrityViolation-intercept/manipulate_network_traffic
+T10	Object 8087 8100	a MITM attack
+T11	Object 8128 8162;8163 8219	traffic between China’s nationwide education and research network CERNET and www.google.com
+T14	Object 8690 8702	IP hijacking
+T15	Action 8679 8689	performing
+A10	Capability T15 011:MalwareCapability-integrity_violation
+A20	ActionName T15 091:Network-listen_on_port
+A21	StrategicObjectives T15 034:IntegrityViolation-compromise_network_operational_integrity
+A22	TacticalObjectives T15 098:IntegrityViolation-intercept/manipulate_network_traffic
+R9	ActionObj Action:T15 Object:T14	
+T16	Action 8716 8729	reconfiguring
+A23	Capability T16 011:MalwareCapability-integrity_violation
+A24	ActionName T16 091:Network-listen_on_port
+A25	StrategicObjectives T16 034:IntegrityViolation-compromise_network_operational_integrity
+A26	TacticalObjectives T16 098:IntegrityViolation-intercept/manipulate_network_traffic
+T12	Object 8730 8738	a router
+T17	Modifier 8739 8741	to
+T18	Object 8742 8784;8785 8794	forward the HTTPS traffic to a transparent SSL proxy
+R10	ModObj Modifier:T17 Object:T18	
+R11	ActionObj Action:T16 Object:T12	
+R12	ActionMod Action:T16 Modifier:T17	
+T13	Modifier 8120 8127	against
+R6	ModObj Modifier:T13 Object:T11	
+R7	ActionMod Action:T9 Modifier:T13	
+R8	ActionObj Action:T9 Object:T10	
+R3	ActionObj Action:T4 Object:T5	
+T19	Modifier 5405 5407	on
+R4	ModObj Modifier:T19 Object:T6	
+R13	ActionMod Action:T4 Modifier:T19	

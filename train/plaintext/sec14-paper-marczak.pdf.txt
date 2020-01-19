@@ -1,0 +1,1077 @@
+         When Governments Hack Opponents:
+          A Look at Actors and Technology
+     William R. Marczak, University of California, Berkeley, and The Citizen Lab;
+    John Scott-Railton, University of California, Los Angeles, and The Citizen Lab;
+Morgan Marquis-Boire, The Citizen Lab; Vern Paxson, University of California, Berkeley,
+                    and International Computer Science Institute
+   https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/marczak
+
+
+            This paper is included in the Proceedings of the
+                   23rd USENIX Security Symposium.
+                           August 20–22, 2014 • San Diego, CA
+                                     ISBN 978-1-931971-15-7
+
+
+
+
+                                                   Open access to the Proceedings of
+                                                 the 23rd USENIX Security Symposium
+                                                        is sponsored by USENIX
+    When Governments Hack Opponents: A Look at Actors and Technology
+
+             William R. Marczak                         John Scott-Railton                  Morgan Marquis-Boire
+            UC Berkeley, Citizen Lab                    UCLA, Citizen Lab                       Citizen Lab
+                                                         Vern Paxson
+                                                       UC Berkeley, ICSI
+
+
+Abstract                                                             we provide extensive detail from both technical and operational
+                                                                     perspectives as seen in three countries. We view such character-
+Repressive nation-states have long monitored telecommunica-          izations as the fundamental first step necessary for the rigorous,
+tions to keep tabs on political dissent. The Internet and online     scientific pursuit of a new problem space.
+social networks, however, pose novel technical challenges to            For our study we draw upon several years of research we
+this practice, even as they open up new domains for surveil-         have conducted into cases from Bahrain, Syria and the United
+lance. We analyze an extensive collection of suspicious files        Arab Emirates. We frame the nature of these attacks, and the
+and links targeting activists, opposition members, and non-          technology and infrastructure used to conduct them, in the con-
+governmental organizations in the Middle East over the past          text of their impacts on real people. We hope in the process to
+several years. We find that these artifacts reflect efforts to at-   inspire additional research efforts addressing the difficult prob-
+tack targets’ devices for the purposes of eavesdropping, stealing    lem of how to adequately protect individuals with very limited
+information, and/or unmasking anonymous users. We describe           resources facing powerful adversaries.
+attack campaigns we have observed in Bahrain, Syria, and the            As an illustration of this phenomenon, consider the follow-
+United Arab Emirates, investigating attackers, tools, and tech-      ing anecdote, pieced together from public reports and court
+niques. In addition to off-the-shelf remote access trojans and       documents.
+the use of third-party IP-tracking services, we identify commer-        At dawn on 3/12/13,1 police raided the house of 17-year-
+cial spyware marketed exclusively to governments, including          old Ali Al-Shofa, confiscated his laptop and phone, and took
+Gamma’s FinSpy and Hacking Team’s Remote Control Sys-                him into custody. He was charged with referring to Bahrain’s
+tem (RCS). We describe their use in Bahrain and the UAE, and         King as a “dictator” (         ) and “fallen one” (         ) on a
+map out the potential broader scope of this activity by conduct-
+                                                                     pseudonymous Twitter account, @alkawarahnews. Accord-
+ing global scans of the corresponding command-and-control
+                                                                     ing to court documents, Bahrain’s Cyber Crime Unit had linked
+(C&C) servers. Finally, we frame the real-world consequences
+                                                                     an IP address registered in his father’s name to the account on
+of these campaigns via strong circumstantial evidence linking
+                                                                     12/9/12. Operators of @alkawarahnews later forwarded a
+hacking to arrests, interrogations, and imprisonment.
+                                                                     suspicious private message to one of the authors. The message
+                                                                     was received on 12/8/12 on a Facebook account linked to the
+                                                                     Twitter handle, and contained a link to a protest video, purport-
+1    Introduction                                                    edly sent by an anti-government individual. The link redirected
+                                                                     through iplogger.org, a service that records the IP address
+Computer security research devotes extensive efforts to pro-
+                                                                     of anyone who clicks. Analytics for the link indicate that it had
+tecting individuals against indiscriminate, large-scale attacks
+                                                                     been clicked once from inside Bahrain. On 6/25/13, Ali was
+such as those used by cybercriminals. Recently, the prob-
+                                                                     sentenced to one year in prison.
+lem of protecting institutions against targeted attacks conducted
+                                                                        Ali’s case is an example of the larger phenomenon we in-
+by nation-states (so-called “Advanced Persistent Threats”) has
+                                                                     vestigate: attacks against activists, dissidents, trade unionists,
+likewise elicited significant research interest. Where these two
+                                                                     human rights campaigners, journalists, and members of NGOs
+problem domains intersect, however—targeted cyber attacks by
+                                                                     (henceforth “targets”) in the Middle East. The attacks we have
+nation-states against individuals—has received virtually no sig-
+                                                                     documented usually involve the use of malicious links or e-mail
+nificant, methodical research attention to date. This new prob-
+                                                                     attachments, designed to obtain information from a device. On
+lem space poses challenges that are both technically complex
+                                                                     the one hand, we have observed attacks using a wide range of
+and of significant real-world importance.
+                                                                     off-the-shelf spyware, as well as publicly available third-party
+   In this work we undertake to characterize the emergent prob-      services, like iplogger.org. On the other hand, some at-
+lem space of nation-state Internet attacks against individuals       tacks use so-called “lawful intercept” trojans and related equip-
+engaged in pro-democracy or opposition movements. While
+we lack the data to do so in a fully comprehensive fashion,             1 Dates   in the paper are given MM/DD/YY.
+
+
+
+
+USENIX Association 	                                                                         23rd USENIX Security Symposium  511
+ment, purportedly sold exclusively to governments by compa-               do so in a sufficiently well-grounded, meaningful manner first
+nies like Gamma International and Hacking Team. The lat-                  requires developing an understanding of the targets’ knowledge
+ter advertises that governments need its technology to “look              of security issues, their posture regarding how they currently
+through their target’s eyes” rather than rely solely on “passive          protect themselves, and the resources (including potentially ed-
+monitoring” [1]. Overall, the attacks we document are rarely              ucation) that they can draw upon. To this end, we are now con-
+technically novel. In fact, we suspect that the majority of at-           ducting (with IRB approval) in-depth interviews with potential
+tacks could be substantially limited via well-known security              targets along with systematic examination of their Internet de-
+practices, settings, and software updates. Yet, the attacks are           vices in order to develop such an understanding.
+noteworthy for their careful social engineering, their links to
+governments, and their real-world impact.
+   We obtained the majority of our artifacts by encouraging in-           2    Related Work
+dividuals who might be targeted by governments to provide us
+with suspicious files and unsolicited links, especially from un-          In the past decades, a rich body of academic work has grown to
+familiar senders. While this process has provided a rich set of           document and understand government Internet censorship, in-
+artifacts to analyze, it does not permit us to claim our dataset is       cluding nationwide censorship campaigns like the Great Fire-
+representative.                                                           wall of China [9, 10, 11]. Research on governmental Internet
+   Our analysis links these attacks with a common class of ac-            surveillance and activities like law-enforcement interception is
+tor: an attacker whose behavior, choice of target, or use of in-          a comparatively smaller area [12]. Some academic work looks
+formation obtained in the attack, aligns with the interests of a          at government use of devices to enable censorship, such as key-
+government. In some cases, such as Ali’s, the attackers appear            word blacklists for Chinese chat clients [13], or the Green Dam
+to be governments themselves; in other cases, they appear in-             censorware that was to be deployed on all new computers sold
+stead to be pro-government actors, ranging from patriotic, not            in China [14]. We are aware of only limited previous work
+necessarily skilled volunteers to cyber mercenaries. The phe-             looking at advanced threat actors targeting activists with hack-
+nomenon has been identified before, such as in Libya, when                ing, though this work has not always been able to establish ev-
+the fall of Gaddafi’s regime revealed direct government ties to           idence of government connections [15].
+hacking during the 2011 Civil War [2].                                       Platforms used by potential targets, such as GMail [16],
+   We make the following contributions:                                   Twitter [17], and Facebook [18] increasingly make transport-
+   • We analyze the technology associated with targeted at-               layer encryption the default, obscuring communications from
+     tacks (e.g., malicious links, spyware), and trace it back            most network surveillance. This use of encryption, along with
+     to its programmers and manufacturers. While the attacks              the global nature of many social movements, and the role of
+     are not novel—and indeed often involve technology used               diaspora groups, likely makes hacking increasingly attractive,
+     by the cybercrime underground—they are significant be-               especially to states who are unable to request or compel content
+     cause they have a real-world impact and visibility, and              from these platforms. Indeed, the increasing use of encryption
+     are connected to governments. In addition, we often find             and the global nature of targets have both been cited by pur-
+     amateurish mistakes in either the attacker’s technology or           veyors of “lawful intercept” trojans in their marketing materi-
+     operations, indicating that energy spent countering these            als [1, 19]. In one notable case in 2009, UAE telecom firm Eti-
+     threats can realize significant benefits. We do not, how-            salat distributed a system update to its then 145,000 BlackBerry
+     ever, conclude that all nation-state attacks or attackers            subscribers that contained spyware to read encrypted Black-
+     are incompetent, and we suspect that some attacks have               Berry e-mail from the device. The spyware was discovered
+     evaded our detection.                                                when the update drastically slowed users’ phones [20]. In con-
+                                                                          trast to country-scale distribution, our work looks at this kind of
+   • When possible, we empirically characterize the attacks
+                                                                          pro-government and government-linked surveillance through
+     and technology we have observed. We map out global
+                                                                          highly targeted attacks.
+     use of two commercial hacking tools by governments by
+     searching through Internet scan data using fingerprints for             The term APT (Advanced Persistent Threat) refers to a
+     command-and-control (C&C) servers derived from our                   sophisticated cyber-attacker who persistently attempts to tar-
+     spyware analysis.                                                    get an individual or group [21]. Work outside the academic
+                                                                          community tracking government cyberattacks typically falls
+   • We develop strong evidence tying attacks to govern-                  under this umbrella. There has been significant work on
+     ment sponsors and corporate suppliers, countering de-                APT outside the academic community, especially among se-
+     nials, sometimes energetic and sometimes indirect, of                curity professionals, threat intelligence companies, and human
+     such involvement [3, 4, 5, 6], in contrast to denials [7]            rights groups. Much of this work has focused on suspected
+     or claims of a corporate “oversight” board [8]. Our scan-            government-on-government or government-on-corporation cy-
+     ning suggests use of “lawful intercept” trojans by 11 ad-            ber attacks [22, 23]. Meanwhile, a small but growing body
+     ditional countries considered governed by “authoritarian             of this research deals with attacks carried out by governments
+     regimes.” We believe that activists and journalists in such          against opposition and activist groups operating within, as well
+     countries may experience harassment or consequences to               as outside their borders. One of the most notable cases is
+     life or liberty from government surveillance.                        GhostNet, a large-scale cyber espionage campaign against the
+   Finally, we do not explore potential defenses appropriate for          Tibetan independence movement [24, 25]. Other work avoids
+protecting the target population in this work. We believe that to         drawing conclusions about the attackers [26].
+
+
+                                                                      2
+512  23rd USENIX Security Symposium	                                                                                  USENIX Association
+    Country   Date Range          Range of Targets                               Number and Type of Samples                              Distinct Malware C&C’s
+    Bahrain   4/9/12—             ≥ 12 activists, dissidents, trade unionists,   8 FinSpy samples, 7 IP spy links received via private   4 distinct IP addresses
+              7/31/13             human rights campaigners, and journalists      message, > 200 IP spy links observed publicly
+    Syria     2011 to present     10–20 individuals with technical back-         40–50: predominantly BlackShades, DarkComet,            160 distinct IP addresses
+                                  grounds who receive suspect files from their   Xtreme RAT, njRAT, ShadowTech RAT.
+                                  contacts
+    UAE       7/23/12—            7 activists, human rights campaigners, and     31 distinct malware samples spanning 7 types; 5 dis-    12 distinct IP addresses
+              7/31/13             journalists                                    tinct exploits
+
+
+                                                         Table 1: Range of data for the study.
+
+    Country   Possible Impacts                  Probable Impacts
+    Bahrain   1. 3 individuals arrested, sen-   1. Activist serving 1 yr in
+              tenced to 1–12 mo in prison       prison
+              2. Union leader questioned by     2. Police raid on house
+              police; fired
+    Syria     1. Sensitive opposition com-      1. Opposition members dis-
+              munications exposed to gov-       credited by publishing embar-
+              ernment                           rassing materials
+              2. Exfiltrated material used to   2. Exfiltrated materials used
+              identify and detain activists     during interrogation by secu-
+                                                rity services
+    UAE       Contacts targeted via mal-        Password stolen,        e-mail
+              ware                              downloaded
+
+
+
+Table 2: Negative outcomes plausibly or quite likely aris-
+ing from attacks analyzed.                                                                         Figure 1: E-mail containing FinSpy.
+
+                                                                                     4.1      Bahrain
+3      Data Overview and Implications
+                                                                                     We have analyzed two attack campaigns in the context of
+Our study is based on extensive analysis of malicious files and                      Bahrain, where the government has been pursuing a crackdown
+suspect communications relevant to the activities of targeted                        against an Arab-Spring inspired uprising since 2/14/2011.
+groups in Bahrain, Syria, and the UAE, as documented in Ta-                             The first involved malicious e-mails containing FinSpy, a
+ble 1. A number of the attacks had significant real-world impli-                     “lawful intercept” trojan sold exclusively to governments. The
+cations, per Table 2. In many cases, we keep our descriptions                        second involved specially crafted IP spy links and e-mails de-
+somewhat imprecise to avoid potential leakage of target identi-                      signed to reveal the IP addresses of operators of pseudonymous
+ties.                                                                                accounts. Some individuals who apparently clicked on these
+   We began our work when contacted by individuals con-                              links were later arrested, including Ali (cf. §1), whose click
+cerned that a government might have targeted them for cyber-                         appears to have been used against him in court. While both
+attacks. As we became more acquainted with the targeted com-                         campaigns point back to the government, we have not as yet
+munities, in some cases we contacted targeted groups directly;                       identified overlap between the campaigns; targets of FinSpy
+in others, we reached out to individuals with connections to tar-                    appeared to reside mainly outside Bahrain, whereas the IP spy
+geted groups, who allowed us to examine their communications                         links targeted those mainly inside the country. We examine
+with the groups. For Bahrain and Syria, the work encompassed                         each campaign in turn.
+10,000s of e-mails and instant messages. For the UAE, the vol-
+ume is several thousand communications.
+                                                                                     FinSpy Campaign. Beginning in April 2012, the authors
+                                                                                     received 5 suspicious e-mails from US and UK-based activists
+4      Case Studies: Three Countries                                                 and journalists working on Bahrain.        We found that some
+                                                                                     of the attachments contained a PE (.exe) file designed to
+This following sections outline recent targeted hacking cam-                         appear as an image.         Their filenames contained a Uni-
+paigns in Bahrain, Syria and the UAE. These cases have a com-                        code right-to-left override (RLO) character, causing Windows
+mon theme: attacks against targets’ computers and devices with                       to render a filename such as gpj.1bajaR.exe instead as
+malicious files and links. In some cases the attackers employed                      exe.Rajab1.jpg.
+expensive and “government exclusive” malware, while in other                            The other .rar files contained a Word document with an
+cases, attackers used cheap and readily available RATs. Across                       embedded ASCII-encoded PE file containing a custom macro
+these cases we find that clever social engineering often plays                       set to automatically run upon document startup. Under default
+a central role, which is strong evidence of a well-informed ad-                      security settings, Office disables all unsigned macros, so that
+versary. We also, however, frequently find technical and op-                         a user who opens the document will only see an informational
+erational errors by the attackers that enable us to link attacks                     message that the macro has been disabled. Thus, this attack was
+to governments. In general, the attacks we find are not well-                        apparently designed with the belief or hope that targets would
+detected by anti-virus programs.                                                     have reduced security settings.
+
+
+                                                                                 3
+USENIX Association 	                                                                                            23rd USENIX Security Symposium  513
+   Identification as FinSpy: By running the sample using                  ated with another government [4]. However, a proxy would
+Windows Virtual PC, we found the following string in mem-                 show gaps in a global IPID as it forwarded traffic; our frequent
+ory: y:\lsvn_branches\finspyv4.01\finspyv2\.                              observation of strictly consecutive IPIDs thus contradicts this
+This string suggests FinSpy, a product of Gamma Inter-                    statement.
+national [27]. The executables used virtualized obfusca-                     Exploitation of captured data: Since we suspected the spy-
+tion [28], which appeared to be custom-designed. We de-                   ware operator would likely seek to exploit captured credentials,
+vised a fingerprint for the obfuscater and located a structurally         particularly those associated with Bahraini activist organiza-
+similar executable by searching a large malware database.                 tions, we worked with Bahrain Watch, an activist organization
+This executable contained a similar string, except it identi-             inside Bahrain. Bahrain Watch established a fake login page
+fied itself as FinSpy v3.00, and attempted to connect to                  on their website and provided us with a username and pass-
+tiger.gamma-international.de, a domain registered                         word. From a clean VM, we logged in using these credentials,
+to Gamma International GmbH.                                              saving the password in Mozilla Firefox. We then infected the
+   Analysis of capabilities: We found that the spyware has                VM with FinSpy and allowed it to connect to the Bahrain C&C
+a modular design, and can download additional modules from                server. Bahrain Watch’s website logs revealed a subsequent
+a command & control (C&C) server, including password cap-                 hit from 89.148.0.41—made however to the site’s home-
+ture (from over 20 applications) and recording of screenshots,            page, rather than its login page—coming shortly after we had
+Skype chat, file transfers, and input from the computer’s micro-          infected the VM. Decrypting packet captures of the spyware’s
+phone and webcam.                                                         activity, we found that our VM sent the password to the server
+   To exfiltrate data back to the C&C server, a module encrypts           exactly one minute earlier:
+and writes it to disk in a special folder. The spyware period-
+ically probes this folder for files that match a certain naming           INDEX,URL,USERNAME,PASSWORD,USERNAME FIELD,
+convention, then sends them to the C&C server. It then over-              PASSWORD FIELD,FILE,HTTP 1,
+writes the files, renames them several times, and deletes them,           http://bahrainwatch.org,bhwatch1,watchba7rain,
+                                                                          username,password,signons.sqlite,,
+in an apparent effort to frustrate forensic analysis.                     Very Strong,3.5/4.x
+   Analysis of encryption: Because the malware employed
+myriad known anti-debugging and anti-analysis techniques, it                 The URL provided to the server did not include the path
+thwarted our attempts to attach debuggers. Since it did not in-           to the login page, which was inaccessible from the home-
+clude anti-VM code, we ran it in TEMU, an x86 emulator de-                page. This omission reflects the fact that the Firefox password
+signed for malware analysis [29]. TEMU captures instruction-              database stores only domain names, not full login page URLs,
+level execution traces and provides support for taint-tracking.           for each password. Repeating the experiment again yielded a
+   We found that FinSpy encrypts data using a custom imple-               hit from the same IP address within a minute. We inspected
+mentation of AES-256-CBC. The 32 byte AES key and 16 byte                 Bahrain Watch’s logs, which showed no subsequent (or previ-
+IV are generated by repeatedly reading the low-order-4-bytes of           ous) activity from that address, nor any instances of the same
+the Windows clock. The key and IV are encrypted using an em-              User Agent string.
+bedded RSA-2048 public key, and stored in the same file as the
+data. The private key presumably resides on the C&C server.
+The weak AES keys make decryption of the data straightfor-                IP spy Campaign. In an IP spy attack, the attacker aims to
+ward. We wrote a program that generally can find these keys in            discover the IP address of a victim who is typically the opera-
+under an hour, exploiting the fact that many of the system clock          tor of a pseudonymous social media or e-mail account. The at-
+readings occur within the same clock-update quantum.                      tacker sends the pseudonymous account a link to a webpage or
+   In addition, FinSpy’s AES code fails to encrypt the last block         an e-mail containing an embedded remote image, using one of
+of data if less than the AES block size of 128 bits, leaving trail-       many freely-available services.2 When the victim clicks on the
+ing plaintext. Finally, FinSpy’s wire protocol for C&C commu-             link or opens the e-mail, their IP address is revealed to the at-
+nication uses the same type of encryption, and thus is subject            tacker.3 The attacker then discovers the victim’s identity from
+to the same brute force attack on AES keys. While we suspect              their ISP. In one case we identified legal documents that pro-
+FinSpy’s cryptographic deficiencies reflect bugs, it is also con-         vided a circumstantial link between such a spy link and a sub-
+ceivable that the cryptography was deliberately weakened to               sequent arrest.
+facilitate one government monitoring the surveillance of oth-                Figure 2 illustrates the larger ecosystem of these attacks. The
+ers.                                                                      attackers appear to represent a single entity, as the activity all
+   C&C server:            The samples communicated with                   connects back to accounts that sent links shortened using a par-
+77.69.140.194, which belongs to a subscriber of                           ticular user account al9mood4 on the bit.ly URL shortening
+Batelco, Bahrain’s main ISP. Analyzing network traffic                    service.
+between our infected VM and the C&C server revealed that                     Recall Ali Faisal Al-Shufa (discussed in Section 1), who
+the server used a global IPID, which allowed us to infer server           was accused of sending insulting tweets from an account
+activity by its progression.                                                 2 e.g.,
+                                                                                   iplogger.org, ip-spy.com, ReadNotify.com.
+   In response to our preliminary work an executive at Gamma                 3 Several webmail providers and e-mail clients take limited steps to
+told the press that Bahrain’s FinSpy server was merely a proxy            automatically block loading this content, but e-mails spoofed to come
+and the real server could have been anywhere, as part of a claim          from a trusted sender sometimes bypass these defenses.
+that the Bahrain FinSpy deployment could have been associ-                   4 A Romanization of the Arabic word for “steadfastness.”
+
+
+
+
+                                                                      4
+514  23rd USENIX Security Symposium	                                                                                     USENIX Association
+                                                                                                                                                     feb14truth.webs.com
+                                                                                                               Bit.ly user
+                  iplogger.org                                                                                 Al9mood
+
+                                                       Twitter ID
+                                                      485527587                             Bahrain Gov't
+
+
+
+                                 Jehad Abdulla                                                                                          Twitter ID
+                                                         Salman Darwish
+                                  (Gov't critic)                                                                                       987487705
+                                                            Arrested
+                                                                       Account begins
+                                                                     sending IP spy links
+
+
+
+                                                Red Sky
+                                              (Translator)   Arrested
+                                                                                                                                         fatoomah85@gmail.com
+                                                                                                                       Twitter ID
+                                                                                                                      485500245
+
+
+
+                                                         Al Kawarah News Clicked
+                                                                                             Ali Al-Shufa
+                                                          (Village media)  link                                                                 ReadNotify.com
+                                                                                              Arrested
+
+
+
+
+                        ip-spy.com
+                                                                       M        Clicked
+                                                                                             House raid
+                                                                (Village media)   link                                                Maryam                Sayed Yousif
+
+
+
+
+                                                     Yokogawa Union                             Sami Abdulaziz Yokogawa
+                                                      (Trade union)                             Fired from job Middle East
+
+
+                                                                                     Legend
+
+
+
+                    Actor   Spyware     C&C    Domain name     Packer    Target   Infection Targeted        Exploit      E-Mail     Consequence Attacker Bait Document
+
+
+
+
+                                               Figure 2: The ecosystem of Bahrain “IP spy” attacks.
+
+@alkawarahnews (Al Kawarah News in Figure 2). An op-                                            revolved around Tweets that referred to Bahrain’s King as a
+erator of the account forwarded us a suspicious private message                                 “cursed one.” Red Sky had earlier targeted other users with IP
+sent to the Al Kawarah News Facebook account from Red Sky.                                      spy links shortened using the al9mood bit.ly account.
+Red Sky was purportedly arrested on 10/17/12, was convicted
+                                                                                                   The attack on Jehad Abdulla is noteworthy, as the ac-
+of insulting the King on his Twitter account @RedSky446,
+                                                                                                count’s activity aligned with communities typically critical of
+and was sentenced to four months prison.5 When released, he
+                                                                                                Bahrain’s opposition. However, the account also directly crit-
+found that the passwords for his Twitter, Facebook, and e-mail
+                                                                                                icized the King on occasion, in one case referring to him as
+accounts had been changed, and did not know how to recover
+                                                                                                “weak” and “stingy.” An account linked to al9mood sent Je-
+his accounts.
+                                                                                                had Abdulla an IP spy link on 10/2/12 in a public message. On
+   The message that Red Sky’s account sent to Al Kawarah
+                                                                                                10/16/12, Salman Darwish was arrested for insulting the King
+News included a link shortened using Google’s goo.gl ser-
+                                                                                                using the Jehad Abdulla account. He was sentenced to one
+vice. We used the goo.gl API to access analytics for the link,
+                                                                                                month in prison, partly on the basis of his confession. Salman’s
+finding that it unshortened to iplogger.org/25SX and was
+                                                                                                father claims that police denied Salman food, drink, and medi-
+created on 12/8/12. The link had received only one click, which
+                                                                                                cal care.
+came from Bahrain with the referrer www.facebook.com.
+   Ali’s case files contained a request from the Public Prose-                                     Another account linked to al9mood targeted @YLUBH, the
+cution for information on an IP address that it had linked to Al                                Twitter account of Yokogawa Union, a trade union at the
+Kawarah News about 22 hours after the link was created. Court                                   Bahraini branch of a Japanese company. @YLUBH received at
+documents indicate that ISP data linked the IP address to Ali,                                  least three IP spy links in late 2012, sent via public Twitter mes-
+and on this basis he was sentenced to one year in prison.                                       sages. Yokogawa fired the leader of the trade union, Sami Ab-
+   Red Sky also targeted M in Figure 2. M recalled click-                                       dulaziz Hassan, on 3/23/13 [30]. It later emerged that Sami was
+ing on a link from Red Sky while using an Internet connec-                                      indeed the operator of the @YLUBH account, and that the police
+tion from one of the houses in M’s village. The house was                                       had called him in for questioning in relation to its tweets [31].
+raided by police on 3/12/13, who were looking for the sub-
+                                                                                                   Use of embedded remote images: We identified several
+scriber of the house’s internet connection. Police questioning
+                                                                                                targets who received spoofed e-mails containing embedded
+   5 According to information we received from two Twitter users, one                           remote images. Figure 2 shows two such cases, Maryam
+of whom claimed to have met Red Sky in prison; another to be a col-                             and Sayed Yousif. The attacker sent the e-mails using
+league.                                                                                         ReadNotify.com, which records the user’s IP address upon
+
+
+                                                                                            5
+USENIX Association 	                                                                                                                  23rd USENIX Security Symposium  515
+their mail client downloading the remote image.6                            sophisticated than FinSpy and RCS, they share the same ba-
+   While ReadNotify.com forbids spoofing in their TOS,                      sic functionality, including screen capture, keylogging, remote
+the service has a vulnerability known to the attackers (and                 monitoring of webcams and microphones, remote shell, and file
+which we confirmed) that allows spoofing the From address                   exfiltration.
+by directly setting the parameters on a submission form on their                In the most common attack sequence we observed, illus-
+website We have not found evidence suggesting this vulnerabil-              trated with three examples in Figure 3, the attacker seeds mal-
+ity is publicly known, but it appears clear that the attacker ex-           ware via private chat messages, posts in opposition-controlled
+ploited it, as the web form adds a X-Mai1er: RNwebmail                      social media groups, or e-mail. These techniques often limit
+header not added when sending through ReadNotify.com’s                      the world-visibility of malicious files and links, slowing their
+other supported methods. The header appeared in each e-mail                 detection by common AV products. Typically, targets receive
+the targets forwarded to us.                                                either (1) a PE in a .zip or .rar, (2) a file download link, or
+   When spoofing using this method, the original sender ad-                 (3) a link that will trigger a drive-by download. The messages
+dress still appears in X-Sender and other headers. Accord-                  usually include text, often in Arabic, that attempts to persuade
+ing to these, the e-mails received by the targets all came from             the target to execute the file or click the link.
+fatoomah85@gmail.com. A link sent in one of these e-                            The first attacks in Figure 3 date to 2012, and use bait files
+mails was connected to the al9mood bit.ly account.                          with a DarkComet RAT payload. These attacks share the same
+   In monitoring accounts connected to al9mood, we counted                  C&C, 216.6.0.28, a Syrian IP address belonging to the Syr-
+more than 200 IP spy links in Twitter messages and public                   ian Telecommunications Establishment, and publicly reported
+Facebook posts. Attackers often used (1) accounts of promi-                 as a C&C of Syrian malware since February 2012 [45]. The
+nent or trusted but jailed individuals like “Red Sky,” (2) fake             first bait file presents to the victim as a PDF containing infor-
+personas (e.g., attractive women or fake job seekers when tar-              mation about a planned uprising in Aleppo. In fact the file is a
+geting a labor union), or (3) impersonations of legitimate ac-              Windows Screensaver (.scr) that masquerades as a PDF using
+counts. In one particularly clever tactic, attackers exploited              Unicode RLO, rendering a name such as “.fdp.scr” dis-
+Twitter’s default font, for example substituting a lowercase “l”            play to the victim as “.rcs.pdf.” The second bait file is
+with an uppercase “I” or switching vowels (e.g. from “a” to                 a dummy program containing DarkComet while masquerading
+an “e”) to create at-a-glance identical usernames. In addition,             as a Skype call encryption program, playing to opposition para-
+malicious accounts tended to quickly delete IP spy tweets sent              noia about government backdoors in common software. The
+via (public) mentions, and frequently change profile names.                 third attack in Figure 3, observed in October 2013, entices tar-
+                                                                            gets with e-mails purporting to contain or link to videos about
+                                                                            the current conflict, infecting victims with Xtreme RAT, and
+4.2     Syria                                                               using the C&C tn1.linkpc.net.
+The use of RATs against the opposition has been a well-                         For seeding, the attackers typically use compromised ac-
+documented feature of the Syrian Civil War since the first re-              counts (including those of arrested individuals) or fake iden-
+ports were published in early 2012 [36, 39, 40, 32, 34]. The                tities masquerading as pro-opposition. Our illustration shows
+phenomenon is widespread, and in our experience, most mem-                  in abstract terms the use of Victim A’s account to seed mal-
+bers of the opposition know that some hacking is taking place.              ware (“Aleppo Plan”) via (say) Skype messages to Victim(s)
+As summarized in Table 3, the attacks often include fake or ma-             Bn .     In the cases of Opp. Member C and NGO Worker
+liciously packaged security tools; intriguing, or ideological, or           D (here, actual victims, not abstract), targeting was by e-mail
+movement-relevant content (e.g. lists of wanted persons). The               from domains apparently belonging to opposition groups, in-
+seeding techniques and bait files suggest a good understanding              dicating a potential compromise. One domain remains active,
+of the opposition’s needs, fears and behavior, coupled with ba-             hosting a website of the Salafist Al-Nusra front [46], while the
+sic familiarity with off-the-shelf RATs. In some cases attacks              other appears dormant. Opp. Member C received a malicious
+occur in a context that points to a more direct connection to               file as an e-mail attachment, while NGO Worker D was sent a
+one of the belligerents: the Syrian opposition has regularly ob-            shortened link (url[.]no/Uu5) to a download from a directory
+served that detainees’ accounts begin seeding malware shortly               of Mrconstrucciones[.]net,7 a site that may have been com-
+after their arrest by government forces [41].                               promised. Both attacks resulted in an Xtreme RAT infection.
+   Researchers and security professionals have already profiled                 Interestingly, in the case of the fake Skype encryption
+many of these RATs, including DarkComet [42, 43], Black-                    the deception extended to a YouTube video from “IT Se-
+shades Remote Controller [38], Xtreme RAT [44], njRAT [26],                 curity Lab” [47] demonstrating the program’s purported ca-
+and ShadowTech [36]. Some are available for purchase by any-                pabilities, as well as a website promoting the tool, skype-
+one, in contrast to “government only” FinSpy and RCS. For ex-               encryption.sytes.net. The attackers also constructed a ba-
+ample, Xtreme RAT retails for e350, while a version of Black-               sic, faux GUI for their “Encryption” program (see Figure 4).
+shades lists for e40. Others, like DarkComet, are free. We                  The fake GUI has a number of non-functional buttons like “En-
+have also observed cracked versions of these RATs on Arabic-                crypt” and “DeCrypt,” which generate fake prompts. While dis-
+language hacker forums, making them available with little ef-               tracted by this meaningless interaction, the victim’s machine is
+fort and no payment trail. While the RATs are cheaper and less              infected with DarkComet 3.3 [32, 33].
+                                                                                Anecdotally, campaign volume appears to track significant
+  6 YahooMail and the iPhone mail client automatically load these re-
+
+mote images, especially in e-mails spoofed from trusted senders.               7 Obfuscated   to avoid accidental clicks on active malware URLs.
+
+
+                                                                        6
+516  23rd USENIX Security Symposium	                                                                                       USENIX Association
+ Type                     Features                                                                     Examples (RATs)
+ Security tools           Executable files presented as a “tool” often accompanied by justifica-       “Skype Encryption” (DC) [32, 33], “Facebook Security” (cus-
+                          tions or statements of its value in the targeted seeding, for example on     tom) [34], Anti-hacker (DC) [35], Fake Freegate VPN (ST) [36]
+                          a social media site, at the download location, or in videos
+ Ideologically   or       A document or PE as download or attachment with accompanying en-             “Names of individuals wanted by the Regime,” (DC) “Aleppo
+ movement-relevant        couragement to open or act on the material, often masquerading as            [uprising] Plan” (DC) [37], important video (BS) [38], “Hama
+ files                    legitimate PDF documents or inadvertently leaked regime programs.            Rebels Council” document (DC) [39], “wanted persons”
+                          Frequent use of RLO to disguise true extension (such as .exe or              database frontend (custom), movement relevant video (njRAT),
+                          .scr)                                                                        file about the Free Syrian Army (Xtreme RAT)
+ Miscellaneous tools      Tools pretending to offer functionality relevant to the opposition, such     hack facebook pro v6.9 (DC) [40]
+                          as a fake tool claiming to “mass report” regime pages on Facebook
+
+
+
+Table 3: Campaigns and RATs employed in Syrian surveillance. BS = Blackshades, DC = DarkComet, ST = Shad-
+owTech.
+
+                                                                             “Skype
+                       SY Malware      tn1.linkpc.net   skype-encription    Encryption”    Xtreme Rat       Mrconstrucciones.net      Url.no
+                         Actors                            .sytes.net
+
+
+
+
+                                                                                                     fsa@freesyria.com mohamed@jalnosra.com
+                                         216.6.0.28                                  fsa.zip
+                                                                                       Dark Comet
+                         SY Gov't                              Account seeds
+                                                               “Aleppo Plan”
+
+
+                                                                                                          E-Mail                E-Mail
+                       Victim A                  Credentials
+                                    Arrested
+                                                   gained
+                                                                                    “Aleppo Plan”
+
+
+                                  Victim(s) Bn    Clicks                                              Opp. Member C         NGO Worker D
+                                                   file        Account seeds
+                                                               “Aleppo Plan”
+
+
+                                  Figure 3: A sample from the ecosystem of Syrian malware campaigns.
+
+events in the ongoing conflict. For example, campaigns dwin-
+dled and then rebounded within hours after Syria’s 2012 Inter-
+net shutdown [48]. Similarly, activity observed by the authors
+also dwindled prior to expectation of US-led military action
+against Syrian government targets in September 2013. Once
+this option appeared to be off the table, the volume of new
+samples and campaigns we observed again increased, includ-
+ing the recent targeting of NGO workers per Figure 3. We are
+aware of only a negligible number of cases of the opposition
+using similar RATs against Syrian Government supporters, al-
+though evidence exists of other kinds of electronic attacks by
+third parties.
+
+
+Real world consequences. The logistics and activities of
+Syria’s numerous opposition groups are intentionally concealed
+from public view to protect both their efficacy, and the lives of
+people participating in them. Nevertheless, Syrian opposition
+members are generally familiar with stories off digital compro-                         Figure 4: The fake Skype program distracts the victim
+mises of high-profile figures, including those entrusted with the                       with the promise of encrypted communications while in-
+most sensitive roles, as well as rank-and-file members. Com-                            fecting their machine with DarkComet.
+promise of operational security poses a documented threat to
+life both for victims of electronic compromise, and to family
+members and associates.
+   The Syrian conflict is ongoing, making it difficult to assem-
+
+
+                                                                                   7
+USENIX Association 	                                                                                               23rd USENIX Security Symposium  517
+ble comprehensive evidence of linkages between government                      UAE Gov't         HackingTeam            3-Stage
+                                                                                                                       Exploit Kit
+actors and malware campaigns. Moreover, many individuals                                                                                 owner.no-ip.biz
+whose identities have been compromised are in prison or oth-
+erwise disappeared, and thus unable to relate the evidence pre-                            CVE-2010-3333
+sented to them during interrogation. Still, strong circumstantial
+evidence links the use of RATs, phishing, and government ac-
+                                                                                                                 “wikileaks”         Xtreme RAT
+tivity, which we briefly summarize here: (1) many Syrians have                             RCS                 “veryimportant”
+recounted to journalists and the authors how interrogators con-
+fronted them with material from their computers. For example:
+      The policeman told me, “Do you remember when
+      you were talking to your friend and you told him
+      you had something wrong [sic] and paid a lot of                                                    Author
+      money? At that time we were taking information                              ar-24.com                                Communicated
+                                                                                                                             via E-Mail
+      from your laptop.” [41]
+(2) Syrian activists have supplied cases to international journal-
+ists [41], where arrests are quickly followed by the social me-                  Ahmed
+                                                                                               Laptop
+                                                                                              infected
+dia accounts of detained individuals seeding malware to contact                                                 E-Mail account
+lists (Figure 3). (3) Finally, despite the notoriety of the attack                                              compromised
+
+campaigns, including mention of C&C IPs in international me-
+dia [45], the Syrian government has made no public statements
+about these campaigns nor acted to shut down the servers.                Figure 5: Part of the ecosystem of UAE surveillance at-
+    Beyond the ongoing challenges of attribution, these malware          tacks.
+campaigns have a tangible impact on the Syrian opposition, and
+generally align with the interests of the Syrian government’s            from ar-24.com, which in turn downloaded spyware from
+propaganda operations. The case of Abdul Razzaq Tlass, a                 ar-24.com. We denote this combination as the 3-Stage Ex-
+leader in the Free Syrian Army, is illustrative of the potential         ploit Kit in Figure 5.
+uses of such campaigns. In 2012 a string of videos emerged                  The C&C server also ran on ar-24.com. When we ob-
+showing Tlass sexting and engaged in lewd activity in front of           tained the sample in July 2012, ar-24.com resolved to an
+a webcam [49]. While he denied the videos, the harm to his rep-          IP address on Linode, a hosting provider. Three months later, it
+utation was substantial and he was eventually replaced [50].             resolved to a UAE address belonging to the Royal Group [52],
+                                                                         an organization linked to the UAE government; it is chaired by
+                                                                         Sheikh Tahnoon bin Zayed Al-Nayhan, a member of the UAE
+4.3    UAE
+                                                                         ruling family and a son of the founder of the UAE.
+While the UAE has experienced no recent uprising or politi-                 Identification as RCS: We identified strings in memory
+cal unrest, it has nevertheless cracked down on its opposition,          that matched those in a Symantec analysis [53] of RCS (also
+concurrent with the Arab Spring.                                         known as DaVinci or Crisis), a product of the Italian com-
+   The first attacks we observed in the UAE involved a                   pany Hacking Team [54]. We also located a structurally sim-
+government-grade “lawful interception” trojan known as Re-               ilar Word document via VirusTotal. The document used the
+mote Control System (RCS), sold by the Italian company Hack-             same exploit and attempted to download a second stage from
+ing Team. The associated C&C server indicated direct UAE                 rcs-demo.hackingteam.it, which was unavailable at
+government involvement. Over time, we stopped receiving                  the time of testing.
+RCS samples from UAE targets, and instead observed a shift                  Analysis of capabilities: RCS has a suite of functionality
+to the use of off-the-shelf RATs, and possible involvement of            largely similar to FinSpy. One difference was in the vectors
+cyber-mercenary groups. However, poor attacker operational               used to install the spyware. We located additional samples (see
+security allowed us to link most observed attacks together.              § 5), some of which were embedded in a .jar file that installs
+                                                                         an OS-appropriate version of RCS (Windows or OSX), option-
+RCS. UAE activist Ahmed Mansoor (per Figure 5), impris-                  ally using an exploit. If embedded as an applet, and no exploit
+oned from April to November 2011 after signing an online pro-            is present, Java displays a security warning and asks the user
+democracy petition [51], received an e-mail purportedly from             whether they authorize the installation. We also saw instances
+“Arabic Wikileaks” in July 2012. He opened the associated at-            of the 3-Stage Exploit Kit where the first stage contained a
+tachment, “veryimportant.doc,” and saw what he described as              Flash exploit; in some cases, we could obtain all stages and
+“scrambled letters”. He forwarded us the e-mail for investiga-           confirm that these installed RCS. Some samples were packed
+tion.                                                                    with the MPress packer [55], and some Windows samples were
+   The attachment exploited CVE-2010-3333, an RTF pars-                  obfuscated to look like the PuTTY SSH client.
+ing vulnerability in Microsoft Office. The document did not                 Another difference is in persistence. For example, the RCS
+contain any bait content, and part of the malformed RTF                  sample sent to Ahmed adds a Run registry key, whereas the
+that triggered the exploit was displayed in the document.                FinSpy samples used in Bahrain overwrite the hard disk’s boot
+The exploit loaded shellcode that downloaded a second stage              sector to modify the boot process; the spyware is loaded be-
+
+
+                                                                     8
+518  23rd USENIX Security Symposium	                                                                                                 USENIX Association
+fore the OS, and injects itself into OS processes as they start.                    faddeha.com              hamas.sytes.net     dreems.no-ip.ca
+
+The RCS samples we examined also had the ability to propa-
+                                                                                                Hosts sample that          Same IP            SameIP1
+gate to other devices, including into inactive VMWare virtual                                     talks to C&C
+machines by modifying the disk image, onto USB flash drives,
+                                                                                                   CVE-2013-0422
+and onto Windows Mobile phones. We did not observe similar                                                           Used by sample
+                                                                                                                    that talks to C&C
+capabilities in the FinSpy samples we examined.                                Journalist A,
+                                                                              H.R. activist B    njq8
+                                                                                                                                          Journalist F
+   Exploitation of captured data: When Ahmed Mansoor re-
+ceived the RCS document, he opened it, infecting his computer                  njRAT                           VB Packer                   upload.bz
+(Figure 5). Ahmed subsequently noted several suspicious ac-                               storge.myftp.org
+cesses to his GMail account using IMAP. Even after he changed
+his password, the accesses continued. While corresponding
+with Ahmed on his compromised account, an author of this pa-
+per discovered that the attackers had installed an application-
+specific password [56] in Ahmed’s GMail account, a secondary                            Relative of                                  SpyNet
+                                                                                   political detainee D
+password that they apparently used to access his account even
+after he changed his main password. The suspicious accesses                        Journalist C
+
+stopped after removal of the application-specific password.
+   Two weeks after this correspondence with Ahmed, one of us
+(Author in Figure 5) received a targeted e-mail with a link to                                    H.R. activist E
+a file hosted on Google Docs containing a commercial off-the-                   SameIP1
+
+shelf RAT, Xtreme RAT. The e-mail was sent from the UAE’s
+timezone (as well as of other countries) and contained the terms                 sn.all-google.com           DarkComet      Appin       CVE 2012-0158
+“veryimportant” and “wikileaks”, just like in the e-mail re-
+ceived by Ahmed.
+   The instance of Xtreme RAT sent to Author used                       Figure 6: Another part of the ecosystem of UAE surveil-
+owner.no-ip.biz for its C&C, one of the domains men-                    lance attacks.
+tioned in a report published by Norman about a year-long cam-
+paign of cyberattacks on Israeli and Palestinian targets carried
+out by a group that Norman was unable to identify [57]. Three           Off-the-shelf RATs. We found a file that VirusTotal had
+months after Author was targeted, Ahmed received an e-mail              downloaded from faddeha.com, which appeared to be a re-
+containing an attachment with Xtreme RAT that talked to the             mote access toolkit known as SpyNet, available for general pur-
+same C&C server (Figure 5), suggesting that the attackers who           chase for 50 Euros [60]. The SpyNet sample communicated
+infected Ahmed with RCS may have provided a list of interest-           with the C&C hamas.sytes.net.
+ing e-mail addresses to another group for further targeting.               SpyNet Packing: We found another instance of the first
+                                                                        stage of the 3-Stage Exploit Kit on VirusTotal. The exploit
+   Possible consequences: Shortly after he was targeted,                downloaded a second stage, which in turn downloaded a sam-
+Ahmed says he was physically assaulted twice by an attacker             ple of SpyNet from maile-s.com. This sample of SpyNet
+who appeared able to track Ahmed’s location [58]. He also re-           communicated with the same C&C hamas.sytes.net.
+ports that his car was stolen, a large sum of money disappeared         The sample was packed using ASProtect [61]. When run, the
+from his bank account, and his passport was confiscated [59].           sample unpacks a compiled Visual Basic project that loads, via
+He believes these consequences are part of a government in-             the RunPE method [62], an executable packed with UPX [63].
+timidation campaign against him, but we did not uncover any             Finally, this executable unpacks SpyNet. SpyNet’s GUI only
+direct links to his infection. (Interestingly, spyware subse-           offers an option to pack with UPX, suggesting that the attack-
+quently sent to others has used bait content about Ahmed.)              ers specially added the other layers of packing. In some cases,
+   Further attacks: In October 2012, UAE Journalist A and               the Visual Basic project bears the name NoWayTech, which
+Human Rights activist B (per Figure 6) forwarded us suspi-              appears to be an underground RunPE tool, while others are
+cious e-mails they had received that contained a Word docu-             named SpyVisual, which we have been unable to trace to any
+ment corresponding to the first stage of 3-Stage Exploit Kit            public underground tools, and thus also may reflect customiza-
+(Figure 5). The attachment contained an embedded Flash file             tion by the attacker. The SpyVisual projects contain the string
+that exploited a vulnerability fixed in Adobe Flash 11.4, loading       c:\Users\Zain\AppData\Local\Temp\OLE1EmbedStrm.wav,
+shell code to download a second stage from faddeha.com.                 which we used as the fingerprint VB Packer in Figure 6.
+We were unable to obtain the second stage or the ultimate pay-             Cedar Key attack: The same VB Packer was used in an
+load, as the website was unavailable at the time of testing.            attack on Relative of political detainee D and H.R. activist
+However, the exploit kit appears indicative of Hacking Team             E in Figure 6. These individuals received e-mails containing a
+involvement. A page on faddeha.com found in Google’s                    link to a web page hosted on cedarkeyrv.com impersonat-
+cache contained an embedded .jar with the same applet class             ing YouTube. Loading the page greeted the target with “Video
+(WebEnhancer) as those observed in other .jar files that we             loading please wait . . .” The page redirected to a YouTube
+found to contain RCS.                                                   video a few seconds later, but first loaded a Java exploit [64]—a
+
+
+                                                                    9
+USENIX Association 	                                                                                 23rd USENIX Security Symposium  519
+known vulnerability with no patch at the time that the e-mails           servers to develop indicators (fingerprints) for how the servers
+were sent. Oracle released a patch 12 hours after activists began        respond to certain types of requests. We then scanned the full
+receiving these links.                                                   Internet IPv4 address space (“/0”) for these, along with prob-
+   The cedarkeyrv.com domain is associated with an RV                    ing results found by past scans. In many cases we do not release
+park in Cedar Key, Florida. The website’s hosting company                the full details of our fingerprints to avoid compromising what
+told us that the site had apparently suffered a compromise, but          may be legitimate investigations.
+did not have further details.
+   The exploit used in the attack appears to have been origi-
+                                                                         5.1    FinSpy
+nally posted by a Kuwaiti user, njq8, on an Arabic-language
+exploit sharing site [65]. We contacted njq8, who told us                Identifying and linking servers: We developed a number
+that he had obtained the exploit elsewhere and modified it               of fingerprints for identifying FinSpy servers using HTTP-
+prior to posting. The attack downloaded an instance of                   based probing as well as FinSpy’s custom TLV-based proto-
+SpyNet from isteeler.com (which from our inspection did                  col. We leveraged quirks such as specific non-compliance
+not appear to have any legitimate content), which used the               with RFC 2616, responses to certain types of invalid data,
+C&C storge.myftp.org. This same C&C occurred in an-                      and the presence of signatures such as the bizarre “Hallo
+other attack (Figure 6) targeting Relative of political detainee         Steffi” that Guarnieri identified from Bahraini FinSpy C&C
+D; in that case, the payload was a freely-available RAT known            servers [67, 68]. See Appendix A for details. We then exhaus-
+as njRAT, written by the same njq8 as the exploit-poster dis-            tively scanned the Internet looking for matches to these finger-
+cussed above. However, we did not find any other evidence                prints.
+suggesting njq8’s involvement in either attack.                             Gamma documentation advertises that an operator of FinSpy
+   More SpyNet attacks: The domain hamas.sytes.net,                      can obscure the location of the C&C server (called the mas-
+which we previously saw used by two SpyNet sam-                          ter) by setting up a proxy known as a relay. In Spring 2013
+ples, resolved to 67.205.79.177.                    Historically,        we noticed FinSpy servers now issuing 302 Redirects to
+dreems.no-ip.ca also resolved to this address. An                        google.com. However, we noticed anomalies: for ex-
+unidentified dropper using this C&C targeted Journalist F; a             ample, servers in India were redirecting to the Latvian ver-
+SpyNet attack on Relative of political detainee D also used              sion of Google google.lv. We suspect that the server
+this C&C. In that latter case, the sample arrived via e-mail             in India was a relay forwarding to a master in Latvia. Be-
+in a .rar attachment that contained an .scr file disguised               cause the master served as a proxy for Google, we could
+as a Word document. The .scr file was a self-extracting                  uncover its IP address using a Google feature that prints a
+archive that decompressed and ran both the bait document                 user’s IP address for the query “IP address.” We created an
+and the payload. The SMTP source of the e-mail was                       additional fingerprint based on the proxying behavior and is-
+webmail.upload.bz.                                                       sued GET /search?q=ip+address&nord=1 requests to
+   Appin: In early 2013 UAE H.R. activist E forwarded nu-                servers We note some interesting master locations in Table 4.
+merous documents that included a particular CVE-2012-0158                   Server locations: In all, our fingerprints matched 92 dis-
+exploit for Microsoft Word. In all, these totaled 17 distinct            tinct IP addresses in 35 different countries. Probing these on
+hashes of documents, and 10 distinct hashes of payloads (some            8/8/13 revealed 22 distinct addresses still responding, sited
+documents that differed in their hash downloaded the same pay-           in: Bahrain, Bangladesh, Bosnia and Herzegovina, Estonia,
+load). The exploits primarily downloaded instances of SpyNet             Ethiopia, Germany, Hong Kong, Indonesia, Macedonia, Mex-
+from upload.bz, which for the most part communicated                     ico, Romania, Serbia, Turkmenistan, and the United States. We
+with C&C at sn.all-google.com. This domain was also                      found servers responding to a number of our fingerprints, sug-
+used for C&C in other attacks, including that on Journalist C.           gesting either that some servers lag in their updates, or a con-
+   Two of the other CVE-2012-0158 exploits down-                         certed effort to vary the behavior of FinSpy servers to make
+loaded DarkComet from www.getmedia.us and                                detection harder.
+www.technopenta.com after posting system infor-                             We found: (1) 3 IP addresses in ranges registered to Gamma.
+mation to random123.site11.com. All three domains                        (2) Servers in 3 IP ranges explicitly registered to govern-
+match those used by an Indian cybermercenary group said                  ment agencies: Turkmenistan’s Ministry of Communications,
+to be linked to Appin Security Group [66].           The former          Qatar’s State Security Bureau, and the Bulgarian Council of
+two domains hosted content other than spyware (i.e., they                Ministers. (3) 3 additional IP addresses in Bahrain, all in
+may have been compromised). We alerted the owner of                      Batelco. (4) Servers in 7 countries with governments classified
+www.getmedia.us, who removed the payloads.                               as “authoritarian regimes” by The Economist [69]: Bahrain,
+                                                                         Ethiopia, Nigeria, Qatar, Turkmenistan, UAE, Vietnam.
+                                                                            Additional FinSpy samples: In parallel to our scanning,
+5    Empirical characterization                                          we obtained 9 samples of FinSpy by writing YARA [70] rules
+                                                                         for the “malware hunting” feature of VirusTotal Intelligence.
+The samples we received afforded us an opportunity to em-                This feature sends us all newly-submitted samples that match
+pirically characterize the use of FinFisher and Hacking Team             our signatures. We located a version of FinSpy that does not
+around the world, enabling us to assess their prevalence, and            use the normal FinSpy handshake, but instead uses a protocol
+identify other country cases that may warrant future investiga-          based on HTTP POST requests for communication with the
+tion. We analyzed the samples and the behavior of their C&C              C&C server. This did not appear to be an older or newer ver-
+
+
+                                                                    10
+520  23rd USENIX Security Symposium	                                                                               USENIX Association
+      Relay IP             Relay Block Assignment    Relay Country    Master IP               Master Block Assignment    Master Country
+      5.199.xxx.xxx        SynWebHost                Lithuania        188.219.xxx.xx          Vodafone                   Italy
+      46.23.xxx.xxx        UK2 VPS.net               UK               78.100.xxx.xxx          State Security Building    Qatar
+      119.18.xxx.xxx       HostGator                 India            81.198.xxx.xxx          Statoil DSL                Latvia
+      180.235.xxx.xxx      Asia Web Services         Hong Kong        80.95.xxx.xxx           T-Systems                  Czech Republic
+      182.54.xxx.xxx       GPLHost                   Australia        180.250.xxx.xxx         PT Telekom                 Indonesia
+      206.190.xxx.xxx      WestHost                  USA              112.78.xxx.xxx          Biznet ISP                 Indonesia
+      206.190.xxx.xxx      Softlayer                 USA              197.156.xxx.xxx         Ethio Telecom              Ethiopia
+      209.59.xxx.xxx       Endurance International   USA              59.167.xxx.xxx          Internode                  Australia
+      209.59.xxx.xxx       Endurance International   USA              212.166.xxx.xxx         Vodafone                   Spain
+
+
+       Table 4: Deproxifying FinSpy (mapping initial C&C IP addresses to the masters to which they forward).
+
+
+
+sion of the protocol, suggesting that our scan results may not                  Country            IPs             Provider           IPs
+reveal the full scope of FinSpy C&C servers. Perhaps, the                     United States         61              Linode             42
+HTTP POST protocol was only delivered to a specific Gamma                    United Kingdom         18            NOC4Hosts            16
+customer to meet a requirement.                                                    Italy            16           Telecom Italia         9
+                                                                                  Japan             10           Maroc Telecom          7
+                                                                                Morocco              7             InfoLink             6
+5.2    Remote Control System (RCS)
+We began by analyzing the UAE RCS sample from Ahmed and
+                                                                          Table 5: Top countries and hosting providers for RCS
+6 samples obtained from VirusTotal by searching for AV re-
+                                                                          servers active on 11/4/13.
+sults containing the strings “DaVinci” and “RCS.” At the time,
+several AV vendors had added detection for RCS based on a
+sample analyzed by Dr. Web [71] and the UAE RCS sample                    ing one of our fingerprints in 29 different countries. We sum-
+sent to Ahmed. We also similarly obtained and analyzed sam-               marize the top providers and countries in Table 5.
+ples of FSBSpy [72], a piece of malware that can report system               The prevalence of active servers either located in the USA or
+information, upload screenshots, and drop and execute more                hosted by Linode is striking,8 and seems to indicate a pervasive
+malware, Based on these samples, we devised YARA signa-                   use of out-of-country web hosting and VPS services.
+tures that yielded 23 additional samples of structurally similar             In addition, we found: (1) 3 IP addresses on a /28 named
+malware.                                                                  “HT public subnet” that is registered to the CFO of Hacking
+    Fingerprints: We probed the C&C servers of the RCS and                Team [76]. The domain hackingteam.it resolves to an
+FSBSpy samples, and found that they responded in a distinc-               address in this range. (2) An address belonging to Omantel, a
+tive way to HTTP requests, and returned distinctive SSL cer-              majority-state-owned telecom in Oman. This address was un-
+tificates.                                                                reachable when we probed it; a researcher pointed us to an FS-
+                                                                          BSpy sample that contained an Arabic-language bait document
+    We searched sources including Shodan, 5 Internet Census
+                                                                          about Omani poetry, which talked to a C&C in the UK. (3) 7
+service probes [73], and Critical.IO scanning data [68] for the
+                                                                          IP addresses belonging to Maroc Telecom. Moroccan journal-
+observed distinctive HTTP behavior. We searched for the dis-
+                                                                          ists at Mamfakinch.com were previously targeted by RCS in
+tinctive SSL certificates in two Internet Census service probes,
+                                                                          2012 [77]. (4) Overall, servers in 8 countries with governments
+and SSL certificate scans from ZMap [74]. We also contacted a
+                                                                          deemed “authoritarian regimes” [69]: Azerbaijan, Kazakhstan,
+team at TU Munich [75], who applied our fingerprints to their
+                                                                          Nigeria, Oman, Saudi Arabia, Sudan, UAE, Uzbekistan.
+SSL scanning data. Across all of these sources, we obtained
+                                                                             Link to Hacking Team: All active servers match-
+31,345 indicator hits reflecting 555 IP addresses in 48 coun-
+                                                                          ing one of our signatures also responded peculiarly when
+tries.
+                                                                          queried with particular ill-formed HTTP requests, respond-
+    One SSL certificate returned by 175 of the servers was issued
+                                                                          ing with “HTTP1/1 400 Bad request” (should be
+by “/CN=RCS Certification Authority /O=HT srl,” apparently
+                                                                          “HTTP/1.1”) and a body of “Detected error: HTTP
+referring to the name of the spyware and the company. Servers
+                                                                          code 400”. Googling for this response yielded a GitHub
+for 5 of our FSBSpy samples and 2 of our RCS samples re-
+                                                                          project em-http-server [78], a Ruby-based webserver.
+sponded with this type of certificate.
+                                                                          The project’s author is listed as Alberto Ornaghi, a software
+    Some servers returned these certificates in chains that in-
+                                                                          architect at Hacking Team. We suspect that the Hacking Team
+cluded another distinctive certificate. We found 175 distinct IP
+                                                                          C&C server code may incorporate code from this project.
+addresses (including the C&C’s for 5 of our FSBSpy samples
+                                                                             Links between servers: We identified many cases where
+and 2 of our RCS samples) responded with this second type of
+                                                                          several servers hosted by different providers, and in different
+certificate.
+                                                                          countries, returned identical SSL certificates matching our fin-
+    We devised two more indicators: one that matched 125 IP
+                                                                          gerprints. We also observed 30 active servers used a global
+addresses, including 7 of our FSBSpy samples’ C&C’s, and
+                                                                          IPID. Only one active server had neither a global IPID nor
+one that matched 2 IP addresses, in Italy and Kazakhstan.
+    Server locations: On 11/4/13 we probed all of the IP ad-                  8 19 of the 42 Linode servers were hosted in the USA, so the two
+
+dresses that we collected, finding 166 active addresses match-            patterns of prevalence are mostly distinct.
+
+
+                                                                     11
+USENIX Association 	                                                                            23rd USENIX Security Symposium  521
+an SSL certificate matching our fingerprints. We assessed                  ing 11 cases in which they appeared to be used in countries
+whether servers returning SSL certificates were forwarding to              governed by “authoritarian regimes.”
+the servers with global IPIDs by inducing bursts of traffic at the             We aim with this work to inspire additional research efforts
+former and monitoring the IPID at the latter. For 11 servers,              addressing the difficult problem of how to adequately protect
+we found that the server’s activity correlated to bursts sent to           individuals with very limited resources facing very powerful
+other servers We grouped servers by the SSL certificates they              adversaries. Open questions include robust, practical detection
+returned, and found that each group forwarded to only a sin-               of targeted attacks designed to exfiltrate data from a victim’s
+gle server, except for one case where a group forwarded to two             computer, as well as detection of and defense against novel at-
+different IPs (both in Morocco). We also found two groups                  tack vectors, like tampering with Internet connections to insert
+that forwarded to the same address. There was a 1:1 mapping                malware.
+between the remaining 8 addresses and groups. We refer to a                    The task is highly challenging, but the potential stakes are
+group along with the server(s) it forwards to as a server group.           likewise very high. An opposition member, reflecting on gov-
+We identified several server groups that may be associated with            ernment hacking in Libya, speculated as to why some users
+victims or operators in a certain country. Some of these suggest           would execute files even while recognizing them as potentially
+possible further investigation:                                            malicious [2]: “If we were vulnerable we couldn’t care less . . .
+   Turkey: We identified a group containing 20 servers in 9                we were desperate to get our voices out . . . it was a matter of
+countries. Two RCS and 5 FSBSpy samples from VirusTo-                      life or death . . . it was just vital to get this information out.”
+tal communicated with various servers in the group. The RCS
+samples also communicated with domains with lapsed registra-
+                                                                           Acknowledgment
+tions, so we registered them to observe incoming traffic. We ex-
+clusively received RCS traffic from Turkish IP addresses. (RCS             This work was supported by the National Science Foundation
+traffic is identifiable based on a distinctive user agent and URL          under grants 1223717 and 1237265, and by a Citizen Lab Fel-
+in POST requests.) A sample of FSBSpy apparently installed                 lowship. Any opinions, findings, and conclusions or recom-
+from an exploit on a Turkish server talked to one of the servers           mendations expressed in this material are those of the authors
+in this group.[79]                                                         and do not necessarily reflect the views of the sponsors.
+   We also found server groups containing servers in Uzbek-                   The authors would like to thank the following individuals
+istan and Kazakhstan; we found FSBSpy samples on Virus-                    for their help in various aspects of our analysis: Bernhard Am-
+Total uploaded from these countries that communicated with                 man, Collin D. Anderson, Brandon Dixon, Zakir Durumeric,
+servers in these groups.                                                   Eva Galperin, Claudio Guarnieri, Drew Hintz, Ralph Holz,
+   In the above cases, save Turkey, the country we have identi-            Shane Huntley, Andrew Lyons, Mark Schloesser, and Nicholas
+fied is classified as an “authoritarian regime,” and may be using          Weaver.
+Hacking Team products against the types of targets we profile
+in this paper. In the case of Turkey, there are hints that the tool
+may be employed against dissidents [80].                                   References
+                                                                            [1] “Dark Secrets—Hacking Team commercial,” ac-
+                                                                                cessed:       12-November-2013. [Online]. Available:
+6    Summary
+                                                                                http://bit.ly/1bCh57v
+Targeted surveillance of individuals conducted by nation-states             [2] J. Scott-Railton, “Revolutionary Risks: Cyber Technol-
+poses an exceptionally challenging security problem, given the                  ogy and Threats in the 2011 Libyan Revolution,” US
+great imbalance of resources and expertise between the victims                  Naval War College, Tech. Rep., 2013.
+and the attackers. We have sketched the nature of this problem              [3] S. H. AlJalahma, “Response to The Guardian—UK
+space as reported to us by targeted individuals in three Middle                 companys software used against Bahrain activist,” May
+Eastern countries. The attacks include spyware for ongoing                      2013, accessed: 12-November-2013. [Online]. Available:
+monitoring and the use of “IP spy” links to deanonymize those                   http://bit.ly/19iVUUP
+who voice dissent.                                                          [4] V. Silver, “Gamma Says No Spyware Sold to
+    The attacks, while sometimes incorporating effective so-                    Bahrain; May Be Stolen Copy,” Jul. 2012, ac-
+cial engineering, in general lack novel technical elements. In-                 cessed:     12-November-2013. [Online]. Available:
+stead, they employ prepackaged tools developed by vendors                       http://bloom.bg/17SOXQs
+or acquired from the cybercrime underground. This technol-
+                                                                            [5] A. Jeffries, “Meet Hacking Team, the company that helps
+ogy sometimes suffers from what strike us as amateurish mis-
+                                                                                the police hack you,” Sep. 2013, accessed: 12-November-
+takes (multiple serious errors implementing cryptography, bro-
+                                                                                2013. [Online]. Available: http://bit.ly/1bCajyl
+ken protocol messages), as does the attackers’ employment of
+it (identifying-information embedded in binaries, C&C servers               [6] T. Brewster, “From Bahrain To Belarus: Attack Of The
+discoverable via scanning or “Google hacking”, clusters of at-                  Fake Activists,” Jul. 2013, accessed: 12-November-2013.
+tack accounts tied by common activity). Some of these errors                    [Online]. Available: http://bit.ly/1gIgwhW
+assisted our efforts to assemble strong circumstantial evidence             [7] V. Silver, “MJM as Personified Evil Says Spyware Saves
+of governmental origins. In addition, we mapped out the global                  Lives Not Kills Them,” 2011, accessed: 12-November-
+use of two “governmental” hacking suites, including identify-                   2013. [Online]. Available: http://bloom.bg/170E8sQ
+
+
+                                                                      12
+522  23rd USENIX Security Symposium	                                                                                   USENIX Association
+ [8] D. Gilbert, “Hacking Team and the Murky World of                 [27] “FinFisher - Excellence in IT Investigation,” ac-
+     State-Sponsored Spying,” 2013, accessed: 12-November-                 cessed:      27-February-2014. [Online]. Available:
+     2013. [Online]. Available: http://bit.ly/17tBBtm                      http://www.finfisher.com/
+ [9] R. Clayton, S. J. Murdoch, and R. N. Watson, “Ignoring           [28] R. Rolles, “Unpacking virtualization obfuscators,” in
+     the Great Firewall of China,” in PETS. Springer, 2006,                USENIX WOOT, 2009.
+     pp. 20–35.                                                       [29] “TEMU: The BitBlaze Dynamic Analysis Compo-
+[10] J. R. Crandall et al., “ConceptDoppler: A Weather                     nent,” accessed: 7-August-2013. [Online]. Available:
+     Tracker for Internet Censorship,” in ACM CCS, 2007.                   http://bit.ly/1clcxSZ
+[11] X. Xu, Z. M. Mao, and J. A. Halderman, “Internet Cen-            [30] “‘Reinstate sacked official’       call,”   2013,   ac-
+     sorship in China: Where Does the Filtering Occur?” in                 cessed:       11-November-2013.    [Online]. Available:
+     Proc. PAM, 2011.                                                      http://bit.ly/1aRUZ4b
+[12] M. Sherr, G. Shah, E. Cronin, S. Clark, and M. Blaze,            [31] “Unionist Questioned,” 2013, accessed: 23-April-2013.
+     “Can They Hear Me Now? A Security Analysis of Law                     [Online]. Available: http://bit.ly/1gHnBiS
+     Enforcement Wiretaps,” in ACM CCS, 2009, pp. 512–                [32] N. Villeneuve, “Fake Skype Encryption Service Cloaks
+     523.                                                                  DarkComet Trojan,” Apr. 2012, accessed: 4-August-
+[13] J. R. Crandall, M. Crete-Nishihata, and J. Knockel, “Chat             2013. [Online]. Available: http://bit.ly/17SpA1c
+     program censorship and surveillance in China: Tracking           [33] E. Galperin and M. Marquis-Boire, “Fake YouTube
+     TOM-Skype and Sina UC,” First Monday, vol. 18, no. 7,                 Site Targets Syrian Activists With Malware,” Mar.
+     Jul. 2013, accessed: 8-August-2013. [Online]. Available:              2012, accessed: 4-August-2013. [Online]. Available:
+     http://bit.ly/1fzNcHl                                                 http://bit.ly/HSCRet
+[14] S. Wolchok, R. Yao, and J. A. Halderman, “Analysis of            [34] ——, “New Wave of Facebook Phishing Attacks Targets
+     the Green Dam Censorware System,” Tech. Rep., 2009.                   Syrian Activists,” Apr. 2012, accessed: 4-August-2013.
+[15] F. Li, A. Lai, and D. Ddl, “Evidence of Advanced Persis-              [Online]. Available: http://bit.ly/1hDQsG8
+     tent Threat: A case study of malware for political espi-         [35] ——, “Pro-Syrian Government Hackers Target Activists
+     onage,” in MALWARE, 2011.                                             With Fake Anti-Hacking Tool,” Aug. 2012, accessed:
+[16] “Default https access for Gmail,” 2010, accessed: 7-                  4-August-2013. [Online]. Available: http://bit.ly/1eJj12T
+     August-2013. [Online]. Available: http://bit.ly/1bBktPM          [36] J. Scott-Railton and M. Marquis-Boire, “A Call to Harm:
+[17] “Making Twitter more secure: HTTPS,” 2011, accessed:                  New Malware Attacks Target the Syrian Opposition,”
+     7-August-2013. [Online]. Available: http://bit.ly/1i7l9kM             Citizen Lab, Tech. Rep., Jun. 2013, accessed: 3-August-
+                                                                           2013. [Online]. Available: http://bit.ly/1a2l9PK
+[18] L. Constantin, “Facebook to roll out HTTPS by default
+     to all users,” 2012, accessed: 7-August-2013. [Online].          [37] E. Galperin and M. Marquis-Boire, “Trojan Hidden
+     Available: http://bit.ly/1bsLBCm                                      in Fake Revolutionary Documents Targets Syrian Ac-
+                                                                           tivists,” May 2012, accessed: 4-August-2013. [Online].
+[19] “FinFisher: Governmental IT Intrusion and Remote
+                                                                           Available: http://bit.ly/1cSJT0
+     Monitoring Solutions,” accessed: 12-November-2013.
+     [Online]. Available: http://bit.ly/1840Lxn                       [38] M. Marquis-Boire and S. Hardy, “Syrian Activists Tar-
+                                                                           geted with BlackShades Spy Software,” Jun. 2012,
+[20] “BlackBerry rogue software leaves sour taste in UAE,”
+                                                                           accessed:      12-November-2013. [Online]. Available:
+     2013, accessed: 11-November-2013. [Online]. Available:
+                                                                           http://bit.ly/1a2l6mX
+     http://on.ft.com/HVXvJP
+                                                                      [39] S. Fagerland, “The Syrian Spyware,” Feb. 2012,
+[21] Mandiant, “The Advanced Persistent Threat,” 2010.
+                                                                           accessed:       4-August-2013. [Online]. Available:
+[22] ——, “APT1: Exposing One of China’s Cyber Espionage                    http://bit.ly/HLyGR9
+     Units,” 2013.
+                                                                      [40] Telecomix, “REPORT of a Syrian spyware,” p. 9, Feb.
+[23] S. Fagerland, M. Krakvik, J. Camp, and N. Moran, “Op-                 2012, accessed: 4-August-2013. [Online]. Available:
+     eration Hangover: Unveiling an Indian Cyberattack In-                 http://bit.ly/1bsNcIk
+     frastructure,” 2013.
+                                                                      [41] S. Faris, “The Hackers of Damascus,” Nov.
+[24] R. Deibert and R. Rohozinski, “Tracking GhostNet: In-                 2012, accessed: 9-August-2013. [Online]. Available:
+     vestigating a Cyber Espionage Network,” Information                   http://buswk.co/17t8RRH
+     Warfare Monitor, p. 6, 2009.                                     [42] L. Aylward, “Malware Analysis—Dark Comet RAT,”
+[25] S. Nagaraja and R. Anderson, “The snooping dragon:                    Nov. 2011, accessed: 4-August-2013. [Online]. Avail-
+     social-malware surveillance of the Tibetan movement,”                 able: http://bit.ly/16ZXgag
+     Tech. Rep., 2009.                                                [43] Quequero, “DarkComet Analysis—Understanding the
+[26] F. C. Solutions, ““njRAT” Uncovered,” 2013, accessed:                 Trojan used in Syrian Uprising,” Mar. 2012, accessed:
+     25-June-2013. [Online]. Available: http://bit.ly/1eJheel              4-August-2013. [Online]. Available: http://bit.ly/19i6kEl
+
+
+                                                                 13
+USENIX Association 	                                                                      23rd USENIX Security Symposium  523
+[44] S. Denbow and J. Hertz, “Pest Control: Taming the               [63] “Ultimate       Packer        for    eXecutables,”     ac-
+     RATs,” p. 14, accessed: 12-November-2013. [Online].                  cessed:        27-February-2014. [Online]. Available:
+     Available: http://bit.ly/1fzLA0m                                     http://upx.sourceforge.net/
+[45] B. Brumfield, “Computer spyware is newest weapon in             [64] “CVE-2013-0422,” accessed: 27-February-2014. [On-
+     Syrian conflict,” Feb. 2012, accessed: 4-August-2013.                line]. Available: http://bit.ly/NA1O0A
+     [Online]. Available: http://cnn.it/HLz5TA                       [65] njq8, “New java drive-by 2013-1-11,” 2013, accessed:
+[46] “jalnosra.com,” accessed: 27-February-2014. [Online].                27-February-2014. [Online]. Available: http://www.dev-
+     Available: jalnosra.com                                              point.com/vb/t357796.html
+[47] “Skype Encryption.wmv,” accessed: 27-February-2014.             [66] “Appin Technology Lab,” accessed: 27-February-2014.
+     [Online]. Available: http://bit.ly/HZ3e1y                            [Online]. Available: http://www.appinonline.com/
+[48] E. Galperin and M. Marquis-Boire, “The Internet                 [67] C. Guarnieri, “Analysis of the FinFisher Lawful
+     is Back in Syria and So is Malware Targeting                         Interception Malware,” 2012, accessed: 7-August-2013.
+     Syrian Activists,” Dec. 2012, accessed: 4-August-2013.               [Online]. Available: http://bit.ly/1eJjVMV
+     [Online]. Available: http://bit.ly/1bngqFc                      [68] H. Moore, “Critical Research: Internet Security Survey,”
+[49] “Free Syrian Army Sex Tape—Abdul Razzaq Tlass                        2012.
+     [NSFW],” accessed: 5-August-2013. [Online]. Available:          [69] “Democracy Index 2012: Democracy at a Standstill,”
+     http://bit.ly/1gHqDDH                                                2012, accessed: 7-August-2013. [Online]. Available:
+[50] A. Lund, “Holy Warriors: A field guide to Syria’s jihadi             http://bit.ly/HSEDMD
+     groups,” Oct. 2012, accessed: 5-August-2013. [Online].          [70] “YARA - The pattern matching swiss knife for malware
+     Available: http://atfp.co/17t8yq5                                    researchers,” accessed: 27-February-2014. [Online].
+                                                                          Available: http://plusvic.github.io/yara/
+[51] “Ahmed Mansoor and Four Other Pro-Democracy
+     Activists Pardoned and Freed,”           2013,   ac-            [71] “Cross-platform Trojan controls Windows and Mac
+     cessed:       10-November-2013. [Online]. Available:                 machines,” 2012, accessed: 7-August-2013. [Online].
+     http://bit.ly/18pHpis                                                Available: http://bit.ly/1eJnJgZ
+[52] “Royal Group,” accessed: 27-February-2014. [Online].            [72] S. Golovanov, “Adobe Flash Player 0-day and Hack-
+     Available: http://www.royalgroupuae.com/                             ingTeam’s Remote Control System,” 2013, accessed:
+                                                                          7-August-2013. [Online]. Available: http://bit.ly/17n12ro
+[53] T. Katsuki, “Crisis for Windows Sneaks onto Virtual
+     Machines,” 2012, accessed: 27-February-2014. [Online].          [73] “Internet Census 2012,” 2013, accessed: 7-August-2013.
+     Available: http://bit.ly/MzheRJ                                      [Online]. Available: http://bit.ly/1i7rRHs
+                                                                     [74] Z. Durumeric, E. Wustrow, and J. A. Halderman, “ZMap:
+[54] “Hacking Team,” accessed: 27-February-2014. [Online].
+                                                                          Fast Internet-Wide Scanning and its Security Applica-
+     Available: http://www.hackingteam.it/
+                                                                          tions,” in USENIX Security, Aug. 2013.
+[55] “MPRESS,” accessed: 27-February-2014. [Online].
+                                                                     [75] “Home of Crossbear and OONIBear,”                      ac-
+     Available: http://www.matcode.com/mpress.htm
+                                                                          cessed:        27-February-2014. [Online]. Available:
+[56] “Sign in using application-specific passwords,”                      https://pki.net.in.tum.de/
+     accessed:     27-February-2014. [Online]. Available:
+                                                                     [76] “RIPE Database Query for FASTWEB-HT,” ac-
+     https://support.google.com/accounts/answer/185833?hl=en
+                                                                          cessed:        27-February-2014. [Online]. Available:
+[57] S. Fagerland, “Systematic cyber attacks against Is-                  http://bit.ly/MzkigV
+     raeli and Palestinian targets going on for a year,”             [77] “How Government-Grade Spy Tech Used A Fake Scandal
+     2012, accessed: 12-November-2013. [Online]. Available:               To Dupe Journalists,” 2012, accessed: 7-August-2013.
+     http://bit.ly/1aSdw07
+                                                                     [78] A. Ornaghi, “em-http-server,” accessed: 27-February-
+[58] V. Silver, “Spyware Leaves Trail to Beaten                           2014. [Online]. Available: https://github.com/alor/em-
+     Activist Through Microsoft Flaw,” 2012, ac-                          http-server
+     cessed:     14-November-2013. [Online]. Available:
+                                                                     [79] SophosLabs, “Anatomy of a targeted attack—
+     http://bloom.bg/1ja2geI
+                                                                          SophosLabs explores an Adobe zero-day “malware
+[59] B. Hubbard, “Emirates Balk at Activism in Region                     experiment”,” 2013, accessed 7-August-2013. [Online].
+     Hit by Uprisings,” 2013, accessed: 14-November-2013.                 Available: http://bit.ly/HQ1oRc
+     [Online]. Available: http://nyti.ms/I4n2Aw
+                                                                     [80] K. Zetter, “American Gets Targeted by Digital
+[60] “SPY NET,” accessed: 27-February-2014. [Online].                     Spy Tool Sold to Foreign Governments,” 2013,
+     Available: http://newspynetrat.blogspot.com/                         accessed:      14-November-2013. [Online]. Available:
+[61] “Asprotect SKE,” accessed: 27-February-2014. [Online].               http://wrd.cm/1fHonth
+     Available: http://www.aspack.com/asprotect32.html               [81] M. Marquis-Boire and B. Marczak, “From Bahrain
+[62] “Unpacking VBInject/VBCrypt/RunPE,” 2010, ac-                        With Love: FinFisher’s Spy Kit Exposed?”              Jul.
+     cessed:         7-August-2013. [Online]. Available:                  2012, accessed: 4-August-2013. [Online]. Available:
+     http://bit.ly/1e28nS2                                                http://bit.ly/1bngpB2
+
+
+                                                                14
+524  23rd USENIX Security Symposium	                                                                           USENIX Association
+A     FinSpy fingerprints
+Previous work by Guarnieri on scanning for FinSpy servers
+found that in response to a request such as GET /, the
+Bahraini FinSpy C&C server returns a response with the string
+“Hallo Steffi” [67]. Guarnieri searched a database of
+such responses compiled by the Critical.IO Internet scanning
+project [68], locating 11 additional servers in 10 countries [67].
+We refer to this fingerprint as α1 . Concurrent with this ef-
+fort, we devised our own fingerprint β1 that tested three as-
+pects of the handshake between a FinSpy infectee and a Fin-
+Spy C&C server, which follows a custom TLV-based protocol
+running on ports such as 22, 53, 80, and 443. We conducted
+targeted scanning of several countries using β1 , and also con-
+firmed Guarnieri’s findings for those servers still reachable af-
+ter he published his findings.
+   We observed a trend: changes in HTTP response behavior
+by FinFisher after publication of findings about the software.
+In July 2012, for example, after a post about Bahraini FinSpy
+samples [81], servers closed the TCP connection in response
+to a GET / or HEAD / request (although servers continued
+to behave consistently with β1 . Other changes followed later
+in 2012, including a new response to GET / requests that in-
+cluded an imperfect copy of an Apache server’s HTTP response
+(the Date header used UTC rather than GMT). We fingerprinted
+this error as α2 , and later in 2012 fingerprinted other distinctive
+behavior in response to GET / requests as α3 .
+   Subsequent scans of /0 for α2 and α3 , and five service
+probes of the Internet Census for α1 through α3 , located several
+additional servers. In Feburary 2013 we identified and finger-
+printed new HTTP response behavior with α4 and modified β1
+to produce β2 , which tests only two of the three aspects of the
+FinSpy handshake (the third test of β1 was broken when Fin-
+Spy servers were updated to accept types of invalid data they
+had previously rejected).
+   As of 3/13/13, all servers that matched any α fingerprint
+matched β2 .
+
+
+
+
+                                                                       15
+USENIX Association 	                                                        23rd USENIX Security Symposium  525
+

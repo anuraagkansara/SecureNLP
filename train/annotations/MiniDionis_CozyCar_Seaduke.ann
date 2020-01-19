@@ -1,0 +1,76 @@
+T1	Action 493 501	utilizes
+A1	Capability T1 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T1 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T2	Object 502 534	compromised, legitimate websites
+T3	Modifier 535 538	for
+T4	Object 539 544;545 553	spear phishing
+R1	ActionObj Action:T1 Object:T2	
+R2	ActionMod Action:T1 Modifier:T3	
+R3	ModObj Modifier:T3 Object:T4	
+T5	Subject 1003 1031	The current CozyCar campaign
+T6	Action 1032 1040	includes
+A3	Capability T6 010:MalwareCapability-infection/propagation
+A4	TacticalObjectives T6 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A5	StrategicObjectives T6 031:InfectionPropagation-infect_remote_machine
+T7	Object 1041 1104;1105 1201	spear phishing emails that deliver the payload from either by a link to a .zip file on a compromised website or by direct delivery as an attachment to the phish
+R4	ActionObj Action:T6 Object:T7	
+R5	SubjAction Subject:T5 Action:T6	
+A6	StrategicObjectives T1 031:InfectionPropagation-infect_remote_machine
+T8	Action 2672 2681	cleans up
+A7	Capability T8 017:MalwareCapability-secondary_operation
+A8	TacticalObjectives T8 121:SecondaryOperation-remove_system_artifacts
+A9	StrategicObjectives T8 054:SecondaryOperation-remove_traces_of_infection
+T9	Subject 2645 2666	The secondary dropper
+R6	SubjAction Subject:T9 Action:T8	
+T11	Modifier 2695 2699	with
+T12	Object 2700 2719	a simple vbs script
+R8	ModObj Modifier:T11 Object:T12	
+T10	Modifier 2682 2687	after
+T13	Object 2688 2694	itself
+R7	ModObj Modifier:T10 Object:T13	
+R9	ActionMod Action:T8 Modifier:T10	
+R10	CoRefer Referer:T9 Canonical:T13	
+R11	ActionMod Action:T8 Modifier:T11	
+T14	Subject 4568 4590	the secondary dll file
+T15	Action 4665 4670	serve
+A10	Capability T15 017:MalwareCapability-secondary_operation
+A11	TacticalObjectives T15 121:SecondaryOperation-remove_system_artifacts
+A12	StrategicObjectives T15 054:SecondaryOperation-remove_traces_of_infection
+T16	Modifier 4671 4673	as
+T17	Object 4674 4716	a cleanup mechanism for the dropped binary
+R12	ActionMod Action:T15 Modifier:T16	
+R13	ModObj Modifier:T16 Object:T17	
+R14	SubjAction Subject:T14 Action:T15	
+T18	Subject 8349 8359	the Trojan
+T19	Action 8365 8370	issue
+A13	Capability T19 005:MalwareCapability-command_and_control
+A14	StrategicObjectives T19 018:CommandandControl-send_data_to_c2_server
+T20	Object 8371 8387	an HTTPS request
+T21	Modifier 8388 8390	to
+T22	Object 8391 8404	the C2 server
+R15	SubjAction Subject:T18 Action:T19	
+R16	ActionObj Action:T19 Object:T20	
+R17	ActionMod Action:T19 Modifier:T21	
+R18	ModObj Modifier:T21 Object:T22	
+T23	Subject 11838 11851	the C2 server
+T24	Action 11863 11873	responding
+A15	Capability T24 005:MalwareCapability-command_and_control
+A16	StrategicObjectives T24 017:CommandandControl-receive_data_from_c2_server
+T25	Modifier 11874 11876	to
+T26	Object 11877 11900	beacons from the Trojan
+T27	Modifier 11901 11905	with
+T28	Object 11906 11916	JSON blobs
+R19	SubjAction Subject:T23 Action:T24	
+R20	ModObj Modifier:T25 Object:T26	
+R21	ModObj Modifier:T27 Object:T28	
+R22	ActionMod Action:T24 Modifier:T25	
+R23	ActionMod Action:T24 Modifier:T27	
+T29	Action 12548 12554	allows
+A17	Capability T29 005:MalwareCapability-command_and_control
+A18	TacticalObjectives T29 047:CommandandControl-control_malware_via_remote_command
+T30	Object 12555 12572	the threat actors
+T31	Modifier 12573 12575	to
+T32	Object 12576 12626	carry out a full range of activities on the system
+R24	ModObj Modifier:T31 Object:T32	
+R25	ActionObj Action:T29 Object:T30	
+R26	ActionMod Action:T29 Modifier:T31	

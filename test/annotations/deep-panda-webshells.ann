@@ -1,0 +1,63 @@
+T1	Subject 3118 3129	Showimg.asp
+T2	Action 3180 3185	build
+A1	Capability T2 012:MalwareCapability-machine_access/control
+A2	StrategicObjectives T2 039:MachineAccessControl-install_backdoor
+T3	Object 3186 3212;3213 3222	an initial foothold within a network
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Action 2143 2148	Using
+A3	Capability T4 012:MalwareCapability-machine_access/control
+A4	TacticalObjectives T4 100:MachineAccessControl-control_machine_via_remote_command
+A5	StrategicObjectives T4 039:MachineAccessControl-install_backdoor
+T5	Object 2149 2160	a web shell
+R3	ActionObj Action:T4 Object:T5	
+T6	Modifier 2161 2163	as
+T7	Object 2164 2173;2174 2182	a primary backdoor
+R4	ModObj Modifier:T6 Object:T7	
+R5	ActionMod Action:T4 Modifier:T6	
+T8	Subject 9383 9396	The web shell
+T9	Action 9397 9405	supports
+A6	Capability T9 012:MalwareCapability-machine_access/control
+A7	TacticalObjectives T9 100:MachineAccessControl-control_machine_via_remote_command
+A8	StrategicObjectives T9 038:MachineAccessControl-control_local_machine
+T10	Object 9406 9421	8 main commands
+R6	SubjAction Subject:T8 Action:T9	
+R7	ActionObj Action:T9 Object:T10	
+T11	Action 9663 9672	enumerate
+A9	Capability T11 019:MalwareCapability-spying
+A10	TacticalObjectives T11 138:Spying-capture_file_system
+T12	Object 9673 9688	attached drives
+T13	Subject 9649 9657	the code
+R8	SubjAction Subject:T13 Action:T11	
+R9	ActionObj Action:T11 Object:T12	
+T14	Action 10874 10880	Upload
+A11	Capability T14 006:MalwareCapability-data_exfiltration
+A12	ActionName T14 097:Network-upload_file
+A13	StrategicObjectives T14 020:DataExfiltration-perform_data_exfiltration
+A14	TacticalObjectives T14 057:DataExfiltration-exfiltrate_via_network
+T15	Object 10881 10922	the file chosen by the Choose File button
+R10	ActionObj Action:T14 Object:T15	
+T16	Action 12152 12163	impersonate
+A15	Capability T16 014:MalwareCapability-privilege_escalation
+A16	ActionName T16 209:User-logon_as_user
+A17	StrategicObjectives T16 045:PrivilegeEscalation-impersonate_user
+T17	Object 12164 12179	a specific user
+R11	ActionObj Action:T16 Object:T17	
+T18	Subject 12368 12383	system_web.aspx
+T19	Action 12384 12392	provides
+A18	Capability T19 012:MalwareCapability-machine_access/control
+A19	TacticalObjectives T19 100:MachineAccessControl-control_machine_via_remote_command
+A20	StrategicObjectives T19 038:MachineAccessControl-control_local_machine
+T20	Object 12393 12405	an adversary
+T21	Modifier 12406 12410	with
+T22	Object 12411 12445;12446 12487	a very stealthy means of near full control of the server on which it resides
+R12	SubjAction Subject:T18 Action:T19	
+R13	ActionObj Action:T19 Object:T20	
+R14	ModObj Modifier:T21 Object:T22	
+R15	ActionMod Action:T19 Modifier:T21	
+T23	Subject 12489 12501	This stealth
+T24	Action 12508 12510	be
+A21	Capability T24 002:MalwareCapability-anti-detection
+T25	Object 12511 12539	its most important attribute
+R16	SubjAction Subject:T23 Action:T24	
+R17	ActionObj Action:T24 Object:T25	

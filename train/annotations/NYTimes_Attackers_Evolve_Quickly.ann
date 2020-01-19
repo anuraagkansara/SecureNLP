@@ -1,0 +1,95 @@
+T1	Subject 623 629	Aumlib
+T2	Action 686 693	encodes
+A1	Capability T2 005:MalwareCapability-command_and_control
+T3	Object 694 721	certain HTTP communications
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 865 888	a new version of Ixeshe
+T5	Action 959 963	uses
+A2	Capability T5 002:MalwareCapability-anti-detection
+A3	TacticalObjectives T5 025:AntiDetection-hide_network_traffic
+A4	StrategicObjectives T5 007:AntiDetection-hide_malware_artifacts
+T6	Object 964 967;968 992	new network traffic patterns
+T7	Modifier 1003 1005	to
+T8	Object 1006 1048	evade traditional network security systems
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+R5	ActionMod Action:T5 Modifier:T7	
+R6	ModObj Modifier:T7 Object:T8	
+T9	Subject 2432 2466	the attackers behind the intrusion
+T10	Action 2467 2475	deployed
+A5	Capability T10 012:MalwareCapability-machine_access/control
+A6	StrategicObjectives T10 039:MachineAccessControl-install_backdoor
+T11	Object 2476 2501;2502 2562	updated versions of their Backdoor.APT.Aumlib and Backdoor.APT.Ixeshe malware families
+R7	SubjAction Subject:T9 Action:T10	
+R8	ActionObj Action:T10 Object:T11	
+T12	Subject 3267 3304	Older variants of this malware family
+T13	Action 3305 3314	generated
+A7	Capability T13 005:MalwareCapability-command_and_control
+A8	ActionName T13 058:HTTP-send_http_post_request
+T14	Object 3315 3318;3319 3341	the following POST request
+R9	SubjAction Subject:T12 Action:T13	
+R10	ActionObj Action:T13 Object:T14	
+A9	StrategicObjectives T13 018:CommandandControl-send_data_to_c2_server
+T15	Action 3391 3395	sent
+A10	Capability T15 005:MalwareCapability-command_and_control
+A11	ActionName T15 058:HTTP-send_http_post_request
+A12	StrategicObjectives T15 018:CommandandControl-send_data_to_c2_server
+A13	TacticalObjectives T15 050:CommandandControl-send_system_information
+T16	Object 3386 3390	Data
+R11	ActionObj Action:T15 Object:T16	
+T17	Modifier 3396 3399	via
+T18	Object 3400 3417	this POST request
+R12	ModObj Modifier:T17 Object:T18	
+R13	ActionMod Action:T15 Modifier:T17	
+T19	Object 4181 4194	The POST body
+T20	Action 4195 4209	is now encoded
+A14	Capability T20 006:MalwareCapability-data_exfiltration
+A15	TacticalObjectives T20 053:DataExfiltration-encrypt_data
+A16	StrategicObjectives T20 019:DataExfiltration-obfuscate_data_for_exfiltration
+R14	ActionObj Action:T20 Object:T19	
+T21	Subject 4565 4608	The sample cb3dcde34fd9ff0e19381d99b02f9692
+T22	Action 4609 4618	connected
+A17	Capability T22 005:MalwareCapability-command_and_control
+A18	ActionName T22 088:Network-connect_to_url
+T23	Modifier 4619 4621	to
+T24	Object 4622 4689	documents[.]myPicture[.]info and www[.]documents[.]myPicture[.]info
+R15	SubjAction Subject:T21 Action:T22	
+R16	ActionMod Action:T22 Modifier:T23	
+R17	ModObj Modifier:T23 Object:T24	
+T25	Action 4706 4715	generated
+A19	Capability T25 005:MalwareCapability-command_and_control
+A20	ActionName T25 058:HTTP-send_http_post_request
+A21	StrategicObjectives T25 018:CommandandControl-send_data_to_c2_server
+T26	Object 4720 4721;4722 4734	a POST request
+T27	Modifier 4735 4737	to
+T28	Object 4738 4751	/bbs/info.asp
+R18	ActionObj Action:T25 Object:T26	
+R19	ActionMod Action:T25 Modifier:T27	
+R20	ModObj Modifier:T27 Object:T28	
+R21	SubjAction Subject:T21 Action:T25	
+T29	Object 4926 4929;4930 4945	the network traffic
+T30	Action 4946 4956	is encoded
+A22	Capability T30 002:MalwareCapability-anti-detection
+A23	TacticalObjectives T30 025:AntiDetection-hide_network_traffic
+A24	StrategicObjectives T30 007:AntiDetection-hide_malware_artifacts
+R22	ActionObj Action:T30 Object:T29	
+T31	Modifier 4957 4961	with
+T32	Object 4962 4986	a custom Base64 alphabet
+R23	ActionMod Action:T30 Modifier:T31	
+R24	ModObj Modifier:T31 Object:T32	
+T33	Subject 5234 5280	This sample (aa873ed803ca800ce92a39d9a683c644)
+T34	Action 5365 5370	evade
+A25	Capability T34 002:MalwareCapability-anti-detection
+A26	StrategicObjectives T34 009:AntiDetection-security_software_evasion
+T35	Object 5371 5432;5433 5451	existing network traffic signatures designed to detect Ixeshe related infections
+R25	SubjAction Subject:T33 Action:T34	
+R26	ActionObj Action:T34 Object:T35	
+T36	Subject 5474 5497	The Base64-encoded data
+T37	Action 5504 5512	contains
+A27	Capability T37 007:MalwareCapability-data_theft
+A28	TacticalObjectives T37 074:DataTheft-steal_network_address
+A29	StrategicObjectives T37 024:DataTheft-steal_system_information
+T38	Object 5513 5571	information including the victim’s hostname and IP address
+R27	SubjAction Subject:T36 Action:T37	
+R28	ActionObj Action:T37 Object:T38	

@@ -1,0 +1,235 @@
+T1	Subject 2087 2097	RedOctober
+T2	Action 2105 2109	used
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Object 2110 2132;2133 2174	a very similarly named spearphish: "Diplomatic Car for Sale.doc"
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Subject 2399 2401	it
+T5	Action 2402 2408	writes
+A4	ActionName T5 043:File-write_to_file
+T6	Object 2409 2441	an encrypted Visual Basic Script
+A5	Capability T5 002:MalwareCapability-anti-detection
+A6	StrategicObjectives T5 007:AntiDetection-hide_malware_artifacts
+A7	TacticalObjectives T5 023:AntiDetection-hide_file_system_artifacts
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+T7	Action 2446 2450	runs
+A8	ActionName T7 029:File-execute_file
+T8	Object 2451 2453	it
+R5	CoRefer Referer:T6 Canonical:T8	
+R6	SubjAction Subject:T4 Action:T7	
+R7	ActionObj Action:T7 Object:T8	
+T9	Subject 2565 2578	This VBScript
+T10	Action 2579 2584	drops
+A9	Capability T10 017:MalwareCapability-secondary_operation
+A10	TacticalObjectives T10 118:SecondaryOperation-install_secondary_malware
+A11	StrategicObjectives T10 050:SecondaryOperation-install_other_components
+T11	Object 2585 2600	a pair of files
+T12	Modifier 2601 2603	on
+T13	Object 2604 2608	disk
+R8	SubjAction Subject:T9 Action:T10	
+R9	ActionObj Action:T10 Object:T11	
+R10	ActionMod Action:T10 Modifier:T12	
+R11	ModObj Modifier:T12 Object:T13	
+T14	Object 2757 2768	The payload
+T15	Action 2769 2778;2779 2788	is always encrypted
+A12	Capability T15 002:MalwareCapability-anti-detection
+A13	TacticalObjectives T15 023:AntiDetection-hide_file_system_artifacts
+A14	StrategicObjectives T15 007:AntiDetection-hide_malware_artifacts
+T16	Modifier 2789 2793	with
+T17	Object 2794 2806	a unique key
+R12	ActionObj Action:T15 Object:T14	
+R13	ActionMod Action:T15 Modifier:T16	
+R14	ModObj Modifier:T16 Object:T17	
+T18	Subject 2882 2924	several different spear-phishing documents
+T19	Action 2930 2934	drop
+A15	Capability T19 017:MalwareCapability-secondary_operation
+A16	TacticalObjectives T19 118:SecondaryOperation-install_secondary_malware
+A17	StrategicObjectives T19 050:SecondaryOperation-install_other_components
+T20	Object 2935 2958	uniquely named payloads
+R15	SubjAction Subject:T18 Action:T19	
+R16	ActionObj Action:T19 Object:T20	
+T21	Subject 3005 3037	E211C2BAD9A83A6A4247EC3959E2A730
+T22	Action 3038 3043	drops
+A18	Capability T22 017:MalwareCapability-secondary_operation
+A19	TacticalObjectives T22 118:SecondaryOperation-install_secondary_malware
+A20	StrategicObjectives T22 050:SecondaryOperation-install_other_components
+T23	Object 3044 3063	the following files
+R17	SubjAction Subject:T21 Action:T22	
+R18	ActionObj Action:T22 Object:T23	
+T24	Subject 3204 3211	The VBS
+T25	Action 3217 3221	adds
+A21	ActionName T25 135:Registry-create_registry_key
+T26	Object 3222 3237;3239 3303	a registry key: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\
+R19	SubjAction Subject:T24 Action:T25	
+R20	ActionObj Action:T25 Object:T26	
+T27	Action 3304 3311	setting
+A22	ActionName T27 142:Registry-modify_registry_key
+T28	Object 3312 3315;3316 3331	the key "bookstore"
+T29	Modifier 3332 3334	to
+T30	Object 3335 3378	the value "regsvr32 %path%\ctfmonrn.dll /s"
+R21	SubjAction Subject:T24 Action:T27	
+R22	ActionObj Action:T27 Object:T28	
+R23	ActionMod Action:T27 Modifier:T29	
+R24	ModObj Modifier:T29 Object:T30	
+T31	Action 3386 3393	ensures
+A23	Capability T31 013:MalwareCapability-persistence
+A24	TacticalObjectives T31 104:Persistence-persist_after_system_reboot
+A25	StrategicObjectives T31 042:Persistence-persist_to_continuously_execute_on_system
+T32	Object 3394 3416;3417 3436	the malware runs every time at system boot
+R25	SubjAction Subject:T24 Action:T31	
+T33	Subject 4015 4047	an encrypted configuration block
+T34	Action 4054 4062	contains
+A26	Capability T34 005:MalwareCapability-command_and_control
+A27	StrategicObjectives T34 016:CommandandControl-determine_c2_server
+T35	Object 4063 4094	information about the C&C sever
+R26	SubjAction Subject:T33 Action:T34	
+R27	ActionObj Action:T34 Object:T35	
+T36	Object 4158 4170	a WebDAV URL
+T37	Action 4177 4184	is used
+A28	Capability T37 005:MalwareCapability-command_and_control
+A29	ActionName T37 088:Network-connect_to_url
+T38	Modifier 4185 4188	for
+T39	Object 4189 4200	connections
+T40	Object 4316 4336	data from the victim
+T41	Action 4344 4355	be uploaded
+A30	Capability T41 006:MalwareCapability-data_exfiltration
+A31	ActionName T41 097:Network-upload_file
+A32	StrategicObjectives T41 020:DataExfiltration-perform_data_exfiltration
+A33	TacticalObjectives T41 057:DataExfiltration-exfiltrate_via_network
+R28	ActionObj Action:T41 Object:T40	
+R29	ActionObj Action:T37 Object:T36	
+R30	ActionMod Action:T37 Modifier:T38	
+R31	ModObj Modifier:T38 Object:T39	
+T42	Subject 4417 4441	The Cloud Atlas implants
+T43	Action 4442 4449	utilize
+A34	Capability T43 005:MalwareCapability-command_and_control
+T44	Object 4450 4480	a rather unusual C&C mechanism
+R32	SubjAction Subject:T42 Action:T43	
+R33	ActionObj Action:T43 Object:T44	
+T45	Subject 4482 4516	All the malware samples we've seen
+T46	Action 4517 4528	communicate
+A35	Capability T46 005:MalwareCapability-command_and_control
+T47	Modifier 4529 4532	via
+T48	Object 4533 4549	HTTPS and WebDav
+T49	Modifier 4550 4554	with
+T50	Object 4555 4611	the same server "cloudme.com", a cloud services provider
+R34	SubjAction Subject:T45 Action:T46	
+R35	ActionMod Action:T46 Modifier:T47	
+R36	ModObj Modifier:T47 Object:T48	
+R37	ActionMod Action:T46 Modifier:T49	
+R38	ModObj Modifier:T49 Object:T50	
+T51	Subject 4944 4984	Each malware set we have observed so far
+T52	Action 4985 4997	communicates
+A36	Capability T52 005:MalwareCapability-command_and_control
+T53	Modifier 4998 5002	with
+T54	Object 5003 5030	a different CloudMe account
+R39	SubjAction Subject:T51 Action:T52	
+R40	ActionMod Action:T52 Modifier:T53	
+R41	ModObj Modifier:T53 Object:T54	
+T55	Object 5060 5064	data
+T56	Action 5087 5100	is downloaded
+A37	Capability T56 005:MalwareCapability-command_and_control
+A38	ActionName T56 090:Network-download_file
+A39	StrategicObjectives T56 017:CommandandControl-receive_data_from_c2_server
+T57	Subject 5104 5115	the implant
+R42	SubjAction Subject:T57 Action:T56	
+R43	ActionObj Action:T56 Object:T55	
+T58	Subject 5153 5164	the malware
+T59	Action 5165 5172	uploads
+A40	Capability T59 005:MalwareCapability-command_and_control
+A41	ActionName T59 097:Network-upload_file
+A42	StrategicObjectives T59 018:CommandandControl-send_data_to_c2_server
+T60	Object 5173 5184	the replies
+T61	Modifier 5185 5192	back to
+T62	Object 5193 5203	the server
+T63	Modifier 5204 5207	via
+T64	Object 5208 5226	the same mechanism
+R44	SubjAction Subject:T58 Action:T59	
+R45	ActionObj Action:T59 Object:T60	
+R46	ActionMod Action:T59 Modifier:T61	
+R47	ActionMod Action:T59 Modifier:T63	
+R48	ModObj Modifier:T61 Object:T62	
+R49	ModObj Modifier:T63 Object:T64	
+T65	Object 5468 5513	The files stored in the randomly named folder
+T66	Action 5514 5527	were uploaded
+A43	Capability T66 006:MalwareCapability-data_exfiltration
+A44	ActionName T66 097:Network-upload_file
+A45	StrategicObjectives T66 020:DataExfiltration-perform_data_exfiltration
+A46	TacticalObjectives T66 057:DataExfiltration-exfiltrate_via_network
+R50	ActionObj Action:T66 Object:T65	
+T67	Subject 5531 5542	the malware
+R51	SubjAction Subject:T67 Action:T66	
+T68	Subject 5468 5513	The files stored in the randomly named folder
+T69	Action 5547 5554	contain
+A47	Capability T69 015:MalwareCapability-probing
+T70	Object 5555 5570;5571 5637	various things, such as system information, running processes and current username
+R52	SubjAction Subject:T68 Action:T69	
+R53	ActionObj Action:T69 Object:T70	
+T71	Object 5639 5647	The data
+A48	StrategicObjectives T69 046:Probing-probe_host_configuration
+T72	Action 5648 5661	is compressed
+A49	Capability T72 006:MalwareCapability-data_exfiltration
+A50	TacticalObjectives T72 062:DataExfiltration-package_data
+A51	StrategicObjectives T72 021:DataExfiltration-stage_data_for_exfiltration
+T73	Modifier 5662 5666	with
+T74	Object 5667 5671	LZMA
+R54	ActionObj Action:T72 Object:T71	
+R55	ActionMod Action:T72 Modifier:T73	
+R56	ModObj Modifier:T73 Object:T74	
+T75	Action 5676 5685	encrypted
+A52	Capability T75 006:MalwareCapability-data_exfiltration
+A53	TacticalObjectives T75 053:DataExfiltration-encrypt_data
+A54	StrategicObjectives T75 019:DataExfiltration-obfuscate_data_for_exfiltration
+T76	Modifier 5686 5690	with
+T77	Object 5691 5694	AES
+R57	ActionObj Action:T75 Object:T71	
+R58	ActionMod Action:T75 Modifier:T76	
+R59	ModObj Modifier:T76 Object:T77	
+T78	Subject 5834 5854	only one other group
+T79	Action 5895 5904	connected
+A55	Capability T79 005:MalwareCapability-command_and_control
+T80	Modifier 5905 5907	to
+T81	Object 5908 5949	accounts on the cloud provider mydrive.ch
+R60	SubjAction Subject:T78 Action:T79	
+R61	ActionMod Action:T79 Modifier:T80	
+R62	ModObj Modifier:T80 Object:T81	
+T82	Subject 6477 6548	some of the spear-phishing documents between Cloud Atlas and RedOctober
+T83	Action 6557 6564	exploit
+A56	Capability T83 010:MalwareCapability-infection/propagation
+A57	TacticalObjectives T83 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A58	StrategicObjectives T83 031:InfectionPropagation-infect_remote_machine
+T84	Object 6565 6579	the same theme
+T85	Action 6597 6603	target
+A59	Capability T85 010:MalwareCapability-infection/propagation
+A60	StrategicObjectives T85 031:InfectionPropagation-infect_remote_machine
+A61	TacticalObjectives T85 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T86	Object 6604 6619	the same entity
+T87	Modifier 6620 6622	at
+T88	Object 6623 6638	different times
+R63	SubjAction Subject:T82 Action:T83	
+R64	SubjAction Subject:T82 Action:T85	
+R65	ActionObj Action:T83 Object:T84	
+R66	ActionObj Action:T85 Object:T86	
+R67	ActionMod Action:T85 Modifier:T87	
+R68	ModObj Modifier:T87 Object:T88	
+T89	Subject 12109 12140	Most Chinese-speaking attackers
+T90	Action 12148 12156	relocate
+A62	Capability T90 005:MalwareCapability-command_and_control
+T91	Object 12157 12168	C&C servers
+T92	Modifier 12169 12171	to
+T93	Object 12172 12189	a different place
+R69	SubjAction Subject:T89 Action:T90	
+R70	ActionObj Action:T90 Object:T91	
+R71	ActionMod Action:T90 Modifier:T92	
+R72	ModObj Modifier:T92 Object:T93	
+T94	Object 11601 11605;11606 11634	some of the victims of RedOctober
+T95	Action 11644 11658	being targeted
+A63	Capability T95 010:MalwareCapability-infection/propagation
+A64	TacticalObjectives T95 088:InfectionPropagation-identify_target_machine(s)
+A65	StrategicObjectives T95 031:InfectionPropagation-infect_remote_machine
+T96	Subject 11662 11672	CloudAtlas
+R73	SubjAction Subject:T96 Action:T95	
+R74	ActionObj Action:T95 Object:T94	

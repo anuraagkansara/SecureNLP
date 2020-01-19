@@ -1,0 +1,105 @@
+T1	Subject 838 869;870 893	a targeted cross-site scripting (XSS) “drive-by” attack
+T2	Action 899 908	leveraged
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Object 909 951	a single content delivery network resource
+T4	Object 955 977;978 1061	distribute a malicious Java applet via nearly all of the major official Government of Afghanistan websites
+T5	Modifier 952 954	to
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+R3	ActionMod Action:T2 Modifier:T5	
+R4	ModObj Modifier:T5 Object:T4	
+T6	Subject 5941 5945;5946 5956	This class file
+T7	Action 5957 5978	downloads and decodes
+A4	Capability T7 017:MalwareCapability-secondary_operation
+A5	ActionName T7 090:Network-download_file
+A6	StrategicObjectives T7 050:SecondaryOperation-install_other_components
+A7	TacticalObjectives T7 118:SecondaryOperation-install_secondary_malware
+T8	Object 5979 6028	an XOR 0xC8 encoded Windows PE executable payload
+T9	Modifier 6029 6033	from
+T10	Object 6034 6081	[http:]//mfa.gov[.]af/content/images/icon35.png
+R5	SubjAction Subject:T6 Action:T7	
+R6	ActionObj Action:T7 Object:T8	
+R7	ActionMod Action:T7 Modifier:T9	
+R8	ModObj Modifier:T9 Object:T10	
+T11	Subject 6530 6541	This applet
+T12	Action 6571 6580	downloads
+A8	Capability T12 017:MalwareCapability-secondary_operation
+A9	ActionName T12 090:Network-download_file
+A10	StrategicObjectives T12 050:SecondaryOperation-install_other_components
+A11	TacticalObjectives T12 118:SecondaryOperation-install_secondary_malware
+T13	Object 6581 6619	an XOR 0xFF encoded payload executable
+T14	Modifier 6620 6624	from
+T15	Object 6625 6648;6649 6676	the URL [https:]//amco- triton.co[.]jp/js/dl/in.jpg
+R9	SubjAction Subject:T11 Action:T12	
+R10	ActionObj Action:T12 Object:T13	
+R11	ActionMod Action:T12 Modifier:T14	
+R12	ModObj Modifier:T14 Object:T15	
+T16	Object 6963 6991	The XOR 0xC8 encoded payload
+T17	Action 6992 7002	downloaded
+A12	Capability T17 017:MalwareCapability-secondary_operation
+A13	ActionName T17 090:Network-download_file
+A14	StrategicObjectives T17 050:SecondaryOperation-install_other_components
+A15	TacticalObjectives T17 118:SecondaryOperation-install_secondary_malware
+T18	Modifier 7003 7007	from
+T19	Object 7008 7055	[http:]//mfa.gov[.]af/content/images/icon35.png
+R13	ActionObj Action:T17 Object:T16	
+R14	ActionMod Action:T17 Modifier:T18	
+R15	ModObj Modifier:T18 Object:T19	
+T20	Subject 7481 7496	This executable
+T21	Action 7497 7502	drops
+A16	Capability T21 017:MalwareCapability-secondary_operation
+A17	TacticalObjectives T21 118:SecondaryOperation-install_secondary_malware
+A18	StrategicObjectives T21 050:SecondaryOperation-install_other_components
+T22	Object 7503 7522	the following files
+R16	SubjAction Subject:T20 Action:T21	
+R17	ActionObj Action:T21 Object:T22	
+T26	Subject 7750 7763	Malicious DLL
+T27	Action 7769 7774	loads
+A20	ActionName T27 119:ProcessMemory-map_library_into_process
+T28	Modifier 7775 7779	into
+T29	Object 7780 7801	the above dllhost.exe
+T30	Action 7803 7808	using
+A21	Capability T30 002:MalwareCapability-anti-detection
+T31	Object 7809 7852;7853 7901	a similar DLL sideloading technique to that most commonly associated with the PlugX backdoor
+R20	SubjAction Subject:T26 Action:T27	
+R21	ActionMod Action:T27 Modifier:T28	
+R22	ModObj Modifier:T28 Object:T29	
+R23	SubjAction Subject:T26 Action:T30	
+R24	ActionObj Action:T30 Object:T31	
+A22	StrategicObjectives T30 009:AntiDetection-security_software_evasion
+T23	Subject 8047 8060	This backdoor
+T24	Action 8061 8069	connects
+A19	Capability T24 005:MalwareCapability-command_and_control
+A23	ActionName T24 088:Network-connect_to_url
+T25	Modifier 8070 8072	to
+T32	Object 8073 8132;8133 8164	the faux Oracle Java themed command and control (C2) domain oracle0876634.javaplug-in[.]com
+R18	SubjAction Subject:T23 Action:T24	
+R19	ActionMod Action:T24 Modifier:T25	
+R25	ModObj Modifier:T25 Object:T32	
+T33	Subject 9469 9473	This
+T34	Action 9474 9479	being
+A24	Capability T34 010:MalwareCapability-infection/propagation
+A25	TacticalObjectives T34 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A26	StrategicObjectives T34 031:InfectionPropagation-infect_remote_machine
+T35	Object 9480 9525	a variant of a typical “watering-hole” attack
+R26	SubjAction Subject:T33 Action:T34	
+R27	ActionObj Action:T34 Object:T35	
+T36	Subject 9226 9255	Chinese intelligence services
+T37	Action 9280 9290	distribute
+A27	Capability T37 010:MalwareCapability-infection/propagation
+A28	TacticalObjectives T37 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A29	StrategicObjectives T37 031:InfectionPropagation-infect_remote_machine
+T38	Object 9291 9309	malicious payloads
+T39	Modifier 9310 9312	to
+T40	Object 9313 9325;9326 9340	a variety of global targets
+T41	Modifier 9341 9346	using
+T42	Object 9347 9427	Afghanistan’s government websites as a topical and trusted distribution platform
+R28	SubjAction Subject:T36 Action:T37	
+R29	ActionObj Action:T37 Object:T38	
+R30	ActionMod Action:T37 Modifier:T39	
+R31	ActionMod Action:T37 Modifier:T41	
+R32	ModObj Modifier:T39 Object:T40	
+R33	ModObj Modifier:T41 Object:T42	
+A30	ActionName T30 119:ProcessMemory-map_library_into_process

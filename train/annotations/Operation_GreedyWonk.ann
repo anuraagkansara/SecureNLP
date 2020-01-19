@@ -1,0 +1,331 @@
+T1	Object 539 588	visitors to at least three nonprofit institutions
+T2	Action 662 677	were redirected
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Modifier 678 680	to
+T4	Object 681 727	an exploit server hosting the zero-day exploit
+R1	ActionObj Action:T2 Object:T1	
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ModObj Modifier:T3 Object:T4	
+T5	Subject 1040 1070	The group behind this campaign
+T6	Action 1169 1175	infect
+A4	Capability T6 010:MalwareCapability-infection/propagation
+A5	TacticalObjectives T6 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A6	StrategicObjectives T6 031:InfectionPropagation-infect_remote_machine
+T7	Object 1176 1222	visitors to foreign and public policy websites
+R4	SubjAction Subject:T5 Action:T6	
+R5	ActionObj Action:T6 Object:T7	
+T8	Subject 1224 1241	The threat actors
+T9	Action 1259 1265	infect
+A7	Capability T9 010:MalwareCapability-infection/propagation
+A8	TacticalObjectives T9 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A9	StrategicObjectives T9 031:InfectionPropagation-infect_remote_machine
+T10	Object 1266 1286	users to these sites
+T11	Modifier 1287 1290	for
+T12	Object 1291 1311	follow-on data theft
+R6	SubjAction Subject:T8 Action:T9	
+R7	ActionObj Action:T9 Object:T10	
+R8	ActionMod Action:T9 Modifier:T11	
+R9	ModObj Modifier:T11 Object:T12	
+T14	Action 1664 1679	were redirected
+A10	Capability T14 010:MalwareCapability-infection/propagation
+A11	TacticalObjectives T14 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A12	StrategicObjectives T14 031:InfectionPropagation-infect_remote_machine
+T15	Modifier 1680 1682	to
+T16	Modifier 1729 1736	through
+T17	Object 1683 1728	an exploit server hosting this Flash zero-day
+T18	Object 1737 1745;1746 1752	a hidden iframe
+R11	ActionMod Action:T14 Modifier:T15	
+R12	ModObj Modifier:T15 Object:T17	
+R13	ActionMod Action:T14 Modifier:T16	
+R14	ModObj Modifier:T16 Object:T18	
+T19	Subject 1755 1850;1851 1888	We subsequently found that the American Research Center in Egypt (www.arce[.]org) and the Smith Richardson Foundation (www.srf[.]org)
+T20	Action 1894 1904	redirected
+A13	Capability T20 010:MalwareCapability-infection/propagation
+A14	TacticalObjectives T20 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A15	StrategicObjectives T20 031:InfectionPropagation-infect_remote_machine
+T21	Object 1905 1913	visitors
+T22	Object 1914 1932	the exploit server
+R15	SubjAction Subject:T19 Action:T20	
+R16	ActionObj Action:T20 Object:T21	
+R17	ActionObj Action:T20 Object:T22	
+T13	Object 1575 1646;1647 1663	Visitors to the Peter G. Peterson Institute for International Economics (www.piie[.]com)
+R10	ActionObj Action:T14 Object:T13	
+T23	Subject 2221 2233	this exploit
+T24	Action 2150 2156	bypass
+A16	Capability T24 018:MalwareCapability-security_degradation
+A17	StrategicObjectives T24 058:SecurityDegradation-disable_os_security_features
+T25	Object 2157 2219	Windows’ Address Space Layout Randomization (ASLR) protections
+A18	TacticalObjectives T24 125:SecurityDegradation-disable_os_security_alerts
+R18	ActionObj Action:T24 Object:T25	
+R19	SubjAction Subject:T23 Action:T24	
+T26	Action 2234 2241	targets
+A19	Capability T26 015:MalwareCapability-probing
+A20	TacticalObjectives T26 113:Probing-identify_os
+A21	StrategicObjectives T26 046:Probing-probe_host_configuration
+R20	SubjAction Subject:T23 Action:T26	
+T27	Object 2242 2292	computers with any of the following configurations
+R21	ActionObj Action:T26 Object:T27	
+T28	Subject 3176 3186	The attack
+T29	Action 3187 3191	uses
+A22	Capability T29 018:MalwareCapability-security_degradation
+A23	TacticalObjectives T29 125:SecurityDegradation-disable_os_security_alerts
+A24	StrategicObjectives T29 058:SecurityDegradation-disable_os_security_features
+T30	Object 3192 3216	only known ASLR bypasses
+R22	SubjAction Subject:T28 Action:T29	
+R23	ActionObj Action:T29 Object:T30	
+T31	Subject 3032 3034;3035 3043	an attacker
+T32	Action 3047 3056	overwrite
+A25	ActionName T32 034:File-modify_file
+T33	Object 3057 3094	the vftable pointer of a Flash object
+T34	Object 3098 3121	redirect code execution
+T35	Modifier 3095 3097	to
+R24	SubjAction Subject:T31 Action:T32	
+R25	ActionObj Action:T32 Object:T33	
+R26	ActionMod Action:T32 Modifier:T35	
+R27	ModObj Modifier:T35 Object:T34	
+T36	Subject 3357 3370	the attackers
+T37	Action 3371 3376	build
+A26	Capability T37 002:MalwareCapability-anti-detection
+A27	TacticalObjectives T37 019:AntiDetection-execute_stealthy_code
+A28	StrategicObjectives T37 006:AntiDetection-hide_executing_code
+R28	SubjAction Subject:T36 Action:T37	
+T38	Object 3377 3438;3439 3455	a return-oriented programming (ROP) chain of MSVCRT (Visual C runtime) gadgets
+T39	Modifier 3456 3460	with
+T40	Object 3461 3539	hard-coded base addresses for English (“en”) and Chinese (“zh-cn” and “zh-tw”)
+R29	ActionObj Action:T37 Object:T38	
+R30	ActionMod Action:T37 Modifier:T39	
+R31	ModObj Modifier:T39 Object:T40	
+T41	Subject 3556 3569	the attackers
+T42	Modifier 3341 3344	For
+T43	Object 3345 3355	Windows XP
+R32	ActionMod Action:T37 Modifier:T42	
+R33	ModObj Modifier:T42 Object:T43	
+T44	Action 3570 3573	use
+A29	Capability T44 002:MalwareCapability-anti-detection
+A30	TacticalObjectives T44 019:AntiDetection-execute_stealthy_code
+A31	StrategicObjectives T44 006:AntiDetection-hide_executing_code
+R34	SubjAction Subject:T41 Action:T44	
+T45	Object 3574 3633	a hard-coded ROP chain for MSVCR71.dll (Visual C++ runtime)
+T46	Modifier 3634 3636	if
+T47	Object 3637 3640;3641 3658	the user has Java 1.6
+T48	Object 3664 3727	a hard-coded ROP chain for HXDS.dll (Help Data Services Module)
+T49	Modifier 3728 3730	if
+T50	Object 3731 3743;3744 3773	the user has Microsoft Office 2007 or 2010
+T51	Modifier 3542 3544	On
+T52	Object 3545 3554	Windows 7
+R35	ActionObj Action:T44 Object:T45	
+R36	ActionMod Action:T44 Modifier:T46	
+R37	ModObj Modifier:T46 Object:T47	
+R38	ActionObj Action:T44 Object:T48	
+R39	ActionMod Action:T44 Modifier:T49	
+R40	ModObj Modifier:T49 Object:T50	
+R41	ModObj Modifier:T51 Object:T52	
+R42	ActionMod Action:T44 Modifier:T51	
+T53	Object 4380 4393	The shellcode
+T54	Action 4394 4407	is downloaded
+A32	Capability T54 017:MalwareCapability-secondary_operation
+A33	ActionName T54 090:Network-download_file
+A34	StrategicObjectives T54 050:SecondaryOperation-install_other_components
+A35	TacticalObjectives T54 118:SecondaryOperation-install_secondary_malware
+R43	ActionObj Action:T54 Object:T53	
+T55	Modifier 4408 4410	in
+T56	Object 4411 4423	ActionScript
+T57	Modifier 4424 4426	as
+T58	Object 4427 4438	a GIF image
+R44	ActionMod Action:T54 Modifier:T55	
+R45	ActionMod Action:T54 Modifier:T57	
+R46	ModObj Modifier:T55 Object:T56	
+R47	ModObj Modifier:T57 Object:T58	
+T59	Subject 4523 4525	it
+R48	CoRefer Referer:T53 Canonical:T59	
+T60	Action 4526 4535	downloads
+A36	Capability T60 017:MalwareCapability-secondary_operation
+A37	ActionName T60 090:Network-download_file
+A38	StrategicObjectives T60 050:SecondaryOperation-install_other_components
+A39	TacticalObjectives T60 118:SecondaryOperation-install_secondary_malware
+T61	Object 4536 4549	an executable
+T62	Modifier 4550 4553	via
+T63	Object 4554 4578;4579 4605	the InternetOpenURLA and InternetReadFile functions
+R49	SubjAction Subject:T59 Action:T60	
+R50	ActionObj Action:T60 Object:T61	
+R51	ActionMod Action:T60 Modifier:T62	
+R52	ModObj Modifier:T62 Object:T63	
+T64	Action 4615 4621	writes
+A40	ActionName T64 043:File-write_to_file
+T65	Object 4622 4630	the file
+T66	Modifier 4631 4633	to
+T67	Subject 4612 4614	it
+R53	CoRefer Referer:T53 Canonical:T67	
+T68	Object 4634 4638	disk
+T69	Modifier 4639 4643	with
+T70	Object 4644 4679	CreateFileA and WriteFile functions
+R54	SubjAction Subject:T67 Action:T64	
+R55	ActionObj Action:T64 Object:T65	
+R56	ActionMod Action:T64 Modifier:T66	
+R57	ModObj Modifier:T66 Object:T68	
+R58	ActionMod Action:T64 Modifier:T69	
+R59	ModObj Modifier:T69 Object:T70	
+T71	Subject 4690 4692	it
+T72	Action 4693 4697	runs
+A41	ActionName T72 029:File-execute_file
+T73	Object 4698 4706	the file
+T74	Modifier 4707 4712	using
+T75	Object 4713 4733	the WinExec function
+R60	SubjAction Subject:T71 Action:T72	
+R61	ActionObj Action:T72 Object:T73	
+R62	ActionMod Action:T72 Modifier:T74	
+R63	ModObj Modifier:T74 Object:T75	
+T76	Object 4833 4896;4897 4929	a PlugX/Kaba remote access tool (RAT) payload with the MD5 hash 507aed81e3106da8c50efb3a045c5e2b
+T77	Action 4930 4942	is installed
+A42	Capability T77 012:MalwareCapability-machine_access/control
+A44	StrategicObjectives T77 039:MachineAccessControl-install_backdoor
+R64	ActionObj Action:T77 Object:T76	
+T78	Modifier 4943 4945	on
+T79	Object 4946 4970	the compromised endpoint
+R65	ModObj Modifier:T78 Object:T79	
+R66	ActionMod Action:T77 Modifier:T78	
+T80	Object 5117 5135	This PlugX payload
+T81	Action 5136 5150	was configured
+A43	Capability T81 005:MalwareCapability-command_and_control
+T82	Modifier 5151 5155	with
+T83	Object 5156 5203	the following command-and-control (CnC) domains
+R67	ActionObj Action:T81 Object:T80	
+R68	ActionMod Action:T81 Modifier:T82	
+R69	ModObj Modifier:T82 Object:T83	
+T84	Subject 6719 6752	a number of older malware samples
+T85	Action 6753 6763	connecting
+A45	Capability T85 005:MalwareCapability-command_and_control
+T86	Modifier 6764 6766	to
+T87	Object 6767 6782;6783 6796	the same domain wmi.ns01[.]us
+R70	SubjAction Subject:T84 Action:T85	
+R71	ActionMod Action:T85 Modifier:T86	
+R72	ModObj Modifier:T86 Object:T87	
+T88	Subject 7639 7662	The Poison Ivy variants
+T89	Action 7668 7677	connected
+A46	Capability T89 005:MalwareCapability-command_and_control
+T90	Modifier 7678 7680	to
+T91	Object 7681 7705	the domain wmi.ns01[.]us
+R73	SubjAction Subject:T88 Action:T89	
+R74	ActionMod Action:T89 Modifier:T90	
+R75	ModObj Modifier:T90 Object:T91	
+T92	Object 8059 8147;8148 8156	a related Poison Ivy sample (MD5 8936c87a08ffa56d19fdb87588e35952) with the same “java7” password
+T93	Action 8164 8175	was dropped
+A47	Capability T93 012:MalwareCapability-machine_access/control
+A49	StrategicObjectives T93 039:MachineAccessControl-install_backdoor
+R76	ActionObj Action:T93 Object:T92	
+T94	Subject 8179 8217	an Adobe Flash exploit (CVE-2012-0779)
+R77	SubjAction Subject:T94 Action:T93	
+T95	Object 8246 8300	visitors to the Center for Defense Information website
+T96	Action 8369 8384	were redirected
+A50	Capability T96 010:MalwareCapability-infection/propagation
+A51	TacticalObjectives T96 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A52	StrategicObjectives T96 031:InfectionPropagation-infect_remote_machine
+R78	ActionObj Action:T96 Object:T95	
+T97	Modifier 8385 8387	to
+T98	Object 8388 8421	an exploit server at 159.54.62.92
+R79	ModObj Modifier:T97 Object:T98	
+R80	ActionMod Action:T96 Modifier:T97	
+T99	Subject 8534 8546	This exploit
+T100	Action 8557 8564	dropped
+A53	Capability T100 012:MalwareCapability-machine_access/control
+A55	StrategicObjectives T100 039:MachineAccessControl-install_backdoor
+T101	Object 8565 8587	the Poison Ivy variant
+R81	SubjAction Subject:T99 Action:T100	
+R82	ActionObj Action:T100 Object:T101	
+T102	Subject 8637 8649	this variant
+T103	Action 8724 8733	connected
+A48	Capability T103 005:MalwareCapability-command_and_control
+A54	ActionName T103 088:Network-connect_to_url
+T104	Modifier 8734 8736	to
+T105	Object 8737 8770	a CnC server at windows.ddns[.]us
+R83	ActionMod Action:T103 Modifier:T104	
+R84	SubjAction Subject:T102 Action:T103	
+R85	ModObj Modifier:T104 Object:T105	
+T106	Object 9180 9188	visitors
+T107	Action 9189 9204	were redirected
+A56	Capability T107 010:MalwareCapability-infection/propagation
+A57	TacticalObjectives T107 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A58	StrategicObjectives T107 031:InfectionPropagation-infect_remote_machine
+T108	Modifier 9205 9207	to
+T109	Object 9208 9214;9215 9270	a Java exploit test.jar (MD5 7d810e3564c4eb95bcb3d11ce191208e)
+R86	ActionMod Action:T107 Modifier:T108	
+R87	ModObj Modifier:T108 Object:T109	
+R88	ActionObj Action:T107 Object:T106	
+T110	Subject 9272 9285	This jar file
+T111	Action 9314 9321	dropped
+A59	Capability T111 012:MalwareCapability-machine_access/control
+A60	StrategicObjectives T111 039:MachineAccessControl-install_backdoor
+T112	Object 9322 9395	a Poison Ivy payload with the hash (MD5 52aa791a524b61b129344f10b4712f52)
+R89	ActionObj Action:T111 Object:T112	
+R90	SubjAction Subject:T110 Action:T111	
+T113	Subject 9397 9412;9413 9420	This Poison Ivy variant
+T114	Action 9421 9430	connected
+A61	Capability T114 005:MalwareCapability-command_and_control
+A62	ActionName T114 088:Network-connect_to_url
+T115	Modifier 9431 9433	to
+T116	Object 9434 9463	a CnC server at ids.ns01[.]us
+R91	SubjAction Subject:T113 Action:T114	
+R92	ActionMod Action:T114 Modifier:T115	
+R93	ModObj Modifier:T115 Object:T116	
+T117	Object 9783 9860	The Poison Ivy sample referenced above (MD5 fd69793bd63c44bbb22f9c4d46873252)
+T118	Action 9861 9874	was delivered
+A63	Capability T118 010:MalwareCapability-infection/propagation
+A64	TacticalObjectives T118 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A65	StrategicObjectives T118 031:InfectionPropagation-infect_remote_machine
+T119	Modifier 9875 9878	via
+T120	Object 9879 9982	an exploit chain that began with a redirect from the Center for European Policy Studies (www.ceps[.]be)
+R94	ActionObj Action:T118 Object:T117	
+R95	ActionMod Action:T118 Modifier:T119	
+R96	ModObj Modifier:T119 Object:T120	
+T121	Object 9998 10006	visitors
+T122	Action 10007 10022	were redirected
+A66	Capability T122 010:MalwareCapability-infection/propagation
+A67	TacticalObjectives T122 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A68	StrategicObjectives T122 031:InfectionPropagation-infect_remote_machine
+T123	Modifier 10023 10027	from
+T124	Modifier 10042 10044	to
+T125	Object 10028 10041	www.ceps[.]be
+T126	Object 10045 10088	a Java exploit hosted on shop.fujifilm[.]be
+R97	ActionObj Action:T122 Object:T121	
+R98	ActionMod Action:T122 Modifier:T123	
+R99	ActionMod Action:T122 Modifier:T124	
+R100	ModObj Modifier:T123 Object:T125	
+R101	ModObj Modifier:T124 Object:T126	
+T127	Subject 10148 10162	www.arce[.]org
+T128	Action 10181 10192	redirecting
+A69	Capability T128 010:MalwareCapability-infection/propagation
+A70	TacticalObjectives T128 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A71	StrategicObjectives T128 031:InfectionPropagation-infect_remote_machine
+T129	Modifier 10193 10195	to
+T130	Object 10196 10199;10200 10221	the current Flash exploit
+R102	SubjAction Subject:T127 Action:T128	
+R103	ActionMod Action:T128 Modifier:T129	
+R104	ModObj Modifier:T129 Object:T130	
+T131	Action 10228 10236	redirect
+A72	Capability T131 010:MalwareCapability-infection/propagation
+A73	TacticalObjectives T131 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A74	StrategicObjectives T131 031:InfectionPropagation-infect_remote_machine
+T132	Object 10237 10245	visitors
+T133	Modifier 10246 10248	to
+T134	Object 10249 10287	the Java exploit on shop.fujifilm[.]be
+T135	Object 10291 10295	2013
+T136	Modifier 10288 10290	in
+R105	SubjAction Subject:T127 Action:T131	
+R106	ActionObj Action:T131 Object:T132	
+R107	ActionMod Action:T131 Modifier:T133	
+R108	ActionMod Action:T131 Modifier:T136	
+R109	ModObj Modifier:T133 Object:T134	
+R110	ModObj Modifier:T136 Object:T135	
+T137	Subject 10679 10689	This actor
+T138	Action 10776 10783	deploys
+A75	Capability T138 010:MalwareCapability-infection/propagation
+A76	StrategicObjectives T138 031:InfectionPropagation-infect_remote_machine
+T139	Object 10784 10785;10786 10813	a variety of malware families
+T140	Object 10817 10836	compromised systems
+T141	Modifier 10814 10816	on
+R111	SubjAction Subject:T137 Action:T138	
+R112	ActionObj Action:T138 Object:T139	
+R113	ActionMod Action:T138 Modifier:T141	
+R114	ModObj Modifier:T141 Object:T140	

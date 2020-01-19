@@ -1,0 +1,198 @@
+T1	Subject 3335 3349	the downloader
+T2	Action 3356 3364	download
+T3	Action 3369 3376	execute
+T4	Object 3377 3395	additional malware
+T5	Modifier 3396 3398	on
+T6	Object 3399 3402;3403 3418	the victim's system
+R1	ModObj Modifier:T5 Object:T6	
+R2	ActionObj Action:T3 Object:T4	
+R3	ActionMod Action:T3 Modifier:T5	
+R4	ActionObj Action:T2 Object:T4	
+R5	ActionMod Action:T2 Modifier:T5	
+A1	Capability T2 017:MalwareCapability-secondary_operation
+A2	ActionName T2 090:Network-download_file
+A3	TacticalObjectives T2 118:SecondaryOperation-install_secondary_malware
+A4	ActionName T3 029:File-execute_file
+R6	SubjAction Subject:T1 Action:T2	
+R7	SubjAction Subject:T1 Action:T3	
+A5	Capability T3 017:MalwareCapability-secondary_operation
+A6	TacticalObjectives T3 118:SecondaryOperation-install_secondary_malware
+T7	Subject 3444 3458	the downloader
+T8	Action 3475 3482	connect
+T9	Modifier 3483 3485	to
+T10	Object 3486 3499;3500 3507	a compromised website
+R8	ModObj Modifier:T9 Object:T10	
+R9	ActionMod Action:T8 Modifier:T9	
+R10	SubjAction Subject:T7 Action:T8	
+A7	ActionName T8 052:HTTP-send_http_connect_request
+T11	Action 3511 3519	download
+T12	Object 3520 3550	an encrypted malicious payload
+R11	ActionObj Action:T11 Object:T12	
+R12	SubjAction Subject:T7 Action:T11	
+A8	Capability T11 017:MalwareCapability-secondary_operation
+A9	ActionName T11 090:Network-download_file
+A10	TacticalObjectives T11 118:SecondaryOperation-install_secondary_malware
+T13	Subject 3557 3571	the downloader
+T14	Action 3589 3596	execute
+R13	ActionObj Action:T14 Object:T12	
+R14	SubjAction Subject:T13 Action:T14	
+R15	CoRefer Referer:T7 Canonical:T13	
+A11	Capability T14 017:MalwareCapability-secondary_operation
+A12	ActionName T14 029:File-execute_file
+A13	TacticalObjectives T14 118:SecondaryOperation-install_secondary_malware
+T15	Subject 4933 4935	it
+T18	Object 4946 4979;4980 4988	Microsoft's cloud storage service OneDrive
+T19	Modifier 4989 4991	as
+T20	Object 4992 5023	its command and control channel
+R16	ModObj Modifier:T19 Object:T20	
+T16	Action 4936 4945	relies on
+R17	ActionObj Action:T16 Object:T18	
+R18	ActionMod Action:T16 Modifier:T19	
+R19	SubjAction Subject:T15 Action:T16	
+A14	Capability T16 005:MalwareCapability-command_and_control
+T17	Subject 5152 5168	OneDriveSolution
+T21	Action 5190 5194	copy
+T22	Object 5195 5199	data
+T23	Modifier 5200 5204	from
+T24	Object 5205 5226	the victim's computer
+T25	Modifier 5227 5229	to
+T26	Object 5230 5250	the OneDrive account
+R20	ModObj Modifier:T25 Object:T26	
+R21	ModObj Modifier:T23 Object:T24	
+R22	SubjAction Subject:T17 Action:T21	
+R23	ActionObj Action:T21 Object:T22	
+R24	ActionMod Action:T21 Modifier:T23	
+R25	ActionMod Action:T21 Modifier:T25	
+A15	Capability T21 006:MalwareCapability-data_exfiltration
+A16	TacticalObjectives T21 057:DataExfiltration-exfiltrate_via_network
+A17	StrategicObjectives T21 020:DataExfiltration-perform_data_exfiltration
+T27	Subject 5252 5254	It
+T28	Action 5265 5271	search
+R26	CoRefer Referer:T17 Canonical:T27	
+T29	Object 5272 5292	the OneDrive account
+T30	Modifier 5293 5296	for
+T31	Object 5297 5349	files containing commands for the malware to execute
+R27	SubjAction Subject:T27 Action:T28	
+R28	ActionObj Action:T28 Object:T29	
+R29	ActionMod Action:T28 Modifier:T30	
+R30	ModObj Modifier:T30 Object:T31	
+A18	Capability T28 005:MalwareCapability-command_and_control
+A19	TacticalObjectives T28 047:CommandandControl-control_malware_via_remote_command
+A20	StrategicObjectives T28 017:CommandandControl-receive_data_from_c2_server
+T32	Subject 5534 5549	the same loader
+T33	Action 5637 5641	load
+T34	Object 5642 5644	it
+T35	Modifier 5645 5647	in
+T36	Object 5648 5654	memory
+A21	ActionName T33 084:Library-load_library
+R31	SubjAction Subject:T32 Action:T33	
+R32	ActionObj Action:T33 Object:T34	
+R33	ActionMod Action:T33 Modifier:T35	
+R34	ModObj Modifier:T35 Object:T36	
+T37	Action 5659 5666	execute
+T38	Object 5667 5669	it
+R35	ActionObj Action:T37 Object:T38	
+R36	SubjAction Subject:T32 Action:T37	
+A22	ActionName T37 080:Library-call_library_function
+T39	Action 6448 6455	written
+T40	Object 6421 6441	two additional files
+R37	ActionObj Action:T39 Object:T40	
+T41	Modifier 6456 6458	to
+R38	ActionMod Action:T39 Modifier:T41	
+T42	Object 6459 6476;6477 6481	the victim's hard disk
+R39	ModObj Modifier:T41 Object:T42	
+A23	ActionName T39 024:File-create_file
+T43	Subject 15750 15764	the downloader
+T44	Action 15771 15779	download
+T45	Action 15784 15791	execute
+T46	Object 15792 15810	additional malware
+T47	Modifier 15811 15813	on
+T48	Object 15814 15817;15818 15833	the victim's system
+R40	ModObj Modifier:T47 Object:T48	
+R41	ActionObj Action:T45 Object:T46	
+R42	ActionMod Action:T45 Modifier:T47	
+R43	ActionObj Action:T44 Object:T46	
+R44	ActionMod Action:T44 Modifier:T47	
+R45	SubjAction Subject:T43 Action:T44	
+R46	SubjAction Subject:T43 Action:T45	
+A24	Capability T44 017:MalwareCapability-secondary_operation
+A25	ActionName T44 090:Network-download_file
+A26	TacticalObjectives T44 118:SecondaryOperation-install_secondary_malware
+A27	Capability T45 017:MalwareCapability-secondary_operation
+A28	ActionName T45 029:File-execute_file
+A29	TacticalObjectives T45 118:SecondaryOperation-install_secondary_malware
+T49	Subject 15859 15873	the downloader
+T50	Action 15890 15897	connect
+T51	Modifier 15898 15900	to
+T52	Object 15901 15914;15915 15922	a compromised website
+R47	ModObj Modifier:T51 Object:T52	
+R48	SubjAction Subject:T49 Action:T50	
+R49	ActionMod Action:T50 Modifier:T51	
+A30	ActionName T50 052:HTTP-send_http_connect_request
+T53	Action 15926 15934	download
+T54	Object 15935 15965	an encrypted malicious payload
+R50	ActionObj Action:T53 Object:T54	
+R51	SubjAction Subject:T49 Action:T53	
+A31	Capability T53 017:MalwareCapability-secondary_operation
+A32	ActionName T53 090:Network-download_file
+A33	TacticalObjectives T53 118:SecondaryOperation-install_secondary_malware
+T55	Subject 15972 15986	the downloader
+R52	CoRefer Referer:T49 Canonical:T55	
+T56	Action 16004 16011	execute
+A34	Capability T56 017:MalwareCapability-secondary_operation
+A35	ActionName T56 029:File-execute_file
+A36	TacticalObjectives T56 118:SecondaryOperation-install_secondary_malware
+R53	SubjAction Subject:T55 Action:T56	
+R54	ActionObj Action:T56 Object:T54	
+T57	Subject 17567 17583	OneDriveSolution
+T58	Action 17605 17609	copy
+T59	Object 17610 17614	data
+T60	Modifier 17615 17619	from
+T61	Object 17620 17641	the victim's computer
+T62	Modifier 17642 17644	to
+T63	Object 17645 17665	the OneDrive account
+R55	SubjAction Subject:T57 Action:T58	
+R56	ActionObj Action:T58 Object:T59	
+A37	Capability T58 006:MalwareCapability-data_exfiltration
+A38	TacticalObjectives T58 057:DataExfiltration-exfiltrate_via_network
+A39	StrategicObjectives T58 020:DataExfiltration-perform_data_exfiltration
+R57	ActionMod Action:T58 Modifier:T60	
+R58	ActionMod Action:T58 Modifier:T62	
+R59	ModObj Modifier:T60 Object:T61	
+R60	ModObj Modifier:T62 Object:T63	
+T64	Subject 17667 17669	It
+R61	CoRefer Referer:T57 Canonical:T64	
+T65	Action 17680 17686	search
+T66	Object 17687 17707	the OneDrive account
+T67	Modifier 17708 17711	for
+T68	Object 17712 17764	files containing commands for the malware to execute
+R62	ActionObj Action:T65 Object:T66	
+R63	SubjAction Subject:T64 Action:T65	
+R64	ModObj Modifier:T67 Object:T68	
+R65	ActionMod Action:T65 Modifier:T67	
+A40	Capability T65 005:MalwareCapability-command_and_control
+A41	TacticalObjectives T65 047:CommandandControl-control_malware_via_remote_command
+A42	StrategicObjectives T65 017:CommandandControl-receive_data_from_c2_server
+T69	Subject 17949 17964	the same loader
+T70	Action 18052 18056	load
+T71	Object 18057 18059	it
+T72	Modifier 18060 18062	in
+T73	Object 18063 18069	memory
+R66	SubjAction Subject:T69 Action:T70	
+R67	ActionObj Action:T70 Object:T71	
+R68	ModObj Modifier:T72 Object:T73	
+R69	ActionMod Action:T70 Modifier:T72	
+A43	ActionName T70 084:Library-load_library
+T74	Action 18074 18081	execute
+A44	ActionName T74 080:Library-call_library_function
+T75	Object 18082 18084	it
+R70	ActionObj Action:T74 Object:T75	
+R71	SubjAction Subject:T69 Action:T74	
+T76	Object 18857 18877	two additional files
+T77	Action 18884 18891	written
+A45	ActionName T77 024:File-create_file
+R72	ActionObj Action:T77 Object:T76	
+T78	Modifier 18892 18894	to
+T79	Object 18895 18912;18913 18917	the victim's hard disk
+R73	ModObj Modifier:T78 Object:T79	
+R74	ActionMod Action:T77 Modifier:T78	

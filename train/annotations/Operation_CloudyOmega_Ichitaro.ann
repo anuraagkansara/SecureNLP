@@ -1,0 +1,257 @@
+T1	Object 366 377	The exploit
+T2	Action 378 385	is sent
+A1	Capability T2 010:MalwareCapability-infection/propagation
+A2	TacticalObjectives T2 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A3	StrategicObjectives T2 031:InfectionPropagation-infect_remote_machine
+T3	Modifier 386 388	to
+T4	Modifier 416 423	through
+T5	Object 424 470;471 479	emails with a malicious Ichitaro document file attached
+T6	Object 389 415	the targeted organizations
+R1	ActionObj Action:T2 Object:T1	
+R2	ActionMod Action:T2 Modifier:T3	
+R3	ModObj Modifier:T3 Object:T6	
+R4	ActionMod Action:T2 Modifier:T4	
+R5	ModObj Modifier:T4 Object:T5	
+T7	Subject 643 655	all payloads
+T8	Action 663 668	steal
+A4	Capability T8 007:MalwareCapability-data_theft
+A5	StrategicObjectives T8 023:DataTheft-steal_stored_information
+T9	Object 669 693	confidential information
+T10	Object 699 723	the compromised computer
+T11	Modifier 694 698	from
+R6	SubjAction Subject:T7 Action:T8	
+R7	ActionObj Action:T8 Object:T9	
+R8	ActionMod Action:T8 Modifier:T11	
+R9	ModObj Modifier:T11 Object:T10	
+T12	Subject 539 564	Payloads from the exploit
+T13	Action 569 576	include
+A6	Capability T13 012:MalwareCapability-machine_access/control
+A7	StrategicObjectives T13 039:MachineAccessControl-install_backdoor
+T14	Object 577 632	Backdoor.Emdivi, Backdoor.Korplug, and Backdoor.ZXshell
+R10	ActionObj Action:T13 Object:T14	
+R11	SubjAction Subject:T12 Action:T13	
+T15	Action 956 960	drop
+A8	Capability T15 010:MalwareCapability-infection/propagation
+A9	TacticalObjectives T15 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A10	StrategicObjectives T15 031:InfectionPropagation-infect_remote_machine
+T16	Object 961 972	the payload
+T17	Subject 904 936;937 950	Opening the malicious attachment with Ichitaro
+R12	SubjAction Subject:T17 Action:T15	
+R13	ActionObj Action:T15 Object:T16	
+T18	Object 1808 1819;1820 1835	variants of Backdoor.Emdivi
+T19	Action 1836 1857	are persistently used
+A11	Capability T19 012:MalwareCapability-machine_access/control
+A12	StrategicObjectives T19 039:MachineAccessControl-install_backdoor
+T20	Modifier 1858 1860	as
+T21	Object 1861 1870	a payload
+R14	ActionObj Action:T19 Object:T18	
+R15	ActionMod Action:T19 Modifier:T20	
+R16	ModObj Modifier:T20 Object:T21	
+T22	Subject 1872 1883	All attacks
+T23	Action 1884 1890	arrive
+A13	Capability T23 010:MalwareCapability-infection/propagation
+A14	TacticalObjectives T23 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A15	StrategicObjectives T23 031:InfectionPropagation-infect_remote_machine
+R17	SubjAction Subject:T22 Action:T23	
+T24	Modifier 1891 1893	on
+T25	Modifier 1915 1917	as
+T26	Object 1894 1914	the target computers
+T27	Object 1918 1920;1921 1949	an attachment to email messages
+R18	ActionMod Action:T23 Modifier:T24	
+R19	ModObj Modifier:T24 Object:T26	
+R20	ActionMod Action:T23 Modifier:T25	
+R21	ModObj Modifier:T25 Object:T27	
+T28	Subject 1958 1973	the attachments
+T29	Action 1974 1977	are
+A16	Capability T29 010:MalwareCapability-infection/propagation
+A17	TacticalObjectives T29 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A18	StrategicObjectives T29 031:InfectionPropagation-infect_remote_machine
+T30	Modifier 1978 1980	in
+T31	Modifier 2008 2012	with
+T32	Object 1981 2007	a simple executable format
+T33	Object 2013 2024	a fake icon
+R22	SubjAction Subject:T28 Action:T29	
+R23	ActionMod Action:T29 Modifier:T30	
+R24	ModObj Modifier:T30 Object:T32	
+R25	ActionMod Action:T29 Modifier:T31	
+R26	ModObj Modifier:T31 Object:T33	
+T34	Subject 2166 2176	This group
+T35	Action 2198 2203	steal
+A19	Capability T35 007:MalwareCapability-data_theft
+A20	StrategicObjectives T35 023:DataTheft-steal_stored_information
+T36	Object 2204 2228	confidential information
+T37	Modifier 2229 2233	from
+T38	Object 2234 2256	targeted organizations
+R27	SubjAction Subject:T34 Action:T35	
+R28	ActionObj Action:T35 Object:T36	
+R29	ActionMod Action:T35 Modifier:T37	
+R30	ModObj Modifier:T37 Object:T38	
+T39	Subject 3288 3298	The emails
+T40	Action 3299 3306	include
+A21	Capability T40 010:MalwareCapability-infection/propagation
+A22	TacticalObjectives T40 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A23	StrategicObjectives T40 031:InfectionPropagation-infect_remote_machine
+T41	Object 3307 3359	password-protected .zip files containing the malware
+R31	SubjAction Subject:T39 Action:T40	
+R32	ActionObj Action:T40 Object:T41	
+T42	Subject 3520 3524	This
+T43	Action 3538 3543	trick
+A24	Capability T43 010:MalwareCapability-infection/propagation
+A25	TacticalObjectives T43 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A26	StrategicObjectives T43 031:InfectionPropagation-infect_remote_machine
+T44	Modifier 3558 3562	into
+T45	Object 3544 3557	the recipient
+T46	Object 3563 3592;3593 3626	believing the email is from a legitimate and trustworthy source
+R33	SubjAction Subject:T42 Action:T43	
+R34	ActionObj Action:T43 Object:T45	
+R35	ActionMod Action:T43 Modifier:T44	
+R36	ModObj Modifier:T44 Object:T46	
+T47	Subject 3719 3728	The email
+T48	Action 3734 3742	requests
+A27	Capability T48 010:MalwareCapability-infection/propagation
+A28	TacticalObjectives T48 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A29	StrategicObjectives T48 031:InfectionPropagation-infect_remote_machine
+T49	Modifier 3743 3747	that
+T50	Object 3748 3803	the recipient open the attachment on a Windows computer
+R37	SubjAction Subject:T47 Action:T48	
+R38	ActionMod Action:T48 Modifier:T49	
+R39	ModObj Modifier:T49 Object:T50	
+T51	Subject 4085 4106	The malicious payload
+T52	Action 4107 4109	is
+A30	Capability T52 012:MalwareCapability-machine_access/control
+A31	StrategicObjectives T52 039:MachineAccessControl-install_backdoor
+T53	Object 4110 4125	Backdoor.Emdivi
+R40	SubjAction Subject:T51 Action:T52	
+R41	ActionObj Action:T52 Object:T53	
+T54	Subject 4127 4135	a threat
+T55	Action 4141 4146	opens
+A32	Capability T55 010:MalwareCapability-infection/propagation
+A33	StrategicObjectives T55 039:MachineAccessControl-install_backdoor
+T56	Object 4147 4158	a back door
+T57	Object 4162 4177;4178 4186	the compromised computer
+T58	Modifier 4159 4161	on
+R42	SubjAction Subject:T54 Action:T55	
+R43	ActionObj Action:T55 Object:T56	
+R44	ActionMod Action:T55 Modifier:T58	
+R45	ModObj Modifier:T58 Object:T57	
+T59	Subject 4363 4373;4374 4382	the remote attacker
+T60	Action 4383 4392	executing
+A34	Capability T60 012:MalwareCapability-machine_access/control
+A35	TacticalObjectives T60 100:MachineAccessControl-control_machine_via_remote_command
+A36	StrategicObjectives T60 038:MachineAccessControl-control_local_machine
+R46	SubjAction Subject:T59 Action:T60	
+T61	Object 4393 4405	the commands
+R47	ActionObj Action:T60 Object:T61	
+T62	Action 4409 4413	send
+A37	Capability T62 005:MalwareCapability-command_and_control
+A38	StrategicObjectives T62 018:CommandandControl-send_data_to_c2_server
+T63	Object 4414 4425	the results
+T64	Modifier 4426 4433	back to
+T65	Object 4434 4470	the command-and-control (C&C) server
+T66	Object 4479 4483	HTTP
+T67	Modifier 4471 4478	through
+R48	SubjAction Subject:T59 Action:T62	
+R49	ActionObj Action:T62 Object:T63	
+R50	ActionMod Action:T62 Modifier:T64	
+R51	ModObj Modifier:T64 Object:T65	
+R52	ActionMod Action:T62 Modifier:T67	
+R53	ModObj Modifier:T67 Object:T66	
+T68	Subject 5215 5221	Type T
+T69	Action 5222 5229	employs
+A39	Capability T69 002:MalwareCapability-anti-detection
+A40	StrategicObjectives T69 009:AntiDetection-security_software_evasion
+T70	Object 5230 5240	techniques
+T71	Object 5244 5306	protect itself from security vendors or network administrators
+T72	Modifier 5241 5243	to
+R54	SubjAction Subject:T68 Action:T69	
+R55	ActionObj Action:T69 Object:T70	
+R56	ActionMod Action:T69 Modifier:T72	
+R57	ModObj Modifier:T72 Object:T71	
+T73	Object 5308 5334;5336 5408	Important parts of Type T, such as the C&C server address it contacts and its protection mechanisms
+T74	Action 5410 5423	are encrypted
+A41	Capability T74 002:MalwareCapability-anti-detection
+A42	TacticalObjectives T74 023:AntiDetection-hide_file_system_artifacts
+A43	StrategicObjectives T74 007:AntiDetection-hide_malware_artifacts
+R58	ActionObj Action:T74 Object:T73	
+T75	Subject 5425 5431	Type T
+T76	Action 5437 5444	detects
+A44	Capability T76 000:MalwareCapability-anti-behavioral_analysis
+T77	Object 5445 5487	the presence of automatic analysis systems
+R59	ActionObj Action:T76 Object:T77	
+T78	Action 5437 5444	detects
+A45	Capability T78 001:MalwareCapability-anti-code_analysis
+A46	TacticalObjectives T78 008:AntiCodeAnalysis-detect_debugging
+A47	StrategicObjectives T78 002:AntiCodeAnalysis-anti-debugging
+T79	Object 5491 5500	debuggers
+R61	ActionObj Action:T78 Object:T79	
+R60	SubjAction Subject:T75 Action:T76	
+R62	SubjAction Subject:T75 Action:T78	
+T80	Subject 5661 5667	Type S
+T81	Action 5690 5695	based
+A48	Capability T81 005:MalwareCapability-command_and_control
+T82	Modifier 5696 5698	on
+T83	Object 5720 5759	and shared C&C infrastructure as Type T
+R63	SubjAction Subject:T80 Action:T81	
+R64	ActionMod Action:T81 Modifier:T82	
+R65	ModObj Modifier:T82 Object:T83	
+T84	Subject 4715 4726	The malware
+T85	Action 4791 4800	generates
+A49	Capability T85 002:MalwareCapability-anti-detection
+T86	Object 4801 4807	a hash
+R66	ActionObj Action:T85 Object:T86	
+R67	SubjAction Subject:T84 Action:T85	
+T87	Subject 4815 4817	it
+T88	Action 4818 4822	uses
+A50	Capability T88 002:MalwareCapability-anti-detection
+T89	Modifier 4823 4825	as
+T90	Object 4826 4843	an encryption key
+R68	SubjAction Subject:T87 Action:T88	
+R69	CoRefer Referer:T84 Canonical:T87	
+R70	ActionObj Action:T88 Object:T86	
+R71	ActionMod Action:T88 Modifier:T89	
+R72	ModObj Modifier:T89 Object:T90	
+T91	Subject 6306 6312	Emdivi
+T92	Action 6313 6321	connects
+A51	Capability T92 005:MalwareCapability-command_and_control
+T93	Modifier 6322 6324	to
+T94	Object 6325 6346	hardcoded C&C servers
+T95	Modifier 6347 6352	using
+T96	Object 6353 6370	the HTTP protocol
+R73	SubjAction Subject:T91 Action:T92	
+R74	ActionMod Action:T92 Modifier:T93	
+R75	ModObj Modifier:T93 Object:T94	
+R76	ActionMod Action:T92 Modifier:T95	
+R77	ModObj Modifier:T95 Object:T96	
+T97	Subject 7161 7173	the attacker
+T98	Action 7222 7228	turned
+A52	Capability T98 005:MalwareCapability-command_and_control
+T99	Object 7229 7241	the websites
+T100	Modifier 7242 7246	into
+T101	Object 7247 7262;7263 7278	C&C servers for Backdoor.Emdivi
+R78	SubjAction Subject:T97 Action:T98	
+R79	ActionObj Action:T98 Object:T99	
+R80	ActionMod Action:T98 Modifier:T100	
+R81	ModObj Modifier:T100 Object:T101	
+T102	Subject 8136 8149	The attackers
+T103	Action 8150 8154	sent
+A53	Capability T103 010:MalwareCapability-infection/propagation
+A54	TacticalObjectives T103 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+A55	StrategicObjectives T103 031:InfectionPropagation-infect_remote_machine
+R82	SubjAction Subject:T102 Action:T103	
+T104	Object 8155 8218;8219 8251	a Microsoft Word file containing a maliciously crafted SWF file that exploited the vulnerability
+R83	ActionObj Action:T103 Object:T104	
+T105	Subject 8282 8290	the file
+T106	Action 8291 8300	installed
+A56	Capability T106 012:MalwareCapability-machine_access/control
+A58	StrategicObjectives T106 039:MachineAccessControl-install_backdoor
+R84	SubjAction Subject:T105 Action:T106	
+T107	Object 8301 8316	Backdoor.Emdivi
+R85	ActionObj Action:T106 Object:T107	
+T108	Subject 9052 9083	an Adobe Flash zero-day exploit
+T109	Action 9100 9107	install
+A59	Capability T109 012:MalwareCapability-machine_access/control
+A60	StrategicObjectives T109 039:MachineAccessControl-install_backdoor
+T110	Object 9108 9119	a back door
+R86	SubjAction Subject:T108 Action:T109	
+R87	ActionObj Action:T109 Object:T110	
+A61	ActionName T62 096:Network-send_network_packet

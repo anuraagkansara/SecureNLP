@@ -1,0 +1,38 @@
+T1	Action 1030 1035	steal
+A1	Capability T1 007:MalwareCapability-data_theft
+A2	TacticalObjectives T1 082:DataTheft-steal_web/network_credential
+A3	StrategicObjectives T1 022:DataTheft-steal_authentication_credentials
+T2	Object 1036 1058	legitimate credentials
+T3	Subject 1010 1018	The page
+R1	SubjAction Subject:T3 Action:T1	
+R2	ActionObj Action:T1 Object:T2	
+T4	Action 1159 1167	download
+A4	Capability T4 017:MalwareCapability-secondary_operation
+A5	TacticalObjectives T4 118:SecondaryOperation-install_secondary_malware
+A6	StrategicObjectives T4 050:SecondaryOperation-install_other_components
+A7	ActionName T4 090:Network-download_file
+T5	Action 895 901	spoofs
+A8	Capability T5 010:MalwareCapability-infection/propagation
+A9	TacticalObjectives T5 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T6	Subject 853 866	the adversary
+T7	Object 902 939	the name of the targeted organization
+T8	Action 949 953	host
+A10	Capability T8 010:MalwareCapability-infection/propagation
+A11	TacticalObjectives T8 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+R3	SubjAction Subject:T6 Action:T5	
+T9	Object 954 987	a spoofed login page on that site
+R4	ActionObj Action:T5 Object:T7	
+R5	SubjAction Subject:T6 Action:T8	
+R6	ActionObj Action:T8 Object:T9	
+T10	Subject 1069 1074	users
+R7	SubjAction Subject:T10 Action:T4	
+T11	Object 1168 1215	a “Browser Patch” or other similar type of file
+R8	ActionObj Action:T4 Object:T11	
+T12	Action 1274 1285	exfiltrates
+A12	Capability T12 006:MalwareCapability-data_exfiltration
+A13	TacticalObjectives T12 057:DataExfiltration-exfiltrate_via_network
+A14	StrategicObjectives T12 020:DataExfiltration-perform_data_exfiltration
+T13	Subject 1249 1268	the Stealer malware
+R9	SubjAction Subject:T13 Action:T12	
+T14	Object 1286 1297	stolen data
+R10	ActionObj Action:T12 Object:T14	

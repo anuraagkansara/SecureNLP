@@ -1,0 +1,262 @@
+T1	Object 3033 3041	Carbanak
+T2	Action 3093 3101	designed
+T3	Modifier 3102 3105	for
+R1	ActionObj Action:T2 Object:T1	
+R2	ActionMod Action:T2 Modifier:T3	
+T4	Object 3106 3115	espionage
+R3	ModObj Modifier:T3 Object:T4	
+A1	Capability T2 019:MalwareCapability-spying
+T5	Action 3093 3101	designed
+T6	Modifier 3102 3105	for
+T7	Object 3117 3134	data exfiltration
+T8	Object 3142 3184	provide remote access to infected machines
+T9	Modifier 3139 3141	to
+R4	ActionMod Action:T5 Modifier:T6	
+R5	ActionObj Action:T5 Object:T1	
+R6	ModObj Modifier:T6 Object:T7	
+A2	Capability T5 006:MalwareCapability-data_exfiltration
+T10	Action 3093 3101	designed
+R7	ActionMod Action:T10 Modifier:T9	
+R8	ModObj Modifier:T9 Object:T8	
+R9	ActionObj Action:T10 Object:T1	
+A3	Capability T10 012:MalwareCapability-machine_access/control
+A4	StrategicObjectives T10 039:MachineAccessControl-install_backdoor
+T11	Subject 3449 3453	They
+T12	Action 3459 3466	install
+R10	SubjAction Subject:T11 Action:T12	
+T13	Object 3467 3498;3499 3531	additional software such as the Ammyy Remote Administration Tool
+R11	ActionObj Action:T12 Object:T13	
+A5	Capability T12 017:MalwareCapability-secondary_operation
+A6	StrategicObjectives T12 050:SecondaryOperation-install_other_components
+T14	Action 3541 3551	compromise
+R12	SubjAction Subject:T11 Action:T14	
+T15	Object 3552 3563	SSH servers
+R13	ActionObj Action:T14 Object:T15	
+A7	Capability T14 011:MalwareCapability-integrity_violation
+A8	StrategicObjectives T14 034:IntegrityViolation-compromise_network_operational_integrity
+T16	Action 4610 4614	sent
+T17	Object 4594 4604	The videos
+R14	ActionObj Action:T16 Object:T17	
+T18	Modifier 4615 4617	to
+R15	ActionMod Action:T16 Modifier:T18	
+T19	Object 4618 4631	the C2 server
+R16	ModObj Modifier:T18 Object:T19	
+A9	Capability T16 006:MalwareCapability-data_exfiltration
+A10	TacticalObjectives T16 057:DataExfiltration-exfiltrate_via_network
+A11	StrategicObjectives T16 020:DataExfiltration-perform_data_exfiltration
+A12	ActionName T16 097:Network-upload_file
+T20	Object 4493 4530;4531 4545	video recordings of the activities of bank employees
+T21	Action 4588 4592	made
+R17	ActionObj Action:T21 Object:T20	
+A13	Capability T21 019:MalwareCapability-spying
+A14	TacticalObjectives T21 146:Spying-capture_system_screenshot
+A15	StrategicObjectives T21 062:Spying-capture_system_interface_data
+T22	Subject 10699 10707	Carbanak
+T23	Action 10708 10714	copies
+T24	Object 10715 10721	itself
+T25	Modifier 10722 10726	into
+T26	Object 10727 10743	“%system32%\com”
+R18	ModObj Modifier:T25 Object:T26	
+R19	SubjAction Subject:T22 Action:T23	
+R20	ActionObj Action:T23 Object:T24	
+R21	ActionMod Action:T23 Modifier:T25	
+R22	CoRefer Referer:T24 Canonical:T22	
+A16	ActionName T23 023:File-copy_file
+T27	Subject 10941 10952	the malware
+T28	Action 10953 10960	creates
+T29	Object 10961 10966;10967 10974	a new service
+R23	ActionObj Action:T28 Object:T29	
+R24	SubjAction Subject:T27 Action:T28	
+A17	ActionName T28 147:Service-create_service
+T30	Subject 11492 11500	Carbanak
+T31	Action 11501 11511	determines
+T32	Modifier 11512 11514	if
+T33	Object 11515 11533;11534 11611	either the avp.exe or avpui.exe processes (components of Kaspersky Internet Security) is running
+R25	ActionMod Action:T31 Modifier:T32	
+R26	ModObj Modifier:T32 Object:T33	
+R27	SubjAction Subject:T30 Action:T31	
+A18	Capability T31 002:MalwareCapability-anti-detection
+A19	ActionName T31 106:Process-enumerate_processes
+A20	StrategicObjectives T31 009:AntiDetection-security_software_evasion
+T34	Subject 11960 11968	Carbanak
+T35	Action 11969 11976	creates
+T36	Object 11977 12023	a file with a random name and a .bin extension
+T37	Modifier 12024 12026	in
+T38	Object 12027 12051	%COMMON_APPDATA%\Mozilla
+R28	ModObj Modifier:T37 Object:T38	
+R29	SubjAction Subject:T34 Action:T35	
+R30	ActionObj Action:T35 Object:T36	
+R31	ActionMod Action:T35 Modifier:T37	
+A22	ActionName T35 024:File-create_file
+T39	Subject 12098 12109	the malware
+T40	Action 12110 12114	gets
+T41	Object 12115 12138	the proxy configuration
+T42	Modifier 12139 12143	from
+T43	Object 12144 12162	the registry entry
+R32	ActionObj Action:T40 Object:T41	
+R33	SubjAction Subject:T39 Action:T40	
+R34	ActionMod Action:T40 Modifier:T42	
+R35	ModObj Modifier:T42 Object:T43	
+A21	Capability T40 015:MalwareCapability-probing
+A23	TacticalObjectives T40 111:Probing-check_for_proxy
+A24	StrategicObjectives T40 047:Probing-probe_network_configuration
+T44	Subject 12491 12502	The malware
+T45	Action 12503 12508	saves
+T46	Object 12509 12514	files
+T47	Modifier 12515 12517	in
+T48	Object 12518 12531	this location
+R37	SubjAction Subject:T44 Action:T45	
+R38	ActionObj Action:T45 Object:T46	
+R39	ActionMod Action:T45 Modifier:T47	
+T50	Action 12551 12555	sent
+T51	Modifier 12556 12558	to
+T52	Object 12559 12572	the C2 server
+R40	ActionMod Action:T50 Modifier:T51	
+R41	ModObj Modifier:T51 Object:T52	
+R42	SubjAction Subject:T44 Action:T50	
+R43	ActionObj Action:T50 Object:T46	
+A25	Capability T45 006:MalwareCapability-data_exfiltration
+A26	ActionName T45 024:File-create_file
+A27	StrategicObjectives T45 021:DataExfiltration-stage_data_for_exfiltration
+A28	Capability T50 005:MalwareCapability-command_and_control
+A29	ActionName T50 097:Network-upload_file
+A30	StrategicObjectives T50 018:CommandandControl-send_data_to_c2_server
+T53	Subject 12707 12715	Carbanak
+T54	Action 12720 12726	obtain
+T55	Object 12727 12758	proxy configuration information
+T56	Modifier 12759 12763	from
+T57	Object 12764 12771;12772 12817	headers sent through an application via SOCKS or HTTP
+R44	ModObj Modifier:T56 Object:T57	
+R45	ActionObj Action:T54 Object:T55	
+R46	ActionMod Action:T54 Modifier:T56	
+R47	SubjAction Subject:T53 Action:T54	
+A31	Capability T54 015:MalwareCapability-probing
+A32	StrategicObjectives T54 047:Probing-probe_network_configuration
+A33	TacticalObjectives T54 111:Probing-check_for_proxy
+T58	Action 12828 12835	injects
+T59	Subject 12819 12827	Carbanak
+T60	Object 12836 12844	its code
+T61	Modifier 12845 12849	into
+T62	Object 12850 12861	svchost.exe
+R48	ModObj Modifier:T61 Object:T62	
+R49	SubjAction Subject:T59 Action:T58	
+R50	ActionObj Action:T58 Object:T60	
+R51	ActionMod Action:T58 Modifier:T61	
+A34	ActionName T58 034:File-modify_file
+A35	TacticalObjectives T10 100:MachineAccessControl-control_machine_via_remote_command
+T63	Action 12936 12945	downloads
+T64	Subject 12927 12935	Carbanak
+T65	Object 12946 12969	the file kldconfig.plug
+T66	Modifier 12970 12974	from
+T67	Object 12975 12988	its C2 server
+R52	ModObj Modifier:T66 Object:T67	
+R53	ActionObj Action:T63 Object:T65	
+R54	SubjAction Subject:T64 Action:T63	
+R55	ActionMod Action:T63 Modifier:T66	
+A36	Capability T63 005:MalwareCapability-command_and_control
+A37	ActionName T63 090:Network-download_file
+A38	StrategicObjectives T63 017:CommandandControl-receive_data_from_c2_server
+T68	Subject 13082 13090	Carbanak
+T69	Action 13091 13095	logs
+T70	Object 13096 13106	keystrokes
+T71	Action 13111 13116	takes
+T72	Object 13117 13128	screenshots
+R56	ActionObj Action:T71 Object:T72	
+R57	ActionObj Action:T69 Object:T70	
+R58	SubjAction Subject:T68 Action:T69	
+R59	SubjAction Subject:T68 Action:T71	
+T73	Modifier 13129 13134	every
+T74	Object 13135 13145	20 seconds
+R60	ActionMod Action:T71 Modifier:T73	
+R61	ModObj Modifier:T73 Object:T74	
+A39	Capability T69 019:MalwareCapability-spying
+A40	TacticalObjectives T69 140:Spying-capture_keyboard_input
+A41	StrategicObjectives T69 061:Spying-capture_system_input_peripheral_data
+A42	Capability T71 019:MalwareCapability-spying
+A43	TacticalObjectives T71 146:Spying-capture_system_screenshot
+A44	StrategicObjectives T71 062:Spying-capture_system_interface_data
+T75	Subject 13531 13539	Carbanak
+T76	Action 13540 13544	sets
+T77	Object 13545 13579	Termservice service execution mode
+T78	Modifier 13580 13582	to
+T79	Object 13583 13587	Auto
+R62	SubjAction Subject:T75 Action:T76	
+R63	ActionObj Action:T76 Object:T77	
+R64	ActionMod Action:T76 Modifier:T78	
+R65	ModObj Modifier:T78 Object:T79	
+A45	ActionName T76 150:Service-modify_service_configuration
+T80	Action 13446 13452	enable
+T81	Object 13453 13514;13515 13529	connections to the infected computer using the Remote Desktop Protocol (RDP)
+R66	ActionObj Action:T80 Object:T81	
+R67	SubjAction Subject:T75 Action:T80	
+A46	Capability T80 012:MalwareCapability-machine_access/control
+A47	TacticalObjectives T80 100:MachineAccessControl-control_machine_via_remote_command
+A48	StrategicObjectives T80 039:MachineAccessControl-install_backdoor
+T82	Action 13948 13953	sends
+T83	Object 13954 13976	a special notification
+T84	Modifier 13977 13979	to
+T85	Object 13980 13993	its C2 server
+T86	Subject 13945 13947	it
+T87	Subject 13845 13853	Carbanak
+R68	CoRefer Referer:T87 Canonical:T86	
+R69	SubjAction Subject:T86 Action:T82	
+R70	ActionObj Action:T82 Object:T83	
+R71	ActionMod Action:T82 Modifier:T84	
+R72	ModObj Modifier:T84 Object:T85	
+A49	Capability T82 005:MalwareCapability-command_and_control
+A50	StrategicObjectives T82 018:CommandandControl-send_data_to_c2_server
+T88	Action 13854 13861	detects
+T89	Object 13862 13918	the banking application BLIZKO (funds transfer software)
+T90	Modifier 13919 13921	in
+T91	Object 13922 13943	the infected computer
+R73	SubjAction Subject:T87 Action:T88	
+R74	ActionObj Action:T88 Object:T89	
+R75	ActionMod Action:T88 Modifier:T90	
+R76	ModObj Modifier:T90 Object:T91	
+A51	Capability T88 015:MalwareCapability-probing
+A52	TacticalObjectives T88 114:Probing-inventory_system_applications
+T92	Subject 14500 14502	It
+T93	Action 14508 14516	receives
+T94	Object 14517 14525	commands
+R77	SubjAction Subject:T92 Action:T93	
+R78	ActionObj Action:T93 Object:T94	
+T95	Subject 14437 14445	Carbanak
+R79	CoRefer Referer:T92 Canonical:T95	
+A53	Capability T93 005:MalwareCapability-command_and_control
+A54	TacticalObjectives T93 047:CommandandControl-control_malware_via_remote_command
+A55	StrategicObjectives T93 017:CommandandControl-receive_data_from_c2_server
+T96	Action 14446 14451	sends
+T97	Object 14452 14481	its collected monitoring data
+T98	Modifier 14482 14484	to
+T99	Object 14485 14498	its C2 server
+R80	SubjAction Subject:T95 Action:T96	
+R81	ActionObj Action:T96 Object:T97	
+R82	ActionMod Action:T96 Modifier:T98	
+R83	ModObj Modifier:T98 Object:T99	
+A56	Capability T96 005:MalwareCapability-command_and_control
+A57	StrategicObjectives T96 018:CommandandControl-send_data_to_c2_server
+A58	ActionName T96 097:Network-upload_file
+T100	Subject 22411 22424	the attackers
+T101	Action 22425 22435	recompiled
+T102	Object 22436 22460	the machine’s SSH daemon
+T103	Modifier 22461 22465	with
+T104	Object 22466 22476	a backdoor
+R84	SubjAction Subject:T100 Action:T101	
+R85	ActionObj Action:T101 Object:T102	
+R86	ActionMod Action:T101 Modifier:T103	
+R87	ModObj Modifier:T103 Object:T104	
+A59	Capability T101 012:MalwareCapability-machine_access/control
+A60	StrategicObjectives T101 039:MachineAccessControl-install_backdoor
+A61	TacticalObjectives T101 100:MachineAccessControl-control_machine_via_remote_command
+T105	Modifier 22477 22479	so
+R88	ActionMod Action:T101 Modifier:T105	
+T106	Object 22480 22509	they could gain direct access
+R89	ModObj Modifier:T105 Object:T106	
+T107	Action 22149 22153	used
+T108	Object 22115 22144	a Secure Shell (SSH) backdoor
+T109	Modifier 22154 22156	to
+T110	Object 22157 22168;22169 22187	communicate with the C2 server
+R90	ModObj Modifier:T109 Object:T110	
+R91	ActionMod Action:T107 Modifier:T109	
+R92	ActionObj Action:T107 Object:T108	
+A62	Capability T107 005:MalwareCapability-command_and_control

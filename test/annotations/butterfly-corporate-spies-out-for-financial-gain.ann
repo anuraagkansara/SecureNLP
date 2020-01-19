@@ -1,0 +1,188 @@
+T1	Action 15891 15900	obtaining
+A1	Capability T1 012:MalwareCapability-machine_access/control
+A2	StrategicObjectives T1 039:MachineAccessControl-install_backdoor
+T2	Object 15901 15907	access
+T3	Subject 15866 15879	The attackers
+T4	Modifier 15908 15910	to
+T5	Object 15911 15965;15970 15983	specific systems of interest in all of the compromised organizations
+R1	SubjAction Subject:T3 Action:T1	
+R2	ActionObj Action:T1 Object:T2	
+R3	ModObj Modifier:T4 Object:T5	
+R4	ActionMod Action:T1 Modifier:T4	
+T6	Subject 16133 16137	they
+T7	Action 16154 16166	eavesdropped
+A3	Capability T7 011:MalwareCapability-integrity_violation
+A4	TacticalObjectives T7 098:IntegrityViolation-intercept/manipulate_network_traffic
+A5	StrategicObjectives T7 034:IntegrityViolation-compromise_network_operational_integrity
+T8	Modifier 16167 16169	on
+T9	Object 16170 16189	email conversations
+R5	SubjAction Subject:T6 Action:T7	
+R6	ModObj Modifier:T8 Object:T9	
+R7	ActionMod Action:T7 Modifier:T8	
+T10	Action 16241 16247	insert
+A6	Capability T10 011:MalwareCapability-integrity_violation
+A7	TacticalObjectives T10 098:IntegrityViolation-intercept/manipulate_network_traffic
+A8	StrategicObjectives T10 034:IntegrityViolation-compromise_network_operational_integrity
+T11	Object 16248 16265	fraudulent emails
+R8	ActionObj Action:T10 Object:T11	
+R9	SubjAction Subject:T6 Action:T10	
+T12	Action 17963 17967	used
+A9	Capability T12 005:MalwareCapability-command_and_control
+T13	Object 17928 17962	a command-and-control (C&C) server
+R10	ActionObj Action:T12 Object:T13	
+T14	Modifier 17968 17970	in
+T15	Object 17971 17980	an attack
+R11	ModObj Modifier:T14 Object:T15	
+R12	ActionMod Action:T12 Modifier:T14	
+T16	Action 18873 18881	executed
+A10	ActionName T16 029:File-execute_file
+T17	Object 18855 18863	Bda9.tmp
+R13	ActionObj Action:T16 Object:T17	
+T18	Action 18897 18903	create
+A11	Capability T18 005:MalwareCapability-command_and_control
+A12	StrategicObjectives T18 039:MachineAccessControl-install_backdoor
+T19	Object 18904 18934	a variant of Backdoor.Jiripbot
+T20	Modifier 18935 18939	with
+T21	Object 18940 18953;18958 18972	the file name LiveUpdate.exe
+R14	ModObj Modifier:T20 Object:T21	
+R15	ActionObj Action:T18 Object:T19	
+R16	ActionMod Action:T18 Modifier:T20	
+T22	Subject 18855 18863	Bda9.tmp
+R17	SubjAction Subject:T22 Action:T18	
+T23	Action 20591 20597	spread
+A13	Capability T23 010:MalwareCapability-infection/propagation
+A14	StrategicObjectives T23 031:InfectionPropagation-infect_remote_machine
+T24	Modifier 20598 20605	through
+T25	Object 20608 20617	a network
+R18	ActionMod Action:T23 Modifier:T24	
+R19	ModObj Modifier:T24 Object:T25	
+T26	Action 20732 20738	create
+A15	Capability T26 012:MalwareCapability-machine_access/control
+A16	StrategicObjectives T26 039:MachineAccessControl-install_backdoor
+T27	Object 20739 20750	a back door
+T28	Modifier 20751 20753	on
+T29	Object 20754 20777	a newly infected system
+R20	ActionObj Action:T26 Object:T27	
+R21	ModObj Modifier:T28 Object:T29	
+R22	ActionMod Action:T26 Modifier:T28	
+T30	Action 21114 21120	create
+A17	ActionName T30 023:File-copy_file
+T31	Object 21121 21148	copies of Backdoor.Jiripbot
+T32	Modifier 21149 21151	on
+T33	Object 21152 21155;21158 21179	the compromised computers
+R23	ActionObj Action:T30 Object:T31	
+R24	ModObj Modifier:T32 Object:T33	
+R25	ActionMod Action:T30 Modifier:T32	
+T34	Subject 21910 21919	shred.exe
+T35	Action 21932 21938	remove
+A18	Capability T35 017:MalwareCapability-secondary_operation
+A19	TacticalObjectives T35 120:SecondaryOperation-remove_self
+A20	StrategicObjectives T35 054:SecondaryOperation-remove_traces_of_infection
+T36	Object 21939 21953	the infections
+R26	SubjAction Subject:T34 Action:T35	
+R27	ActionObj Action:T35 Object:T36	
+T37	Action 25568 25573	hides
+A21	Capability T37 002:MalwareCapability-anti-detection
+A22	TacticalObjectives T37 023:AntiDetection-hide_file_system_artifacts
+T38	Object 25574 25582	activity
+T39	Subject 25565 25567	It
+R28	SubjAction Subject:T39 Action:T37	
+R29	ActionObj Action:T37 Object:T38	
+T40	Action 25586 25593	editing
+A23	ActionName T40 034:File-modify_file
+T41	Object 25594 25605	events logs
+R30	ActionObj Action:T40 Object:T41	
+T42	Action 25607 25614	dumping
+A24	ActionName T42 023:File-copy_file
+T43	Object 25615 25624	passwords
+R31	ActionObj Action:T42 Object:T43	
+T44	Action 25635 25643	deleting
+A25	ActionName T44 028:File-delete_file
+T45	Object 25644 25649	files
+R32	ActionObj Action:T44 Object:T45	
+R33	SubjAction Subject:T39 Action:T40	
+R34	SubjAction Subject:T39 Action:T42	
+R35	SubjAction Subject:T39 Action:T44	
+T46	Action 26074 26077	end
+A26	ActionName T46 111:Process-kill_process
+T47	Object 26078 26087	processes
+T48	Subject 26055 26063	The tool
+R36	SubjAction Subject:T48 Action:T46	
+R37	ActionObj Action:T46 Object:T47	
+T49	Action 26092 26099	perform
+A27	Capability T49 017:MalwareCapability-secondary_operation
+A28	ActionName T49 028:File-delete_file
+A29	StrategicObjectives T49 054:SecondaryOperation-remove_traces_of_infection
+A30	TacticalObjectives T49 120:SecondaryOperation-remove_self
+T50	Object 26100 26120	a secure self-delete
+R38	ActionObj Action:T49 Object:T50	
+R39	SubjAction Subject:T48 Action:T49	
+T51	Action 26000 26011	dumping out
+A31	ActionName T51 023:File-copy_file
+T52	Object 26014 26030	ones of interest
+R40	ActionObj Action:T51 Object:T52	
+T53	Action 25982 25987	parse
+A32	ActionName T53 038:File-read_from_file
+T54	Object 25988 25998	event logs
+R41	ActionObj Action:T53 Object:T54	
+T55	Action 26039 26045	delete
+A33	ActionName T55 034:File-modify_file
+T56	Object 26046 26053	entries
+R42	ActionObj Action:T55 Object:T56	
+T57	Subject 25898 25915	Hacktool.Eventlog
+R43	SubjAction Subject:T57 Action:T53	
+R44	SubjAction Subject:T57 Action:T51	
+R45	SubjAction Subject:T57 Action:T55	
+T58	Action 26278 26283	route
+A34	Capability T58 011:MalwareCapability-integrity_violation
+A35	TacticalObjectives T58 098:IntegrityViolation-intercept/manipulate_network_traffic
+A36	StrategicObjectives T58 034:IntegrityViolation-compromise_network_operational_integrity
+T59	Object 26284 26291	traffic
+T60	Subject 26209 26225	Hacktool.Proxy.A
+T61	Modifier 26292 26299	through
+T62	Object 26300 26320	an intermediary node
+T63	Modifier 26323 26327	onto
+T64	Object 26328 26350	their destination node
+R46	ModObj Modifier:T63 Object:T64	
+R47	ModObj Modifier:T61 Object:T62	
+R48	SubjAction Subject:T60 Action:T58	
+R49	ActionObj Action:T58 Object:T59	
+R50	ActionMod Action:T58 Modifier:T61	
+R51	ActionMod Action:T58 Modifier:T63	
+T65	Action 27229 27237	modified
+A37	Capability T65 002:MalwareCapability-anti-detection
+A38	ActionName T65 034:File-modify_file
+A39	StrategicObjectives T65 007:AntiDetection-hide_malware_artifacts
+A40	TacticalObjectives T65 023:AntiDetection-hide_file_system_artifacts
+T66	Modifier 27238 27240	to
+T67	Object 27241 27251;27252 27287	remove any evidence of the attackers’ activity
+T68	Object 27214 27224	event logs
+R52	ActionObj Action:T65 Object:T68	
+R53	ModObj Modifier:T66 Object:T67	
+R54	ActionMod Action:T65 Modifier:T66	
+T69	Subject 27410 27423	the attackers
+T70	Action 27437 27443	remove
+A41	Capability T70 017:MalwareCapability-secondary_operation
+A42	TacticalObjectives T70 120:SecondaryOperation-remove_self
+A43	StrategicObjectives T70 054:SecondaryOperation-remove_traces_of_infection
+T71	Object 27444 27454	infections
+T72	Modifier 27455 27459	from
+T73	Object 27460 27478;27479 27493	computers that are of no interest
+R55	SubjAction Subject:T69 Action:T70	
+R56	ActionObj Action:T70 Object:T71	
+R57	ModObj Modifier:T72 Object:T73	
+R58	ActionMod Action:T70 Modifier:T72	
+T74	Action 41145 41154	looks for
+A44	ActionName T74 106:Process-enumerate_processes
+T75	Subject 41137 41139	It
+R59	SubjAction Subject:T75 Action:T74	
+T76	Object 41158 41200	certain process names of running processes
+R60	ActionObj Action:T74 Object:T76	
+T77	Action 41302 41308	checks
+A45	ActionName T77 146:Registry-read_registry_key_value
+T78	Modifier 41309 41313	that
+T79	Object 41314 41393;41397 41463	the hashed value of the registry subkey HKEY_LOCAL_MACHINE\Microsoft\WindowsNT\ CurrentVersion\ProductId is not equal to a number of hashed values
+T80	Subject 41299 41301	It
+R61	SubjAction Subject:T80 Action:T77	
+R62	ActionMod Action:T77 Modifier:T78	
+R63	ModObj Modifier:T78 Object:T79	

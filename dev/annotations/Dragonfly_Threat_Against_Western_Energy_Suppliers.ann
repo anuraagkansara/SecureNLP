@@ -1,0 +1,195 @@
+T1	Subject 4503 4516	the attackers
+T2	Action 4526 4538	compromising
+A1	Capability T2 011:MalwareCapability-integrity_violation
+A2	TacticalObjectives T2 099:IntegrityViolation-subvert_system
+A3	StrategicObjectives T2 036:IntegrityViolation-compromise_system_operational_integrity
+T3	Object 4539 4585;4590 4621	the update site for several industrial control system (ICS) software producers
+R1	ActionObj Action:T2 Object:T3	
+R2	SubjAction Subject:T1 Action:T2	
+T4	Action 4633 4639	bundle
+A4	Capability T4 010:MalwareCapability-infection/propagation
+A5	TacticalObjectives T4 093:InfectionPropagation-write_code_into_file
+A6	StrategicObjectives T4 030:InfectionPropagation-infect_file
+T5	Object 4640 4655	Backdoor.Oldrea
+T6	Subject 4623 4627	They
+T7	Modifier 4656 4660	with
+T8	Object 4661 4696;4701 4709	a legitimate update of the affected software
+R3	SubjAction Subject:T6 Action:T4	
+R4	ActionObj Action:T4 Object:T5	
+R5	ModObj Modifier:T7 Object:T8	
+R6	ActionMod Action:T4 Modifier:T7	
+T9	Subject 4790 4813	The Dragonfly attackers
+T10	Action 4814 4818	used
+A7	Capability T10 005:MalwareCapability-command_and_control
+T11	Object 4819 4834	hacked websites
+T12	Modifier 4835 4837	to
+T13	Object 4838 4877	host command-and-control (C&C) software
+R7	ModObj Modifier:T12 Object:T13	
+R8	ActionObj Action:T10 Object:T11	
+R9	ActionMod Action:T10 Modifier:T12	
+R10	SubjAction Subject:T9 Action:T10	
+T14	Action 6244 6251	provide
+A8	Capability T14 012:MalwareCapability-machine_access/control
+A9	TacticalObjectives T14 100:MachineAccessControl-control_machine_via_remote_command
+A10	StrategicObjectives T14 038:MachineAccessControl-control_local_machine
+T15	Object 6252 6265	the attackers
+T16	Modifier 6266 6270	with
+T17	Object 6271 6314	access and control of compromised computers
+T18	Subject 6196 6233	Remote Access Tool (RAT) type malware
+R11	SubjAction Subject:T18 Action:T14	
+R12	ActionObj Action:T14 Object:T15	
+R13	ModObj Modifier:T16 Object:T17	
+R14	ActionMod Action:T14 Modifier:T16	
+T19	Action 6524 6531	extract
+A11	Capability T19 006:MalwareCapability-data_exfiltration
+T20	Object 6532 6536	data
+R15	ActionObj Action:T19 Object:T20	
+T21	Action 6541 6548	install
+A12	Capability T21 017:MalwareCapability-secondary_operation
+A13	TacticalObjectives T21 118:SecondaryOperation-install_secondary_malware
+A14	StrategicObjectives T21 050:SecondaryOperation-install_other_components
+T22	Object 6549 6564	further malware
+R16	ActionObj Action:T21 Object:T22	
+T23	Subject 7612 7642;7647 7676	selected executives and senior employees in target companies
+T24	Action 7681 7688	receive
+A15	Capability T24 010:MalwareCapability-infection/propagation
+A16	TacticalObjectives T24 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T25	Object 7689 7708;7713 7737	emails containing a malicious PDF attachment
+R17	SubjAction Subject:T23 Action:T24	
+R18	ActionObj Action:T24 Object:T25	
+T26	Action 8789 8793	drop
+A17	Capability T26 010:MalwareCapability-infection/propagation
+A18	ActionName T26 090:Network-download_file
+A19	StrategicObjectives T26 031:InfectionPropagation-infect_remote_machine
+A20	TacticalObjectives T26 091:InfectionPropagation-perform_autonomous_remote_infection
+T27	Object 8794 8812	Oldrea or Karagany
+R19	ActionObj Action:T26 Object:T27	
+T28	Modifier 8813 8815	on
+T29	Object 8816 8837	the victim’s computer
+R20	ModObj Modifier:T28 Object:T29	
+R21	ActionMod Action:T26 Modifier:T28	
+T30	Subject 16813 16835	a persistent component
+T31	Action 16841 16850	interacts
+A21	Capability T31 005:MalwareCapability-command_and_control
+T32	Modifier 16851 16855	with
+T33	Object 16856 16867	C&C servers
+R22	SubjAction Subject:T30 Action:T31	
+R23	ActionMod Action:T31 Modifier:T32	
+R24	ModObj Modifier:T32 Object:T33	
+T34	Action 16871 16879	download
+A22	Capability T34 005:MalwareCapability-command_and_control
+A23	ActionName T34 090:Network-download_file
+A24	StrategicObjectives T34 017:CommandandControl-receive_data_from_c2_server
+A25	TacticalObjectives T34 046:CommandandControl-check_for_payload
+T35	Object 16894 16902	payloads
+R25	ActionObj Action:T34 Object:T35	
+T36	Action 16886 16893	execute
+A26	ActionName T36 029:File-execute_file
+R26	ActionObj Action:T36 Object:T35	
+T37	Action 16972 16982	performing
+A27	ActionName T37 054:HTTP-send_http_get_request
+T38	Object 16983 16988;16991 16998	a GET request
+R27	ActionObj Action:T37 Object:T38	
+T39	Action 16937 16949	reaching out
+A28	Capability T39 005:MalwareCapability-command_and_control
+T40	Modifier 16950 16952	to
+T41	Object 16953 16967	the C&C server
+R28	ActionMod Action:T39 Modifier:T40	
+R29	ModObj Modifier:T40 Object:T41	
+T42	Object 16904 16918	The components
+T43	Action 16919 16933	are downloaded
+A29	Capability T43 017:MalwareCapability-secondary_operation
+A30	ActionName T43 090:Network-download_file
+A31	StrategicObjectives T43 050:SecondaryOperation-install_other_components
+A32	TacticalObjectives T43 118:SecondaryOperation-install_secondary_malware
+R30	ActionObj Action:T43 Object:T42	
+T44	Subject 17927 17942	Backdoor.Oldrea
+T45	Action 17959 17966	collect
+A33	Capability T45 015:MalwareCapability-probing
+A35	StrategicObjectives T45 046:Probing-probe_host_configuration
+T46	Object 17967 17985	system information
+T47	Modifier 17986 17993	such as
+R32	ActionObj Action:T45 Object:T46	
+R33	ActionMod Action:T45 Modifier:T47	
+R34	SubjAction Subject:T44 Action:T45	
+T48	Object 17994 18017;18020 18131;18134 18247	OS, user name, computer name, country, language, nation, Internet adapter configuration information, available drives, default browser, running processes, desktop file list, My Documents, Internet history, program files, and root of available drives
+R31	ModObj Modifier:T47 Object:T48	
+T49	Object 18347 18356	This data
+T50	Action 18362 18371	collected
+A34	Capability T50 015:MalwareCapability-probing
+R35	ActionObj Action:T50 Object:T49	
+T51	Action 18376 18383	written
+A36	Capability T51 006:MalwareCapability-data_exfiltration
+A37	ActionName T51 024:File-create_file
+A38	StrategicObjectives T51 021:DataExfiltration-stage_data_for_exfiltration
+A39	TacticalObjectives T51 053:DataExfiltration-encrypt_data
+R36	ActionObj Action:T51 Object:T49	
+T52	Modifier 18384 18386	to
+T53	Object 18387 18403	a temporary file
+R37	ModObj Modifier:T52 Object:T53	
+R38	ActionMod Action:T51 Modifier:T52	
+T54	Modifier 18404 18406	in
+T55	Object 18407 18424	an encrypted form
+R39	ModObj Modifier:T54 Object:T55	
+R40	ActionMod Action:T51 Modifier:T54	
+T56	Object 18432 18434	it
+T57	Action 18438 18445	POST’ed
+A40	Capability T57 005:MalwareCapability-command_and_control
+A41	ActionName T57 058:HTTP-send_http_post_request
+A42	StrategicObjectives T57 018:CommandandControl-send_data_to_c2_server
+A43	TacticalObjectives T57 050:CommandandControl-send_system_information
+R41	ActionObj Action:T57 Object:T56	
+T58	Modifier 18446 18448	to
+T59	Object 18449 18468	a remote C&C server
+R42	ActionMod Action:T57 Modifier:T58	
+R43	ModObj Modifier:T58 Object:T59	
+T60	Action 21833 21841	download
+A44	ActionName T60 090:Network-download_file
+T61	Object 21854 21870	additional files
+R44	ActionObj Action:T60 Object:T61	
+T62	Action 21846 21853	install
+A45	Capability T62 017:MalwareCapability-secondary_operation
+A46	TacticalObjectives T62 119:SecondaryOperation-install_secondary_module
+A47	StrategicObjectives T62 050:SecondaryOperation-install_other_components
+R45	ActionObj Action:T62 Object:T61	
+T63	Action 21877 21887	exfiltrate
+A48	Capability T63 006:MalwareCapability-data_exfiltration
+T64	Object 21888 21892	data
+R46	ActionObj Action:T63 Object:T64	
+T65	Subject 21815 21817	It
+R47	SubjAction Subject:T65 Action:T60	
+R48	SubjAction Subject:T65 Action:T62	
+R49	SubjAction Subject:T65 Action:T63	
+T66	Subject 23630 23645	Trojan.Karagany
+T67	Action 23646 23652	copies
+A49	ActionName T67 023:File-copy_file
+T68	Object 23653 23659	itself
+T69	Modifier 23660 23664	with
+T70	Object 23665 23721	hidden and system attributes where it was first executed
+R50	SubjAction Subject:T66 Action:T67	
+R51	ActionObj Action:T67 Object:T68	
+R52	ModObj Modifier:T69 Object:T70	
+R53	ActionMod Action:T67 Modifier:T69	
+T71	Action 24444 24450	checks
+A50	Capability T71 015:MalwareCapability-probing
+A51	TacticalObjectives T71 109:Probing-check_for_internet_connectivity
+A52	StrategicObjectives T71 047:Probing-probe_network_configuration
+T72	Subject 24422 24437	Trojan.Karagany
+R54	SubjAction Subject:T72 Action:T71	
+T73	Modifier 24451 24454	for
+T74	Object 24455 24481	a live Internet connection
+R55	ModObj Modifier:T73 Object:T74	
+R56	ActionMod Action:T71 Modifier:T73	
+T75	Modifier 24482 24484	by
+T76	Object 24485 24521	visiting Microsoft or Adobe websites
+R57	ActionMod Action:T71 Modifier:T75	
+R58	ModObj Modifier:T75 Object:T76	
+T77	Subject 24523 24525	It
+T78	Action 24536 24541;24542 24545	reach out
+A53	Capability T78 005:MalwareCapability-command_and_control
+A54	StrategicObjectives T78 018:CommandandControl-send_data_to_c2_server
+T79	Modifier 24546 24548	to
+T80	Object 24549 24563	its C&C server
+R59	SubjAction Subject:T77 Action:T78	
+R60	ActionMod Action:T78 Modifier:T79	
+R61	ActionObj Action:T78 Object:T80	

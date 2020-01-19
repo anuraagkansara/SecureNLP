@@ -1,0 +1,194 @@
+T1	Subject 4009 4011	it
+T2	Action 4037 4043	detect
+T3	Object 4044 4072	the operating system version
+R1	ActionObj Action:T2 Object:T3	
+R2	SubjAction Subject:T1 Action:T2	
+A1	Capability T2 015:MalwareCapability-probing
+A2	TacticalObjectives T2 113:Probing-identify_os
+T5	Subject 4346 4368	this powershell script
+T6	Action 4376 4384	extracts
+T7	Object 4385 4401	another VBScript
+T8	Action 4406 4414	executes
+T9	Object 4415 4417	it
+R4	ActionObj Action:T8 Object:T9	
+R5	ActionObj Action:T6 Object:T7	
+R6	SubjAction Subject:T5 Action:T6	
+R7	SubjAction Subject:T5 Action:T8	
+R8	CoRefer Referer:T7 Canonical:T9	
+A3	ActionName T6 024:File-create_file
+A4	ActionName T8 029:File-execute_file
+T10	Subject 4645 4658	This VBScript
+T11	Action 4659 4668	downloads
+T12	Object 4669 4688	the primary payload
+T13	Modifier 4689 4691	to
+T14	Object 4692 4715	the temporary directory
+R9	ActionObj Action:T11 Object:T12	
+R10	SubjAction Subject:T10 Action:T11	
+A5	ActionName T11 090:Network-download_file
+R11	ActionMod Action:T11 Modifier:T13	
+R12	ModObj Modifier:T13 Object:T14	
+T15	Action 4720 4725	names
+T16	Object 4726 4728	it
+R13	ActionObj Action:T15 Object:T16	
+R14	SubjAction Subject:T10 Action:T15	
+A6	ActionName T15 039:File-rename_file
+R15	CoRefer Referer:T12 Canonical:T16	
+T17	Subject 4960 4984	The first binary payload
+T18	Action 5067 5076	detecting
+T19	Object 5077 5105	the operating system version
+R16	SubjAction Subject:T17 Action:T18	
+R17	ActionObj Action:T18 Object:T19	
+A7	Capability T18 015:MalwareCapability-probing
+A8	TacticalObjectives T18 113:Probing-identify_os
+T20	Action 5067 5076	detecting
+A9	Capability T20 019:MalwareCapability-spying
+A10	TacticalObjectives T20 138:Spying-capture_file_system
+T21	Object 5110 5148	where to drop a secondary payload file
+R18	ActionObj Action:T20 Object:T21	
+R19	SubjAction Subject:T17 Action:T20	
+T22	Subject 5157 5161;5162 5168	this binary
+T23	Action 5222 5232	masquerade
+T24	Modifier 5233 5235	as
+T25	Object 5236 5260	a legitimate application
+R20	SubjAction Subject:T22 Action:T23	
+R21	ActionMod Action:T23 Modifier:T24	
+R22	ModObj Modifier:T24 Object:T25	
+A11	Capability T23 002:MalwareCapability-anti-detection
+A12	StrategicObjectives T23 006:AntiDetection-hide_executing_code
+T26	Action 5265 5273	contains
+T27	Object 5274 5307	functionality to evade anti-virus
+R23	ActionObj Action:T26 Object:T27	
+A13	Capability T26 002:MalwareCapability-anti-detection
+A14	StrategicObjectives T26 009:AntiDetection-security_software_evasion
+R24	SubjAction Subject:T22 Action:T26	
+T28	Subject 5391 5403	this malware
+T29	Action 5404 5414	determines
+T30	Object 5415 5443	the operating system version
+R25	SubjAction Subject:T28 Action:T29	
+R26	ActionObj Action:T29 Object:T30	
+A15	Capability T29 015:MalwareCapability-probing
+A16	TacticalObjectives T29 113:Probing-identify_os
+T31	Subject 6483 6485	it
+T32	Action 6491 6495	load
+T33	Object 6496 6524	the freshly dropped DLL file
+R27	SubjAction Subject:T31 Action:T32	
+R28	ActionObj Action:T32 Object:T33	
+A17	ActionName T32 084:Library-load_library
+T34	Object 6594 6606	another file
+T35	Action 6632 6639	written
+T36	Modifier 6640 6645	on to
+T37	Object 6646 6654	the disk
+T38	Modifier 6655 6660	under
+T39	Object 6661 6669;6670 6679	the same directory
+R29	ModObj Modifier:T38 Object:T39	
+R30	ModObj Modifier:T36 Object:T37	
+R31	ActionMod Action:T35 Modifier:T36	
+R32	ActionMod Action:T35 Modifier:T38	
+R33	ActionObj Action:T35 Object:T34	
+A18	ActionName T35 024:File-create_file
+T41	Subject 7611 7613	It
+T42	Action 7735 7740	start
+T43	Object 7741 7752	the malware
+T44	Modifier 7753 7755	on
+T45	Object 7756 7784	system boot-up or user login
+R35	ActionObj Action:T42 Object:T43	
+R36	ActionMod Action:T42 Modifier:T44	
+R37	ModObj Modifier:T44 Object:T45	
+R38	SubjAction Subject:T41 Action:T42	
+A19	Capability T42 013:MalwareCapability-persistence
+A20	TacticalObjectives T42 104:Persistence-persist_after_system_reboot
+A21	StrategicObjectives T42 042:Persistence-persist_to_continuously_execute_on_system
+T46	Object 8263 8272	this file
+T47	Object 8290 8292	it
+R39	CoRefer Referer:T46 Canonical:T47	
+T48	Action 8296 8302	loaded
+T49	Modifier 8303 8307	into
+T50	Object 8308 8314	memory
+R40	ModObj Modifier:T49 Object:T50	
+R41	ActionObj Action:T48 Object:T47	
+R42	ActionMod Action:T48 Modifier:T49	
+A22	ActionName T48 084:Library-load_library
+T51	Action 8319 8327	executed
+R43	ActionObj Action:T51 Object:T47	
+A23	ActionName T51 029:File-execute_file
+T52	Subject 8385 8455;8456 8462	The method of leaving the encoded file on disk and only decoding it in memory
+T53	Action 8469 8475	thwart
+T54	Object 8476 8539	poorly configured anti-virus or disk surface heuristic scanners
+R44	SubjAction Subject:T52 Action:T53	
+R45	ActionObj Action:T53 Object:T54	
+A24	Capability T53 002:MalwareCapability-anti-detection
+A25	TacticalObjectives T53 019:AntiDetection-execute_stealthy_code
+A26	StrategicObjectives T53 006:AntiDetection-hide_executing_code
+T55	Subject 9873 9880	the RAT
+T56	Subject 9921 9923	it
+R46	CoRefer Referer:T55 Canonical:T56	
+T57	Action 9931 9942	calling out
+T58	Modifier 9943 9945	to
+T59	Object 9946 9961;9965 9979	the command and control server
+R47	SubjAction Subject:T56 Action:T57	
+R48	ActionMod Action:T57 Modifier:T58	
+R49	ModObj Modifier:T58 Object:T59	
+A27	Capability T57 005:MalwareCapability-command_and_control
+A28	StrategicObjectives T57 018:CommandandControl-send_data_to_c2_server
+T60	Action 10001 10006	waits
+T61	Modifier 10007 10010	for
+T62	Object 10011 10024	the attackers
+T63	Modifier 10025 10027	to
+T64	Object 10028 10050;10054 10076	issue one of the above commands to the victim
+R50	ModObj Modifier:T63 Object:T64	
+R51	ModObj Modifier:T61 Object:T62	
+R52	ActionMod Action:T60 Modifier:T61	
+R53	ActionMod Action:T60 Modifier:T63	
+A29	Capability T60 005:MalwareCapability-command_and_control
+A30	TacticalObjectives T60 047:CommandandControl-control_malware_via_remote_command
+A31	StrategicObjectives T60 017:CommandandControl-receive_data_from_c2_server
+R54	SubjAction Subject:T56 Action:T60	
+T65	Action 10263 10272	collected
+T66	Object 10224 10259	Information about the victim system
+R55	ActionObj Action:T65 Object:T66	
+T67	Action 10277 10287	posted off
+T68	Modifier 10288 10290	to
+T69	Object 10291 10314;10318 10324	the command and control server
+R56	ModObj Modifier:T68 Object:T69	
+R57	ActionObj Action:T67 Object:T66	
+R58	ActionMod Action:T67 Modifier:T68	
+A32	Capability T67 006:MalwareCapability-data_exfiltration
+A33	TacticalObjectives T67 057:DataExfiltration-exfiltrate_via_network
+A34	StrategicObjectives T67 020:DataExfiltration-perform_data_exfiltration
+A35	Capability T65 007:MalwareCapability-data_theft
+T70	Object 10602 10618	This information
+T71	Action 10622 10629	encoded
+R59	ActionObj Action:T71 Object:T70	
+T72	Modifier 10630 10635	using
+T73	Object 10636 10662	a simple bitwise operation
+R60	ModObj Modifier:T72 Object:T73	
+R61	ActionMod Action:T71 Modifier:T72	
+A36	Capability T71 006:MalwareCapability-data_exfiltration
+A37	TacticalObjectives T71 053:DataExfiltration-encrypt_data
+A38	StrategicObjectives T71 019:DataExfiltration-obfuscate_data_for_exfiltration
+T74	Action 10672 10676	sent
+R62	ActionObj Action:T74 Object:T70	
+T75	Modifier 10677 10679	to
+T76	Object 10680 10695;10699 10713	the command and control server
+R63	ModObj Modifier:T75 Object:T76	
+R64	ActionMod Action:T74 Modifier:T75	
+A39	Capability T74 006:MalwareCapability-data_exfiltration
+A40	TacticalObjectives T74 057:DataExfiltration-exfiltrate_via_network
+A41	StrategicObjectives T74 020:DataExfiltration-perform_data_exfiltration
+A42	StrategicObjectives T65 024:DataTheft-steal_system_information
+T77	Subject 9034 9046	the attacker
+T78	Action 9050 9057	control
+T79	Object 9058 9082	the infected workstation
+R65	SubjAction Subject:T77 Action:T78	
+R66	ActionObj Action:T78 Object:T79	
+A43	Capability T78 012:MalwareCapability-machine_access/control
+A44	TacticalObjectives T78 100:MachineAccessControl-control_machine_via_remote_command
+A45	StrategicObjectives T78 038:MachineAccessControl-control_local_machine
+T108	Action 6788 6796	executed
+T109	Object 6773 6784	wuauclt.exe
+R99	ActionObj Action:T108 Object:T109	
+T110	Modifier 6747 6749	To
+T111	Object 6750 6772	complete the file drop
+R100	ModObj Modifier:T110 Object:T111	
+R101	ActionMod Action:T108 Modifier:T110	
+A57	ActionName T108 029:File-execute_file

@@ -1,0 +1,25 @@
+T4	Subject 7526 7537	the malware
+T5	Action 7567 7574	execute
+T6	Object 7575 7583	commands
+T7	Modifier 7584 7586	as
+T8	Object 7587 7600	administrator
+R3	SubjAction Subject:T4 Action:T5	
+R4	ActionObj Action:T5 Object:T6	
+R5	ActionMod Action:T5 Modifier:T7	
+R6	ModObj Modifier:T7 Object:T8	
+A3	ActionName T5 208:User-invoke_user_privilege
+T24	Subject 12756 12767	the dropper
+T25	Action 12771 12774	add
+T26	Object 12775 12786	persistence
+T27	Modifier 12787 12789	in
+T28	Object 12790 12802	the registry
+T29	Action 12810 12814	drop
+T30	Object 12815 12828	a second file
+R18	SubjAction Subject:T24 Action:T25	
+R19	SubjAction Subject:T24 Action:T29	
+R20	ActionObj Action:T29 Object:T30	
+R21	ActionObj Action:T25 Object:T26	
+R22	ActionMod Action:T25 Modifier:T27	
+R23	ModObj Modifier:T27 Object:T28	
+A9	Capability T25 013:MalwareCapability-persistence
+A10	ActionName T29 028:File-delete_file

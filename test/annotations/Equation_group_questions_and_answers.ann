@@ -1,0 +1,243 @@
+T1	Subject 9834 9836	It
+T2	Action 9852 9859	provide
+T3	Object 9860 9893;9894 9915	an effective (almost “invisible”) persistence mechanism
+A1	Capability T2 013:MalwareCapability-persistence
+R1	SubjAction Subject:T1 Action:T2	
+R2	ActionObj Action:T2 Object:T3	
+T4	Object 9917 9931	hidden storage
+R3	ActionObj Action:T2 Object:T4	
+T5	Object 9936 9963	malicious command execution
+R4	ActionObj Action:T2 Object:T5	
+T6	Modifier 9964 9970	inside
+T7	Object 9971 9999	the Windows operating system
+R5	ActionMod Action:T2 Modifier:T6	
+R6	ModObj Modifier:T6 Object:T7	
+T8	Subject 10598 10606	GrayFish
+T9	Action 10607 10614	hijacks
+A2	Capability T9 011:MalwareCapability-integrity_violation
+A3	StrategicObjectives T9 036:IntegrityViolation-compromise_system_operational_integrity
+T10	Object 10615 10640	the OS loading mechanisms
+R7	SubjAction Subject:T8 Action:T9	
+R8	ActionObj Action:T9 Object:T10	
+T11	Action 10644 10653	injecting
+A4	ActionName T11 043:File-write_to_file
+T12	Object 10654 10662	its code
+T13	Modifier 10663 10667	into
+T14	Object 10668 10683	the boot record
+R9	ActionObj Action:T11 Object:T12	
+R10	ActionMod Action:T11 Modifier:T13	
+R11	ModObj Modifier:T13 Object:T14	
+R12	SubjAction Subject:T8 Action:T11	
+A5	Capability T11 002:MalwareCapability-anti-detection
+T15	Subject 11301 11304;11305 11329	the entire GrayFish platform
+T16	Action 11330 11344	self-destructs
+A7	Capability T16 017:MalwareCapability-secondary_operation
+A8	TacticalObjectives T16 120:SecondaryOperation-remove_self
+A9	StrategicObjectives T16 055:SecondaryOperation-suicide_exit
+R13	SubjAction Subject:T15 Action:T16	
+T17	Modifier 11266 11268	If
+T18	Object 11269 11299	an error happens during launch
+R14	ModObj Modifier:T17 Object:T18	
+R15	ActionMod Action:T16 Modifier:T17	
+T19	Subject 11833 11841	GrayFish
+A6	TacticalObjectives T11 017:AntiDetection-execute_before/external_to_kernel/hypervisor
+T20	Action 11842 11852	implements
+A10	Capability T20 006:MalwareCapability-data_exfiltration
+A11	TacticalObjectives T20 060:DataExfiltration-hide_data
+T21	Object 11853 11896	its own encrypted Virtual File System (VFS)
+T22	Modifier 11897 11903	inside
+T23	Object 11904 11924	the Windows registry
+T24	Modifier 11762 11764	To
+T25	Object 11765 11789	store stolen information
+R16	ModObj Modifier:T24 Object:T25	
+R17	SubjAction Subject:T19 Action:T20	
+R18	ActionObj Action:T20 Object:T21	
+R19	ModObj Modifier:T22 Object:T23	
+R20	ActionMod Action:T20 Modifier:T24	
+R21	ActionMod Action:T20 Modifier:T22	
+T26	Subject 12339 12366	The GrayFish implementation
+T27	Action 12400 12404	make
+A12	Capability T27 002:MalwareCapability-anti-detection
+A13	StrategicObjectives T27 009:AntiDetection-security_software_evasion
+T29	Modifier 12418 12420	to
+T30	Object 12421 12439	antivirus products
+R22	SubjAction Subject:T26 Action:T27	
+R24	ActionMod Action:T27 Modifier:T29	
+R25	ModObj Modifier:T29 Object:T30	
+T28	Object 12405 12407	it
+T31	Object 12408 12417	invisible
+R23	ActionObj Action:T27 Object:T28	
+R26	ActionObj Action:T27 Object:T31	
+T32	Action 12525 12531	stored
+A14	Capability T32 006:MalwareCapability-data_exfiltration
+A15	TacticalObjectives T32 060:DataExfiltration-hide_data
+A16	StrategicObjectives T32 019:DataExfiltration-obfuscate_data_for_exfiltration
+T33	Object 12478 12501;12502 12520	all the modules as well as the stolen data
+R27	ActionObj Action:T32 Object:T33	
+T34	Modifier 12532 12534	in
+T35	Object 12535 12565	encrypted form in the registry
+R28	ModObj Modifier:T34 Object:T35	
+R29	ActionMod Action:T32 Modifier:T34	
+T36	Object 14915 14923	the data
+T37	Action 14968 14972	sent
+A17	Capability T37 006:MalwareCapability-data_exfiltration
+A18	TacticalObjectives T37 057:DataExfiltration-exfiltrate_via_network
+A19	StrategicObjectives T37 020:DataExfiltration-perform_data_exfiltration
+R30	ActionObj Action:T37 Object:T36	
+T38	Modifier 14973 14975	to
+R31	ActionMod Action:T37 Modifier:T38	
+T39	Object 14976 14983	the C&C
+R32	ModObj Modifier:T38 Object:T39	
+T40	Subject 14711 14713	it
+T41	Action 14719 14726	collect
+A20	Capability T41 015:MalwareCapability-probing
+A21	StrategicObjectives T41 046:Probing-probe_host_configuration
+T42	Object 14727 14739;14740 14751	basic system information
+R33	SubjAction Subject:T40 Action:T41	
+R34	ActionObj Action:T41 Object:T42	
+T43	Action 14756 14760	save
+A22	Capability T43 006:MalwareCapability-data_exfiltration
+A23	ActionName T43 024:File-create_file
+A24	StrategicObjectives T43 020:DataExfiltration-perform_data_exfiltration
+A25	TacticalObjectives T43 058:DataExfiltration-exfiltrate_via_physical_media
+T44	Object 14761 14763	it
+R36	SubjAction Subject:T40 Action:T43	
+R37	ActionObj Action:T43 Object:T44	
+R35	CoRefer Referer:T42 Canonical:T44	
+T45	Modifier 14764 14768	onto
+R38	ActionMod Action:T43 Modifier:T45	
+T46	Object 14769 14797	the hidden area of the stick
+R39	ModObj Modifier:T45 Object:T46	
+T47	Subject 15051 15055	they
+T48	Action 15060 15064	save
+A26	Capability T48 005:MalwareCapability-command_and_control
+A27	TacticalObjectives T48 047:CommandandControl-control_malware_via_remote_command
+A28	StrategicObjectives T48 017:CommandandControl-receive_data_from_c2_server
+T49	Object 15065 15079	these commands
+T50	Modifier 15080 15082	in
+T51	Object 15083 15115	the hidden area of the USB stick
+R40	SubjAction Subject:T47 Action:T48	
+R41	ActionObj Action:T48 Object:T49	
+R42	ModObj Modifier:T50 Object:T51	
+R43	ActionMod Action:T48 Modifier:T50	
+T52	Subject 17805 17817	an installer
+T53	Action 17846 17854	escalate
+A29	Capability T53 014:MalwareCapability-privilege_escalation
+T54	Object 17855 17865	privileges
+T55	Modifier 17866 17871	using
+T56	Object 17872 17896;17897 17905	two known EQUATION group exploits
+R44	SubjAction Subject:T52 Action:T53	
+R45	ActionObj Action:T53 Object:T54	
+R46	ModObj Modifier:T55 Object:T56	
+R47	ActionMod Action:T53 Modifier:T55	
+T57	Subject 17913 17915	it
+T58	Action 17929 17932	run
+A31	ActionName T58 029:File-execute_file
+T59	Object 17933 17966	the group’s DOUBLEFANTASY implant
+R48	SubjAction Subject:T57 Action:T58	
+R49	ActionObj Action:T58 Object:T59	
+T60	Action 17971 17978	install
+A30	Capability T60 017:MalwareCapability-secondary_operation
+A32	TacticalObjectives T60 119:SecondaryOperation-install_secondary_module
+A33	StrategicObjectives T60 050:SecondaryOperation-install_other_components
+T61	Object 17979 17981	it
+R50	ActionObj Action:T60 Object:T61	
+R51	CoRefer Referer:T59 Canonical:T61	
+R52	SubjAction Subject:T57 Action:T60	
+T62	Modifier 17982 17986	onto
+T63	Object 17987 18007	the victim’s machine
+R53	ModObj Modifier:T62 Object:T63	
+R54	ActionMod Action:T60 Modifier:T62	
+T64	Action 19086 19092	infect
+A34	Capability T64 011:MalwareCapability-integrity_violation
+A35	TacticalObjectives T64 099:IntegrityViolation-subvert_system
+A36	StrategicObjectives T64 036:IntegrityViolation-compromise_system_operational_integrity
+T65	Object 19093 19116	the hard drive firmware
+R55	ActionObj Action:T64 Object:T65	
+T66	Action 19961 19974	reprogramming
+A37	Capability T66 011:MalwareCapability-integrity_violation
+A38	TacticalObjectives T66 099:IntegrityViolation-subvert_system
+A39	StrategicObjectives T66 036:IntegrityViolation-compromise_system_operational_integrity
+T67	Object 19975 19991	the HDD firmware
+T68	Modifier 19992 19996	with
+T69	Object 19997 20037	a custom payload from the EQUATION group
+R56	ActionObj Action:T66 Object:T67	
+R57	ActionMod Action:T66 Modifier:T68	
+R58	ModObj Modifier:T68 Object:T69	
+T70	Action 20043 20052	providing
+A40	Capability T70 002:MalwareCapability-anti-detection
+A41	TacticalObjectives T70 021:AntiDetection-hide_arbitrary_virtual_memory
+A42	StrategicObjectives T70 006:AntiDetection-hide_executing_code
+T71	Object 20053 20059	an API
+R59	ActionObj Action:T70 Object:T71	
+T72	Modifier 20060 20064	into
+T73	Object 20065 20124	a set of hidden sectors (or data storage) of the hard drive
+R60	ActionMod Action:T70 Modifier:T72	
+R61	ModObj Modifier:T72 Object:T73	
+T74	Subject 19921 19931	The plugin
+R62	SubjAction Subject:T74 Action:T66	
+R63	SubjAction Subject:T74 Action:T70	
+T75	Object 29760 29805	a Kaspersky Lab user browsing an online forum
+T76	Action 29810 29818	attacked
+A43	Capability T76 010:MalwareCapability-infection/propagation
+A44	TacticalObjectives T76 092:InfectionPropagation-perform_social-engineering_based_remote_infection
+T77	Modifier 29819 29823	with
+T78	Object 29824 29888	an exploit from one of the Equation group’s exploitation servers
+R64	ActionObj Action:T76 Object:T75	
+R65	ModObj Modifier:T77 Object:T78	
+R66	ActionMod Action:T76 Modifier:T77	
+T79	Action 30871 30880	exploited
+A45	Capability T79 010:MalwareCapability-infection/propagation
+A46	TacticalObjectives T79 088:InfectionPropagation-identify_target_machine(s)
+A47	StrategicObjectives T79 031:InfectionPropagation-infect_remote_machine
+T80	Object 30881 30908	only authenticated visitors
+T81	Subject 30844 30858;30859 30865	a specific PHP script
+R67	SubjAction Subject:T81 Action:T79	
+R68	ActionObj Action:T79 Object:T80	
+T82	Subject 32918 32931	the attackers
+T83	Action 32957 32963	infect
+A48	Capability T83 010:MalwareCapability-infection/propagation
+A49	TacticalObjectives T83 088:InfectionPropagation-identify_target_machine(s)
+A50	StrategicObjectives T83 031:InfectionPropagation-infect_remote_machine
+T84	Object 32964 32968;32969 32990	only very specific targets
+R69	SubjAction Subject:T82 Action:T83	
+R70	ActionObj Action:T83 Object:T84	
+T85	Modifier 32991 32993	on
+T86	Object 32994 33006	these forums
+R71	ModObj Modifier:T85 Object:T86	
+R72	ActionMod Action:T83 Modifier:T85	
+T87	Subject 39681 39689	GRAYFISH
+T88	Action 39709 39713	uses
+A51	Capability T88 002:MalwareCapability-anti-detection
+A52	ActionName T88 135:Registry-create_registry_key
+A53	StrategicObjectives T88 006:AntiDetection-hide_executing_code
+A54	TacticalObjectives T88 016:AntiDetection-encrypt_self
+T89	Object 39714 39726	the registry
+T90	Modifier 39727 39729	to
+T91	Object 39730 39775;39776 39792	store all malware-related modules and data in encrypted format
+R73	ModObj Modifier:T90 Object:T91	
+R74	ActionObj Action:T88 Object:T89	
+R75	SubjAction Subject:T87 Action:T88	
+R76	ActionMod Action:T88 Modifier:T90	
+T92	Subject 40768 40776	GRAYFISH
+T93	Subject 40781 40793	EQUATIONDRUG
+T94	Action 40794 40801	include
+A55	Capability T94 013:MalwareCapability-persistence
+T95	Object 40802 40870	perhaps the most sophisticated persistence mechanism we’ve ever seen
+R77	ActionObj Action:T94 Object:T95	
+R78	SubjAction Subject:T93 Action:T94	
+R79	SubjAction Subject:T92 Action:T94	
+T96	Subject 40476 40496	The GRAYFISH bootkit
+T97	Action 40518 40523	loads
+A56	Capability T97 002:MalwareCapability-anti-detection
+A57	TacticalObjectives T97 017:AntiDetection-execute_before/external_to_kernel/hypervisor
+T98	Object 40524 40537;40538 40544	the operating system
+R80	SubjAction Subject:T96 Action:T97	
+R81	ActionObj Action:T97 Object:T98	
+T99	Action 40549 40556	hijacks
+A58	Capability T99 011:MalwareCapability-integrity_violation
+A59	TacticalObjectives T99 099:IntegrityViolation-subvert_system
+A60	StrategicObjectives T99 036:IntegrityViolation-compromise_system_operational_integrity
+T100	Object 40557 40602	the loading of the first driver in the kernel
+R82	SubjAction Subject:T96 Action:T99	
+R83	ActionObj Action:T99 Object:T100	

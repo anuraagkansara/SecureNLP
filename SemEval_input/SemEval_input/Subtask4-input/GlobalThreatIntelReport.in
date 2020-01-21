@@ -1,0 +1,463 @@
+These campaigns relied primarily on spear phishing with maliciousdocuments that dropped malware (mostly PlugX) along with Vietnamese-language decoy documents.
+T1	Subject 0 15	These campaigns
+T2	Action 16 22	relied
+T3	Modifier 33 35	on
+T4	Object 36 157	spear phishing with malicious documents that dropped malware (mostly PlugX) along with Vietnamese- language decoy documents
+R1	SubjAction Subject:T1 Action:T2
+R2	ActionMod Action:T2 Modifier:T3
+R3	ModObj Modifier:T3 Object:T4
+
+Dyreza takes a more simplisticapproach to banking fraud, acting to intercept logins and perform maliciousactions by acquiring the HTTP POST data from under banking SSL sessions.
+T5	Subject 0 6	Dyreza
+T6	Action 67 76	intercept
+T7	Object 77 83	logins
+T8	Modifier 113 115	by
+T9	Object 116 176	acquiring the HTTP POST data from under banking SSL sessions
+R4	ModObj Modifier:T8 Object:T9
+R5	SubjAction Subject:T5 Action:T6
+R6	ActionObj Action:T6 Object:T7
+R7	ActionMod Action:T6 Modifier:T8
+
+These macros,if allowed to execute, will reach out and download first-stage loaders that willthen install the Dridex payload onto the victim machine.
+T10	Subject 0 12	These macros
+T11	Action 55 63	download
+T12	Object 64 83	first-stage loaders
+R8	SubjAction Subject:T10 Action:T11
+R9	ActionObj Action:T11 Object:T12
+T13	Subject 64 83	first-stage loaders
+T14	Action 98 105	install
+R10	SubjAction Subject:T13 Action:T14
+T15	Object 106 124	the Dridex payload
+R11	ActionObj Action:T14 Object:T15
+T16	Modifier 125 129	onto
+T17	Object 130 148	the victim machine
+R12	ModObj Modifier:T16 Object:T17
+R13	ActionMod Action:T14 Modifier:T16
+
+One of these files was a PoS malware named Kaptoxa (also knownas mmon), which is used as a component in another PoS malware, BlackPoS.This copy of Kaptoxa continuously scanned volatile memory of infectedsystems for patterns that looked like credit card numbers and logged themto a file that was transferred to an internal network share at regular intervals.
+T18	Subject 153 154	This copy of Kaptoxa
+T19	Action 168 175	scanned
+T20	Object 176 210	volatile memory of infected systems
+T21	Modifier 211 214	for
+T22	Object 215 260	patterns that looked like credit card numbers
+R14	SubjAction Subject:T18 Action:T19
+R15	ActionObj Action:T19 Object:T20
+R16	ModObj Modifier:T21 Object:T22
+R17	ActionMod Action:T19 Modifier:T21
+T23	Action 265 271	logged
+T24	Object 272 276	them
+T25	Modifier 295 278	to
+T26	Object 279 285	a file
+R18	SubjAction Subject:T18 Action:T23
+R19	ActionObj Action:T23 Object:T24
+R20	ModObj Modifier:T25 Object:T26
+R21	ActionMod Action:T23 Modifier:T25
+R22	CoRefer Referer:T22 Canonical:T24
+T27	Action 295 306	transferred
+T28	Modifier 307 309	to
+T29	Object 310 335	an internal network share
+R23	ActionObj Action:T27 Object:T26
+R24	SubjAction Subject:T18 Action:T27
+R25	ActionMod Action:T27 Modifier:T28
+R26	ModObj Modifier:T28 Object:T29
+
+Another utility was deployed onto these network shares to perform the finalexfiltration step in which the data was transferred to external FTP servers.
+T30	Action 115 126	transferred
+T31	Modifier 127 129	to
+T32	Object 102 110	the data
+T33	Object 130 150	external FTP servers
+R27	ActionObj Action:T30 Object:T32
+R28	ModObj Modifier:T31 Object:T33
+R29	ActionMod Action:T30 Modifier:T31
+
+Themalware scans memory for both Track 1 and Track 2 credit card data andexfiltrates its findings back to control servers over HTTP requests.
+T34	Subject 0 10	The malware
+T35	Action 11 16	scans
+T36	Object 17 23	memory
+T37	Modifier 24 27	for
+T38	Object 28 69	both Track 1 and Track 2 credit card data
+R30	ModObj Modifier:T37 Object:T38
+R31	ActionObj Action:T35 Object:T36
+R32	SubjAction Subject:T34 Action:T35
+R33	ActionMod Action:T35 Modifier:T37
+T39	Action 93 84	exfiltrates
+T40	Object 85 97	its findings
+R34	SubjAction Subject:T34 Action:T39
+R35	ActionObj Action:T39 Object:T40
+T41	Modifier 103 105	to
+T42	Object 106 121	control servers
+R36	ModObj Modifier:T41 Object:T42
+T43	Modifier 122 126	over
+T44	Object 127 140	HTTP requests
+R37	ModObj Modifier:T43 Object:T44
+R38	ActionMod Action:T39 Modifier:T41
+R39	ActionMod Action:T39 Modifier:T43
+
+Thiscampaign leveraged fake websites to trick users into entering credentials,and to concurrently serve malware that poses as software updates forlegitimate applications.
+T45	Subject 0 12	This campaign
+T46	Action 13 22	leveraged
+T47	Object 23 36	fake websites
+T48	Modifier 82 84	to
+T49	Object 98 169	serve malware that poses as software updates for legitimate applications
+R40	ActionObj Action:T46 Object:T47
+R41	SubjAction Subject:T45 Action:T46
+R42	ActionMod Action:T46 Modifier:T48
+R43	ModObj Modifier:T48 Object:T49
+T50	Modifier 37 39	to
+T51	Object 40 77	trick users into entering credentials
+R44	ModObj Modifier:T50 Object:T51
+R45	ActionMod Action:T46 Modifier:T50
+
+This toolis used to log keystrokes, screenshots, and other user activity on infectedsystems and exfiltrates this data to an attacker-controlled server.
+T52	Action 20 23	log
+T53	Object 24 34	keystrokes
+R46	ActionObj Action:T52 Object:T53
+T54	Action 20 23	log
+T55	Object 36 47	screenshots
+R47	ActionObj Action:T54 Object:T55
+T56	Action 20 23	log
+T57	Object 53 72	other user activity
+R48	ActionObj Action:T56 Object:T57
+T58	Modifier 73 75	on
+T59	Object 76 91	infected systems
+R49	ModObj Modifier:T58 Object:T59
+T60	Subject 0 9	This tool
+R50	SubjAction Subject:T60 Action:T56
+R51	SubjAction Subject:T60 Action:T54
+R52	SubjAction Subject:T60 Action:T52
+R53	ActionMod Action:T56 Modifier:T58
+R54	ActionMod Action:T54 Modifier:T58
+R55	ActionMod Action:T52 Modifier:T58
+T61	Action 96 107	exfiltrates
+T62	Object 108 117	this data
+T63	Modifier 118 120	to
+T64	Object 121 150	an attacker-controlled server
+R56	ModObj Modifier:T63 Object:T64
+R57	ActionObj Action:T61 Object:T62
+R58	ActionMod Action:T61 Modifier:T63
+R59	SubjAction Subject:T60 Action:T61
+
+Whenexecuted, it extracts and deploys a backdoor Trojan, a configuration file,and optionally a decoy (an image or a legitimate executable).
+T65	Subject 14 16	it
+T66	Action 17 25	extracts
+T67	Object 38 55	a backdoor Trojan
+T68	Object 57 77	a configuration file
+T69	Object 82 138	optionally a decoy (an image or a legitimate executable)
+R60	SubjAction Subject:T65 Action:T66
+R61	ActionObj Action:T66 Object:T67
+R62	ActionObj Action:T66 Object:T68
+R63	ActionObj Action:T66 Object:T69
+T70	Action 30 37	deploys
+R64	ActionObj Action:T70 Object:T67
+R65	SubjAction Subject:T65 Action:T70
+
+This malware possesses NotableActivityan extensive command set capable of conducting reconnaissance of victimmachines, deleting files, downloading files, and exfiltrating data.
+T71	Action 74 84	conducting
+T72	Object 85 99	reconnaissance
+R66	ActionObj Action:T71 Object:T72
+T73	Modifier 100 102	of
+T74	Object 103 117	victim machines
+R67	ModObj Modifier:T73 Object:T74
+R68	ActionMod Action:T71 Modifier:T73
+T75	Action 119 127	deleting
+T76	Object 128 133	files
+R69	ActionObj Action:T75 Object:T76
+T77	Action 135 146	downloading
+T78	Object 147 152	files
+R70	ActionObj Action:T77 Object:T78
+T79	Action 158 170	exfiltrating
+T80	Object 171 175	data
+R71	ActionObj Action:T79 Object:T80
+
+It provides an attacker with a range of functionalityincluding the ability to log keystrokes; modify and copy files; capturescreenshots or video of user activity; and perform administrative tasks such NotableActivityas terminating processes, logging off users, and rebooting victim machines.
+T81	Action 78 81	log
+T82	Object 82 92	keystrokes
+R72	ActionObj Action:T81 Object:T82
+T83	Action 105 109	copy
+T84	Object 110 115	files
+R73	ActionObj Action:T83 Object:T84
+T85	Action 94 100	modify
+R74	ActionObj Action:T85 Object:T84
+T86	Subject 0 2	It
+R75	SubjAction Subject:T86 Action:T81
+R76	SubjAction Subject:T86 Action:T85
+R77	SubjAction Subject:T86 Action:T83
+T87	Action 117 124	capture
+T88	Object 143 135	screenshots
+T89	Object 139 161	video of user activity
+R78	ActionObj Action:T87 Object:T88
+R79	ActionObj Action:T87 Object:T89
+T90	Action 167 174	perform
+T91	Object 175 195	administrative tasks
+R80	ActionObj Action:T90 Object:T91
+R81	SubjAction Subject:T86 Action:T90
+T92	Action 219 230	terminating
+T93	Object 231 240	processes
+R82	ActionObj Action:T92 Object:T93
+T94	Action 265 274	rebooting
+T95	Object 275 290	victim machines
+R83	ActionObj Action:T94 Object:T95
+T96	Action 242 253	logging off
+T97	Object 254 259	users
+R84	ActionObj Action:T96 Object:T97
+
+A full command shell is also provided through access to a cmd.exe process,which sends output to the PlugX instance over named pipes for onward relayto the attacker's Command-and-Control (C2) servers.
+T98	Action 29 37	provided
+T99	Object 0 20	A full command shell
+R85	ActionObj Action:T98 Object:T99
+T100	Action 80 85	sends
+T101	Object 86 92	output
+T102	Modifier 93 95	to
+T103	Object 96 114	the PlugX instance
+T104	Modifier 115 119	over
+T105	Object 120 131	named pipes
+R86	ModObj Modifier:T104 Object:T105
+R87	ModObj Modifier:T102 Object:T103
+R88	ActionObj Action:T100 Object:T101
+T106	Modifier 132 135	for
+T107	Object 136 198	onward relay to the attacker's Command-and-Control (C2) servers
+R89	ModObj Modifier:T106 Object:T107
+R90	ActionMod Action:T100 Modifier:T102
+R91	ActionMod Action:T100 Modifier:T104
+R92	ActionMod Action:T100 Modifier:T106
+
+PlugX is most frequently delivered to targets via a spear phishing attackcontaining a malicious RTF or Word document leveraging exploit codefor the popular CVE-2012-0158 vulnerability.
+T108	Action 25 34	delivered
+T109	Object 0 5	PlugX
+R93	ActionObj Action:T108 Object:T109
+T110	Modifier 35 37	to
+T111	Object 38 45	targets
+T112	Modifier 46 49	via
+T113	Object 50 183	a spear phishing attack containing a malicious RTF or Word document leveraging exploit code for the popular CVE-2012-0158 vulnerability
+R94	ModObj Modifier:T112 Object:T113
+R95	ModObj Modifier:T110 Object:T111
+R96	ActionMod Action:T108 Modifier:T110
+R97	ActionMod Action:T108 Modifier:T112
+
+However PlugX is installed on a victim machine, typically three files aredropped on the file system after exploitation to enable initial start-up ofthe malware: a legitimate, digitally signed application; an encrypted filecontaining the PlugX payload; and a malicious, dynamically-linked librarythat is used to load the malware using the Dynamic Link Library (DLL)side-loading technique when the legitimate application is executed.
+T114	Object 58 69	three files
+T115	Action 92 80	dropped
+R98	ActionObj Action:T115 Object:T114
+
+This incidentdelivered a fairly common, publicly available RAT called ZxShell, whichconnected to a C2 at newss.effers.com.
+T116	Subject 70 77	ZxShell
+T117	Action 103 93	connected
+T118	Modifier 94 96	to
+T119	Object 97 121	a C2 at newss.effers.com
+R99	SubjAction Subject:T116 Action:T117
+R100	ActionMod Action:T117 Modifier:T118
+R101	ModObj Modifier:T118 Object:T119
+
+This occurredin October 2014 when the Chinese adversary tracked by CrowdStrike asHURRICANE PANDA deployed a tool called Win64.exe on a compromisedsystem that was used to invoke other programs with elevated privileges.
+T120	Action 170 176	invoke
+T121	Object 177 191	other programs
+T122	Subject 120 129	Win64.exe
+R102	SubjAction Subject:T122 Action:T120
+R103	ActionObj Action:T120 Object:T121
+T123	Modifier 192 196	with
+T124	Object 197 216	elevated privileges
+R104	ModObj Modifier:T123 Object:T124
+R105	ActionMod Action:T120 Modifier:T123
+
+Analysis of the Win64.exe binary revealed that it exploits a previouslyunknown vulnerability to elevate its privileges to those of the SYSTEM userand then create a new process with these access rights to run the commandthat was passed as an argument.
+T125	Subject 16 25	Win64.exe
+T126	Action 96 103	elevate
+T127	Object 104 118	its privileges
+T128	Modifier 119 121	to
+T129	Object 122 146	those of the SYSTEM user
+R106	ActionObj Action:T126 Object:T127
+R107	ModObj Modifier:T128 Object:T129
+R108	SubjAction Subject:T125 Action:T126
+R109	ActionMod Action:T126 Modifier:T128
+T130	Action 155 161	create
+T131	Object 162 175	a new process
+T132	Modifier 176 180	with
+T133	Object 181 200	these access rights
+T134	Modifier 201 203	to
+T135	Object 204 249	run the command that was passed as an argument
+R110	SubjAction Subject:T125 Action:T130
+R111	ActionObj Action:T130 Object:T131
+R112	ActionMod Action:T130 Modifier:T132
+R113	ModObj Modifier:T132 Object:T133
+R114	ActionMod Action:T130 Modifier:T134
+R115	ModObj Modifier:T134 Object:T135
+
+From this elevation, any commandpassed to the executable was executed with elevated privileges.
+T138	Action 61 69	executed
+T139	Object 21 56	any command passed to the executable
+T140	Modifier 70 74	with
+T141	Object 75 94	elevated privileges
+R117	ActionObj Action:T138 Object:T139
+R118	ModObj Modifier:T140 Object:T141
+R119	ActionMod Action:T138 Modifier:T140
+
+The exploit tool was only deployed when absolutelynecessary during the intrusion operations, and it was deleted immediatelyafter use.
+T136	Action 104 111	deleted
+T137	Object 97 99	it
+R116	ActionObj Action:T136 Object:T137
+
+This allows for a decoy document and malicious executable to be combinedwith a malicious CVE-2014-1761 document.
+T142	Action 64 72	combined
+T143	Object 16 32	a decoy document
+T144	Object 37 57	malicious executable
+R120	ActionObj Action:T142 Object:T144
+R121	ActionObj Action:T142 Object:T143
+T145	Modifier 91 76	with
+T146	Object 77 111	a malicious CVE-2014-1761 document
+R122	ActionMod Action:T142 Modifier:T145
+R123	ModObj Modifier:T145 Object:T146
+
+The TEMPER PANDA adversary was particularly prolificin its use of MH370-related emails to deliver malicious documents that NotableActivitydropped malware connecting to a known TEMPER PANDA C2 address, www.
+T147	Subject 146 153	malware
+T148	Action 154 164	connecting
+T149	Modifier 165 167	to
+R124	SubjAction Subject:T147 Action:T148
+R125	ModObj Modifier:T149 Object:T150
+R126	ActionMod Action:T148 Modifier:T149
+
+Once inside a victim's network, this adversaryseeks to gain legitimate credentials to move laterally and establishRDP sessions to achieve their objectives.
+T151	Subject 32 46	this adversary
+T152	Action 55 59	gain
+T153	Object 60 82	legitimate credentials
+T154	Modifier 83 85	to
+T155	Object 86 100	move laterally
+R127	ModObj Modifier:T154 Object:T155
+R128	SubjAction Subject:T151 Action:T152
+R129	ActionObj Action:T152 Object:T153
+R130	ActionMod Action:T152 Modifier:T154
+T156	Action 105 114	establish
+T157	Object 152 126	RDP sessions
+R131	SubjAction Subject:T151 Action:T156
+R132	ActionObj Action:T156 Object:T157
+T158	Modifier 127 129	to
+T159	Object 130 154	achieve their objectives
+R133	ModObj Modifier:T158 Object:T159
+R134	ActionMod Action:T156 Modifier:T158
+
+This actor also made extensive use of Chopper webshell; thisprovides the equivalent functionality of a RAT for adversary controlof webservers.
+T160	Subject 56 60	this
+T161	Action 83 68	provides
+T162	Object 69 106	the equivalent functionality of a RAT
+T163	Modifier 107 110	for
+T164	Object 111 141	adversary control of webservers
+R135	SubjAction Subject:T160 Action:T161
+R136	ActionObj Action:T161 Object:T162
+R137	ModObj Modifier:T163 Object:T164
+R138	ActionMod Action:T161 Modifier:T163
+
+Thissimple one-line script gives an attacker access to a webserver fromwhich they can deploy privilege-escalation tools, move laterally,or deploy more complex scripts to interact with databases on thewebserver.
+T165	Subject 77 81	they
+T166	Action 86 92	deploy
+T167	Object 93 119	privilege-escalation tools
+R139	ActionObj Action:T166 Object:T167
+R140	SubjAction Subject:T165 Action:T166
+
+When theabove strings are decoded, the following IP addresses are used asPlugX C2 servers.
+T168	Action 66 70	used
+T169	Object 35 61	the following IP addresses
+R141	ActionObj Action:T168 Object:T169
+T170	Modifier 71 73	as
+T171	Object 113 89	PlugX C2 servers
+R142	ModObj Modifier:T170 Object:T171
+R143	ActionMod Action:T168 Modifier:T170
+
+Post-Exploitation and ExfiltrationAfter HURRICANE PANDA has established a foothold on a victim'snetwork, they then seek legitimate credentials via tools suchas Windows Credential Viewer, Windows Credential Editor, orMimikatz.
+T172	Action 115 119	seek
+T173	Object 120 142	legitimate credentials
+T174	Modifier 143 146	via
+T175	Object 147 224	tools such as Windows Credential Viewer, Windows Credential Editor, or Mimikatz
+T176	Subject 105 109	they
+R144	SubjAction Subject:T176 Action:T172
+R145	ActionObj Action:T172 Object:T173
+R146	ActionMod Action:T172 Modifier:T174
+R147	ModObj Modifier:T174 Object:T175
+
+If credentials cannot be obtained, HURRICANE PANDA will oftenrely on RDP.
+T177	Subject 35 50	HURRICANE PANDA
+T178	Action 111 68	rely on
+T179	Object 69 72	RDP
+R148	SubjAction Subject:T177 Action:T178
+R149	ActionObj Action:T178 Object:T179
+
+Then they will access the victimcomputer over RDP, and, when presented with a login screen, ITwill invoke the sticky keys mechanism and be presented with anadministrative command shell.
+T180	Action 139 148	presented
+T181	Modifier 149 153	with
+T182	Object 154 184	an administrative command shell
+R150	ActionMod Action:T180 Modifier:T181
+R151	ModObj Modifier:T181 Object:T182
+
+First, files of interest arecompressed and password protected using RAR.
+T183	Action 78 38	compressed
+T184	Action 43 61	password protected
+T185	Object 7 24	files of interest
+T186	Modifier 62 67	using
+T187	Object 68 71	RAR
+R152	ModObj Modifier:T186 Object:T187
+R153	ActionMod Action:T184 Modifier:T186
+R154	ActionObj Action:T184 Object:T185
+R155	ActionMod Action:T183 Modifier:T186
+R156	ActionObj Action:T183 Object:T185
+
+Next, they stagethe files at a convenient location.
+T188	Subject 6 10	they
+T189	Action 11 16	stage
+T190	Object 25 25	the files
+T191	Modifier 26 28	at
+T192	Object 29 50	a convenient location
+R157	SubjAction Subject:T188 Action:T189
+R158	ActionObj Action:T189 Object:T190
+R159	ActionMod Action:T189 Modifier:T191
+R160	ModObj Modifier:T191 Object:T192
+
+Finally, they exfiltrate the filesfrom the network via FTP. Knowthe Adversary Possible Connections to AURORA PANDACrowdStrike Intelligence is currently evaluating possibleconnections between HURRICANE PANDA and AURORA PANDA.
+T193	Subject 9 13	they
+T194	Action 14 24	exfiltrate
+T195	Object 25 34	the files
+T196	Modifier 77 38	from
+T197	Object 39 50	the network
+T198	Modifier 51 54	via
+T199	Object 55 58	FTP
+R161	ModObj Modifier:T198 Object:T199
+R162	ModObj Modifier:T196 Object:T197
+R163	SubjAction Subject:T193 Action:T194
+R164	ActionObj Action:T194 Object:T195
+R165	ActionMod Action:T194 Modifier:T196
+R166	ActionMod Action:T194 Modifier:T198
+
+Pirpi provides the adversary with a traditional set of RAT featuresthat allow the adversary to exfiltrate and deploy files, along withremote shell access to a compromised system.
+T200	Subject 0 5	Pirpi
+T201	Action 6 14	provides
+T202	Object 15 28	the adversary
+T203	Modifier 29 33	with
+T204	Object 34 67	a traditional set of RAT features
+R167	ModObj Modifier:T203 Object:T204
+R168	ActionObj Action:T201 Object:T202
+R169	SubjAction Subject:T200 Action:T201
+R170	ActionMod Action:T201 Modifier:T203
+T205	Subject 78 91	the adversary
+T206	Action 95 105	exfiltrate
+T207	Object 117 122	files
+R171	SubjAction Subject:T205 Action:T206
+R172	ActionObj Action:T206 Object:T207
+T208	Action 110 116	deploy
+R173	ActionObj Action:T208 Object:T207
+R174	SubjAction Subject:T205 Action:T208
+
+VENOMOUS BEAR, also known as Snake, Turla, and Oroborous, usesa set of implants that culminates in a sophisticated Windows-basedrootkit that can leverage an encrypted Virtual File System (VFS) asa staging area for tools to deploy and data prepared for exfiltration.
+T209	Action 145 153	leverage
+T210	Object 154 192	an encrypted Virtual File System (VFS)
+T211	Subject 101 135	sophisticated Windows-based rootkit
+R175	SubjAction Subject:T211 Action:T209
+R176	ActionObj Action:T209 Object:T210
+T212	Modifier 193 195	as
+T213	Object 218 264	a staging area for tools to deploy and data prepared for exfiltration
+R177	ModObj Modifier:T212 Object:T213
+R178	ActionMod Action:T209 Modifier:T212
+
+Their main implant, called X-Agent, is a sophisticatedRAT that exhibits a modular architecture and a multi-yeardevelopment history.
+T214	Subject 0 18	Their main implant
+T215	Action 36 38	is
+T216	Object 39 130	a sophisticated RAT that exhibits a modular architecture and a multi-year development history
+R179	SubjAction Subject:T214 Action:T215
+R180	ActionObj Action:T215 Object:T216
+

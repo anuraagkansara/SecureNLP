@@ -1,0 +1,238 @@
+Carbanak is a remote backdoor (initially based on Carberp), designed for espionage, data exfiltration and to provide remote access to infected machines.
+T1	Object 0 8	Carbanak
+T2	Action 60 68	designed
+T3	Modifier 69 72	for
+R1	ActionObj Action:T2 Object:T1
+R2	ActionMod Action:T2 Modifier:T3
+T4	Object 73 82	espionage
+R3	ModObj Modifier:T3 Object:T4
+T5	Action 60 68	designed
+T6	Modifier 69 72	for
+T7	Object 84 101	data exfiltration
+T8	Object 109 151	provide remote access to infected machines
+T9	Modifier 106 108	to
+R4	ActionMod Action:T5 Modifier:T6
+R5	ActionObj Action:T5 Object:T1
+R6	ModObj Modifier:T6 Object:T7
+T10	Action 60 68	designed
+R7	ActionMod Action:T10 Modifier:T9
+R8	ModObj Modifier:T9 Object:T8
+R9	ActionObj Action:T10 Object:T1
+
+They then install additional software such as the Ammyy Remote Administration Tool, or even compromise SSH servers.
+T11	Subject 0 4	They
+T12	Action 10 17	install
+R10	SubjAction Subject:T11 Action:T12
+T13	Object 18 82	additional software such as the Ammyy Remote Administration Tool
+R11	ActionObj Action:T12 Object:T13
+T14	Action 92 102	compromise
+R12	SubjAction Subject:T11 Action:T14
+T15	Object 103 114	SSH servers
+R13	ActionObj Action:T14 Object:T15
+
+As part of the attack´s reconnaissance phase, video recordings of the activities of bank employees, particularly system administrators, were made.
+T20	Object 46 98	video recordings of the activities of bank employees
+T21	Action 141 145	made
+R17	ActionObj Action:T21 Object:T20
+
+The videos were sent to the C2 server.
+T16	Action 16 20	sent
+T17	Object 0 10	The videos
+R14	ActionObj Action:T16 Object:T17
+T18	Modifier 21 23	to
+R15	ActionMod Action:T16 Modifier:T18
+T19	Object 24 37	the C2 server
+R16	ModObj Modifier:T18 Object:T19
+
+Carbanak copies itself into "%system32%\com" with the name "svchost.exe" with the file attributes: system, hidden and read-only.
+T22	Subject 0 8	Carbanak
+T23	Action 9 15	copies
+T24	Object 16 22	itself
+T25	Modifier 23 27	into
+T26	Object 28 44	"%system32%\com"
+R18	ModObj Modifier:T25 Object:T26
+R19	SubjAction Subject:T22 Action:T23
+R20	ActionObj Action:T23 Object:T24
+R21	ActionMod Action:T23 Modifier:T25
+R22	CoRefer Referer:T24 Canonical:T22
+
+To ensure that Carbanak has autorun privileges the malware creates a new service.
+T27	Subject 47 58	the malware
+T28	Action 59 66	creates
+T29	Object 67 80	a new service
+R23	ActionObj Action:T28 Object:T29
+R24	SubjAction Subject:T27 Action:T28
+
+Before creating the malicious service, Carbanak determines if either the avp.exe or avpui.exe processes (components of Kaspersky Internet Security) is running.
+T30	Subject 39 47	Carbanak
+T31	Action 48 58	determines
+T32	Modifier 59 61	if
+T33	Object 62 158	either the avp.exe or avpui.exe processes (components of Kaspersky Internet Security) is running
+R25	ActionMod Action:T31 Modifier:T32
+R26	ModObj Modifier:T32 Object:T33
+R27	SubjAction Subject:T30 Action:T31
+
+Carbanak creates a file with a random name and a .bin extension in %COMMON_APPDATA%\Mozilla where it stores commands to be executed.
+T34	Subject 0 8	Carbanak
+T35	Action 9 16	creates
+T36	Object 17 63	a file with a random name and a .bin extension
+T37	Modifier 64 66	in
+T38	Object 67 91	%COMMON_APPDATA%\Mozilla
+R28	ModObj Modifier:T37 Object:T38
+R29	SubjAction Subject:T34 Action:T35
+R30	ActionObj Action:T35 Object:T36
+R31	ActionMod Action:T35 Modifier:T37
+
+Then the malware gets the proxy configuration from the registry entry: [HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings] and the Mozilla Firefox configuration file in: %AppData%\Mozilla\Firefox\<ProfileName>\prefs.jsHow to detect CarbanakOne of the best methods for detecting Carbanak is to look for .bin files in thefolder:..\All users\%AppData%\Mozilla\The malware saves files in this location that will later be sent to the C2 serverwhen an internet connection is detected.
+T39	Subject 5 16	the malware
+T40	Action 17 21	gets
+T41	Object 22 45	the proxy configuration
+T42	Modifier 46 50	from
+T43	Object 51 69	the registry entry
+R32	ActionObj Action:T40 Object:T41
+R33	SubjAction Subject:T39 Action:T40
+R34	ActionMod Action:T40 Modifier:T42
+R35	ModObj Modifier:T42 Object:T43
+T44	Subject 377 383	The malware
+T45	Action 384 389	saves
+T46	Object 390 395	files
+T47	Modifier 396 398	in
+T48	Object 399 412	this location
+R37	SubjAction Subject:T44 Action:T45
+R38	ActionObj Action:T45 Object:T46
+R39	ActionMod Action:T45 Modifier:T47
+T50	Action 432 436	sent
+T51	Modifier 437 439	to
+T52	Object 440 453	the C2 server
+R40	ActionMod Action:T50 Modifier:T51
+R41	ModObj Modifier:T51 Object:T52
+R42	SubjAction Subject:T44 Action:T50
+R43	ActionObj Action:T50 Object:T46
+
+Additionally, Carbanak can obtain proxy configuration information from headers sent through an application via SOCKS or HTTP.
+T53	Subject 14 22	Carbanak
+T54	Action 27 33	obtain
+T55	Object 34 65	proxy configuration information
+T56	Modifier 66 70	from
+T57	Object 71 124	headers sent through an application via SOCKS or HTTP
+R44	ModObj Modifier:T56 Object:T57
+R45	ActionObj Action:T54 Object:T55
+R46	ActionMod Action:T54 Modifier:T56
+R47	SubjAction Subject:T53 Action:T54
+
+Carbanak injects its code into svchost.exe.
+T58	Action 9 16	injects
+T59	Subject 0 8	Carbanak
+T60	Object 17 25	its code
+T61	Modifier 26 30	into
+T62	Object 31 42	svchost.exe
+R48	ModObj Modifier:T61 Object:T62
+R49	SubjAction Subject:T59 Action:T58
+R50	ActionObj Action:T58 Object:T60
+R51	ActionMod Action:T58 Modifier:T61
+
+Carbanak downloads the file kldconfig.plug from its C2 server.
+T63	Action 9 18	downloads
+T64	Subject 0 8	Carbanak
+T65	Object 19 42	the file kldconfig.plug
+T66	Modifier 43 47	from
+T67	Object 48 61	its C2 server
+R52	ModObj Modifier:T66 Object:T67
+R53	ActionObj Action:T63 Object:T65
+R54	SubjAction Subject:T64 Action:T63
+R55	ActionMod Action:T63 Modifier:T66
+
+Once the system is infected, Carbanak logs keystrokes and takes screenshots every 20 seconds.
+T68	Subject 29 37	Carbanak
+T69	Action 38 42	logs
+T70	Object 43 53	keystrokes
+T71	Action 58 63	takes
+T72	Object 64 75	screenshots
+R56	ActionObj Action:T71 Object:T72
+R57	ActionObj Action:T69 Object:T70
+R58	SubjAction Subject:T68 Action:T69
+R59	SubjAction Subject:T68 Action:T71
+T73	Modifier 76 81	every
+T74	Object 82 92	20 seconds
+R60	ActionMod Action:T71 Modifier:T73
+R61	ModObj Modifier:T73 Object:T74
+
+To enable connections to the infected computer using the Remote Desktop Protocol (RDP), Carbanak sets Termservice service execution mode to Auto.
+T75	Subject 88 96	Carbanak
+T76	Action 97 101	sets
+T77	Object 102 136	Termservice service execution mode
+T78	Modifier 137 139	to
+T79	Object 140 144	Auto
+R62	SubjAction Subject:T75 Action:T76
+R63	ActionObj Action:T76 Object:T77
+R64	ActionMod Action:T76 Modifier:T78
+R65	ModObj Modifier:T78 Object:T79
+T80	Action 3 9	enable
+T81	Object 10 86	connections to the infected computer using the Remote Desktop Protocol (RDP)
+R66	ActionObj Action:T80 Object:T81
+R67	SubjAction Subject:T75 Action:T80
+
+If Carbanak detects the banking application BLIZKO (funds transfer software) in the infected computer, it sends a special notification to its C2 server.
+T82	Action 106 111	sends
+T83	Object 112 134	a special notification
+T84	Modifier 135 137	to
+T85	Object 138 151	its C2 server
+T86	Subject 103 105	it
+T87	Subject 3 11	Carbanak
+R68	CoRefer Referer:T87 Canonical:T86
+R69	SubjAction Subject:T86 Action:T82
+R70	ActionObj Action:T82 Object:T83
+R71	ActionMod Action:T82 Modifier:T84
+R72	ModObj Modifier:T84 Object:T85
+T88	Action 12 19	detects
+T89	Object 20 76	the banking application BLIZKO (funds transfer software)
+T90	Modifier 77 79	in
+T91	Object 80 101	the infected computer
+R73	SubjAction Subject:T87 Action:T88
+R74	ActionObj Action:T88 Object:T89
+R75	ActionMod Action:T88 Modifier:T90
+R76	ModObj Modifier:T90 Object:T91
+
+Carbanak sends its collected monitoring data to its C2 server.
+T95	Subject 0 8	Carbanak
+T96	Action 9 14	sends
+T97	Object 15 44	its collected monitoring data
+T98	Modifier 45 47	to
+T99	Object 48 61	its C2 server
+R80	SubjAction Subject:T95 Action:T96
+R81	ActionObj Action:T96 Object:T97
+R82	ActionMod Action:T96 Modifier:T98
+R83	ModObj Modifier:T98 Object:T99
+
+It also receives commands.
+T92	Subject 0 2	It
+T93	Action 8 16	receives
+T94	Object 17 25	commands
+R77	SubjAction Subject:T92 Action:T93
+R78	ActionObj Action:T93 Object:T94
+R79	CoRefer Referer:T92 Canonical:T95
+
+In another instance, a Secure Shell (SSH) backdoor was used to communicate with the C2 server in 190.97.165.126 (operatemesscont.net).
+T107	Action 55 59	used
+T108	Object 21 50	a Secure Shell (SSH) backdoor
+T109	Modifier 60 62	to
+T110	Object 63 93	communicate with the C2 server
+R90	ModObj Modifier:T109 Object:T110
+R91	ActionMod Action:T107 Modifier:T109
+R92	ActionObj Action:T107 Object:T108
+
+In this case, the victim used the Telnet/SSH client PuTTY to connect to the server, and the attackers recompiled the machine's SSH daemon with a backdoor so they could gain direct access.
+T100	Subject 88 101	the attackers
+T101	Action 102 112	recompiled
+T102	Object 113 137	the machine's SSH daemon
+T103	Modifier 138 142	with
+T104	Object 143 153	a backdoor
+R84	SubjAction Subject:T100 Action:T101
+R85	ActionObj Action:T101 Object:T102
+R86	ActionMod Action:T101 Modifier:T103
+R87	ModObj Modifier:T103 Object:T104
+T105	Modifier 154 156	so
+R88	ActionMod Action:T101 Modifier:T105
+T106	Object 157 186	they could gain direct access
+R89	ModObj Modifier:T105 Object:T106
+

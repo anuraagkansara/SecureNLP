@@ -1,0 +1,26 @@
+BTZ, the authors changed the following: They added obfuscation in order to hide sensitive strings;The communication protocol was modified in order to include the flag "<CHCMD>"we assume that "CH" has the same meaning than "Ch" before the version number and "CMD" is theabbreviation for command;From now on, the malware supports "runas" in order to execute commands as administrator.
+T4	Subject 308 319	the malware
+T5	Action 349 356	execute
+T6	Object 357 365	commands
+T7	Modifier 366 368	as
+T8	Object 369 382	administrator
+R3	SubjAction Subject:T4 Action:T5
+R4	ActionObj Action:T5 Object:T6
+R5	ActionMod Action:T5 Modifier:T7
+R6	ModObj Modifier:T7 Object:T8
+
+This exported function is used by the dropper to add persistence in the registry and to drop a second file (as explained in our previous article).
+T24	Subject 34 45	the dropper
+T25	Action 49 52	add
+T26	Object 53 64	persistence
+T27	Modifier 65 67	in
+T28	Object 68 80	the registry
+T29	Action 88 92	drop
+T30	Object 93 106	a second file
+R18	SubjAction Subject:T24 Action:T25
+R19	SubjAction Subject:T24 Action:T29
+R20	ActionObj Action:T29 Object:T30
+R21	ActionObj Action:T25 Object:T26
+R22	ActionMod Action:T25 Modifier:T27
+R23	ModObj Modifier:T27 Object:T28
+

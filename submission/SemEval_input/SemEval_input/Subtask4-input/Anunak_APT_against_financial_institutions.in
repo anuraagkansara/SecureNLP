@@ -1,0 +1,100 @@
+In all first cases the attackers used the program RDPdoor for remote access to the bank network and the program "MBREraser" to remove traces and to crack Windows computers and servers.
+T1	Action 127 133	remove
+T2	Action 145 153	to crack
+T3	Action 145 153	to crack
+T4	Object 154 171	Windows computers
+R1	ActionObj Action:T3 Object:T4
+T5	Object 176 183	servers
+R2	ActionObj Action:T2 Object:T5
+T6	Subject 100 123	the program "MBR Eraser"
+R3	SubjAction Subject:T6 Action:T2
+R4	SubjAction Subject:T6 Action:T3
+R5	SubjAction Subject:T6 Action:T1
+T7	Object 134 140	traces
+R6	ActionObj Action:T1 Object:T7
+
+In addition to banking and payment systems,hackers got access to e-mail servers to control allinternal communications.
+T8	Action 51 54	got
+T9	Action 83 90	control
+T10	Subject 95 50	hackers
+T11	Object 65 79	e-mail servers
+R7	SubjAction Subject:T10 Action:T8
+R9	SubjAction Subject:T10 Action:T9
+T12	Object 91 117	all internal communications
+R10	ActionObj Action:T9 Object:T12
+T64	Object 55 61	access
+T65	Modifier 62 64	to
+R8	ActionObj Action:T8 Object:T64
+R49	ModObj Modifier:T65 Object:T11
+R50	ActionMod Action:T8 Modifier:T65
+
+There is the ability to download arbitrary exe-cutable files from the management server and runthem.
+T37	Action 24 32	download
+T38	Object 33 87	arbitrary exe- cutable files from the management server
+R31	ActionObj Action:T37 Object:T38
+T15	Action 92 95	run
+T16	Object 111 99	them
+R13	CoRefer Referer:T38 Canonical:T16
+R14	ActionObj Action:T15 Object:T16
+
+As a result, theattacker gets remote access to the user computer with the running program "AmmyAdmin" bypassing firewalls.
+T39	Action 25 29	gets
+T40	Object 47 64	the user computer
+T41	Subject 13 24	the attacker
+R32	SubjAction Subject:T41 Action:T39
+T17	Object 30 43	remote access
+T18	Modifier 44 46	to
+R15	ActionObj Action:T39 Object:T17
+R16	ActionMod Action:T39 Modifier:T18
+R17	ModObj Modifier:T18 Object:T40
+
+When the attackers gain access to servers running operating systems of the Linux family they use SSH backdoor that transmits to the malicious server the login/password data used to access the servers and provides attackers remote access to the servers.
+T42	Action 93 96	use
+T43	Action 115 124	transmits
+T44	Object 97 109	SSH backdoor
+T45	Subject 5 18	the attackers
+R34	SubjAction Subject:T45 Action:T42
+R35	ActionObj Action:T42 Object:T44
+T46	Subject 97 109	SSH backdoor
+R36	SubjAction Subject:T46 Action:T43
+T49	Action 204 212	provides
+T50	Object 213 222	attackers
+R39	ActionObj Action:T49 Object:T50
+T19	Object 149 199	the login/password data used to access the servers
+R18	ActionObj Action:T43 Object:T19
+T20	Modifier 125 127	to
+T21	Object 128 148	the malicious server
+R19	ModObj Modifier:T20 Object:T21
+R20	ActionMod Action:T43 Modifier:T20
+R21	SubjAction Subject:T46 Action:T49
+T22	Object 223 251	remote access to the servers
+R22	ActionObj Action:T49 Object:T22
+
+To provide access to the server of interest the at- tackers may appropriately modify rules for firewalls Microsoft TMG, CISCO, etc.
+T51	Action 78 84	modify
+T52	Object 85 130	rules for firewalls Microsoft TMG, CISCO, etc
+T53	Subject 44 59	the at- tackers
+R40	SubjAction Subject:T53 Action:T51
+R41	ActionObj Action:T51 Object:T52
+
+Having access, the attackers downloaded mali-cious scripts and changed denominations of issued banknotes in the ATM operating system registry.
+T54	Action 29 39	downloaded
+T56	Subject 15 28	the attackers
+R42	SubjAction Subject:T56 Action:T54
+T23	Object 40 141	mali- cious scripts and changed denominations of issued banknotes in the ATM operating system registry
+R23	ActionObj Action:T54 Object:T23
+
+shutdown -r -t 0 –f Execution of this file changed registry keys inthe registry branch ""HKEY_LOCAL_MACHINE\SOFTWARE\Wincor Nixdorf\ProTopas\Current-Version\LYNXPAR\CASH_DISPENSER"" that areresponsible for cassette denominations in an ATM.
+T57	Action 43 50	changed
+T58	Subject 33 42	this file
+R44	SubjAction Subject:T58 Action:T57
+T24	Object 51 238	registry keys in the registry branch ""HKEY_LOCAL_MACHINE\ SOFTWARE\Wincor Nixdorf\ProTopas\Current- Version\LYNXPAR\CASH_DISPENSER"" that are responsible for cassette denominations in an ATM
+R24	ActionObj Action:T57 Object:T24
+
+The Gozi/ISFB based malware was used to drop additional components on interesting systems,which included Metasploit/Meterpreter payloads and Anunak variants.
+T60	Action 40 44	drop
+T61	Subject 0 27	The Gozi/ISFB based malware
+T62	Object 45 89	additional components on interesting systems
+R46	SubjAction Subject:T61 Action:T60
+R47	ActionObj Action:T60 Object:T62
+

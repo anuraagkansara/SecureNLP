@@ -1,0 +1,161 @@
+A newer approach used by the attackers involves compromising the update site for several industrial controlsystem (ICS) software producers.
+T1	Subject 25 38	the attackers
+T2	Action 48 60	compromising
+T3	Object 61 138	the update site for several industrial control system (ICS) software producers
+R1	ActionObj Action:T2 Object:T3
+R2	SubjAction Subject:T1 Action:T2
+
+They then bundle Backdoor.
+T4	Action 10 16	bundle
+T6	Subject 0 4	They
+R3	SubjAction Subject:T6 Action:T4
+R4	ActionObj Action:T4 Object:T5
+R6	ActionMod Action:T4 Modifier:T7
+
+The Dragonfly attackers used hacked websites to host command-and-control (C&C) software.
+T9	Subject 0 23	The Dragonfly attackers
+T10	Action 24 28	used
+T11	Object 29 44	hacked websites
+T12	Modifier 45 47	to
+T13	Object 48 87	host command-and-control (C&C) software
+R7	ModObj Modifier:T12 Object:T13
+R8	ActionObj Action:T10 Object:T11
+R9	ActionMod Action:T10 Modifier:T12
+R10	SubjAction Subject:T9 Action:T10
+
+Both are Remote Access Tool (RAT) type malwarewhich provide the attackers with access and control of compromised computers.
+T14	Action 52 59	provide
+T15	Object 60 73	the attackers
+T16	Modifier 74 78	with
+T17	Object 79 122	access and control of compromised computers
+T18	Subject 9 46	Remote Access Tool (RAT) type malware
+R11	SubjAction Subject:T18 Action:T14
+R12	ActionObj Action:T14 Object:T15
+R13	ModObj Modifier:T16 Object:T17
+R14	ActionMod Action:T14 Modifier:T16
+
+Oldrea acts as a back door forthe attackers on to the victim's computer, allowing them to extract data and install further malware.
+T19	Action 90 97	extract
+T20	Object 98 102	data
+R15	ActionObj Action:T19 Object:T20
+T21	Action 107 114	install
+T22	Object 115 130	further malware
+R16	ActionObj Action:T21 Object:T22
+
+The earliestmethod was an email spearphishing campaign, which sawselected executives and senioremployees in target companiesreceive emails containing amalicious PDF attachment.
+T23	Subject 70 124	selected executives and senior employees in target companies
+T24	Action 129 131	receive
+T25	Object 132 175	emails containing a malicious PDF attachment
+R17	SubjAction Subject:T23 Action:T24
+R18	ActionObj Action:T24 Object:T25
+
+This in turn exploited either Java or InternetExplorer in order to drop Oldrea or Karagany on the victim's computer.
+T26	Action 67 71	drop
+T27	Object 72 90	Oldrea or Karagany
+R19	ActionObj Action:T26 Object:T27
+T28	Modifier 91 93	on
+T29	Object 94 115	the victim's computer
+R20	ModObj Modifier:T28 Object:T29
+R21	ActionMod Action:T26 Modifier:T28
+
+Oldrea is a persistent component that interacts with C&C servers to download andexecute payloads.
+T30	Subject 10 32	a persistent component
+T31	Action 38 47	interacts
+T32	Modifier 48 52	with
+T33	Object 53 64	C&C servers
+R22	SubjAction Subject:T30 Action:T31
+R23	ActionMod Action:T31 Modifier:T32
+R24	ModObj Modifier:T32 Object:T33
+T34	Action 68 76	download
+T35	Object 88 96	payloads
+R25	ActionObj Action:T34 Object:T35
+T36	Action 83 87	execute
+R26	ActionObj Action:T36 Object:T35
+
+The components are downloaded by reaching out to the C&C server and performing a GETrequest which returns an HTML page containing a base64 encoded string between two comments marked withthe 'havex' string.
+T37	Action 68 78	performing
+T38	Object 79 91	a GET request
+R27	ActionObj Action:T37 Object:T38
+T39	Action 33 45	reaching out
+T40	Modifier 46 48	to
+T41	Object 49 63	the C&C server
+R28	ActionMod Action:T39 Modifier:T40
+R29	ModObj Modifier:T40 Object:T41
+T42	Object 0 14	The components
+T43	Action 15 29	are downloaded
+R30	ActionObj Action:T43 Object:T42
+
+Oldrea will attempt to collect system information such as OS, user name, computername, country, language, nation, Internet adapter configuration information, available drives, default browser,running processes, desktop file list, My Documents, Internet history, program files, and root of available drives.
+T45	Action 23 30	collect
+T46	Object 31 49	system information
+T47	Modifier 50 57	such as
+R32	ActionObj Action:T45 Object:T46
+R33	ActionMod Action:T45 Modifier:T47
+T48	Object 58 305	OS, user name, computer name, country, language, nation, Internet adapter configuration information, available drives, default browser, running processes, desktop file list, My Documents, Internet history, program files, and root of available drives
+R31	ModObj Modifier:T47 Object:T48
+
+This data iscollected and written to a temporary file in an encrypted form before it is POST'ed to a remote C&C server.
+T49	Object 0 9	This data
+T50	Action 15 21	collected
+R35	ActionObj Action:T50 Object:T49
+T51	Action 26 33	written
+R36	ActionObj Action:T51 Object:T49
+T52	Modifier 34 36	to
+T53	Object 37 53	a temporary file
+R37	ModObj Modifier:T52 Object:T53
+R38	ActionMod Action:T51 Modifier:T52
+T54	Modifier 54 56	in
+T55	Object 57 74	an encrypted form
+R39	ModObj Modifier:T54 Object:T55
+R40	ActionMod Action:T51 Modifier:T54
+T56	Object 82 84	it
+T57	Action 88 95	POST'ed
+R41	ActionObj Action:T57 Object:T56
+T58	Modifier 96 98	to
+T59	Object 99 118	a remote C&C server
+R42	ActionMod Action:T57 Modifier:T58
+R43	ModObj Modifier:T58 Object:T59
+
+It is designed to download and install additional filesand exfiltrate data.
+T60	Action 18 26	download
+T61	Object 39 55	additional files
+R44	ActionObj Action:T60 Object:T61
+T62	Action 31 38	install
+R45	ActionObj Action:T62 Object:T61
+T63	Action 59 69	exfiltrate
+T64	Object 70 74	data
+R46	ActionObj Action:T63 Object:T64
+T65	Subject 0 2	It
+R47	SubjAction Subject:T65 Action:T60
+R48	SubjAction Subject:T65 Action:T62
+R49	SubjAction Subject:T65 Action:T63
+
+Karagany copies itself with hidden and system attributes where it was first executed as err.log[DIGITS].
+T67	Action 9 15	copies
+T68	Object 16 22	itself
+T69	Modifier 23 27	with
+T70	Object 28 84	hidden and system attributes where it was first executed
+R51	ActionObj Action:T67 Object:T68
+R52	ModObj Modifier:T69 Object:T70
+R53	ActionMod Action:T67 Modifier:T69
+
+Karagany first checks for a live Internet connection by visiting Microsoft or Adobe websites.
+T71	Action 15 21	checks
+T73	Modifier 22 25	for
+T74	Object 26 52	a live Internet connection
+R55	ModObj Modifier:T73 Object:T74
+R56	ActionMod Action:T71 Modifier:T73
+T75	Modifier 53 55	by
+T76	Object 56 92	visiting Microsoft or Adobe websites
+R57	ActionMod Action:T71 Modifier:T75
+R58	ModObj Modifier:T75 Object:T76
+
+It will only reach out to its C&C server once this check is successful.
+T77	Subject 0 2	It
+T78	Action 13 22	reach out
+T79	Modifier 23 25	to
+T80	Object 26 40	its C&C server
+R59	SubjAction Subject:T77 Action:T78
+R60	ActionMod Action:T78 Modifier:T79
+R61	ActionObj Action:T78 Object:T80
+

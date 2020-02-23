@@ -1,0 +1,76 @@
+Once it has reached its target,the payload used was designed to work as an information stealer andreconnaissance tool.
+T1	Subject 48 42	the payload
+T2	Action 64 68	work
+T3	Modifier 69 71	as
+T4	Object 72 94	an information stealer
+T5	Modifier 69 71	as
+T6	Object 129 117	reconnaissance tool
+R1	ModObj Modifier:T5 Object:T4
+R2	ModObj Modifier:T3 Object:T6
+T7	Action 64 68	work
+R3	ActionMod Action:T7 Modifier:T3
+R4	ActionMod Action:T2 Modifier:T5
+R5	SubjAction Subject:T1 Action:T7
+R6	SubjAction Subject:T1 Action:T2
+
+its technical featuresthe available commands (classic ones, such as visiting a website using the infected bot,download and execute a command or a library, update and uninstall)the plugins one can use: file stealer, ad-clicker, form grabber, …
+T8	Action 68 76	visiting
+T9	Object 77 86	a website
+T10	Modifier 87 92	using
+T11	Object 93 109	the infected bot
+R7	ActionObj Action:T8 Object:T9
+R8	ModObj Modifier:T10 Object:T11
+R9	ActionMod Action:T8 Modifier:T10
+T12	Action 117 118	download
+T13	Object 131 140	a command
+T14	Action 123 130	execute
+T15	Object 144 153	a library
+R10	ActionObj Action:T12 Object:T13
+R11	ActionObj Action:T14 Object:T13
+R12	ActionObj Action:T12 Object:T15
+R13	ActionObj Action:T14 Object:T15
+T16	Action 155 161	update
+T17	Action 166 175	uninstall
+
+Feature: "Anti-VM"The flyer explains that the botnet won't work in a virtual machine.
+T18	Subject 42 52	the botnet
+T19	Action 53 63	won't work
+T20	Object 64 84	in a virtual machine
+R14	SubjAction Subject:T18 Action:T19
+R15	ActionObj Action:T19 Object:T20
+
+To detect whether themalware is running in a virtual machine, the malware author checks if the followingdirectories and the one file exist.
+T21	Subject 62 80	the malware author
+T22	Action 81 87	checks
+T23	Modifier 0 2	To
+T24	Object 3 60	detect whether the malware is running in a virtual machine
+R16	ModObj Modifier:T23 Object:T24
+T25	Modifier 88 90	if
+T26	Object 91 138	the following directories and the one file exist
+R17	ModObj Modifier:T25 Object:T26
+R18	SubjAction Subject:T21 Action:T22
+R19	ActionMod Action:T22 Modifier:T25
+R20	ActionMod Action:T22 Modifier:T23
+
+The malware persistence uses a registry key in order to be executed automatically in casethe system is rebooted.
+T27	Subject 0 23	The malware persistence
+T28	Action 24 28	uses
+T29	Object 29 43	a registry key
+T30	Modifier 44 55	in order to
+T31	Object 56 111	be executed automatically in case the system is rebooted
+R21	ModObj Modifier:T30 Object:T31
+R22	SubjAction Subject:T27 Action:T28
+R23	ActionObj Action:T28 Object:T29
+R24	ActionMod Action:T28 Modifier:T30
+
+Feature: "Download & Execute", the next StepThis feature allows installing further malware on the affected PC in case the attackers decidethe current machine is interesting enough. "Kraken HTTP" is only the first stage in this attackand can be seen as reconnaissance tool.
+T32	Subject 46 56	This feature
+T33	Action 64 74	installing
+T34	Object 75 90	further malware
+T35	Modifier 91 93	on
+T36	Object 94 109	the affected PC
+R25	SubjAction Subject:T32 Action:T33
+R26	ActionObj Action:T33 Object:T34
+R27	ActionMod Action:T33 Modifier:T35
+R28	ModObj Modifier:T35 Object:T36
+

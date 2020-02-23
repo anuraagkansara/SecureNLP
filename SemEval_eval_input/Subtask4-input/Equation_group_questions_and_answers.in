@@ -1,0 +1,219 @@
+It is designed to provide an effective (almost "invisible") persistence mechanism, hidden storage and malicious command execution inside the Windows operating system.
+T1	Subject 0 2	It
+T2	Action 18 25	provide
+T3	Object 26 81	an effective (almost "invisible") persistence mechanism
+R1	SubjAction Subject:T1 Action:T2
+R2	ActionObj Action:T2 Object:T3
+T4	Object 83 97	hidden storage
+R3	ActionObj Action:T2 Object:T4
+T5	Object 102 129	malicious command execution
+R4	ActionObj Action:T2 Object:T5
+T6	Modifier 130 136	inside
+T7	Object 137 165	the Windows operating system
+R5	ActionMod Action:T2 Modifier:T6
+R6	ModObj Modifier:T6 Object:T7
+
+When the computer starts, GrayFish hijacks the OS loading mechanisms by injecting its code into the boot record.
+T8	Subject 26 34	GrayFish
+T9	Action 35 42	hijacks
+T10	Object 43 68	the OS loading mechanisms
+R7	SubjAction Subject:T8 Action:T9
+R8	ActionObj Action:T9 Object:T10
+T11	Action 72 81	injecting
+T12	Object 82 90	its code
+T13	Modifier 91 95	into
+T14	Object 96 111	the boot record
+R9	ActionObj Action:T11 Object:T12
+R10	ActionMod Action:T11 Modifier:T13
+R11	ModObj Modifier:T13 Object:T14
+R12	SubjAction Subject:T8 Action:T11
+
+If an error happens during launch, the entire GrayFish platform self-destructs.
+T15	Subject 35 63	the entire GrayFish platform
+T16	Action 64 78	self-destructs
+R13	SubjAction Subject:T15 Action:T16
+T17	Modifier 0 2	If
+T18	Object 3 33	an error happens during launch
+R14	ModObj Modifier:T17 Object:T18
+R15	ActionMod Action:T16 Modifier:T17
+
+To store stolen information, as well as its own auxiliary information, GrayFish implements its own encrypted Virtual File System (VFS) inside the Windows registry.
+T19	Subject 71 79	GrayFish
+T20	Action 80 90	implements
+T21	Object 91 134	its own encrypted Virtual File System (VFS)
+T22	Modifier 135 141	inside
+T23	Object 142 162	the Windows registry
+T24	Modifier 0 2	To
+T25	Object 3 27	store stolen information
+R16	ModObj Modifier:T24 Object:T25
+R17	SubjAction Subject:T19 Action:T20
+R18	ActionObj Action:T20 Object:T21
+R19	ModObj Modifier:T22 Object:T23
+R20	ActionMod Action:T20 Modifier:T24
+R21	ActionMod Action:T20 Modifier:T22
+
+The GrayFish implementation appears to have been designed to make it invisible to antivirus products.
+T26	Subject 0 27	The GrayFish implementation
+T27	Action 61 65	make
+T29	Modifier 79 81	to
+T30	Object 82 100	antivirus products
+R22	SubjAction Subject:T26 Action:T27
+R24	ActionMod Action:T27 Modifier:T29
+R25	ModObj Modifier:T29 Object:T30
+T28	Object 66 68	it
+T31	Object 69 78	invisible
+R23	ActionObj Action:T27 Object:T28
+R26	ActionObj Action:T27 Object:T31
+
+When used together with the bootkit, all the modules as well as the stolen data are stored in encrypted form in the registry and dynamically decrypted and executed.
+T32	Action 84 90	stored
+T33	Object 37 79	all the modules as well as the stolen data
+R27	ActionObj Action:T32 Object:T33
+T34	Modifier 91 93	in
+T35	Object 94 124	encrypted form in the registry
+R28	ModObj Modifier:T34 Object:T35
+R29	ActionMod Action:T32 Modifier:T34
+
+If it infects a computer without an internet connection, it will collect basic system information and save it onto the hidden area of the stick.
+T40	Subject 57 59	it
+T41	Action 65 72	collect
+T42	Object 73 97	basic system information
+R33	SubjAction Subject:T40 Action:T41
+R34	ActionObj Action:T41 Object:T42
+T43	Action 102 106	save
+T44	Object 107 109	it
+R36	SubjAction Subject:T40 Action:T43
+R37	ActionObj Action:T43 Object:T44
+R35	CoRefer Referer:T42 Canonical:T44
+T45	Modifier 110 114	onto
+R38	ActionMod Action:T43 Modifier:T45
+T46	Object 115 143	the hidden area of the stick
+R39	ModObj Modifier:T45 Object:T46
+
+Later, when a stick containing hidden information is plugged into an internet-connected computer infected by Fanny, the data will be scooped up from the hidden area and sent to the C&C. If the attackers want to run commands on the air-gapped networks, they can save these commands in the hidden area of the USB stick.
+T36	Object 116 124	the data
+T37	Action 169 173	sent
+R30	ActionObj Action:T37 Object:T36
+T38	Modifier 174 176	to
+R31	ActionMod Action:T37 Modifier:T38
+T39	Object 177 184	the C&C
+R32	ModObj Modifier:T38 Object:T39
+T47	Subject 252 256	they
+T48	Action 261 265	save
+T49	Object 266 280	these commands
+T50	Modifier 281 283	in
+T51	Object 284 316	the hidden area of the USB stick
+R40	SubjAction Subject:T47 Action:T48
+R41	ActionObj Action:T48 Object:T49
+R42	ModObj Modifier:T50 Object:T51
+R43	ActionMod Action:T48 Modifier:T50
+
+The compromised CD-ROM used "autorun.inf" to execute an installer that began by attempting to escalate privileges using two known EQUATION group exploits.
+T52	Subject 53 65	an installer
+T53	Action 94 102	escalate
+T54	Object 103 113	privileges
+T55	Modifier 114 119	using
+T56	Object 120 153	two known EQUATION group exploits
+R44	SubjAction Subject:T52 Action:T53
+R45	ActionObj Action:T53 Object:T54
+R46	ModObj Modifier:T55 Object:T56
+R47	ActionMod Action:T53 Modifier:T55
+
+Next, it attempted to run the group's DOUBLEFANTASY implant and install it onto the victim's machine.
+T57	Subject 6 8	it
+T58	Action 22 25	run
+T59	Object 26 59	the group's DOUBLEFANTASY implant
+R48	SubjAction Subject:T57 Action:T58
+R49	ActionObj Action:T58 Object:T59
+T60	Action 64 71	install
+T61	Object 72 74	it
+R50	ActionObj Action:T60 Object:T61
+R51	CoRefer Referer:T59 Canonical:T61
+R52	SubjAction Subject:T57 Action:T60
+T62	Modifier 75 79	onto
+T63	Object 80 100	the victim's machine
+R53	ModObj Modifier:T62 Object:T63
+R54	ActionMod Action:T60 Modifier:T62
+
+This is the ability to infect the hard drive firmware.
+T64	Action 23 29	infect
+T65	Object 30 53	the hard drive firmware
+R55	ActionObj Action:T64 Object:T65
+
+The plugin supports two main functions: reprogramming the HDD firmware with a custom payload from the EQUATION group, and providing an API into a set of hidden sectors (or data storage) of the hard drive.
+T66	Action 40 53	reprogramming
+T67	Object 54 70	the HDD firmware
+T68	Modifier 71 75	with
+T69	Object 76 116	a custom payload from the EQUATION group
+R56	ActionObj Action:T66 Object:T67
+R57	ActionMod Action:T66 Modifier:T68
+R58	ModObj Modifier:T68 Object:T69
+T70	Action 122 131	providing
+T71	Object 132 138	an API
+R59	ActionObj Action:T70 Object:T71
+T72	Modifier 139 143	into
+T73	Object 144 203	a set of hidden sectors (or data storage) of the hard drive
+R60	ActionMod Action:T70 Modifier:T72
+R61	ModObj Modifier:T72 Object:T73
+T74	Subject 0 10	The plugin
+R62	SubjAction Subject:T74 Action:T66
+R63	SubjAction Subject:T74 Action:T70
+
+Here are some web-based targeting examples from the Equation group: On March 2, 2013, a Kaspersky Lab user browsing an online forum was attacked with an exploit from one of the Equation group's exploitation servers.2013-03-02 –
+T75	Object 86 131	a Kaspersky Lab user browsing an online forum
+T76	Action 136 144	attacked
+T77	Modifier 145 149	with
+T78	Object 150 214	an exploit from one of the Equation group's exploitation servers
+R64	ActionObj Action:T76 Object:T75
+R65	ModObj Modifier:T77 Object:T78
+R66	ActionMod Action:T76 Modifier:T77
+
+The forums in question appear to have been compromised by a specific PHP script that exploited only authenticated visitors.
+T79	Action 85 94	exploited
+T80	Object 95 122	only authenticated visitors
+T81	Subject 58 79	a specific PHP script
+R67	SubjAction Subject:T81 Action:T79
+R68	ActionObj Action:T79 Object:T80
+
+The exploit site can choose to hit the visitor with an exploit depending on the username, meaning that the attackers are taking great care to infect only very specific targets on these forums.
+T82	Subject 103 116	the attackers
+T83	Action 142 148	infect
+T84	Object 149 175	only very specific targets
+R69	SubjAction Subject:T82 Action:T83
+R70	ActionObj Action:T83 Object:T84
+T85	Modifier 176 178	on
+T86	Object 179 191	these forums
+R71	ModObj Modifier:T85 Object:T86
+R72	ActionMod Action:T83 Modifier:T85
+
+This was taken to further extreme in GRAYFISH, which exclusively uses the registry to store all malware-related modules and data in encrypted format.
+T87	Subject 37 45	GRAYFISH
+T88	Action 65 69	uses
+T89	Object 70 82	the registry
+T90	Modifier 83 85	to
+T91	Object 86 148	store all malware-related modules and data in encrypted format
+R73	ModObj Modifier:T90 Object:T91
+R74	ActionObj Action:T88 Object:T89
+R75	SubjAction Subject:T87 Action:T88
+R76	ActionMod Action:T88 Modifier:T90
+
+The GRAYFISH bootkit starts from the VBR, loads the operating system and hijacks the loading of the first driver in the kernel.
+T96	Subject 0 20	The GRAYFISH bootkit
+T97	Action 42 47	loads
+T98	Object 48 68	the operating system
+R80	SubjAction Subject:T96 Action:T97
+R81	ActionObj Action:T97 Object:T98
+T99	Action 73 80	hijacks
+T100	Object 81 126	the loading of the first driver in the kernel
+R82	SubjAction Subject:T96 Action:T99
+R83	ActionObj Action:T99 Object:T100
+
+Finally, in terms of advanced features, GRAYFISH and EQUATIONDRUG include perhaps the most sophisticated persistence mechanism we've ever seen: re-flashing the HDD firmware.
+T92	Subject 40 48	GRAYFISH
+T93	Subject 53 65	EQUATIONDRUG
+T94	Action 66 73	include
+T95	Object 74 142	perhaps the most sophisticated persistence mechanism we've ever seen
+R77	ActionObj Action:T94 Object:T95
+R78	SubjAction Subject:T93 Action:T94
+R79	SubjAction Subject:T92 Action:T94
+

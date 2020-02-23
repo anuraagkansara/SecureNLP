@@ -1,0 +1,75 @@
+T1	Action 436 447	were signed
+T2	Object 407 430	Sakula malware variants
+T3	Modifier 448 452	with
+T4	Action 798 802	open
+T6	Subject 724 726	it
+R3	SubjAction Subject:T6 Action:T4	
+T5	Object 803 808	a URL
+T7	Action 766 771	using
+T8	Object 772 790;791 794	the ShellExecute() API
+R4	SubjAction Subject:T6 Action:T7	
+R5	ActionObj Action:T7 Object:T8	
+T9	Action 1145 1153	utilized
+T10	Subject 1113 1127	Sakula malware
+T11	Action 2274 2286	masquerading
+T12	Subject 2265 2273	droppers
+T13	Object 2290 2300	installers
+R6	SubjAction Subject:T12 Action:T11	
+T14	Action 1395 1401	loaded
+R8	SubjAction Subject:T10 Action:T9	
+T15	Object 1154 1207	the Dynamic Link Library (DLL) side-loading technique
+R9	ActionObj Action:T9 Object:T15	
+T16	Subject 1336 1349	MediaSoft.exe
+T17	Object 1402 1403;1404 1422	a file named msi.dll
+R10	SubjAction Subject:T16 Action:T14	
+R11	ActionObj Action:T14 Object:T17	
+T18	Action 1497 1501	load
+T19	Subject 1404 1422	file named msi.dll
+R12	SubjAction Subject:T19 Action:T18	
+T21	Action 2635 2643	directed
+T22	Action 2803 2816	were directed
+T23	Action 2998 3009	redirecting
+T24	Action 2890 2899	were sent
+T25	Subject 2618 2630	the droppers
+T26	Object 2644 2651	victims
+T27	Modifier 2652 2654	to
+R14	SubjAction Subject:T25 Action:T21	
+R15	ActionObj Action:T21 Object:T26	
+R16	ActionMod Action:T21 Modifier:T27	
+T28	Object 2795 2802	victims
+R17	SubjAction Subject:T25 Action:T22	
+R18	ActionObj Action:T22 Object:T28	
+T29	Modifier 2817 2819	to
+R19	ActionMod Action:T22 Modifier:T29	
+T30	Object 2882 2889	victims
+R20	SubjAction Subject:T25 Action:T24	
+R21	ActionObj Action:T24 Object:T30	
+T32	Modifier 2900 2902	to
+R23	ActionMod Action:T24 Modifier:T32	
+T33	Action 3535 3542	dropped
+T34	Object 3543 3573	the side-loaded Sakula malware
+T35	Subject 3532 3534	It
+R24	SubjAction Subject:T35 Action:T33	
+R25	ActionObj Action:T33 Object:T34	
+R1	ActionObj Action:T1 Object:T2	
+R2	ActionMod Action:T1 Modifier:T3	
+T31	Object 453 472	stolen certificates
+R22	ModObj Modifier:T3 Object:T31	
+R26	ActionObj Action:T4 Object:T5	
+T36	Object 2655 2715;2716 2764	login pages for services specific to the target organization like webmail, document sharing, or corporate VPN
+R27	ModObj Modifier:T27 Object:T36	
+T37	Object 2820 2842	legitimate login pages
+R28	ModObj Modifier:T29 Object:T37	
+T38	Object 2903 2927;2928 2974	a login page hosted on a domain that spoofed that of the legitimate one
+R29	ModObj Modifier:T32 Object:T38	
+T39	Object 3010 3017	victims
+R30	ActionObj Action:T23 Object:T39	
+T40	Modifier 3018 3020	to
+T41	Object 3021 3032;3033 3038	these login pages
+R31	ModObj Modifier:T40 Object:T41	
+R32	ActionMod Action:T23 Modifier:T40	
+T42	Modifier 2287 2289	as
+R7	ActionMod Action:T11 Modifier:T42	
+R33	ModObj Modifier:T42 Object:T13	
+T20	Object 1502 1505;1506 1523	the Sakula executable
+R13	ActionObj Action:T18 Object:T20	

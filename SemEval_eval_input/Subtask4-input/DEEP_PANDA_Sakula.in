@@ -1,0 +1,95 @@
+This campaign infected victims with Sakula malware variants that were signed with stolen certificates.
+T1	Action 65 76	were signed
+T2	Object 36 59	Sakula malware variants
+T3	Modifier 77 81	with
+R1	ActionObj Action:T1 Object:T2
+R2	ActionMod Action:T1 Modifier:T3
+T31	Object 82 101	stolen certificates
+R22	ModObj Modifier:T3 Object:T31
+
+When this file was executed, it caused the victim to view a website by using the ShellExecute() API to open a URL.
+T4	Action 103 107	open
+T6	Subject 29 31	it
+R3	SubjAction Subject:T6 Action:T4
+T5	Object 108 113	a URL
+T7	Action 71 76	using
+T8	Object 77 99	the ShellExecute() API
+R4	SubjAction Subject:T6 Action:T7
+R5	ActionObj Action:T7 Object:T8
+R26	ActionObj Action:T4 Object:T5
+
+The downloaded plugin file included a variant of Sakula malware. [1] The Sakula malware in this campaign utilized the Dynamic Link Library (DLL) side-loading technique most commonly associated with PlugX activity.
+T9	Action 105 113	utilized
+T10	Subject 73 87	Sakula malware
+R8	SubjAction Subject:T10 Action:T9
+T15	Object 114 167	the Dynamic Link Library (DLL) side-loading technique
+R9	ActionObj Action:T9 Object:T15
+
+In the aforementioned university-related incidents, a legitimate executable named MediaSoft.exe (MD5 hash: d00b3169f45e74bb22a1cd684341b14a) loaded a file named msi.dll (MD5 hash: ae6f33f6cdc25dc4bda24b2bccff79fe), which, in turn, was used to load the Sakula executable (MD5 hash: 0c2674c3a97c53082187d930efb645c2).
+T14	Action 141 147	loaded
+T16	Subject 82 95	MediaSoft.exe
+T17	Object 148 168	a file named msi.dll
+R10	SubjAction Subject:T16 Action:T14
+R11	ActionObj Action:T14 Object:T17
+T18	Action 243 247	load
+T19	Subject 150 168	file named msi.dll
+R12	SubjAction Subject:T19 Action:T18
+T20	Object 248 269	the Sakula executable
+R13	ActionObj Action:T18 Object:T20
+
+All incidents in this campaign were similar in that they utilized malicious droppers masquerading as installers for legitimate software applications like Adobe Reader, Juniper VPN, and Microsoft ActiveX Control.
+T11	Action 85 97	masquerading
+T12	Subject 76 84	droppers
+T13	Object 101 111	installers
+R6	SubjAction Subject:T12 Action:T11
+T42	Modifier 98 100	as
+R7	ActionMod Action:T11 Modifier:T42
+R33	ModObj Modifier:T42 Object:T13
+
+In addition, the droppers all directed victims to login pages for services specific to the target organization like webmail, document sharing, or corporate VPN.
+T21	Action 30 38	directed
+T25	Subject 13 25	the droppers
+T26	Object 39 46	victims
+T27	Modifier 47 49	to
+R14	SubjAction Subject:T25 Action:T21
+R15	ActionObj Action:T21 Object:T26
+R16	ActionMod Action:T21 Modifier:T27
+R17	SubjAction Subject:T25 Action:T22
+R20	SubjAction Subject:T25 Action:T24
+T36	Object 50 159	login pages for services specific to the target organization like webmail, document sharing, or corporate VPN
+R27	ModObj Modifier:T27 Object:T36
+
+In all cases except one, the victims were directed to legitimate login pages.
+T22	Action 37 50	were directed
+T28	Object 29 36	victims
+R18	ActionObj Action:T22 Object:T28
+T29	Modifier 51 53	to
+R19	ActionMod Action:T22 Modifier:T29
+T37	Object 54 76	legitimate login pages
+R28	ModObj Modifier:T29 Object:T37
+
+The one exception was a case in which victims were sent to a login page hosted on a domain that spoofed that of the legitimate one.
+T24	Action 46 55	were sent
+T30	Object 38 45	victims
+R21	ActionObj Action:T24 Object:T30
+T32	Modifier 56 58	to
+R23	ActionMod Action:T24 Modifier:T32
+T38	Object 59 130	a login page hosted on a domain that spoofed that of the legitimate one
+R29	ModObj Modifier:T32 Object:T38
+
+It is unclear whether redirecting victims to these login pages was part of credential-collection activity or merely meant to deceive victims into believing that the activity was legitimate.
+T23	Action 22 33	redirecting
+T39	Object 34 41	victims
+R30	ActionObj Action:T23 Object:T39
+T40	Modifier 42 44	to
+T41	Object 45 62	these login pages
+R31	ModObj Modifier:T40 Object:T41
+R32	ActionMod Action:T23 Modifier:T40
+
+It dropped the side-loaded Sakula malware just like in the other incidents; however, in this instance, the Sakula payload was signed with a certificate assigned to a different organization, Career Credit Co., Ltd. The malware used the domain www[.]xha- mster[.]com for C2 which was created in mid-September and is registered with the email address wendellom@yahoo.com and registrant name "tonyy starke" (hence the name, Ironman-related title for this blog).
+T33	Action 3 10	dropped
+T34	Object 11 41	the side-loaded Sakula malware
+T35	Subject 0 2	It
+R24	SubjAction Subject:T35 Action:T33
+R25	ActionObj Action:T33 Object:T34
+

@@ -1,0 +1,161 @@
+Targeted computersThe attackers focused on obtaining access to specific systems of interest in all of the compromisedorganizations.
+T1	Action 43 52	obtaining
+T2	Object 53 59	access
+T3	Subject 18 31	The attackers
+T4	Modifier 60 62	to
+T5	Object 63 130	specific systems of interest in all of the compromised organizations
+R1	SubjAction Subject:T3 Action:T1
+R2	ActionObj Action:T1 Object:T2
+R3	ModObj Modifier:T4 Object:T5
+R4	ActionMod Action:T1 Modifier:T4
+
+Once the attackers had this access, they presumably then eavesdropped on email conversationsand may have been in a position to potentially insert fraudulent emails as well.
+T6	Subject 36 40	they
+T7	Action 57 69	eavesdropped
+T8	Modifier 70 72	on
+T9	Object 73 92	email conversations
+R5	SubjAction Subject:T6 Action:T7
+R6	ModObj Modifier:T8 Object:T9
+R7	ActionMod Action:T7 Modifier:T8
+T10	Action 139 145	insert
+T11	Object 146 163	fraudulent emails
+R8	ActionObj Action:T10 Object:T11
+R9	SubjAction Subject:T6 Action:T10
+
+Based on our analysis of a command-and-control (C&C) server used in an attack, the Butterfly operatorsdemonstrate exceptional operational security, as they use encrypted virtual machines and multi-staged C&Cservers to make it difficult to investigate their activities.
+T12	Action 60 64	used
+T13	Object 25 59	a command-and-control (C&C) server
+R10	ActionObj Action:T12 Object:T13
+T14	Modifier 65 67	in
+T15	Object 68 77	an attack
+R11	ModObj Modifier:T14 Object:T15
+R12	ActionMod Action:T12 Modifier:T14
+
+Bda9.tmp was then executed and went on to create a variant of Backdoor.
+T16	Action 18 26	executed
+T17	Object 0 8	Bda9.tmp
+R13	ActionObj Action:T16 Object:T17
+T18	Action 42 48	create
+R15	ActionObj Action:T18 Object:T19
+R16	ActionMod Action:T18 Modifier:T20
+T22	Subject 0 8	Bda9.tmp
+R17	SubjAction Subject:T22 Action:T18
+
+SpreadingIn at least two incidents, the attackers appear to have taken advantage of internal systems to spread througha network once they gained initial access.
+T23	Action 104 110	spread
+T24	Modifier 111 118	through
+T25	Object 121 127	a network
+R18	ActionMod Action:T23 Modifier:T24
+R19	ModObj Modifier:T24 Object:T25
+
+In one instance, the attackers used a Citrix profile managementapplication to create a back door on a newly infected system.
+T26	Action 78 84	create
+T27	Object 85 96	a back door
+T28	Modifier 97 99	on
+T29	Object 100 123	a newly infected system
+R20	ActionObj Action:T26 Object:T27
+R21	ModObj Modifier:T28 Object:T29
+R22	ActionMod Action:T26 Modifier:T28
+
+In the second incident, the TeamViewer application was used to create copies of Backdoor.
+T30	Action 63 69	create
+R23	ActionObj Action:T30 Object:T31
+R25	ActionMod Action:T30 Modifier:T32
+
+In these cases, the attackers likely determined that the infected computers werenot valuable targets and used shred.exe to securely remove the infections.
+T34	Subject 110 119	shred.exe
+T35	Action 132 138	remove
+T36	Object 139 153	the infections
+R26	SubjAction Subject:T34 Action:T35
+R27	ActionObj Action:T35 Object:T36
+
+It hides activity by editing events logs, dumping passwords, securely deleting files,encrypting files, and performing basic network enumeration.
+T37	Action 3 8	hides
+T38	Object 9 17	activity
+T39	Subject 0 2	It
+R28	SubjAction Subject:T39 Action:T37
+R29	ActionObj Action:T37 Object:T38
+T40	Action 21 28	editing
+T41	Object 29 40	events logs
+R30	ActionObj Action:T40 Object:T41
+T42	Action 42 49	dumping
+T43	Object 50 59	passwords
+R31	ActionObj Action:T42 Object:T43
+T44	Action 70 78	deleting
+T45	Object 79 84	files
+R32	ActionObj Action:T44 Object:T45
+R33	SubjAction Subject:T39 Action:T40
+R34	SubjAction Subject:T39 Action:T42
+R35	SubjAction Subject:T39 Action:T44
+
+Eventlog is another multipurpose tool, but its primary functionality is to parse event logs, dumping outones of interest, and to delete entries.
+T51	Action 93 104	dumping out
+T52	Object 107 120	ones of interest
+R40	ActionObj Action:T51 Object:T52
+T53	Action 75 80	parse
+T54	Object 81 91	event logs
+R41	ActionObj Action:T53 Object:T54
+T55	Action 129 135	delete
+T56	Object 136 143	entries
+R42	ActionObj Action:T55 Object:T56
+
+The tool will also end processes and perform a secure self-delete.
+T46	Action 19 22	end
+T47	Object 23 32	processes
+T48	Subject 0 8	The tool
+R36	SubjAction Subject:T48 Action:T46
+R37	ActionObj Action:T46 Object:T47
+T49	Action 37 44	perform
+T50	Object 45 65	a secure self-delete
+R38	ActionObj Action:T49 Object:T50
+R39	SubjAction Subject:T48 Action:T49
+
+A creates a proxy connection that allows attackers to route traffic through an intermediary nodeonto their destination node.
+T58	Action 54 59	route
+T59	Object 60 67	traffic
+T61	Modifier 68 75	through
+T62	Object 76 96	an intermediary node
+T63	Modifier 99 100	onto
+T64	Object 101 123	their destination node
+R46	ModObj Modifier:T63 Object:T64
+R47	ModObj Modifier:T61 Object:T62
+R49	ActionObj Action:T58 Object:T59
+R50	ActionMod Action:T58 Modifier:T61
+R51	ActionMod Action:T58 Modifier:T63
+
+Similarly, event logs are modified to remove any evidence of the attackers' activity.
+T65	Action 26 34	modified
+T66	Modifier 35 37	to
+T67	Object 38 84	remove any evidence of the attackers' activity
+T68	Object 11 21	event logs
+R52	ActionObj Action:T65 Object:T68
+R53	ModObj Modifier:T66 Object:T67
+R54	ActionMod Action:T65 Modifier:T66
+
+Using both techniques, the attackers can securely remove infections from computers that are of no interest, letting them avoid leaving any trace of activity.
+T69	Subject 23 36	the attackers
+T70	Action 50 56	remove
+T71	Object 57 67	infections
+T72	Modifier 68 72	from
+T73	Object 73 106	computers that are of no interest
+R55	SubjAction Subject:T69 Action:T70
+R56	ActionObj Action:T70 Object:T71
+R57	ModObj Modifier:T72 Object:T73
+R58	ActionMod Action:T70 Modifier:T72
+
+It also looks forcertain process names of running processes.
+T74	Action 8 17	looks for
+T75	Subject 0 2	It
+R59	SubjAction Subject:T75 Action:T74
+T76	Object 21 59	certain process names of running processes
+R60	ActionObj Action:T74 Object:T76
+
+It checks that the hashed value of the registry subkey HKEY_LOCAL_MACHINE\Microsoft\WindowsNT\CurrentVersion\ProductId is not equal to a number of hashed values.
+T77	Action 3 9	checks
+T78	Modifier 10 14	that
+T79	Object 15 160	the hashed value of the registry subkey HKEY_LOCAL_MACHINE\Microsoft\WindowsNT\ CurrentVersion\ProductId is not equal to a number of hashed values
+T80	Subject 0 2	It
+R61	SubjAction Subject:T80 Action:T77
+R62	ActionMod Action:T77 Modifier:T78
+R63	ModObj Modifier:T78 Object:T79
+

@@ -1,0 +1,342 @@
+The compromised devices are used to steal unencrypted network traffic and offer proxying services to the botnet operator.
+T1	Action 36 41	steal
+T2	Subject 0 23	The compromised devices
+T3	Object 42 69	unencrypted network traffic
+R1	SubjAction Subject:T2 Action:T1
+R2	ActionObj Action:T1 Object:T3
+
+In practice, these capabilities are used to steal HTTP Cookies on popular social network sites and perform fraudulent actions such as non-legitimate "follows", "views" and "likes" on such sites.
+T4	Action 44 49	steal
+T5	Object 50 62	HTTP Cookies
+T6	Modifier 63 65	on
+T7	Object 66 94	popular social network sites
+R3	ModObj Modifier:T6 Object:T7
+R4	ActionObj Action:T4 Object:T5
+R5	ActionMod Action:T4 Modifier:T6
+
+Most of these threads are used to attempt find and infect other devices automatically.
+T8	Action 51 57	infect
+T9	Object 58 71	other devices
+R6	ActionObj Action:T8 Object:T9
+T10	Action 42 46	find
+R7	ActionObj Action:T10 Object:T9
+
+Moose also has DNS hijacking capabilities and will kill the processes of other malware families competing for the limited resources offered by the infected embedded system.
+T11	Subject 0 5	Moose
+T12	Action 51 55	kill
+T13	Object 56 171	the processes of other malware families competing for the limited resources offered by the infected embedded system
+R8	SubjAction Subject:T11 Action:T12
+R9	ActionObj Action:T12 Object:T13
+
+Linux/Moose will periodically communicate with a set of command and control servers (C&C) that are hardcoded into the malware itself.
+T39	Subject 0 11	Linux/Moose
+T40	Action 30 41	communicate
+T41	Modifier 42 46	with
+T42	Object 47 132	a set of command and control servers (C&C) that are hardcoded into the malware itself
+R33	SubjAction Subject:T39 Action:T40
+R34	ModObj Modifier:T41 Object:T42
+R35	ActionMod Action:T40 Modifier:T41
+
+The randomly picked C&C server, henceforth the configuration C&C server, will provide configuration information that will affect the behavior of the malware.
+T43	Subject 43 71	the configuration C&C server
+T44	Action 78 85	provide
+T45	Object 86 156	configuration information that will affect the behavior of the malware
+R36	ActionObj Action:T44 Object:T45
+R37	SubjAction Subject:T43 Action:T44
+
+First, analysis of the configuration indicated that the data that the bot is trying to steal is HTTP cookies from popular social networks.
+T46	Subject 66 73	the bot
+T47	Action 87 92	steal
+T48	Object 96 137	HTTP cookies from popular social networks
+R38	SubjAction Subject:T46 Action:T47
+R39	ActionObj Action:T47 Object:T48
+
+For instance: upon launch, the malware checks whether the file /home/hik/start.sh exists on disk.
+T49	Subject 27 38	the malware
+T50	Action 39 45	checks
+T51	Modifier 46 53	whether
+T52	Object 54 96	the file /home/hik/start.sh exists on disk
+R40	SubjAction Subject:T49 Action:T50
+R41	ActionMod Action:T50 Modifier:T51
+R42	ModObj Modifier:T51 Object:T52
+
+At this point the rogue DNS servers can point legitimate sites to phishing sites, inject malware in downloaded files, or perform man-in-the-middle attacks that would prevent upgrades to HTTPS by websites.
+T62	Action 82 88	inject
+T63	Subject 18 35	rogue DNS servers
+T64	Action 40 45	point
+T65	Object 46 62	legitimate sites
+T66	Modifier 63 65	to
+T67	Object 66 80	phishing sites
+R49	SubjAction Subject:T63 Action:T64
+R50	ActionObj Action:T64 Object:T65
+R51	ActionMod Action:T64 Modifier:T66
+R52	ModObj Modifier:T66 Object:T67
+T68	Object 89 96	malware
+R53	ActionObj Action:T62 Object:T68
+T69	Modifier 97 99	in
+T70	Object 100 116	downloaded files
+R54	ModObj Modifier:T69 Object:T70
+R55	ActionMod Action:T62 Modifier:T69
+T71	Action 121 128	perform
+T72	Object 129 154	man-in-the-middle attacks
+R56	SubjAction Subject:T63 Action:T71
+R57	ActionObj Action:T71 Object:T72
+
+String obfuscation with C&C servers Before we move on to describe the individual components, there is one thing that is common between many of the components: The obfuscation that is applied to the strings sent through the network.
+T73	Action 183 190	applied
+T74	Object 159 174	The obfuscation
+T75	Modifier 191 193	to
+T76	Object 194 230	the strings sent through the network
+R58	ModObj Modifier:T75 Object:T76
+R59	ActionObj Action:T73 Object:T74
+R60	ActionMod Action:T73 Modifier:T75
+
+After configuration, three sets of threads are created that are related to the spreading mechanism: threads scanning random IP addresses, threads scanning closely related IP addresses, and threads created per network interface to scan these otherwise unreachable networks.
+T77	Object 21 42	three sets of threads
+T78	Action 47 54	created
+R61	ActionObj Action:T78 Object:T77
+
+First, it checks going to see if it can connect on TCP port 10073.
+T80	Subject 7 9	it
+T81	Action 40 47	connect
+T82	Modifier 48 50	on
+T83	Object 51 65	TCP port 10073
+R63	ActionMod Action:T81 Modifier:T82
+R64	ModObj Modifier:T82 Object:T83
+R65	SubjAction Subject:T80 Action:T81
+R66	CoRefer Referer:T80 Canonical:T84
+
+If it can perform a full TCP handshake, it will disconnect right away and considers that the host is already infected and will report it as such to the report C&C server.
+T84	Subject 3 5	it
+T85	Action 74 83	considers
+T86	Modifier 84 88	that
+T87	Object 89 117	the host is already infected
+R67	SubjAction Subject:T84 Action:T85
+R68	ActionMod Action:T85 Modifier:T86
+R69	ModObj Modifier:T86 Object:T87
+T88	Action 127 133	report
+T89	Object 134 136	it
+R70	CoRefer Referer:T89 Canonical:T87
+R71	ActionObj Action:T88 Object:T89
+R72	SubjAction Subject:T84 Action:T88
+T90	Modifier 145 147	to
+T91	Object 148 169	the report C&C server
+R73	ActionMod Action:T88 Modifier:T90
+R74	ModObj Modifier:T90 Object:T91
+
+It will attempt to bruteforce the login prompt (if any) with a username and password combination list it received from the configuration C&C server.
+T92	Action 19 29	bruteforce
+T93	Subject 0 2	It
+T94	Object 30 46	the login prompt
+R75	SubjAction Subject:T93 Action:T92
+R76	ActionObj Action:T92 Object:T94
+T95	Modifier 56 60	with
+T96	Object 61 147	a username and password combination list it received from the configuration C&C server
+R77	ModObj Modifier:T95 Object:T96
+R78	ActionMod Action:T92 Modifier:T95
+R79	CoRefer Referer:T93 Canonical:T97
+
+On a successful guess, it will report the intrusion to the report C&C server, then attempt to get a command prompt on the device.
+T97	Subject 23 25	it
+T98	Action 31 37	report
+T99	Object 38 51	the intrusion
+T100	Modifier 52 54	to
+T101	Object 55 76	the report C&C server
+R80	SubjAction Subject:T97 Action:T98
+R81	ActionObj Action:T98 Object:T99
+R82	ActionMod Action:T98 Modifier:T100
+R83	ModObj Modifier:T100 Object:T101
+
+First stage After the C&C reply, Moose continues with infection, executing commands on the victim device.
+T118	Subject 33 38	Moose
+T119	Action 65 74	executing
+T120	Object 75 83	commands
+T121	Modifier 84 86	on
+T122	Object 87 104	the victim device
+R98	SubjAction Subject:T118 Action:T119
+R99	ActionObj Action:T119 Object:T120
+R100	ModObj Modifier:T121 Object:T122
+R101	ActionMod Action:T119 Modifier:T121
+
+It will then send a message to the report C&C server with what it has learned so far about the target victim.
+T123	Action 13 17	send
+T124	Subject 0 2	It
+R103	SubjAction Subject:T124 Action:T123
+T126	Object 18 27	a message
+R104	ActionObj Action:T123 Object:T126
+T127	Modifier 28 30	to
+T128	Object 31 52	the report C&C server
+R105	ModObj Modifier:T127 Object:T128
+R106	ActionMod Action:T123 Modifier:T127
+T129	Modifier 53 57	with
+T130	Object 58 108	what it has learned so far about the target victim
+R107	ModObj Modifier:T129 Object:T130
+R108	ActionMod Action:T123 Modifier:T129
+
+Bit field about the infection state The report C&C server responds with obfuscated commands to execute on the victim.
+T131	Subject 36 57	The report C&C server
+T132	Action 58 66	responds
+T133	Modifier 67 71	with
+T134	Object 72 116	obfuscated commands to execute on the victim
+R109	ModObj Modifier:T133 Object:T134
+R110	SubjAction Subject:T131 Action:T132
+R111	ActionMod Action:T132 Modifier:T133
+
+/elan2Sys init: OKStatus: OK No matter the method, by that point the victim has been infected: it will reach the configuration C&C server, obtain its configuration parameters, and start its nefarious activities.
+T135	Subject 95 97	it
+T136	Action 103 108	reach
+T137	Object 109 137	the configuration C&C server
+R112	SubjAction Subject:T135 Action:T136
+R113	ActionObj Action:T136 Object:T137
+T138	Action 139 145	obtain
+T139	Object 146 174	its configuration parameters
+R114	ActionObj Action:T138 Object:T139
+R115	SubjAction Subject:T135 Action:T138
+
+This means that traffic intended for a certain specified address may be redirected to another, entirely unrelated address.
+T140	Action 72 82	redirected
+T141	Object 16 64	traffic intended for a certain specified address
+T142	Modifier 83 85	to
+T143	Object 86 121	another, entirely unrelated address
+R116	ActionObj Action:T140 Object:T141
+R117	ModObj Modifier:T142 Object:T143
+R118	ActionMod Action:T140 Modifier:T142
+
+Scanning close to home As we mentioned earlier, the configuration C&C server returns the public IP address it saw when it was contacted by the infected router.
+T144	Subject 48 76	the configuration C&C server
+T145	Action 77 84	returns
+T146	Object 85 113	the public IP address it saw
+T147	Modifier 114 118	when
+T148	Object 119 158	it was contacted by the infected router
+R119	SubjAction Subject:T144 Action:T145
+R120	ActionObj Action:T145 Object:T146
+R121	ActionMod Action:T145 Modifier:T147
+R122	ModObj Modifier:T147 Object:T148
+
+This can effectively bypass firewalls on the perimeter and allow the worm to spread further copies of itself.
+T153	Subject 0 4	This
+T154	Action 21 27	bypass
+T155	Object 28 54	firewalls on the perimeter
+R126	SubjAction Subject:T153 Action:T154
+R127	ActionObj Action:T154 Object:T155
+
+This enables the worm to spread inside Local Area Networks (LANs) that are not normally accessible from the Internet due to the use of firewalls and network address translation (NAT).
+T149	Subject 13 21	the worm
+T150	Action 25 31	spread
+T151	Modifier 32 38	inside
+T152	Object 39 182	Local Area Networks (LANs) that are not normally accessible from the Internet due to the use of firewalls and network address translation (NAT)
+R123	ModObj Modifier:T151 Object:T152
+R124	SubjAction Subject:T149 Action:T150
+R125	ActionMod Action:T150 Modifier:T151
+
+One of the first thing Linux/Moose does is to start listening on TCP port 10073 for incoming connections.
+T156	Subject 23 34	Linux/Moose
+T157	Action 52 61	listening
+T158	Modifier 62 64	on
+T159	Object 65 79	TCP port 10073
+T160	Modifier 80 83	for
+T161	Object 84 104	incoming connections
+R128	ModObj Modifier:T160 Object:T161
+R129	ModObj Modifier:T158 Object:T159
+R130	ActionMod Action:T157 Modifier:T158
+R131	ActionMod Action:T157 Modifier:T160
+R132	SubjAction Subject:T156 Action:T157
+
+As was previously discussed, this server is used by the bot to assess whether a system is infected.
+T162	Subject 52 59	the bot
+T163	Action 44 48	used
+T164	Object 29 40	this server
+T165	Modifier 60 62	to
+T166	Object 63 98	assess whether a system is infected
+R133	ModObj Modifier:T165 Object:T166
+R134	SubjAction Subject:T162 Action:T163
+R135	ActionObj Action:T163 Object:T164
+R136	ActionMod Action:T163 Modifier:T165
+
+When some Linux/Moose scanner thread reaches an opened 10073 port, it will result in a TCP handshake without a data payload.
+T167	Subject 67 69	it
+T168	Action 75 81	result
+T169	Modifier 82 84	in
+T170	Object 85 100	a TCP handshake
+R137	ModObj Modifier:T169 Object:T170
+T171	Modifier 101 108	without
+T172	Object 109 123	a data payload
+R138	ModObj Modifier:T171 Object:T172
+R139	SubjAction Subject:T167 Action:T168
+R140	ActionMod Action:T168 Modifier:T169
+R141	ActionMod Action:T168 Modifier:T171
+T173	Object 5 65	some Linux/Moose scanner thread reaches an opened 10073 port
+R142	CoRefer Referer:T167 Canonical:T173
+
+After the initial handshake, traffic is sent transparently back and forth between the client of the infected service and the specified host.
+T174	Action 40 44	sent
+T175	Object 29 36	traffic
+R143	ActionObj Action:T174 Object:T175
+T176	Modifier 74 81	between
+T177	Object 82 139	the client of the infected service and the specified host
+R144	ModObj Modifier:T176 Object:T177
+R145	ActionMod Action:T174 Modifier:T176
+
+Linux/Moose is able to eavesdrop on traffic going through affected devices.
+T178	Subject 0 11	Linux/Moose
+T179	Action 23 32	eavesdrop
+T180	Modifier 33 35	on
+T181	Object 36 74	traffic going through affected devices
+R146	SubjAction Subject:T178 Action:T179
+R147	ActionMod Action:T179 Modifier:T180
+R148	ModObj Modifier:T180 Object:T181
+
+It creates a raw socket, sets the interface in promiscuous mode, then loops on a recvfrom as depicted below.
+T182	Subject 0 2	It
+T183	Action 3 10	creates
+T184	Object 11 23	a raw socket
+R149	SubjAction Subject:T182 Action:T183
+R150	ActionObj Action:T183 Object:T184
+
+Once a match is found, the whole packet including its Ethernet, IP, TCP headers and payload is sent, obfuscated, to the report C&C server.
+T185	Action 95 99	sent
+T186	Object 23 91	the whole packet including its Ethernet, IP, TCP headers and payload
+T187	Modifier 113 115	to
+T188	Object 116 137	the report C&C server
+R151	ActionObj Action:T185 Object:T186
+R152	ActionMod Action:T185 Modifier:T187
+R153	ModObj Modifier:T187 Object:T188
+
+Going through this list, it will send a kill signal to any process that matches any of the blacklisted strings.
+T189	Subject 25 27	it
+T190	Action 33 37	send
+T191	Object 38 51	a kill signal
+R154	ActionObj Action:T190 Object:T191
+R155	SubjAction Subject:T189 Action:T190
+T193	Modifier 52 54	to
+T194	Object 55 110	any process that matches any of the blacklisted strings
+R157	ModObj Modifier:T193 Object:T194
+R158	ActionMod Action:T190 Modifier:T193
+
+The only difference between the two exchanges is that they update different variables in the client.
+T198	Action 59 65	update
+T199	Subject 54 58	they
+R161	SubjAction Subject:T199 Action:T198
+T200	Object 76 85	variables
+T201	Modifier 86 88	in
+T202	Object 89 99	the client
+R162	ActionObj Action:T198 Object:T200
+R163	ModObj Modifier:T201 Object:T202
+R164	ActionMod Action:T198 Modifier:T201
+
+However almost all of the data is still sent by the C&C. The only difference is that the username and password list used for bruteforce attacks is omitted in the hourly run.
+T195	Object 15 30	all of the data
+T196	Subject 48 55	the C&C
+T197	Action 40 44	sent
+R159	SubjAction Subject:T196 Action:T197
+R160	ActionObj Action:T197 Object:T195
+
+Bit field about the bot details The server replies with the configuration for the malware.
+T203	Subject 32 42	The server
+T204	Action 43 50	replies
+T205	Modifier 51 55	with
+T206	Object 56 89	the configuration for the malware
+R165	SubjAction Subject:T203 Action:T204
+R166	ModObj Modifier:T205 Object:T206
+R167	ActionMod Action:T204 Modifier:T205
+

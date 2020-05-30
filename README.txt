@@ -1,3 +1,15 @@
+-----------CODE-----------------
+Code for:
+1. SubTask-1  [Subtask1_Bert.ipynb, Subtask1_BiLSTM.ipynb & preProcess.ipynb(preprocessing data)]
+2. SubTask-2  [T2_BERT.ipynb & T2_NER_bilstm_CRf.ipynb]
+are in "code" folder.
+--------------------------------
+
+----------EVALUATION DATA------
+Available in "SemEval_eval_input" folder for all 4 SubTasks
+-------------------------------
+
+
 =========================
 MALWARETEXTDBV2.0 DATASET
 =========================

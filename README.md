@@ -1,18 +1,12 @@
------------CODE-----------------
-Code for:
+## Secure NLP
 1. SubTask-1  [Subtask1_Bert.ipynb, Subtask1_BiLSTM.ipynb & preProcess.ipynb(preprocessing data)]
 2. SubTask-2  [T2_BERT.ipynb & T2_NER_bilstm_CRf.ipynb]
 are in "code" folder.
---------------------------------
 
-----------EVALUATION DATA------
+EVALUATION DATA
 Available in "SemEval_eval_input" folder for all 4 SubTasks
--------------------------------
 
-
-=========================
-MALWARETEXTDBV2.0 DATASET
-=========================
+## MALWARETEXTDBV2.0 DATASET
 
 This folder contains the datasets that constitute MalwareTextDB-V2.0.
 The dataset is used in SemEval-2018 Task 8: Semantic Extraction from CybersecUrity REports using Natural Language Processing (SecureNLP)
@@ -26,11 +20,11 @@ It contains 5 subfolders:
 
 The following are the explanation of content inside each of the subfolder
 
-plaintext/ (train only)
+`plaintext/` (train only)
 - contains 65 plaintext files after the APT PDF reports are processed with PDFMiner
 
 
-tokenized/
+`tokenized/`
 - Contains the tokenized reports with the annotated labels in IOB format
 - 3 different types of labels are used: Entity, Action, Modifier
 - If a token is not fallen under any label type, it is labeled as O(means the outside of the labels)
@@ -46,7 +40,7 @@ tokenized/
 - For more details about the IOB format, please refer http://www.nltk.org/book/ch07.html section 2.6
 
 
-annotations/
+`annotations/`
 - contains the plaintext files with XML tags denoting nonsentence sections such as headings and covers
 - contains the annotations files (.ann) for each plaintext file; the positions of the annotations are based on character counts
 - In .ann files, 3 different annotation ID types are used : T(text-bound annotation), R(relation), A(attribute) 
@@ -66,7 +60,7 @@ R24     ActionObj Action:T34 Object:T30
 
 - more information regarding the annotation files format can be seen in http://brat.nlplab.org/standoff.html
 
-additional_plaintext/ (train only)
+`additional_plaintext/` (train only)
 - contains additional 84 plaintext files after the APT PDF reports are processed with PDFMiner
 - If the participants need to generate special features such brown clusters, these textfiles can be used 
 - Tokenized versions of this set of files are not provided in the tokenized folder
